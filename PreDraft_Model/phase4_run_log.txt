@@ -1,0 +1,510 @@
+declare model: in-sample AUC 0.742 
+
+===== Eligible-pool view: does it track actual class strength too? (2010-2023) =====
+ position   corr spearman
+       QB  0.372    0.391
+       RB  0.435    0.450
+       TE -0.451   -0.396
+       WR  0.113    0.033
+      ALL  0.501    0.493
+eligible-pool grades, 2020-2027:
+ position class n_pool points actual grade depth_grade
+       QB  2020    147  11.61     11     A           A
+       QB  2021    133  10.48      8     A          A-
+       QB  2022    170   8.09      6     C           B
+       QB  2023    274   9.51      3    A-           A
+       QB  2024    342  10.51     NA     A           B
+       QB  2025    311   5.58     NA     D          C-
+       QB  2026    326   8.33     NA     C           B
+       QB  2027    326   9.73     NA    A-           A
+       RB  2020    308  18.58     13     A          A-
+       RB  2021    237   8.86     10     D           F
+       RB  2022    315  14.76     19     B           C
+       RB  2023    441  13.69     13     C           B
+       RB  2024    529  11.24     NA    C-           C
+       RB  2025    540  18.95     NA     A           A
+       RB  2026    531   9.45     NA     D           D
+       RB  2027    538  13.17     NA    C-           B
+       TE  2020    163   8.87      5    A-           A
+       TE  2021    144   8.69      6     B          A-
+       TE  2022    200   8.39     10     C           B
+       TE  2023    243   8.08      8    C-           D
+       TE  2024    280   8.34     NA     C           C
+       TE  2025    320  12.00     NA     A           A
+       TE  2026    332   7.50     NA     D           C
+       TE  2027    315   7.54     NA     D           C
+       WR  2020    449  16.62     20     B          A-
+       WR  2021    401   9.83     16     F           F
+       WR  2022    505  14.74     13     C           C
+       WR  2023    660  14.48     19    C-          C-
+       WR  2024    790  14.62     NA    C-           D
+       WR  2025    815  13.86     NA     D          C-
+       WR  2026    804  12.98     NA     D           D
+       WR  2027    808  17.09     NA     B           C
+ class                         period n_pos     z actual expected  pct grade
+  2010        history (eligible pool)     4 -0.90     41    38.79 0.14     D
+  2011        history (eligible pool)     4 -0.97     32    38.11 0.07     F
+  2012        history (eligible pool)     4  0.13     41    45.40 0.71     B
+  2013        history (eligible pool)     4 -0.05     37    47.03 0.43     C
+  2014        history (eligible pool)     4  0.80     45    52.76 0.93     A
+  2015        history (eligible pool)     4  0.15     28    47.43 0.79    A-
+  2016        history (eligible pool)     4 -0.50     34    40.46 0.21     D
+  2017        history (eligible pool)     4  0.76     67    51.80 0.86    A-
+  2018        history (eligible pool)     4 -0.30     45    42.55 0.36    C-
+  2019        history (eligible pool)     4 -0.02     45    41.91 0.50     C
+  2020        history (eligible pool)     4  1.16     49    55.68 1.00     A
+  2021        history (eligible pool)     4 -0.45     40    37.86 0.29    C-
+  2022        history (eligible pool)     4  0.10     48    45.97 0.64     B
+  2023        history (eligible pool)     4  0.10     43    45.77 0.57     C
+  2024                  eligible pool     4  0.10     NA    44.71 0.64     B
+  2025                  eligible pool     4  0.94     NA    50.38 0.93     A
+  2026                  eligible pool     4 -0.68     NA    38.26 0.14     D
+  2027 2027 projected (eligible pool)     4  0.19     NA    47.54 0.79    A-
+
+===== Does expected class strength track actual class strength? (2010-2023, LOCO) =====
+ position classes corr_points spearman mean_expected mean_actual
+       QB      14       0.224    0.098         5.846       6.786
+       RB      14       0.326    0.432        10.163      12.500
+       TE      14       0.314    0.294         6.356       8.786
+       WR      14       0.477    0.335        11.436      14.429
+      ALL      14       0.518    0.597        33.801      42.500
+QB permutation test, corr 0.224, one-sided p = 0.219
+RB permutation test, corr 0.326, one-sided p = 0.127
+WR permutation test, corr 0.477, one-sided p = 0.040
+TE permutation test, corr 0.314, one-sided p = 0.132
+
+===== Class grades =====
+ position class n_eff   E1   E2   E3 depth points actual grade depth_grade
+       QB  2020    12 2.21 3.58 5.05  2.64  10.84     11     A           A
+       QB  2021    12 1.49 2.72 3.47  1.52   7.68      8     A          A-
+       QB  2022    12 0.84 1.42 2.38  1.06   4.65      6    C-           C
+       QB  2023    12 1.05 1.87 2.80  1.44   5.72      3     C           B
+       QB  2024    12 2.02 2.60 3.62  1.26   8.25     NA     A           C
+       QB  2025    12 0.98 1.51 2.55  1.34   5.03     NA    C-           C
+       QB  2026    12 0.98 1.30 2.21  0.78   4.50     NA    C-           D
+       QB  2027    12 2.16 2.86 4.72  3.02   9.73     NA    A-           A
+       RB  2020    20 3.02 4.05 5.31  3.40  12.38     13    A-          A-
+       RB  2021    20 1.54 2.47 3.57  1.72   7.59     10    C-           D
+       RB  2022    20 2.13 4.01 4.77  3.09  10.91     19     C           C
+       RB  2023    20 2.54 4.15 5.89  3.96  12.59     13     A           A
+       RB  2024    20 1.43 2.53 4.43  3.00   8.39     NA    C-          C-
+       RB  2025    20 3.97 5.48 8.22  5.87  17.67     NA     A           A
+       RB  2026    20 1.26 1.90 3.04  1.58   6.20     NA     F           D
+       RB  2027    20 2.13 4.16 6.88  4.90  13.17     NA    C-           B
+       TE  2020    15 1.27 2.38 3.28  1.86   6.93      5     B           B
+       TE  2021    15 0.71 1.56 2.43  0.85   4.71      6     D           F
+       TE  2022    15 1.47 2.53 3.46  2.03   7.46     10    A-          A-
+       TE  2023    15 1.44 2.30 2.92  1.22   6.65      8     C           D
+       TE  2024    15 0.83 1.75 2.22  0.96   4.80     NA     D           F
+       TE  2025    15 1.82 3.25 4.19  2.25   9.26     NA     A           A
+       TE  2026    15 1.10 2.42 3.04  1.91   6.57     NA     C           B
+       TE  2027    15 1.48 2.52 3.54  2.42   7.54     NA     D           C
+       WR  2020    32 2.92 4.81 6.90  5.31  14.64     20     A           A
+       WR  2021    32 1.89 3.36 4.41  2.38   9.66     16     D           D
+       WR  2022    32 2.09 3.81 5.45  3.79  11.34     13     C           C
+       WR  2023    32 1.88 3.45 4.61  3.04   9.93     19    C-          C-
+       WR  2024    32 2.23 3.84 5.09  2.90  11.16     NA    C-           D
+       WR  2025    32 1.93 3.28 4.42  3.04   9.63     NA     D           D
+       WR  2026    32 1.70 2.87 3.90  2.71   8.47     NA     D           D
+       WR  2027    32 3.52 5.88 7.69  5.89  17.09     NA     B           C
+
+===== Overall class grades =====
+ class                         period n_pos     z actual expected  pct grade
+  2010                 history (LOCO)     4 -0.37     41    29.04 0.36    C-
+  2011                 history (LOCO)     4 -1.36     32    22.96 0.07     F
+  2012                 history (LOCO)     4 -0.76     41    27.86 0.14     D
+  2013                 history (LOCO)     4 -0.09     37    33.68 0.43     C
+  2014                 history (LOCO)     4  0.99     45    43.53 0.93     A
+  2015                 history (LOCO)     4  0.23     28    35.88 0.71     B
+  2016                 history (LOCO)     4 -0.57     34    29.44 0.21     D
+  2017                 history (LOCO)     4  0.65     67    38.85 0.86    A-
+  2018                 history (LOCO)     4 -0.04     45    33.71 0.50     C
+  2019                 history (LOCO)     4  0.34     45    34.60 0.79    A-
+  2020                 history (LOCO)     4  1.27     49    44.79 1.00     A
+  2021                 history (LOCO)     4 -0.54     40    29.63 0.29    C-
+  2022                 history (LOCO)     4  0.14     48    34.36 0.64     B
+  2023                 history (LOCO)     4  0.12     43    34.89 0.57     C
+  2024                drafted already     4 -0.22     NA    32.59 0.36    C-
+  2025                drafted already     4  1.02     NA    41.60 0.93     A
+  2026                drafted already     4 -0.79     NA    25.73 0.07     F
+  2027 2027 projected (eligible pool)     4  0.19     NA    47.54 0.79    A-
+Warning message:
+Removed 16 rows containing missing values or values outside the scale range
+(`geom_point()`). 
+
+===== 2024-2026 drafted players: college-only expected any-tier hits vs draft-slot expected =====
+ position class  n college_E3 draft_E3 corr
+       QB  2024 11       3.34     4.70 0.68
+       QB  2025 14       2.52     2.66 0.44
+       QB  2026 10       1.02     2.35 0.68
+       RB  2024 19       3.14     3.69 0.64
+       RB  2025 24       8.25     6.48 0.38
+       RB  2026 10       2.16     2.87 0.32
+       TE  2024 12       1.93     3.27 0.54
+       TE  2025 16       3.75     5.10 0.69
+       TE  2026 22       2.77     5.61 0.06
+       WR  2024 35       4.84     8.69 0.58
+       WR  2025 31       3.37     7.05 0.61
+       WR  2026 36       3.29     7.96 0.41
+
+===== Player deep dives =====
+QB 2026 #1 Diego Pavia (Vanderbilt) yrs 5 P(declare) 1.00 | P QB8/QB16/QB24: 0.357 / 0.412 / 0.615, hist pctl 0.98
+   + completion %    0.71 (+1.52); career rush yards 2832.00 (+1.48); best-season AY/A    9.92 (+1.33)
+   - yards/att 9.39 (-0.58); years out of HS 5.00 (-0.24); college seasons 4.00 (-0.18)
+   comps: Collin Klein (2013, no NFL stats); J.T. Barrett (2018, no NFL stats); Dak Prescott (2016, best QB6)
+QB 2026 #2 Fernando Mendoza (Indiana, pick 1) yrs 4 P(declare) 1.00 | P QB8/QB16/QB24: 0.249 / 0.373 / 0.596, hist pctl 0.98
+   + best-season AY/A 10.66 (+1.76); completion %  0.72 (+1.57); TD rate  0.10 (+0.75)
+   - yards/att 9.43 (-0.59); rush TDs 6.00 (-0.09); recruiting rating n/a (-0.02)
+   comps: Mitchell Trubisky (2017, best QB15); Sam Bradford (2010, best QB16); Ryan Mallett (2011, no tier season)
+QB 2026 #3 Joey Aguilar (Tennessee) yrs 4 P(declare) 1.00 | P QB8/QB16/QB24: 0.094 / 0.100 / 0.228, hist pctl 0.93
+   + completion %    0.67 (+0.94); best-season AY/A    9.00 (+0.80); career attempts 1203.00 (+0.55)
+   - yards/att   8.92 (-0.45); rush yards 104.00 (-0.02); recruiting rating n/a (-0.02)
+   comps: Mitchell Trubisky (2017, best QB15); Andrew Luck (2012, best QB2); Bo Wallace (2015, no NFL stats)
+QB 2026 #4 Carson Beck (Miami, pick 65) yrs 6 P(declare) 1.00 | P QB8/QB16/QB24: 0.051 / 0.074 / 0.141, hist pctl 0.90
+   + completion %    0.75 (+1.97); best-season AY/A    9.79 (+1.26); career attempts 1255.00 (+0.60)
+   - years out of HS 6.0 (-0.82); college seasons 5.0 (-0.55); yards/att 8.7 (-0.40)
+   comps: Ryan Finley (2019, no tier season); Kenny Pickett (2022, no tier season); Skylar Thompson (2022, no tier season)
+QB 2026 #5 Brendan Sorsby (Cincinnati) yrs 5 P(declare) 1.00 | P QB8/QB16/QB24: 0.041 / 0.069 / 0.124, hist pctl 0.89
+   + best-season AY/A    9.2 (+0.92); career rush yards 1308.0 (+0.53); Power 5    1.0 (+0.44)
+   - yards/att 8.32 (-0.29); years out of HS 5.00 (-0.24); college seasons 4.00 (-0.18)
+   comps: Ian Book (2021, no tier season); Manny Wilkins (2019, no NFL stats); John Wolford (2019, no tier season)
+QB 2026 #6 Haynes King (Georgia Tech) yrs 6 P(declare) 1.00 | P QB8/QB16/QB24: 0.066 / 0.066 / 0.116, hist pctl 0.88
+   + completion %    0.72 (+1.59); career rush yards 2294.00 (+1.14); best-season AY/A    8.83 (+0.71)
+   - college seasons  6 (-0.91); years out of HS  6 (-0.82); rush TDs 15 (-0.36)
+   comps: Dorian Thompson-Robinson (2023, no tier season); Hendon Hooker (2023, no tier season); Skylar Thompson (2022, no tier season)
+QB 2026 #7 Kaidon Salter (Colorado) yrs 6 P(declare) 1.00 | P QB8/QB16/QB24: 0.028 / 0.065 / 0.098, hist pctl 0.87
+   + best-season AY/A   11.82 (+2.43); career rush yards 2277.00 (+1.13); Power 5    1.00 (+0.44)
+   - years out of HS 6.00 (-0.82); college seasons 5.00 (-0.55); share of team attempts 0.57 (-0.30)
+   comps: Zac Robinson (2010, no tier season); Khalil Tate (2020, no NFL stats); D'Eriq King (2022, no NFL stats)
+QB 2026 #8 Cade Klubnik (Clemson, pick 110) yrs 5 P(declare) 1.00 | P QB8/QB16/QB24: 0.023 / 0.031 / 0.073, hist pctl 0.85
+   + completion %    0.67 (+0.91); career attempts 1255.00 (+0.60); best-season AY/A    8.44 (+0.48)
+   - years out of HS 5.00 (-0.24); college seasons 4.00 (-0.18); yards/att 7.79 (-0.16)
+   comps: Kenny Hill (2018, no NFL stats); Will Levis (2023, no tier season); Austyn Carta-Samuels (2014, no NFL stats)
+QB 2027 #1 Darian Mensah (Miami) yrs 4 P(declare) 0.24 | P QB8/QB16/QB24: 0.427 / 0.468 / 0.726, hist pctl 0.99
+   + completion %  0.77 (+2.28); best-season AY/A 11.49 (+2.24); TD rate  0.10 (+0.71)
+   - yards/att 9.79 (-0.68); recruiting rating 0.79 (-0.46); no recruiting record 0.00 (-0.23)
+   comps: Sam Bradford (2010, best QB16); Mac Jones (2021, best QB18); Kyle Trask (2021, no tier season)
+QB 2027 #2 C.J. Carr (Notre Dame) yrs 3 P(declare) 0.09 | P QB8/QB16/QB24: 0.135 / 0.279 / 0.572, hist pctl 0.98
+   + best-season AY/A 10.07 (+1.42); completion %  0.68 (+1.04); years out of HS  3.00 (+0.93)
+   - yards/att   8.27 (-0.28); no recruiting record   0.00 (-0.23); career rush yards 151.67 (-0.19)
+   comps: Dwayne Haskins (2019, no tier season); Sam Darnold (2018, no tier season); Jameis Winston (2015, best QB13)
+QB 2027 #3 Ethan Grunkemeyer (Virginia Tech) yrs 3 P(declare) 0.08 | P QB8/QB16/QB24: 0.147 / 0.151 / 0.403, hist pctl 0.96
+   + completion % 0.72 (+1.59); years out of HS 3.00 (+0.93); best-season AY/A 8.85 (+0.72)
+   - career rush yards -23.0 (-0.30); yards/att   8.1 (-0.24); no recruiting record   0.0 (-0.23)
+   comps: Anthony Gordon (2020, no NFL stats); Dwayne Haskins (2019, no tier season); Sean White (2017, no NFL stats)
+QB 2027 #4 Julian Sayin (Ohio State) yrs 3 P(declare) 0.13 | P QB8/QB16/QB24: 0.160 / 0.383 / 0.389, hist pctl 0.96
+   + best-season AY/A 11.49 (+2.24); completion %  0.68 (+1.13); recruiting rating  1.00 (+1.04)
+   - yards/att 10.45 (-0.86); career rush yards 10.00 (-0.27); no recruiting record  0.00 (-0.23)
+   comps: Trevor Lawrence (2021, best QB7); Tua Tagovailoa (2020, best QB15); C.J. Stroud (2023, best QB9)
+QB 2027 #5 Drew Mestemaker (Oklahoma State) yrs 4 P(declare) 0.27 | P QB8/QB16/QB24: 0.133 / 0.270 / 0.389, hist pctl 0.96
+   + best-season AY/A 10.58 (+1.72); completion %  0.67 (+0.92); TD rate  0.09 (+0.61)
+   - yards/att   9.59 (-0.63); career rush yards 339.00 (-0.07); rush TDs   4.00 (-0.03)
+   comps: Ryan Mallett (2011, no tier season); Sam Bradford (2010, best QB16); Will Grier (2019, no tier season)
+QB 2027 #6 Devon Dampier (Utah) yrs 4 P(declare) 0.26 | P QB8/QB16/QB24: 0.345 / 0.345 / 0.345, hist pctl 0.95
+   + career rush yards 2816.00 (+1.47); completion %    0.68 (+1.10); best-season AY/A    8.45 (+0.49)
+   - yards/att 8.11 (-0.24); no recruiting record 0.00 (-0.23); rush TDs 9.33 (-0.19)
+   comps: Dak Prescott (2016, best QB6); J.T. Barrett (2018, no NFL stats); Joshua Dobbs (2017, no tier season)
+QB 2027 #7 Beau Brungard (Youngstown State) yrs 5 P(declare) 0.65 | P QB8/QB16/QB24: 0.134 / 0.137 / 0.334, hist pctl 0.95
+   + completion %    0.76 (+2.13); career rush yards 2380.17 (+1.20); career attempts 1081.40 (+0.43)
+   - Power 5 0 (-0.36); years out of HS 5 (-0.24); college seasons 4 (-0.18)
+   comps: Dan LeFevour (2010, no tier season); Ryan Aplin (2013, no NFL stats); Desmond Ridder (2022, best QB22)
+QB 2027 #8 Trinidad Chambliss (Ole Miss) yrs 3 P(declare) 0.14 | P QB8/QB16/QB24: 0.098 / 0.204 / 0.330, hist pctl 0.95
+   + best-season AY/A 9.73 (+1.23); years out of HS 3.00 (+0.93); college seasons 2.00 (+0.55)
+   - rush TDs 9.33 (-0.19); early entrant 1.00 (-0.11); transferred 0.00 (-0.06)
+   comps: DeShone Kizer (2017, no tier season); Jordan Rodgers (2013, no NFL stats); Sam Darnold (2018, no tier season)
+RB 2026 #1 Jeremiyah Love (Notre Dame, pick 3) yrs 3 P(declare) 1.00 | P RB8/RB16/RB24: 0.380 / 0.559 / 0.708, hist pctl 0.99
+   + rush TDs  18 (+1.05); Power 5   1 (+0.87); receiving yards 280 (+0.77)
+   - transferred 0.0 (-0.08); best scrimmage-yard share 0.3 (-0.04); no recruiting record 0.0 (-0.04)
+   comps: Javonte Williams (2021, best RB17); Bijan Robinson (2023, best RB2); Bishop Sankey (2014, no tier season)
+RB 2026 #2 Emmett Johnson (Nebraska, pick 161) yrs 4 P(declare) 1.00 | P RB8/RB16/RB24: 0.180 / 0.357 / 0.396, hist pctl 0.97
+   + receiving yards 370 (+1.19); Power 5   1 (+0.87); rush TDs  12 (+0.53)
+   - transferred 0.0 (-0.08); best scrimmage-yard share 0.4 (-0.04); no recruiting record 0.0 (-0.04)
+   comps: C.J. Spiller (2010, best RB6); Tyler Badie (2022, no tier season); Javorius Allen (2015, best RB23)
+RB 2026 #3 Jonah Coleman (Washington, pick 108) yrs 4 P(declare) 1.00 | P RB8/RB16/RB24: 0.167 / 0.204 / 0.355, hist pctl 0.96
+   + receiving yards 344 (+1.07); Power 5   1 (+0.87); rush TDs  14 (+0.70)
+   - yards/carry 4.67 (-0.09); best scrimmage-yard share 0.26 (-0.04); no recruiting record 0.00 (-0.04)
+   comps: Cyrus Gray (2012, no tier season); Joseph Randle (2013, no tier season); Kyren Williams (2022, best RB7)
+RB 2026 #4 Kaytron Allen (Penn State, pick 187) yrs 4 P(declare) 1.00 | P RB8/RB16/RB24: 0.087 / 0.087 / 0.257, hist pctl 0.94
+   + Power 5    1 (+0.87); rush TDs   15 (+0.79); career rush yards 3806 (+0.54)
+   - receiving yards 68.00 (-0.22); transferred  0.00 (-0.08); best scrimmage-yard share  0.32 (-0.04)
+   comps: Nick Chubb (2018, best RB8); D'Onta Foreman (2017, no tier season); Kendall Hunter (2011, no tier season)
+RB 2026 #5 Nicholas Singleton (Penn State, pick 165) yrs 4 P(declare) 1.00 | P RB8/RB16/RB24: 0.122 / 0.122 / 0.160, hist pctl 0.91
+   + Power 5   1 (+0.87); rush TDs  13 (+0.62); receiving yards 219 (+0.48)
+   - yards/carry 4.46 (-0.16); transferred 0.00 (-0.08); best scrimmage-yard share 0.20 (-0.04)
+   comps: Joseph Randle (2013, no tier season); Cyrus Gray (2012, no tier season); Marcus Lattimore (2013, no tier season)
+RB 2026 #6 Michael Washington (Arkansas) yrs 5 P(declare) 1.00 | P RB8/RB16/RB24: 0.025 / 0.045 / 0.144, hist pctl 0.90
+   + Power 5   1.00 (+0.87); receiving yards 226.00 (+0.52); yards/carry   6.36 (+0.46)
+   - years out of HS 5.00 (-0.25); recruiting rating 0.80 (-0.15); best scrimmage-yard share 0.24 (-0.04)
+   comps: Eric Gray (2023, no tier season); Zac Stacy (2013, best RB20); Jeff Demps (2013, no tier season)
+RB 2026 #7 J'mari Taylor (Virginia) yrs 6 P(declare) 1.00 | P RB8/RB16/RB24: 0.043 / 0.061 / 0.127, hist pctl 0.89
+   + Power 5   1 (+0.87); rush TDs  14 (+0.70); receiving yards 253 (+0.64)
+   - years out of HS 6.00 (-0.74); yards/carry 4.78 (-0.05); best scrimmage-yard share 0.24 (-0.04)
+   comps: Jordan Canzeri (2016, no NFL stats); Brian Robinson Jr. (2022, best RB21); Leddie Brown (2022, no NFL stats)
+RB 2026 #8 Anthony Hankerson (Oregon State) yrs 4 P(declare) 1.00 | P RB8/RB16/RB24: 0.036 / 0.053 / 0.123, hist pctl 0.89
+   + Power 5    1 (+0.87); transferred    1 (+0.45); rush yards 1088 (+0.29)
+   - yards/carry 4.40 (-0.18); best scrimmage-yard share 0.29 (-0.04); no recruiting record 0.00 (-0.04)
+   comps: Chris Brown (2010, no NFL stats); Marcus Lattimore (2013, no tier season); Mike Gillislee (2013, no tier season)
+RB 2026 #9 Demond Claiborne (Wake Forest, pick 198) yrs 4 P(declare) 1.00 | P RB8/RB16/RB24: 0.046 / 0.059 / 0.096, hist pctl 0.86
+   + Power 5  1 (+0.87); rush TDs 10 (+0.36); short final year  0 (+0.25)
+   - transferred 0.00 (-0.08); best scrimmage-yard share 0.29 (-0.04); no recruiting record 0.00 (-0.04)
+   comps: Marcus Lattimore (2013, no tier season); Rajion Neal (2014, no NFL stats); Mike Gillislee (2013, no tier season)
+RB 2026 #10 Jaden Nixon (UCF) yrs 5 P(declare) 1.00 | P RB8/RB16/RB24: 0.016 / 0.054 / 0.085, hist pctl 0.85
+   + yards/carry 7.8 (+0.93); Power 5 1.0 (+0.87); transferred 1.0 (+0.45)
+   - years out of HS  5.00 (-0.25); receiving yards 88.00 (-0.12); best scrimmage-yard share  0.21 (-0.04)
+   comps: Roddy Jones (2012, no NFL stats); Ty Johnson (2019, no tier season); Darrin Hall (2019, no NFL stats)
+RB 2026 #11 Dean Connors (Houston) yrs 5 P(declare) 1.00 | P RB8/RB16/RB24: 0.025 / 0.032 / 0.077, hist pctl 0.84
+   + Power 5   1 (+0.87); receiving yards 242 (+0.59); transferred   1 (+0.45)
+   - years out of HS 5.00 (-0.25); yards/carry 4.62 (-0.11); rush TDs 5.00 (-0.07)
+   comps: Kyle Hicks (2018, no NFL stats); Moe Neal (2020, no NFL stats); Jake Sharp (2010, no NFL stats)
+RB 2026 #12 Davon Booth (Mississippi State) yrs 4 P(declare) 1.00 | P RB8/RB16/RB24: 0.013 / 0.026 / 0.066, hist pctl 0.83
+   + Power 5 1 (+0.87); transferred 1 (+0.45); short final year 0 (+0.25)
+   - yards/carry   4.06 (-0.29); best scrimmage-yard share   0.21 (-0.04); rush yards 552.00 (-0.03)
+   comps: Devine Redding (2017, no NFL stats); Terrell Newby (2017, no NFL stats); Tra Carson (2016, no tier season)
+RB 2027 #1 Cole Tabb (Cincinnati) yrs 3 P(declare) 0.12 | P RB8/RB16/RB24: 0.195 / 0.607 / 0.723, hist pctl 0.99
+   + yards/carry 8.92 (+1.30); Power 5 1.00 (+0.87); years out of HS 3.00 (+0.74)
+   - best scrimmage-yard share 0.25 (-0.04); no recruiting record 0.00 (-0.04); share of team scrimmage yards 0.25 (-0.01)
+   comps: Javonte Williams (2021, best RB17); Alex Green (2011, no tier season); Jeremy Hill (2014, best RB11)
+RB 2027 #2 Dylan Riley (Boise State) yrs 3 P(declare) 0.10 | P RB8/RB16/RB24: 0.228 / 0.435 / 0.632, hist pctl 0.99
+   + Power 5   1.00 (+0.87); receiving yards 290.67 (+0.82); rush TDs  14.67 (+0.76)
+   - transferred 0.00 (-0.08); best scrimmage-yard share 0.34 (-0.04); no recruiting record 0.00 (-0.04)
+   comps: Bijan Robinson (2023, best RB2); Bishop Sankey (2014, no tier season); Trayveon Williams (2019, no tier season)
+RB 2027 #3 Wayshawn Parker (Utah) yrs 3 P(declare) 0.11 | P RB8/RB16/RB24: 0.213 / 0.464 / 0.619, hist pctl 0.99
+   + receiving yards 358.67 (+1.13); Power 5   1.00 (+0.87); years out of HS   3.00 (+0.74)
+   - best scrimmage-yard share 0.24 (-0.04); no recruiting record 0.00 (-0.04); recruiting rating 0.85 (-0.03)
+   comps: Devonta Freeman (2014, best RB1); Jahmyr Gibbs (2023, best RB1); Mike Davis (2015, no tier season)
+RB 2027 #4 Jahiem White (North Texas) yrs 4 P(declare) 0.32 | P RB8/RB16/RB24: 0.191 / 0.268 / 0.574, hist pctl 0.99
+   + receiving yards 410.67 (+1.37); rush TDs  21.33 (+1.34); yards/carry   7.21 (+0.74)
+   - Power 5 0.00 (-0.69); best scrimmage-yard share 0.31 (-0.04); no recruiting record 0.00 (-0.04)
+   comps: Darrell Henderson (2019, no tier season); Jeremy McNichols (2017, no tier season); Bryant Koback (2022, no NFL stats)
+RB 2027 #5 J'Koby Williams (Texas Tech) yrs 3 P(declare) 0.11 | P RB8/RB16/RB24: 0.115 / 0.266 / 0.486, hist pctl 0.98
+   + yards/carry   8.02 (+1.00); Power 5   1.00 (+0.87); receiving yards 277.33 (+0.76)
+   - transferred 0.00 (-0.08); best scrimmage-yard share 0.29 (-0.04); no recruiting record 0.00 (-0.04)
+   comps: Joe Mixon (2017, best RB10); Chris Thompson (2013, no tier season); D'Andre Swift (2020, best RB15)
+RB 2027 #6 Isaac Brown (Louisville) yrs 3 P(declare) 0.12 | P RB8/RB16/RB24: 0.123 / 0.271 / 0.383, hist pctl 0.96
+   + Power 5 1.00 (+0.87); yards/carry 7.53 (+0.84); years out of HS 3.00 (+0.74)
+   - transferred 0.00 (-0.08); best scrimmage-yard share 0.22 (-0.04); no recruiting record 0.00 (-0.04)
+   comps: Josh Adams (2018, no tier season); D'Andre Swift (2020, best RB15); Carlos Hyde (2014, best RB18)
+RB 2027 #7 Jadan Baugh (Florida) yrs 3 P(declare) 0.11 | P RB8/RB16/RB24: 0.156 / 0.225 / 0.339, hist pctl 0.96
+   + rush TDs 18.67 (+1.11); Power 5  1.00 (+0.87); years out of HS  3.00 (+0.74)
+   - receiving yards 88.00 (-0.12); transferred  0.00 (-0.08); best scrimmage-yard share  0.34 (-0.04)
+   comps: Kenneth Walker III (2022, best RB18); Daniel Thomas (2011, no tier season); Alex Collins (2016, best RB21)
+RB 2027 #8 Wayne Knight (UCLA) yrs 5 P(declare) 0.74 | P RB8/RB16/RB24: 0.104 / 0.120 / 0.331, hist pctl 0.96
+   + rush TDs 17.33 (+0.99); Power 5  1.00 (+0.87); transferred  1.00 (+0.45)
+   - years out of HS 5.00 (-0.25); best scrimmage-yard share 0.28 (-0.04); no recruiting record 0.00 (-0.04)
+   comps: Kenjon Barner (2013, no tier season); Ty Chandler (2022, no tier season); DeAndre Washington (2016, no tier season)
+RB 2027 #9 Dilin Jones (LSU) yrs 3 P(declare) 0.11 | P RB8/RB16/RB24: 0.081 / 0.177 / 0.317, hist pctl 0.96
+   + receiving yards 337.33 (+1.03); Power 5   1.00 (+0.87); years out of HS   3.00 (+0.74)
+   - yards/carry    4.31 (-0.21); career rush yards 1341.33 (-0.05); best scrimmage-yard share    0.21 (-0.04)
+   comps: Akeem Shavers (2013, no NFL stats); Jamie Harper (2011, no tier season); Adam Robinson (2011, no NFL stats)
+RB 2027 #10 Micah Ford (Stanford) yrs 3 P(declare) 0.10 | P RB8/RB16/RB24: 0.173 / 0.261 / 0.299, hist pctl 0.96
+   + Power 5   1.00 (+0.87); receiving yards 298.67 (+0.85); years out of HS   3.00 (+0.74)
+   - transferred 0.00 (-0.08); yards/carry 4.81 (-0.04); best scrimmage-yard share 0.30 (-0.04)
+   comps: Adam Robinson (2011, no NFL stats); Mike Davis (2015, no tier season); Devontae Booker (2016, no tier season)
+RB 2027 #11 Cam Cook (West Virginia) yrs 4 P(declare) 0.33 | P RB8/RB16/RB24: 0.067 / 0.096 / 0.263, hist pctl 0.94
+   + Power 5    1.00 (+0.87); rush yards 1429.33 (+0.49); career rush yards 3613.33 (+0.49)
+   - best scrimmage-yard share 0.36 (-0.04); no recruiting record 0.00 (-0.04); early entrant 0.00 (-0.02)
+   comps: Benny Snell Jr. (2019, no tier season); AJ Dillon (2020, best RB23); Paul Perkins (2016, no tier season)
+RB 2027 #12 Kendrick Raphael (SMU) yrs 4 P(declare) 0.33 | P RB8/RB16/RB24: 0.058 / 0.091 / 0.258, hist pctl 0.94
+   + Power 5   1.00 (+0.87); rush TDs  13.33 (+0.65); receiving yards 217.33 (+0.48)
+   - best scrimmage-yard share 0.26 (-0.04); no recruiting record 0.00 (-0.04); early entrant 0.00 (-0.02)
+   comps: Joseph Randle (2013, no tier season); Cyrus Gray (2012, no tier season); Kerryon Johnson (2018, no tier season)
+WR 2026 #1 Makai Lemon (USC, pick 20) yrs 3 P(declare) 1.00 | P WR12/WR24/WR36: 0.342 / 0.522 / 0.631, hist pctl 1.00
+   + receiving yards 1156.00 (+2.10); years out of HS    3.00 (+1.13); recruiting rating    0.98 (+1.06)
+   - 
+   comps: Jarvis Landry (2014, best WR8); N'Keal Harry (2019, no tier season); Julio Jones (2011, best WR11)
+WR 2026 #2 Carnell Tate (Ohio State, pick 4) yrs 3 P(declare) 1.00 | P WR12/WR24/WR36: 0.139 / 0.220 / 0.295, hist pctl 0.97
+   + years out of HS   3.00 (+1.13); receiving yards 838.00 (+1.08); recruiting rating   0.97 (+1.01)
+   - 
+   comps: Jhamon Ausbon (2020, no NFL stats); Travis Rudolph (2017, no tier season); Calvin Ridley (2018, best WR5)
+WR 2026 #3 Zachariah Branch (Georgia, pick 79) yrs 3 P(declare) 1.00 | P WR12/WR24/WR36: 0.131 / 0.194 / 0.258, hist pctl 0.97
+   + recruiting rating   1 (+1.20); years out of HS   3 (+1.13); receiving yards 744 (+0.78)
+   - 
+   comps: Da'Rick Rogers (2013, no tier season); Tyron Johnson (2019, no tier season); Stefon Diggs (2015, best WR19)
+WR 2026 #4 KC Concepcion (Texas A&M, pick 24) yrs 3 P(declare) 1.00 | P WR12/WR24/WR36: 0.087 / 0.161 / 0.219, hist pctl 0.96
+   + receiving yards 886 (+1.24); years out of HS   3 (+1.13); Power 5   1 (+0.56)
+   - 
+   comps: Robert Ferrel (2023, no NFL stats); Siaosi Mariner (2020, no NFL stats); Da'Rick Rogers (2013, no tier season)
+WR 2026 #5 Brenen Thompson (Mississippi State, pick 105) yrs 4 P(declare) 1.00 | P WR12/WR24/WR36: 0.089 / 0.155 / 0.212, hist pctl 0.96
+   + receiving yards 948.00 (+1.44); recruiting rating   0.95 (+0.81); Power 5   1.00 (+0.56)
+   - 
+   comps: Trey Palmer (2023, no tier season); Toney Clemons (2012, no tier season); Charleston Rambo (2022, no NFL stats)
+WR 2026 #6 CJ Williams (Stanford, pick 203) yrs 4 P(declare) 1.00 | P WR12/WR24/WR36: 0.085 / 0.129 / 0.159, hist pctl 0.95
+   + recruiting rating   0.97 (+0.99); receiving yards 757.00 (+0.82); Power 5   1.00 (+0.56)
+   - 
+   comps: Toney Clemons (2012, no tier season); Trey Palmer (2023, no tier season); Devon Williams (2022, no NFL stats)
+WR 2026 #7 Emmanuel Henderson Jr. (Kansas, pick 199) yrs 4 P(declare) 1.00 | P WR12/WR24/WR36: 0.065 / 0.102 / 0.138, hist pctl 0.94
+   + recruiting rating   0.98 (+1.07); receiving yards 766.00 (+0.85); Power 5   1.00 (+0.56)
+   - 
+   comps: Damore'ea Stringfellow (2017, no NFL stats); Cayleb Jones (2016, no NFL stats); Tyron Johnson (2019, no tier season)
+WR 2026 #8 Chris Brazzell II (Tennessee, pick 83) yrs 4 P(declare) 1.00 | P WR12/WR24/WR36: 0.042 / 0.089 / 0.131, hist pctl 0.93
+   + receiving yards 1017.00 (+1.66); Power 5    1.00 (+0.56); dominator    0.31 (+0.37)
+   - 
+   comps: Tyler Hudson (2023, no NFL stats); Darren Carrington II (2018, no NFL stats); Jalen Saunders (2014, no tier season)
+WR 2026 #9 Ja'Kobi Lane (USC, pick 80) yrs 3 P(declare) 1.00 | P WR12/WR24/WR36: 0.046 / 0.082 / 0.120, hist pctl 0.93
+   + years out of HS   3 (+1.13); receiving yards 745 (+0.78); Power 5   1 (+0.56)
+   - 
+   comps: Milton Wright (2022, no NFL stats); Chris Harper (2015, no tier season); Parker Washington (2023, best WR27)
+WR 2026 #10 Chris Bell (Louisville, pick 94) yrs 4 P(declare) 1.00 | P WR12/WR24/WR36: 0.041 / 0.081 / 0.110, hist pctl 0.92
+   + receiving yards 917.00 (+1.34); Power 5   1.00 (+0.56); dominator   0.36 (+0.49)
+   - 
+   comps: Dane Sanzenbacher (2011, no tier season); Jamison Crowder (2015, best WR26); DeAngelo Yancey (2017, no tier season)
+WR 2026 #11 Camden Brown (Georgia Southern) yrs 4 P(declare) 1.00 | P WR12/WR24/WR36: 0.038 / 0.068 / 0.107, hist pctl 0.92
+   + receiving yards 1049.00 (+1.76); dominator    0.45 (+0.76); recruiting rating    0.89 (+0.36)
+   - Power 5 0 (-0.47)
+   comps: Josh Johnson (2022, no NFL stats); Tyre Brady (2019, no NFL stats); Jovon Durante (2019, no NFL stats)
+WR 2026 #12 Jordan Hudson (SMU) yrs 4 P(declare) 1.00 | P WR12/WR24/WR36: 0.047 / 0.076 / 0.106, hist pctl 0.92
+   + recruiting rating   0.96 (+0.91); receiving yards 749.00 (+0.80); Power 5   1.00 (+0.56)
+   - 
+   comps: Devon Williams (2022, no NFL stats); Jadon Haselwood (2023, no NFL stats); Trevon Grimes (2021, no NFL stats)
+WR 2026 #13 Eric McAlister (TCU) yrs 5 P(declare) 1.00 | P WR12/WR24/WR36: 0.030 / 0.066 / 0.101, hist pctl 0.91
+   + receiving yards 1121.00 (+1.99); Power 5    1.00 (+0.56); dominator    0.33 (+0.43)
+   - years out of HS 5 (-0.42)
+   comps: Darren Carrington II (2018, no NFL stats); Devin Lucien (2016, no tier season); Tyler Hudson (2023, no NFL stats)
+WR 2026 #14 Omar Cooper (Indiana, pick 30) yrs 4 P(declare) 1.00 | P WR12/WR24/WR36: 0.039 / 0.071 / 0.099, hist pctl 0.91
+   + receiving yards 828.0 (+1.05); Power 5   1.0 (+0.56); recruiting rating   0.9 (+0.45)
+   - 
+   comps: Miles Boykin (2019, no tier season); Sammie Coates (2015, no tier season); Shelton Gibson (2017, no tier season)
+WR 2026 #15 Kevin Coleman (Missouri, pick 177) yrs 4 P(declare) 1.00 | P WR12/WR24/WR36: 0.045 / 0.069 / 0.098, hist pctl 0.91
+   + recruiting rating   0.98 (+1.04); receiving yards 715.00 (+0.69); Power 5   1.00 (+0.56)
+   - 
+   comps: Jadon Haselwood (2023, no NFL stats); Trevon Grimes (2021, no NFL stats); Devon Williams (2022, no NFL stats)
+WR 2027 #1 Jeremiah Smith (Ohio State) yrs 3 P(declare) 0.14 | P WR12/WR24/WR36: 0.697 / 0.861 / 0.917, hist pctl 1.00
+   + receiving yards 1600 (+3.53); recruiting rating    1 (+1.22); years out of HS    3 (+1.13)
+   - 
+   comps: Amari Cooper (2015, best WR14); Golden Tate (2010, no tier season); Jarvis Landry (2014, best WR8)
+WR 2027 #2 Charlie Becker (Indiana) yrs 3 P(declare) 0.13 | P WR12/WR24/WR36: 0.177 / 0.343 / 0.447, hist pctl 0.99
+   + receiving yards 1166.67 (+2.14); years out of HS    3.00 (+1.13); dominator    0.41 (+0.65)
+   - 
+   comps: Isaiah Hodgins (2020, no tier season); Dezmon Briscoe (2010, no tier season); Kelvin Harmon (2019, no tier season)
+WR 2027 #3 KJ Duff (Rutgers) yrs 3 P(declare) 0.14 | P WR12/WR24/WR36: 0.210 / 0.359 / 0.438, hist pctl 0.99
+   + receiving yards 1032.00 (+1.71); years out of HS    3.00 (+1.13); dominator    0.45 (+0.74)
+   - 
+   comps: Isaiah Hodgins (2020, no tier season); D.J. Moore (2018, best WR16); DeAndre Hopkins (2013, best WR4)
+WR 2027 #4 Joseph Williams (Colorado) yrs 3 P(declare) 0.13 | P WR12/WR24/WR36: 0.147 / 0.295 / 0.393, hist pctl 0.98
+   + receiving yards 1137.33 (+2.04); years out of HS    3.00 (+1.13); dominator    0.40 (+0.61)
+   - 
+   comps: Siaosi Mariner (2020, no NFL stats); Da'Rick Rogers (2013, no tier season); Wan'Dale Robinson (2022, best WR36)
+WR 2027 #5 Collin Dixon (Illinois) yrs 4 P(declare) 0.36 | P WR12/WR24/WR36: 0.144 / 0.287 / 0.363, hist pctl 0.98
+   + receiving yards 1206.67 (+2.27); dominator    0.51 (+0.92); Power 5    1.00 (+0.56)
+   - 
+   comps: Austin Carr (2017, no tier season); Paul Richardson (2014, no tier season); Torrey Smith (2011, best WR22)
+WR 2027 #6 Mike Matthews (Tennessee) yrs 3 P(declare) 0.15 | P WR12/WR24/WR36: 0.197 / 0.280 / 0.331, hist pctl 0.98
+   + years out of HS   3.00 (+1.13); recruiting rating   0.99 (+1.13); receiving yards 754.67 (+0.81)
+   - 
+   comps: Terrace Marshall Jr. (2021, no tier season); Christian Kirk (2018, no tier season); Josh Malone (2017, no tier season)
+WR 2027 #7 Reed Harris (Arizona State) yrs 4 P(declare) 0.36 | P WR12/WR24/WR36: 0.119 / 0.245 / 0.330, hist pctl 0.98
+   + receiving yards 1209.33 (+2.28); dominator    0.44 (+0.72); Power 5    1.00 (+0.56)
+   - 
+   comps: Wan'Dale Robinson (2022, best WR36); Trishton Jackson (2020, no tier season); Trey Palmer (2023, no tier season)
+WR 2027 #8 Nick Marsh (Indiana) yrs 3 P(declare) 0.14 | P WR12/WR24/WR36: 0.140 / 0.235 / 0.304, hist pctl 0.97
+   + receiving yards 892.00 (+1.26); years out of HS   3.00 (+1.13); recruiting rating   0.93 (+0.66)
+   - 
+   comps: Da'Rick Rogers (2013, no tier season); Tyler Boyd (2016, best WR17); Siaosi Mariner (2020, no NFL stats)
+WR 2027 #9 Carlos Hernandez (Wake Forest) yrs 4 P(declare) 0.36 | P WR12/WR24/WR36: 0.075 / 0.174 / 0.268, hist pctl 0.97
+   + receiving yards 1260.00 (+2.44); Power 5    1.00 (+0.56); dominator    0.33 (+0.42)
+   - 
+   comps: Tyler Hudson (2023, no NFL stats); Wan'Dale Robinson (2022, best WR36); Jameson Williams (2022, best WR22)
+WR 2027 #10 Jordan Shipp (North Carolina) yrs 3 P(declare) 0.14 | P WR12/WR24/WR36: 0.116 / 0.194 / 0.266, hist pctl 0.97
+   + receiving yards 856.00 (+1.14); years out of HS   3.00 (+1.13); recruiting rating   0.95 (+0.81)
+   - 
+   comps: Donte Moncrief (2014, best WR35); Kenny Stills (2013, no tier season); Jhamon Ausbon (2020, no NFL stats)
+WR 2027 #11 Chris Durr Jr. (Maryland) yrs 3 P(declare) 0.13 | P WR12/WR24/WR36: 0.090 / 0.187 / 0.254, hist pctl 0.97
+   + receiving yards 1020.00 (+1.67); years out of HS    3.00 (+1.13); dominator    0.39 (+0.58)
+   - recruiting rating 0.83 (-0.12)
+   comps: Siaosi Mariner (2020, no NFL stats); Robert Ferrel (2023, no NFL stats); Wan'Dale Robinson (2022, best WR36)
+WR 2027 #12 Kwazi Gilmer (Nebraska) yrs 3 P(declare) 0.14 | P WR12/WR24/WR36: 0.109 / 0.181 / 0.231, hist pctl 0.96
+   + years out of HS   3 (+1.13); receiving yards 804 (+0.97); Power 5   1 (+0.56)
+   - 
+   comps: Da'Rick Rogers (2013, no tier season); Robert Ferrel (2023, no NFL stats); Siaosi Mariner (2020, no NFL stats)
+WR 2027 #13 Ryan Wingo (Texas) yrs 3 P(declare) 0.14 | P WR12/WR24/WR36: 0.107 / 0.159 / 0.210, hist pctl 0.96
+   + years out of HS   3.00 (+1.13); recruiting rating   0.98 (+1.08); receiving yards 697.33 (+0.63)
+   - 
+   comps: Stefon Diggs (2015, best WR19); Deon Cain (2018, no tier season); Travis Rudolph (2017, no tier season)
+WR 2027 #14 Wyatt Young (Oklahoma State) yrs 3 P(declare) 0.13 | P WR12/WR24/WR36: 0.064 / 0.138 / 0.210, hist pctl 0.96
+   + receiving yards 1017.33 (+1.66); years out of HS    3.00 (+1.13); Power 5    1.00 (+0.56)
+   - 
+   comps: Robert Ferrel (2023, no NFL stats); Siaosi Mariner (2020, no NFL stats); Makai Polk (2022, no NFL stats)
+WR 2027 #15 Cayden Lee (Missouri) yrs 4 P(declare) 0.37 | P WR12/WR24/WR36: 0.067 / 0.137 / 0.201, hist pctl 0.96
+   + receiving yards 1078.67 (+1.86); Power 5    1.00 (+0.56); dominator    0.32 (+0.38)
+   - 
+   comps: Tyler Hudson (2023, no NFL stats); Devin Lucien (2016, no tier season); Charleston Rambo (2022, no NFL stats)
+TE 2026 #1 Eli Stowers (Vanderbilt, pick 54) yrs 4 P(declare) 1.00 | P TE8/TE16/TE24: 0.144 / 0.402 / 0.402, hist pctl 0.97
+   + yards per team pass att    2.11 (+1.18); featured seasons    3.00 (+0.77); career receiving yards 1694.00 (+0.57)
+   - transferred  1.00 (-0.43); recruiting rating n/a (-0.02); yards/catch 12.54 (-0.02)
+   comps: Tyler Eifert (2013, best TE7); Eric Ebron (2014, best TE14); Dalton Kincaid (2023, best TE11)
+TE 2026 #2 Kenyon Sadiq (Oregon, pick 16) yrs 3 P(declare) 1.00 | P TE8/TE16/TE24: 0.133 / 0.216 / 0.394, hist pctl 0.97
+   + recruiting rating 0.95 (+0.84); yards per team pass att 1.46 (+0.64); receiving TDs 8.00 (+0.50)
+   - yards/catch 12.25 (-0.02)
+   comps: Cole Kmet (2020, best TE8); Devin Asiasi (2020, no tier season); Isaac Nauta (2019, no tier season)
+TE 2026 #3 Tanner Koziol (Houston, pick 164) yrs 5 P(declare) 1.00 | P TE8/TE16/TE24: 0.178 / 0.335 / 0.335, hist pctl 0.96
+   + featured seasons    4.00 (+1.08); yards per team pass att    1.91 (+1.02); career receiving yards 2158.00 (+0.80)
+   - transferred 1.00 (-0.43); recruiting rating 0.79 (-0.38); years out of HS 5.00 (-0.17)
+   comps: Clive Walford (2015, no tier season); Evan Engram (2017, best TE5); Troy Fumagalli (2018, no tier season)
+TE 2026 #4 Sam Roush (Stanford, pick 69) yrs 4 P(declare) 1.00 | P TE8/TE16/TE24: 0.042 / 0.158 / 0.261, hist pctl 0.95
+   + featured seasons 3.00 (+0.77); yards per team pass att 1.39 (+0.58); recruiting rating 0.90 (+0.50)
+   - college seasons  4.00 (-0.15); receiving TDs  2.00 (-0.03); yards/catch 11.12 (-0.02)
+   comps: Trey Burton (2014, no tier season); Mike Gesicki (2018, best TE7); Jake Butt (2017, no tier season)
+TE 2026 #5 Jaren Kanak (Oklahoma, pick 225) yrs 2 P(declare) 1.00 | P TE8/TE16/TE24: 0.039 / 0.200 / 0.200, hist pctl 0.93
+   + years out of HS 2.00 (+0.80); yards per team pass att 1.32 (+0.52); college seasons 1.00 (+0.49)
+   - receiving TDs   0 (-0.21); career receiving yards 511 (-0.02); recruiting rating n/a (-0.02)
+   comps: Henry Krieger-Coble (2016, no tier season); Austin Hooper (2016, best TE6); Ryan Taylor (2011, no tier season)
+TE 2026 #6 Dallen Bentley (Utah, pick 256) yrs 3 P(declare) 1.00 | P TE8/TE16/TE24: 0.071 / 0.149 / 0.193, hist pctl 0.92
+   + yards per team pass att 1.51 (+0.68); years out of HS 3.00 (+0.47); college seasons 2.00 (+0.28)
+   - recruiting rating n/a (-0.02); yards/catch  12.24 (-0.02); career receiving yards 529.00 (-0.01)
+   comps: Cole Hikutini (2017, no tier season); Austin Hooper (2016, best TE6); Henry Krieger-Coble (2016, no tier season)
+TE 2026 #7 Michael Trigg (Baylor) yrs 5 P(declare) 1.00 | P TE8/TE16/TE24: 0.054 / 0.095 / 0.168, hist pctl 0.92
+   + recruiting rating 0.94 (+0.79); yards per team pass att 1.36 (+0.55); featured seasons 2.00 (+0.45)
+   - transferred 1 (-0.43); college seasons 5 (-0.36); years out of HS 5 (-0.17)
+   comps: Will Mallory (2023, no tier season); Mike Gesicki (2018, best TE7); Lawrence Cager (2020, no tier season)
+TE 2026 #8 R.J. Maryland (SMU) yrs 4 P(declare) 1.00 | P TE8/TE16/TE24: 0.026 / 0.100 / 0.168, hist pctl 0.92
+   + featured seasons    3.0 (+0.77); career receiving yards 1489.0 (+0.47); recruiting rating    0.9 (+0.47)
+   - college seasons 4.0 (-0.15); receiving TDs 2.0 (-0.03); share of team catches 0.1 (-0.02)
+   comps: Jordan Leggett (2017, no tier season); Ethan Wolf (2018, no tier season); Juwan Johnson (2020, best TE15)
+TE 2026 #9 Cameron Barmore (Mercyhurst) yrs 3 P(declare) 1.00 | P TE8/TE16/TE24: 0.153 / 0.153 / 0.153, hist pctl 0.91
+   + yards per team pass att 1.64 (+0.79); receiving TDs 8.22 (+0.52); years out of HS 3.00 (+0.47)
+   - transferred 1 (-0.43); short final year 1 (-0.29); Power 5 0 (-0.16)
+   comps: Joel Ruiz (2016, no NFL stats); Garrett Griffin (2016, no tier season); Terrance Williams (2010, no NFL stats)
+TE 2026 #10 Justin Joly (NC State, pick 152) yrs 4 P(declare) 1.00 | P TE8/TE16/TE24: 0.113 / 0.153 / 0.153, hist pctl 0.91
+   + featured seasons    3.00 (+0.77); career receiving yards 1888.00 (+0.67); yards per team pass att    1.22 (+0.43)
+   - transferred 1.00 (-0.43); recruiting rating 0.78 (-0.42); college seasons 4.00 (-0.15)
+   comps: Cam Serigne (2018, no NFL stats); Brycen Hopkins (2020, no tier season); D.J. Williams (2011, no tier season)
+TE 2027 #1 Luke Reynolds (Virginia Tech) yrs 3 P(declare) 0.14 | P TE8/TE16/TE24: 0.252 / 0.373 / 0.445, hist pctl 0.98
+   + recruiting rating 0.97 (+0.98); yards per team pass att 1.78 (+0.90); receiving TDs 8.00 (+0.50)
+   - transferred  1 (-0.43); yards/catch 10 (-0.02)
+   comps: Aaron Hernandez (2010, best TE3); Hunter Henry (2016, best TE14); Hunter Bryant (2020, no tier season)
+TE 2027 #2 Jelani Thurman (North Carolina) yrs 4 P(declare) 0.41 | P TE8/TE16/TE24: 0.151 / 0.186 / 0.343, hist pctl 0.97
+   + yards per team pass att  1.88 (+0.99); recruiting rating  0.95 (+0.87); receiving TDs 10.67 (+0.74)
+   - transferred  1.00 (-0.43); college seasons  4.00 (-0.15); yards/catch 11.67 (-0.02)
+   comps: Jordan Reed (2013, best TE3); Trey Burton (2014, no tier season); Jake Butt (2017, no tier season)
+TE 2027 #3 Trey'Dez Green (LSU) yrs 3 P(declare) 0.14 | P TE8/TE16/TE24: 0.051 / 0.176 / 0.336, hist pctl 0.96
+   + recruiting rating 0.98 (+1.10); years out of HS 3.00 (+0.47); featured seasons 2.00 (+0.45)
+   - yards/catch 12.31 (-0.02); share of team catches  0.12 (-0.01)
+   comps: Kyle Rudolph (2011, best TE11); Isaac Nauta (2019, no tier season); Alizé Mack (2019, no tier season)
+TE 2027 #4 Patrick Overmyer (Houston) yrs 4 P(declare) 0.37 | P TE8/TE16/TE24: 0.158 / 0.253 / 0.317, hist pctl 0.96
+   + yards per team pass att 1.88 (+0.99); featured seasons 3.00 (+0.77); receiving TDs 9.33 (+0.62)
+   - transferred  1.00 (-0.43); recruiting rating  0.82 (-0.12); yards/catch 11.56 (-0.02)
+   comps: Hunter Long (2021, no tier season); Garrett Graham (2010, no tier season); Dalton Kincaid (2023, best TE11)
+TE 2027 #5 Eli Finley (Louisiana Tech) yrs 4 P(declare) 0.38 | P TE8/TE16/TE24: 0.170 / 0.191 / 0.312, hist pctl 0.96
+   + yards per team pass att 2 (+1.09); receiving TDs 8 (+0.50); featured seasons 2 (+0.45)
+   - Power 5  0.00 (-0.16); college seasons  4.00 (-0.15); yards/catch 11.33 (-0.02)
+   comps: Ed Dickson (2010, best TE17); Derrick Deese Jr. (2022, no NFL stats); Jack Doyle (2013, no tier season)
+TE 2027 #6 Cade Keith (New Mexico) yrs 3 P(declare) 0.24 | P TE8/TE16/TE24: 0.159 / 0.230 / 0.274, hist pctl 0.95
+   + yards per team pass att 2.18 (+1.24); years out of HS 3.00 (+0.47); college seasons 2.00 (+0.28)
+   - Power 5  0.00 (-0.16); recruiting rating n/a (-0.02); yards/catch 13.77 (-0.02)
+   comps: Armani Levias (2020, no NFL stats); Gerald Everett (2017, best TE22); Evan Rodriguez (2012, no tier season)
+TE 2027 #7 Willie Rodriguez (Kentucky) yrs 3 P(declare) 0.13 | P TE8/TE16/TE24: 0.105 / 0.204 / 0.233, hist pctl 0.94
+   + yards per team pass att 1.52 (+0.68); years out of HS 3.00 (+0.47); recruiting rating 0.87 (+0.28)
+   - yards/catch 9 (-0.02)
+   comps: Collin Franklin (2011, no tier season); Joseph Fauria (2013, no tier season); Cole Hikutini (2017, no tier season)
+TE 2027 #8 Elija Lofton (Miami) yrs 3 P(declare) 0.14 | P TE8/TE16/TE24: 0.049 / 0.119 / 0.197, hist pctl 0.92
+   + recruiting rating 0.91 (+0.56); years out of HS 3.00 (+0.47); yards per team pass att 1.16 (+0.38)
+   - yards/catch 12.93 (-0.02); share of team catches  0.12 (-0.01); best dominator  0.11 (-0.01)
+   comps: Pat Freiermuth (2021, best TE7); Levine Toilolo (2013, no tier season); Jesse James (2015, best TE22)
+TE 2027 #9 Caleb Odom (Ole Miss) yrs 3 P(declare) 0.14 | P TE8/TE16/TE24: 0.045 / 0.134 / 0.179, hist pctl 0.92
+   + recruiting rating 0.98 (+1.05); years out of HS 3.00 (+0.47); yards per team pass att 1.12 (+0.35)
+   - transferred  1.00 (-0.43); yards/catch 12.77 (-0.02); share of team catches  0.14 (-0.00)
+   comps: Isaac Nauta (2019, no tier season); Cole Kmet (2020, best TE8); Kyle Rudolph (2011, best TE11)
+TE 2027 #10 Hunter Tipton (Memphis) yrs 4 P(declare) 0.42 | P TE8/TE16/TE24: 0.085 / 0.121 / 0.159, hist pctl 0.91
+   + yards per team pass att 1.85 (+0.96); featured seasons 2.00 (+0.45); receiving TDs 6.67 (+0.39)
+   - transferred  1 (-0.43); Power 5  0 (-0.16); recruiting rating n/a (-0.02)
+   comps: Derrick Deese Jr. (2022, no NFL stats); David Morgan (2016, no tier season); Jacob Hollister (2017, best TE24)

@@ -1,0 +1,13 @@
+"scheme","set","model","n","pooled_Spearman","R2","RMSE","MAE","within_class_Spearman"
+"LOCO","post","baseline",445,0.583,0.323,64.597,47.659,0.603
+"LOCO","post","elastic_net",445,0.588,0.319,64.753,48.312,0.598
+"LOCO","post","random_forest",445,0.554,0.276,66.796,51.179,0.562
+"LOCO","pre","baseline",445,-0.142,-0.004,78.642,64.895,NA
+"LOCO","pre","elastic_net",445,0.394,0.128,73.308,57.309,0.397
+"LOCO","pre","random_forest",445,0.391,0.147,72.512,57.222,0.405
+"Rolling","post","baseline",256,0.585,0.311,67.243,48.234,0.581
+"Rolling","post","elastic_net",256,0.56,0.292,68.142,49.504,0.56
+"Rolling","post","random_forest",256,0.493,0.202,72.359,53.109,0.495
+"Rolling","pre","baseline",256,0.049,-0.007,81.288,65.107,NA
+"Rolling","pre","elastic_net",256,0.34,0.085,77.473,58.133,0.327
+"Rolling","pre","random_forest",256,0.319,0.064,78.355,58.155,0.306

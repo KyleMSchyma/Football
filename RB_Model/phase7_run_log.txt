@@ -1,0 +1,116 @@
+UDFA RBs with >= 1 regular-season carry, rookie seasons 2010-2025: 199 
+
+2010 2011 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 
+   9   12   26   18   18   13   10   18   10   18    8   11   12    9    7 
+
+UDFA RBs with 3 complete seasons (2010-2023): 183  any top-24 season yrs 1-3: 8  top-8: 2 
+UDFAs with any top-36 season in years 1-3:
+   pfr_player_name draft_season                           college best_13
+     Austin Ekeler         2017                     Western State       4
+    James Robinson         2020                    Illinois State       7
+     C.J. Anderson         2013         California; Laney College      10
+   Phillip Lindsay         2018                          Colorado      13
+       Matt Asiata         2013                        Utah; Snow      14
+    Isaiah Crowell         2014            Alabama State; Georgia      14
+     Jaylen Warren         2022                    Oklahoma State      22
+       Joique Bell         2010                       Wayne State      23
+       Matt Breida         2017                  Georgia Southern      26
+    Branden Oliver         2014                           Buffalo      26
+     Jalen Richard         2016              Southern Mississippi      29
+     Peyton Barber         2016                            Auburn      31
+  Benny Cunningham         2013            Middle Tennessee State      32
+       Jeff Wilson         2018                       North Texas      32
+ LeGarrette Blount         2010       Oregon; East Mississippi JC      33
+ Charcandrick West         2014 Abilene Christian; Louisiana Tech      35
+        Rob Kelley         2016                            Tulane      36
+      Thomas Rawls         2015        Central Michigan; Michigan      36
+ pts_13
+  584.7
+  512.9
+  356.4
+  486.5
+  276.5
+  465.3
+  413.8
+  157.9
+  369.3
+  180.3
+  362.2
+  272.1
+  235.8
+  233.6
+  297.3
+  226.9
+  176.6
+  235.2
+
+for comparison, drafted RBs (2010-2023) top-24 rate by round group:
+  grp   n top24
+   R1  21 0.810
+ R2-3  75 0.520
+ R4-7 202 0.109
+ UDFA 183 0.044
+
+year-2 model rows (2010-2023): drafted 296  UDFA 183  UDFA top-24 in yrs 2-3: 8 
+UDFAs reaching top-24 in years 2-3: C.J. Anderson (2013), Matt Asiata (2013), Joique Bell (2010), Isaiah Crowell (2014), Austin Ekeler (2017), Phillip Lindsay (2018), James Robinson (2020), Jaylen Warren (2022) 
+
+===== Year-2 model with vs without UDFAs in training, rolling 2016-2023 =====
+ trained_with_udfa eval_on   n RB24 AUC_usage Brier_usage AUC_rookie_pts
+             FALSE    UDFA 100    4    0.9818      0.0279         0.9844
+             FALSE drafted 171   45    0.8471      0.1326         0.8624
+              TRUE    UDFA 100    4    0.9818      0.0262         0.9844
+              TRUE drafted 171   45    0.8594      0.1293         0.8649
+ Brier_rookie_pts
+           0.0246
+           0.1256
+           0.0244
+           0.1260
+
+UDFAs in the test years ranked by usage model P(top-24) (trained with UDFAs):
+ draft_season pfr_player_name y1_finish best_23 use_p2 rpts_p2
+         2020  James Robinson         7      24  0.552   0.581
+         2018 Phillip Lindsay        13      19  0.338   0.365
+         2016      Rob Kelley        36      60  0.240   0.181
+         2023 Keaton Mitchell        59      60  0.208   0.082
+         2017   Austin Ekeler        45       4  0.208   0.139
+         2020    Salvon Ahmed        60      60  0.198   0.099
+         2018     Gus Edwards        56      37  0.184   0.110
+         2016   Jalen Richard        42      29  0.184   0.156
+         2022   Jaylen Warren        47      22  0.163   0.126
+         2018     Jeff Wilson        60      32  0.159   0.068
+
+===== 2024-2025 UDFA RBs who played as rookies =====
+    pfr_player_name draft_season                           college y1_games
+     Raheim Sanders         2025          South Carolina; Arkansas        4
+   Terrell Jennings         2024                       Florida A&M        2
+       Jacob Kibodi         2024      Lafayette College; Texas A&M        1
+      Carson Steele         2024                  UCLA; Ball State       13
+       Blake Watson         2024             Memphis; Old Dominion        1
+        Corey Kiner         2025                   Cincinnati; LSU        4
+    Jacardia Wright         2025      Missouri State; Kansas State        1
+       Amar Johnson         2025                South Dakota State        1
+      Chris Collier         2024          University of Lock Haven        6
+      Josh Williams         2025                               LSU        2
+ Ulysses Bentley IV         2025                  Mississippi; SMU        1
+      George Holani         2024                       Boise State        3
+      Cody Schrader         2024 Missouri; Truman State University        1
+     British Brooks         2024                    North Carolina        2
+        Nate Carter         2025       Michigan State; Connecticut        2
+     Kendall Milton         2024                           Georgia        0
+ y1_tch_pg y1_pts y1_finish y1_ypc y1_snap_avg o2_finish rpts_p2 use_p2
+     7.750   20.3        60  3.407       0.258        NA   0.045  0.055
+     7.000    3.3        60     NA       0.295        60   0.035  0.041
+     8.000    4.9        60     NA       0.290        60   0.036  0.041
+     5.154   23.9        60  3.268       0.229        60   0.047  0.041
+     6.000    3.3        60     NA       0.160        60   0.035  0.032
+     3.750    9.3        60     NA       0.132        NA   0.039  0.031
+     5.000    2.0        60     NA       0.090        NA   0.035  0.029
+     3.000    0.8        60     NA       0.080        NA   0.034  0.028
+     1.167    1.8        60     NA       0.057        60   0.035  0.027
+     2.000    1.1        60     NA       0.065        NA   0.034  0.027
+     1.000    0.0        60     NA       0.030        NA   0.034  0.026
+     1.333    1.9        60     NA       0.027        60   0.035  0.026
+     2.000    1.9        60     NA       0.030        60   0.035  0.026
+     0.500    0.2        60     NA       0.020        60   0.034  0.025
+     4.500    4.0        60     NA          NA        NA   0.036  0.024
+     0.000    0.0        60     NA          NA        60   0.034  0.024

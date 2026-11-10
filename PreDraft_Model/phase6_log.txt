@@ -1,0 +1,576 @@
+QB : drafted 2010-2023 156  2024-26 35  2027 projected 14 
+RB : drafted 2010-2023 287  2024-26 53  2027 projected 21 
+WR : drafted 2010-2023 417  2024-26 102  2027 projected 34 
+TE : drafted 2010-2023 189  2024-26 50  2027 projected 18 
+
+===== Hit rates by grade, drafted 2010-2023 (any = any-tier season in years 1-3) =====
+ position grade  n mean_pick top_rate top2_rate any_rate any_lo any_hi exp_any
+       QB    A+  8        12    0.500     0.875    0.875  0.625  1.000   0.792
+       QB     A  8        31    0.375     0.375    0.750  0.500  1.000   0.624
+       QB    A-  7       104    0.143     0.571    0.571  0.143  0.857   0.500
+       QB    B+ 16        75    0.250     0.312    0.500  0.250  0.750   0.405
+       QB     B 16        84    0.188     0.250    0.438  0.188  0.688   0.248
+       QB    B- 15       114    0.000     0.133    0.133  0.000  0.333   0.156
+       QB    C+ 16       130    0.125     0.125    0.125  0.000  0.312   0.094
+       QB     C 15       160    0.000     0.000    0.000  0.000  0.000   0.053
+       QB    C- 16       136    0.000     0.000    0.062  0.000  0.188   0.031
+       QB     D 23       128    0.000     0.043    0.174  0.043  0.348   0.022
+       QB     F 16       151    0.188     0.188    0.188  0.000  0.375   0.006
+       RB    A+ 14        34    0.786     0.857    0.857  0.643  1.000   0.722
+       RB     A 15       115    0.067     0.133    0.333  0.133  0.600   0.525
+       RB    A- 14        80    0.143     0.357    0.786  0.571  1.000   0.438
+       RB    B+ 29       101    0.138     0.241    0.310  0.138  0.483   0.350
+       RB     B 28       125    0.143     0.143    0.214  0.071  0.357   0.237
+       RB    B- 29       124    0.138     0.241    0.276  0.138  0.448   0.184
+       RB    C+ 29       129    0.103     0.103    0.241  0.103  0.414   0.122
+       RB     C 29       151    0.034     0.138    0.172  0.034  0.310   0.084
+       RB    C- 28       162    0.071     0.107    0.179  0.036  0.321   0.055
+       RB     D 43       175    0.070     0.163    0.186  0.070  0.302   0.025
+       RB     F 29       199    0.000     0.034    0.034  0.000  0.103   0.006
+       TE    A+  9        98    0.222     0.444    0.444  0.111  0.778   0.687
+       TE     A 10        92    0.300     0.500    0.500  0.200  0.800   0.532
+       TE    A-  9        97    0.000     0.222    0.444  0.111  0.778   0.421
+       TE    B+ 19        81    0.368     0.421    0.526  0.314  0.737   0.288
+       TE     B 19       102    0.158     0.368    0.526  0.316  0.737   0.219
+       TE    B- 19       134    0.105     0.263    0.368  0.158  0.579   0.147
+       TE    C+ 19       140    0.000     0.000    0.105  0.000  0.263   0.103
+       TE     C 19       142    0.105     0.105    0.211  0.053  0.421   0.074
+       TE    C- 19       157    0.000     0.105    0.105  0.000  0.263   0.052
+       TE     D 28       170    0.071     0.143    0.143  0.036  0.286   0.033
+       TE     F 19       160    0.000     0.105    0.105  0.000  0.263   0.016
+       WR    A+ 21        40    0.429     0.571    0.667  0.476  0.857   0.643
+       WR     A 21        80    0.143     0.238    0.333  0.143  0.524   0.469
+       WR    A- 21        47    0.238     0.524    0.619  0.429  0.810   0.358
+       WR    B+ 41        94    0.098     0.220    0.366  0.220  0.512   0.235
+       WR     B 42       116    0.048     0.119    0.167  0.071  0.286   0.154
+       WR    B- 42       119    0.048     0.095    0.167  0.071  0.286   0.108
+       WR    C+ 41       131    0.073     0.098    0.171  0.073  0.293   0.071
+       WR     C 42       143    0.024     0.071    0.095  0.024  0.190   0.046
+       WR    C- 42       145    0.048     0.048    0.095  0.024  0.190   0.028
+       WR     D 62       155    0.081     0.145    0.161  0.081  0.258   0.014
+       WR     F 42       170    0.071     0.071    0.071  0.000  0.167   0.004
+ mean_ppr_3yr
+      636.028
+      525.808
+      379.586
+      331.385
+      295.710
+      120.407
+      138.441
+       29.975
+       82.486
+       99.052
+      185.100
+      555.847
+      232.607
+      434.527
+      297.150
+      209.729
+      252.131
+      200.207
+      141.717
+      158.539
+      148.774
+       60.324
+      230.200
+      253.810
+      180.222
+      191.905
+      205.089
+      135.421
+       82.095
+      121.316
+       87.126
+       93.854
+       77.574
+      468.190
+      299.405
+      423.156
+      262.198
+      165.570
+      184.071
+      163.476
+      132.717
+      160.708
+      154.515
+      107.808
+
+===== College-only grade vs draft slot (drafted 2010-2023) =====
+ position target   n hits AUC_grade AUC_pick AUC_pick_plus_grade spearman_pts
+       QB    QB8 156   20     0.735    0.834               0.874        0.393
+       QB   QB16 156   31     0.783    0.873               0.905           NA
+       QB   QB24 156   44     0.773    0.874               0.897           NA
+       RB    RB8 287   35     0.738    0.855               0.857        0.443
+       RB   RB16 287   55     0.683    0.807               0.808           NA
+       RB   RB24 287   77     0.714    0.822               0.825           NA
+       WR   WR12 417   39     0.665    0.813               0.814        0.356
+       WR   WR24 417   67     0.700    0.838               0.835           NA
+       WR   WR36 417   91     0.717    0.849               0.848           NA
+       TE    TE8 189   21     0.733    0.808               0.823        0.333
+       TE   TE16 189   41     0.700    0.859               0.860           NA
+       TE   TE24 189   54     0.716    0.858               0.864           NA
+ spearman_pts_pick grade_coef   LRT_p AIC_pick AIC_pick_plus_grade
+             0.702     0.2050 0.18100     95.4                95.6
+                NA     0.3430 0.01760    103.0                99.7
+                NA     0.3840 0.00432    126.0               120.0
+             0.664     0.1550 0.34700    148.0               149.0
+                NA     0.0576 0.65300    218.0               219.0
+                NA     0.1670 0.16100    252.0               252.0
+             0.632    -0.0113 0.93100    220.0               222.0
+                NA     0.0659 0.53800    289.0               291.0
+                NA     0.0947 0.33000    324.0               325.0
+             0.696     0.2640 0.19100    113.0               114.0
+                NA     0.0405 0.81500    139.0               141.0
+                NA     0.1530 0.34100    159.0               160.0
+
+===== Any-tier hit rate by grade band within draft-round band =====
+ position round_band n_A range n_B range n_C range n_D/F any_rate_A range
+       QB    Round 1        16        14         6     5            0.812
+       QB Rounds 2-3         3        14         7     8            1.000
+       QB Rounds 4-7         4        19        34    26            0.250
+       RB    Round 1        10         8         1     1            0.900
+       RB Rounds 2-3        21        28        19     6            0.714
+       RB Rounds 4-7        12        50        66    65            0.333
+       TE    Round 1         5         6        NA    NA            1.000
+       TE Rounds 2-3        11        22        20     7            0.545
+       TE Rounds 4-7        12        29        37    40            0.167
+       WR    Round 1        31        17         6    NA            0.774
+       WR Rounds 2-3        22        46        33    24            0.409
+       WR Rounds 4-7        10        62        86    80            0.100
+ any_rate_B range any_rate_C range any_rate_D/F
+            0.643            0.333        0.800
+            0.357            0.143        0.375
+            0.158            0.000        0.000
+            0.625            1.000        1.000
+            0.429            0.474        0.500
+            0.120            0.106        0.077
+            1.000               NA           NA
+            0.682            0.250        0.429
+            0.207            0.081        0.075
+            0.588            0.333           NA
+            0.326            0.303        0.333
+            0.065            0.035        0.062
+
+===== Biggest misses: A-range grades with no tier season; D/F grades that hit (2010-2023) =====
+-- QB -- high grade, no hit:
+ class           name    college pick grade                nfl_outcome
+  2014 Johnny Manziel  Texas A&M   22    A+ best QB33 (no tier season)
+  2019 Dwayne Haskins Ohio State   15     A best QB35 (no tier season)
+  2021    Zach Wilson        BYU    2     A best QB29 (no tier season)
+-- low grade, top-tier hit:
+ class           name            college pick grade        nfl_outcome
+  2012 Ryan Tannehill          Texas A&M    8     F best QB8 (QB8 hit)
+  2018     Josh Allen            Wyoming    7     F best QB1 (QB8 hit)
+  2016   Carson Wentz North Dakota State    2     F best QB5 (QB8 hit)
+                                                     data_flag
+                                                              
+                                                              
+ thin college data (FCS before 2022: only games vs FBS logged)
+-- RB -- high grade, no hit:
+ class               name       college pick grade                nfl_outcome
+  2014      Bishop Sankey    Washington   54    A+ best RB46 (no tier season)
+  2014      Ka'Deem Carey       Arizona  117    A+ best RB60 (no tier season)
+  2017   Jeremy McNichols   Boise State  162     A best RB60 (no tier season)
+  2023  Israel Abanikanda    Pittsburgh  143     A best RB60 (no tier season)
+  2014       Marion Grice Arizona State  201     A best RB60 (no tier season)
+  2013 Johnathan Franklin          UCLA  125     A best RB60 (no tier season)
+-- low grade, top-tier hit:
+ class          name          college pick grade        nfl_outcome data_flag
+  2022    James Cook          Georgia   63     D best RB8 (RB8 hit)          
+  2012 Alfred Morris Florida Atlantic  173     D best RB8 (RB8 hit)          
+  2012   Doug Martin      Boise State   31     D best RB2 (RB8 hit)          
+-- WR -- high grade, no hit:
+ class             name       college pick grade                 nfl_outcome
+  2010      Golden Tate    Notre Dame   60    A+  best WR40 (no tier season)
+  2019     N'Keal Harry Arizona State   32    A+ best WR100 (no tier season)
+  2022    Treylon Burks      Arkansas   18    A+  best WR81 (no tier season)
+  2023      Jalin Hyatt     Tennessee   73    A+ best WR100 (no tier season)
+  2013   Stedman Bailey West Virginia   92    A+  best WR85 (no tier season)
+  2016 Laquon Treadwell      Ole Miss   23    A+  best WR94 (no tier season)
+-- low grade, top-tier hit:
+ class            name               college pick grade          nfl_outcome
+  2012     T.Y. Hilton Florida International   92     D best WR12 (WR12 hit)
+  2023      Puka Nacua                   BYU  177     D  best WR1 (WR12 hit)
+  2016     Tyreek Hill        Oklahoma State  165     D  best WR1 (WR12 hit)
+  2017  Kenny Golladay     Northern Illinois   96     D  best WR9 (WR12 hit)
+  2023  Michael Wilson              Stanford   94     D best WR10 (WR12 hit)
+  2019 Diontae Johnson                Toledo   66     F  best WR8 (WR12 hit)
+  2019  Hunter Renfrow               Clemson  149     F best WR10 (WR12 hit)
+  2017     Cooper Kupp    Eastern Washington   69     F  best WR4 (WR12 hit)
+                                                     data_flag
+                                                              
+                                                              
+                                                              
+                                                              
+                                                              
+                                                              
+                                                              
+ thin college data (FCS before 2022: only games vs FBS logged)
+-- TE -- high grade, no hit:
+ class                    name    college pick grade                nfl_outcome
+  2023           Michael Mayer Notre Dame   35    A+ best TE35 (no tier season)
+  2014              Jace Amaro Texas Tech   49    A+ best TE25 (no tier season)
+  2019            Caleb Wilson       UCLA  254    A+ best TE60 (no tier season)
+  2016           Thomas Duarte       UCLA  231    A+ best TE60 (no tier season)
+  2014 Austin Seferian-Jenkins Washington   38    A+ best TE33 (no tier season)
+  2015           Maxx Williams  Minnesota   55     A best TE40 (no tier season)
+-- low grade, top-tier hit:
+ class           name college pick grade        nfl_outcome data_flag
+  2017  George Kittle    Iowa  146     D best TE2 (TE8 hit)          
+  2011 Jordan Cameron     USC  102     D best TE4 (TE8 hit)          
+
+thin-data (FCS before 2022) players among drafted 2010-2023, by grade band:
+ position n_A range n_B range n_C range n_D/F thin_A range thin_B range
+       QB        23        47        47    39            0            1
+       RB        43        86        86    72            1            4
+       TE        28        57        57    47            0            1
+       WR        63       125       125   104            0            0
+ thin_C range thin_D/F
+            1        1
+            2        0
+            1        3
+            0        9
+
+===== Top 15 all-time by position (drafted + projected 2027) =====
+-- QB --
+ pos_rank_all class         status               name    college pick score
+            1  2024        drafted     Jayden Daniels        LSU    2 2.728
+            2  2020        drafted        Jalen Hurts   Oklahoma   53 2.367
+            3  2024        drafted             Bo Nix     Oregon   12 2.295
+            4  2015        drafted     Marcus Mariota     Oregon    2 2.158
+            5  2019        drafted       Kyler Murray   Oklahoma    1 2.132
+            6  2012        drafted Robert Griffin III     Baylor    2 2.098
+            7  2020        drafted     Tua Tagovailoa    Alabama    5 2.024
+            8  2021        drafted      Justin Fields Ohio State   11 1.762
+            9  2014        drafted     Johnny Manziel  Texas A&M   22 1.716
+           10  2018        drafted     Baker Mayfield   Oklahoma    1 1.670
+           11  2027 projected 2027      Darian Mensah      Miami   NA 1.621
+           12  2020        drafted         Joe Burrow        LSU    1 1.598
+           13  2021        drafted          Mac Jones    Alabama   15 1.558
+           14  2019        drafted     Dwayne Haskins Ohio State   15 1.455
+           15  2021        drafted        Zach Wilson        BYU    2 1.426
+ grade grade_asis                          nfl_outcome
+    A+       <NA> best QB5 (QB8 hit), 2 seasons so far
+    A+       <NA>                   best QB3 (QB8 hit)
+    A+       <NA> best QB7 (QB8 hit), 2 seasons so far
+    A+       <NA>                 best QB13 (QB16 hit)
+    A+       <NA>                   best QB3 (QB8 hit)
+    A+       <NA>                   best QB5 (QB8 hit)
+    A+       <NA>                 best QB15 (QB16 hit)
+    A+       <NA>                   best QB6 (QB8 hit)
+    A+       <NA>           best QB33 (no tier season)
+    A+       <NA>                 best QB16 (QB16 hit)
+     A          A                      not yet drafted
+     A       <NA>                   best QB4 (QB8 hit)
+     A       <NA>                 best QB18 (QB24 hit)
+     A       <NA>           best QB35 (no tier season)
+     A       <NA>           best QB29 (no tier season)
+-- RB --
+ pos_rank_all class  status             name        college pick score grade
+            1  2020 drafted  Jonathan Taylor      Wisconsin   41 2.680    A+
+            2  2018 drafted   Saquon Barkley     Penn State    2 2.365    A+
+            3  2017 drafted      Dalvin Cook  Florida State   41 2.285    A+
+            4  2012 drafted Trent Richardson        Alabama    3 2.215    A+
+            5  2025 drafted    Kaleb Johnson           Iowa   83 2.035    A+
+            6  2025 drafted  Omarion Hampton North Carolina   22 2.033    A+
+            7  2023 drafted   Bijan Robinson          Texas    8 2.033    A+
+            8  2025 drafted     Cam Skattebo  Arizona State  105 2.027    A+
+            9  2015 drafted    Melvin Gordon      Wisconsin   15 1.974    A+
+           10  2022 drafted      Breece Hall     Iowa State   36 1.944    A+
+           11  2013 drafted  Giovani Bernard North Carolina   37 1.939    A+
+           12  2014 drafted    Bishop Sankey     Washington   54 1.679    A+
+           13  2026 drafted   Jeremiyah Love     Notre Dame    3 1.647    A+
+           14  2021 drafted     Najee Harris        Alabama   24 1.574    A+
+           15  2011 drafted   DeMarco Murray       Oklahoma   71 1.526    A+
+ grade_asis                                  nfl_outcome
+       <NA>                           best RB1 (RB8 hit)
+       <NA>                           best RB1 (RB8 hit)
+       <NA>                           best RB6 (RB8 hit)
+       <NA>                           best RB7 (RB8 hit)
+       <NA> best RB108 (no tier season), 1 season so far
+       <NA>  best RB35 (no tier season), 1 season so far
+       <NA>                           best RB2 (RB8 hit)
+       <NA>  best RB37 (no tier season), 1 season so far
+       <NA>                           best RB5 (RB8 hit)
+       <NA>                           best RB2 (RB8 hit)
+       <NA>                         best RB13 (RB16 hit)
+       <NA>                   best RB46 (no tier season)
+       <NA>                    rookie season in progress
+       <NA>                           best RB3 (RB8 hit)
+       <NA>                           best RB6 (RB8 hit)
+-- WR --
+ pos_rank_all class         status                name       college pick score
+            1  2027 projected 2027      Jeremiah Smith    Ohio State   NA 2.476
+            2  2015        drafted        Amari Cooper       Alabama    4 2.436
+            3  2010        drafted         Golden Tate    Notre Dame   60 2.151
+            4  2025        drafted   Tetairoa McMillan       Arizona    8 1.922
+            5  2021        drafted       Ja'Marr Chase           LSU    5 1.781
+            6  2024        drafted        Malik Nabers           LSU    6 1.760
+            7  2024        drafted       Troy Franklin        Oregon  102 1.749
+            8  2019        drafted          A.J. Brown      Ole Miss   51 1.673
+            9  2021        drafted       DeVonta Smith       Alabama   10 1.655
+           10  2024        drafted Marvin Harrison Jr.    Ohio State    4 1.631
+           11  2019        drafted        N'Keal Harry Arizona State   32 1.558
+           12  2014        drafted       Jarvis Landry           LSU   63 1.554
+           13  2026        drafted         Makai Lemon           USC   20 1.495
+           14  2014        drafted       Brandin Cooks  Oregon State   20 1.484
+           15  2022        drafted       Treylon Burks      Arkansas   18 1.417
+ grade grade_asis                            nfl_outcome
+    A+         A+                        not yet drafted
+    A+       <NA>                   best WR14 (WR24 hit)
+    A+       <NA>             best WR40 (no tier season)
+    A+       <NA>  best WR15 (WR24 hit), 1 season so far
+    A+       <NA>                    best WR5 (WR12 hit)
+    A+       <NA>  best WR6 (WR12 hit), 2 seasons so far
+    A+       <NA> best WR31 (WR36 hit), 2 seasons so far
+    A+       <NA>                   best WR12 (WR12 hit)
+    A+       <NA>                    best WR9 (WR12 hit)
+    A+       <NA> best WR30 (WR36 hit), 2 seasons so far
+    A+       <NA>            best WR100 (no tier season)
+    A+       <NA>                    best WR8 (WR12 hit)
+    A+       <NA>              rookie season in progress
+    A+       <NA>                   best WR10 (WR12 hit)
+    A+       <NA>             best WR81 (no tier season)
+-- TE --
+ pos_rank_all class  status                    name          college pick score
+            1  2023 drafted           Michael Mayer       Notre Dame   35 2.660
+            2  2025 drafted           Harold Fannin    Bowling Green   67 2.407
+            3  2024 drafted            Brock Bowers          Georgia   13 1.857
+            4  2014 drafted              Jace Amaro       Texas Tech   49 1.750
+            5  2019 drafted            Caleb Wilson             UCLA  254 1.687
+            6  2016 drafted           Thomas Duarte             UCLA  231 1.466
+            7  2010 drafted        Jermaine Gresham         Oklahoma   21 1.429
+            8  2010 drafted         Aaron Hernandez          Florida  113 1.422
+            9  2021 drafted              Kyle Pitts          Florida    4 1.405
+           10  2022 drafted           Isaiah Likely Coastal Carolina  139 1.392
+           11  2014 drafted Austin Seferian-Jenkins       Washington   38 1.385
+           12  2015 drafted           Maxx Williams        Minnesota   55 1.351
+           13  2018 drafted            Mark Andrews         Oklahoma   86 1.345
+           14  2016 drafted            Hunter Henry         Arkansas   35 1.332
+           15  2025 drafted        Colston Loveland         Michigan   10 1.312
+ grade grade_asis                           nfl_outcome
+    A+       <NA>            best TE35 (no tier season)
+    A+       <NA>   best TE6 (TE8 hit), 1 season so far
+    A+       <NA>  best TE1 (TE8 hit), 2 seasons so far
+    A+       <NA>            best TE25 (no tier season)
+    A+       <NA>            best TE60 (no tier season)
+    A+       <NA>            best TE60 (no tier season)
+    A+       <NA>                  best TE10 (TE16 hit)
+    A+       <NA>                    best TE3 (TE8 hit)
+    A+       <NA>                    best TE6 (TE8 hit)
+    A+       <NA>                  best TE16 (TE16 hit)
+    A+       <NA>            best TE33 (no tier season)
+     A       <NA>            best TE40 (no tier season)
+     A       <NA>                    best TE5 (TE8 hit)
+     A       <NA>                  best TE14 (TE16 hit)
+     A       <NA> best TE12 (TE16 hit), 1 season so far
+
+===== 2027 projected =====
+-- QB --
+ pos_rank_all                name          college yrs_out_of_hs score grade
+           11       Darian Mensah            Miami             4 1.621     A
+           23       Devon Dampier             Utah             4 1.034    A-
+           25           C.J. Carr       Notre Dame             3 0.987    A-
+           28        Julian Sayin       Ohio State             3 0.933    A-
+           38        Brad Jackson      Texas State             3 0.816    B+
+           40     Drew Mestemaker   Oklahoma State             4 0.792    B+
+           47   Ethan Grunkemeyer    Virginia Tech             3 0.701    B+
+           50         Sam Leavitt              LSU             4 0.667    B+
+           51      Giovanni Lopez      Wake Forest             4 0.661    B+
+           55 Michael Hawkins Jr.    West Virginia             3 0.643    B+
+           56  Trinidad Chambliss         Ole Miss             3 0.632    B+
+           59       Beau Brungard Youngstown State             5 0.604    B+
+           62        Aidan Chiles     Northwestern             4 0.575     B
+          108         Dante Moore           Oregon             4 0.195    C+
+ score_asis grade_asis p_declare
+      1.417          A      0.24
+      0.874         B+      0.26
+      0.822         B+      0.09
+      0.803         B+      0.13
+      0.670         B+      0.09
+      0.599         B+      0.27
+      0.589         B+      0.08
+      0.523          B      0.26
+      0.540          B      0.28
+      0.443          B      0.13
+      0.466          B      0.14
+      0.473          B      0.65
+      0.489          B      0.32
+      0.547          B      0.39
+-- RB --
+ pos_rank_all             name           college yrs_out_of_hs score grade
+           16        Cole Tabb        Cincinnati             3 1.525    A+
+           23      Dylan Riley       Boise State             3 1.296     A
+           24  Wayshawn Parker              Utah             3 1.296     A
+           42     Jahiem White       North Texas             4 1.033    A-
+           58  J'Koby Williams        Texas Tech             3 0.867    A-
+           74      Isaac Brown        Louisville             3 0.778    B+
+           78       Micah Ford          Stanford             3 0.732    B+
+           81      Jadan Baugh           Florida             3 0.720    B+
+           96      Dilin Jones               LSU             3 0.576    B+
+          102     Wayne Knight              UCLA             5 0.554     B
+          109      Fame Ijeboi            Purdue             3 0.507     B
+          116   Antwan Raymond           Rutgers             3 0.485     B
+          132         Cam Cook     West Virginia             4 0.426     B
+          138 Kendrick Raphael               SMU             4 0.406     B
+          150    DeSean Bishop         Tennessee             4 0.375    B-
+          156      Aiden Flora        Iowa State             4 0.364    B-
+          174      Ahmad Hardy          Missouri             3 0.323    B-
+          175    Jamal Roberts          Missouri             4 0.314    B-
+          176      AJ Newberry      Oregon State             4 0.312    B-
+          188    Turbo Richard           Indiana             3 0.282    C+
+          201   Fluff Bothwell Mississippi State             3 0.233    C+
+ score_asis grade_asis p_declare
+      1.110          A      0.12
+      0.782         B+      0.10
+      0.814         B+      0.11
+      0.479          B      0.32
+      0.591         B+      0.11
+      0.578         B+      0.12
+      0.422          B      0.10
+      0.450          B      0.11
+      0.318         B-      0.11
+      0.337         B-      0.74
+      0.300         C+      0.10
+      0.293         C+      0.11
+      0.250         C+      0.33
+      0.228         C+      0.33
+      0.214          C      0.31
+      0.211          C      0.35
+      0.322         B-      0.10
+      0.177          C      0.32
+      0.168          C      0.34
+      0.220         C+      0.11
+      0.178          C      0.11
+-- WR --
+ pos_rank_all              name           college yrs_out_of_hs score grade
+            1    Jeremiah Smith        Ohio State             3 2.476    A+
+           40           KJ Duff           Rutgers             3 1.007     A
+           43    Charlie Becker           Indiana             3 0.968     A
+           55   Joseph Williams          Colorado             3 0.835    A-
+           58     Mike Matthews         Tennessee             3 0.808    A-
+           61      Collin Dixon          Illinois             4 0.795    A-
+           74       Reed Harris     Arizona State             4 0.694    A-
+           77        Nick Marsh           Indiana             3 0.679    A-
+           88      Jordan Shipp    North Carolina             3 0.576    B+
+           95    Chris Durr Jr.          Maryland             3 0.531    B+
+           97      Kwazi Gilmer          Nebraska             3 0.521    B+
+           98  Carlos Hernandez       Wake Forest             4 0.518    B+
+          106        Ryan Wingo             Texas             3 0.476    B+
+          120       Cam Coleman             Texas             3 0.418    B+
+          122       Wyatt Young    Oklahoma State             3 0.412    B+
+          124        Cayden Lee          Missouri             4 0.404    B+
+          138    Jackson Harris               LSU             4 0.368    B+
+          141     Ryan Williams           Alabama             3 0.364    B+
+          146  Bryant Wesco Jr.           Clemson             3 0.354     B
+          155     Griffin Wilde      Northwestern             4 0.344     B
+          160      Isaiah Myers    Missouri State             4 0.338     B
+          162   Junior Sherrill        Vanderbilt             4 0.336     B
+          165 Anthony Evans III Mississippi State             4 0.329     B
+          171     Lawayne McCoy        Louisville             3 0.320     B
+          177        T.J. Moore           Clemson             3 0.306     B
+          178    Tre Richardson        Louisville             3 0.305     B
+          184     Micah Gilbert        Notre Dame             3 0.291     B
+          189  Terrell Anderson          NC State             3 0.286     B
+          192     Mazeo Bennett    South Carolina             3 0.276     B
+          195     Danny Scudero    San José State             4 0.268     B
+          205      Micahi Danzy     Florida State             3 0.252     B
+          217 Jacory Barney Jr.          Nebraska             3 0.244    B-
+          221      Nitro Tuggle            Purdue             3 0.236    B-
+          272      Isiah Canion      Georgia Tech             3 0.167    C+
+ score_asis grade_asis p_declare
+      1.941         A+      0.14
+      0.609         B+      0.14
+      0.540         B+      0.13
+      0.458         B+      0.13
+      0.546         B+      0.15
+      0.414         B+      0.36
+      0.352          B      0.36
+      0.414         B+      0.14
+      0.352          B      0.14
+      0.290          B      0.13
+      0.325          B      0.14
+      0.242         B-      0.36
+      0.316          B      0.14
+      0.306          B      0.17
+      0.219         B-      0.13
+      0.207         B-      0.37
+      0.188         B-      0.37
+      0.257          B      0.17
+      0.368         B+      0.14
+      0.173         C+      0.40
+      0.151         C+      0.40
+      0.179         C+      0.36
+      0.181         C+      0.38
+      0.209         B-      0.16
+      0.216         B-      0.15
+      0.170         C+      0.23
+      0.186         B-      0.15
+      0.286          B      0.15
+      0.181         C+      0.14
+      0.268          B      0.35
+      0.166         C+      0.15
+      0.154         C+      0.14
+      0.236         B-      0.16
+      0.167         C+      0.16
+-- TE --
+ pos_rank_all             name            college yrs_out_of_hs score grade
+           22    Luke Reynolds      Virginia Tech             3 1.069     A
+           39 Patrick Overmyer            Houston             4 0.728    B+
+           43   Jelani Thurman     North Carolina             4 0.680    B+
+           44       Eli Finley     Louisiana Tech             4 0.672    B+
+           45       Cade Keith         New Mexico             3 0.663    B+
+           55   Trey'Dez Green                LSU             3 0.562    B+
+           57 Willie Rodriguez           Kentucky             3 0.542    B+
+           89     Elija Lofton              Miami             3 0.365     B
+           90    Hunter Tipton            Memphis             4 0.364     B
+           92       Caleb Odom           Ole Miss             3 0.358     B
+           94      Reis Kessel North Dakota State             3 0.351     B
+           98  Terrance Carter         Texas Tech             5 0.320    B-
+          103      Rocky Beers           Oklahoma             5 0.304    B-
+          104      Jake Wilson            Wyoming             3 0.298    B-
+          105 Benjamin Brahmer         Penn State             4 0.291    B-
+          110      DJ Vonnahme               Iowa             3 0.287    B-
+          111      Joshua Long   Eastern Michigan             3 0.287    B-
+          115 Andrew Rappleyea         Penn State             4 0.282    B-
+ score_asis grade_asis p_declare
+      0.832         A-      0.14
+      0.545         B+      0.37
+      0.492          B      0.41
+      0.504         B+      0.38
+      0.546         B+      0.24
+      0.491          B      0.14
+      0.449          B      0.13
+      0.306         B-      0.14
+      0.274         B-      0.42
+      0.303         B-      0.14
+      0.284         B-      0.23
+      0.233         B-      0.80
+      0.232         C+      0.80
+      0.214         C+      0.13
+      0.246         B-      0.39
+      0.241         B-      0.13
+      0.258         B-      0.23
+      0.245         B-      0.41
+
+===== Grade distribution by class (drafted) =====
+ class A range B range C range D/F
+  2010       9      16      19  22
+  2011       6      18      24  25
+  2012       7      24      21  19
+  2013      10      20      22  23
+  2014      18      24      23   9
+  2015      13      20      22  20
+  2016       8      26      18  20
+  2017      11      31      21  16
+  2018       9      28      28  15
+  2019      10      20      27  22
+  2020      18      25      21  13
+  2021      11      19      21  21
+  2022      15      19      21  21
+  2023      12      25      27  16
+  2024      10      22      21  24
+  2025      14      34      26  11
+  2026       6      22      28  22
+
+done

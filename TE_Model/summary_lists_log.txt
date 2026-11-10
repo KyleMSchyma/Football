@@ -1,0 +1,60 @@
+===== YEAR 1 PROSPECTS (2026 class): ranked by post-draft P(top-24 TE season in yrs 1-3) =====
+  pfr_player_name round pick draft_team post_enet_pts3 post_enet_p24 p_top8 p_top16 p_top24 two_post value_gap_pts
+     Kenyon Sadiq     1   16        NYJ          365.7         0.960  0.753   0.896   0.936     60.2        -134.7
+      Eli Stowers     2   54        PHI          208.7         0.668  0.246   0.479   0.610     95.9         -45.5
+     Marlin Klein     2   59        HOU          191.4         0.473  0.130   0.297   0.418    124.5        -113.6
+        Sam Roush     3   69        CHI          194.6         0.429  0.161   0.353   0.481    117.0         -26.5
+      Eli Raridon     3   95         NE          154.5         0.421  0.118   0.275   0.393    127.5           5.5
+       Oscar Delp     3   73         NO          175.2         0.416  0.145   0.323   0.449    133.3         -82.0
+        Max Klare     2   61         LA          189.2         0.352  0.099   0.237   0.346    139.8         -96.0
+ Nate Boerkircher     2   56        JAX          163.6         0.261  0.073   0.182   0.274    147.5        -191.2
+      Justin Joly     5  152        DEN           90.8         0.158  0.043   0.114   0.179    160.0          23.1
+      Jaren Kanak     7  225        TEN           81.9         0.137  0.041   0.107   0.170    156.1         114.2
+    Tanner Koziol     5  164        JAX           97.1         0.120  0.034   0.091   0.146    158.5          52.1
+     Max Bredeson     5  159        MIN           85.7         0.114  0.040   0.106   0.168    160.6         -25.4
+   Dallen Bentley     7  256        DEN           78.5         0.112  0.035   0.093   0.149    159.0         144.9
+    Will Kacmarek     3   87        MIA          124.0         0.111  0.030   0.079   0.128    158.4        -112.8
+   Matthew Hibner     4  133        BAL           98.5         0.091  0.027   0.073   0.118    161.2         -22.3
+        Joe Royer     5  170        CLE           72.3         0.078  0.026   0.070   0.114    165.4          -5.4
+      Josh Cuevas     5  173        BAL           71.0         0.075  0.021   0.056   0.092    166.1         -21.1
+     Jack Endries     7  221        CIN           49.3         0.074  0.020   0.054   0.089    166.1          45.1
+      Bauer Sharp     6  185         TB           65.8         0.072  0.022   0.061   0.099    166.1           4.2
+ Riley Nowakowski     5  169        PIT           61.0         0.055  0.016   0.043   0.071    166.6         -22.2
+    Seydou Traore     5  180        MIA           59.0         0.030  0.009   0.025   0.041    167.2         -41.5
+      Carsen Ryan     7  248        CLE           21.4         0.015  0.005   0.014   0.024    169.6          11.8
+
+----- Day-3 stashes: rounds 4-7 by pre-draft value gap (college model P(top 24) minus pick-only) -----
+ pfr_player_name pick draft_team pick_only_p24 pre_enet_p24 value_gap_p24 pick_only_pts3 pre_enet_pts3
+  Dallen Bentley  256        DEN         0.036        0.399         0.363           25.2         170.1
+     Jaren Kanak  225        TEN         0.048        0.284         0.236           41.8         156.0
+   Tanner Koziol  164        JAX         0.098        0.213         0.115           82.5         134.6
+    Jack Endries  221        CIN         0.050        0.146         0.096           44.1          89.2
+     Justin Joly  152        DEN         0.115        0.188         0.073           92.2         115.3
+
+===== YEAR 2 (2025 class) candidates =====
+BUYS: usage edge >= +0.05 with P(top 24) >= 0.15, or P(top 24) >= 0.40 with a rookie finish worse than TE24
+ pfr_player_name pick y1_games y1_tgt_pg y1_tgt_share y1_wopr y1_snap_avg y1_snap_last6 y1_ppg y1_finish y1_td_share_pts p_top24_usage p_top16_usage p_top8_usage p_top24_rookie_pts usage_edge_top24 pts23_usage
+     Gunnar Helm  120       16     3.438        0.111   0.220       0.526         0.602  5.731        31           0.131         0.608         0.342        0.133              0.505            0.103     156.097
+  Mitchell Evans  163       14     1.786        0.062   0.115       0.396         0.418  3.443        54           0.249         0.225         0.134        0.083              0.140            0.085     100.784
+   Jackson Hawes  173       13     1.462        0.053   0.118       0.462         0.488  4.054        51           0.342         0.201         0.135        0.081              0.144            0.057      99.611
+
+SELLS: rookie finish <= TE36 and (usage edge <= -0.05, or last-6 snap share 5+ points below his season average, or TD-heavy: TDs >= 35% of points)
+ pfr_player_name pick y1_games y1_tgt_pg y1_tgt_share y1_wopr y1_snap_avg y1_snap_last6 y1_ppg y1_finish y1_td_share_pts p_top24_usage p_top16_usage p_top8_usage p_top24_rookie_pts usage_edge_top24 pts23_usage
+    Mason Taylor   42       13     5.000        0.185   0.375       0.811         0.777  6.838        32           0.067         0.774         0.540        0.164              0.846           -0.072     184.914
+   Harold Fannin   67       16     6.688        0.214   0.446       0.759         0.795 11.650         6           0.225         0.910         0.771        0.343              0.980           -0.070     244.358
+
+===== YEAR 3 (2024 class) candidates =====
+BUYS: usage edge vs year-2 points >= +0.05 with P(top 24) >= 0.15, or rising usage (more targets and snaps) with P >= 0.20
+ pfr_player_name pick y1_finish y2_finish y2_games y2_tgt_pg y2_tgt_share y2_wopr y2_snap_avg y2_snap_last6 d_tgt d_snap y2_ppg y2_td_share_pts p_top24_usage p_top16_usage p_top8_usage p_top24_y2pts usage_edge_top24
+    Theo Johnson  107        37        18       15     4.933        0.167   0.356       0.867         0.898 1.024  0.021  8.520           0.235         0.542         0.270        0.136         0.388            0.154
+       AJ Barner  121        35        14       17     4.000        0.149   0.280       0.773         0.782 1.467  0.312  8.665           0.285         0.445         0.223        0.118         0.449           -0.004
+ pts_y3_usage
+      106.867
+       93.997
+
+SELLS: year-2 finish <= TE40 and (usage edge <= -0.05, or targets and snaps both fell, or last-6 snaps 5+ points below average, or TD-heavy)
+ [1] pfr_player_name  pick             y1_finish        y2_finish        y2_games         y2_tgt_pg        y2_tgt_share     y2_wopr          y2_snap_avg      y2_snap_last6    d_tgt            d_snap          
+[13] y2_ppg           y2_td_share_pts  p_top24_usage    p_top16_usage    p_top8_usage     p_top24_y2pts    usage_edge_top24 pts_y3_usage    
+<0 rows> (or 0-length row.names)
+
+saved te_summary_lists.csv ( 26 rows )

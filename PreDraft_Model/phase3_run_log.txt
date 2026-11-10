@@ -1,0 +1,136 @@
+
+===== QB : chosen model enet =====
+in-sample AUC (any tier): 0.951 
+permutation importance:
+        variable auc_drop
+        best_aya   0.0338
+      p_comp_pct   0.0229
+    p_pass_share   0.0187
+    yrs_since_hs   0.0089
+ career_rush_yds   0.0076
+           p_ypa   0.0047
+          power5   0.0040
+ college_seasons   0.0040
+      p_int_rate   0.0039
+           p_att   0.0026
+  recruit_rating   0.0025
+ recruit_missing   0.0014
+      career_att   0.0013
+       p_rush_td   0.0006
+           early   0.0005
+      p_rush_yds   0.0002
+     transferred   0.0000
+    breakout_yrs   0.0000
+   ever_breakout   0.0000
+           p_aya   0.0000
+ starter_seasons   0.0000
+       p_td_rate  -0.0002
+     final_short  -0.0002
+SHAP ( elastic-net linear contributions ) mean |value| on training pool:
+       best_aya      p_comp_pct    yrs_since_hs    p_pass_share          power5 
+          0.703           0.676           0.457           0.397           0.397 
+     career_att career_rush_yds college_seasons recruit_missing           p_att 
+          0.332           0.305           0.275           0.273           0.269 
+          p_ypa  recruit_rating 
+          0.267           0.261 
+
+===== RB : chosen model enet =====
+in-sample AUC (any tier): 0.938 
+permutation importance:
+         variable auc_drop
+           power5   0.0304
+ best_scrim_share   0.0224
+        p_rec_yds   0.0173
+      final_short   0.0122
+        p_rush_td   0.0110
+     yrs_since_hs   0.0082
+            p_ypc   0.0035
+  career_rush_yds   0.0033
+       p_rush_yds   0.0017
+       p_td_share   0.0017
+    p_scrim_share   0.0012
+      transferred   0.0011
+ featured_seasons   0.0009
+     breakout_yrs   0.0004
+       career_rec   0.0001
+            early   0.0001
+    ever_breakout   0.0000
+   recruit_rating   0.0000
+            p_car   0.0000
+  recruit_missing  -0.0001
+  college_seasons  -0.0001
+            p_rec  -0.0002
+      p_rec_share  -0.0003
+      p_car_share  -0.0003
+SHAP ( elastic-net linear contributions ) mean |value| on training pool:
+          power5     yrs_since_hs      final_short        p_rec_yds 
+           0.773            0.401            0.399            0.375 
+       p_rush_td            p_ypc  career_rush_yds       p_rush_yds 
+           0.322            0.271            0.194            0.186 
+      p_td_share      transferred best_scrim_share    ever_breakout 
+           0.133            0.133            0.087            0.082 
+
+===== WR : chosen model glm =====
+in-sample AUC (any tier): 0.912 
+permutation importance:
+         variable auc_drop
+        p_rec_yds   0.1200
+     yrs_since_hs   0.0267
+           power5   0.0202
+      p_dominator   0.0081
+   recruit_rating   0.0070
+  college_seasons   0.0000
+      transferred   0.0000
+            early   0.0000
+      final_short   0.0000
+  recruit_missing   0.0000
+    ever_breakout   0.0000
+            p_rec   0.0000
+         p_rec_td   0.0000
+            p_ypr   0.0000
+      p_rec_share   0.0000
+           p_ypta   0.0000
+   best_dominator   0.0000
+   career_rec_yds   0.0000
+  career_rush_yds   0.0000
+ featured_seasons   0.0000
+     breakout_yrs   0.0000
+SHAP ( logistic-regression linear contributions ) mean |value| on training pool:
+      p_rec_yds    yrs_since_hs          power5     p_dominator  recruit_rating 
+          0.779           0.631           0.510           0.241           0.234 
+college_seasons     transferred           early     final_short recruit_missing 
+          0.000           0.000           0.000           0.000           0.000 
+  ever_breakout           p_rec 
+          0.000           0.000 
+
+===== TE : chosen model enet =====
+in-sample AUC (any tier): 0.909 
+permutation importance:
+         variable auc_drop
+   recruit_rating   0.0256
+     yrs_since_hs   0.0230
+           p_ypta   0.0115
+  college_seasons   0.0110
+   career_rec_yds   0.0075
+      p_rec_share   0.0049
+      final_short   0.0032
+           power5   0.0026
+            p_ypr   0.0022
+      transferred   0.0020
+         p_rec_td   0.0019
+ featured_seasons   0.0012
+   best_dominator   0.0002
+            early   0.0001
+     breakout_yrs   0.0000
+    ever_breakout   0.0000
+  recruit_missing   0.0000
+            p_rec   0.0000
+      p_dominator   0.0000
+        p_rec_yds  -0.0015
+SHAP ( elastic-net linear contributions ) mean |value| on training pool:
+          p_ypta     yrs_since_hs featured_seasons   recruit_rating 
+           0.298            0.260            0.234            0.224 
+  career_rec_yds  college_seasons           power5         p_rec_td 
+           0.169            0.163            0.153            0.144 
+     final_short      transferred        p_rec_yds      p_rec_share 
+           0.088            0.086            0.057            0.037 

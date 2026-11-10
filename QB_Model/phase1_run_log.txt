@@ -1,0 +1,124 @@
+pulling: cache/qb_draft_picks.rds ...
+drafted QBs: 198 
+
+2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 
+  13   12   11   11   14    7   15   10   13   11   13   10    9   14   11   14 
+2026 
+  10 
+shared cache: ../Football2/cache/combine_raw.rds 
+shared cache: ../Football2/cache/players_raw.rds 
+shared cache: ../Football2/cache/cfbd_stats_2004_2025.rds 
+shared cache: ../Football2/cache/cfbd_ppa_raw.rds 
+shared cache: ../Football2/cache/cfbd_usage_raw.rds 
+pulling: cache/recruiting_qb_raw.rds ...
+2026-11-09 21:53:14.57113: Invalid arguments or no player recruiting data available!
+2026-11-09 21:53:15.247338: Invalid arguments or no player recruiting data available!
+2026-11-09 21:53:15.94766: Invalid arguments or no player recruiting data available!
+2026-11-09 21:53:16.586009: Invalid arguments or no player recruiting data available!
+2026-11-09 21:53:17.229107: Invalid arguments or no player recruiting data available!
+QB recruiting rows: 3526 
+pass 1 (name) matches: 187  pass 2 (last name + school): 4 
+matched: 191 of 198 drafted QBs
+saved qb_base.rds ( 198 rows ) and qb_college_seasons.rds ( 722 rows )
+
+===== Match rate =====
+[PASS] college match rate >= 95% (96.5%)
+ season  n matched
+   2010 13      12
+   2011 12      10
+   2012 11      10
+   2013 11      10
+   2014 14      14
+   2015  7       7
+   2016 15      15
+   2017 10      10
+   2018 13      13
+   2019 11      10
+   2020 13      13
+   2021 10       9
+   2022  9       9
+   2023 14      14
+   2024 11      11
+   2025 14      14
+   2026 10      10
+match rate by round:
+ round  n   pct
+     1 53  96.2
+     2 14 100.0
+     3 23 100.0
+     4 24 100.0
+     5 23  87.0
+     6 31 100.0
+     7 30  93.3
+
+===== Uniqueness and leakage =====
+[PASS] one row per drafted QB 
+[PASS] no college season on/after draft year 
+[PASS] one athlete_id per drafted QB 
+[PASS] matched final season is a real passer (>= 100 att) for 90%+ (96.3%)
+
+===== Ranges =====
+[PASS] completion % within [0, 1] 
+[PASS] pass share within [0, 1] 
+[PASS] age at draft within 20-29 
+birth date coverage: 98.5 %
+combine invite rate: 91.9 %
+drill missingness among invitees:
+ height_in  weight_lb      forty   vertical broad_jump 
+       0.0        0.0       29.1       31.3       32.4 
+recruiting coverage: 45.5 %
+final-season PPA coverage (classes 2014+): 99.3 %
+
+===== Final college season summary =====
+      att           comp_pct           ypa              aya        
+ Min.   : 20.0   Min.   :0.5251   Min.   : 5.648   Min.   : 4.742  
+ 1st Qu.:314.0   1st Qu.:0.6225   1st Qu.: 7.612   1st Qu.: 7.772  
+ Median :368.0   Median :0.6537   Median : 8.376   Median : 8.734  
+ Mean   :363.1   Mean   :0.6546   Mean   : 8.411   Mean   : 8.871  
+ 3rd Qu.:420.0   3rd Qu.:0.6883   3rd Qu.: 9.033   3rd Qu.: 9.720  
+ Max.   :639.0   Max.   :0.7790   Max.   :12.084   Max.   :13.554  
+                                                                   
+    td_rate           int_rate         pass_share        rush_yds     
+ Min.   :0.00000   Min.   :0.00000   Min.   :0.1474   Min.   :-306.0  
+ 1st Qu.:0.05250   1st Qu.:0.01394   1st Qu.:0.8902   1st Qu.: -15.5  
+ Median :0.06588   Median :0.01897   Median :0.9331   Median : 131.0  
+ Mean   :0.06675   Mean   :0.01944   Mean   :0.9020   Mean   : 202.8  
+ 3rd Qu.:0.07912   3rd Qu.:0.02483   3rd Qu.:0.9695   3rd Qu.: 308.5  
+ Max.   :0.13095   Max.   :0.05000   Max.   :1.0000   Max.   :1443.0  
+                                     NAs    :5                        
+   age_sept1    
+ Min.   :20.24  
+ 1st Qu.:21.68  
+ Median :22.36  
+ Mean   :22.35  
+ 3rd Qu.:22.92  
+ Max.   :27.88  
+ NAs    :2      
+
+unmatched_qbs.csv: 7 rows
+ season round pick pfr_player_name          college pfr_player_id
+   2010     5  155    John Skelton          Fordham      SkelJo00
+   2011     1    1      Cam Newton           Auburn      NewtCa00
+   2011     5  160  Nathan Enderle            Idaho      EndeNa00
+   2012     7  243    B.J. Coleman      Chattanooga      ColeB.00
+   2013     7  221   Brad Sorensen    Southern Utah      SoreBr00
+   2019     5  166    Easton Stick North Dakota St.      SticEa00
+   2021     1    3      Trey Lance North Dakota St.      LancTr00
+suspicious_matches.csv: 2 rows
+ season round pick pfr_player_name          college athlete_id match_school_ok
+   2014     6  183     David Fales     San Jose St.     480550           FALSE
+   2025     6  215      Cam Miller North Dakota St.    4693331            TRUE
+ match_cfb_position match_n_candidates match_method
+                 QB                  1    auto_name
+                 QB                  2    auto_name
+
+final seasons under 100 attempts (injury / backup / bad match?):
+ draft_season pick pfr_player_name college_year               team att
+         2010    1    Sam Bradford         2009           Oklahoma  69
+         2014   62 Jimmy Garoppolo         2013   Eastern Illinois  95
+         2016    2    Carson Wentz         2014 North Dakota State  28
+         2018  108   Kyle Lauletta         2016           Richmond  35
+         2020  231     Ben DiNucci         2019      James Madison  20
+         2022  241  Chris Oladokun         2021 South Dakota State  28
+         2025  197    Graham Mertz         2024            Florida  94
+[PASS] Phase 1 ready for Phase 2 

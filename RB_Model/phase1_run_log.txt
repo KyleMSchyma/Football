@@ -1,0 +1,232 @@
+pulling: cache/rb_draft_picks.rds ...
+drafted RB/FB rows: 369  (FB: 15 )
+drafted RBs: 354 
+
+2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 
+  15   29   21   25   19   18   20   27   21   25   18   19   23   18   19   25 
+2026 
+  12 
+shared cache: ../Football2/cache/combine_raw.rds 
+shared cache: ../Football2/cache/players_raw.rds 
+shared cache: ../Football2/cache/cfbd_stats_2004_2025.rds 
+shared cache: ../Football2/cache/cfbd_ppa_raw.rds 
+shared cache: ../Football2/cache/cfbd_usage_raw.rds 
+pulling: cache/recruiting_rb_raw.rds ...
+RB recruiting rows: 4609 
+pass 1 (name) matches: 334  pass 2 (last name + school): 7 
+matched: 341 of 354 drafted RBs
+saved rb_base.rds ( 354 rows ) and rb_college_seasons.rds ( 1168 rows )
+
+===== Match rate =====
+[PASS] college match rate >= 95% (96.3%)
+ season  n matched
+   2010 15      13
+   2011 29      27
+   2012 21      19
+   2013 25      24
+   2014 19      19
+   2015 18      17
+   2016 20      20
+   2017 27      26
+   2018 21      20
+   2019 25      25
+   2020 18      18
+   2021 19      19
+   2022 23      23
+   2023 18      18
+   2024 19      19
+   2025 25      24
+   2026 12      10
+match rate by round:
+ round  n   pct
+     1 25  96.0
+     2 41  97.6
+     3 43 100.0
+     4 70  95.7
+     5 53 100.0
+     6 63  93.7
+     7 59  93.2
+match method:
+
+auto_lastname_school            auto_name                 <NA> 
+                   7                  334                   13 
+
+===== Uniqueness and leakage =====
+[PASS] one row per drafted RB 
+[PASS] no college season on/after draft year 
+[PASS] one athlete_id per drafted RB 
+[PASS] matched final season is a real runner (>= 50 carries) for 90%+ (90.3%)
+
+===== Ranges =====
+[PASS] carry share within [0, 1] 
+[PASS] scrimmage share within [0, 1] 
+[PASS] age at draft within 20-28 
+birth date coverage: 99.2 %
+combine invite rate: 89 %
+drill missingness among invitees:
+ height_in  weight_lb      forty   vertical broad_jump 
+       0.6        0.3       11.1       15.2       19.0 
+recruiting coverage: 46.6 %
+final-season PPA coverage (classes 2014+): 94.6 %
+
+===== Final college season summary =====
+      car         rush_yds           ypc              rec           rec_yds   
+ Min.   :  0   Min.   :  -5.0   Min.   : 2.100   Min.   : 0.00   Min.   :  0  
+ 1st Qu.:126   1st Qu.: 675.0   1st Qu.: 5.052   1st Qu.:11.00   1st Qu.: 88  
+ Median :184   Median :1034.0   Median : 5.647   Median :19.00   Median :171  
+ Mean   :176   Mean   : 998.6   Mean   : 5.690   Mean   :20.51   Mean   :190  
+ 3rd Qu.:232   3rd Qu.:1330.0   3rd Qu.: 6.282   3rd Qu.:28.00   3rd Qu.:258  
+ Max.   :350   Max.   :2497.0   Max.   :11.710   Max.   :69.00   Max.   :699  
+                                NAs    :21                                    
+   car_share       scrim_share       rec_share         age_sept1    
+ Min.   :0.0000   Min.   :0.0000   Min.   :0.00000   Min.   :19.61  
+ 1st Qu.:0.3041   1st Qu.:0.1754   1st Qu.:0.05752   1st Qu.:20.91  
+ Median :0.4136   Median :0.2437   Median :0.08765   Median :21.58  
+ Mean   :0.3896   Mean   :0.2379   Mean   :0.09273   Mean   :21.62  
+ 3rd Qu.:0.5048   3rd Qu.:0.3003   3rd Qu.:0.12414   3rd Qu.:22.32  
+ Max.   :0.7919   Max.   :0.4772   Max.   :0.27092   Max.   :24.34  
+ NAs    :8                         NAs    :8         NAs    :3      
+
+unmatched_rbs.csv: 13 rows
+ season round pick        pfr_player_name            college pfr_player_id
+   2010     6  173          Anthony Dixon    Mississippi St.      DixoAn00
+   2010     6  180             Deji Karim  Southern Illinois      KariDe00
+   2011     4  125           Taiwan Jones Eastern Washington      JoneTa00
+   2011     7  223           Shane Bannon               Yale      BannSh00
+   2012     2   61        LaMichael James             Oregon      JameLa00
+   2012     7  252       Daryl Richardson  Abilene Christian      RichDa00
+   2013     4  130          Kyle Juszczyk            Harvard      JuszKy00
+   2015     1   10            Todd Gurley            Georgia      GurlTo01
+   2017     6  203    De'Angelo Henderson   Coastal Carolina      HendDe01
+   2018     6  204         Trenton Cannon       Virginia St.      CannTr00
+   2025     7  245 Jacory Croskey-Merritt            Arizona      CrosJa00
+   2026     4  122    Mike Washington Jr.           Arkansas      WashMi00
+   2026     7  245             Jam Miller            Alabama      MillJa03
+suspicious_matches.csv: 44 rows
+ season round pick    pfr_player_name          college athlete_id
+   2010     1   30        Jahvid Best       California     238184
+   2010     4  112       Joe McKnight              USC     236598
+   2010     6  174      Dennis Morris   Louisiana Tech     191077
+   2010     7  237     Ryan D'Imperio          Rutgers     194495
+   2011     2   38      Ryan Williams    Virginia Tech     381565
+   2011     2   56       Shane Vereen       California     238201
+   2011     5  133       Johnny White   North Carolina     183672
+   2011     6  177       Evan Royster         Penn St.     188694
+   2011     6  183      Jordan Todman      Connecticut     382319
+   2011     6  187     Allen Bradford              USC     183222
+   2012     1   32       David Wilson    Virginia Tech     480218
+   2012     4  128      Rhett Ellison              USC     236576
+   2012     7  212      Michael Smith         Utah St.     480950
+   2013     2   37    Giovani Bernard   North Carolina     500890
+   2013     4  131   Marcus Lattimore   South Carolina     501517
+   2013     5  154     Chris Thompson      Florida St.     480764
+   2014     2   54      Bishop Sankey       Washington     513063
+   2014     3   94      Terrance West           Towson     516385
+   2014     3   96    Jerick McKinnon Georgia Southern     505844
+   2014     4  130        James White        Wisconsin     503422
+   2014     4  138 Lorenzo Taliaferro Coastal Carolina     529583
+   2015     4  125     Javorius Allen              USC     513339
+   2015     4  126         Mike Davis   South Carolina     545218
+   2015     7  230      Marcus Murphy         Missouri     501826
+   2016     4  119        Tyler Ervin     San Jose St.     512671
+   2016     5  156  Jonathan Williams         Arkansas     535893
+   2016     6  182    Keenan Reynolds             Navy     530568
+   2016     7  236  Dwayne Washington       Washington     542080
+   2016     7  242     Keith Marshall          Georgia     530937
+   2017     4  121       Joe Williams             Utah    3912576
+   2017     5  179         T.J. Logan   North Carolina     545254
+   2017     6  207     Brandon Wilson          Houston     536828
+   2017     7  242        Elijah Hood   North Carolina    3116690
+   2018     1   31        Sony Michel          Georgia    3128721
+   2018     2   35         Nick Chubb          Georgia    3128720
+   2018     2   38    Ronald Jones II              USC    3912550
+   2019     7  234       Myles Gaskin       Washington    3886818
+   2020     3   66     Antonio Gibson          Memphis    4360294
+   2020     3   76    Ke'Shawn Vaughn         Illinois    3917612
+   2020     7  246      Malcolm Perry             Navy    4039436
+   2022     6  183       Kevin Harris   South Carolina    4570674
+   2023     6  215         Zach Evans      Mississippi    4685035
+   2024     4  128          Ray Davis         Kentucky    5100357
+   2024     5  173       Isaiah Davis South Dakota St.    4695404
+ match_school_ok match_cfb_position match_n_candidates match_method
+            TRUE                  ?                  1    auto_name
+            TRUE                  ?                  1    auto_name
+            TRUE                 TE                  1    auto_name
+            TRUE                 LB                  1    auto_name
+            TRUE                  ?                  2    auto_name
+            TRUE                  ?                  1    auto_name
+            TRUE                  ?                  1    auto_name
+            TRUE                  ?                  1    auto_name
+            TRUE                  ?                  1    auto_name
+            TRUE                  ?                  1    auto_name
+            TRUE                  ?                  1    auto_name
+            TRUE                 TE                  1    auto_name
+            TRUE                 RB                  3    auto_name
+            TRUE                  ?                  1    auto_name
+            TRUE                  ?                  1    auto_name
+            TRUE                 RB                  2    auto_name
+            TRUE                  ?                  1    auto_name
+            TRUE                 WR                  1    auto_name
+            TRUE                 WR                  1    auto_name
+            TRUE                 RB                  2    auto_name
+            TRUE                 WR                  1    auto_name
+            TRUE                  ?                  1    auto_name
+            TRUE                 RB                  2    auto_name
+            TRUE                  ?                  1    auto_name
+           FALSE                 RB                  1    auto_name
+            TRUE                 RB                  2    auto_name
+            TRUE                 QB                  1    auto_name
+            TRUE                  ?                  1    auto_name
+            TRUE                  ?                  1    auto_name
+            TRUE                 RB                  3    auto_name
+            TRUE                  ?                  1    auto_name
+            TRUE                 CB                  1    auto_name
+            TRUE                  ?                  1    auto_name
+            TRUE                  ?                  1    auto_name
+            TRUE                  ?                  1    auto_name
+            TRUE                  ?                  1    auto_name
+            TRUE                  ?                  1    auto_name
+            TRUE                 WR                  1    auto_name
+           FALSE                 RB                  1    auto_name
+            TRUE                 QB                  1    auto_name
+            TRUE                 RB                  2    auto_name
+            TRUE                 RB                  2    auto_name
+           FALSE                 RB                  1    auto_name
+            TRUE                 RB                  3    auto_name
+
+final seasons under 50 carries (injury / backup / bad match?):
+ draft_season pick    pfr_player_name college_year               team car rec
+         2010  139        John Conner         2009           Kentucky  30   5
+         2010  174      Dennis Morris         2009     Louisiana Tech   0  38
+         2010  237     Ryan D'Imperio         2009            Rutgers   0   0
+         2011  124       Owen Marecic         2010           Stanford  20   9
+         2011  136    Anthony Sherman         2010              UConn   4   8
+         2011  220       Shaun Chapas         2010            Georgia  15   5
+         2011  240     Stanley Havili         2010                USC  26  32
+         2012  128      Rhett Ellison         2011                USC   1  22
+         2012  157       Bradie Ewing         2011          Wisconsin   0  19
+         2012  229        Bryce Brown         2011       Kansas State   3   1
+         2013  215      Tommy Bohanon         2012        Wake Forest   2  23
+         2014   94      Terrance West         2013             Towson  36   1
+         2014   96    Jerick McKinnon         2013   Georgia Southern   9   0
+         2014  138 Lorenzo Taliaferro         2013   Coastal Carolina  10   4
+         2014  227        Kiero Small         2013           Arkansas  40  19
+         2015   77       Duke Johnson         2013              Miami   5   0
+         2015   86      David Johnson         2014      Northern Iowa  31  10
+         2016  236  Dwayne Washington         2015         Washington  47  25
+         2016  247         Zac Brooks         2015            Clemson  37   5
+         2017  119        Tarik Cohen         2016 North Carolina A&T  28   9
+         2017  207     Brandon Wilson         2016            Houston   0   0
+         2017  238       Devante Mays         2016         Utah State  37   1
+         2018  134      Chase Edmonds         2017            Fordham  15   2
+         2018  237        Nick Bawden         2017    San Diego State   0  14
+         2019  211    Rodney Anderson         2018           Oklahoma  11   0
+         2019  220   Cullen Gillaspia         2018          Texas A&M   2   5
+         2019  233       Chandler Cox         2018             Auburn   3  10
+         2020   66     Antonio Gibson         2019            Memphis  31  32
+         2021  202        Chris Evans         2020           Michigan  16   9
+         2021  256         Kylin Hill         2020  Mississippi State  15  23
+         2022  127      Pierre Strong         2021 South Dakota State  13   3
+         2024  128          Ray Davis         2022         Vanderbilt  23   3
+         2024  167    Keilan Robinson         2023              Texas  12   8
+[PASS] Phase 1 ready for Phase 2 

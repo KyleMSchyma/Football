@@ -1,0 +1,192 @@
+cached: cache/te_draft_picks.rds 
+drafted TEs: 252 
+
+2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 
+  19   13   12   16   10   19   11   14   15   16   12   11   19   15   12   16 
+2026 
+  22 
+shared cache: ../Football2/cache/combine_raw.rds 
+shared cache: ../Football2/cache/players_raw.rds 
+shared cache: ../Football2/cache/cfbd_stats_2004_2025.rds 
+shared cache: ../Football2/cache/cfbd_ppa_raw.rds 
+shared cache: ../Football2/cache/cfbd_usage_raw.rds 
+cached: cache/recruiting_te_raw.rds 
+TE recruiting rows: 3305 
+pass 1 (name) matches: 236  pass 2 (last name + school): 4 
+matched: 240 of 252 drafted TEs
+saved te_base.rds ( 252 rows ) and te_college_seasons.rds ( 813 rows )
+
+===== Match rate =====
+[PASS] college match rate >= 95% (95.2%)
+ season  n matched
+   2010 19      16
+   2011 13      11
+   2012 12      12
+   2013 16      16
+   2014 10      10
+   2015 19      18
+   2016 11       9
+   2017 14      12
+   2018 15      15
+   2019 16      16
+   2020 12      11
+   2021 11      10
+   2022 19      19
+   2023 15      15
+   2024 12      12
+   2025 16      16
+   2026 22      22
+match rate by round:
+ round  n   pct
+     1 15 100.0
+     2 34  97.1
+     3 42  97.6
+     4 44  93.2
+     5 44  95.5
+     6 31  90.3
+     7 42  95.2
+match method:
+
+auto_lastname_school            auto_name                 <NA> 
+                   4                  236                   12 
+
+===== Uniqueness and leakage =====
+[PASS] one row per drafted TE 
+[PASS] no college season on/after draft year 
+[PASS] one athlete_id per drafted TE 
+[PASS] matched final season has a catch for 90%+ (99.6%)
+
+===== Ranges =====
+[PASS] rec share within [0, 1] 
+[PASS] dominator within [0, 1] 
+[PASS] age at draft within 20-29 
+birth date coverage: 99.6 %
+combine invite rate: 87.7 %
+drill missingness among invitees:
+ height_in  weight_lb      forty   vertical broad_jump       cone    shuttle 
+       0.0        0.0       16.3       26.2       29.4       45.7       41.6 
+recruiting coverage: 42.1 %
+final-season PPA coverage (classes 2014+): 98.9 %
+
+===== Final college season summary =====
+      rec           rec_yds           rec_td            ypr       
+ Min.   :  0.0   Min.   :   0.0   Min.   : 0.000   Min.   : 7.00  
+ 1st Qu.: 21.0   1st Qu.: 249.8   1st Qu.: 2.000   1st Qu.:11.12  
+ Median : 32.0   Median : 417.0   Median : 3.000   Median :12.50  
+ Mean   : 33.4   Mean   : 427.3   Mean   : 3.763   Mean   :12.77  
+ 3rd Qu.: 43.0   3rd Qu.: 563.8   3rd Qu.: 5.000   3rd Qu.:14.24  
+ Max.   :100.0   Max.   :1337.0   Max.   :15.000   Max.   :20.88  
+                                                   NAs    :16     
+   rec_share          dominator          age_sept1    
+ Min.   :0.003992   Min.   :0.002467   Min.   :19.30  
+ 1st Qu.:0.099670   1st Qu.:0.097524   1st Qu.:21.35  
+ Median :0.142909   Median :0.152842   Median :21.98  
+ Mean   :0.147197   Mean   :0.163426   Mean   :21.96  
+ 3rd Qu.:0.185948   3rd Qu.:0.217852   3rd Qu.:22.62  
+ Max.   :0.411523   Max.   :0.529302   Max.   :25.37  
+ NAs    :6          NAs    :6          NAs    :1      
+
+unmatched_tes.csv: 12 rows
+ season round pick pfr_player_name              college pfr_player_id
+   2010     4  125     Clay Harbor       Missouri State      HarbCl00
+   2010     6  182      Nate Byham           Pittsburgh      ByhaNa00
+   2010     7  214   Mickey Shuler             Penn St.      ShulMi01
+   2011     4  129   Julius Thomas         Portland St.      ThomJu00
+   2011     7  238    Daniel Hardy                Idaho      HardDa00
+   2015     6  202      A.J. Derby             Arkansas      DerbA.00
+   2016     4  138    Seth Devalve            Princeton      DevaSe00
+   2016     6  217    Rico Gathers               Baylor      GathRi00
+   2017     2   45    Adam Shaheen              Ashland      ShahAd00
+   2017     5  174    Eric Saubert                Drake      SaubEr00
+   2020     3  105   Adam Trautman               Dayton      TrauAd00
+   2021     5  168   Zach Davidson Central Missouri St.      DaviZa00
+suspicious_matches.csv: 21 rows
+ season round pick     pfr_player_name            college athlete_id
+   2010     7  245        Jameson Konz           Kent St.     170644
+   2011     4  102      Jordan Cameron                USC     236567
+   2011     6  174        Charles Clay              Tulsa     237445
+   2012     5  145     Taylor Thompson                SMU     503475
+   2012     7  233      Drake Dunsmore       Northwestern     236991
+   2013     2   55      Vance McDonald               Rice     482477
+   2013     6  201        Ryan Griffin        Connecticut     382341
+   2014     3   98     Richard Rodgers         California     517027
+   2015     5  143       MyCole Pruitt  Southern Illinois     499085
+   2015     5  171          Nick Boyle           Delaware     511854
+   2015     5  173 James O'Shaughnessy       Illinois St.     498928
+   2016     6  177 Temarrick Hemingway South Carolina St.     517901
+   2016     7  231       Thomas Duarte               UCLA     547596
+   2016     7  252       Beau Sandland        Montana St.     545236
+   2017     2   44      Gerald Everett      South Alabama    3918639
+   2018     3   98        Jordan Akins    Central Florida    3128452
+   2018     5  165      Jaylen Samuels North Carolina St.    3116721
+   2019     3   69         Josh Oliver       San Jose St.    3921690
+   2022     5  177      James Mitchell      Virginia Tech    4361988
+   2022     6  192     Andrew Ogletree     Youngstown St.    4366543
+   2022     6  208      Connor Heyward       Michigan St.    4241961
+ match_school_ok match_cfb_position match_n_candidates         match_method
+            TRUE                 WR                  1            auto_name
+            TRUE                 WR                  1            auto_name
+            TRUE                 RB                  1            auto_name
+            TRUE                 WR                  1 auto_lastname_school
+            TRUE                  ?                  1            auto_name
+            TRUE                 WR                  1            auto_name
+            TRUE                 TE                  2            auto_name
+            TRUE                 WR                  1            auto_name
+            TRUE                 WR                  1            auto_name
+            TRUE                 WR                  1            auto_name
+            TRUE                 WR                  1            auto_name
+            TRUE                 WR                  1            auto_name
+            TRUE                 WR                  1            auto_name
+           FALSE                 TE                  1            auto_name
+            TRUE                 TE                  2            auto_name
+            TRUE                 WR                  1            auto_name
+            TRUE                  ?                  1            auto_name
+           FALSE                 TE                  1            auto_name
+            TRUE                 TE                  2            auto_name
+           FALSE                 DL                  1            auto_name
+            TRUE                 RB                  1            auto_name
+
+final seasons under 10 catches (blocking TE / injury / bad match?):
+ draft_season pick     pfr_player_name college_year                 team rec
+         2010  162      Brody Eldridge         2009             Oklahoma   2
+         2010  170        Fendi Onobun         2009              Houston   2
+         2011  181      Richard Gordon         2010                Miami   5
+         2012  127     Adrien Robinson         2011           Cincinnati   8
+         2013  158        Luke Willson         2012                 Rice   9
+         2015  171          Nick Boyle         2013             Delaware   4
+         2015  173 James O'Shaughnessy         2013       Illinois State   5
+         2016  177 Temarrick Hemingway         2014 South Carolina State   2
+         2016  252       Beau Sandland         2013                Miami   9
+         2018   49      Dallas Goedert         2016   South Dakota State   5
+         2020  190     Charlie Woerner         2019              Georgia   9
+         2021   97        Tre' McKitty         2020              Georgia   6
+         2021  145        Luke Farrell         2020           Ohio State   3
+         2022  177      James Mitchell         2021        Virginia Tech   5
+         2022  192     Andrew Ogletree         2019        Alabama State   0
+         2022  213    John FitzPatrick         2021              Georgia   6
+         2022  218            Ko Kieft         2021            Minnesota   7
+         2025  175        Robbie Ouzts         2024              Alabama   7
+         2025  241        Caleb Lohner         2024                 Utah   4
+         2026  159        Max Bredeson         2025             Michigan   2
+ rec_yds
+      19
+      33
+      26
+     167
+     126
+      47
+      57
+      17
+      94
+      96
+      78
+     108
+      26
+      42
+       0
+      83
+     101
+      83
+      54
+      11
+[PASS] Phase 1 ready for Phase 2 

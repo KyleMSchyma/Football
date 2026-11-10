@@ -1,0 +1,64 @@
+===== YEAR 1 PROSPECTS (2026 class): top 12 by post-draft P(top-24 season in yrs 1-3) =====
+    pfr_player_name round pick draft_team post_ppr_3yr post_hit_prob p_wr1 p_wr2plus p_wr3plus pick_ppr pre_ppr value_gap_ppr rank_gap flag
+       Carnell Tate     1    4        TEN        593.6         0.796 0.617     0.775     0.854    661.5   279.3        -382.2   -0.083     
+       Jordyn Tyson     1    8         NO        537.2         0.706 0.492     0.675     0.778    559.3   367.8        -191.5    0.000     
+      KC Concepcion     1   24        CLE        399.7         0.444 0.245     0.410     0.541    397.3   371.0         -26.3    0.083     
+        Makai Lemon     1   20        PHI        391.9         0.442 0.242     0.406     0.536    424.2   327.5         -96.7    0.000     
+          Ted Hurst     3   84         TB        236.5         0.188 0.082     0.161     0.245    212.6   259.1          46.5    0.195     
+      Denzel Boston     2   39        CLE        290.9         0.183 0.101     0.195     0.290    325.7   154.1        -171.6   -0.361     
+        Omar Cooper     1   30        NYJ        311.4         0.182 0.114     0.217     0.319    364.4   154.9        -209.5   -0.389     
+       Ja'Kobi Lane     3   80        BAL        239.8         0.155 0.082     0.161     0.245    219.8   215.8          -4.0    0.028     
+   Zachariah Branch     3   79        ATL        212.6         0.135 0.071     0.142     0.218    221.7   210.6         -11.1   -0.056     
+     Germie Bernard     2   47        PIT        260.4         0.134 0.081     0.159     0.242    298.2   180.7        -117.5   -0.223     
+ De'Zhaun Stribling     2   33         SF        282.5         0.129 0.087     0.170     0.257    350.4   114.7        -235.7   -0.597     
+   Antonio Williams     3   71        WAS        235.1         0.091 0.062     0.123     0.192    237.4   257.2          19.8    0.000     
+
+----- Day-3 stashes: top 6 by pre-draft value gap -----
+ pfr_player_name pick draft_team pick_ppr pre_ppr value_gap_ppr rank_gap p_wr3plus flag
+    Barion Brown  190         NO     92.3   277.3         185.0    0.611     0.096     
+   Kevin Coleman  177        MIA    102.7   267.3         164.6    0.555     0.087     
+  Elijah Sarratt  115        BAL    166.3   278.6         112.3    0.389     0.132     
+     Skyler Bell  125        BUF    154.0   244.6          90.6    0.305     0.108     
+     Deion Burks  254        IND     49.4   134.0          84.6    0.361     0.049     
+    Malik Benson  195         LV     88.4   142.2          53.8    0.222     0.088     
+
+===== YEAR 2 (2025 class) candidates =====
+BUYS: usage edge >= +0.03, or P(WR3+) >= 0.40 with rookie finish worse than WR36
+ pfr_player_name pick r_games r_targets  r_ts r_ays r_snap_avg r_snap_last6 r_ts_trend r_ppr r_finish rec_td td_share_of_ppr p_wr3_usage p_wr2_usage p_wr3_rookie_pts usage_edge_wr3 ppr23_usage
+  Jayden Higgins   34      17        68 0.123 0.180      0.572        0.623      0.079 129.5       47      6           0.278       0.510       0.270            0.579         -0.069       285.8
+   Elic Ayomanor  136      16        89 0.181 0.291      0.806        0.795     -0.028 116.5       54      4           0.206       0.497       0.368            0.255          0.242       255.3
+   Travis Hunter    2       7        45 0.179 0.161      0.663        0.667         NA  63.8      100      1           0.094       0.478       0.216            0.732         -0.254       187.8
+   Luther Burden   39      15        60 0.128 0.115      0.397        0.553      0.113 127.9       49      2           0.094       0.462       0.323            0.543         -0.081       304.1
+    Chimere Dike  103      17        74 0.140 0.148      0.593        0.703      0.040 128.1       48      4           0.187       0.448       0.232            0.358          0.090       256.0
+      Pat Bryant   74      13        49 0.108 0.115      0.477        0.587      0.082  74.8       85      1           0.080       0.218       0.091            0.172          0.046       164.3
+       Jack Bech   58      14        29 0.076 0.094      0.424        0.600      0.050  42.4      100      0           0.000       0.142       0.054            0.105          0.037       112.3
+
+SELLS: rookie finish <= WR60 and (usage edge <= -0.03, or last-6 snaps < 50%, or falling target share, or TD-heavy)
+   pfr_player_name pick r_games r_targets  r_ts r_ays r_snap_avg r_snap_last6 r_ts_trend r_ppr r_finish rec_td td_share_of_ppr p_wr3_usage p_wr2_usage p_wr3_rookie_pts usage_edge_wr3 ppr23_usage
+     Luther Burden   39      15        60 0.128 0.115      0.397        0.553      0.113 127.9       49      2           0.094       0.462       0.323            0.543         -0.081       304.1
+    Jayden Higgins   34      17        68 0.123 0.180      0.572        0.623      0.079 129.5       47      6           0.278       0.510       0.270            0.579         -0.069       285.8
+      Emeka Egbuka   19      17       127 0.235 0.346      0.776        0.682     -0.009 195.7       23      6           0.184       0.860       0.714            0.911         -0.051       399.1
+ Tetairoa McMillan    8      17       122 0.254 0.407      0.872        0.843     -0.016 213.4       15      7           0.197       0.931       0.881            0.968         -0.037       453.5
+     Elic Ayomanor  136      16        89 0.181 0.291      0.806        0.795     -0.028 116.5       54      4           0.206       0.497       0.368            0.255          0.242       255.3
+
+===== YEAR 3 (2024 class) candidates =====
+BUYS: usage edge vs year-2 points >= +0.05 with P(WR3+) >= 0.20, or rising usage (d_ts > 0 and d_snap > 0) with P >= 0.25
+     pfr_player_name pick y1_finish y2_finish y2_games y2_targets y2_ts y2_snap_avg y2_snap_last6 y2_ts_trend   d_ts d_snap y2_ppr use_p3 use_p2 y2pts_p3 y12pts_p3 use_ppr edge_vs_y2pts
+       Ladd McConkey   34        12        30       16        106 0.209       0.775         0.770      -0.059 -0.033  0.043  180.9  0.856  0.524    0.483     0.778 223.273         0.373
+        Brian Thomas   23         4        42       14         91 0.193       0.776         0.738      -0.045 -0.062 -0.017  138.8  0.810  0.609    0.350     0.824 205.214         0.460
+ Marvin Harrison Jr.    4        30        50       12         73 0.180       0.713         0.657      -0.034 -0.042 -0.073  127.8  0.789  0.479    0.567     0.762 155.785         0.222
+        Malik Nabers    6         6       100        4         35 0.287       0.795         0.795          NA -0.062 -0.111   57.1  0.743  0.667    0.210     0.762 157.991         0.533
+     Adonai Mitchell   52       100        73       16         74 0.150       0.506         0.792       0.184  0.038  0.144   87.9  0.532  0.254    0.109     0.076 123.470         0.423
+         Rome Odunze    9        49        41       12         90 0.237       0.881         0.843       0.014  0.045  0.045  146.1  0.453  0.375    0.527     0.568 155.936        -0.074
+       Xavier Worthy   28        33        59       14         73 0.160       0.706         0.787      -0.019 -0.016  0.065  109.9  0.386  0.247    0.215     0.458 156.542         0.171
+        Keon Coleman   33        71        60       12         59 0.174       0.652         0.567      -0.030  0.018 -0.076  102.4  0.271  0.171    0.177     0.208  95.662         0.094
+      Xavier Legette   32        60        71       15         64 0.151       0.679         0.598      -0.053 -0.029 -0.019   89.3  0.210  0.158    0.146     0.215  97.391         0.064
+
+SELLS: year-2 finish <= WR48 and (usage edge <= -0.05, or both target share and snaps fell, or late trend < -0.03)
+ pfr_player_name pick y1_finish y2_finish y2_games y2_targets y2_ts y2_snap_avg y2_snap_last6 y2_ts_trend   d_ts d_snap y2_ppr use_p3 use_p2 y2pts_p3 y12pts_p3 use_ppr edge_vs_y2pts
+   Troy Franklin  102        98        31       17        104 0.178       0.596         0.455      -0.068  0.074  0.221  177.1  0.053  0.053    0.304     0.161  86.480        -0.251
+     Rome Odunze    9        49        41       12         90 0.237       0.881         0.843       0.014  0.045  0.045  146.1  0.453  0.375    0.527     0.568 155.936        -0.074
+   Ladd McConkey   34        12        30       16        106 0.209       0.775         0.770      -0.059 -0.033  0.043  180.9  0.856  0.524    0.483     0.778 223.273         0.373
+    Brian Thomas   23         4        42       14         91 0.193       0.776         0.738      -0.045 -0.062 -0.017  138.8  0.810  0.609    0.350     0.824 205.214         0.460
+
+saved wr_summary_lists.csv ( 43 rows )

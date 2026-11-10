@@ -1,0 +1,103 @@
+"draft_season","round","pick","pfr_player_name","college","draft_team","pre_ppr_3yr","pre_hit_prob","post_ppr_3yr","post_hit_prob","yr1_ppr","draft_value"
+2024,1,4,"Marvin Harrison Jr.","Ohio St.","ARI",373.8,0.349,598.2,0.821,196.5,224.4
+2024,1,6,"Malik Nabers","LSU","NYG",407.8,0.392,561.9,0.746,273.6,154.1
+2024,1,9,"Rome Odunze","Washington","CHI",311.3,0.177,488.9,0.472,144.9,177.6
+2024,1,28,"Xavier Worthy","Texas","KC",451.5,0.345,397.6,0.325,187.2,-53.9
+2024,1,23,"Brian Thomas","LSU","JAX",227.3,0.218,370.2,0.374,284,142.9
+2024,2,33,"Keon Coleman","Florida St.","BUF",284.5,0.23,363.1,0.377,111.5,78.6
+2024,2,34,"Ladd McConkey","Georgia","LAC",208.8,0.104,308.7,0.254,240.9,99.9
+2024,2,37,"Ja'Lynn Polk","Washington","NE",198.9,0.088,296.4,0.159,32.7,97.5
+2024,1,31,"Ricky Pearsall","Florida","SF",141.1,0.051,291.1,0.129,93.5,150
+2024,2,52,"Adonai Mitchell","Texas","IND",276.5,0.183,285.8,0.2,53.76,9.3
+2024,1,32,"Xavier Legette","South Carolina","CAR",37.6,0.056,258.4,0.136,125.1,220.8
+2024,3,65,"Malachi Corley","Western Kentucky","NYJ",193.6,0.092,229.5,0.116,5.2,35.9
+2024,4,102,"Troy Franklin","Oregon","DEN",374.6,0.329,228.9,0.135,67.1,-145.7
+2024,3,92,"Jalen McMillan","Washington","TB",201.9,0.093,192.8,0.072,135.4,-9.1
+2024,3,80,"Jermaine Burton","Alabama","CIN",249.7,0.106,191.1,0.073,14.7,-58.6
+2024,3,84,"Roman Wilson","Michigan","PIT",126.3,0.07,179.8,0.076,0,53.5
+2024,4,110,"Javon Baker","Central Florida","NE",228.9,0.115,175.2,0.072,2.2,-53.7
+2024,4,113,"Devontez Walker","North Carolina","BAL",222.2,0.156,164.5,0.111,9.1,-57.7
+2024,4,135,"Jacob Cowing","Arizona","SF",256.5,0.075,157.8,0.049,12.7,-98.7
+2024,3,100,"Luke McCaffrey","Rice","WAS",32.2,0.043,140.1,0.059,34.8,107.9
+2024,5,152,"Ainias Smith","Texas A&M","PHI",138.1,0.061,116.6,0.04,17.7,-21.5
+2024,7,225,"Brenden Rice","USC","LAC",235.8,0.106,113.7,0.041,0,-122.1
+2024,5,170,"Bub Means","Pittsburgh","NO",160.6,0.114,112.2,0.074,26.8,-48.4
+2024,5,156,"Jamari Thrash","Louisville","CLE",135.5,0.06,111.2,0.043,5.2,-24.3
+2024,5,142,"Anthony Gould","Oregon St.","IND",122.3,0.045,90,0.034,3.3,-32.3
+2024,7,241,"Tahj Washington","USC","MIA",213.6,0.062,80.1,0.024,0,-133.5
+2024,6,185,"Johnny Wilson","Florida St.","PHI",86.8,0.061,80,0.038,14.8,-6.8
+2024,6,184,"Malik Washington","Virginia","MIA",187.6,0.084,74.5,0.033,56.8,-113.1
+2024,6,182,"Jha'Quan Jackson","Tulane","TEN",0,0.029,70,0.032,1.3,70
+2024,6,216,"Ryan Flournoy","SE Missouri St.","DAL",153,0.125,69.8,0.065,18.2,-83.2
+2024,6,191,"Tejhaun Palmer","Ala-Birmingham","ARI",8.3,0.08,69.4,0.064,0,61.1
+2024,7,253,"Cornelius Johnson","Michigan","LAC",136.8,0.065,61,0.023,0,-75.8
+2024,6,187,"Casey Washington","Illinois","ATL",15.1,0.032,57.2,0.026,2.4,42.1
+2024,6,213,"Jordan Whittington","Texas","LA",31.2,0.028,20.1,0.021,52.5,-11.1
+2024,7,235,"Devaughn Vele","Utah","DEN",0,0.018,0,0.016,106.5,0
+2025,1,2,"Travis Hunter","Colorado","JAX",261.1,0.191,647.4,0.875,63.8,386.3
+2025,1,8,"Tetairoa McMillan","Arizona","CAR",431.6,0.405,523.7,0.711,213.4,92.1
+2025,1,19,"Emeka Egbuka","Ohio St.","TB",294.6,0.138,386.3,0.287,195.7,91.7
+2025,1,23,"Matthew Golden","Texas","GB",295,0.18,378.4,0.349,70,83.4
+2025,2,39,"Luther Burden","Missouri","CHI",388,0.331,347.9,0.324,127.9,-40.1
+2025,2,34,"Jayden Higgins","Iowa St.","HOU",246.5,0.129,308.8,0.194,129.5,62.3
+2025,2,55,"Tre Harris","Mississippi","LAC",242.6,0.118,238.7,0.126,69.4,-3.9
+2025,2,58,"Jack Bech","TCU","LV",209.1,0.094,237.2,0.121,42.4,28.1
+2025,3,69,"Kyle Williams","Washington St.","NE",273.7,0.118,234.3,0.096,49.2,-39.4
+2025,3,74,"Pat Bryant","Illinois","DEN",166.6,0.108,218.9,0.114,74.8,52.3
+2025,3,79,"Jaylin Noel","Iowa St.","HOU",234.4,0.098,208.3,0.072,68.4,-26.1
+2025,3,70,"Isaac TeSlaa","Arkansas","DET",170.4,0.11,202.7,0.159,75.9,32.3
+2025,4,136,"Elic Ayomanor","Stanford","TEN",314.8,0.279,191.8,0.14,116.5,-123
+2025,3,102,"Tai Felton","Maryland","MIN",204.9,0.096,186.7,0.064,5.5,-18.2
+2025,4,133,"Jalen Royals","Utah St.","KC",237,0.197,174.9,0.136,2.4,-62.1
+2025,4,108,"Dont'e Thornton","Tennessee","LV",195.3,0.089,160.8,0.056,23.5,-34.5
+2025,4,103,"Chimere Dike","Florida","TEN",157,0.057,155.8,0.046,128.1,-1.2
+2025,3,87,"Savion Williams","TCU","GB",11.1,0.04,151.3,0.057,25.5,140.2
+2025,4,128,"Jaylin Lane","Virginia Tech","WAS",162,0.048,139.6,0.036,51.2,-22.4
+2025,5,166,"Tory Horton","Colorado St.","SEA",189.7,0.078,113.9,0.046,65.1,-75.8
+2025,6,208,"Jimmy Horn","Colorado","CAR",197.4,0.061,102.1,0.031,28.7,-95.3
+2025,4,110,"Arian Smith","Georgia","NYJ",7,0.025,95.8,0.034,13.5,88.8
+2025,5,158,"KeAndre Lambert-Smith","Auburn","LAC",165,0.067,94.1,0.032,16.1,-70.9
+2025,4,138,"Jordan Watkins","Mississippi","SF",80.1,0.047,92.4,0.034,4.6,12.3
+2025,7,244,"Dominic Lovett","Georgia","DET",231.2,0.085,87.7,0.032,0,-143.5
+2025,7,235,"Tez Johnson","Oregon","TB",238.2,0.074,86.9,0.025,92.4,-151.3
+2025,7,242,"Konata Mumpfield","Pittsburgh","LA",220.3,0.1,86.1,0.038,25.2,-134.2
+2025,6,203,"LaJohntay Wester","Colorado","BAL",201.9,0.082,84.9,0.036,0,-117
+2025,7,238,"Ricky White","UNLV","SEA",254.6,0.117,80.8,0.039,0,-173.8
+2025,7,240,"Kaden Prather","Maryland","BUF",67.7,0.082,68.2,0.035,0,0.5
+2025,7,252,"Junior Bergen","Montana","SF",9.1,0.048,53.9,0.03,0,44.8
+2026,1,4,"Carnell Tate","Ohio St.","TEN",279.3,0.251,593.6,0.796,NA,314.3
+2026,1,8,"Jordyn Tyson","Arizona St.","NO",367.8,0.249,537.2,0.706,NA,169.4
+2026,1,24,"KC Concepcion","Texas A&M","CLE",371,0.264,399.7,0.444,NA,28.7
+2026,1,20,"Makai Lemon","USC","PHI",327.5,0.272,391.9,0.442,NA,64.4
+2026,1,30,"Omar Cooper","Indiana","NYJ",154.9,0.085,311.4,0.182,NA,156.5
+2026,2,39,"Denzel Boston","Washington","CLE",154.1,0.089,290.9,0.183,NA,136.8
+2026,2,33,"De'Zhaun Stribling","Mississippi","SF",114.7,0.046,282.5,0.129,NA,167.8
+2026,2,47,"Germie Bernard","Alabama","PIT",180.7,0.082,260.4,0.134,NA,79.7
+2026,3,80,"Ja'Kobi Lane","USC","BAL",215.8,0.175,239.8,0.155,NA,24
+2026,3,84,"Ted Hurst","Georgia St.","TB",259.1,0.225,236.5,0.188,NA,-22.6
+2026,3,71,"Antonio Williams","Clemson","WAS",257.2,0.118,235.1,0.091,NA,-22.1
+2026,3,79,"Zachariah Branch","Georgia","ATL",210.6,0.14,212.6,0.135,NA,2
+2026,3,83,"Chris Brazzell II","Tennessee","CAR",218.9,0.091,211.8,0.083,NA,-7.1
+2026,3,75,"Caleb Douglas","Texas Tech","MIA",175.3,0.077,209.8,0.085,NA,34.5
+2026,3,74,"Malachi Fields","Notre Dame","NYG",118.5,0.072,196.7,0.09,NA,78.2
+2026,3,94,"Chris Bell","Louisville","MIA",184.8,0.103,189.9,0.088,NA,5.1
+2026,3,89,"Zavion Thomas","LSU","CHI",144.7,0.055,186.2,0.062,NA,41.5
+2026,4,115,"Elijah Sarratt","Indiana","BAL",278.6,0.119,166,0.072,NA,-112.6
+2026,4,105,"Brenen Thompson","Mississippi St.","LAC",210.7,0.079,156.3,0.053,NA,-54.4
+2026,4,125,"Skyler Bell","Connecticut","BUF",244.6,0.078,150.3,0.05,NA,-94.3
+2026,5,143,"Reggie Virgil","Texas Tech","ARI",128.5,0.077,134.8,0.058,NA,6.3
+2026,6,190,"Barion Brown","LSU","NO",277.3,0.096,128.4,0.038,NA,-148.9
+2026,4,136,"Bryce Lance","North Dakota St.","NO",172.7,0.146,127.7,0.079,NA,-45
+2026,4,140,"Colbie Young","Georgia","CIN",83.6,0.05,118.8,0.05,NA,35.2
+2026,5,177,"Kevin Coleman","Missouri","MIA",267.3,0.108,111,0.039,NA,-156.3
+2026,5,168,"Kendrick Law","Kentucky","DET",111.4,0.06,103.3,0.038,NA,-8.1
+2026,4,121,"Kaden Wetjen","Iowa","PIT",21.1,0.046,102.6,0.078,NA,81.5
+2026,5,176,"Cyrus Allen","Cincinnati","KC",131.2,0.076,96.5,0.043,NA,-34.7
+2026,6,191,"Josh Cameron","Baylor","JAX",114.7,0.071,78.1,0.039,NA,-36.6
+2026,6,204,"Lewis Bond","Boston Col.","HOU",62.8,0.068,72.7,0.033,NA,9.9
+2026,6,197,"CJ Daniels","Miami (FL)","LA",82.7,0.032,71.5,0.026,NA,-11.2
+2026,6,195,"Malik Benson","Oregon","LV",142.2,0.077,63.2,0.055,NA,-79
+2026,6,203,"CJ Williams","Stanford","JAX",113.2,0.071,62.5,0.034,NA,-50.7
+2026,6,199,"Emmanuel Henderson Jr.","Kansas","SEA",38,0.048,56.2,0.033,NA,18.2
+2026,7,254,"Deion Burks","Oklahoma","IND",134,0.043,49.4,0.018,NA,-84.6
+2026,7,218,"Anthony Smith","East Carolina","DAL",0,0.023,28.8,0.019,NA,28.8

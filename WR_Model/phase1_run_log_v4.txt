@@ -1,0 +1,125 @@
+
+Attaching package: 'dplyr'
+
+The following objects are masked from 'package:stats':
+
+    filter, lag
+
+The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union
+
+cached: cache/wr_draft_picks.rds 
+drafted WRs: 547 
+
+2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 
+  31   28   33   28   34   35   31   32   34   28   35   35   28   33   35   31 
+2026 
+  36 
+cached: cache/combine_raw.rds 
+cached: cache/players_raw.rds 
+cached: cache/nfl_weekly_raw.rds 
+cached: cache/cfbd_stats_2004_2025.rds 
+college player-season rows: 151101 
+
+ 2004  2005  2006  2007  2008  2009  2010  2011  2012  2013  2014  2015  2016 
+    8    65   552  1284  2289  3590  3684  3777  4109  4701  4796  4889  9916 
+ 2017  2018  2019  2020  2021  2022  2023  2024  2025 
+10435 10872 10686  7607 11714 14188 13477 13831 14631 
+cached: cache/recruiting_wr_raw.rds 
+recruiting rows: 8986 
+pass 1 (name) matches: 508  pass 2 (last name + school) matches: 9 
+applying 3 manual matches
+matched: 520 of 547 drafted WRs
+saved wr_base.rds ( 547 rows ) and wr_college_seasons.rds ( 1851 rows )
+
+===== Coverage =====
+college player-season rows by year (watch for thin early years):
+
+ 2004  2005  2006  2007  2008  2009  2010  2011  2012  2013  2014  2015  2016 
+    8    65   552  1284  2289  3590  3684  3777  4109  4701  4796  4889  9916 
+ 2017  2018  2019  2020  2021  2022  2023  2024  2025 
+10435 10872 10686  7607 11714 14188 13477 13831 14631 
+
+drafted WRs by class:
+
+2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 
+  31   28   33   28   34   35   31   32   34   28   35   35   28   33   35   31 
+2026 
+  36 
+
+===== Match rate =====
+[PASS] college match rate >= 95% (95.1%)
+# A tibble: 17 × 4
+   season     n matched   pct
+    <int> <int>   <int> <dbl>
+ 1   2010    31      26  83.9
+ 2   2011    28      25  89.3
+ 3   2012    33      30  90.9
+ 4   2013    28      25  89.3
+ 5   2014    34      31  91.2
+ 6   2015    35      33  94.3
+ 7   2016    31      28  90.3
+ 8   2017    32      31  96.9
+ 9   2018    34      33  97.1
+10   2019    28      28 100  
+11   2020    35      35 100  
+12   2021    35      34  97.1
+13   2022    28      26  92.9
+14   2023    33      33 100  
+15   2024    35      35 100  
+16   2025    31      31 100  
+17   2026    36      36 100  
+match rate by round:
+# A tibble: 7 × 2
+  round   pct
+  <int> <dbl>
+1     1  98.6
+2     2  97.4
+3     3  95.2
+4     4  96.2
+5     5  95.4
+6     6  96.7
+7     7  85.9
+
+===== Uniqueness and leakage =====
+[PASS] one row per drafted WR 
+[PASS] no college season on/after draft year 
+[PASS] one athlete_id per drafted WR (a FAIL means two picks were matched to the same college player)
+
+===== Ranges =====
+[PASS] yards share within [0, 1] 
+[PASS] TD share within [0, 1] 
+[PASS] age at draft within 20-27 
+birth date coverage: 98.9 %
+combine invite rate: 89.8 %
+drill missingness among invitees (often a strategic skip, so keep a flag):
+ height_in  weight_lb      forty   vertical broad_jump       cone    shuttle 
+       0.4        0.4        9.8       15.5       17.3       46.6       44.0 
+     bench 
+      41.3 
+recruiting coverage: 51.7 %
+
+===== Final college season summary =====
+      rec            rec_yds         yds_share        dominator     
+ Min.   :  0.00   Min.   :  -3.0   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.: 41.00   1st Qu.: 617.8   1st Qu.:0.2064   1st Qu.:0.2107  
+ Median : 55.00   Median : 822.0   Median :0.2734   Median :0.2916  
+ Mean   : 57.23   Mean   : 841.2   Mean   :0.2694   Mean   :0.2802  
+ 3rd Qu.: 73.00   3rd Qu.:1084.0   3rd Qu.:0.3329   3rd Qu.:0.3508  
+ Max.   :156.00   Max.   :1764.0   Max.   :0.6549   Max.   :0.6911  
+                                                                    
+     yptpa         age_sept1    
+ Min.   :0.000   Min.   :19.50  
+ 1st Qu.:1.637   1st Qu.:21.11  
+ Median :2.201   Median :21.75  
+ Mean   :2.188   Mean   :21.76  
+ 3rd Qu.:2.670   3rd Qu.:22.45  
+ Max.   :7.350   Max.   :25.72  
+ NAs    :13      NAs    :6      
+final seasons with low team receiving totals (possible thin cfbd coverage): 10 
+
+===== Review files =====
+unmatched_wrs.csv: 27 rows
+suspicious_matches.csv: 32 rows (school disagrees, not listed as WR, or several same-name candidates)
+[PASS] Phase 1 ready for Phase 2 

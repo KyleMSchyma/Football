@@ -1,0 +1,13 @@
+"train","eval","model","n","Spearman_PPR","RMSE_PPR","AUC_hit","Brier_hit","AUC_WR3","Brier_WR3"
+"drafted only","drafted test players","pick",256,0.6239,181.3298,0.8287,0.1111,0.8495,0.1315
+"drafted only","drafted test players","pre",256,0.3972,211.2166,0.6507,0.1307,0.664,0.1713
+"drafted only","drafted test players","post",256,0.6128,183.8097,0.7521,0.1165,0.7975,0.1402
+"drafted + UDFA","drafted test players","pick",256,0.6239,181.3298,0.8287,0.1111,0.8495,0.1315
+"drafted + UDFA","drafted test players","pre",256,0.3661,212.1114,0.6548,0.1308,0.6598,0.1711
+"drafted + UDFA","drafted test players","post",256,0.6211,182.2588,0.7485,0.1156,0.7993,0.1391
+"drafted only","all incl. UDFA","pick",453,0.5588,144.1953,0.8931,0.0653,0.9017,0.079
+"drafted only","all incl. UDFA","pre",453,0.4689,172.2825,0.7204,0.0797,0.7533,0.1042
+"drafted only","all incl. UDFA","post",453,0.5847,146.8743,0.8206,0.0694,0.8647,0.0847
+"drafted + UDFA","all incl. UDFA","pick",453,0.5732,145.2243,0.892,0.0651,0.9024,0.079
+"drafted + UDFA","all incl. UDFA","pre",453,0.5121,169.6363,0.7489,0.077,0.781,0.102
+"drafted + UDFA","all incl. UDFA","post",453,0.5936,145.8568,0.8108,0.0682,0.872,0.0835

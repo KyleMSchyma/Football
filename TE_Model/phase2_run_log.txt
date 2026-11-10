@@ -1,0 +1,173 @@
+
+===== Targets =====
+[PASS] one row per drafted TE 
+[PASS] 3-year targets only for classes <= 2023 
+[PASS] hit8 implies hit16 implies hit24 
+[PASS] finish sum within [3, 180] 
+rows with a full 3-year target: 202 
+ draft_season  n hit24 hit16 hit8 mean_pts zero_pts
+         2010 19     7     5    4      179        1
+         2011 13     5     4    3      133        1
+         2012 12     2     1    1       75        1
+         2013 16     5     4    3      165        1
+         2014 10     3     2    0      123        3
+         2015 19     2     1    0       68        2
+         2016 11     2     2    1       99        3
+         2017 14     6     4    2      162        2
+         2018 15     7     6    2      191        0
+         2019 16     4     3    1      117        2
+         2020 12     1     1    1       87        0
+         2021 11     2     2    2      143        1
+         2022 19     5     4    1      138        0
+         2023 15     4     3    1      156        3
+total top-24 hits: 55  top-16: 42  top-8: 22  top-32: 70 of 202 
+tiers (1 = top 8, 2 = 9-16, 3 = 17-24, 4 = rest):
+
+  1   2   3   4 
+ 22  20  13 147 
+  grp   n hit24 hit16 hit8 median_finish_sum
+   R1  11  1.00  1.00 0.36              61.0
+ R2-3  62  0.47  0.32 0.19             126.5
+ R4-7 129  0.12  0.09 0.05             180.0
+
+top-8 hits (name, class, pick, best finish, 3-yr pts):
+ pfr_player_name draft_season pick best_finish_3yr total_pts_3yr
+  Rob Gronkowski         2010   42               1           684
+    Jimmy Graham         2010   95               1           628
+ Aaron Hernandez         2010  113               3           486
+    Dennis Pitta         2010  114               8           270
+  Jordan Cameron         2011  102               4           272
+   Julius Thomas         2011  129               3           217
+    Charles Clay         2011  174               8           297
+    Coby Fleener         2012   34               8           383
+    Tyler Eifert         2013   21               7           294
+    Travis Kelce         2013   63               7           367
+     Jordan Reed         2013   85               3           453
+   Austin Hooper         2016   81               6           347
+     Evan Engram         2017   23               5           409
+   George Kittle         2017  146               2           588
+    Mike Gesicki         2018   42               7           336
+    Mark Andrews         2018   86               5           485
+  T.J. Hockenson         2019    8               5           401
+       Cole Kmet         2020   43               8           330
+      Kyle Pitts         2021    4               6           390
+  Pat Freiermuth         2021   55               7           377
+    Trey McBride         2022   55               2           487
+     Sam LaPorta         2023   34               1           521
+
+Day 3 (round 4+) top-24 hits:
+ pfr_player_name draft_season round pick best_finish_3yr
+ Aaron Hernandez         2010     4  113               3
+    Dennis Pitta         2010     4  114               8
+  Jordan Cameron         2011     4  102               4
+   Julius Thomas         2011     4  129               3
+    Charles Clay         2011     6  174               8
+   Mychal Rivera         2013     6  184              17
+     Jesse James         2015     5  160              22
+   George Kittle         2017     5  146               2
+      Ian Thomas         2018     4  101              24
+   Chris Herndon         2018     4  107              16
+  Dalton Schultz         2018     4  137              12
+      Cade Otton         2022     4  106              14
+   Jake Ferguson         2022     4  129               9
+   Isaiah Likely         2022     4  139              16
+    Chig Okonkwo         2022     4  143              21
+
+finish by NFL year among training TEs (share top-24): y1 0.104  y2 0.173  y3 0.193 
+
+===== Feature coverage (% non-missing) =====
+              p_rec           p_rec_yds               p_ypr         p_rec_share 
+               92.5                92.5                89.7                92.5 
+        p_dominator              p_ypta          p_ppa_pass breakout_age_filled 
+               92.5                91.3                70.6                92.1 
+       age_at_draft           height_in               forty           weight_lb 
+               99.6                87.7                73.4                87.7 
+        speed_score            vertical          broad_jump      recruit_rating 
+               73.4                64.7                61.9                42.1 
+  vacated_tgt_share       incumbent_pts 
+              100.0               100.0 
+college_thin (FCS / cfbd gap / unmatched) TEs: 19 
+ draft_season pick     pfr_player_name              college max_rec p_team_rec
+         2010  125         Clay Harbor       Missouri State      NA         NA
+         2010  170        Fendi Onobun              Houston       2        501
+         2010  182          Nate Byham           Pittsburgh      NA         NA
+         2010  214       Mickey Shuler             Penn St.      NA         NA
+         2011  129       Julius Thomas         Portland St.      NA         NA
+         2011  238        Daniel Hardy                Idaho      NA         NA
+         2015  143       MyCole Pruitt    Southern Illinois      10         24
+         2015  171          Nick Boyle             Delaware       4         17
+         2015  173 James O'Shaughnessy         Illinois St.       5         20
+         2015  202          A.J. Derby             Arkansas      NA         NA
+         2016  138        Seth Devalve            Princeton      NA         NA
+         2016  177 Temarrick Hemingway   South Carolina St.       2         12
+         2016  217        Rico Gathers               Baylor      NA         NA
+         2017   45        Adam Shaheen              Ashland      NA         NA
+         2017  174        Eric Saubert                Drake      NA         NA
+         2018   49      Dallas Goedert     South Dakota St.       5         19
+         2020  105       Adam Trautman               Dayton      NA         NA
+         2021  168       Zach Davidson Central Missouri St.      NA         NA
+         2022  192     Andrew Ogletree       Youngstown St.       0         47
+breakout (15%+ dominator) rate among matched: 0.644 
+
+===== Spearman correlation with total_pts_3yr (training classes) =====
+           log_pick breakout_age_filled               forty        age_at_draft 
+             -0.699              -0.291              -0.263              -0.239 
+               cone       incumbent_pts             shuttle           weight_lb 
+             -0.229              -0.119              -0.090              -0.042 
+          height_in      recruit_rating          career_ypr               p_ypr 
+              0.021               0.093               0.103               0.148 
+         broad_jump            vertical          p_ppa_pass   vacated_tgt_share 
+              0.149               0.160               0.180               0.197 
+           p_rec_td         p_rec_share         p_dominator         speed_score 
+              0.211               0.256               0.258               0.259 
+         career_rec    featured_seasons               p_rec      best_dominator 
+              0.278               0.278               0.280               0.294 
+    p_rec_yds_share              p_ypta           p_rec_yds      career_rec_yds 
+              0.297               0.308               0.310               0.313 
+
+highly correlated pairs (|rho| > 0.8):
+                   a                b   rho
+1              p_rec        p_rec_yds  0.93
+2              p_rec      p_rec_share  0.87
+3          p_rec_yds      p_rec_share  0.80
+4              p_rec  p_rec_yds_share  0.83
+5          p_rec_yds  p_rec_yds_share  0.89
+6        p_rec_share  p_rec_yds_share  0.92
+7        p_rec_share      p_dominator  0.82
+8    p_rec_yds_share      p_dominator  0.87
+9              p_rec           p_ypta  0.85
+10         p_rec_yds           p_ypta  0.93
+11       p_rec_share           p_ypta  0.90
+12   p_rec_yds_share           p_ypta  0.96
+13       p_dominator           p_ypta  0.82
+14       p_rec_share   best_dominator  0.81
+15   p_rec_yds_share   best_dominator  0.82
+16       p_dominator   best_dominator  0.88
+17             p_rec       career_rec  0.81
+18             p_rec   career_rec_yds  0.82
+19        career_rec   career_rec_yds  0.95
+20             p_ypr       career_ypr  0.83
+21        career_rec featured_seasons  0.88
+22    career_rec_yds featured_seasons  0.85
+23             forty      speed_score -0.94
+24 vacated_tgt_share    incumbent_pts -0.83
+
+within rounds 1-3 only (n = 73 ), Spearman with total_pts_3yr:
+           log_pick                cone               forty breakout_age_filled 
+             -0.477              -0.359              -0.327              -0.143 
+          weight_lb       incumbent_pts             shuttle           height_in 
+             -0.134              -0.076              -0.059              -0.042 
+       age_at_draft   vacated_tgt_share          p_ppa_pass          broad_jump 
+             -0.020               0.054               0.111               0.128 
+         career_ypr            vertical               p_ypr            p_rec_td 
+              0.136               0.182               0.196               0.197 
+     recruit_rating    featured_seasons      best_dominator         p_rec_share 
+              0.198               0.215               0.218               0.252 
+         career_rec         p_dominator               p_rec         speed_score 
+              0.266               0.270               0.275               0.275 
+    p_rec_yds_share           p_rec_yds              p_ypta      career_rec_yds 
+              0.303               0.306               0.316               0.328 
+`geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+
+saved te_model_table.rds ( 252 rows, 99 cols ), dictionary and 3 plots
+[PASS] Phase 2 ready for Phase 3 (202 training rows, 55 top-24, 42 top-16, 22 top-8)

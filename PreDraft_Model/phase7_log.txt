@@ -1,0 +1,591 @@
+post-draft rows: 1351  matched to a pre-draft grade: 1289 
+  position   n matched
+1       QB 198     191
+2       RB 354     340
+3       TE 252     239
+4       WR 547     519
+
+===== Hit rates by post-draft grade, 2010-2023 =====
+ position grade  n mean_pick top_rate top2_rate any_rate any_lo any_hi exp_any
+       QB     A  8         4    0.000     0.500    0.625  0.250  0.875   0.766
+       QB    A+  8         1    0.625     0.875    0.875  0.625  1.000   0.903
+       QB    A-  8        17    0.500     0.750    0.875  0.625  1.000   0.639
+       QB     B 16        94    0.125     0.188    0.438  0.188  0.688   0.336
+       QB    B+ 17        21    0.412     0.412    0.647  0.412  0.882   0.522
+       QB    B- 16       117    0.188     0.250    0.312  0.125  0.562   0.221
+       QB     C 16       165    0.000     0.062    0.062  0.000  0.188   0.124
+       QB    C+ 17       128    0.000     0.000    0.059  0.000  0.176   0.157
+       QB    C- 16       146    0.000     0.000    0.062  0.000  0.188   0.100
+       QB     D 25       172    0.000     0.000    0.000  0.000  0.000   0.073
+       QB     F 16       181    0.000     0.000    0.000  0.000  0.000   0.038
+       RB     A 15        37    0.467     0.600    0.733  0.533  0.933   0.631
+       RB    A+ 15        14    0.800     0.800    0.867  0.667  1.000   0.881
+       RB    A- 15        50    0.133     0.333    0.600  0.333  0.800   0.532
+       RB     B 29       100    0.069     0.241    0.379  0.207  0.552   0.290
+       RB    B+ 30        69    0.167     0.267    0.400  0.233  0.567   0.400
+       RB    B- 30       125    0.100     0.133    0.200  0.067  0.334   0.227
+       RB     C 30       165    0.000     0.033    0.033  0.000  0.100   0.156
+       RB    C+ 30       145    0.100     0.100    0.100  0.000  0.201   0.191
+       RB    C- 30       181    0.000     0.067    0.167  0.033  0.300   0.129
+       RB     D 44       209    0.045     0.045    0.091  0.023  0.182   0.099
+       RB     F 30       232    0.000     0.100    0.100  0.000  0.233   0.070
+       TE     A 10        36    0.300     0.700    0.900  0.700  1.000   0.704
+       TE    A+ 10        21    0.400     0.800    0.800  0.500  1.000   0.865
+       TE    A- 10        62    0.300     0.400    0.400  0.100  0.700   0.513
+       TE     B 20       114    0.200     0.300    0.450  0.250  0.650   0.310
+       TE    B+ 21        66    0.048     0.190    0.429  0.238  0.667   0.404
+       TE    B- 20       116    0.200     0.250    0.300  0.100  0.500   0.250
+       TE     C 20       155    0.050     0.150    0.150  0.000  0.300   0.165
+       TE    C+ 20       133    0.050     0.150    0.150  0.000  0.300   0.199
+       TE    C- 21       189    0.048     0.095    0.143  0.000  0.286   0.128
+       TE     D 30       185    0.000     0.000    0.033  0.000  0.100   0.085
+       TE     F 20       224    0.000     0.000    0.000  0.000  0.000   0.043
+       WR     A 23        22    0.391     0.522    0.609  0.391  0.783   0.550
+       WR    A+ 22         9    0.364     0.591    0.773  0.591  0.955   0.736
+       WR    A- 22        35    0.045     0.364    0.409  0.182  0.636   0.429
+       WR     B 45        84    0.089     0.178    0.267  0.133  0.400   0.227
+       WR    B+ 44        54    0.159     0.273    0.386  0.250  0.545   0.318
+       WR    B- 44       110    0.114     0.159    0.250  0.136  0.386   0.174
+       WR     C 44       157    0.023     0.023    0.023  0.000  0.068   0.118
+       WR    C+ 45       141    0.022     0.044    0.178  0.067  0.289   0.142
+       WR    C- 45       171    0.022     0.044    0.067  0.000  0.156   0.101
+       WR     D 67       197    0.015     0.030    0.030  0.000  0.075   0.077
+       WR     F 44       215    0.023     0.023    0.023  0.000  0.068   0.056
+ mean_ppr_3yr
+      530.571
+      733.638
+      525.214
+      245.950
+      510.088
+      220.812
+       53.400
+       37.600
+       61.212
+       40.029
+       23.781
+      484.893
+      601.664
+      387.647
+      283.455
+      317.352
+      213.833
+       81.921
+      158.869
+      115.686
+      101.800
+       65.704
+      315.680
+      315.120
+      246.480
+      221.150
+      152.245
+      161.744
+      107.215
+       78.794
+       78.665
+       56.128
+       15.478
+      455.104
+      481.336
+      358.733
+      235.309
+      329.164
+      225.307
+      104.710
+      143.127
+       87.902
+       84.482
+       55.842
+
+===== Pre-draft vs post-draft vs pick only (players with both grades, 2010-2023) =====
+ position target   n hits AUC_pre AUC_pick AUC_post spearman_pts_pre
+       QB    QB8 156   20   0.734    0.834    0.875            0.393
+       QB   QB16 156   31   0.783    0.873    0.908            0.393
+       QB   QB24 156   44   0.773    0.874    0.905            0.393
+       RB    RB8 287   35   0.738    0.855    0.837            0.443
+       RB   RB16 287   55   0.684    0.807    0.781            0.443
+       RB   RB24 287   77   0.714    0.822    0.790            0.443
+       WR   WR12 417   39   0.665    0.813    0.783            0.356
+       WR   WR24 417   67   0.700    0.838    0.821            0.356
+       WR   WR36 417   91   0.717    0.849    0.833            0.356
+       TE    TE8 189   21   0.733    0.808    0.789            0.334
+       TE   TE16 189   41   0.700    0.859    0.821            0.334
+       TE   TE24 189   54   0.717    0.858    0.828            0.334
+ spearman_pts_post spearman_pre_post
+             0.666             0.681
+             0.666             0.681
+             0.666             0.681
+             0.635             0.596
+             0.635             0.596
+             0.635             0.596
+             0.612             0.616
+             0.612             0.616
+             0.612             0.616
+             0.628             0.528
+             0.628             0.528
+             0.628             0.528
+
+===== Any-tier hit rate by grade band, pre vs post =====
+ position n_pre_A n_pre_B n_pre_C n_pre_DF n_post_A n_post_B n_post_C n_post_DF
+       QB      23      47      47       39       22       49       45        40
+       RB      43      86      86       72       44       88       86        69
+       TE      28      57      57       47       30       58       58        43
+       WR      63     125     125      104       66      129      124        98
+ any_pre_A any_pre_B any_pre_C any_pre_DF any_post_A any_post_B any_post_C
+     0.739     0.362     0.064      0.179      0.818      0.469      0.067
+     0.651     0.267     0.198      0.125      0.727      0.330      0.105
+     0.464     0.474     0.140      0.128      0.700      0.414      0.138
+     0.540     0.232     0.120      0.125      0.606      0.302      0.073
+ any_post_DF
+       0.000
+       0.101
+       0.023
+       0.031
+
+===== Class summary (players with both grades) =====
+ position class  n mean_pre_pctile mean_post_pctile mean_grade_move up down
+       QB  2010 12           0.520            0.465          -0.500  3    6
+       QB  2011 10           0.465            0.625           1.500  5    2
+       QB  2012 10           0.453            0.550           1.100  5    2
+       QB  2013 10           0.379            0.373           0.000  2    3
+       QB  2014 14           0.542            0.431          -1.143  2    7
+       QB  2015  7           0.551            0.480          -0.571  0    3
+       QB  2016 15           0.387            0.402           0.067  1    4
+       QB  2017 10           0.492            0.485           0.000  2    3
+       QB  2018 13           0.478            0.440          -0.231  3    7
+       QB  2019 10           0.568            0.511          -0.700  1    3
+       QB  2020 13           0.453            0.460          -0.231  1    3
+       QB  2021  9           0.713            0.692          -0.111  2    4
+       QB  2022  9           0.566            0.566           0.000  3    3
+       QB  2023 14           0.524            0.599           0.786  4    2
+       QB  2024 11           0.576            0.662           0.909  5    1
+       QB  2025 14           0.571            0.560          -0.071  5    4
+       QB  2026 10           0.383            0.570           1.700  5    1
+       RB  2010 12           0.485            0.664           1.750  7    1
+       RB  2011 27           0.420            0.527           1.074  9    2
+       RB  2012 19           0.382            0.487           1.316  7    4
+       RB  2013 24           0.464            0.424          -0.542  2    6
+       RB  2014 19           0.662            0.566          -1.263  2   10
+       RB  2015 17           0.585            0.590           0.059  3    3
+       RB  2016 20           0.504            0.439          -0.500  4    9
+       RB  2017 26           0.504            0.388          -0.962  3   11
+       RB  2018 20           0.531            0.606           0.850  7    3
+       RB  2019 25           0.388            0.472           0.880 11    3
+       RB  2020 18           0.619            0.653           0.333  6    4
+       RB  2021 19           0.435            0.452          -0.053  6    4
+       RB  2022 23           0.488            0.444          -0.652  2    6
+       RB  2023 18           0.625            0.537          -0.778  5    7
+       RB  2024 19           0.459            0.517           0.316  6    4
+       RB  2025 24           0.710            0.552          -1.500  3   13
+       RB  2026 10           0.546            0.568           0.200  3    3
+       TE  2010 16           0.477            0.489          -0.125  4    4
+       TE  2011 11           0.441            0.500           0.727  4    3
+       TE  2012 12           0.554            0.561           0.167  3    3
+       TE  2013 16           0.454            0.483           0.312  3    2
+       TE  2014 10           0.645            0.619          -0.200  2    3
+       TE  2015 18           0.412            0.354          -0.389  5    8
+       TE  2016  9           0.480            0.480          -0.333  3    2
+       TE  2017 12           0.666            0.584          -0.417  3    4
+       TE  2018 15           0.433            0.536           0.933  7    3
+       TE  2019 16           0.575            0.548          -0.250  7    6
+       TE  2020 11           0.526            0.483          -0.455  2    5
+       TE  2021 10           0.471            0.592           1.100  6    3
+       TE  2022 18           0.458            0.411          -0.500  4    7
+       TE  2023 15           0.501            0.645           1.400  7    2
+       TE  2024 12           0.463            0.445          -0.083  3    3
+       TE  2025 16           0.575            0.502          -0.375  3    6
+       TE  2026 22           0.438            0.459           0.227  8    7
+       WR  2010 26           0.369            0.517           1.231 12    4
+       WR  2011 25           0.394            0.529           1.360 11    2
+       WR  2012 30           0.549            0.483          -0.567  7   11
+       WR  2013 25           0.544            0.556           0.000  8    6
+       WR  2014 31           0.558            0.561           0.065  8    9
+       WR  2015 33           0.501            0.519           0.303  7    7
+       WR  2016 28           0.530            0.481          -0.429  7    9
+       WR  2017 31           0.534            0.550           0.065  9    9
+       WR  2018 32           0.511            0.521           0.125  8    7
+       WR  2019 28           0.464            0.415          -0.500  7    9
+       WR  2020 35           0.568            0.547          -0.171  8    9
+       WR  2021 34           0.444            0.488           0.382  8    6
+       WR  2022 26           0.542            0.591           0.615  9    4
+       WR  2023 33           0.464            0.426          -0.424  5    9
+       WR  2024 35           0.462            0.477           0.114  9    7
+       WR  2025 31           0.469            0.466          -0.032 10    9
+       WR  2026 36           0.436            0.473           0.417 15    6
+ exp_pre exp_post actual_pts rho_pre rho_post
+   6.016    6.493          4   0.603    0.760
+   2.489    6.165          6   0.022    0.500
+   4.747    7.582         14   0.415    0.750
+   2.070    3.261          1   0.522    0.406
+   5.062    6.082          6   0.009    0.584
+   4.552    5.393          4   0.791    0.791
+   2.618    5.796         10   0.175    0.627
+   2.690    5.378          8   0.809    0.764
+   4.799    8.255          8   0.246    0.559
+   5.723    6.021          6   0.312    0.749
+   7.663    7.822         11   0.785    0.785
+   7.410    8.794          8   0.443    0.480
+   3.886    4.041          6   0.574    0.119
+   5.462    8.717          3   0.563    0.602
+   7.747   11.531         NA      NA       NA
+   5.039    8.230         NA      NA       NA
+   2.050    6.119         NA      NA       NA
+   3.969   11.689          7   0.580    0.760
+   8.220   14.660          7   0.366    0.409
+   5.559   12.295         11   0.148    0.375
+   9.284   10.274         13   0.137    0.206
+  12.264   10.095          8   0.036    0.488
+   9.108   10.437         12   0.295    0.428
+   7.415   10.275         10   0.355    0.418
+  10.951   13.677         28   0.498    0.590
+   9.390   15.283          9   0.280    0.505
+   5.434   10.865         11   0.252    0.627
+  11.705   13.640         10   0.491    0.675
+   6.953   10.013         10   0.558    0.632
+   9.334    9.827         18   0.264    0.450
+  10.029   11.918         13   0.270    0.645
+   5.972    8.339         NA      NA       NA
+  17.943   15.608         NA      NA       NA
+   4.722    7.214         NA      NA       NA
+   5.842    8.226         16   0.657    0.738
+   2.905    5.861          9   0.354    0.232
+   4.055    7.140          4   0.302    0.473
+   4.216    8.869         12   0.571    0.600
+   5.630    8.995          5   0.337    0.337
+   5.131    5.928          3   0.087    0.189
+   3.937    4.403          5   0.504    0.707
+   6.614   10.602         12   0.195    0.571
+   4.062    8.621         15   0.414    0.594
+   7.578   11.138          8   0.130    0.569
+   4.182    4.845          3   0.200    0.500
+   3.882    7.076          6   0.522    0.696
+   5.868    6.604         10   0.444    0.360
+   6.230   11.611          8   0.145    0.503
+   4.219    7.001         NA      NA       NA
+   8.326   11.465         NA      NA       NA
+   5.973   11.617         NA      NA       NA
+   5.857   10.310         13   0.154    0.373
+   4.445   12.190         10   0.590    0.582
+   9.130   12.686         12   0.378    0.635
+   9.158   11.944          6   0.294    0.509
+  12.816   16.519         23   0.707    0.670
+  10.538   18.506          9   0.443    0.366
+   8.257   11.092          9   0.029    0.330
+   8.783   14.623         17   0.034    0.566
+   7.788   12.229         11   0.332    0.541
+   8.515    9.031         19  -0.048    0.281
+  12.165   17.068         20   0.410    0.504
+   9.045   15.983         16   0.386    0.466
+   9.278   16.361         13   0.418    0.643
+   8.797   11.437         19   0.183    0.457
+  10.666   16.641         NA      NA       NA
+   7.443   13.764         NA      NA       NA
+   7.211   15.358         NA      NA       NA
+
+class-level correlation of expected vs actual tier points, 2010-2023:
+ position corr_pre corr_post mean_rho_pre mean_rho_post
+       QB    0.224     0.421        0.448         0.605
+       RB    0.335     0.021        0.324         0.515
+       TE    0.190     0.437        0.347         0.505
+       WR    0.492     0.184        0.308         0.494
+
+===== Biggest movers, 2010-2023 (grade steps, + = draft capital raised him) =====
+-- QB risers --
+ class               name pick pre_grade post_grade                nfl_outcome
+  2016       Carson Wentz    2         F         A-         best QB5 (QB8 hit)
+  2011        Jake Locker    8         F         B+ best QB28 (no tier season)
+  2023 Anthony Richardson    4        C-         A- best QB25 (no tier season)
+  2019       Daniel Jones    6        C-         B+       best QB24 (QB24 hit)
+  2011   Christian Ponder   12         D          B       best QB22 (QB24 hit)
+  2012     Ryan Tannehill    8         F         B-         best QB8 (QB8 hit)
+  2018         Josh Allen    7         F         B-         best QB1 (QB8 hit)
+  2017  Mitchell Trubisky    2        B-          A       best QB15 (QB16 hit)
+-- QB fallers --
+ class            name pick pre_grade post_grade                nfl_outcome
+  2020      Jake Fromm  167        B+         C- best QB50 (no tier season)
+  2019      Will Grier  100        B+          C best QB50 (no tier season)
+  2014    Aaron Murray  163         B         C- best QB50 (no tier season)
+  2014     David Fales  183        B-          D best QB50 (no tier season)
+  2017      Brad Kaaya  215        C+          F best QB50 (no tier season)
+  2019 Jarrett Stidham  133        C+          F best QB50 (no tier season)
+  2022      Sam Howell  144        A-         B-       best QB13 (QB16 hit)
+  2023      Max Duggan  239        A-         B- best QB50 (no tier season)
+-- RB risers --
+ class          name pick pre_grade post_grade                nfl_outcome
+  2012   Doug Martin   31         D          A         best RB2 (RB8 hit)
+  2012   Isaiah Pead   50         D          A best RB60 (no tier season)
+  2019   Josh Jacobs   24        C-          A         best RB8 (RB8 hit)
+  2022    James Cook   63         D         B+         best RB8 (RB8 hit)
+  2016  Kenyan Drake   73         D         B+       best RB14 (RB16 hit)
+  2015  Duke Johnson   77         F          B       best RB11 (RB16 hit)
+  2010  Ryan Mathews   12        B-         A+         best RB7 (RB8 hit)
+  2018 Rashaad Penny   27        B-         A+ best RB59 (no tier season)
+-- RB fallers --
+ class              name pick pre_grade post_grade                nfl_outcome
+  2016      Alex Collins  171        A-          D       best RB21 (RB24 hit)
+  2014     Ka'Deem Carey  117        A+         C+ best RB60 (no tier season)
+  2017  Jeremy McNichols  162         A          C best RB60 (no tier season)
+  2023 Israel Abanikanda  143         A          C best RB60 (no tier season)
+  2013  Kerwynn Williams  230         A          C best RB60 (no tier season)
+  2017       Tarik Cohen  119        A-         C-       best RB11 (RB16 hit)
+  2022       Ty Chandler  169        B+          D best RB48 (no tier season)
+  2014      Marion Grice  201         A         C+ best RB60 (no tier season)
+-- WR risers --
+ class             name pick pre_grade post_grade                nfl_outcome
+  2015 Breshad Perriman   26        C-          A best WR76 (no tier season)
+  2010 Dexter McCluster   36         F         B+ best WR51 (no tier season)
+  2015   DeVante Parker   14        C+         A+ best WR49 (no tier season)
+  2023   Jordan Addison   23         C          A       best WR21 (WR24 hit)
+  2014      Marqise Lee   39        C-         A- best WR39 (no tier season)
+  2011      Greg Little   59         D         B+ best WR47 (no tier season)
+  2018 Courtland Sutton   40         D         B+       best WR19 (WR24 hit)
+  2019  Diontae Johnson   66         F          B        best WR8 (WR12 hit)
+-- WR fallers --
+ class            name pick pre_grade post_grade                 nfl_outcome
+  2016 Aaron Burbridge  213         A          D best WR100 (no tier season)
+  2019 Dillon Mitchell  239         A         C- best WR100 (no tier season)
+  2023     Trey Palmer  191        A-          D  best WR72 (no tier season)
+  2014      T.J. Jones  189        A-         C- best WR100 (no tier season)
+  2012   Marvin McNutt  194        B+          D best WR100 (no tier season)
+  2017  Dede Westbrook  110        A+         B-        best WR32 (WR36 hit)
+  2020  Isaiah Hodgins  207         A         C+  best WR74 (no tier season)
+  2020  Devin Duvernay   92         A         C+  best WR59 (no tier season)
+-- TE risers --
+ class           name pick pre_grade post_grade                nfl_outcome
+  2023  Luke Musgrave   42         D         A- best TE31 (no tier season)
+  2018 Dallas Goedert   49         F         B+       best TE10 (TE16 hit)
+  2019    Drew Sample   52         F         B+ best TE31 (no tier season)
+  2023   Tucker Kraft   78         F          B       best TE10 (TE16 hit)
+  2011    Rob Housler   69         C         A- best TE28 (no tier season)
+  2013   Travis Kelce   63         C         A-         best TE7 (TE8 hit)
+  2015    Tyler Kroft   85        C-         B+       best TE15 (TE16 hit)
+  2021  Tommy Tremble   83        C-         B+ best TE39 (no tier season)
+-- TE fallers --
+ class            name pick pre_grade post_grade                nfl_outcome
+  2019    Caleb Wilson  254        A+         C- best TE60 (no tier season)
+  2016   Thomas Duarte  231        A+         C+ best TE60 (no tier season)
+  2022   Isaiah Likely  139        A+         C+       best TE16 (TE16 hit)
+  2019     Kaden Smith  176         A          C best TE36 (no tier season)
+  2017    Bucky Hodges  201         A          C best TE60 (no tier season)
+  2020 Harrison Bryant  115         A         C+ best TE39 (no tier season)
+  2015    Nick O'Leary  194        A-          C best TE33 (no tier season)
+  2019     Isaac Nauta  224        A-          C best TE60 (no tier season)
+
+===== Top 12 all-time post-draft by position =====
+-- QB --
+ post_rank_all class               name pick post_grade pre_grade
+             1  2018     Baker Mayfield    1         A+        A+
+             2  2024     Jayden Daniels    2         A+        A+
+             3  2012 Robert Griffin III    2         A+        A+
+             4  2021    Trevor Lawrence    1         A+        B+
+             5  2020         Joe Burrow    1         A+         A
+             6  2026   Fernando Mendoza    1         A+         A
+             7  2019       Kyler Murray    1         A+        A+
+             8  2015     Marcus Mariota    2         A+        A+
+             9  2012        Andrew Luck    1         A+        B+
+            10  2024     Caleb Williams    1         A+        B+
+            11  2021        Zach Wilson    2         A+         A
+            12  2010       Sam Bradford    1          A        B+
+                          nfl_outcome
+                 best QB16 (QB16 hit)
+ best QB5 (QB8 hit), 2 seasons so far
+                   best QB5 (QB8 hit)
+                   best QB7 (QB8 hit)
+                   best QB4 (QB8 hit)
+            rookie season in progress
+                   best QB3 (QB8 hit)
+                 best QB13 (QB16 hit)
+                   best QB2 (QB8 hit)
+ best QB5 (QB8 hit), 2 seasons so far
+           best QB29 (no tier season)
+                 best QB16 (QB16 hit)
+-- RB --
+ post_rank_all class                name pick post_grade pre_grade
+             1  2018      Saquon Barkley    2         A+        A+
+             2  2026      Jeremiyah Love    3         A+        A+
+             3  2012    Trent Richardson    3         A+        A+
+             4  2017   Leonard Fournette    4         A+         B
+             5  2016     Ezekiel Elliott    4         A+        B+
+             6  2017 Christian McCaffrey    8         A+        A-
+             7  2025       Ashton Jeanty    6         A+         A
+             8  2010        C.J. Spiller    9         A+        A+
+             9  2023      Bijan Robinson    8         A+        A+
+            10  2023        Jahmyr Gibbs   12         A+        B+
+            11  2010        Ryan Mathews   12         A+        B-
+            12  2025     Omarion Hampton   22         A+        A+
+                                 nfl_outcome
+                          best RB1 (RB8 hit)
+                   rookie season in progress
+                          best RB7 (RB8 hit)
+                          best RB7 (RB8 hit)
+                          best RB2 (RB8 hit)
+                          best RB1 (RB8 hit)
+       best RB11 (RB16 hit), 1 season so far
+                          best RB6 (RB8 hit)
+                          best RB2 (RB8 hit)
+                          best RB1 (RB8 hit)
+                          best RB7 (RB8 hit)
+ best RB35 (no tier season), 1 season so far
+-- WR --
+ post_rank_all class                name pick post_grade pre_grade
+             1  2015        Amari Cooper    4         A+        A+
+             2  2025       Travis Hunter    2         A+        B+
+             3  2015         Kevin White    7         A+         A
+             4  2026        Carnell Tate    4         A+        B+
+             5  2024 Marvin Harrison Jr.    4         A+        A+
+             6  2014       Sammy Watkins    4         A+        A+
+             7  2011          A.J. Green    4         A+        A-
+             8  2017         Corey Davis    5         A+        B-
+             9  2012     Justin Blackmon    5         A+        B+
+            10  2021       Ja'Marr Chase    5         A+        A+
+            11  2024        Malik Nabers    6         A+        A+
+            12  2022        Drake London    8         A+        A-
+                            nfl_outcome
+                   best WR14 (WR24 hit)
+                   no ranked season yet
+            best WR100 (no tier season)
+              rookie season in progress
+ best WR30 (WR36 hit), 2 seasons so far
+                   best WR19 (WR24 hit)
+                    best WR3 (WR12 hit)
+                   best WR28 (WR36 hit)
+                   best WR29 (WR36 hit)
+                    best WR5 (WR12 hit)
+  best WR6 (WR12 hit), 2 seasons so far
+                    best WR5 (WR12 hit)
+-- TE --
+ post_rank_all class                    name pick post_grade pre_grade
+             1  2021              Kyle Pitts    4         A+        A+
+             2  2019          T.J. Hockenson    8         A+        B+
+             3  2026            Kenyon Sadiq   16         A+        B+
+             4  2024            Brock Bowers   13         A+        A+
+             5  2014              Eric Ebron   10         A+        A-
+             6  2025        Colston Loveland   10         A+         A
+             7  2019               Noah Fant   20         A+         B
+             8  2017             Evan Engram   23         A+         A
+             9  2025            Tyler Warren   14         A+         A
+            10  2014 Austin Seferian-Jenkins   38         A+        A+
+            11  2017             O.J. Howard   19         A+         B
+            12  2017             David Njoku   29         A+        B+
+                           nfl_outcome
+                    best TE6 (TE8 hit)
+                    best TE5 (TE8 hit)
+             rookie season in progress
+  best TE1 (TE8 hit), 2 seasons so far
+                  best TE14 (TE16 hit)
+ best TE12 (TE16 hit), 1 season so far
+                   best TE9 (TE16 hit)
+                    best TE5 (TE8 hit)
+   best TE4 (TE8 hit), 1 season so far
+            best TE33 (no tier season)
+                  best TE14 (TE16 hit)
+                   best TE9 (TE16 hit)
+
+done
+
+===== Post-draft grade vs draft slot (all post-draft players 2010-2023) =====
+ position target   n hits AUC_grade AUC_pick AUC_pick_plus_grade spearman_pts
+       QB    QB8 163   21     0.876    0.842               0.877        0.666
+       QB   QB16 163   32     0.907    0.877               0.915           NA
+       QB   QB24 163   45     0.903    0.876               0.911           NA
+       RB    RB8 298   36     0.845    0.861               0.861        0.635
+       RB   RB16 298   56     0.790    0.814               0.816           NA
+       RB   RB24 298   78     0.797    0.827               0.831           NA
+       WR   WR12 445   39     0.791    0.818               0.820        0.612
+       WR   WR24 445   68     0.824    0.839               0.838           NA
+       WR   WR36 445   95     0.827    0.842               0.843           NA
+       TE    TE8 202   22     0.789    0.803               0.805        0.628
+       TE   TE16 202   42     0.823    0.857               0.858           NA
+       TE   TE24 202   55     0.831    0.857               0.857           NA
+ spearman_pts_pick    LRT_p AIC_pick AIC_pick_plus_grade
+             0.701 0.226000     97.8                98.4
+                NA 0.005030    107.0               101.0
+                NA 0.000427    131.0               121.0
+             0.664 0.719000    149.0               151.0
+                NA 0.498000    220.0               221.0
+                NA 0.288000    255.0               256.0
+             0.632 0.604000    223.0               225.0
+                NA 0.433000    299.0               301.0
+                NA 0.762000    349.0               351.0
+             0.696 0.640000    121.0               122.0
+                NA 0.790000    147.0               148.0
+                NA 0.651000    168.0               170.0
+
+===== Post-draft: any-tier hit rate by grade band within round band =====
+ position round_band n_A range n_B range n_D/F n_C range any_rate_A range
+       QB    Round 1        22        20     1        NA            0.773
+       QB Rounds 2-3         2        14     4        12            1.000
+       QB Rounds 4-7        NA        15    36        37               NA
+       RB    Round 1        21        NA    NA        NA            0.810
+       RB Rounds 2-3        24        48    NA         3            0.667
+       RB Rounds 4-7        NA        41    74        87               NA
+       TE    Round 1        11        NA    NA        NA            1.000
+       TE Rounds 2-3        17        37    NA         8            0.588
+       TE Rounds 4-7         2        24    50        53            0.000
+       WR    Round 1        53         2    NA        NA            0.679
+       WR Rounds 2-3        14        97     1        19            0.286
+       WR Rounds 4-7        NA        34   110       115               NA
+ any_rate_B range any_rate_D/F any_rate_C range
+            0.600        0.000               NA
+            0.500        0.000            0.250
+            0.267        0.000            0.000
+               NA           NA               NA
+            0.458           NA            0.333
+            0.171        0.095            0.092
+               NA           NA               NA
+            0.459           NA            0.250
+            0.292        0.020            0.132
+            0.000           NA               NA
+            0.361        1.000            0.211
+            0.147        0.018            0.070
+
+===== Post-draft misses =====
+-- QB A/A+ no tier --
+ class           name pick post_grade                nfl_outcome
+  2021    Zach Wilson    2         A+ best QB29 (no tier season)
+  2021     Trey Lance    3          A   no tier season (yrs 1-3)
+  2014 Johnny Manziel   22          A best QB33 (no tier season)
+  2018    Sam Darnold    3          A best QB27 (no tier season)
+-- QB D/F top tier --
+[1] class       name        pick        post_grade  nfl_outcome
+<0 rows> (or 0-length row.names)
+-- RB A/A+ no tier --
+ class          name pick post_grade                nfl_outcome
+  2018 Rashaad Penny   27         A+ best RB59 (no tier season)
+  2012  David Wilson   32         A+ best RB49 (no tier season)
+  2011   Mark Ingram   28          A best RB38 (no tier season)
+  2018   Sony Michel   31          A best RB31 (no tier season)
+  2015   T.J. Yeldon   36          A best RB28 (no tier season)
+  2012   Isaiah Pead   50          A best RB60 (no tier season)
+-- RB D/F top tier --
+ class          name pick post_grade        nfl_outcome
+  2012 Alfred Morris  173          D best RB8 (RB8 hit)
+  2017   Aaron Jones  182          D best RB2 (RB8 hit)
+-- WR A/A+ no tier --
+ class                  name pick post_grade                 nfl_outcome
+  2015           Kevin White    7         A+ best WR100 (no tier season)
+  2017             John Ross    9         A+  best WR75 (no tier season)
+  2022         Treylon Burks   18         A+  best WR81 (no tier season)
+  2015        DeVante Parker   14         A+  best WR49 (no tier season)
+  2016         Corey Coleman   15         A+  best WR82 (no tier season)
+  2016      Laquon Treadwell   23          A  best WR94 (no tier season)
+  2020       Henry Ruggs III   12          A  best WR86 (no tier season)
+  2015  Dorial Green-Beckham   40          A  best WR58 (no tier season)
+  2019          N'Keal Harry   32          A best WR100 (no tier season)
+  2020          Jalen Reagor   21          A  best WR90 (no tier season)
+  2021        Rashod Bateman   27          A  best WR70 (no tier season)
+  2015      Breshad Perriman   26          A  best WR76 (no tier season)
+  2022          Jahan Dotson   16          A  best WR51 (no tier season)
+  2013 Cordarrelle Patterson   29          A best WR100 (no tier season)
+-- WR D/F top tier --
+ class           name pick post_grade          nfl_outcome
+  2023     Puka Nacua  177          D  best WR1 (WR12 hit)
+  2019 Hunter Renfrow  149          F best WR10 (WR12 hit)
+-- TE A/A+ no tier --
+ class                    name pick post_grade                nfl_outcome
+  2014 Austin Seferian-Jenkins   38         A+ best TE33 (no tier season)
+  2023           Michael Mayer   35         A+ best TE35 (no tier season)
+  2014              Jace Amaro   49          A best TE25 (no tier season)
+-- TE D/F top tier --
+[1] class       name        pick        post_grade  nfl_outcome
+<0 rows> (or 0-length row.names)

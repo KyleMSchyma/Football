@@ -1,0 +1,205 @@
+drafted RBs by class:
+
+2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 
+  13   29   21   25   19   18   20   27   21   25   18   19   23   18   19   25 
+training rows (2010-2023): 296  played as rookies: 252  top-8 in yrs 2-3: 30  top-16: 51  top-24: 70 
+There were 11 warnings (use warnings() to see them)
+
+===== Year-2 breakout: cross-validated performance =====
+  scheme           model   n AUC_top24 Brier_top24 AUC_top16 Brier_top16
+ Rolling       pick_only 171    0.8198      0.1436    0.7825      0.1306
+ Rolling pick+rookie_pts 171    0.8624      0.1256    0.8436      0.1179
+ Rolling      usage_enet 171    0.8471      0.1326    0.7955      0.1299
+    LOCO       pick_only 296    0.7894      0.1438    0.7866      0.1132
+    LOCO pick+rookie_pts 296    0.8442      0.1258    0.8343      0.1025
+    LOCO      usage_enet 296    0.8420      0.1296    0.8263      0.1084
+ AUC_top8 Brier_top8 Spearman_pts RMSE_pts
+   0.8403     0.0850       0.6455 154.1563
+   0.8498     0.0830       0.7758 138.4619
+   0.8138     0.0911       0.7535 136.1685
+   0.8362     0.0717       0.6099 141.8774
+   0.8624     0.0720       0.7292 129.0560
+   0.8546     0.0743       0.7208 127.1899
+
+===== Bootstrap, rolling origin (negative = usage better) =====
+Brier top24 usage - pick_only:  -0.0110  95% CI [-0.0318, +0.0108]  share < 0: 0.843 
+Brier top24 usage - rookie_pts: +0.0070  95% CI [-0.0038, +0.0182]  share < 0: 0.106 
+Brier top8  usage - pick_only:  +0.0061  95% CI [-0.0052, +0.0193]  share < 0: 0.162 
+Brier top8  usage - rookie_pts: +0.0081  95% CI [-0.0029, +0.0219]  share < 0: 0.085 
+RMSE pts   usage - pick_only:  -17.9878  95% CI [-27.7906, -7.2199]  share < 0: 0.999 
+RMSE pts   usage - rookie_pts: -2.2934  95% CI [-9.8141, +5.3621]  share < 0: 0.732 
+Brier top24 rookie_pts - pick:  -0.0180  95% CI [-0.0353, +0.0003]  share < 0: 0.973 
+
+===== Outside top-24 as rookies, rolling 2016-2023: 149 RBs, 26 reached top 24 in yrs 2-3 =====
+top 2 per class -> usage 5 | rookie pts 6 | pick only 10 | random 2.6
+  usage hits: Dalvin Cook (2017), Joe Mixon (2017), Devin Singletary (2019), Breece Hall (2022), Zach Charbonnet (2023) 
+top 3 per class -> usage 8 | rookie pts 8 | pick only 13 | random 3.9
+  usage hits: Derrick Henry (2016), Dalvin Cook (2017), Joe Mixon (2017), Aaron Jones (2017), Devin Singletary (2019), AJ Dillon (2020), Breece Hall (2022), Zach Charbonnet (2023) 
+  all top-24 RBs in this group: Derrick Henry (2016), Kenyan Drake (2016), Alex Collins (2016), Dalvin Cook (2017), Joe Mixon (2017), James Conner (2017), Tarik Cohen (2017), Marlon Mack (2017), Aaron Jones (2017), Chris Carson (2017), Ronald Jones II (2018), Nyheim Hines (2018), Devin Singletary (2019), Damien Harris (2019), AJ Dillon (2020), Travis Etienne (2021), Rhamondre Stevenson (2021), Breece Hall (2022), James Cook (2022), Rachaad White (2022), Brian Robinson Jr. (2022), Jerome Ford (2022), Kyren Williams (2022), Isiah Pacheco (2022), Zach Charbonnet (2023), Chase Brown (2023) 
+
+===== Known names (rolling origin): P(top 24 in yrs 2-3) and rank in class =====
+ draft_season pick     pfr_player_name y1_tch_pg y1_finish best_23 use_p2
+         2016   45       Derrick Henry  8.928571        45      16  0.411
+         2017   48           Joe Mixon 15.142857        34      10  0.429
+         2017   67        Alvin Kamara 13.750000         3       4  0.853
+         2017   86         Kareem Hunt 20.937500         4      12  0.676
+         2017  105        James Conner  2.750000        60       6  0.124
+         2017  182         Aaron Jones  9.900000        60       2  0.356
+         2018   35          Nick Chubb 13.812500        17       8  0.586
+         2019   24         Josh Jacobs 20.692308        21       8  0.683
+         2019   73    David Montgomery 17.312500        24       4  0.417
+         2019  128        Tony Pollard  7.571429        53      28  0.582
+         2020   41     Jonathan Taylor 18.066667         6       1  0.715
+         2021  120 Rhamondre Stevenson 12.583333        48       7  0.325
+         2022   36         Breece Hall 15.857143        42       2  0.625
+         2022   63          James Cook  7.562500        44       8  0.395
+         2022   91       Rachaad White 11.000000        36       4  0.379
+         2022  164      Kyren Williams  5.875000        60       7  0.171
+         2022  251       Isiah Pacheco 10.823529        37      15  0.247
+         2023   12        Jahmyr Gibbs 16.866667        10       1  0.787
+         2023  163         Chase Brown  4.916667        60       7  0.141
+ rpts_p2 n_class rk_usage rk_rpts rk_pick
+   0.288      20        5       3       2
+   0.424      27        6       5       4
+   0.824      27        2       3       5
+   0.755      27        4       4       6
+   0.104      27       17      15       8
+   0.153      27        7      13      19
+   0.651      21        2       2       4
+   0.750      25        2       1       1
+   0.539      25        5       3       4
+   0.233      25        3       5      11
+   0.818      18        2       1       3
+   0.292      19        7       6       7
+   0.474      23        2       2       1
+   0.350      23        5       6       3
+   0.403      23        6       4       4
+   0.092      23        9      12      15
+   0.235      23        8       8      22
+   0.917      18        2       2       2
+   0.113      18        8       9      10
+
+===== Year-2-only check, 2024 class (n = 19 ): actual top-24 in 2025 = 0 =====
+pick  AUC NA  Brier 0.0425
+rpts  AUC NA  Brier 0.0498
+use   AUC NA  Brier 0.0740
+
+===== 2025 class: P(top 24 / top 16 / top 8 in 2026-27), usage model =====
+        pfr_player_name pick y1_games y1_tch_pg y1_tgt_pg y1_ppg y1_finish
+          Ashton Jeanty    6       17    19.941     4.294 14.418        11
+        Omarion Hampton   22        9    17.667     3.889 15.078        35
+     TreVeyon Henderson   38       17    13.059     2.471 12.129        21
+              RJ Harvey   60       17    12.000     3.412 12.153        20
+            Woody Marks  116       16    14.500     2.250  9.069        31
+           Cam Skattebo  105        8    16.625     4.000 15.963        37
+       Quinshon Judkins   36       14    19.000     2.571 12.129        26
+          Kyle Monangai  233       17    11.706     1.765  8.629        29
+         Bhayshul Tuten  104       15     6.467     0.933  5.907        53
+         Trevor Etienne  114       17     1.353     0.176  0.806        60
+             Devin Neal  184        9     8.444     2.111  6.667        60
+ Jacory Croskey-Merritt  245       17    11.059     0.765  8.253        33
+             DJ Giddens  151        5     5.600     0.400  1.920        60
+          Kaleb Johnson   83       10     3.000     0.200  0.880        60
+            Jaydon Blue  149        5     7.800     0.200  4.080        60
+         Brashard Smith  228       17     4.647     2.059  3.724        60
+           Ollie Gordon  179       17     4.647     0.529  3.182        60
+         Jarquez Hunter  117        0     0.000     0.000  0.000        60
+          Dylan Sampson  126       15     7.000     2.667  5.840        55
+          LeQuint Allen  236       16     2.125     0.688  1.550        60
+            Tahj Brooks  193       12     1.500     0.167  0.533        60
+           Jordan James  147        0     0.000     0.000  0.000        60
+        Damien Martinez  223        0     0.000     0.000  0.000        60
+         Kalel Mullings  188        4     0.750     0.000  0.175        60
+             Phil Mafah  239        1     7.000     2.000 10.900        60
+ y1_ypc y1_snap_avg y1_snap_last6 y1_ppg_late p_top24_usage p_top16_usage
+  3.665       0.779         0.847      14.344         0.839         0.727
+  4.395       0.634         0.583      14.675         0.812         0.661
+  5.061       0.459         0.457      17.600         0.670         0.520
+  3.699       0.421         0.605      13.812         0.664         0.386
+  3.587       0.515         0.577       9.188         0.524         0.215
+  4.059       0.522         0.590          NA         0.491         0.421
+  3.596       0.505         0.535      10.457         0.479         0.338
+  4.633       0.409         0.427       9.689         0.350         0.154
+  3.699       0.211         0.215       6.014         0.229         0.150
+  4.700       0.056         0.030       0.200         0.204         0.110
+  3.614       0.444         0.555      10.540         0.178         0.103
+  4.600       0.395         0.342       7.750         0.163         0.134
+  3.692       0.182         0.182       3.000         0.147         0.081
+  2.464       0.091         0.073       0.580         0.141         0.062
+  3.395       0.256         0.256      12.400         0.140         0.075
+  3.432       0.167         0.173       3.612         0.135         0.069
+  2.843       0.224         0.200       2.612         0.101         0.051
+     NA          NA            NA          NA         0.082         0.060
+  2.692       0.265         0.317       6.171         0.076         0.076
+  4.087       0.229         0.237       1.512         0.073         0.073
+     NA       0.060         0.090       0.920         0.071         0.043
+     NA          NA            NA          NA         0.064         0.044
+     NA          NA            NA          NA         0.032         0.032
+     NA       0.030         0.030       0.175         0.027         0.027
+     NA       0.180         0.180      10.900         0.023         0.023
+ p_top8_usage pts23_usage p_top24_rookie_pts p_top16_rookie_pts
+        0.495     439.867              0.962              0.921
+        0.501     380.386              0.682              0.532
+        0.302     347.441              0.764              0.613
+        0.195     294.777              0.689              0.520
+        0.120     238.358              0.371              0.238
+        0.237     266.011              0.341              0.218
+        0.175     283.963              0.683              0.524
+        0.065     195.844              0.250              0.150
+        0.095     168.499              0.243              0.154
+        0.048     150.464              0.105              0.068
+        0.071     155.825              0.122              0.075
+        0.065     150.991              0.228              0.136
+        0.031     124.589              0.080              0.052
+        0.035     122.800              0.126              0.082
+        0.038     115.490              0.092              0.059
+        0.040     115.123              0.108              0.066
+        0.025      84.595              0.116              0.072
+        0.029      73.956              0.088              0.057
+        0.032     103.593              0.212              0.132
+        0.051     103.140              0.068              0.043
+        0.019      49.100              0.064              0.041
+        0.022      52.886              0.074              0.048
+        0.014      21.274              0.053              0.034
+        0.011       1.683              0.061              0.039
+        0.023      33.052              0.057              0.036
+ usage_edge_top24
+           -0.123
+            0.130
+           -0.094
+           -0.025
+            0.153
+            0.150
+           -0.204
+            0.100
+           -0.014
+            0.099
+            0.056
+           -0.065
+            0.067
+            0.015
+            0.048
+            0.027
+           -0.015
+           -0.006
+           -0.136
+            0.005
+            0.007
+           -0.010
+           -0.021
+           -0.034
+           -0.034
+
+usage model (top 24) nonzero coefficients:
+        p_rec_share         (Intercept)       p_scrim_share      na_speed_score 
+             3.8171             -2.8632              1.3149             -0.7525 
+           log_pick         y1_snap_avg       y1_snap_last6              y1_ypc 
+            -0.7126              0.6790              0.5000              0.4152 
+          na_y1_ypc      na_y1_snap_avg       na_y1_epa_car    na_y1_snap_last6 
+            -0.4089             -0.4057             -0.4035             -0.4017 
+  na_y1_tch_pg_late          y1_epa_car      na_y1_ppg_late breakout_age_filled 
+             0.3170              0.3164              0.3099              0.1228 
+             y1_ypt           y1_finish            y1_games              y1_pts 
+             0.0623             -0.0152              0.0097              0.0016 
+        speed_score 
+             0.0015 

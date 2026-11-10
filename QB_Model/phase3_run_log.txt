@@ -1,0 +1,209 @@
+training rows: 163  rows to project: 35 
+There were 46 warnings (use warnings() to see them)
+rolling training sizes: 47, 61, 68, 83, 93, 106, 117, 130 
+
+===== Cross-validated performance =====
+  scheme        target     model   n Spearman     RMSE     R2    AUC  Brier
+    LOCO     hit16_3yr pick_only 163   0.4983       NA     NA 0.8621 0.0976
+    LOCO     hit16_3yr post_enet 163   0.5147       NA     NA 0.8740 0.0956
+    LOCO     hit16_3yr  pre_enet 163   0.4067       NA     NA 0.7956 0.1272
+    LOCO     hit24_3yr pick_only 163   0.5693       NA     NA 0.8676 0.1255
+    LOCO     hit24_3yr post_enet 163   0.5964       NA     NA 0.8851 0.1217
+    LOCO     hit24_3yr  pre_enet 163   0.4448       NA     NA 0.7872 0.1537
+    LOCO      hit8_3yr pick_only 163   0.3802       NA     NA 0.8276 0.0917
+    LOCO      hit8_3yr post_enet 163   0.4118       NA     NA 0.8548 0.0973
+    LOCO      hit8_3yr  pre_enet 163   0.2857       NA     NA 0.7461 0.1055
+    LOCO total_pts_3yr pick_only 163   0.6993 191.1682 0.5669     NA     NA
+    LOCO total_pts_3yr post_enet 163   0.7054 191.4334 0.5657     NA     NA
+    LOCO total_pts_3yr  pre_enet 163   0.4581 253.7554 0.2369     NA     NA
+ Rolling     hit16_3yr pick_only  95   0.4760       NA     NA 0.8435 0.1116
+ Rolling     hit16_3yr post_enet  95   0.4597       NA     NA 0.8317 0.1175
+ Rolling     hit16_3yr  pre_enet  95   0.2956       NA     NA 0.7133 0.1385
+ Rolling     hit24_3yr pick_only  95   0.5430       NA     NA 0.8475 0.1396
+ Rolling     hit24_3yr post_enet  95   0.6136       NA     NA 0.8927 0.1223
+ Rolling     hit24_3yr  pre_enet  95   0.4196       NA     NA 0.7685 0.1596
+ Rolling      hit8_3yr pick_only  95   0.3888       NA     NA 0.8166 0.1040
+ Rolling      hit8_3yr post_enet  95   0.3693       NA     NA 0.8007 0.1012
+ Rolling      hit8_3yr  pre_enet  95   0.1440       NA     NA 0.6173 0.1243
+ Rolling total_pts_3yr pick_only  95   0.6667 205.2242 0.5289     NA     NA
+ Rolling total_pts_3yr post_enet  95   0.5557 228.7739 0.4146     NA     NA
+ Rolling total_pts_3yr  pre_enet  95   0.3689 275.1766 0.1531     NA     NA
+
+===== Bootstrap, rolling origin (2000 draws, players resampled; negative = first model better) =====
+total_pts_3yr  RMSE  post - pick: +23.5497  95% CI [+4.8039, +44.5249]  share < 0: 0.005
+total_pts_3yr  RMSE  pre  - pick: +69.9524  95% CI [+27.9401, +113.6969]  share < 0: 0.002
+hit24_3yr      Brier post - pick: -0.0173  95% CI [-0.0503, +0.0148]  share < 0: 0.853
+hit24_3yr      Brier pre  - pick: +0.0199  95% CI [-0.0360, +0.0735]  share < 0: 0.224
+hit16_3yr      Brier post - pick: +0.0059  95% CI [-0.0247, +0.0369]  share < 0: 0.345
+hit16_3yr      Brier pre  - pick: +0.0269  95% CI [-0.0294, +0.0798]  share < 0: 0.169
+hit8_3yr       Brier post - pick: -0.0027  95% CI [-0.0193, +0.0129]  share < 0: 0.623
+hit8_3yr       Brier pre  - pick: +0.0203  95% CI [-0.0155, +0.0586]  share < 0: 0.145
+
+===== Calibration, rolling origin, post-draft P(top-24) =====
+       bin  n mean_pred actual
+   [0,0.1] 33     0.051  0.000
+ (0.1,0.3] 28     0.173  0.214
+ (0.3,0.5] 11     0.383  0.455
+ (0.5,0.7]  7     0.580  0.429
+   (0.7,1] 16     0.872  0.812
+
+===== Value score back-test (terciles of pre-draft minus pick-only predicted points), rolling 2016-2023 =====
+ grp  n mean_gap mean_beat_slot hit24 pick_only_p24
+   1 32     -275            -35 0.500         0.687
+   2 32       52            -41 0.156         0.138
+   3 31      192             60 0.194         0.079
+top minus bottom tercile, actual minus pick-only points: +95.3791  95% CI [-21.2895, +215.5725]  share < 0: 0.052 
+Spearman(value gap, beat-slot) within round 1: 0.144 | rounds 2+: 0.303 
+
+===== PPA / usage sensitivity: pre-draft model, LOCO within 2014-2023 classes =====
+     feat        target pre_Spearman pre_AUC post_Spearman
+     base     hit16_3yr        0.441   0.819         0.467
+     base     hit24_3yr        0.423   0.773         0.528
+     base      hit8_3yr        0.286   0.746         0.422
+     base total_pts_3yr        0.488      NA         0.696
+ with_ppa     hit16_3yr        0.430   0.812         0.549
+ with_ppa     hit24_3yr        0.461   0.798         0.581
+ with_ppa      hit8_3yr        0.289   0.749         0.432
+ with_ppa total_pts_3yr        0.505      NA         0.687
+total_pts_3yr  pre-draft with PPA minus without: -4.6036  95% CI [-11.0073, +1.5702]  share < 0: 0.927
+hit24_3yr      pre-draft with PPA minus without: -0.0109  95% CI [-0.0210, -0.0010]  share < 0: 0.984
+
+===== Projections (post-draft), by class =====
+ draft_season pick   pfr_player_name post_enet_pts3 post_enet_p24 post_enet_p16
+         2024    2    Jayden Daniels          804.7         0.998         0.952
+         2024    1    Caleb Williams          738.8         0.974         0.744
+         2024    3        Drake Maye          612.8         0.860         0.568
+         2024   10     J.J. McCarthy          519.2         0.885         0.453
+         2024   12            Bo Nix          445.9         0.564         0.477
+         2024    8     Michael Penix          442.2         0.603         0.312
+         2024  171     Jordan Travis          131.6         0.074         0.075
+         2024  150   Spencer Rattler          102.5         0.474         0.090
+         2024  193        Joe Milton           72.0         0.040         0.048
+         2024  245     Michael Pratt           46.7         0.063         0.080
+         2024  218       Devin Leary            0.0         0.003         0.023
+         2025    1          Cam Ward          729.4         0.976         0.734
+         2025   25       Jaxson Dart          443.1         0.840         0.409
+         2025   94    Dillon Gabriel          282.8         0.789         0.219
+         2025   92      Jalen Milroe          268.1         0.286         0.227
+         2025  144   Shedeur Sanders          202.4         0.451         0.098
+         2025  189     Riley Leonard          196.8         0.470         0.122
+         2025   40      Tyler Shough          181.1         0.083         0.089
+         2025  213     Tommy Mellott          168.3         0.058         0.206
+         2025  215        Cam Miller          154.8         0.083         0.149
+         2025  185       Will Howard          110.7         0.024         0.095
+         2025  227     Kurtis Rourke           71.1         0.018         0.080
+         2025  197      Graham Mertz           55.0         0.069         0.055
+         2025  181       Kyle McCord           51.1         0.021         0.042
+         2025  231       Quinn Ewers           34.7         0.016         0.042
+         2026    1  Fernando Mendoza          769.5         0.987         0.805
+         2026   13        Ty Simpson          372.7         0.283         0.180
+         2026   65       Carson Beck          257.4         0.403         0.159
+         2026   76        Drew Allar          238.3         0.319         0.110
+         2026  110      Cade Klubnik          206.1         0.252         0.085
+         2026  182      Taylen Green          198.2         0.278         0.104
+         2026  178       Cole Payton          197.5         0.207         0.239
+         2026  223 Athan Kaliakmanis           84.7         0.019         0.038
+         2026  234     Behren Morton           60.5         0.050         0.042
+         2026  249 Garrett Nussmeier           44.7         0.049         0.027
+ post_enet_p8 pick_only_p24 pre_enet_p24 value_gap_p24 finish_y1 finish_y2
+        0.700         0.886        0.816        -0.070         5        34
+        0.474         0.939        0.521        -0.418        16         5
+        0.360         0.840        0.485        -0.355        22         2
+        0.265         0.614        0.805         0.191        50        32
+        0.267         0.571        0.585         0.014         7         7
+        0.166         0.665        0.134        -0.531        47        33
+        0.060         0.088        0.103         0.015        50        50
+        0.055         0.099        0.211         0.112        41        36
+        0.050         0.079        0.076        -0.003        50        50
+        0.059         0.063        0.260         0.197        50        50
+        0.021         0.071        0.029        -0.042        50        50
+        0.421         0.939        0.379        -0.560        22        NA
+        0.220         0.392        0.739         0.347        13        NA
+        0.118         0.148        0.400         0.252        40        NA
+        0.131         0.151        0.502         0.351        50        NA
+        0.065         0.103        0.455         0.352        37        NA
+        0.109         0.080        0.403         0.323        50        NA
+        0.081         0.288        0.031        -0.257        26        NA
+        0.131         0.072        0.223         0.151        50        NA
+        0.094         0.071        0.214         0.143        50        NA
+        0.079         0.082        0.339         0.257        50        NA
+        0.054         0.068        0.241         0.173        50        NA
+        0.046         0.077        0.239         0.162        50        NA
+        0.038         0.084        0.246         0.162        50        NA
+        0.036         0.067        0.427         0.360        48        NA
+        0.484         0.939        0.690        -0.249        NA        NA
+        0.134         0.551        0.113        -0.438        NA        NA
+        0.098         0.200        0.267         0.067        NA        NA
+        0.083         0.177        0.368         0.191        NA        NA
+        0.076         0.130        0.302         0.172        NA        NA
+        0.120         0.083        0.333         0.250        NA        NA
+        0.140         0.085        0.603         0.518        NA        NA
+        0.037         0.069        0.080         0.011        NA        NA
+        0.034         0.066        0.144         0.078        NA        NA
+        0.032         0.062        0.085         0.023        NA        NA
+
+elastic net (pre, total_pts_3yr) nonzero coefficients (raw scale):
+      (Intercept)         p_td_rate        p_comp_pct             forty 
+        1636.2849         1341.8122         1323.2609         -261.2691 
+  na_age_at_draft      age_at_draft    recruit_rating     early_declare 
+        -123.4939          -66.9045          -48.0177           41.9530 
+na_recruit_rating          p_power5      na_height_in          best_aya 
+          39.5073           37.5277          -15.4970           14.0822 
+     na_weight_lb   combine_invited         weight_lb        p_rush_yds 
+         -13.5259            9.6655            1.1000            0.0211 
+  career_rush_yds 
+           0.0171 
+
+elastic net (post, total_pts_3yr) nonzero coefficients (raw scale):
+           p_comp_pct           (Intercept)        recruit_rating 
+             741.6323              637.0357             -148.8468 
+             log_pick      na_incumbent_pts     na_recruit_rating 
+            -110.9470              -30.5436               29.1631 
+             p_power5 na_starter_age_filled           transferred 
+              23.6781              -15.3491               11.2061 
+   starter_age_filled                 forty          age_at_draft 
+             -10.5869               -8.2907               -4.4819 
+        incumbent_pts            p_rush_yds       career_rush_yds 
+              -0.1460                0.0567                0.0313 
+
+elastic net (pre, hit24_3yr) nonzero coefficients (raw scale):
+           p_comp_pct           (Intercept)             p_td_rate 
+              13.0749                7.2665                2.6560 
+                forty       na_age_at_draft          age_at_draft 
+              -1.4709               -0.8766               -0.4483 
+    na_recruit_rating              p_power5          na_weight_lb 
+               0.3408                0.3296               -0.3226 
+         na_height_in       combine_invited         early_declare 
+              -0.3213                0.3167                0.3075 
+          final_short    starter_age_filled              best_aya 
+               0.3021               -0.1749                0.1724 
+            weight_lb            p_rush_yds na_starter_age_filled 
+               0.0052                0.0006               -0.0003 
+      career_rush_yds 
+               0.0002 
+
+elastic net (post, hit24_3yr) nonzero coefficients (raw scale):
+           p_int_rate            p_comp_pct           (Intercept) 
+             -40.0791               18.1803               -4.2782 
+       recruit_rating      na_incumbent_pts              log_pick 
+               3.8510               -1.6838               -0.9405 
+na_starter_age_filled           transferred     na_recruit_rating 
+              -0.8151                0.6315                0.4503 
+      combine_invited          na_weight_lb          na_height_in 
+               0.4255               -0.4252               -0.4248 
+                p_aya    starter_age_filled              p_power5 
+              -0.3339               -0.2915                0.2266 
+             na_forty          p_pass_share            miss_forty 
+              -0.2130               -0.2122               -0.2105 
+             best_aya       starter_seasons     vacated_att_share 
+               0.1981                0.1351                0.1248 
+        early_declare             height_in          age_at_draft 
+               0.0478               -0.0276               -0.0153 
+           p_rush_yds             p_rush_td            career_att 
+               0.0018               -0.0005                0.0004 
+      career_rush_yds 
+               0.0002 
+
+===== Checks =====
+[PASS] rolling folds never train on test or later classes 
+[PASS] every 2024-2026 QB projected 
