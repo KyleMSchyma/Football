@@ -1,0 +1,189 @@
+position: QB 
+training pool: 882  hits: 20 / 31 / 44  ( QB8 / QB16 / QB24 )
+Rolling 2016 train 225 test 60 
+Rolling 2017 train 301 test 67 
+Rolling 2018 train 367 test 73 
+Rolling 2019 train 427 test 70 
+Rolling 2020 train 494 test 76 
+Rolling 2021 train 567 test 33 
+Rolling 2022 train 637 test 50 
+Rolling 2023 train 713 test 86 
+LOCO 2010 train 819 test 63 
+LOCO 2011 train 831 test 51 
+LOCO 2012 train 836 test 46 
+LOCO 2013 train 817 test 65 
+LOCO 2014 train 806 test 76 
+LOCO 2015 train 816 test 66 
+LOCO 2016 train 822 test 60 
+LOCO 2017 train 815 test 67 
+LOCO 2018 train 809 test 73 
+LOCO 2019 train 812 test 70 
+LOCO 2020 train 806 test 76 
+LOCO 2021 train 849 test 33 
+LOCO 2022 train 832 test 50 
+LOCO 2023 train 796 test 86 
+CV time: 1.3 min
+
+===== Player-level performance (BSS = Brier skill vs base rate; higher = better) =====
+  scheme model target   n hits    AUC  Brier    BSS LogLoss Gain_top5pct
+ Rolling  null    QB8 515   14 0.4800 0.0265 0.0000  0.1260       0.0000
+ Rolling  null   QB16 515   19 0.4819 0.0355 0.0000  0.1581       0.0000
+ Rolling  null   QB24 515   27 0.4908 0.0497 0.0000  0.2057       0.0741
+ Rolling   glm    QB8 515   14 0.8369 0.0252 0.0501  0.1053       0.2857
+ Rolling   glm   QB16 515   19 0.8781 0.0293 0.1765  0.1139       0.4211
+ Rolling   glm   QB24 515   27 0.8792 0.0382 0.2316  0.1445       0.3704
+ Rolling  enet    QB8 515   14 0.8805 0.0227 0.1428  0.0916       0.5000
+ Rolling  enet   QB16 515   19 0.9241 0.0261 0.2650  0.0980       0.4737
+ Rolling  enet   QB24 515   27 0.9128 0.0341 0.3131  0.1248       0.4444
+ Rolling    rf    QB8 515   14 0.8281 0.0239 0.0965  0.1057       0.2857
+ Rolling    rf   QB16 515   19 0.8762 0.0300 0.1558  0.1175       0.4737
+ Rolling    rf   QB24 515   27 0.8711 0.0392 0.2104  0.1475       0.4074
+ Rolling   xgb    QB8 515   14 0.8246 0.0245 0.0759  0.1016       0.5000
+ Rolling   xgb   QB16 515   19 0.9028 0.0306 0.1389  0.1138       0.4211
+ Rolling   xgb   QB24 515   27 0.8763 0.0410 0.1754  0.1485       0.4444
+ Rolling   ens    QB8 515   14 0.8676 0.0231 0.1293  0.0954       0.3571
+ Rolling   ens   QB16 515   19 0.9085 0.0272 0.2335  0.1038       0.5263
+ Rolling   ens   QB24 515   27 0.8934 0.0362 0.2724  0.1342       0.4444
+    LOCO  null    QB8 882   20 0.2290 0.0222 0.0000  0.1100       0.0000
+    LOCO  null   QB16 882   31 0.3163 0.0340 0.0000  0.1534       0.0000
+    LOCO  null   QB24 882   44 0.3676 0.0475 0.0000  0.1990       0.0000
+    LOCO   glm    QB8 882   20 0.8601 0.0204 0.0833  0.0842       0.4500
+    LOCO   glm   QB16 882   31 0.8843 0.0257 0.2430  0.1032       0.4839
+    LOCO   glm   QB24 882   44 0.8889 0.0349 0.2644  0.1332       0.4773
+    LOCO  enet    QB8 882   20 0.8854 0.0182 0.1811  0.0754       0.5500
+    LOCO  enet   QB16 882   31 0.9106 0.0233 0.3156  0.0924       0.6452
+    LOCO  enet   QB24 882   44 0.9162 0.0301 0.3653  0.1160       0.5682
+    LOCO    rf    QB8 882   20 0.8238 0.0206 0.0723  0.1000       0.4000
+    LOCO    rf   QB16 882   31 0.8677 0.0269 0.2089  0.1132       0.4839
+    LOCO    rf   QB24 882   44 0.8736 0.0352 0.2585  0.1395       0.5227
+    LOCO   xgb    QB8 882   20 0.8243 0.0199 0.1071  0.0852       0.4500
+    LOCO   xgb   QB16 882   31 0.8731 0.0285 0.1620  0.1087       0.4516
+    LOCO   xgb   QB24 882   44 0.8873 0.0336 0.2927  0.1283       0.5000
+    LOCO   ens    QB8 882   20 0.8559 0.0191 0.1427  0.0809       0.5000
+    LOCO   ens   QB16 882   31 0.8878 0.0252 0.2580  0.1002       0.5161
+    LOCO   ens   QB24 882   44 0.8953 0.0317 0.3324  0.1234       0.5227
+
+Rolling-origin ranking (mean over the three tiers):
+ model  mean_BSS  mean_AUC
+  enet 0.2403000 0.9058000
+   ens 0.2117333 0.8898333
+    rf 0.1542333 0.8584667
+   glm 0.1527333 0.8647333
+   xgb 0.1300667 0.8679000
+chosen model: enet 
+
+===== Bootstrap (rolling, players resampled; negative = first model better) =====
+QB8    Brier enet - null: -0.00378  95% CI [-0.00848, +0.00013]
+QB8    Brier enet - glm: -0.00246  95% CI [-0.00562, +0.00045]
+QB16   Brier enet - null: -0.00942  95% CI [-0.01875, -0.00120]
+QB16   Brier enet - glm: -0.00315  95% CI [-0.00697, +0.00059]
+QB24   Brier enet - null: -0.01556  95% CI [-0.02704, -0.00500]
+QB24   Brier enet - glm: -0.00405  95% CI [-0.00930, +0.00073]
+
+===== Class level: expected vs actual hits per class =====
+  scheme model target classes actual_mean expected_mean   corr spearman  RMSE
+ Rolling  null    QB8       8       1.750         1.367 -0.325   -0.161 1.202
+ Rolling  null   QB16       8       2.375         2.257 -0.019   -0.062 1.152
+ Rolling  null   QB24       8       3.375         3.160 -0.424   -0.274 1.248
+ Rolling  enet    QB8       8       1.750         1.491  0.359    0.037 0.946
+ Rolling  enet   QB16       8       2.375         2.808  0.250    0.037 1.189
+ Rolling  enet   QB24       8       3.375         3.863  0.159    0.235 1.144
+ Rolling    rf    QB8       8       1.750         1.740 -0.150   -0.222 1.098
+ Rolling    rf   QB16       8       2.375         2.912 -0.116   -0.198 1.310
+ Rolling    rf   QB24       8       3.375         3.994 -0.251    0.000 1.137
+ Rolling   xgb    QB8       8       1.750         1.402 -0.640   -0.408 1.262
+ Rolling   xgb   QB16       8       2.375         2.471 -0.478   -0.383 1.392
+ Rolling   xgb   QB24       8       3.375         3.696 -0.307   -0.130 1.267
+ Rolling   ens    QB8       8       1.750         1.544 -0.114    0.000 1.077
+ Rolling   ens   QB16       8       2.375         2.679 -0.117   -0.185 1.212
+ Rolling   ens   QB24       8       3.375         3.745 -0.135    0.000 1.041
+    LOCO  null    QB8      14       1.429         1.441 -0.540   -0.448 1.467
+    LOCO  null   QB16      14       2.214         2.227 -0.369   -0.338 1.543
+    LOCO  null   QB24      14       3.143         3.162 -0.492   -0.406 1.508
+    LOCO  enet    QB8      14       1.429         1.408  0.074   -0.063 1.293
+    LOCO  enet   QB16      14       2.214         2.320  0.031   -0.120 1.457
+    LOCO  enet   QB24      14       3.143         3.281  0.142    0.088 1.323
+    LOCO    rf    QB8      14       1.429         1.512 -0.382   -0.292 1.459
+    LOCO    rf   QB16      14       2.214         2.402 -0.264   -0.243 1.574
+    LOCO    rf   QB24      14       3.143         3.380 -0.234   -0.234 1.447
+    LOCO   xgb    QB8      14       1.429         1.329 -0.275   -0.276 1.389
+    LOCO   xgb   QB16      14       2.214         2.144 -0.336   -0.506 1.597
+    LOCO   xgb   QB24      14       3.143         3.054 -0.061   -0.053 1.360
+    LOCO   ens    QB8      14       1.429         1.416 -0.208   -0.226 1.363
+    LOCO   ens   QB16      14       2.214         2.253 -0.190   -0.243 1.508
+    LOCO   ens   QB24      14       3.143         3.174 -0.022   -0.009 1.304
+
+per-class detail, LOCO, chosen model:
+ class n_pool act1 exp1 act2 exp2 act3 exp3
+  2010     63    0 1.40    1 2.60    3 3.61
+  2011     51    1 0.83    2 1.24    3 1.81
+  2012     46    4 1.19    5 1.83    5 2.72
+  2013     65    0 1.06    0 1.74    1 2.53
+  2014     76    1 1.90    2 2.67    3 3.64
+  2015     66    0 1.69    2 2.39    2 3.49
+  2016     60    3 0.74    3 1.35    4 2.00
+  2017     67    2 1.23    3 1.81    3 2.43
+  2018     73    2 1.51    3 2.50    3 3.41
+  2019     70    1 1.59    1 3.12    4 4.41
+  2020     76    3 2.67    4 4.12    4 5.84
+  2021     33    2 1.53    2 2.70    4 3.44
+  2022     50    1 0.92    2 1.56    3 2.62
+  2023     86    0 1.45    1 2.85    2 4.00
+
+===== Top 12 per class, chosen model ( enet ) =====
+class 2024 
+            name           p_team pick yrs    p1    p2    p3
+  Jayden Daniels              LSU    2   5 0.788 0.940 0.969
+          Bo Nix           Oregon   12   3 0.550 0.791 0.917
+  Caleb Williams              USC    1   4 0.164 0.268 0.479
+   J.J. McCarthy         Michigan   10   4 0.110 0.154 0.358
+ Spencer Rattler   South Carolina  150   5 0.055 0.100 0.282
+      Drake Maye   North Carolina    3   4 0.059 0.115 0.205
+  Mitch Davidson Youngstown State   NA   3 0.071 0.097 0.171
+     Austin Reed Western Kentucky   NA   3 0.036 0.073 0.110
+  Marquez McCray         Monmouth   NA   3 0.040 0.048 0.103
+ Adrian Martinez     Kansas State   NA   6 0.028 0.028 0.072
+    Frank Harris             UTSA   NA   6 0.021 0.045 0.066
+   Michael Pratt           Tulane  245   4 0.052 0.052 0.063
+class 2025 
+            name             p_team pick yrs    p1    p2    p3
+     Jaxson Dart           Ole Miss   25   5 0.146 0.312 0.460
+ Shedeur Sanders           Colorado  144   5 0.096 0.175 0.394
+  Dillon Gabriel             Oregon   94   6 0.155 0.217 0.382
+        Cam Ward              Miami    1   5 0.080 0.207 0.345
+      Cam Miller North Dakota State  215   5 0.081 0.133 0.187
+   Tommy Mellott      Montana State  213   5 0.126 0.180 0.180
+     Will Howard         Ohio State  185   5 0.143 0.144 0.173
+     Quinn Ewers              Texas  231   4 0.035 0.073 0.152
+     Kyle McCord           Syracuse  181   5 0.022 0.063 0.136
+    Seth Henigan            Memphis   NA   5 0.023 0.049 0.133
+    Jalen Milroe            Alabama   92   5 0.047 0.120 0.120
+   Riley Leonard         Notre Dame  189   5 0.045 0.045 0.107
+class 2026 
+             name             p_team pick yrs    p1    p2    p3
+      Diego Pavia         Vanderbilt   NA   5 0.317 0.419 0.618
+ Fernando Mendoza            Indiana    1   4 0.216 0.369 0.590
+     Joey Aguilar          Tennessee   NA   4 0.080 0.109 0.237
+   Mark Gronowski               Iowa   NA   5 0.042 0.087 0.222
+      Cole Payton North Dakota State  178   5 0.076 0.215 0.215
+      Carson Beck              Miami   65   6 0.049 0.071 0.139
+   Brendan Sorsby         Cincinnati   NA   5 0.037 0.067 0.121
+      Haynes King       Georgia Tech   NA   6 0.064 0.064 0.121
+    Kaidon Salter           Colorado   NA   6 0.029 0.068 0.103
+   Kekoa Visperas     Tennessee Tech   NA   5 0.026 0.044 0.098
+    Matthew Sluka         Holy Cross   NA   6 0.033 0.089 0.089
+     Cade Klubnik            Clemson  110   5 0.023 0.034 0.078
+class 2027 
+               name           p_team pick yrs    p1    p2    p3
+      Beau Brungard Youngstown State   NA   5 0.423 0.585 0.743
+      Darian Mensah            Miami   NA   4 0.383 0.459 0.719
+          C.J. Carr       Notre Dame   NA   3 0.136 0.267 0.560
+  Ethan Grunkemeyer    Virginia Tech   NA   3 0.131 0.148 0.401
+       Julian Sayin       Ohio State   NA   3 0.166 0.380 0.385
+    Drew Mestemaker   Oklahoma State   NA   4 0.116 0.260 0.380
+ Trinidad Chambliss         Ole Miss   NA   3 0.093 0.212 0.336
+        Byrum Brown           Auburn   NA   6 0.075 0.131 0.333
+      Devon Dampier             Utah   NA   4 0.306 0.306 0.326
+     Giovanni Lopez      Wake Forest   NA   4 0.159 0.183 0.318
+       Aidan Chiles     Northwestern   NA   4 0.128 0.146 0.309
+        Sam Leavitt              LSU   NA   4 0.167 0.169 0.309
