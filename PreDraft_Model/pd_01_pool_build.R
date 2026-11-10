@@ -64,6 +64,44 @@ seasons <- cfb %>% filter(passing_att + rushing_car + receiving_rec > 0) %>%
             across(all_of(stat_cols), sum), .groups = "drop") %>%
   left_join(team_tot, by = c("college_year", "team"))
 
+# --- level-of-competition translation (FCS -> FBS), estimated from transfers -------------
+# cfbd has full FCS box scores only from 2022 on (before that, only FCS players' games
+# against FBS teams), so the training classes contain almost no full FCS seasons and no
+# model can learn an FCS discount from them; conference / tier predictors were tested in
+# Phase 5 and did not help. Instead, like a minor-league translation in baseball, compare
+# how players' share / efficiency stats change when they transfer FCS -> FBS against the
+# change for FBS -> FBS transfers (the control for "new team, one year older"). The ratio
+# of the two medians is the factor applied to full-coverage FCS seasons (2022+).
+FCS_CONF <- c("Big Sky", "SWAC", "Southland", "MVFC", "Southern", "MEAC", "CAA", "OVC", "Coastal Athletic", "NEC", "Patriot",
+              "Pioneer", "UAC", "Ivy", "Big South", "Big South-OVC", "OVC-Big South", "FCS Independents", "Atlantic Sun", "Great West")
+FBS_CONF <- c("ACC", "SEC", "Big Ten", "Big 12", "Pac-12", "Pac-10", "American Athletic", "Mountain West",
+              "Conference USA", "Mid-American", "Sun Belt", "FBS Independents", "Big East")
+lvl_of <- function(conf, yr) ifelse(conf %in% FBS_CONF | (conf == "Western Athletic" & yr <= 2012), "FBS",
+                                    ifelse(conf %in% FCS_CONF | conf == "Western Athletic", "FCS", "Lower"))
+mv <- seasons %>% filter(college_year >= 2022) %>%
+  mutate(lv = lvl_of(conference, college_year),
+         rec_m  = ifelse(receiving_rec >= 15 & t_rec_yds >= 600, receiving_yds / t_rec_yds, NA),
+         rush_m = ifelse(rushing_car >= 50 & t_rush_yds >= 500, rushing_yds / t_rush_yds, NA),
+         pass_m = ifelse(passing_att >= 100, (passing_yds + 20 * passing_td - 45 * passing_int) / passing_att, NA))
+tr_pairs <- mv %>% inner_join(mv %>% mutate(college_year = college_year - 1L), by = c("athlete_id", "college_year"), suffix = c("", "_n")) %>%
+  filter(team != team_n, lv %in% c("FCS", "FBS"), lv_n == "FBS") %>% mutate(grp = paste0(lv, "->FBS"))
+TRANS <- sapply(c(rec = "rec_m", rush = "rush_m", pass = "pass_m"), function(m) {
+  r <- log(tr_pairs[[paste0(m, "_n")]] / tr_pairs[[m]]); ok <- is.finite(r)
+  f <- exp(median(r[ok & tr_pairs$grp == "FCS->FBS"]) - median(r[ok & tr_pairs$grp == "FBS->FBS"]))
+  cat(sprintf("translation %-4s: FCS->FBS transfers n = %3d, FBS->FBS n = %4d, factor = %.3f\n", m,
+              sum(ok & tr_pairs$grp == "FCS->FBS"), sum(ok & tr_pairs$grp == "FBS->FBS"), f))
+  min(1, f) })
+names(TRANS) <- c("rec", "rush", "pass")
+# apply: receiving and rushing volume scaled by their factor (so shares and yards drop, per-touch
+# rates stay); passing yards and TDs scaled by the passing factor (so AY/A, Y/A and TD rate drop)
+fcs_full <- lvl_of(seasons$conference, seasons$college_year) == "FCS" & seasons$college_year >= 2022
+seasons <- seasons %>% mutate(
+  across(c(receiving_rec, receiving_yds, receiving_td), ~ ifelse(fcs_full, .x * TRANS["rec"], .x)),
+  across(c(rushing_car, rushing_yds, rushing_td), ~ ifelse(fcs_full, .x * TRANS["rush"], .x)),
+  across(c(passing_yds, passing_td), ~ ifelse(fcs_full, .x * TRANS["pass"], .x)))
+saveRDS(TRANS, "pd_level_translation.rds")
+cat("FCS player-seasons translated (2022+):", sum(fcs_full), "\n")
+
 # recruiting (high-school class year and composite rating)
 # the cached pulls stop at the 2022 (QB) / 2024 (RB, WR, TE) classes: add the recent classes
 pull_rec <- function(years, positions) bind_rows(lapply(years, function(y) bind_rows(lapply(positions, function(p) {
@@ -178,6 +216,9 @@ feature_build <- function(pos, a = ath %>% filter(position == pos), verbose = TR
            fbs = conference %in% c("ACC", "SEC", "Big Ten", "Big 12", "Pac-12", "Pac-10", "American Athletic", "Mountain West",
                                    "Conference USA", "Mid-American", "Sun Belt", "FBS Independents", "Big East") |
                  (conference == "Western Athletic" & college_year <= 2012),
+           # conference tier: P5 (incl. Big East while it was a BCS league), G5 (rest of FBS), FCS, lower (D2 and below)
+           level = case_when(power5 | (conference == "Big East" & college_year <= 2012) ~ "P5", fbs ~ "G5",
+                             conference %in% FCS_CONF | (conference == "Western Athletic" & college_year > 2012) ~ "FCS", TRUE ~ "Lower"),
            season_no = college_year - hs_est,
            vol = case_when(pos == "QB" ~ passing_att, pos == "RB" ~ rushing_car + receiving_rec, TRUE ~ receiving_rec),
            brk = case_when(pos == "QB" ~ coalesce(pass_share, 0) >= 0.5, pos == "RB" ~ coalesce(scrim_share, 0) >= 0.20,
@@ -187,6 +228,7 @@ feature_build <- function(pos, a = ath %>% filter(position == pos), verbose = TR
     mutate(primary = if (any(vol >= minv)) college_year == max(college_year[vol >= minv]) else college_year == college_year[which.max(vol)]) %>%
     summarize(
       p_year = college_year[primary][1], p_team = team[primary][1], power5 = as.integer(power5[primary][1]), fbs = as.integer(fbs[primary][1]),
+      level = level[primary][1], conf = conference[primary][1],
       max_vol = max(vol), final_short = as.integer(last(vol) < minv & any(vol >= minv)),
       college_seasons = n_distinct(college_year), transferred = as.integer(n_distinct(team) > 1),
       # QB

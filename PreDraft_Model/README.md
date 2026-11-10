@@ -44,15 +44,15 @@ Results write-up: https://claude.ai/artifact/LpjqTZULpQXjUzYEnTzFYr
 
 | Class | Overall | QB | RB | WR | TE |
 |---|---|---|---|---|---|
-| 2027 (projected) | A- | A | C | B | C- |
-| 2026 | C- | C- | F | D | A- |
-| 2025 | A | C | A | C- | A |
-| 2024 | C | A | C- | C | D |
+| 2027 (projected) | A- | A- | C- | B | D |
+| 2026 | F | C- | F | D | C |
+| 2025 | A | C- | A | D | A |
+| 2024 | C- | A | C- | C- | D |
 
 Validation: player-level rolling AUC about 0.85-0.91 and Brier skill 0.12-0.24 by
 position. Class level (2010-2023, 14 classes): correlation of expected vs actual class
-tier points QB 0.18, RB 0.31, WR 0.50 (permutation p = 0.03), TE 0.31, all positions
-combined 0.51. Trust the overall grade more than any single position's.
+tier points QB 0.22, RB 0.33, WR 0.48 (permutation p = 0.04), TE 0.31, all positions
+combined 0.52. Trust the overall grade more than any single position's.
 
 ## How to run
 
@@ -67,6 +67,7 @@ season, 2026 team stats, 2023-2026 recruiting) go to `./cache` (not committed). 
 | 2 | `pd_02_models.R QB` (also RB, WR, TE) | Model comparison, rolling + LOCO validation, class backtest, final fit, 2024-2027 board (about 2-3 min each) |
 | 3 | `pd_03_interpret.R` | Permutation importance, PDP/ICE, SHAP |
 | 4 | `pd_04_grades.R` | Class grades, depth, overall grade, player deep dives |
+| - | `pd_05_conference_test.R` | Conference as a predictor: tier indicators, tier x production, conference indicators, credibility (random conference intercept) |
 
 Outputs: `pd_class_grades.csv`, `pd_overall_grades.csv`, `pd_eligible_pool_grades.csv`,
 `pd_class_validation.csv`, `pd_player_deep_dive.csv`, per position `pd_<pos>_board.csv`
@@ -76,9 +77,13 @@ logs.
 
 ## Caveats
 
-- **Level of competition:** the model only knows Power 5 vs not. Big FCS seasons can
-  score high (2026 TE Cameron Barmore, Mercyhurst, P(any tier) 0.49). An FBS/FCS input was
-  tested and dropped because it hurt QB validation.
+- **Level of competition:** conference inputs (tier indicators, tier x production,
+  conference indicators, a credibility random conference intercept) were tested in
+  `pd_05_conference_test.R` and did not help: cfbd has full FCS box scores only from 2022,
+  so training holds almost no full FCS seasons. Instead, 2022+ FCS production is translated
+  to an FBS scale with factors estimated from FCS-to-FBS vs FBS-to-FBS transfers
+  (receiving and rushing 0.685, passing 0.789; `pd_level_translation.rds`, Phase 1). G5 vs
+  Power 5 is handled by the Power 5 flag.
 - **Age:** no birth dates exist for college players, so age is years out of high school
   (recruiting class year; for unrecruited players, first season with stats minus one).
   Some transfers from lower levels look younger than they are.

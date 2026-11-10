@@ -1,5 +1,5 @@
 position: RB 
-training pool: 1629  hits: 36 / 58 / 81  ( RB8 / RB16 / RB24 )
+training pool: 1618  hits: 36 / 58 / 81  ( RB8 / RB16 / RB24 )
 Rolling 2016 train 399 test 124 
 Rolling 2017 train 515 test 117 
 Rolling 2018 train 645 test 128 
@@ -7,183 +7,183 @@ Rolling 2019 train 769 test 128
 Rolling 2020 train 886 test 137 
 Rolling 2021 train 1014 test 72 
 Rolling 2022 train 1142 test 115 
-Rolling 2023 train 1279 test 163 
-LOCO 2010 train 1538 test 91 
-LOCO 2011 train 1520 test 109 
-LOCO 2012 train 1544 test 85 
-LOCO 2013 train 1515 test 114 
-LOCO 2014 train 1513 test 116 
-LOCO 2015 train 1499 test 130 
-LOCO 2016 train 1505 test 124 
-LOCO 2017 train 1512 test 117 
-LOCO 2018 train 1501 test 128 
-LOCO 2019 train 1501 test 128 
-LOCO 2020 train 1492 test 137 
-LOCO 2021 train 1557 test 72 
-LOCO 2022 train 1514 test 115 
-LOCO 2023 train 1466 test 163 
+Rolling 2023 train 1279 test 152 
+LOCO 2010 train 1527 test 91 
+LOCO 2011 train 1509 test 109 
+LOCO 2012 train 1533 test 85 
+LOCO 2013 train 1504 test 114 
+LOCO 2014 train 1502 test 116 
+LOCO 2015 train 1488 test 130 
+LOCO 2016 train 1494 test 124 
+LOCO 2017 train 1501 test 117 
+LOCO 2018 train 1490 test 128 
+LOCO 2019 train 1490 test 128 
+LOCO 2020 train 1481 test 137 
+LOCO 2021 train 1546 test 72 
+LOCO 2022 train 1503 test 115 
+LOCO 2023 train 1466 test 152 
 CV time: 2.3 min
 
 ===== Player-level performance (BSS = Brier skill vs base rate; higher = better) =====
   scheme model target    n hits    AUC  Brier    BSS LogLoss Gain_top5pct
- Rolling  null    RB8  984   25 0.4985 0.0248 0.0000  0.1196       0.0000
- Rolling  null   RB16  984   39 0.4406 0.0382 0.0000  0.1682       0.0000
- Rolling  null   RB24  984   51 0.4986 0.0492 0.0000  0.2041       0.0000
- Rolling   glm    RB8  984   25 0.8667 0.0213 0.1415  0.0900       0.4800
- Rolling   glm   RB16  984   39 0.8617 0.0320 0.1626  0.1258       0.4103
- Rolling   glm   RB24  984   51 0.8923 0.0375 0.2370  0.1384       0.3922
- Rolling  enet    RB8  984   25 0.9131 0.0198 0.2029  0.0797       0.5200
- Rolling  enet   RB16  984   39 0.8790 0.0303 0.2058  0.1188       0.3846
- Rolling  enet   RB24  984   51 0.9207 0.0349 0.2909  0.1259       0.5098
- Rolling    rf    RB8  984   25 0.8816 0.0208 0.1625  0.0903       0.4800
- Rolling    rf   RB16  984   39 0.8412 0.0328 0.1403  0.1464       0.4103
- Rolling    rf   RB24  984   51 0.8840 0.0398 0.1908  0.1471       0.3725
- Rolling   xgb    RB8  984   25 0.8437 0.0214 0.1379  0.0916       0.4800
- Rolling   xgb   RB16  984   39 0.8563 0.0323 0.1529  0.1260       0.3333
- Rolling   xgb   RB24  984   51 0.8979 0.0362 0.2630  0.1347       0.4510
- Rolling   ens    RB8  984   25 0.8915 0.0204 0.1762  0.0835       0.5200
- Rolling   ens   RB16  984   39 0.8738 0.0312 0.1832  0.1209       0.4615
- Rolling   ens   RB24  984   51 0.9127 0.0361 0.2665  0.1313       0.5098
-    LOCO  null    RB8 1629   36 0.3356 0.0216 0.0000  0.1068       0.0000
-    LOCO  null   RB16 1629   58 0.3784 0.0344 0.0000  0.1544       0.0000
-    LOCO  null   RB24 1629   81 0.4015 0.0473 0.0000  0.1983       0.0123
-    LOCO   glm    RB8 1629   36 0.8679 0.0192 0.1130  0.0810       0.4444
-    LOCO   glm   RB16 1629   58 0.8503 0.0298 0.1323  0.1193       0.3966
-    LOCO   glm   RB24 1629   81 0.8723 0.0380 0.1978  0.1431       0.4074
-    LOCO  enet    RB8 1629   36 0.9155 0.0173 0.2013  0.0710       0.4444
-    LOCO  enet   RB16 1629   58 0.9042 0.0272 0.2087  0.1037       0.4483
-    LOCO  enet   RB24 1629   81 0.9232 0.0347 0.2673  0.1228       0.4568
-    LOCO    rf    RB8 1629   36 0.8977 0.0186 0.1391  0.0759       0.4444
-    LOCO    rf   RB16 1629   58 0.8665 0.0295 0.1421  0.1201       0.3793
-    LOCO    rf   RB24 1629   81 0.8871 0.0382 0.1924  0.1403       0.3704
-    LOCO   xgb    RB8 1629   36 0.8701 0.0181 0.1645  0.0767       0.5000
-    LOCO   xgb   RB16 1629   58 0.8717 0.0286 0.1690  0.1132       0.3966
-    LOCO   xgb   RB24 1629   81 0.9010 0.0362 0.2343  0.1325       0.3827
-    LOCO   ens    RB8 1629   36 0.9133 0.0175 0.1903  0.0715       0.5278
-    LOCO   ens   RB16 1629   58 0.8957 0.0276 0.1959  0.1067       0.3966
-    LOCO   ens   RB24 1629   81 0.9141 0.0353 0.2544  0.1272       0.4198
+ Rolling  null    RB8  973   25 0.4987 0.0251 0.0000  0.1208       0.0000
+ Rolling  null   RB16  973   39 0.4413 0.0386 0.0000  0.1697       0.0000
+ Rolling  null   RB24  973   51 0.5014 0.0497 0.0000  0.2058       0.0000
+ Rolling   glm    RB8  973   25 0.8705 0.0214 0.1463  0.0902       0.5600
+ Rolling   glm   RB16  973   39 0.8640 0.0321 0.1675  0.1262       0.4359
+ Rolling   glm   RB24  973   51 0.8940 0.0376 0.2424  0.1387       0.3922
+ Rolling  enet    RB8  973   25 0.9136 0.0200 0.2032  0.0804       0.5200
+ Rolling  enet   RB16  973   39 0.8801 0.0305 0.2086  0.1194       0.3846
+ Rolling  enet   RB24  973   51 0.9215 0.0351 0.2936  0.1264       0.5098
+ Rolling    rf    RB8  973   25 0.8859 0.0209 0.1675  0.0903       0.4800
+ Rolling    rf   RB16  973   39 0.8455 0.0329 0.1483  0.1462       0.4103
+ Rolling    rf   RB24  973   51 0.8878 0.0398 0.1992  0.1464       0.3725
+ Rolling   xgb    RB8  973   25 0.8470 0.0216 0.1392  0.0920       0.4800
+ Rolling   xgb   RB16  973   39 0.8592 0.0325 0.1566  0.1264       0.3333
+ Rolling   xgb   RB24  973   51 0.9000 0.0363 0.2685  0.1348       0.4706
+ Rolling   ens    RB8  973   25 0.8949 0.0206 0.1779  0.0839       0.5200
+ Rolling   ens   RB16  973   39 0.8770 0.0313 0.1876  0.1210       0.4872
+ Rolling   ens   RB24  973   51 0.9151 0.0362 0.2714  0.1313       0.5098
+    LOCO  null    RB8 1618   36 0.3347 0.0218 0.0000  0.1074       0.0000
+    LOCO  null   RB16 1618   58 0.3803 0.0346 0.0000  0.1552       0.0000
+    LOCO  null   RB24 1618   81 0.4041 0.0476 0.0000  0.1992       0.0123
+    LOCO   glm    RB8 1618   36 0.8702 0.0193 0.1155  0.0811       0.4444
+    LOCO   glm   RB16 1618   58 0.8518 0.0299 0.1350  0.1196       0.4138
+    LOCO   glm   RB24 1618   81 0.8738 0.0381 0.2004  0.1434       0.4074
+    LOCO  enet    RB8 1618   36 0.9156 0.0175 0.1983  0.0716       0.4444
+    LOCO  enet   RB16 1618   58 0.9045 0.0274 0.2092  0.1041       0.4655
+    LOCO  enet   RB24 1618   81 0.9230 0.0349 0.2667  0.1234       0.4444
+    LOCO    rf    RB8 1618   36 0.9001 0.0186 0.1478  0.0758       0.4444
+    LOCO    rf   RB16 1618   58 0.8726 0.0294 0.1495  0.1190       0.3793
+    LOCO    rf   RB24 1618   81 0.8893 0.0383 0.1962  0.1399       0.3580
+    LOCO   xgb    RB8 1618   36 0.8749 0.0179 0.1770  0.0764       0.5000
+    LOCO   xgb   RB16 1618   58 0.8722 0.0287 0.1716  0.1135       0.3966
+    LOCO   xgb   RB24 1618   81 0.9033 0.0365 0.2327  0.1328       0.3580
+    LOCO   ens    RB8 1618   36 0.9120 0.0175 0.1948  0.0717       0.4722
+    LOCO   ens   RB16 1618   58 0.8988 0.0277 0.1985  0.1065       0.4138
+    LOCO   ens   RB24 1618   81 0.9157 0.0354 0.2561  0.1273       0.4198
 
 Rolling-origin ranking (mean over the three tiers):
  model  mean_BSS  mean_AUC
-  enet 0.2332000 0.9042667
-   ens 0.2086333 0.8926667
-   xgb 0.1846000 0.8659667
-   glm 0.1803667 0.8735667
-    rf 0.1645333 0.8689333
+  enet 0.2351333 0.9050667
+   ens 0.2123000 0.8956667
+   xgb 0.1881000 0.8687333
+   glm 0.1854000 0.8761667
+    rf 0.1716667 0.8730667
 chosen model: enet 
 
 ===== Bootstrap (rolling, players resampled; negative = first model better) =====
-RB8    Brier enet - null: -0.00503  95% CI [-0.00881, -0.00204]
-RB8    Brier enet - glm: -0.00152  95% CI [-0.00332, -0.00000]
-RB16   Brier enet - null: -0.00785  95% CI [-0.01341, -0.00332]
-RB16   Brier enet - glm: -0.00165  95% CI [-0.00461, +0.00116]
-RB24   Brier enet - null: -0.01430  95% CI [-0.02110, -0.00821]
-RB24   Brier enet - glm: -0.00265  95% CI [-0.00576, +0.00027]
+RB8    Brier enet - null: -0.00510  95% CI [-0.00899, -0.00207]
+RB8    Brier enet - glm: -0.00143  95% CI [-0.00318, +0.00013]
+RB16   Brier enet - null: -0.00805  95% CI [-0.01354, -0.00333]
+RB16   Brier enet - glm: -0.00158  95% CI [-0.00449, +0.00115]
+RB24   Brier enet - null: -0.01459  95% CI [-0.02144, -0.00856]
+RB24   Brier enet - glm: -0.00254  95% CI [-0.00554, +0.00030]
 
 ===== Class level: expected vs actual hits per class =====
   scheme model target classes actual_mean expected_mean   corr spearman  RMSE
- Rolling  null    RB8       8       3.125         2.330 -0.104   -0.086 2.045
- Rolling  null   RB16       8       4.875         4.080 -0.165    0.136 2.535
- Rolling  null   RB24       8       6.375         5.942  0.023   -0.038 2.594
- Rolling  enet    RB8       8       3.125         2.145  0.421    0.307 1.891
- Rolling  enet   RB16       8       4.875         4.156  0.044    0.464 2.404
- Rolling  enet   RB24       8       6.375         6.031  0.426    0.520 2.101
- Rolling    rf    RB8       8       3.125         2.227  0.462    0.516 1.819
- Rolling    rf   RB16       8       4.875         4.298  0.110    0.491 2.282
- Rolling    rf   RB24       8       6.375         6.362  0.143    0.317 2.517
- Rolling   xgb    RB8       8       3.125         2.149  0.190    0.037 2.004
- Rolling   xgb   RB16       8       4.875         4.124 -0.061    0.082 2.513
- Rolling   xgb   RB24       8       6.375         6.046  0.037    0.304 2.757
- Rolling   ens    RB8       8       3.125         2.174  0.367    0.516 1.899
- Rolling   ens   RB16       8       4.875         4.119  0.029    0.464 2.391
- Rolling   ens   RB24       8       6.375         6.037  0.189    0.419 2.423
-    LOCO  null    RB8      14       2.571         2.578 -0.190   -0.242 1.724
-    LOCO  null   RB16      14       4.143         4.150  0.004    0.064 2.128
-    LOCO  null   RB24      14       5.786         5.794  0.134    0.296 2.299
-    LOCO  enet    RB8      14       2.571         2.577  0.064   -0.078 1.635
-    LOCO  enet   RB16      14       4.143         4.259  0.240    0.234 2.028
-    LOCO  enet   RB24      14       5.786         5.864  0.493    0.644 1.954
-    LOCO    rf    RB8      14       2.571         2.805  0.181    0.039 1.591
-    LOCO    rf   RB16      14       4.143         4.616  0.186    0.092 2.083
-    LOCO    rf   RB24      14       5.786         6.394  0.255    0.382 2.329
-    LOCO   xgb    RB8      14       2.571         2.345  0.188    0.055 1.585
-    LOCO   xgb   RB16      14       4.143         3.935  0.188    0.323 2.051
-    LOCO   xgb   RB24      14       5.786         5.673  0.315    0.585 2.251
-    LOCO   ens    RB8      14       2.571         2.576  0.157    0.106 1.573
-    LOCO   ens   RB16      14       4.143         4.204  0.227    0.314 1.989
-    LOCO   ens   RB24      14       5.786         5.879  0.373    0.589 2.103
+ Rolling  null    RB8       8       3.125         2.303 -0.142   -0.086 2.057
+ Rolling  null   RB16       8       4.875         4.032 -0.157    0.136 2.505
+ Rolling  null   RB24       8       6.375         5.875  0.063   -0.038 2.520
+ Rolling  enet    RB8       8       3.125         2.121  0.412    0.344 1.910
+ Rolling  enet   RB16       8       4.875         4.073  0.084    0.546 2.362
+ Rolling  enet   RB24       8       6.375         5.932  0.508    0.723 2.025
+ Rolling    rf    RB8       8       3.125         2.111  0.499    0.466 1.891
+ Rolling    rf   RB16       8       4.875         4.095  0.334    0.491 2.120
+ Rolling    rf   RB24       8       6.375         6.114  0.349    0.317 2.170
+ Rolling   xgb    RB8       8       3.125         2.081  0.158    0.037 2.042
+ Rolling   xgb   RB16       8       4.875         4.008 -0.019    0.082 2.422
+ Rolling   xgb   RB24       8       6.375         5.885  0.124    0.304 2.515
+ Rolling   ens    RB8       8       3.125         2.104  0.361    0.552 1.945
+ Rolling   ens   RB16       8       4.875         3.986  0.118    0.464 2.302
+ Rolling   ens   RB24       8       6.375         5.869  0.345    0.419 2.215
+    LOCO  null    RB8      14       2.571         2.578 -0.238   -0.242 1.732
+    LOCO  null   RB16      14       4.143         4.148  0.007    0.064 2.103
+    LOCO  null   RB24      14       5.786         5.791  0.161    0.296 2.239
+    LOCO  enet    RB8      14       2.571         2.587  0.050   -0.058 1.647
+    LOCO  enet   RB16      14       4.143         4.261  0.267    0.262 1.990
+    LOCO  enet   RB24      14       5.786         5.874  0.520    0.675 1.894
+    LOCO    rf    RB8      14       2.571         2.802  0.063   -0.168 1.645
+    LOCO    rf   RB16      14       4.143         4.564  0.236    0.092 1.981
+    LOCO    rf   RB24      14       5.786         6.357  0.387    0.377 2.078
+    LOCO   xgb    RB8      14       2.571         2.333  0.095   -0.094 1.631
+    LOCO   xgb   RB16      14       4.143         3.939  0.265    0.309 1.928
+    LOCO   xgb   RB24      14       5.786         5.666  0.403    0.535 2.034
+    LOCO   ens    RB8      14       2.571         2.574  0.075   -0.115 1.612
+    LOCO   ens   RB16      14       4.143         4.195  0.276    0.238 1.912
+    LOCO   ens   RB24      14       5.786         5.871  0.464    0.589 1.923
 
 per-class detail, LOCO, chosen model:
  class n_pool act1 exp1 act2 exp2 act3 exp3
-  2010     91    2 2.23    2 2.94    3 3.43
-  2011    109    1 2.37    2 3.86    4 4.73
-  2012     85    3 1.52    4 2.49    4 3.24
-  2013    114    2 2.99    5 4.73    8 6.11
-  2014    116    1 3.46    2 6.48    5 8.88
-  2015    130    2 2.54    4 4.16    6 6.05
-  2016    124    1 2.36    4 3.71    5 5.62
-  2017    117    7 3.09   10 5.16   11 7.43
-  2018    128    2 3.29    4 4.91    5 7.09
-  2019    128    2 1.56    4 2.87    5 4.83
-  2020    137    2 3.45    4 5.10    7 6.76
-  2021     72    3 1.68    3 2.70    4 3.86
-  2022    115    4 2.62    6 4.88    9 6.20
-  2023    163    4 2.92    4 5.62    5 7.85
+  2010     91    2 2.28    2 3.00    3 3.51
+  2011    109    1 2.39    2 3.88    4 4.77
+  2012     85    3 1.54    4 2.54    4 3.32
+  2013    114    2 3.01    5 4.79    8 6.17
+  2014    116    1 3.47    2 6.53    5 8.95
+  2015    130    2 2.56    4 4.19    6 6.11
+  2016    124    1 2.35    4 3.71    5 5.64
+  2017    117    7 3.13   10 5.30   11 7.54
+  2018    128    2 3.42    4 5.04    5 7.35
+  2019    128    2 1.55    4 2.89    5 4.87
+  2020    137    2 3.47    4 5.13    7 6.79
+  2021     72    3 1.66    3 2.70    4 3.86
+  2022    115    4 2.63    6 4.90    9 6.26
+  2023    152    4 2.76    4 5.04    5 7.11
 
 ===== Top 12 per class, chosen model ( enet ) =====
 class 2024 
             name        p_team pick yrs    p1    p2    p3
-    Bucky Irving        Oregon  125   3 0.151 0.318 0.599
-   Audric Estime    Notre Dame  147   3 0.150 0.275 0.456
-   Cody Schrader      Missouri   NA   3 0.072 0.190 0.365
-     Blake Corum      Michigan   83   4 0.177 0.177 0.318
- Jonathon Brooks         Texas   46   3 0.071 0.207 0.310
-      Sam Schnee Northern Iowa   NA   4 0.102 0.298 0.298
-   Re'Mahn Davis      Kentucky   NA   6 0.231 0.231 0.289
-     Trey Benson Florida State   66   4 0.048 0.105 0.285
-  MarShawn Lloyd           USC   88   4 0.032 0.161 0.236
-   Carson Steele          UCLA   NA   3 0.051 0.084 0.201
-    Will Shipley       Clemson  127   3 0.085 0.148 0.175
-   Jawhar Jordan    Louisville  205   6 0.028 0.063 0.162
+    Bucky Irving        Oregon  125   3 0.152 0.325 0.601
+   Audric Estime    Notre Dame  147   3 0.154 0.277 0.459
+   Cody Schrader      Missouri   NA   3 0.075 0.195 0.373
+ Jonathon Brooks         Texas   46   3 0.073 0.210 0.314
+     Blake Corum      Michigan   83   4 0.173 0.173 0.306
+   Re'Mahn Davis      Kentucky   NA   6 0.232 0.232 0.301
+     Trey Benson Florida State   66   4 0.048 0.110 0.289
+  MarShawn Lloyd           USC   88   4 0.032 0.172 0.242
+   Carson Steele          UCLA   NA   3 0.050 0.084 0.203
+    Will Shipley       Clemson  127   3 0.086 0.147 0.175
+   Jawhar Jordan    Louisville  205   6 0.029 0.066 0.169
+   Braelon Allen     Wisconsin  134   4 0.075 0.102 0.159
 class 2025 
-               name           p_team pick yrs    p1    p2    p3
-       Cam Skattebo    Arizona State  105   4 0.564 0.646 0.868
-    Omarion Hampton   North Carolina   22   3 0.565 0.694 0.755
-      Kaleb Johnson             Iowa   83   3 0.563 0.713 0.713
-      Ashton Jeanty      Boise State    6   3 0.286 0.366 0.638
-      Dylan Sampson        Tennessee  126   3 0.204 0.360 0.535
-      LeQuint Allen         Syracuse  236   3 0.333 0.430 0.504
-         Devin Neal           Kansas  184   4 0.277 0.277 0.453
-          RJ Harvey              UCF   60   6 0.256 0.358 0.444
-        Lan Larison         UC Davis   NA   5 0.309 0.373 0.437
-     Brashard Smith              SMU  228   4 0.097 0.169 0.416
- ShunDerrick Powell Central Arkansas   NA   4 0.125 0.190 0.374
-       Jordan James           Oregon  147   3 0.108 0.245 0.360
+            name         p_team pick yrs    p1    p2    p3
+    Cam Skattebo  Arizona State  105   4 0.497 0.671 0.859
+ Omarion Hampton North Carolina   22   3 0.569 0.706 0.758
+   Kaleb Johnson           Iowa   83   3 0.569 0.733 0.733
+   Ashton Jeanty    Boise State    6   3 0.295 0.372 0.649
+   Dylan Sampson      Tennessee  126   3 0.206 0.362 0.536
+   LeQuint Allen       Syracuse  236   3 0.331 0.428 0.499
+       RJ Harvey            UCF   60   6 0.259 0.369 0.450
+      Devin Neal         Kansas  184   4 0.274 0.274 0.442
+  Brashard Smith            SMU  228   4 0.099 0.173 0.428
+    Jordan James         Oregon  147   3 0.108 0.246 0.360
+  Mario Anderson        Memphis   NA   3 0.075 0.133 0.299
+  Bhayshul Tuten  Virginia Tech  104   4 0.080 0.090 0.298
 class 2026 
                name            p_team pick yrs    p1    p2    p3
-     Jeremiyah Love        Notre Dame    3   3 0.375 0.554 0.705
-     Emmett Johnson          Nebraska  161   4 0.177 0.341 0.390
-      Jonah Coleman        Washington  108   4 0.173 0.206 0.361
-      Kaytron Allen        Penn State  187   4 0.085 0.085 0.261
- Nicholas Singleton        Penn State  165   4 0.124 0.124 0.166
- Michael Washington          Arkansas   NA   5 0.025 0.045 0.145
-      J'mari Taylor          Virginia   NA   6 0.054 0.071 0.137
-  Anthony Hankerson      Oregon State   NA   4 0.036 0.052 0.122
-   Demond Claiborne       Wake Forest  198   4 0.047 0.061 0.098
-        Jaden Nixon               UCF   NA   5 0.016 0.052 0.083
-       Dean Connors           Houston   NA   5 0.025 0.032 0.075
-        Davon Booth Mississippi State   NA   4 0.014 0.026 0.066
+     Jeremiyah Love        Notre Dame    3   3 0.380 0.559 0.708
+     Emmett Johnson          Nebraska  161   4 0.180 0.357 0.396
+      Jonah Coleman        Washington  108   4 0.167 0.204 0.355
+      Kaytron Allen        Penn State  187   4 0.087 0.087 0.257
+ Nicholas Singleton        Penn State  165   4 0.122 0.122 0.160
+ Michael Washington          Arkansas   NA   5 0.025 0.045 0.144
+      J'mari Taylor          Virginia   NA   6 0.043 0.061 0.127
+  Anthony Hankerson      Oregon State   NA   4 0.036 0.053 0.123
+   Demond Claiborne       Wake Forest  198   4 0.046 0.059 0.096
+        Jaden Nixon               UCF   NA   5 0.016 0.054 0.085
+       Dean Connors           Houston   NA   5 0.025 0.032 0.077
+        Davon Booth Mississippi State   NA   4 0.013 0.026 0.066
 class 2027 
-            name        p_team pick yrs    p1    p2    p3
-       Cole Tabb    Cincinnati   NA   3 0.189 0.577 0.707
-     Dylan Riley   Boise State   NA   3 0.224 0.430 0.630
- Wayshawn Parker          Utah   NA   3 0.214 0.448 0.615
-    Jahiem White   North Texas   NA   4 0.186 0.253 0.560
- J'Koby Williams    Texas Tech   NA   3 0.111 0.262 0.481
-     Isaac Brown    Louisville   NA   3 0.123 0.275 0.385
-     Eli Gillman       Montana   NA   5 0.236 0.236 0.377
-     Jadan Baugh       Florida   NA   3 0.156 0.229 0.342
-    Wayne Knight          UCLA   NA   5 0.104 0.120 0.324
-     Dilin Jones           LSU   NA   3 0.081 0.170 0.311
-      Micah Ford      Stanford   NA   3 0.170 0.255 0.293
-        Cam Cook West Virginia   NA   4 0.068 0.096 0.264
+             name        p_team pick yrs    p1    p2    p3
+        Cole Tabb    Cincinnati   NA   3 0.195 0.607 0.723
+      Dylan Riley   Boise State   NA   3 0.228 0.435 0.632
+  Wayshawn Parker          Utah   NA   3 0.213 0.464 0.619
+     Jahiem White   North Texas   NA   4 0.191 0.268 0.574
+  J'Koby Williams    Texas Tech   NA   3 0.115 0.266 0.486
+      Isaac Brown    Louisville   NA   3 0.123 0.271 0.383
+      Jadan Baugh       Florida   NA   3 0.156 0.225 0.339
+     Wayne Knight          UCLA   NA   5 0.104 0.120 0.331
+      Dilin Jones           LSU   NA   3 0.081 0.177 0.317
+       Micah Ford      Stanford   NA   3 0.173 0.261 0.299
+         Cam Cook West Virginia   NA   4 0.067 0.096 0.263
+ Kendrick Raphael           SMU   NA   4 0.058 0.091 0.258

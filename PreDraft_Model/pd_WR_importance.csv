@@ -1,9 +1,9 @@
 "variable","auc_drop"
-"p_rec_yds",0.1204
-"yrs_since_hs",0.0351
-"power5",0.0156
-"recruit_rating",0.0128
-"p_dominator",0.0099
+"p_rec_yds",0.12
+"yrs_since_hs",0.0267
+"power5",0.0202
+"p_dominator",0.0081
+"recruit_rating",0.007
 "college_seasons",0
 "transferred",0
 "early",0

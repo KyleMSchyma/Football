@@ -1,0 +1,50 @@
+"position","conference","effect_logodds","n"
+"QB","ACC",0,81
+"QB","American Athletic",0,48
+"QB","Big 12",0,71
+"QB","Big Ten",0,80
+"QB","Conference USA",0,97
+"QB","Mid-American",0,89
+"QB","Mountain West",0,75
+"QB","other",0,107
+"QB","Pac-12",0,70
+"QB","SEC",0,92
+"QB","Sun Belt",0,72
+"RB","ACC",0,140
+"RB","American Athletic",0,109
+"RB","Big 12",0,121
+"RB","Big Ten",0,156
+"RB","Conference USA",0,167
+"RB","FBS Independents",0,60
+"RB","Mid-American",0,144
+"RB","Mountain West",0,141
+"RB","other",0,131
+"RB","Pac-12",0,114
+"RB","SEC",0,172
+"RB","Sun Belt",0,137
+"RB","Western Athletic",0,37
+"WR","Mid-American",0.067,264
+"WR","SEC",0.06,272
+"WR","Big Ten",0.058,248
+"WR","American Athletic",0.048,167
+"WR","Big East",0.032,45
+"WR","ACC",0.02,256
+"WR","FBS Independents",0.001,78
+"WR","other",-0.01,177
+"WR","Mountain West",-0.011,225
+"WR","Pac-12",-0.022,206
+"WR","Sun Belt",-0.027,237
+"WR","Western Athletic",-0.03,52
+"WR","Conference USA",-0.072,307
+"WR","Big 12",-0.105,251
+"TE","Big Ten",0.835,119
+"TE","other",0.804,120
+"TE","SEC",0.175,120
+"TE","Sun Belt",0.089,56
+"TE","Mountain West",0.071,90
+"TE","Pac-12",-0.146,82
+"TE","Conference USA",-0.164,91
+"TE","American Athletic",-0.238,47
+"TE","ACC",-0.239,124
+"TE","Mid-American",-0.397,89
+"TE","Big 12",-0.508,64

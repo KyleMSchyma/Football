@@ -4,6 +4,12 @@ cached: cache/cfbd_team_stats_2026.rds
 2026 scale factor (12 / games played) quantiles:
       0%      10%      50%      90%     100% 
 1.200000 1.200000 1.200000 1.333333 1.333333 
+translation rec_m: FCS->FBS transfers n = 139, FBS->FBS n =  362, factor = 0.685
+translation rush_m: FCS->FBS transfers n =  62, FBS->FBS n =  206, factor = 0.685
+translation pass_m: FCS->FBS transfers n =  27, FBS->FBS n =  107, factor = 0.789
+Warning message:
+In log(tr_pairs[[paste0(m, "_n")]]/tr_pairs[[m]]) : NaNs produced
+FCS player-seasons translated (2022+): 13220 
 cached: cache/recruiting_qb_ath_2023_2026.rds 
 cached: cache/recruiting_rb_wr_te_2025_2026.rds 
 new recruiting rows: 4637 
@@ -13,9 +19,9 @@ drafted players: 1351   with a college match: 1292
 UDFAs with NFL fantasy points: 813  matched to college: 609 
 median gap between HS class and first season with stats: 1 
 QB: 3953 college players at the position; eligible 2806; eligible + productive 1604; drafted kept 191 of 191 matched
-RB: 7426 college players at the position; eligible 5102; eligible + productive 2974; drafted kept 340 of 341 matched
-WR: 11472 college players at the position; eligible 7932; eligible + productive 4939; drafted kept 519 of 520 matched
-TE: 3969 college players at the position; eligible 2804; eligible + productive 1855; drafted kept 239 of 240 matched
+RB: 7426 college players at the position; eligible 5102; eligible + productive 2838; drafted kept 340 of 341 matched
+WR: 11472 college players at the position; eligible 7932; eligible + productive 4684; drafted kept 519 of 520 matched
+TE: 3969 college players at the position; eligible 2804; eligible + productive 1752; drafted kept 239 of 240 matched
 Warning message:
 There was 1 warning in `mutate()`.
 ℹ In argument: `vol = case_when(...)`.
@@ -51,21 +57,21 @@ Caused by warning:
        RB  2010  91      12        0    2    2    3
        RB  2015 130      17        0    2    4    6
        RB  2020 137      18        0    2    4    7
-       RB  2023 163      18        0    4    4    5
-       RB  2026 279      10        0    0    0    0
-       RB  2027 593       0        0    0    0    0
+       RB  2023 152      18        0    4    4    5
+       RB  2026 253      10        0    0    0    0
+       RB  2027 538       0        0    0    0    0
        TE  2010  68      16        0    4    5    8
        TE  2015  73      18        0    0    1    2
        TE  2020  77      11        0    1    2    2
-       TE  2023 106      15        0    1    3    4
-       TE  2026 201      22        0    0    0    0
-       TE  2027 359       0        0    0    0    0
+       TE  2023 101      15        0    1    3    4
+       TE  2026 176      22        0    0    0    0
+       TE  2027 315       0        0    0    0    0
        WR  2010 164      26        0    3    5    5
        WR  2015 219      33        0    0    4    5
        WR  2020 212      35        0    2    8   10
-       WR  2023 291      33        0    4    5   10
-       WR  2026 481      36        0    0    0    0
-       WR  2027 904       0        0    0    0    0
+       WR  2023 271      33        0    4    5   10
+       WR  2026 431      36        0    0    0    0
+       WR  2027 808       0        0    0    0    0
 [PASS] QB: pool keeps 90%+ of drafted QB24 hitters (44 of 45)
 [PASS] RB: pool keeps 90%+ of drafted RB24 hitters (77 of 78)
 [PASS] WR: pool keeps 90%+ of drafted WR36 hitters (91 of 95)
@@ -90,12 +96,12 @@ UDFA hitters in the pool (top tier-3 finish):
 2027 candidates by position:
 
  QB  RB  TE  WR 
-326 593 359 904 
+326 538 315 808 
 feature missingness (share NA), 2010-2023 pool:
-QB : yrs_since_hs=0.00 recruit_rating=0.41 college_seasons=0.00 power5=0.00 fbs=0.00 transferred=0.00 early=0.00 final_short=0.00 recruit_missing=0.00 ever_breakout=0.00 p_att=0.00 p_comp_pct=0.00 p_ypa=0.00 p_aya=0.00 p_td_rate=0.00 p_int_rate=0.00 p_pass_share=0.02 p_rush_yds=0.00 p_rush_td=0.00 best_aya=0.14 career_att=0.00 career_rush_yds=0.00 starter_seasons=0.00 breakout_yrs=0.00 
-RB : yrs_since_hs=0.00 recruit_rating=0.56 college_seasons=0.00 power5=0.00 fbs=0.00 transferred=0.00 early=0.00 final_short=0.00 recruit_missing=0.00 ever_breakout=0.00 p_car=0.00 p_rush_yds=0.00 p_ypc=0.02 p_rush_td=0.00 p_rec=0.00 p_rec_yds=0.00 p_car_share=0.02 p_scrim_share=0.02 p_td_share=0.02 p_rec_share=0.03 best_scrim_share=0.01 career_rush_yds=0.00 career_rec=0.00 featured_seasons=0.00 breakout_yrs=0.00 
-WR : yrs_since_hs=0.00 recruit_rating=0.53 college_seasons=0.00 power5=0.00 fbs=0.00 transferred=0.00 early=0.00 final_short=0.00 recruit_missing=0.00 ever_breakout=0.00 p_rec=0.00 p_rec_yds=0.00 p_rec_td=0.00 p_ypr=0.01 p_rec_share=0.02 p_dominator=0.02 p_ypta=0.04 best_dominator=0.02 career_rec_yds=0.00 career_rush_yds=0.00 featured_seasons=0.00 breakout_yrs=0.00 
-TE : yrs_since_hs=0.00 recruit_rating=0.47 college_seasons=0.00 power5=0.00 fbs=0.00 transferred=0.00 early=0.00 final_short=0.00 recruit_missing=0.00 ever_breakout=0.00 p_rec=0.00 p_rec_yds=0.00 p_rec_td=0.00 p_ypr=0.03 p_rec_share=0.03 p_dominator=0.02 p_ypta=0.05 best_dominator=0.02 career_rec_yds=0.00 featured_seasons=0.00 breakout_yrs=0.00 
+QB : yrs_since_hs=0.00 recruit_rating=0.41 college_seasons=0.00 power5=0.00 transferred=0.00 early=0.00 final_short=0.00 recruit_missing=0.00 ever_breakout=0.00 p_att=0.00 p_comp_pct=0.00 p_ypa=0.00 p_aya=0.00 p_td_rate=0.00 p_int_rate=0.00 p_pass_share=0.02 p_rush_yds=0.00 p_rush_td=0.00 best_aya=0.14 career_att=0.00 career_rush_yds=0.00 starter_seasons=0.00 breakout_yrs=0.00 
+RB : yrs_since_hs=0.00 recruit_rating=0.56 college_seasons=0.00 power5=0.00 transferred=0.00 early=0.00 final_short=0.00 recruit_missing=0.00 ever_breakout=0.00 p_car=0.00 p_rush_yds=0.00 p_ypc=0.02 p_rush_td=0.00 p_rec=0.00 p_rec_yds=0.00 p_car_share=0.02 p_scrim_share=0.02 p_td_share=0.02 p_rec_share=0.03 best_scrim_share=0.01 career_rush_yds=0.00 career_rec=0.00 featured_seasons=0.00 breakout_yrs=0.00 
+WR : yrs_since_hs=0.00 recruit_rating=0.53 college_seasons=0.00 power5=0.00 transferred=0.00 early=0.00 final_short=0.00 recruit_missing=0.00 ever_breakout=0.00 p_rec=0.00 p_rec_yds=0.00 p_rec_td=0.00 p_ypr=0.01 p_rec_share=0.02 p_dominator=0.02 p_ypta=0.04 best_dominator=0.02 career_rec_yds=0.00 career_rush_yds=0.00 featured_seasons=0.00 breakout_yrs=0.00 
+TE : yrs_since_hs=0.00 recruit_rating=0.47 college_seasons=0.00 power5=0.00 transferred=0.00 early=0.00 final_short=0.00 recruit_missing=0.00 ever_breakout=0.00 p_rec=0.00 p_rec_yds=0.00 p_rec_td=0.00 p_ypr=0.03 p_rec_share=0.03 p_dominator=0.03 p_ypta=0.05 best_dominator=0.02 career_rec_yds=0.00 featured_seasons=0.00 breakout_yrs=0.00 
 
 ===== Share whose season was their last, by years out of HS next spring =====
  position  n_3  n_4  n_5 n_6 final_3 final_4 final_5 final_6
@@ -113,16 +119,16 @@ TE : yrs_since_hs=0.00 recruit_rating=0.47 college_seasons=0.00 power5=0.00 fbs=
        QB  2027 326     326
        RB  2015 263     128
        RB  2020 308     136
-       RB  2023 477     163
-       RB  2026 592     279
-       RB  2027 593     593
+       RB  2023 441     152
+       RB  2026 531     253
+       RB  2027 538     538
        TE  2015 134      70
        TE  2020 163      77
-       TE  2023 256     106
-       TE  2026 376     201
-       TE  2027 359     359
+       TE  2023 243     101
+       TE  2026 332     176
+       TE  2027 315     315
        WR  2015 423     215
        WR  2020 449     212
-       WR  2023 719     291
-       WR  2026 902     481
-       WR  2027 904     904
+       WR  2023 660     271
+       WR  2026 804     431
+       WR  2027 808     808
