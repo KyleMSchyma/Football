@@ -1,0 +1,269 @@
+training rows: 298  any top-36 season: 108  top-8: 36  top-16: 56  top-24: 78 
+finish score distribution: at 180 = 147 ; quantiles:
+    5%    10%    25%    50%    75% 
+ 48.55  64.70 121.25 179.00 180.00 
+Spearman(finish score, 3-yr points): -0.926 
+best 10 finish scores 2010-2023:
+     pfr_player_name draft_season pick finish_y1 finish_y2 finish_y3
+ Christian McCaffrey         2017    8        10         2         1
+      Bijan Robinson         2023    8         9         3         2
+        Jahmyr Gibbs         2023   12        10         1         3
+        Alvin Kamara         2017   67         3         4         9
+     Ezekiel Elliott         2016    4         2        12         5
+         Todd Gurley         2015   10         9        15         1
+       De'Von Achane         2023   84        24         5         5
+          Nick Chubb         2018   35        17         8        11
+     Jonathan Taylor         2020   41         6         1        33
+        Najee Harris         2021   24         3        14        23
+ finish_sum_3yr
+             13
+             14
+             14
+             16
+             19
+             25
+             34
+             36
+             40
+             40
+
+===== Finish score and tier ladder: cross-validated performance (Spearman of predicted vs actual score; higher = better) =====
+  scheme model   n single_Spearman single_RMSE single_MAE two_Spearman two_RMSE
+ Rolling  pick 171          0.6377     38.3750    27.7087       0.6371  38.2151
+ Rolling   pre 171          0.3616     46.2434    35.7871       0.3282  47.5413
+ Rolling  post 171          0.6044     39.5508    29.6022       0.6027  42.1603
+    LOCO  pick 298          0.6090     35.6143    26.8719       0.6073  35.5120
+    LOCO   pre 298          0.4275     41.9201    32.6133       0.4030  42.7415
+    LOCO  post 298          0.6175     35.4213    26.7034       0.5977  36.4343
+ step1_AUC step1_Brier step2_RMSE ladder_RPS AUC_top8 AUC_top16 AUC_top24
+    0.8527      0.1492    37.2000     0.1130   0.8571    0.8033    0.8420
+    0.6797      0.2116    41.7251     0.1487   0.6973    0.5984    0.6424
+    0.8254      0.1699    40.5305     0.1212   0.8268    0.7648    0.7981
+    0.8316      0.1573    35.5368     0.1072   0.8496    0.8034    0.8186
+    0.7015      0.2029    40.7433     0.1308   0.7287    0.6928    0.7057
+    0.8140      0.1670    37.6436     0.1087   0.8399    0.7876    0.7983
+ Brier_top8 Brier_top16 Brier_top24
+     0.0812      0.1273      0.1306
+     0.1084      0.1573      0.1805
+     0.0881      0.1320      0.1435
+     0.0703      0.1148      0.1366
+     0.0919      0.1347      0.1658
+     0.0720      0.1139      0.1400
+
+===== Bootstrap, rolling origin (negative = first better) =====
+single RMSE  post - pick:      +1.1757  95% CI [-0.3185, +2.6646]  share < 0: 0.058 
+two-step RMSE post - single post: +2.6095  95% CI [+1.3308, +3.8071]  share < 0: 0.000 
+two-step RMSE post - pick:     +3.7853  95% CI [+1.8754, +5.8005]  share < 0: 0.000 
+ladder RPS   post - pick:      +0.0082  95% CI [+0.0013, +0.0157]  share < 0: 0.012 
+ladder RPS   pre  - pick:      +0.0357  95% CI [+0.0162, +0.0556]  share < 0: 0.000 
+
+===== Step-1 calibration (rolling, post-draft P(top-36 season)) =====
+ q  n mean_p actual
+ 1 43  0.151  0.093
+ 2 43  0.237  0.256
+ 3 43  0.329  0.302
+ 4 42  0.595  0.881
+
+===== Hidden-talent back-test, RBs drafted in rounds 4-7, rolling 2016-2023 ( 117 RBs, 12 top-24 ) =====
+top 2 per class -> top-24 hits: post hidden 1 | pre hidden 0 | post P 1 | earliest pick 2 | random 1.5
+top 3 per class -> top-24 hits: post hidden 1 | pre hidden 0 | post P 2 | earliest pick 4 | random 2.2
+all round 4-7 top-24 RBs in test years, with rank in class by post hidden score / pre hidden score / pick:
+ draft_season pick     pfr_player_name best_finish_3yr n_cls rk_hidden rk_pre
+         2016  150       Jordan Howard              10    16         9     13
+         2016  171        Alex Collins              21    16        14     11
+         2017  119         Tarik Cohen              11    19        19     19
+         2017  143         Marlon Mack              21    19        17     10
+         2017  182         Aaron Jones               2    19        14      6
+         2017  249        Chris Carson              12    19        11     17
+         2018  104        Nyheim Hines              15    13         7     13
+         2021  120 Rhamondre Stevenson               7    15         7      9
+         2022  156         Jerome Ford              16    17        14     10
+         2022  164      Kyren Williams               7    17         2      4
+         2022  251       Isiah Pacheco              15    17         5      6
+         2023  163         Chase Brown               7    11         5      4
+ rk_pick
+       6
+       9
+       2
+       7
+      11
+      18
+       1
+       3
+       8
+       9
+      16
+       3
+
+===== 2024-2026 board (two-step post-draft expected finish score; tier ladder) =====
+ draft_season pick        pfr_player_name single_post p_start_post cond_post
+         2024   66            Trey Benson       116.6        0.605      96.4
+         2024   88         MarShawn Lloyd       125.1        0.563     100.7
+         2024   46        Jonathon Brooks       122.5        0.470      91.7
+         2024  120          Jaylen Wright       136.2        0.471     102.3
+         2024  125           Bucky Irving       124.6        0.430      97.1
+         2024   83            Blake Corum       145.8        0.370      99.9
+         2024  129         Isaac Guerendo       143.5        0.337     103.9
+         2024  147          Audric Estime       152.2        0.317     105.3
+         2024  166       Tyrone Tracy Jr.       142.6        0.297     106.2
+         2024  208            Dylan Laube       152.3        0.271      99.7
+         2024  181           Kimani Vidal       158.4        0.300     107.5
+         2024  173           Isaiah Davis       158.1        0.273     107.0
+         2024  134          Braelon Allen       155.1        0.239     102.3
+         2024  127           Will Shipley       152.3        0.219     101.6
+         2024  167        Keilan Robinson       154.6        0.199     105.9
+         2024  128              Ray Davis       157.2        0.166     103.1
+         2024  205          Jawhar Jordan       155.1        0.159     108.1
+         2024  165            Rasheen Ali       157.1        0.140     104.5
+         2024  186         Jase McClellan       176.5        0.086     108.5
+         2025    6          Ashton Jeanty        49.4        0.971      71.2
+         2025   22        Omarion Hampton        79.6        0.936      81.6
+         2025   36       Quinshon Judkins        93.6        0.828      90.9
+         2025   38     TreVeyon Henderson       116.2        0.743      90.8
+         2025   60              RJ Harvey       121.8        0.698      95.4
+         2025   83          Kaleb Johnson       131.5        0.524      98.4
+         2025  116            Woody Marks       128.8        0.457      97.4
+         2025  104         Bhayshul Tuten       136.7        0.456     100.8
+         2025  114         Trevor Etienne       131.2        0.417     100.6
+         2025  105           Cam Skattebo       137.1        0.342      98.1
+         2025  151             DJ Giddens       150.9        0.362     104.9
+         2025  117         Jarquez Hunter       149.4        0.346     102.2
+         2025  147           Jordan James       150.3        0.331     104.0
+         2025  149            Jaydon Blue       142.1        0.316     102.4
+         2025  126          Dylan Sampson       149.4        0.288     103.3
+         2025  184             Devin Neal       157.1        0.292     106.4
+         2025  179           Ollie Gordon       158.6        0.260     105.0
+         2025  193            Tahj Brooks       164.8        0.235     106.3
+         2025  223        Damien Martinez       156.8        0.200     109.9
+         2025  228         Brashard Smith       156.7        0.181     106.6
+         2025  236          LeQuint Allen       163.2        0.143     102.3
+         2025  233          Kyle Monangai       179.4        0.124     110.7
+         2025  239             Phil Mafah       176.3        0.085     110.0
+         2025  245 Jacory Croskey-Merritt       180.0        0.064     109.9
+         2025  188         Kalel Mullings       180.0        0.062     109.9
+         2026    3         Jeremiyah Love        19.0        0.994      62.7
+         2026   32         Jadarian Price        98.9        0.827      91.3
+         2026  122    Mike Washington Jr.       143.3        0.441     102.6
+         2026  161         Emmett Johnson       137.5        0.428     101.0
+         2026  174           Adam Randall       147.3        0.351     104.5
+         2026  108          Jonah Coleman       135.2        0.257      99.7
+         2026  198       Demond Claiborne       158.7        0.262     106.4
+         2026   90           Kaelon Black       140.8        0.235     102.7
+         2026  237           Seth McGowan       153.3        0.249     110.0
+         2026  245             Jam Miller       163.3        0.214     109.9
+         2026  165     Nicholas Singleton       165.2        0.141     105.3
+         2026  187          Kaytron Allen       168.1        0.141     107.7
+ two_post p_top8_post p_top16_post p_top24_post hidden_top24_post
+    128.0       0.166        0.289        0.419            -0.021
+    133.8       0.116        0.212        0.323             0.015
+    136.6       0.179        0.308        0.442            -0.173
+    141.5       0.089        0.166        0.261             0.066
+    142.3       0.115        0.209        0.320             0.137
+    148.1       0.098        0.182        0.283            -0.050
+    152.0       0.078        0.147        0.234             0.060
+    153.9       0.051        0.098        0.162             0.022
+    155.5       0.062        0.119        0.193             0.080
+    155.6       0.087        0.163        0.257             0.181
+    155.7       0.049        0.094        0.156             0.059
+    157.5       0.043        0.084        0.140             0.035
+    158.7       0.055        0.106        0.174             0.011
+    160.0       0.065        0.124        0.201             0.023
+    162.4       0.044        0.085        0.142             0.030
+    164.2       0.048        0.093        0.155            -0.021
+    165.6       0.037        0.073        0.122             0.044
+    166.3       0.042        0.083        0.138             0.023
+    170.6       0.025        0.049        0.084            -0.009
+     74.3       0.792        0.886        0.932            -0.057
+     87.6       0.594        0.749        0.841            -0.031
+    105.6       0.297        0.463        0.605            -0.116
+    112.7       0.276        0.438        0.580            -0.120
+    119.8       0.207        0.348        0.486            -0.001
+    135.5       0.129        0.233        0.350             0.017
+    140.3       0.129        0.232        0.349             0.143
+    141.9       0.104        0.191        0.296             0.053
+    144.8       0.094        0.174        0.273             0.062
+    149.7       0.085        0.159        0.251             0.012
+    150.5       0.061        0.117        0.191             0.058
+    150.8       0.076        0.145        0.231             0.028
+    152.4       0.062        0.119        0.193             0.053
+    153.0       0.085        0.159        0.252             0.115
+    155.4       0.056        0.107        0.176            -0.004
+    155.9       0.044        0.087        0.144             0.050
+    157.8       0.051        0.099        0.164             0.065
+    159.9       0.044        0.086        0.143             0.056
+    163.1       0.031        0.061        0.103             0.036
+    163.7       0.045        0.088        0.147             0.083
+    165.8       0.044        0.086        0.143             0.083
+    168.3       0.022        0.044        0.075             0.013
+    170.8       0.024        0.049        0.083             0.024
+    172.1       0.021        0.043        0.074             0.018
+    172.3       0.020        0.040        0.068            -0.023
+     63.3       0.951        0.976        0.986            -0.011
+    106.0       0.309        0.477        0.618            -0.148
+    143.9       0.103        0.190        0.293             0.103
+    144.1       0.092        0.171        0.268             0.148
+    151.2       0.071        0.135        0.217             0.113
+    156.7       0.088        0.165        0.260             0.030
+    158.1       0.051        0.099        0.163             0.080
+    159.1       0.063        0.121        0.197            -0.102
+    159.9       0.038        0.075        0.126             0.066
+    162.2       0.035        0.070        0.118             0.062
+    166.4       0.045        0.088        0.147             0.032
+    166.8       0.034        0.068        0.115             0.023
+ hidden_top24_pre finish_y1 finish_y2
+            0.184        60        60
+            0.026        60        60
+           -0.383        60        60
+            0.332        60        60
+            0.317        13        34
+           -0.080        60        40
+            0.257        47        60
+            0.225        60        60
+            0.136        26        28
+            0.212        60        60
+            0.087        60        42
+            0.085        60        59
+            0.103        51        60
+           -0.036        60        60
+            0.080        60        60
+           -0.051        40        60
+            0.056        60        60
+           -0.019        60        60
+            0.000        60        60
+           -0.648        11        NA
+           -0.130        35        NA
+           -0.333        26        NA
+           -0.394        21        NA
+            0.047        20        NA
+            0.147        60        NA
+            0.126        31        NA
+            0.293        53        NA
+            0.203        60        NA
+            0.193        37        NA
+            0.276        60        NA
+            0.123        60        NA
+            0.175        60        NA
+            0.172        60        NA
+            0.076        55        NA
+            0.351        60        NA
+            0.337        60        NA
+            0.245        60        NA
+            0.333        60        NA
+            0.347        60        NA
+            0.310        60        NA
+            0.049        29        NA
+            0.027        60        NA
+            0.000        33        NA
+           -0.039        60        NA
+           -0.227        NA        NA
+           -0.528        NA        NA
+            0.165        NA        NA
+            0.325        NA        NA
+            0.305        NA        NA
+           -0.026        NA        NA
+            0.094        NA        NA
+           -0.268        NA        NA
+            0.322        NA        NA
+            0.172        NA        NA
+            0.017        NA        NA
+            0.036        NA        NA

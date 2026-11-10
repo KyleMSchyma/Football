@@ -1,0 +1,5 @@
+"trained_with_udfa","eval_on","n","RB24","AUC_usage","Brier_usage","AUC_rookie_pts","Brier_rookie_pts"
+FALSE,"UDFA",100,4,0.9818,0.0279,0.9844,0.0246
+FALSE,"drafted",171,45,0.8471,0.1326,0.8624,0.1256
+TRUE,"UDFA",100,4,0.9818,0.0262,0.9844,0.0244
+TRUE,"drafted",171,45,0.8594,0.1293,0.8649,0.126

@@ -1,0 +1,200 @@
+
+===== Targets =====
+[PASS] one row per drafted RB 
+[PASS] 3-year targets only for classes <= 2023 
+[PASS] hit8 implies hit16 implies hit24 
+[PASS] finish sum within [3, 180] 
+rows with a full 3-year target: 298 
+ draft_season  n hit24 hit16 hit8 mean_pts zero_pts
+         2010 15     3     2    2      160        0
+         2011 29     4     2    1      125        2
+         2012 21     4     4    3      167        2
+         2013 25     7     4    2      181        2
+         2014 19     5     2    1      210        3
+         2015 18     7     5    3      284        1
+         2016 20     5     4    1      190        4
+         2017 27    11    10    7      294        4
+         2018 21     4     3    2      224        0
+         2019 25     5     4    2      189        3
+         2020 18     6     3    1      232        1
+         2021 19     4     3    3      214        1
+         2022 23     8     6    4      238        1
+         2023 18     5     4    4      275        2
+total top-24 hits: 78  top-16: 56  top-8: 36  top-36: 108 of 298 
+tiers (1 = top 8, 2 = 9-16, 3 = 17-24, 4 = rest):
+
+  1   2   3   4 
+ 36  20  22 220 
+  grp   n hit24 hit16 hit8 median_finish_sum
+   R1  21  0.81  0.71 0.71                71
+ R2-3  75  0.52  0.35 0.20               127
+ R4-7 202  0.11  0.07 0.03               180
+
+top-8 hits (name, class, pick, best finish, 3-yr pts):
+     pfr_player_name draft_season pick best_finish_3yr total_pts_3yr
+        C.J. Spiller         2010    9               6           491
+        Ryan Mathews         2010   12               7           514
+      DeMarco Murray         2011   71               6           550
+    Trent Richardson         2012    3               7           517
+         Doug Martin         2012   31               2           463
+       Alfred Morris         2012  173               8           618
+        Le'Veon Bell         2013   48               1           699
+          Eddie Lacy         2013   61               6           656
+     Devonta Freeman         2014  103               1           688
+         Todd Gurley         2015   10               1           790
+       Melvin Gordon         2015   15               5           647
+       David Johnson         2015   86               1           639
+     Ezekiel Elliott         2016    4               2           858
+   Leonard Fournette         2017    4               7           610
+ Christian McCaffrey         2017    8               1          1085
+         Dalvin Cook         2017   41               6           510
+        Alvin Kamara         2017   67               3           923
+         Kareem Hunt         2017   86               4           627
+        James Conner         2017  105               6           440
+         Aaron Jones         2017  182               2           566
+      Saquon Barkley         2018    2               1           645
+          Nick Chubb         2018   35               8           657
+         Josh Jacobs         2019   24               8           649
+    David Montgomery         2019   73               4           630
+     Jonathan Taylor         2020   41               1           772
+        Najee Harris         2021   24               3           722
+      Travis Etienne         2021   25               3           488
+ Rhamondre Stevenson         2021  120               7           510
+         Breece Hall         2022   36               2           646
+          James Cook         2022   63               8           605
+       Rachaad White         2022   91               4           609
+      Kyren Williams         2022  164               7           558
+      Bijan Robinson         2023    8               2           959
+        Jahmyr Gibbs         2023   12               1           972
+       De'Von Achane         2023   84               5           813
+         Chase Brown         2023  163               7           591
+
+Day 3 (round 4+) top-24 hits:
+     pfr_player_name draft_season round pick best_finish_3yr
+            Roy Helu         2011     4  105              23
+        Lamar Miller         2012     4   97               9
+       Alfred Morris         2012     6  173               8
+           Zac Stacy         2013     5  160              20
+     Latavius Murray         2013     6  181              10
+     Andre Ellington         2013     6  187              19
+        Theo Riddick         2013     6  199              18
+     Devonta Freeman         2014     4  103               1
+      Javorius Allen         2015     4  125              23
+           Jay Ajayi         2015     5  149              11
+       Jordan Howard         2016     5  150              10
+        Alex Collins         2016     5  171              21
+         Tarik Cohen         2017     4  119              11
+         Marlon Mack         2017     4  143              21
+         Aaron Jones         2017     5  182               2
+        Chris Carson         2017     7  249              12
+        Nyheim Hines         2018     4  104              15
+ Rhamondre Stevenson         2021     4  120               7
+         Jerome Ford         2022     5  156              16
+      Kyren Williams         2022     5  164               7
+       Isiah Pacheco         2022     7  251              15
+         Chase Brown         2023     5  163               7
+
+===== Feature coverage (% non-missing) =====
+         p_rush_yds               p_ypc               p_rec         p_car_share 
+               88.1                88.1                88.1                88.1 
+      p_scrim_share         p_rec_share          p_ppa_rush breakout_age_filled 
+               88.1                87.9                64.1                87.6 
+       age_at_draft               forty           weight_lb         speed_score 
+               99.2                79.1                88.7                78.8 
+     recruit_rating vacated_touch_share       incumbent_pts 
+               46.6               100.0               100.0 
+college_thin (FCS / cfbd gap / unmatched) RBs: 42 
+ draft_season pick        pfr_player_name            college max_touches
+         2010  139            John Conner           Kentucky          35
+         2010  173          Anthony Dixon    Mississippi St.          NA
+         2010  174          Dennis Morris     Louisiana Tech          38
+         2010  180             Deji Karim  Southern Illinois          NA
+         2010  237         Ryan D'Imperio            Rutgers           0
+         2011  124           Owen Marecic           Stanford          29
+         2011  125           Taiwan Jones Eastern Washington          NA
+         2011  136        Anthony Sherman        Connecticut          30
+         2011  220           Shaun Chapas            Georgia          20
+         2011  223           Shane Bannon               Yale          NA
+         2011  240         Stanley Havili                USC          58
+         2012   61        LaMichael James             Oregon          NA
+         2012  128          Rhett Ellison                USC          23
+         2012  157           Bradie Ewing          Wisconsin          19
+         2012  252       Daryl Richardson  Abilene Christian          NA
+         2013  130          Kyle Juszczyk            Harvard          NA
+         2013  215          Tommy Bohanon        Wake Forest          28
+         2014   94          Terrance West             Towson          38
+         2014   96        Jerick McKinnon   Georgia Southern          19
+         2014  138     Lorenzo Taliaferro   Coastal Carolina          14
+         2014  227            Kiero Small           Arkansas          59
+         2015   10            Todd Gurley            Georgia          NA
+         2015   77           Duke Johnson         Miami (FL)          18
+         2015   86          David Johnson      Northern Iowa          41
+         2016  247             Zac Brooks            Clemson          54
+         2017  119            Tarik Cohen North Carolina A&T          37
+         2017  203    De'Angelo Henderson   Coastal Carolina          NA
+         2017  207         Brandon Wilson            Houston          37
+         2018  134          Chase Edmonds            Fordham          26
+         2018  204         Trenton Cannon       Virginia St.          NA
+         2018  237            Nick Bawden      San Diego St.          15
+         2019  220       Cullen Gillaspia          Texas A&M           7
+         2019  233           Chandler Cox             Auburn          13
+         2021  119           Kene Nwangwu           Iowa St.          53
+         2021  233              Jake Funk           Maryland          70
+         2022  127          Pierre Strong   South Dakota St.          16
+         2022  260         Zander Horvath             Purdue         120
+         2024  128              Ray Davis           Kentucky          26
+         2024  167        Keilan Robinson              Texas          52
+         2025  245 Jacory Croskey-Merritt            Arizona          NA
+         2026  122    Mike Washington Jr.           Arkansas          NA
+         2026  245             Jam Miller            Alabama          NA
+breakout (20%+ of team scrimmage yards) rate among matched: 0.837 
+
+===== Spearman correlation with total_pts_3yr (training classes) =====
+           log_pick        age_at_draft breakout_age_filled       incumbent_pts 
+             -0.663              -0.259              -0.224              -0.129 
+              forty      recruit_rating           height_in           weight_lb 
+             -0.118               0.042               0.055               0.068 
+           vertical         p_car_share    best_scrim_share          p_ppa_pass 
+              0.072               0.139               0.167               0.167 
+vacated_touch_share               p_ypc         p_rec_share          p_ppa_rush 
+              0.180               0.185               0.189               0.191 
+        speed_score          career_rec    featured_seasons               p_rec 
+              0.198               0.200               0.202               0.205 
+      p_scrim_share          p_td_share          broad_jump           p_rec_yds 
+              0.206               0.214               0.228               0.228 
+         career_ypc          p_rush_yds           p_rush_td         p_scrim_yds 
+              0.233               0.249               0.274               0.292 
+    career_rush_yds 
+              0.293 
+
+highly correlated pairs (|rho| > 0.8):
+                a                b  rho
+1           p_rec        p_rec_yds 0.88
+2      p_rush_yds      p_scrim_yds 0.95
+3      p_rush_yds    p_scrim_share 0.82
+4     p_scrim_yds    p_scrim_share 0.85
+5     p_car_share    p_scrim_share 0.83
+6           p_rec      p_rec_share 0.91
+7 career_rush_yds featured_seasons 0.81
+
+within rounds 1-2 only (n = 58 ), Spearman with total_pts_3yr:
+           log_pick        age_at_draft            vertical       incumbent_pts 
+             -0.542              -0.192              -0.160              -0.152 
+              forty    best_scrim_share      recruit_rating    featured_seasons 
+             -0.151              -0.076              -0.053              -0.030 
+breakout_age_filled          broad_jump          p_ppa_pass         p_car_share 
+             -0.004               0.008               0.012               0.014 
+         p_rush_yds          p_ppa_rush          p_td_share       p_scrim_share 
+              0.031               0.058               0.060               0.065 
+vacated_touch_share           p_rush_td     career_rush_yds         p_scrim_yds 
+              0.076               0.095               0.131               0.141 
+          weight_lb         speed_score          career_rec           height_in 
+              0.163               0.201               0.204               0.241 
+        p_rec_share           p_rec_yds               p_rec          career_ypc 
+              0.251               0.296               0.326               0.341 
+              p_ypc 
+              0.349 
+`geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+
+saved rb_model_table.rds ( 354 rows, 109 cols ), dictionary and 3 plots
+[PASS] Phase 2 ready for Phase 3 (298 training rows, 78 top-24, 56 top-16, 36 top-8)
