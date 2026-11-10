@@ -20,10 +20,9 @@ A shorter, plain-English companion is in [`MODELS_GUIDE.md`](MODELS_GUIDE.md).
 | Rookie TE model | `TE_Model/` / `Football2_TE` | Same for TEs | Same |
 | Pre-draft (college-only) model | `PreDraft_Model/` / `Football2_PreDraft` | Before anyone is drafted, how likely is each college player to have a tier season, and how strong is each class? | Before the draft (no pick, no combine) |
 | All-time pre-draft player grades | `PreDraft_Model/pd_06_player_grades.R` | Letter grade A+..F for every drafted QB/RB/WR/TE 2010-2026 plus top 2027 prospects, from the college-only model | Before the draft |
+| All-time post-draft player grades | `PostDraft_Model/` / `Football2_PostDraft` | Letter grade A+..F for every drafted QB/RB/WR/TE 2010-2026 from the post-draft position models, next to the pre-draft grade | After the draft |
 
-Git branches (each builds on the previous one): `wr-model` (WR + QB) → `rb-model` →
-`te-model` → `pre-draft-model` → `player-grades` (most complete). This document lives on
-a branch cut from `player-grades`.
+Everything is on the `main` branch of the repo.
 
 Out of scope: the ATPA coursework prototypes in `ATPA/Module/Rookie_Model` and
 `ATPA/Module/Fantasy_Football` on Kyle's PC (weekly-points models with a neural network
@@ -891,7 +890,10 @@ Validation (drafted 2010-2023):
   Laquon Treadwell, Michael Mayer, Bishop Sankey); D/F that hit (Josh Allen, Carson Wentz,
   Tyreek Hill, Puka Nacua, Cooper Kupp, George Kittle, James Cook).
 
-### 3.11 All-time post-draft player grades (`pd_07_postdraft_grades.R`)
+### 3.11 All-time post-draft player grades (`PostDraft_Model/pd_07_postdraft_grades.R`)
+
+Lives in its own folder (`PostDraft_Model/`, PC `Football2_PostDraft`). It reads
+`pd_common.R` and `pd_player_grades.csv` from the pre-draft folder.
 
 - **Source model:** the "post" tier ladder of each position model (QB/RB/TE phase 4, WR
   phase 6): ordinal elastic net on the pre-draft feature set plus `log_pick`, vacated
@@ -921,8 +923,9 @@ Validation (players with both grades, 2010-2023):
   (14 classes) and not reported as evidence.
 
 Outputs: `pd_post_player_grades.csv`, `pd_post_grade_validation.csv`,
-`pd_post_vs_pre_metrics.csv`, `pd_post_class_summary.csv`, `plot_post_vs_pre.png`,
-`phase7_log.txt`.
+`pd_post_vs_pre_metrics.csv`, `pd_post_class_summary.csv`, `pd_post_grade_vs_pick.csv`,
+`pd_post_grade_by_round.csv`, `pd_post_grade_scale.csv`, `plot_post_vs_pre.png`,
+`pd_post_player_grades.html`, `phase7_log.txt` (all in `PostDraft_Model/`).
 
 ---
 
@@ -984,5 +987,6 @@ Set `CFBD_API_KEY` in `~/.Renviron`. On Kyle's PC run scripts with
 `C:/Program Files/R/R-4.6.1/bin/Rscript.exe` (each folder's `run.sh script.R log.txt` does
 this). Order: WR Phase 1 (builds the shared cache, ~30 min first run) → each position's
 Phases 1-7 (+ summary lists) → pre-draft `pd_01` (and `PD_NO_SCALE=1` for the as-is pool) →
-`pd_02_models.R QB|RB|WR|TE` → `pd_03` → `pd_04` → `pd_05` (optional) → `pd_06`. The QB,
+`pd_02_models.R QB|RB|WR|TE` → `pd_03` → `pd_04` → `pd_05` (optional) → `pd_06` →
+post-draft `PostDraft_Model/pd_07_postdraft_grades.R` (run from that folder). The QB,
 RB and TE scripts read `../Football2/cache` (PC) or `../WR_Model/cache` (repo).

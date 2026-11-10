@@ -127,19 +127,8 @@ Outputs: `pd_player_grades.csv` (every graded player), `pd_grade_scale.csv`,
 `plot_grade_hit_rates.png`, `pd_player_grades.html` (offline copy of the results page),
 `phase6_log.txt`.
 
-## Post-draft player grades (Phase 7)
+## Post-draft player grades
 
-`pd_07_postdraft_grades.R` builds the same A+ to F board for every drafted player 2010-2026
-from the post-draft tier ladders of the four position models (college profile + draft pick +
-landing spot), and puts it next to the pre-draft grade (`grade_move` = grade steps moved).
-2010-2023 use LOCO predictions, 2024-2026 the position boards. 2027 is excluded. The page
-above has the board and a per-class view.
-
-Findings (players with both grades, 2010-2023): any-tier hit rate by grade band, pre to post,
-A 59% to 69%, B 31% to 35%, C 14% to 9%, D/F 13% to 4%. Within-class rank correlation with
-actual tier rises from 0.31-0.45 to 0.49-0.61. The post model beats pick-only for QBs (QB16
-AUC 0.91 vs 0.87) and trails it slightly for RB, WR and TE.
-
-Outputs: `pd_post_player_grades.csv`, `pd_post_grade_validation.csv`,
-`pd_post_vs_pre_metrics.csv`, `pd_post_class_summary.csv`, `pd_post_grade_vs_pick.csv`, `pd_post_grade_by_round.csv`, `pd_post_grade_scale.csv`, `plot_post_vs_pre.png`, `pd_post_player_grades.html` (offline copy of the post-draft page: https://claude.ai/artifact/CXjjafaBwrK84knShtR4n6),
-`phase7_log.txt`.
+The post-draft grades (formerly Phase 7 here) now live in their own folder,
+[`../PostDraft_Model`](../PostDraft_Model/README.md). That folder reads `pd_player_grades.csv`
+and `pd_common.R` from this one, so run `pd_06_player_grades.R` first.
