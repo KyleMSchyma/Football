@@ -1,0 +1,5 @@
+"scheme","features","n","Spearman_PPR","RMSE_PPR","AUC_hit","Brier_hit","RPS_ladder","AUC_WR3"
+"Rolling","without usage/PPA",256,0.3972,211.2166,0.6507,0.1307,0.1327,0.6513
+"Rolling","with usage/PPA",256,0.4157,209.7318,0.636,0.1403,0.1372,0.6498
+"LOCO 2015-23","without usage/PPA",291,0.4262,205.1242,0.6644,0.124,0.1216,0.674
+"LOCO 2015-23","with usage/PPA",291,0.4218,205.1714,0.6741,0.123,0.1195,0.6837

@@ -1,0 +1,82 @@
+training rows: 445  to project: 102 
+
+finish_sum_3yr distribution (lower = better, cap 60 per season, max 180 ):
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   11.0   160.0   180.0   161.3   180.0   180.0 
+share at the max (never a top-60 season): 0.679
+by round (mean / median):
+  round  n  mean median
+1     1 55 117.8    127
+2     2 67 147.4    163
+3     3 64 159.2    180
+4     4 63 171.7    180
+5     5 55 167.2    180
+6     6 75 177.6    180
+7     7 66 180.0    180
+
+best 15 finish sums, 2010-2023:
+ draft_season pick   pfr_player_name finish_y1 finish_y2 finish_y3
+         2020   22  Justin Jefferson         6         4         1
+         2014   12 Odell Beckham Jr.         7         5         4
+         2016   47    Michael Thomas         7         6         6
+         2011    4        A.J. Green        17         3         4
+         2016  165       Tyreek Hill        18         8         1
+         2021    5     Ja'Marr Chase         5        11        11
+         2023  177        Puka Nacua         4        26         1
+         2021  112 Amon-Ra St. Brown        22         7         3
+         2014    7        Mike Evans        13        21         3
+         2020   17       CeeDee Lamb        22        19         5
+         2014   63     Jarvis Landry        29         8        13
+         2018   26     Calvin Ridley        22        27         5
+         2019   64      D.K. Metcalf        33         7        14
+         2021    6     Jaylen Waddle        12         8        34
+         2022   10    Garrett Wilson        21        26        10
+ finish_sum_3yr
+             11
+             16
+             19
+             24
+             27
+             27
+             31
+             32
+             37
+             46
+             50
+             54
+             54
+             54
+             57
+
+Spearman(finish_sum_3yr, total_ppr_3yr) = -0.818 
+
+===== Cross-validated performance, finish_sum_3yr (cap 60 ) =====
+(predicted vs actual finish sums: positive Spearman = better agreement)
+  scheme  set         model   n pooled_Spearman     R2   RMSE    MAE
+    LOCO post      baseline 445           0.537  0.274 31.653 20.123
+    LOCO post   elastic_net 445           0.519  0.276 31.611 20.550
+    LOCO post random_forest 445           0.429  0.211 32.987 22.651
+    LOCO  pre      baseline 445          -0.132 -0.004 37.207 26.781
+    LOCO  pre   elastic_net 445           0.322  0.102 35.186 24.299
+    LOCO  pre random_forest 445           0.285  0.104 35.163 24.888
+ Rolling post      baseline 256           0.551  0.251 33.726 20.501
+ Rolling post   elastic_net 256           0.508  0.242 33.924 21.565
+ Rolling post random_forest 256           0.397  0.147 35.987 23.491
+ Rolling  pre      baseline 256           0.121 -0.005 39.068 26.918
+ Rolling  pre   elastic_net 256           0.279  0.073 37.510 24.859
+ Rolling  pre random_forest 256           0.234  0.040 38.185 25.296
+ within_class_Spearman
+                 0.551
+                 0.534
+                 0.438
+                   NaN
+                 0.337
+                 0.292
+                 0.552
+                 0.515
+                 0.402
+                   NaN
+                 0.293
+                 0.236
+
+rolling origin, post-draft elastic net minus pick-only RMSE: +0.20  95% CI [-0.56, +0.97]  (negative = elastic net better; share of draws < 0: 0.305)

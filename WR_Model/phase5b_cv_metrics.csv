@@ -1,0 +1,13 @@
+"scheme","model","approach","n","within_class_Spearman","RMSE","MAE","step1_AUC","step1_Brier","step2_RMSE_relevant"
+"LOCO","pick_only","one_step",445,0.603,64.597,47.659,NA,NA,NA
+"LOCO","pick_only","two_step",445,0.603,64.617,47.364,0.799,0.181,74.465
+"LOCO","post_enet","one_step",445,0.598,64.753,48.312,NA,NA,NA
+"LOCO","post_enet","two_step",445,0.595,64.982,48.21,0.808,0.179,74.692
+"LOCO","pre_enet","one_step",445,0.397,73.308,57.309,NA,NA,NA
+"LOCO","pre_enet","two_step",445,0.421,73.403,57.61,0.73,0.21,80.953
+"Rolling","pick_only","one_step",256,0.581,67.243,48.234,NA,NA,NA
+"Rolling","pick_only","two_step",256,0.581,67.128,47.768,0.796,0.182,77.609
+"Rolling","post_enet","one_step",256,0.56,68.142,49.504,NA,NA,NA
+"Rolling","post_enet","two_step",256,0.549,69.069,49.521,0.786,0.189,77.301
+"Rolling","pre_enet","one_step",256,0.327,77.473,58.133,NA,NA,NA
+"Rolling","pre_enet","two_step",256,0.305,78.032,58.662,0.683,0.226,82.251

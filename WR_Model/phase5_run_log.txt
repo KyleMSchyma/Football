@@ -1,0 +1,164 @@
+training rows: 445  to project: 102 
+
+finish_sum_3yr distribution (lower = better, cap 100 per season, max 300 ):
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   11.0   198.0   297.0   246.1   300.0   300.0 
+share at the max (never a top-100 season): 0.483
+by round (mean / median):
+  round  n  mean median
+1     1 55 157.3  148.0
+2     2 67 202.5  198.0
+3     3 64 232.8  261.5
+4     4 63 271.8  300.0
+5     5 55 259.0  300.0
+6     6 75 285.3  300.0
+7     7 66 297.4  300.0
+
+best 15 finish sums, 2010-2023:
+ draft_season pick   pfr_player_name finish_y1 finish_y2 finish_y3
+         2020   22  Justin Jefferson         6         4         1
+         2014   12 Odell Beckham Jr.         7         5         4
+         2016   47    Michael Thomas         7         6         6
+         2011    4        A.J. Green        17         3         4
+         2016  165       Tyreek Hill        18         8         1
+         2021    5     Ja'Marr Chase         5        11        11
+         2023  177        Puka Nacua         4        26         1
+         2021  112 Amon-Ra St. Brown        22         7         3
+         2014    7        Mike Evans        13        21         3
+         2020   17       CeeDee Lamb        22        19         5
+         2014   63     Jarvis Landry        29         8        13
+         2018   26     Calvin Ridley        22        27         5
+         2019   64      D.K. Metcalf        33         7        14
+         2021    6     Jaylen Waddle        12         8        34
+         2022   10    Garrett Wilson        21        26        10
+ finish_sum_3yr
+             11
+             16
+             19
+             24
+             27
+             27
+             31
+             32
+             37
+             46
+             50
+             54
+             54
+             54
+             57
+
+Spearman(finish_sum_3yr, total_ppr_3yr) = -0.924 
+
+===== Cross-validated performance, finish_sum_3yr (cap 100 ) =====
+(predicted vs actual finish sums: positive Spearman = better agreement)
+  scheme  set         model   n pooled_Spearman     R2   RMSE    MAE
+    LOCO post      baseline 445           0.583  0.323 64.597 47.659
+    LOCO post   elastic_net 445           0.588  0.319 64.753 48.312
+    LOCO post random_forest 445           0.554  0.276 66.796 51.179
+    LOCO  pre      baseline 445          -0.142 -0.004 78.642 64.895
+    LOCO  pre   elastic_net 445           0.394  0.128 73.308 57.309
+    LOCO  pre random_forest 445           0.391  0.147 72.512 57.222
+ Rolling post      baseline 256           0.585  0.311 67.243 48.234
+ Rolling post   elastic_net 256           0.560  0.292 68.142 49.504
+ Rolling post random_forest 256           0.493  0.202 72.359 53.109
+ Rolling  pre      baseline 256           0.049 -0.007 81.288 65.107
+ Rolling  pre   elastic_net 256           0.340  0.085 77.473 58.133
+ Rolling  pre random_forest 256           0.319  0.064 78.355 58.155
+ within_class_Spearman
+                 0.603
+                 0.598
+                 0.562
+                   NaN
+                 0.397
+                 0.405
+                 0.581
+                 0.560
+                 0.495
+                   NaN
+                 0.327
+                 0.306
+
+rolling origin, post-draft elastic net minus pick-only RMSE: +0.90  95% CI [-0.80, +2.64]  (negative = elastic net better; share of draws < 0: 0.152)
+
+elastic net (pre) nonzero coefficients (negative = better finish):
+     recruit_rating         (Intercept)     na_age_at_draft   na_recruit_rating 
+           -174.896             149.778              25.861              13.515 
+    college_seasons       early_declare        age_at_draft breakout_age_filled 
+             11.960              -8.804               7.569               3.965 
+       final_power5      best_dominator         final_yptpa         transferred 
+             -3.410              -2.790              -2.342              -2.150 
+       athletic_pc1        na_height_in        na_weight_lb      career_rec_yds 
+             -1.232               0.676               0.338              -0.016 
+
+elastic net (post) nonzero coefficients (negative = better finish):
+           log_pick         (Intercept)      recruit_rating   na_recruit_rating 
+             41.222             -40.171             -19.864               6.135 
+    college_seasons       early_declare breakout_age_filled        age_at_draft 
+              5.962              -5.074               3.516               1.691 
+       athletic_pc1   team_targets_prev      career_rec_yds 
+              1.637              -0.023              -0.001 
+
+===== Projected finish_sum_3yr (post-draft elastic net), top 10 per class =====
+ draft_season pick     pfr_player_name post_finish_sum pick_only_finish_sum
+         2024    4 Marvin Harrison Jr.           102.5                 87.7
+         2024    6        Malik Nabers           119.5                108.0
+         2024    9         Rome Odunze           148.0                128.3
+         2024   28       Xavier Worthy           179.6                185.1
+         2024   33        Keon Coleman           187.2                193.4
+         2024   23        Brian Thomas           188.2                175.3
+         2024   34       Ladd McConkey           204.1                194.9
+         2024   37        Ja'Lynn Polk           213.1                199.1
+         2024   31      Ricky Pearsall           217.8                190.2
+         2024   52     Adonai Mitchell           219.6                216.1
+         2025    2       Travis Hunter            86.8                 53.0
+         2025    8   Tetairoa McMillan           128.5                122.4
+         2025   19        Emeka Egbuka           177.4                165.7
+         2025   23      Matthew Golden           184.7                175.3
+         2025   39       Luther Burden           192.4                201.7
+         2025   34      Jayden Higgins           210.7                194.9
+         2025   58           Jack Bech           231.3                221.6
+         2025   55          Tre Harris           232.7                218.9
+         2025   69       Kyle Williams           237.3                230.3
+         2025   74          Pat Bryant           237.9                233.8
+         2026    4        Carnell Tate           103.1                 87.7
+         2026    8        Jordyn Tyson           125.5                122.4
+         2026   24       KC Concepcion           174.6                177.4
+         2026   20         Makai Lemon           175.5                168.3
+         2026   30         Omar Cooper           208.4                188.6
+         2026   39       Denzel Boston           214.0                201.7
+         2026   33  De'Zhaun Stribling           220.4                193.4
+         2026   47      Germie Bernard           223.5                211.1
+         2026   84           Ted Hurst           233.7                240.1
+         2026   80        Ja'Kobi Lane           234.2                237.7
+ pre_finish_sum finish_y1 finish_y2
+          201.1        30        50
+          194.1         6       100
+          217.4        49        41
+          181.7        33        59
+          221.8        71        60
+          234.1         4        42
+          255.6        12        30
+          249.9       100       100
+          271.5        82        72
+          231.4       100        73
+          236.7       100        NA
+          184.8        15        NA
+          225.0        23        NA
+          224.2        88        NA
+          193.1        49        NA
+          240.7        47        NA
+          253.9       100        NA
+          239.9        90        NA
+          235.2       100        NA
+          255.2        85        NA
+          213.7        NA        NA
+          213.5        NA        NA
+          214.1        NA        NA
+          214.1        NA        NA
+          257.5        NA        NA
+          262.1        NA        NA
+          273.3        NA        NA
+          252.0        NA        NA
+          224.0        NA        NA
+          235.1        NA        NA

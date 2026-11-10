@@ -1,0 +1,202 @@
+back-test players (2016-2023, rolling origin): 256 
+
+===== Back-test: does a positive value score predict beating draft slot? =====
+cor(value_gap_ppr, pick) = 0.6  cor(rank_gap, pick) = 0.497 
+
+--- ALL rounds | score = value_gap_ppr | 5 groups (1 = most negative, 5 = most positive) ---
+ grp  n       score_range mean_pick actual_ppr pick_only_ppr ppr_vs_slot
+   1 52 -410.08 to -95.24        42      370.8         356.9        13.9
+   2 51  -93.85 to -20.98       122      175.7         176.2        -0.5
+   3 51   -20.58 to 36.59       135      173.2         156.8        16.5
+   4 51    36.82 to 95.16       165      155.7         117.2        38.5
+   5 51   96.09 to 310.45       178      135.5         103.5        32.0
+ actual_hit pick_only_hit hit_vs_slot
+      0.404         0.348       0.056
+      0.118         0.120      -0.003
+      0.137         0.101       0.037
+      0.078         0.069       0.009
+      0.059         0.062      -0.003
+top minus bottom (actual - pick-only): PPR +18.1  95% CI [-50.6, +90.9]  P(>0)=0.690 | hit rate -0.059  95% CI [-0.201, +0.082] 
+Spearman(score, actual - pick-only PPR) = 0.109
+
+--- ALL rounds | score = rank_gap | 5 groups (1 = most negative, 5 = most positive) ---
+ grp  n    score_range mean_pick actual_ppr pick_only_ppr ppr_vs_slot
+   1 52 -0.75 to -0.23        86      237.6         239.5        -1.9
+   2 51 -0.23 to -0.08        94      254.7         241.8        12.9
+   3 51  -0.07 to 0.06       123      236.5         195.2        41.4
+   4 51   0.07 to 0.22       146      161.4         146.3        15.2
+   5 51   0.23 to 0.91       191      123.1          90.1        33.0
+ actual_hit pick_only_hit hit_vs_slot
+      0.231         0.189       0.042
+      0.216         0.204       0.012
+      0.255         0.160       0.095
+      0.059         0.096      -0.037
+      0.039         0.054      -0.015
+top minus bottom (actual - pick-only): PPR +34.9  95% CI [-31.1, +99.1]  P(>0)=0.846 | hit rate -0.057  95% CI [-0.188, +0.055] 
+Spearman(score, actual - pick-only PPR) = 0.125
+
+--- Day 1-2 (rounds 1-3) | score = value_gap_ppr | 3 groups (1 = most negative, 3 = most positive) ---
+ grp  n        score_range mean_pick actual_ppr pick_only_ppr ppr_vs_slot
+   1 36 -410.08 to -128.12        36      398.3         381.6        16.7
+   2 36  -125.19 to -20.98        50      327.2         296.0        31.2
+   3 36   -20.58 to 170.78        67      296.7         241.8        55.0
+ actual_hit pick_only_hit hit_vs_slot
+      0.444         0.388       0.057
+      0.278         0.238       0.040
+      0.278         0.162       0.116
+top minus bottom (actual - pick-only): PPR +38.3  95% CI [-61.9, +134.5]  P(>0)=0.770 | hit rate +0.059  95% CI [-0.159, +0.289] 
+Spearman(score, actual - pick-only PPR) = 0.111
+
+--- Day 1-2 (rounds 1-3) | score = rank_gap | 3 groups (1 = most negative, 3 = most positive) ---
+ grp  n    score_range mean_pick actual_ppr pick_only_ppr ppr_vs_slot
+   1 36 -0.75 to -0.21        50      333.5         311.2        22.3
+   2 36 -0.20 to -0.03        45      371.2         333.0        38.2
+   3 36   0.00 to 0.54        58      317.5         275.1        42.4
+ actual_hit pick_only_hit hit_vs_slot
+      0.361         0.270       0.091
+      0.333         0.306       0.027
+      0.306         0.211       0.094
+top minus bottom (actual - pick-only): PPR +20.1  95% CI [-71.7, +117.0]  P(>0)=0.664 | hit rate +0.003  95% CI [-0.200, +0.210] 
+Spearman(score, actual - pick-only PPR) = 0.033
+
+--- Day 3 (rounds 4-7) | score = value_gap_ppr | 3 groups (1 = most negative, 3 = most positive) ---
+ grp  n      score_range mean_pick actual_ppr pick_only_ppr ppr_vs_slot
+   1 50 -133.00 to 12.37       173       78.5         102.4       -23.9
+   2 49   13.10 to 91.13       190      116.3          88.3        28.1
+   3 49  93.19 to 310.45       190      112.2          86.8        25.4
+ actual_hit pick_only_hit hit_vs_slot
+      0.040         0.056      -0.016
+      0.041         0.051      -0.010
+      0.020         0.049      -0.028
+top minus bottom (actual - pick-only): PPR +49.3  95% CI [-6.8, +103.4]  P(>0)=0.960 | hit rate -0.012  95% CI [-0.077, +0.051] 
+Spearman(score, actual - pick-only PPR) = 0.297
+
+--- Day 3 (rounds 4-7) | score = rank_gap | 3 groups (1 = most negative, 3 = most positive) ---
+ grp  n   score_range mean_pick actual_ppr pick_only_ppr ppr_vs_slot actual_hit
+   1 50 -0.54 to 0.00       165       85.1         107.5       -22.4       0.06
+   2 49  0.00 to 0.21       187      110.3          91.9        18.4       0.02
+   3 49  0.21 to 0.91       202      111.5          78.0        33.5       0.02
+ pick_only_hit hit_vs_slot
+         0.057       0.003
+         0.053      -0.033
+         0.046      -0.025
+top minus bottom (actual - pick-only): PPR +55.9  95% CI [-5.3, +114.6]  P(>0)=0.967 | hit rate -0.028  95% CI [-0.109, +0.037] 
+Spearman(score, actual - pick-only PPR) = 0.334
+
+===== Value board 2024-2026: top 5 / bottom 5 by value_gap_ppr per class =====
+
+ 2024 -- most POSITIVE (college data likes him more than draft slot)
+  pfr_player_name pick pick_ppr pre_ppr value_gap_ppr rank_gap nfl_ppr_so_far
+    Troy Franklin  102    184.0   374.6         190.6    0.400          244.2
+     Brenden Rice  225     67.3   235.8         168.5    0.629            0.0
+  Tahj Washington  241     57.2   213.6         156.4    0.571            4.7
+     Jacob Cowing  135    142.6   256.5         113.9    0.343           12.7
+ Malik Washington  184     97.0   187.6          90.6    0.200          173.5
+ flag
+     
+     
+     
+     
+     
+2024 -- most NEGATIVE
+     pfr_player_name pick pick_ppr pre_ppr value_gap_ppr rank_gap
+      Xavier Legette   32    354.9    37.6        -317.3   -0.628
+ Marvin Harrison Jr.    4    661.5   373.8        -287.7   -0.086
+         Rome Odunze    9    541.9   311.3        -230.6   -0.058
+      Ricky Pearsall   31    359.6   141.1        -218.5   -0.457
+        Malik Nabers    6    601.7   407.8        -193.9    0.000
+ nfl_ppr_so_far flag
+          214.4     
+          324.3     
+          291.0     
+          182.1     
+          330.7     
+2024 -- most positive by rank_gap (removes the pull toward the mean)
+   pfr_player_name pick pre_pct pick_pct rank_gap flag
+      Brenden Rice  225   0.729    0.100    0.629     
+   Tahj Washington  241   0.614    0.043    0.571     
+     Troy Franklin  102   0.929    0.529    0.400     
+      Jacob Cowing  135   0.786    0.443    0.343     
+ Cornelius Johnson  253   0.329    0.014    0.315     
+
+ 2025 -- most POSITIVE (college data likes him more than draft slot)
+  pfr_player_name pick pick_ppr pre_ppr value_gap_ppr rank_gap nfl_ppr_so_far
+      Ricky White  238     59.0   254.6         195.6    0.613            0.0
+      Tez Johnson  235     60.9   238.2         177.3    0.484           92.4
+   Dominic Lovett  244     55.4   231.2         175.8    0.517            0.0
+    Elic Ayomanor  136    141.6   314.8         173.2    0.548          116.5
+ Konata Mumpfield  242     56.6   220.3         163.7    0.451           25.2
+ flag
+     
+     
+     
+     
+     
+2025 -- most NEGATIVE
+   pfr_player_name pick pick_ppr pre_ppr value_gap_ppr rank_gap nfl_ppr_so_far
+     Travis Hunter    2    763.7   261.1        -502.6   -0.194           63.8
+   Savion Williams   87    207.4    11.1        -196.3   -0.516           25.5
+       Arian Smith  110    172.8     7.0        -165.8   -0.452           13.5
+      Emeka Egbuka   19    431.8   294.6        -137.2   -0.064          195.7
+ Tetairoa McMillan    8    559.3   431.6        -127.7    0.032          213.4
+                                               flag
+ two-way player (college receiving understates him)
+                                                   
+                                                   
+                                                   
+                                                   
+2025 -- most positive by rank_gap (removes the pull toward the mean)
+  pfr_player_name pick pre_pct pick_pct rank_gap flag
+      Ricky White  238   0.758    0.145    0.613     
+    Elic Ayomanor  136   0.919    0.371    0.548     
+   Dominic Lovett  244   0.565    0.048    0.517     
+      Tez Johnson  235   0.661    0.177    0.484     
+ Konata Mumpfield  242   0.532    0.081    0.451     
+
+ 2026 -- most POSITIVE (college data likes him more than draft slot)
+ pfr_player_name pick pick_ppr pre_ppr value_gap_ppr rank_gap nfl_ppr_so_far
+    Barion Brown  190     92.3   277.3         185.0    0.611             NA
+   Kevin Coleman  177    102.7   267.3         164.6    0.555             NA
+  Elijah Sarratt  115    166.3   278.6         112.3    0.389             NA
+     Skyler Bell  125    154.0   244.6          90.6    0.305             NA
+     Deion Burks  254     49.4   134.0          84.6    0.361             NA
+ flag
+     
+     
+     
+     
+     
+2026 -- most NEGATIVE
+    pfr_player_name pick pick_ppr pre_ppr value_gap_ppr rank_gap nfl_ppr_so_far
+       Carnell Tate    4    661.5   279.3        -382.2   -0.083             NA
+ De'Zhaun Stribling   33    350.4   114.7        -235.7   -0.597             NA
+        Omar Cooper   30    364.4   154.9        -209.5   -0.389             NA
+       Jordyn Tyson    8    559.3   367.8        -191.5    0.000             NA
+      Denzel Boston   39    325.7   154.1        -171.6   -0.361             NA
+ flag
+     
+     
+     
+     
+     
+2026 -- most positive by rank_gap (removes the pull toward the mean)
+ pfr_player_name pick pre_pct pick_pct rank_gap flag
+    Barion Brown  190   0.847    0.236    0.611     
+   Kevin Coleman  177   0.819    0.264    0.555     
+  Elijah Sarratt  115   0.875    0.486    0.389     
+     Deion Burks  254   0.375    0.014    0.361     
+     Skyler Bell  125   0.736    0.431    0.305     
+
+flagged players on the board:
+ pfr_player_name draft_season pick value_gap_ppr
+  Jalen McMillan         2024   92           2.7
+     Tory Horton         2025  166          77.5
+   Travis Hunter         2025    2        -502.6
+      CJ Daniels         2026  197          -4.2
+                                               flag
+          short final season (468 yds vs best 1040)
+          short final season (331 yds vs best 1136)
+ two-way player (college receiving understates him)
+           short final season (391 yds vs best 988)
+
+saved wr_value_board_2024_2026.csv ( 102 rows ) and phase4_backtest_players.csv

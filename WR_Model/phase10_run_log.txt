@@ -1,0 +1,143 @@
+coverage of final-season usage (f_usg_pass) and PPA (f_ppa_pass) by class (%):
+ draft_season  n usage ppa
+         2010 31     0   0
+         2011 28     0   0
+         2012 33     0   0
+         2013 28     0   0
+         2014 34    82  76
+         2015 35    89  80
+         2016 31    84  84
+         2017 32    94  88
+         2018 34    94  91
+         2019 28   100 100
+         2020 35   100  97
+         2021 35    97  91
+         2022 28    93  86
+         2023 33   100  97
+         2024 35   100 100
+         2025 31   100 100
+         2026 36   100 100
+
+Spearman of new features with total_ppr_3yr (training classes, non-missing):
+    f_usg_overall        f_usg_pass         f_usg_3rd          f_usg_pd 
+            0.184             0.189             0.143             0.181 
+       f_ppa_pass         f_ppa_all    f_tot_ppa_pass     best_usg_pass 
+            0.095             0.089             0.234             0.189 
+best_tot_ppa_pass 
+            0.322 
+Warning messages:
+1: In lognet(x, is.sparse, y, weights, offset, alpha, nobs, nvars,  :
+  one multinomial or binomial class has fewer than 8  observations; dangerous ground
+2: In lognet(x, is.sparse, y, weights, offset, alpha, nobs, nvars,  :
+  one multinomial or binomial class has fewer than 8  observations; dangerous ground
+3: In lognet(x, is.sparse, y, weights, offset, alpha, nobs, nvars,  :
+  one multinomial or binomial class has fewer than 8  observations; dangerous ground
+4: In lognet(x, is.sparse, y, weights, offset, alpha, nobs, nvars,  :
+  one multinomial or binomial class has fewer than 8  observations; dangerous ground
+5: In lognet(x, is.sparse, y, weights, offset, alpha, nobs, nvars,  :
+  one multinomial or binomial class has fewer than 8  observations; dangerous ground
+6: In lognet(x, is.sparse, y, weights, offset, alpha, nobs, nvars,  :
+  one multinomial or binomial class has fewer than 8  observations; dangerous ground
+7: In lognet(x, is.sparse, y, weights, offset, alpha, nobs, nvars,  :
+  one multinomial or binomial class has fewer than 8  observations; dangerous ground
+8: In lognet(x, is.sparse, y, weights, offset, alpha, nobs, nvars,  :
+  one multinomial or binomial class has fewer than 8  observations; dangerous ground
+
+===== Pre-draft model WITHOUT vs WITH college usage/PPA features =====
+       scheme          features   n Spearman_PPR RMSE_PPR AUC_hit Brier_hit
+      Rolling without usage/PPA 256       0.3972 211.2166  0.6507    0.1307
+      Rolling    with usage/PPA 256       0.4157 209.7318  0.6360    0.1403
+ LOCO 2015-23 without usage/PPA 291       0.4262 205.1242  0.6644    0.1240
+ LOCO 2015-23    with usage/PPA 291       0.4218 205.1714  0.6741    0.1230
+ RPS_ladder AUC_WR3
+     0.1327  0.6513
+     0.1372  0.6498
+     0.1216  0.6740
+     0.1195  0.6837
+
+===== Bootstrap, rolling origin (2000 draws, seed 2026; WITH minus WITHOUT, negative = new features help) =====
+RMSE PPR:   -1.4848  95% CI [-8.6868, +5.6261]  share < 0: 0.641 
+Brier hit:  +0.0095  95% CI [+0.0023, +0.0187]  share < 0: 0.004 
+RPS ladder: +0.0045  95% CI [-0.0006, +0.0100]  share < 0: 0.044 
+Spearman PPR (positive = help): -0.0185  95% CI [-0.0854, +0.0432]  share < 0: 0.708   <- sign flipped: negative here means WITH has the higher Spearman
+
+===== Day-3 back-test, rolling ( 148 players, 9 reached WR3+ in yrs 1-3 ) =====
+top 5 per class: without 5 | with 5 | earliest picks 5
+top 10 per class: without 6 | with 5 | earliest picks 9
+
+known Day-3 hits: rank among their class's Day-3 WRs by pre-draft P(WR3+), before vs after
+ draft_season pick   pfr_player_name best_fin f_usg_pass f_ppa_pass without_p3
+         2016  165       Tyreek Hill        1         NA         NA      0.037
+         2019  149    Hunter Renfrow       10      0.128      0.407      0.011
+         2020  128        Gabe Davis       35      0.258      0.780      0.322
+         2020  173    Darnell Mooney       23      0.235      0.385      0.090
+         2021  112 Amon-Ra St. Brown        3      0.204      0.676      0.313
+         2022  132       Romeo Doubs       36      0.195      0.940      0.180
+         2023  177        Puka Nacua        1      0.217      0.802      0.095
+ with_p3 rank_without rank_with rank_pick n_day3
+   0.037           15        15         9     22
+   0.035           15        15         4     15
+   0.365            3         2         1     19
+   0.122           12        11         9     19
+   0.281            3         4         2     20
+   0.188            2         2         2     11
+   0.102            9        11         6     19
+
+final pre-draft PPR elastic net with usage/PPA: nonzero coefficients
+           (Intercept)         recruit_rating        na_age_at_draft 
+               676.139                459.647               -130.414 
+         f_usg_overall             f_ppa_pass         best_dominator 
+               128.070                 60.701                 56.964 
+     na_recruit_rating        college_seasons              broke_out 
+               -46.106                -41.877                -40.545 
+          final_power5 na_breakout_age_filled           age_at_draft 
+                26.013                -22.464                -21.698 
+   breakout_age_filled            transferred           na_height_in 
+               -19.095                 19.007                -14.920 
+          na_weight_lb           athletic_pc1          early_declare 
+               -12.305                  9.525                  9.100 
+         na_f_ppa_pass      best_tot_ppa_pass           na_f_ppa_all 
+                 3.201                  1.225                  1.201 
+             height_in         career_rec_yds            final_yptpa 
+                -0.884                  0.034                  0.028 
+
+2026 class, pre-draft projection with usage/PPA, top 10:
+  pfr_player_name pick f_usg_pass f_ppa_pass pre_ppr_without pre_ppr_with
+     Jordyn Tyson    8      0.308      0.520           367.8        351.5
+     Carnell Tate    4      0.196      1.126           279.3        305.6
+    KC Concepcion   24      0.237      0.587           371.0        293.1
+      Makai Lemon   20      0.279      0.689           327.5        287.6
+   Elijah Sarratt  115      0.260      0.785           278.6        276.3
+        Ted Hurst   84      0.254      0.429           259.1        269.7
+ Antonio Williams   71      0.191      0.519           257.2        258.0
+     Ja'Kobi Lane   80      0.193      0.819           215.8        249.2
+      Skyler Bell  125      0.320      0.639           244.6        229.3
+    Kevin Coleman  177      0.218      0.588           267.3        223.1
+ change_ppr p_wr3_with
+      -16.3      0.399
+       26.3      0.338
+      -77.9      0.303
+      -39.9      0.310
+       -2.3      0.273
+       10.6      0.319
+        0.8      0.232
+       33.4      0.248
+      -15.3      0.182
+      -44.2      0.183
+2026 Day-3, biggest gains from the new features:
+ pfr_player_name pick f_usg_pass f_ppa_pass pre_ppr_without pre_ppr_with
+     Bryce Lance  136      0.240      1.084           172.7        211.0
+      CJ Daniels  197      0.175      0.689            82.7        109.0
+      Lewis Bond  204      0.247      0.579            62.8         84.3
+    Colbie Young  140      0.125      0.673            83.6         92.2
+    Josh Cameron  191      0.192      0.544           114.7        119.1
+   Anthony Smith  218      0.211      0.652             0.0          0.0
+ change_ppr
+       38.3
+       26.3
+       21.5
+        8.6
+        4.4
+        0.0
+
+saved phase10_cv_metrics.csv, phase10_oof_predictions.csv, wr_pre_draft_usage_board_2024_2026.csv

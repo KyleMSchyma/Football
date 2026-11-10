@@ -1,0 +1,39 @@
+training rows: 445 (classes 2010-2023 )
+rows to project: 102 
+
+2024 2025 2026 
+  35   31   36 
+rolling done: pre total_ppr_3yr 
+rolling done: pre hit_3yr 
+rolling done: post total_ppr_3yr 
+rolling done: post hit_3yr 
+
+===== Leave-one-class-out vs rolling origin =====
+  set         model          scheme Spearman     R2    RMSE   AUC Brier
+ post      baseline    LOCO 2010-23    0.630  0.366 172.664 0.834 0.105
+ post      baseline    LOCO 2016-23    0.609  0.345 180.572 0.830 0.110
+ post      baseline Rolling 2016-23    0.624  0.340 181.330 0.829 0.111
+ post   elastic_net    LOCO 2010-23    0.639  0.365 172.797 0.819 0.102
+ post   elastic_net    LOCO 2016-23    0.611  0.331 182.601 0.792 0.110
+ post   elastic_net Rolling 2016-23    0.613  0.322 183.810 0.752 0.117
+ post random_forest    LOCO 2010-23    0.603  0.330 177.456 0.775 0.108
+ post random_forest    LOCO 2016-23    0.566  0.272 190.488 0.722 0.120
+ post random_forest Rolling 2016-23    0.567  0.247 193.647 0.727 0.125
+  pre      baseline    LOCO 2010-23   -0.181 -0.005 217.382 0.616 0.130
+  pre      baseline    LOCO 2016-23   -0.210 -0.007 223.924 0.592 0.135
+  pre      baseline Rolling 2016-23    0.001 -0.008 224.114 0.520 0.135
+  pre   elastic_net    LOCO 2010-23    0.471  0.182 196.098 0.713 0.118
+  pre   elastic_net    LOCO 2016-23    0.387  0.094 212.435 0.641 0.130
+  pre   elastic_net Rolling 2016-23    0.397  0.104 211.217 0.651 0.131
+  pre random_forest    LOCO 2010-23    0.424  0.180 196.397 0.680 0.121
+  pre random_forest    LOCO 2016-23    0.357  0.099 211.797 0.590 0.137
+  pre random_forest Rolling 2016-23    0.378  0.083 213.714 0.634 0.135
+
+===== Bootstrap (2000 draws, players resampled, seed 2026), rolling origin =====
+post-draft elastic net minus pick-only (negative = elastic net better), n = 256 
+RMSE  diff:    2.480   95% CI [  -2.479,    7.578]   share of draws < 0: 0.156
+Brier diff:   0.0055   95% CI [ -0.0054,   0.0166]   share of draws < 0: 0.171
+
+training rows per rolling fold:
+2016 2017 2018 2019 2020 2021 2022 2023 
+ 120  154  189  220  252  286  314  349 

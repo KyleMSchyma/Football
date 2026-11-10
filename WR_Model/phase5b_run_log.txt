@@ -1,0 +1,167 @@
+training rows: 445  relevant (any top-100 season): 230 (51.7%) 
+relevant rate by round:
+  round  n pct_relevant mean_score_if_relevant
+1     1 55         0.91                  143.0
+2     2 67         0.85                  185.4
+3     3 64         0.67                  199.9
+4     4 63         0.41                  231.6
+5     5 55         0.38                  192.7
+6     6 75         0.32                  254.0
+7     7 66         0.14                  281.1
+
+step-2 target chosen by inner CV (count of fold fits, one per test class):
+  scheme     model step2_form  n
+    LOCO pick_only        raw 14
+    LOCO post_enet        raw 14
+    LOCO  pre_enet        raw 14
+ Rolling pick_only        raw  8
+ Rolling post_enet        raw  8
+ Rolling  pre_enet        raw  8
+
+===== Two-step vs one-step, finish score (lower = better; Spearman higher = better) =====
+  scheme     model approach   n within_class_Spearman   RMSE    MAE step1_AUC
+    LOCO pick_only one_step 445                 0.603 64.597 47.659        NA
+    LOCO pick_only two_step 445                 0.603 64.617 47.364     0.799
+    LOCO post_enet one_step 445                 0.598 64.753 48.312        NA
+    LOCO post_enet two_step 445                 0.595 64.982 48.210     0.808
+    LOCO  pre_enet one_step 445                 0.397 73.308 57.309        NA
+    LOCO  pre_enet two_step 445                 0.421 73.403 57.610     0.730
+ Rolling pick_only one_step 256                 0.581 67.243 48.234        NA
+ Rolling pick_only two_step 256                 0.581 67.128 47.768     0.796
+ Rolling post_enet one_step 256                 0.560 68.142 49.504        NA
+ Rolling post_enet two_step 256                 0.549 69.069 49.521     0.786
+ Rolling  pre_enet one_step 256                 0.327 77.473 58.133        NA
+ Rolling  pre_enet two_step 256                 0.305 78.032 58.662     0.683
+ step1_Brier step2_RMSE_relevant
+          NA                  NA
+       0.181              74.465
+          NA                  NA
+       0.179              74.692
+          NA                  NA
+       0.210              80.953
+          NA                  NA
+       0.182              77.609
+          NA                  NA
+       0.189              77.301
+          NA                  NA
+       0.226              82.251
+
+===== Bootstrap, rolling origin (2000 draws, seed 2026; negative = first model better) =====
+post two-step minus pick-only two-step, RMSE: +1.94  95% CI [-0.42, +4.35]  share < 0: 0.056 
+post two-step minus pick-only two-step, MAE:  +1.75  95% CI [-0.42, +3.83]  share < 0: 0.059 
+post two-step minus pick-only ONE-step, RMSE: +1.83  95% CI [-0.30, +3.92]  share < 0: 0.046 
+post two-step minus post one-step, RMSE:      +0.93  95% CI [-0.09, +1.86]  share < 0: 0.037 
+post two-step minus post one-step, MAE:       +0.02  95% CI [-0.90, +0.98]  share < 0: 0.486 
+pick-only two-step minus pick-only one-step, MAE: -0.47  95% CI [-1.02, +0.06]  share < 0: 0.958 
+pre two-step minus pick-only two-step, MAE:   +10.89  95% CI [+6.42, +15.26]  share < 0: 0.000 
+
+step-1 calibration, post-draft, rolling origin:
+       bin  n mean_p actual
+   [0,0.2] 33  0.140  0.212
+ (0.2,0.4] 69  0.303  0.319
+ (0.4,0.6] 70  0.491  0.543
+ (0.6,0.8] 44  0.717  0.705
+   (0.8,1] 40  0.891  0.925
+final fit, pick_only step-2 target: raw 
+final fit, pre_enet step-2 target: raw 
+final fit, post_enet step-2 target: raw 
+
+players whose within-class rank differs by 10+ places (post-draft hurdle vs single-step):
+none
+
+===== 2024-2026, post-draft two-step: top 10 per class =====
+ draft_season pick     pfr_player_name post_enet_p_relevant
+         2024    4 Marvin Harrison Jr.                0.987
+         2024    6        Malik Nabers                0.984
+         2024    9         Rome Odunze                0.965
+         2024   28       Xavier Worthy                0.946
+         2024   23        Brian Thomas                0.860
+         2024   33        Keon Coleman                0.878
+         2024   34       Ladd McConkey                0.802
+         2024   37        Ja'Lynn Polk                0.804
+         2024   52     Adonai Mitchell                0.713
+         2024   31      Ricky Pearsall                0.772
+         2025    2       Travis Hunter                0.990
+         2025    8   Tetairoa McMillan                0.974
+         2025   23      Matthew Golden                0.847
+         2025   19        Emeka Egbuka                0.899
+         2025   39       Luther Burden                0.858
+         2025   34      Jayden Higgins                0.826
+         2025   55          Tre Harris                0.699
+         2025   58           Jack Bech                0.660
+         2025   69       Kyle Williams                0.745
+         2025   74          Pat Bryant                0.677
+         2026    4        Carnell Tate                0.988
+         2026    8        Jordyn Tyson                0.982
+         2026   20         Makai Lemon                0.916
+         2026   24       KC Concepcion                0.934
+         2026   30         Omar Cooper                0.825
+         2026   39       Denzel Boston                0.801
+         2026   33  De'Zhaun Stribling                0.808
+         2026   84           Ted Hurst                0.666
+         2026   47      Germie Bernard                0.745
+         2026   71    Antonio Williams                0.745
+ post_enet_score_if_relevant post_enet_two_step pick_only_two_step
+                       116.9              119.3               98.4
+                       129.1              131.7              113.4
+                       158.2              163.1              128.9
+                       165.4              172.7              178.2
+                       162.9              182.1              168.6
+                       172.7              188.2              186.7
+                       175.1              199.8              188.3
+                       195.1              215.6              192.9
+                       184.1              217.4              212.6
+                       199.7              222.6              183.4
+                       101.4              103.3               73.1
+                       133.6              137.9              124.3
+                       162.6              183.6              168.6
+                       173.8              186.6              159.9
+                       172.6              190.8              195.8
+                       191.9              210.7              188.3
+                       204.0              232.9              216.0
+                       205.9              237.9              219.3
+                       217.3              238.4              230.1
+                       213.7              241.6              234.4
+                       116.4              118.5               98.4
+                       138.2              141.1              124.3
+                       156.6              168.6              162.2
+                       165.1              174.0              170.7
+                       189.1              208.5              181.7
+                       197.2              217.6              195.8
+                       202.4              221.1              186.7
+                       187.9              225.3              242.3
+                       199.9              225.5              206.6
+                       207.9              231.3              231.9
+ pre_enet_two_step finish_y1 finish_y2
+             210.6        30        50
+             206.3         6       100
+             228.5        49        41
+             192.8        33        59
+             231.7         4        42
+             224.7        71        60
+             251.7        12        30
+             250.9       100       100
+             227.9       100        73
+             261.3        82        72
+             233.2       100        NA
+             202.9        15        NA
+             226.2        88        NA
+             237.0        23        NA
+             203.6        49        NA
+             241.4        47        NA
+             245.2        90        NA
+             255.5       100        NA
+             235.3       100        NA
+             250.6        85        NA
+             221.3        NA        NA
+             216.3        NA        NA
+             220.0        NA        NA
+             216.8        NA        NA
+             255.2        NA        NA
+             256.8        NA        NA
+             263.1        NA        NA
+             222.8        NA        NA
+             255.7        NA        NA
+             232.6        NA        NA
+
+saved phase5b_cv_metrics.csv, phase5b_oof_predictions.csv, wr_finish_hurdle_board_2024_2026.csv

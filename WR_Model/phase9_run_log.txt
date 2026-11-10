@@ -1,0 +1,156 @@
+UDFA WRs with >= 1 NFL regular-season game as WR, rookie seasons 2010-2025: 360 
+
+2010 2011 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 
+  22   26   45   20   25   30   28   30   36   19   12   23   19    9   16 
+college match: pass 1 268  pass 2 6  matched 274 of 360 (76.1%) 
+ season  n matched
+   2010 22      14
+   2011 26      17
+   2013 45      28
+   2014 20      13
+   2015 25      21
+   2016 30      24
+   2017 28      25
+   2018 30      25
+   2019 36      25
+   2020 19      16
+   2021 12      10
+   2022 23      15
+   2023 19      18
+   2024  9       8
+   2025 16      15
+
+UDFAs with a full 3-year window (rookie season <= 2023): 335 
+WR3+ (top-36) season in years 1-3: 8 | WR2+ (top-24): 5 
+ draft_season pfr_player_name                   college college_matched
+         2010     Victor Cruz             UMass Amherst               0
+         2013     Josh Gordon              Utah; Baylor               0
+         2016   Robbie Chosen                    Temple               0
+         2014     Allen Hurns                     Miami               1
+         2015 Tyrell Williams            Western Oregon               0
+         2019   Jakobi Meyers                N.C. State               1
+         2014    Willie Snead                Ball State               1
+         2013    Rod Streater Temple; Alfred University               1
+ best_finish_3yr total_ppr_3yr
+               3        543.10
+               3        368.70
+              18        471.30
+              18        480.50
+              19        371.70
+              29        390.72
+              32        374.90
+              33        199.70
+There were 24 warnings (use warnings() to see them)
+
+===== Draft-time models, rolling origin 2016-2023: with vs without UDFAs in training =====
+          train                 eval model   n Spearman_PPR RMSE_PPR AUC_hit
+   drafted only drafted test players  pick 256       0.6239 181.3298  0.8287
+   drafted only drafted test players   pre 256       0.3972 211.2166  0.6507
+   drafted only drafted test players  post 256       0.6128 183.8097  0.7521
+ drafted + UDFA drafted test players  pick 256       0.6239 181.3298  0.8287
+ drafted + UDFA drafted test players   pre 256       0.3661 212.1114  0.6548
+ drafted + UDFA drafted test players  post 256       0.6211 182.2588  0.7485
+   drafted only       all incl. UDFA  pick 453       0.5588 144.1953  0.8931
+   drafted only       all incl. UDFA   pre 453       0.4689 172.2825  0.7204
+   drafted only       all incl. UDFA  post 453       0.5847 146.8743  0.8206
+ drafted + UDFA       all incl. UDFA  pick 453       0.5732 145.2243  0.8920
+ drafted + UDFA       all incl. UDFA   pre 453       0.5121 169.6363  0.7489
+ drafted + UDFA       all incl. UDFA  post 453       0.5936 145.8568  0.8108
+ Brier_hit AUC_WR3 Brier_WR3
+    0.1111  0.8495    0.1315
+    0.1307  0.6640    0.1713
+    0.1165  0.7975    0.1402
+    0.1111  0.8495    0.1315
+    0.1308  0.6598    0.1711
+    0.1156  0.7993    0.1391
+    0.0653  0.9017    0.0790
+    0.0797  0.7533    0.1042
+    0.0694  0.8647    0.0847
+    0.0651  0.9024    0.0790
+    0.0770  0.7810    0.1020
+    0.0682  0.8720    0.0835
+UDFA test players: 197  of whom WR3+: 2 
+
+===== Hidden-talent back-test: Day-3 + UDFA pool ( 345 players, 11 reached WR3+ in yrs 1-3 ) =====
+top 5 per class -> pre-draft model: 5 | post-draft model: 5 | earliest picks: 5 | random: 1.3
+  pre-draft hits: 2017: Dede Westbrook | 2020: Gabe Davis | 2021: Amon-Ra St. Brown | 2022: Romeo Doubs | 2023: Parker Washington 
+top 10 per class -> pre-draft model: 5 | post-draft model: 5 | earliest picks: 9 | random: 2.7
+  pre-draft hits: 2017: Dede Westbrook | 2020: Gabe Davis | 2021: Amon-Ra St. Brown | 2022: Romeo Doubs | 2023: Parker Washington 
+all WR3+ in the pool: Tyreek Hill (2016), Robbie Chosen (2016, UDFA), Dede Westbrook (2017), Hunter Renfrow (2019), Jakobi Meyers (2019, UDFA), Gabe Davis (2020), Darnell Mooney (2020), Amon-Ra St. Brown (2021), Romeo Doubs (2022), Puka Nacua (2023), Parker Washington (2023) 
+UDFA WR3+ hits in test years -- pre-draft model rank within Day-3+UDFA pool:
+ draft_season pfr_player_name best_finish_3yr    pre_wr3 rank_pre n_pool
+         2016   Robbie Chosen              18 0.06736183       19     52
+         2019   Jakobi Meyers              29 0.04420845       29     51
+
+===== Year-2 breakout with UDFAs =====
+rookies who played (2013-2023): 467  of which UDFA: 176  UDFA WR3+ in yrs 2-3: 4 
+UDFA year-2/3 breakouts: Robbie Chosen (2016, rookie WR69 -> best WR18), Allen Hurns (2014, rookie WR48 -> best WR18), Jakobi Meyers (2019, rookie WR97 -> best WR29), Tyrell Williams (2015, rookie WR100 -> best WR19) 
+There were 19 warnings (use warnings() to see them)
+
+year-2 model, rolling origin 2016-2023 (WR3+ in years 2-3):
+ train_with_udfa         eval   n hits AUC_pick AUC_rookie_pts AUC_usage
+           FALSE    UDFA test 115    2   0.5155         0.9513    0.9690
+           FALSE     all test 333   58   0.8640         0.9402    0.9413
+           FALSE drafted test 218   56   0.8127         0.9123    0.9130
+            TRUE    UDFA test 115    2   0.6128         0.9425    0.9513
+            TRUE     all test 333   58   0.8649         0.9364    0.9406
+            TRUE drafted test 218   56   0.8127         0.9137    0.9123
+ Brier_pick Brier_rookie_pts Brier_usage
+     0.0181           0.0162      0.0139
+     0.1059           0.0768      0.0732
+     0.1523           0.1089      0.1044
+     0.0174           0.0168      0.0157
+     0.1057           0.0765      0.0749
+     0.1523           0.1080      0.1061
+
+UDFA breakouts in test years -- rank within their class (all rookies who played), trained with UDFAs:
+ draft_season pfr_player_name r_finish best_23 use_p3 rank_usage
+         2016   Robbie Chosen       69      18  0.131          9
+         2019   Jakobi Meyers       97      29  0.060         21
+ rank_rookie_pts n_class
+              16      43
+              22      46
+Day-3 + UDFA rookies, top 5 per class reaching WR3+ in yrs 2-3: usage 9 | rookie pts 8 | random 2.0 (pool 228, hits 11)
+Day-3 + UDFA rookies, top 10 per class reaching WR3+ in yrs 2-3: usage 11 | rookie pts 11 | random 4.0 (pool 228, hits 11)
+
+===== UDFA board: top 10 by P(WR3+ in years 2-3) =====
+ draft_season      pfr_player_name                               college
+         2024          Jalen Coker                            Holy Cross
+         2024         Mason Tipton                                  Yale
+         2024      Kameron Johnson                        Barton College
+         2024        Xavier Weaver Colorado; University of South Florida
+         2024         Bryce Oliver            Youngstown State; Kentucky
+         2024     Jermaine Jackson                                 Idaho
+         2024      Isaiah Williams                              Illinois
+         2024         Ramel Keyton                             Tennessee
+         2025          Isaiah Bond                        Texas; Alabama
+         2025 Jakobie Keeney-James     UMass Amherst; Eastern Washington
+         2025        Darius Cooper                        Tarleton State
+         2025       Gage Larvadain          South Carolina; Miami (Ohio)
+         2025        Jahdae Walker               Texas A&M; Grand Valley
+         2025       Theo Wease Jr.                    Missouri; Oklahoma
+         2025      Efton Chism III                    Eastern Washington
+         2025        Beaux Collins                   Notre Dame; Clemson
+         2025      Xavier Restrepo                                 Miami
+         2025         Jacoby Jones                             UCF; Ohio
+ r_games r_targets  r_ts r_snap_avg r_ppr r_finish use_p3 rpts_p3 usage_edge
+      11        46 0.144      0.664 92.56       83  0.128   0.054      0.074
+       9        26 0.091      0.491 23.90      100  0.040   0.012      0.028
+       4         1 0.008      0.165  1.10      100  0.014   0.008      0.006
+       2         2 0.031      0.480  0.00      100  0.014   0.007      0.007
+       8         9 0.038      0.112 15.50      100  0.013   0.010      0.003
+       4         0 0.000      0.030 -0.10      100  0.011   0.007      0.004
+       8         3 0.011      0.060  2.60      100  0.011   0.008      0.003
+       3         3 0.028      0.097  1.70      100  0.010   0.008      0.002
+      15        44 0.093      0.481 54.70      100  0.060   0.024      0.036
+       1         2 0.200      0.940  3.50      100  0.030   0.008      0.022
+       6        11 0.063      0.258 18.20      100  0.022   0.011      0.011
+      13        14 0.038      0.236 14.40      100  0.020   0.010      0.010
+       6        10 0.050      0.194 26.70      100  0.020   0.013      0.007
+       3        10 0.133      0.323 25.90      100  0.016   0.013      0.003
+       8         3 0.014      0.179 16.50      100  0.014   0.011      0.003
+       4         6 0.045      0.155  4.50      100  0.013   0.008      0.005
+       2         7 0.096      0.220  7.10      100  0.013   0.009      0.004
+       1         1 0.034      0.160  3.50      100  0.012   0.008      0.004
+
+saved wr_udfa_table.rds, phase9_udfa_list.csv, phase9_metrics.csv, phase9_year2_metrics.csv, wr_udfa_board.csv

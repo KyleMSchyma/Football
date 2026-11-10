@@ -1,0 +1,7 @@
+"train_with_udfa","eval","n","hits","AUC_pick","AUC_rookie_pts","AUC_usage","Brier_pick","Brier_rookie_pts","Brier_usage"
+FALSE,"UDFA test",115,2,0.5155,0.9513,0.969,0.0181,0.0162,0.0139
+FALSE,"all test",333,58,0.864,0.9402,0.9413,0.1059,0.0768,0.0732
+FALSE,"drafted test",218,56,0.8127,0.9123,0.913,0.1523,0.1089,0.1044
+TRUE,"UDFA test",115,2,0.6128,0.9425,0.9513,0.0174,0.0168,0.0157
+TRUE,"all test",333,58,0.8649,0.9364,0.9406,0.1057,0.0765,0.0749
+TRUE,"drafted test",218,56,0.8127,0.9137,0.9123,0.1523,0.108,0.1061

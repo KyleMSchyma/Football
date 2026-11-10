@@ -1,0 +1,169 @@
+
+===== Targets =====
+[PASS] one row per drafted QB 
+[PASS] 3-year targets only for classes <= 2023 
+[PASS] hit12 implies hit24 
+[PASS] finish sum within [3, 150] 
+rows with a full 3-year target: 163 
+ draft_season  n hit24 hit12 mean_pts zero_pts
+         2010 13     3     0      101        4
+         2011 12     4     3      265        2
+         2012 11     5     5      369        2
+         2013 11     1     0       80        3
+         2014 14     3     2      158        4
+         2015  7     2     0      274        1
+         2016 15     4     3      179        3
+         2017 10     3     2      250        2
+         2018 13     3     2      252        4
+         2019 11     4     1      224        1
+         2020 13     4     3      251        3
+         2021 10     4     2      276        0
+         2022  9     3     1      187        1
+         2023 14     2     1      148        2
+total top-24 hits: 45  top-16: 32  top-8: 21  top-12: 25 of 163 
+tiers (1 = top 8, 2 = 9-16, 3 = 17-24, 4 = rest):
+
+  1   2   3   4 
+ 21  11  13 118 
+top-8 hits:
+    pfr_player_name draft_season pick best_finish_3yr
+         Cam Newton         2011    1               3
+        Andy Dalton         2011   35               5
+        Andrew Luck         2012    1               2
+ Robert Griffin III         2012    2               5
+     Ryan Tannehill         2012    8               8
+     Russell Wilson         2012   75               3
+      Blake Bortles         2014    3               4
+         Jared Goff         2016    1               7
+       Carson Wentz         2016    2               5
+       Dak Prescott         2016  135               6
+    Patrick Mahomes         2017   10               1
+     Deshaun Watson         2017   12               4
+         Josh Allen         2018    7               1
+      Lamar Jackson         2018   32               1
+       Kyler Murray         2019    1               3
+         Joe Burrow         2020    1               4
+     Justin Herbert         2020    6               2
+        Jalen Hurts         2020   53               3
+    Trevor Lawrence         2021    1               7
+      Justin Fields         2021   11               6
+        Brock Purdy         2022  262               6
+  grp  n hit24 hit12 median_finish_sum
+   R1 43  0.67  0.40              68.0
+ R2-3 32  0.38  0.19             124.5
+ R4-7 88  0.05  0.02             150.0
+
+top-12 hits (name, class, pick, best finish, 3-yr pts):
+    pfr_player_name draft_season pick best_finish_3yr total_pts_3yr
+         Cam Newton         2011    1               3           993
+        Andy Dalton         2011   35               5           746
+   Colin Kaepernick         2011   36               9           440
+        Andrew Luck         2012    1               2           921
+ Robert Griffin III         2012    2               5           618
+     Ryan Tannehill         2012    8               8           701
+     Russell Wilson         2012   75               3           874
+         Nick Foles         2012   88              11           465
+      Blake Bortles         2014    3               4           755
+         Derek Carr         2014   36              11           732
+         Jared Goff         2016    1               7           619
+       Carson Wentz         2016    2               5           689
+       Dak Prescott         2016  135               6           833
+    Patrick Mahomes         2017   10               1           714
+     Deshaun Watson         2017   12               4           822
+         Josh Allen         2018    7               1           891
+      Lamar Jackson         2018   32               1           906
+       Kyler Murray         2019    1               3           964
+         Joe Burrow         2020    1               4           839
+     Justin Herbert         2020    6               2           995
+        Jalen Hurts         2020   53               3           799
+    Trevor Lawrence         2021    1               7           757
+      Justin Fields         2021   11               6           653
+        Brock Purdy         2022  262               6           669
+        C.J. Stroud         2023    2               9           705
+
+Day 2-3 (round 2+) top-24 hits:
+    pfr_player_name draft_season round pick best_finish_3yr
+         Colt McCoy         2010     3   85              20
+        Andy Dalton         2011     2   35               5
+   Colin Kaepernick         2011     2   36               9
+     Russell Wilson         2012     3   75               3
+         Nick Foles         2012     3   88              11
+         Geno Smith         2013     2   39              20
+         Derek Carr         2014     2   36              11
+    Jacoby Brissett         2016     3   91              20
+       Dak Prescott         2016     4  135               6
+          Drew Lock         2019     2   42              23
+ Gardner Minshew II         2019     6  178              19
+        Jalen Hurts         2020     2   53               3
+        Davis Mills         2021     3   67              21
+     Desmond Ridder         2022     3   74              22
+         Sam Howell         2022     5  144              13
+        Brock Purdy         2022     7  262               6
+
+===== Feature coverage (% non-missing) =====
+             p_aya         p_comp_pct       p_pass_share         p_rush_yds 
+              94.4               94.4               94.4               94.4 
+      p_rush_share         p_ppa_pass starter_age_filled       age_at_draft 
+              94.4               73.2               93.4               98.5 
+             forty          height_in     recruit_rating  vacated_att_share 
+              65.2               91.9               45.5              100.0 
+     incumbent_pts 
+              74.2 
+college_thin (FCS / missing) QBs: 11 
+ draft_season pick pfr_player_name          college
+         2010  155    John Skelton          Fordham
+         2011    1      Cam Newton           Auburn
+         2011  160  Nathan Enderle            Idaho
+         2012  243    B.J. Coleman      Chattanooga
+         2013  221   Brad Sorensen    Southern Utah
+         2014   62 Jimmy Garoppolo Eastern Illinois
+         2016    2    Carson Wentz North Dakota St.
+         2018  108   Kyle Lauletta         Richmond
+         2019  166    Easton Stick North Dakota St.
+         2021    3      Trey Lance North Dakota St.
+         2022  241  Chris Oladokun South Dakota St.
+
+===== Spearman correlation with total_pts_3yr (training classes) =====
+          log_pick      incumbent_pts       age_at_draft              forty 
+            -0.705             -0.457             -0.380             -0.295 
+starter_age_filled    starter_seasons         career_att         p_int_rate 
+            -0.148             -0.108             -0.093             -0.061 
+         height_in       p_pass_share          weight_lb     recruit_rating 
+            -0.043             -0.010              0.040              0.052 
+         p_rush_td         p_ppa_rush              p_ypa              p_aya 
+             0.154              0.190              0.214              0.232 
+      p_rush_share    career_rush_yds         p_rush_yds           best_aya 
+             0.235              0.249              0.252              0.280 
+        p_ppa_pass          p_td_rate         p_comp_pct  vacated_att_share 
+             0.291              0.297              0.313              0.517 
+
+highly correlated pairs (|rho| > 0.8):
+                   a               b   rho
+1              p_aya           p_ypa  0.95
+2              p_aya       p_td_rate  0.81
+3         p_rush_yds    p_rush_share  0.97
+4              p_aya      p_ppa_pass  0.82
+5              p_ypa      p_ppa_pass  0.81
+6              p_aya        best_aya  0.80
+7         p_rush_yds career_rush_yds  0.92
+8       p_rush_share career_rush_yds  0.89
+9         career_att starter_seasons  0.86
+10 vacated_att_share   incumbent_pts -0.87
+
+within round 1 only (n = 43 ), Spearman with total_pts_3yr:
+          log_pick              forty         p_int_rate          weight_lb 
+            -0.536             -0.105             -0.083             -0.079 
+starter_age_filled         career_att       p_pass_share    starter_seasons 
+            -0.069              0.011              0.021              0.035 
+     incumbent_pts          height_in     recruit_rating       age_at_draft 
+             0.043              0.063              0.073              0.088 
+        p_comp_pct         p_rush_yds         p_ppa_rush       p_rush_share 
+             0.105              0.141              0.154              0.156 
+             p_ypa         p_ppa_pass          p_rush_td    career_rush_yds 
+             0.159              0.182              0.195              0.220 
+             p_aya           best_aya          p_td_rate 
+             0.224              0.276              0.305 
+`geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+
+saved qb_model_table.rds ( 198 rows, 106 cols ), dictionary and 3 plots
+[PASS] Phase 2 ready for Phase 3 (163 training rows, 45 top-24 hits, 25 top-12 hits)

@@ -1,0 +1,149 @@
+training rows: 445 (classes 2010-2023 )
+rows to project: 102 
+
+2024 2025 2026 
+  35   31   36 
+CV done: pre total_ppr_3yr 
+CV done: pre hit_3yr 
+CV done: post total_ppr_3yr 
+CV done: post hit_3yr 
+
+===== Cross-validated performance (leave-one-class-out, 2010-2023) =====
+   set         model    RMSE     MAE     R2 Spearman   AUC Brier LogLoss
+1 post      baseline 172.664 130.864  0.366    0.630 0.834 0.105   0.338
+2 post   elastic_net 172.797 132.051  0.365    0.639 0.819 0.102   0.337
+3 post random_forest 177.456 136.758  0.330    0.603 0.775 0.108   0.360
+4  pre      baseline 217.382 177.705 -0.005   -0.181 0.616 0.130   0.430
+5  pre   elastic_net 196.098 153.845  0.182    0.471 0.713 0.118   0.392
+6  pre random_forest 196.397 155.147  0.180    0.424 0.680 0.121   0.412
+
+best regression model:      post elastic_net; pre elastic_net 
+best classification model:  post elastic_net; pre elastic_net 
+
+calibration, post-draft elastic_net hit probabilities:
+          bin   n mean_pred actual_rate
+1    [0,0.05]  97     0.039       0.021
+2 (0.05,0.15] 212     0.090       0.075
+3  (0.15,0.3]  75     0.211       0.227
+4   (0.3,0.5]  43     0.391       0.512
+5     (0.5,1]  18     0.660       0.611
+
+elastic net (pre, total_ppr_3yr) nonzero coefficients:
+           (Intercept)         recruit_rating        na_age_at_draft 
+               927.886                559.381               -135.950 
+             broke_out         best_dominator        college_seasons 
+               -79.314                 68.110                -57.826 
+     na_recruit_rating na_breakout_age_filled            transferred 
+               -57.118                -49.841                 35.273 
+          final_power5           na_height_in    breakout_age_filled 
+                26.790                -23.613                -21.593 
+            miss_forty           age_at_draft           na_weight_lb 
+                21.379                -19.927                -18.192 
+           final_yptpa        combine_invited           athletic_pc1 
+                15.975                 12.015                 11.330 
+         miss_vertical          early_declare              height_in 
+                 4.920                  4.020                 -3.484 
+        career_rec_yds 
+                 0.057 
+
+elastic net (post, total_ppr_3yr) nonzero coefficients:
+        (Intercept)            log_pick     na_age_at_draft   na_recruit_rating 
+           1211.707            -116.887             -15.890             -14.418 
+    college_seasons        age_at_draft breakout_age_filled       early_declare 
+            -13.129             -10.904             -10.177               9.491 
+  team_targets_prev      career_rec_yds 
+              0.014               0.005 
+
+random forest permutation importance (top 10 per set):
+    set             feature importance
+1  post            log_pick    15797.1
+2  post breakout_age_filled     2656.8
+3  post        age_at_draft     1792.0
+4  post      recruit_rating     1471.9
+5  post      career_rec_yds     1051.9
+6  post     college_seasons      600.8
+7  post         final_yptpa      598.2
+8  post     final_dominator      554.0
+9  post       early_declare      393.3
+10 post      best_dominator      352.3
+11  pre        age_at_draft     3469.3
+12  pre breakout_age_filled     3263.3
+13  pre      career_rec_yds     2784.0
+14  pre      recruit_rating     2400.7
+15  pre     college_seasons     1533.6
+16  pre       early_declare     1277.1
+17  pre         final_yptpa     1221.6
+18  pre      best_dominator     1050.3
+19  pre     final_dominator      763.9
+20  pre   na_recruit_rating      411.7
+
+===== Projections (post-draft model), top 10 per class =====
+   draft_season pick     pfr_player_name post_ppr_3yr post_hit_prob pre_ppr_3yr
+1          2024    4 Marvin Harrison Jr.        598.2         0.821       373.8
+2          2024    6        Malik Nabers        561.9         0.746       407.8
+3          2024    9         Rome Odunze        488.9         0.472       311.3
+4          2024   28       Xavier Worthy        397.6         0.325       451.5
+5          2024   23        Brian Thomas        370.2         0.374       227.3
+6          2024   33        Keon Coleman        363.1         0.377       284.5
+7          2024   34       Ladd McConkey        308.7         0.254       208.8
+8          2024   37        Ja'Lynn Polk        296.4         0.159       198.9
+9          2024   31      Ricky Pearsall        291.1         0.129       141.1
+10         2024   52     Adonai Mitchell        285.8         0.200       276.5
+11         2025    2       Travis Hunter        647.4         0.875       261.1
+12         2025    8   Tetairoa McMillan        523.7         0.711       431.6
+13         2025   19        Emeka Egbuka        386.3         0.287       294.6
+14         2025   23      Matthew Golden        378.4         0.349       295.0
+15         2025   39       Luther Burden        347.9         0.324       388.0
+16         2025   34      Jayden Higgins        308.8         0.194       246.5
+17         2025   55          Tre Harris        238.7         0.126       242.6
+18         2025   58           Jack Bech        237.2         0.121       209.1
+19         2025   69       Kyle Williams        234.3         0.096       273.7
+20         2025   74          Pat Bryant        218.9         0.114       166.6
+21         2026    4        Carnell Tate        593.6         0.796       279.3
+22         2026    8        Jordyn Tyson        537.2         0.706       367.8
+23         2026   24       KC Concepcion        399.7         0.444       371.0
+24         2026   20         Makai Lemon        391.9         0.442       327.5
+25         2026   30         Omar Cooper        311.4         0.182       154.9
+26         2026   39       Denzel Boston        290.9         0.183       154.1
+27         2026   33  De'Zhaun Stribling        282.5         0.129       114.7
+28         2026   47      Germie Bernard        260.4         0.134       180.7
+29         2026   80        Ja'Kobi Lane        239.8         0.155       215.8
+30         2026   84           Ted Hurst        236.5         0.188       259.1
+   yr1_ppr
+1   196.50
+2   273.60
+3   144.90
+4   187.20
+5   284.00
+6   111.50
+7   240.90
+8    32.70
+9    93.50
+10   53.76
+11   63.80
+12  213.40
+13  195.70
+14   70.00
+15  127.90
+16  129.50
+17   69.40
+18   42.40
+19   49.20
+20   74.80
+21      NA
+22      NA
+23      NA
+24      NA
+25      NA
+26      NA
+27      NA
+28      NA
+29      NA
+30      NA
+
+===== Checks =====
+[PASS] held-out class never in its training fold 
+[PASS] every 2024-2026 WR projected 
+[PASS] post-draft model beats pick-only baseline (Spearman) (best 0.639 vs baseline 0.630)
+[PASS] post-draft hit model beats pick-only baseline (Brier) (best 0.1024 vs baseline 0.1046)
+[PASS] pre-draft model has real signal (Spearman > 0.3) (0.471)
