@@ -891,6 +891,39 @@ Validation (drafted 2010-2023):
   Laquon Treadwell, Michael Mayer, Bishop Sankey); D/F that hit (Josh Allen, Carson Wentz,
   Tyreek Hill, Puka Nacua, Cooper Kupp, George Kittle, James Cook).
 
+### 3.11 All-time post-draft player grades (`pd_07_postdraft_grades.R`)
+
+- **Source model:** the "post" tier ladder of each position model (QB/RB/TE phase 4, WR
+  phase 6): ordinal elastic net on the pre-draft feature set plus `log_pick`, vacated
+  target/touch/attempt share and incumbent production (WR: vacated target share, team
+  targets the year before). Probabilities made nested (P(top) ≤ P(top two) ≤ P(any)).
+- **Scores:** 2010-2023 from the LOCO out-of-fold predictions (`scheme == "LOCO"`, model
+  `post` / `post_enet`); 2024-2026 from the position boards (`*_finish_tier_board_2024_2026.csv`,
+  `wr_tier_board_2024_2026.csv`), i.e. the final model trained on 2010-2023. Score =
+  P(top) + P(top two) + P(any tier).
+- **Grade:** same A+ to F cut points as 3.10, applied to the percentile of the post-draft
+  score among drafted players at the position in 2010-2023.
+- **Join to pre-draft:** by position, class and pick. 1,289 of 1,351 post-draft players
+  match (QB 191/198, RB 340/354, WR 519/547, TE 239/252); the rest have no college stats
+  match in the pre-draft pool. `grade_move` = post grade step − pre grade step.
+
+Validation (players with both grades, 2010-2023):
+
+- Any-tier hit rate by grade band, pre → post: A 59% → 69%, B 31% → 35%, C 14% → 9%,
+  D/F 13% → 4%.
+- AUC pre / pick only / post: QB24 0.773 / 0.874 / 0.905; RB24 0.714 / 0.822 / 0.790; WR36
+  0.717 / 0.849 / 0.833; TE24 0.717 / 0.858 / 0.828. The post model beats pick-only only for
+  QBs; for RB, WR and TE draft slot alone is slightly better.
+- Spearman with 3-year PPR points, pre → post: QB 0.39 → 0.67, RB 0.44 → 0.64, WR 0.36 →
+  0.61, TE 0.33 → 0.63. Spearman between pre and post scores 0.53-0.68.
+- Within-class Spearman (score vs tier, averaged over 14 classes), pre → post: QB 0.45 →
+  0.61, RB 0.32 → 0.51, WR 0.31 → 0.49, TE 0.35 → 0.51. Class-total correlations are noisy
+  (14 classes) and not reported as evidence.
+
+Outputs: `pd_post_player_grades.csv`, `pd_post_grade_validation.csv`,
+`pd_post_vs_pre_metrics.csv`, `pd_post_class_summary.csv`, `plot_post_vs_pre.png`,
+`phase7_log.txt`.
+
 ---
 
 ## 4. ATPA / PA course concepts used

@@ -187,6 +187,23 @@ Allen (F), Cooper Kupp (F), Tyreek Hill (D), George Kittle (D).
 **How to explain it.** "An A means the college résumé looks like past hits. It's a
 strong flag at the top, not a guarantee, and a low grade doesn't rule a player out."
 
+## 10. All-time post-draft player grades
+
+**What it is.** The same A+ to F board for every drafted player from 2010-2026, but built
+from the post-draft version of each position model (college profile plus draft pick and
+landing spot). It sits next to the pre-draft grade, so you can see how much draft capital
+moved each player and each class. 2027 isn't on it because nobody has been drafted.
+
+**The result.** Post-draft A-range players hit 69% of the time, B 35%, C 9% and D/F 4%.
+Unlike the pre-draft grade, it separates the bottom too. It also ranks players within a
+class better (average rank correlation 0.49-0.61 vs 0.31-0.45). Big risers include Carson
+Wentz (F to A-), Doug Martin (D to A) and Travis Kelce (C to A-); big fallers are mostly
+late picks with strong college numbers, such as Alex Collins (A- to D).
+
+**How to explain it.** "The pre-draft grade is what the college stats say. The post-draft
+grade adds what the NFL said with its pick. When they disagree, history sides with the
+pick more often, which is why a pre-draft A who goes in round 6 usually fades."
+
 ## Course concepts to point to (ATPA / PA)
 
 | If someone asks... | Point to |
