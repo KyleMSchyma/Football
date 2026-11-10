@@ -141,5 +141,5 @@ actual tier rises from 0.31-0.45 to 0.49-0.61. The post model beats pick-only fo
 AUC 0.91 vs 0.87) and trails it slightly for RB, WR and TE.
 
 Outputs: `pd_post_player_grades.csv`, `pd_post_grade_validation.csv`,
-`pd_post_vs_pre_metrics.csv`, `pd_post_class_summary.csv`, `plot_post_vs_pre.png`,
+`pd_post_vs_pre_metrics.csv`, `pd_post_class_summary.csv`, `pd_post_grade_vs_pick.csv`, `pd_post_grade_by_round.csv`, `pd_post_grade_scale.csv`, `plot_post_vs_pre.png`, `pd_post_player_grades.html` (offline copy of the post-draft page: https://claude.ai/artifact/CXjjafaBwrK84knShtR4n6),
 `phase7_log.txt`.

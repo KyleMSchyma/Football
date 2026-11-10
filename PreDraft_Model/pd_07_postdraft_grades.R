@@ -147,3 +147,34 @@ g <- ggplot(final %>% filter(!is.na(pre_pctile)), aes(pre_pctile, post_pctile, c
        title = "How draft capital moved each drafted player, 2010-2026") + theme_minimal(base_size = 11) + theme(legend.position = "bottom")
 ggsave("plot_post_vs_pre.png", g, width = 13, height = 4.8, dpi = 120)
 cat("\ndone\n")
+
+# --- same validation tables as Phase 6, for the post-draft grade (feeds the post-draft page) ---
+HP <- J %>% filter(class <= 2023, !is.na(nfl_tier)) %>%
+  mutate(y1 = as.integer(nfl_tier == 1), y2 = as.integer(nfl_tier <= 2), y3 = as.integer(nfl_tier <= 3))
+vp2 <- bind_rows(lapply(POSITIONS, function(POS) {
+  h <- HP %>% filter(position == POS) %>% mutate(lpick = log(pick), lsc = qlogis(pmin(pmax(q3, 1e-4), 1 - 1e-4)))
+  bind_rows(lapply(1:3, function(k) { y <- h[[paste0("y", k)]]
+    m0 <- glm(y ~ lpick, family = binomial, data = h); m1 <- glm(y ~ lpick + lsc, family = binomial, data = h)
+    data.frame(position = POS, target = tier_labels(POS)[k], n = nrow(h), hits = sum(y),
+      AUC_grade = aucf(y, h$post_score), AUC_pick = aucf(y, -h$pick), AUC_pick_plus_grade = aucf(y, fitted(m1)),
+      spearman_pts = if (k == 1) cor(h$post_score, h$nfl_ppr_pts, method = "spearman", use = "complete.obs") else NA,
+      spearman_pts_pick = if (k == 1) cor(-h$pick, h$nfl_ppr_pts, method = "spearman", use = "complete.obs") else NA,
+      LRT_p = anova(m0, m1, test = "LRT")$`Pr(>Chi)`[2], AIC_pick = AIC(m0), AIC_pick_plus_grade = AIC(m1)) })) })) %>%
+  mutate(across(where(is.double), ~ signif(.x, 3)))
+write.csv(vp2, "pd_post_grade_vs_pick.csv", row.names = FALSE)
+cat("\n===== Post-draft grade vs draft slot (all post-draft players 2010-2023) =====\n"); print(as.data.frame(vp2), row.names = FALSE)
+gband <- function(g) case_when(g %in% c("A+", "A", "A-") ~ "A range", g %in% c("B+", "B", "B-") ~ "B range", g %in% c("C+", "C", "C-") ~ "C range", TRUE ~ "D/F")
+byr2 <- HP %>% mutate(round_band = case_when(round == 1 ~ "Round 1", round <= 3 ~ "Rounds 2-3", TRUE ~ "Rounds 4-7"), band = gband(post_grade)) %>%
+  group_by(position, round_band, band) %>% summarize(n = n(), any_rate = round(mean(y3), 3), top2_rate = round(mean(y2), 3), .groups = "drop")
+write.csv(byr2, "pd_post_grade_by_round.csv", row.names = FALSE)
+cat("\n===== Post-draft: any-tier hit rate by grade band within round band =====\n")
+print(as.data.frame(byr2 %>% select(-top2_rate) %>% tidyr::pivot_wider(names_from = band, values_from = c(n, any_rate))), row.names = FALSE)
+sc2 <- bind_rows(lapply(POSITIONS, function(POS) { ref <- J %>% filter(position == POS, class <= 2023) %>% pull(post_score)
+  data.frame(position = POS, grade = rev(GRADES), pct_from = rev(head(GRADE_CUTS, -1)),
+             min_score = round(sapply(rev(head(GRADE_CUTS, -1)), function(q) unname(quantile(ref, q, type = 1))), 3)) }))
+write.csv(sc2, "pd_post_grade_scale.csv", row.names = FALSE)
+cat("\n===== Post-draft misses =====\n")
+for (POS in POSITIONS) {
+  cat("--", POS, "A/A+ no tier --\n"); print(as.data.frame(final %>% filter(position == POS, class <= 2023, post_grade %in% c("A+", "A"), nfl_tier == 4) %>% select(class, name, pick, post_grade, nfl_outcome)), row.names = FALSE)
+  cat("--", POS, "D/F top tier --\n"); print(as.data.frame(final %>% filter(position == POS, class <= 2023, post_grade %in% c("D", "F"), nfl_tier == 1) %>% select(class, name, pick, post_grade, nfl_outcome)), row.names = FALSE)
+}

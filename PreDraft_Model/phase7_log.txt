@@ -482,3 +482,110 @@ class-level correlation of expected vs actual tier points, 2010-2023:
                    best TE9 (TE16 hit)
 
 done
+
+===== Post-draft grade vs draft slot (all post-draft players 2010-2023) =====
+ position target   n hits AUC_grade AUC_pick AUC_pick_plus_grade spearman_pts
+       QB    QB8 163   21     0.876    0.842               0.877        0.666
+       QB   QB16 163   32     0.907    0.877               0.915           NA
+       QB   QB24 163   45     0.903    0.876               0.911           NA
+       RB    RB8 298   36     0.845    0.861               0.861        0.635
+       RB   RB16 298   56     0.790    0.814               0.816           NA
+       RB   RB24 298   78     0.797    0.827               0.831           NA
+       WR   WR12 445   39     0.791    0.818               0.820        0.612
+       WR   WR24 445   68     0.824    0.839               0.838           NA
+       WR   WR36 445   95     0.827    0.842               0.843           NA
+       TE    TE8 202   22     0.789    0.803               0.805        0.628
+       TE   TE16 202   42     0.823    0.857               0.858           NA
+       TE   TE24 202   55     0.831    0.857               0.857           NA
+ spearman_pts_pick    LRT_p AIC_pick AIC_pick_plus_grade
+             0.701 0.226000     97.8                98.4
+                NA 0.005030    107.0               101.0
+                NA 0.000427    131.0               121.0
+             0.664 0.719000    149.0               151.0
+                NA 0.498000    220.0               221.0
+                NA 0.288000    255.0               256.0
+             0.632 0.604000    223.0               225.0
+                NA 0.433000    299.0               301.0
+                NA 0.762000    349.0               351.0
+             0.696 0.640000    121.0               122.0
+                NA 0.790000    147.0               148.0
+                NA 0.651000    168.0               170.0
+
+===== Post-draft: any-tier hit rate by grade band within round band =====
+ position round_band n_A range n_B range n_D/F n_C range any_rate_A range
+       QB    Round 1        22        20     1        NA            0.773
+       QB Rounds 2-3         2        14     4        12            1.000
+       QB Rounds 4-7        NA        15    36        37               NA
+       RB    Round 1        21        NA    NA        NA            0.810
+       RB Rounds 2-3        24        48    NA         3            0.667
+       RB Rounds 4-7        NA        41    74        87               NA
+       TE    Round 1        11        NA    NA        NA            1.000
+       TE Rounds 2-3        17        37    NA         8            0.588
+       TE Rounds 4-7         2        24    50        53            0.000
+       WR    Round 1        53         2    NA        NA            0.679
+       WR Rounds 2-3        14        97     1        19            0.286
+       WR Rounds 4-7        NA        34   110       115               NA
+ any_rate_B range any_rate_D/F any_rate_C range
+            0.600        0.000               NA
+            0.500        0.000            0.250
+            0.267        0.000            0.000
+               NA           NA               NA
+            0.458           NA            0.333
+            0.171        0.095            0.092
+               NA           NA               NA
+            0.459           NA            0.250
+            0.292        0.020            0.132
+            0.000           NA               NA
+            0.361        1.000            0.211
+            0.147        0.018            0.070
+
+===== Post-draft misses =====
+-- QB A/A+ no tier --
+ class           name pick post_grade                nfl_outcome
+  2021    Zach Wilson    2         A+ best QB29 (no tier season)
+  2021     Trey Lance    3          A   no tier season (yrs 1-3)
+  2014 Johnny Manziel   22          A best QB33 (no tier season)
+  2018    Sam Darnold    3          A best QB27 (no tier season)
+-- QB D/F top tier --
+[1] class       name        pick        post_grade  nfl_outcome
+<0 rows> (or 0-length row.names)
+-- RB A/A+ no tier --
+ class          name pick post_grade                nfl_outcome
+  2018 Rashaad Penny   27         A+ best RB59 (no tier season)
+  2012  David Wilson   32         A+ best RB49 (no tier season)
+  2011   Mark Ingram   28          A best RB38 (no tier season)
+  2018   Sony Michel   31          A best RB31 (no tier season)
+  2015   T.J. Yeldon   36          A best RB28 (no tier season)
+  2012   Isaiah Pead   50          A best RB60 (no tier season)
+-- RB D/F top tier --
+ class          name pick post_grade        nfl_outcome
+  2012 Alfred Morris  173          D best RB8 (RB8 hit)
+  2017   Aaron Jones  182          D best RB2 (RB8 hit)
+-- WR A/A+ no tier --
+ class                  name pick post_grade                 nfl_outcome
+  2015           Kevin White    7         A+ best WR100 (no tier season)
+  2017             John Ross    9         A+  best WR75 (no tier season)
+  2022         Treylon Burks   18         A+  best WR81 (no tier season)
+  2015        DeVante Parker   14         A+  best WR49 (no tier season)
+  2016         Corey Coleman   15         A+  best WR82 (no tier season)
+  2016      Laquon Treadwell   23          A  best WR94 (no tier season)
+  2020       Henry Ruggs III   12          A  best WR86 (no tier season)
+  2015  Dorial Green-Beckham   40          A  best WR58 (no tier season)
+  2019          N'Keal Harry   32          A best WR100 (no tier season)
+  2020          Jalen Reagor   21          A  best WR90 (no tier season)
+  2021        Rashod Bateman   27          A  best WR70 (no tier season)
+  2015      Breshad Perriman   26          A  best WR76 (no tier season)
+  2022          Jahan Dotson   16          A  best WR51 (no tier season)
+  2013 Cordarrelle Patterson   29          A best WR100 (no tier season)
+-- WR D/F top tier --
+ class           name pick post_grade          nfl_outcome
+  2023     Puka Nacua  177          D  best WR1 (WR12 hit)
+  2019 Hunter Renfrow  149          F best WR10 (WR12 hit)
+-- TE A/A+ no tier --
+ class                    name pick post_grade                nfl_outcome
+  2014 Austin Seferian-Jenkins   38         A+ best TE33 (no tier season)
+  2023           Michael Mayer   35         A+ best TE35 (no tier season)
+  2014              Jace Amaro   49          A best TE25 (no tier season)
+-- TE D/F top tier --
+[1] class       name        pick        post_grade  nfl_outcome
+<0 rows> (or 0-length row.names)
