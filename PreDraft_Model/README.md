@@ -95,3 +95,34 @@ logs.
   prospects rather than whole-class sums.
 - **Small samples:** 20-40 top-tier hits per position in 14 classes. Single-position
   class grades are noisy.
+
+## Player grades (Phase 6)
+
+`pd_06_player_grades.R` scores every drafted QB/RB/WR/TE from the 2010-2026 classes with the
+pre-draft model, ranks them within position and gives each a letter grade; the top 2027
+prospects (QB 12, RB 20, WR 32, TE 15) are inserted into the same rankings as projected.
+
+Results page: https://claude.ai/artifact/XAVUw32K3yMb7atWgpov3i
+
+- **Score** = expected tier points = P(top) + P(top two) + P(any tier), from the chosen model.
+  2010-2023 use leave-one-class-out predictions (each class scored by a model that never saw
+  it); 2024-2027 use the final model trained on 2010-2023.
+- **Grade** = percentile of the score among drafted players at the position in 2010-2023:
+  A+ top 5%, A 90-95, A- 85-90, B+ 75-85, B 65-75, B- 55-65, C+ 45-55, C 35-45, C- 25-35,
+  D 10-25, F bottom 10%. Fixed cut points, so grades compare across classes.
+- **2027** is scored twice: pro-rated (counting stats scaled to 12 games, the default pool)
+  and as-is (stats through about week 10; `PD_NO_SCALE=1 ./run.sh pd_01_pool_build.R log.txt`
+  writes `pd_pool_asis.rds` and the other Phase 1 outputs with an `_asis` suffix).
+- **NFL outcomes** sit next to every historical player: best finish in years 1-3 (2024-2025:
+  so far), tier, 3-year PPR points. FCS players before 2022 are flagged "thin college data".
+
+Findings (drafted 2010-2023): any-tier hit rate is 59% for A-range grades, 31% for B and
+14% for C-range and below. C, D and F hit at about the same rate, so the grade separates the
+top, not the bottom. Draft slot predicts better (AUC 0.81-0.87 vs 0.67-0.78) and the grade
+adds significantly to log(pick) only for QBs (QB16 p = 0.018, QB24 p = 0.004). Within Rounds
+4-7, A-range RBs, WRs and TEs still hit at 10-33% vs 4-11% for C and below.
+
+Outputs: `pd_player_grades.csv` (every graded player), `pd_grade_scale.csv`,
+`pd_grade_validation.csv`, `pd_grade_vs_pick.csv`, `pd_grade_by_round.csv`,
+`plot_grade_hit_rates.png`, `pd_player_grades.html` (offline copy of the results page),
+`phase6_log.txt`.

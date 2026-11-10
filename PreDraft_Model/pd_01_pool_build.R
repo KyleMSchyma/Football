@@ -21,6 +21,8 @@
 # Outputs: pd_pool.rds (one row per player per class), pd_pool_summary.csv
 # =============================================================================
 source("pd_common.R")
+# PD_NO_SCALE=1 builds an "as-is" pool (2026 counting stats NOT pro-rated to 12 games), saved with an _asis suffix
+ASIS <- Sys.getenv("PD_NO_SCALE") == "1"; SUF <- if (ASIS) "_asis" else ""
 suppressMessages(library(cfbfastR))
 dir.create("cache", showWarnings = FALSE)
 cache_or_pull <- function(file, fn) {
@@ -48,7 +50,7 @@ cfb <- bind_rows(cfb_hist %>% select(college_year, team, conference, athlete_id,
 # 2026 is about 10 games in: scale counting stats to a 12-game season (shares are unaffected)
 g26 <- team_2026 %>% transmute(team, games = as.numeric(games)) %>% distinct(team, .keep_all = TRUE)
 cfb <- cfb %>% left_join(g26 %>% mutate(college_year = 2026L), by = c("team", "college_year")) %>%
-  mutate(scale = ifelse(college_year == 2026, 12 / pmax(coalesce(games, 10), 1), 1),
+  mutate(scale = ifelse(college_year == 2026 & !ASIS, 12 / pmax(coalesce(games, 10), 1), 1),
          across(all_of(stat_cols), ~ .x * scale)) %>% select(-games)
 cat("2026 scale factor (12 / games played) quantiles:\n"); print(quantile(cfb$scale[cfb$college_year == 2026], c(0, .1, .5, .9, 1)))
 
@@ -99,7 +101,7 @@ seasons <- seasons %>% mutate(
   across(c(receiving_rec, receiving_yds, receiving_td), ~ ifelse(fcs_full, .x * TRANS["rec"], .x)),
   across(c(rushing_car, rushing_yds, rushing_td), ~ ifelse(fcs_full, .x * TRANS["rush"], .x)),
   across(c(passing_yds, passing_td), ~ ifelse(fcs_full, .x * TRANS["pass"], .x)))
-saveRDS(TRANS, "pd_level_translation.rds")
+saveRDS(TRANS, paste0("pd_level_translation", SUF, ".rds"))
 cat("FCS player-seasons translated (2022+):", sum(fcs_full), "\n")
 
 # recruiting (high-school class year and composite rating)
@@ -281,7 +283,7 @@ for (pos in POSITIONS) {
 pool <- pool %>% mutate(outcome_known = outcome_known & !is.na(tier),
                         total_pts_3yr = ifelse(nfl_linked == 1, total_pts_3yr, ifelse(outcome_known, 0, NA)),
                         name = coalesce(name, player))
-saveRDS(pool, "pd_pool.rds")
+saveRDS(pool, paste0("pd_pool", SUF, ".rds"))
 
 # =============================================================================
 # PART 4: checks
@@ -291,7 +293,7 @@ summ <- pool %>% group_by(position, class) %>%
   summarize(n = n(), drafted = sum(drafted), udfa_nfl = sum(nfl_linked == 1 & drafted == 0),
             hit1 = sum(tier == 1, na.rm = TRUE), hit2 = sum(tier <= 2, na.rm = TRUE), hit3 = sum(tier <= 3, na.rm = TRUE), .groups = "drop")
 print(as.data.frame(summ %>% filter(class %in% c(2010, 2015, 2020, 2023, 2026, 2027))), row.names = FALSE)
-write.csv(summ, "pd_pool_summary.csv", row.names = FALSE)
+write.csv(summ, paste0("pd_pool_summary", SUF, ".csv"), row.names = FALSE)
 for (pos in POSITIONS) {
   dp <- drafted %>% filter(nfl_pos == pos, class <= 2023, !is.na(best_finish_3yr))
   in_pool <- pool %>% filter(position == pos, drafted == 1, outcome_known)
@@ -322,7 +324,7 @@ dec <- seasons %>% inner_join(ath %>% filter(is.na(nfl_pos) | TRUE) %>% select(a
   filter(yrs_next >= 3) %>%
   group_by(position, college_year) %>% mutate(vol_pct = percent_rank(vol)) %>% ungroup() %>%
   mutate(final = as.integer(college_year == last_season))
-saveRDS(dec %>% select(athlete_id, position, college_year, yrs_next, vol, vol_pct, recruit_rating, final), "pd_declare.rds")
+saveRDS(dec %>% select(athlete_id, position, college_year, yrs_next, vol, vol_pct, recruit_rating, final), paste0("pd_declare", SUF, ".rds"))
 cat("\n===== Share whose season was their last, by years out of HS next spring =====\n")
 print(as.data.frame(dec %>% mutate(y = pmin(yrs_next, 6)) %>% group_by(position, y) %>%
   summarize(n = n(), final = round(mean(final), 3), .groups = "drop") %>% pivot_wider(names_from = y, values_from = c(n, final))), row.names = FALSE)
@@ -342,7 +344,7 @@ elig_a <- seasons %>% distinct(athlete_id, college_year) %>% filter(college_year
 elig <- bind_rows(lapply(POSITIONS, function(pos) feature_build(pos, elig_a, verbose = FALSE))) %>%
   filter(yrs_since_hs >= 3 | (nfl_linked == 1 & class == nfl_class)) %>%
   mutate(entered = as.integer(coalesce(class == nfl_class, FALSE) | (is.na(nfl_class) & class == last_season + 1)))
-saveRDS(elig, "pd_eligible_pool.rds")
+saveRDS(elig, paste0("pd_eligible_pool", SUF, ".rds"))
 cat("\n===== Eligible pool (entrants + players who stayed) by position, selected classes =====\n")
 print(as.data.frame(elig %>% filter(class %in% c(2015, 2020, 2023, 2026, 2027)) %>% group_by(position, class) %>%
   summarize(n = n(), entered = sum(entered), .groups = "drop")), row.names = FALSE)
