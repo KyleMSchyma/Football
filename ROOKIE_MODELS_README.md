@@ -10,6 +10,7 @@ predictive-analytics project.
 | [`RB_Model/`](RB_Model/README.md) | Running backs | Phases 1-7: same design adapted to RBs, with RB8 / RB16 / RB24 tiers; summary buy/sell lists |
 | [`TE_Model/`](TE_Model/README.md) | Tight ends | Phases 1-7: same design adapted to TEs, with TE8 / TE16 / TE24 tiers; summary buy/sell lists |
 | [`PreDraft_Model/`](PreDraft_Model/README.md) | All four positions | Pre-draft (college-only, no draft capital or combine) player scores, class grades, position depth and player deep dives for 2010-2027 |
+| [`PostDraft_Model/`](PostDraft_Model/README.md) | All four positions | Post-draft (college + draft pick + landing spot) A+ to F grades for every drafted player 2010-2026, next to the pre-draft grade |
 
 Each folder has its own README covering how to run it, the validation design and the
 results.

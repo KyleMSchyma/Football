@@ -193,6 +193,7 @@ strong flag at the top, not a guarantee, and a low grade doesn't rule a player o
 from the post-draft version of each position model (college profile plus draft pick and
 landing spot). It sits next to the pre-draft grade, so you can see how much draft capital
 moved each player and each class. 2027 isn't on it because nobody has been drafted.
+It lives in its own folder, `PostDraft_Model/`.
 
 **The result.** Post-draft A-range players hit 69% of the time, B 35%, C 9% and D/F 4%.
 Unlike the pre-draft grade, it separates the bottom too. It also ranks players within a

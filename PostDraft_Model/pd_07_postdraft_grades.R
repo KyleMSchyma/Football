@@ -1,6 +1,7 @@
 # =============================================================================
-# Pre-Draft Model -- Phase 7: post-draft grades for every drafted QB/RB/WR/TE,
-# 2010-2026, side by side with the pre-draft grades from Phase 6
+# Post-Draft Model: post-draft grades for every drafted QB/RB/WR/TE, 2010-2026,
+# side by side with the pre-draft grades from PreDraft Phase 6
+# (was PreDraft Phase 7; file name kept so older links and logs still match)
 #
 # Post-draft model = the "post" tier ladder of each position model (QB/RB/TE phase 4,
 # WR phase 6): college profile + age + draft pick + landing spot (vacated share,
@@ -14,16 +15,19 @@
 #   average move and how well each version ranked the class's actual results.
 # Outputs: pd_post_player_grades.csv, pd_post_grade_validation.csv,
 #          pd_post_vs_pre_metrics.csv, pd_post_class_summary.csv, plot_post_vs_pre.png
-# Needs: pd_player_grades.csv (Phase 6) and the four position models' outputs.
+# Needs: pd_player_grades.csv (PreDraft Phase 6, read from the PreDraft folder) and the
+#        four position models' outputs. Run from this folder.
 # =============================================================================
-source("pd_common.R")
+# folder layout: GitHub repo (PreDraft_Model, ...) or Kyle's PC (Football2_PreDraft, ...)
+PRE_DIR <- if (dir.exists("../PreDraft_Model")) "../PreDraft_Model" else "../Football2_PreDraft"
+source(file.path(PRE_DIR, "pd_common.R"))
 suppressMessages(library(ggplot2))
 GRADE_CUTS <- c(0, .10, .25, .35, .45, .55, .65, .75, .85, .90, .95, 1.0001)
 GRADES     <- c("F", "D", "C-", "C", "C+", "B-", "B", "B+", "A-", "A", "A+")
 grade_from_pct <- function(p) as.character(cut(p, GRADE_CUTS, labels = GRADES, right = FALSE))
 gidx <- function(g) match(g, GRADES)   # 1 = F ... 11 = A+
 
-pre <- read.csv("pd_player_grades.csv", stringsAsFactors = FALSE, na.strings = "") %>% filter(status == "drafted")
+pre <- read.csv(file.path(PRE_DIR, "pd_player_grades.csv"), stringsAsFactors = FALSE, na.strings = "") %>% filter(status == "drafted")
 
 src <- list(
   QB = list(oof = file.path(POS_DIR[["QB"]], "phase4_oof_predictions.csv"), board = file.path(POS_DIR[["QB"]], "qb_finish_tier_board_2024_2026.csv"),
