@@ -1,0 +1,139 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trade Values | Prospect Actuary</title>
+<meta name="description" content="Redraft and dynasty fantasy football trade values for every NFL QB, RB, WR and TE, built on points per game over replacement. In development.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#f5f6f3; --panel:#ffffff; --ink:#18201c; --muted:#5d6862; --line:#d9ddd6; --accent:#1f6b4f; --accent-soft:#e2efe8;
+  --warn:#8a5a00; --warn-soft:#fbf0d9; --bar:#2f6d8f;
+  --QB:#c4502f; --RB:#1d7a50; --WR:#2f6d8f; --TE:#9b4f8a;
+  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif; --f-body:Inter,system-ui,-apple-system,"Segoe UI",sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121815; --panel:#1a221e; --ink:#e7ece8; --muted:#9aa69f; --line:#2c3732; --accent:#5cc497; --accent-soft:#1f3229;
+  --warn:#f0c46a; --warn-soft:#3a2f17; --bar:#5b9cc0; --QB:#e2754f; --RB:#3fb07c; --WR:#5b9cc0; --TE:#c27bb3; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121815; --panel:#1a221e; --ink:#e7ece8; --muted:#9aa69f; --line:#2c3732; --accent:#5cc497; --accent-soft:#1f3229;
+  --warn:#f0c46a; --warn-soft:#3a2f17; --bar:#5b9cc0; --QB:#e2754f; --RB:#3fb07c; --WR:#5b9cc0; --TE:#c27bb3; color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55}
+.wrap{max-width:1080px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:40px}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;letter-spacing:.01em;text-wrap:balance;margin:0;line-height:1.1}
+h1{font-size:2.6rem} h2{font-size:1.75rem}
+p{margin:0;max-width:70ch}
+section{display:flex;flex-direction:column;gap:14px}
+.eyebrow{font-family:var(--f-mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
+.muted{color:var(--muted)} .small{font-size:.85rem}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+a{color:var(--accent)}
+.dev{background:var(--warn-soft);border:1px solid var(--warn);border-radius:8px;padding:12px 16px;display:flex;flex-direction:column;gap:4px}
+.dev b{font-family:var(--f-mono);letter-spacing:.12em;color:var(--warn);font-size:.95rem}
+.explain{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.toc{display:flex;flex-wrap:wrap;gap:8px 16px;font-family:var(--f-mono);font-size:.8rem}
+.pos{font-family:var(--f-mono);font-size:.8rem;font-weight:600}
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tabs button,.ctl input,.more{font:inherit;font-size:.9rem;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:5px;padding:5px 12px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:600}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ctl{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.ctl input{cursor:text;min-width:0;width:200px}
+.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{padding:6px 10px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--panel);position:sticky;top:0}
+td.r,th.r{text-align:right}
+.val{font-weight:600}
+.barcell{display:flex;align-items:center;gap:8px;justify-content:flex-end}
+.minibar{display:inline-block;height:8px;border-radius:2px;background:var(--bar)}
+ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-width:72ch}
+@media (max-width:520px){h1{font-size:2.1rem} .ctl input{width:100%}}
+</style></head>
+<body><div class="wrap">
+<header style="display:flex;flex-direction:column;gap:14px">
+  <nav class="pa-brand" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em"><a href="../" style="color:var(--ink);text-decoration:none;font-weight:600">Prospect Actuary</a><span style="display:flex;gap:14px;flex-wrap:wrap"><a href="../pre-draft/">Pre-draft</a><a href="../post-draft/">Post-draft</a><a href="../trade-values/" aria-current="page">Trade values</a><a href="../guide/">Guide</a></span></nav>
+  <div class="dev" role="note"><b>IN DEVELOPMENT</b><span>These trade values are still being built and tested. Expect the numbers and methods to change.</span></div>
+  <div class="eyebrow">Fantasy trade values · full PPR · QB, RB, WR, TE</div>
+  <h1>Trade Values</h1>
+  <p class="small muted" id="asof"></p>
+  <div class="toc"><a href="#how">How to use them</a><a href="#redraft">Redraft Trade Values</a><a href="#dynasty">Dynasty Trade Values</a><a href="../guide/#redraft">How they're built</a></div>
+</header>
+
+<section id="how">
+  <h2>These values add up</h2>
+  <div class="explain">
+    <p><b>Every value is on one 100,000-point scale, and values add.</b> Two players together are worth the sum of their values, so a 60,000 player plus a 40,000 player equals one 100,000 player. To check a trade, add up each side and compare the totals.</p>
+    <p class="small muted">The values are built from fantasy points per game over replacement: how many more points a player scores each game than the player you could start instead (the QB24, RB24, WR36 or TE12). Because they are measured in points, they add up the way points do. The top player on each sheet is 100,000.</p>
+  </div>
+</section>
+
+<section id="redraft">
+  <div class="eyebrow">Sheet 1 · this season only</div>
+  <h2>Redraft Trade Values</h2>
+  <p>Value for the rest of the 2026 season only: points per game over replacement × the games a player is expected to play from here. Points per game blend this season with his recent seasons, and expected games account for his history of missed games.</p>
+  <div class="tabs" id="rTabs" role="group" aria-label="Position"></div>
+  <div class="ctl"><input id="rName" type="search" placeholder="Search player or team" aria-label="Search redraft values"><span class="small muted" id="rCount"></span></div>
+  <div class="tablebox"><table id="rTable"></table></div>
+  <button type="button" class="more" id="rMore">Show more</button>
+</section>
+
+<section id="dynasty">
+  <div class="eyebrow">Sheet 2 · rest of 2026 plus 2027-2030</div>
+  <h2>Dynasty Trade Values</h2>
+  <p>Value over the rest of 2026 and the next four seasons. It adds a young player's potential from his draft slot, how players at his position age, his chance of staying in the league, and a discount that makes later seasons count a little less.</p>
+  <div class="tabs" id="dTabs" role="group" aria-label="Position"></div>
+  <div class="ctl"><input id="dName" type="search" placeholder="Search player or team" aria-label="Search dynasty values"><span class="small muted" id="dCount"></span></div>
+  <div class="tablebox"><table id="dTable"></table></div>
+  <button type="button" class="more" id="dMore">Show more</button>
+</section>
+
+<section>
+  <h2>Read them with care</h2>
+  <ul>
+    <li>2026 data runs through the latest week shown above. Values will move as the season goes on.</li>
+    <li>Scoring is full PPR (4-point passing TDs). Replacement is the QB24, RB24, WR36 and TE12, so this is a superflex-style setup.</li>
+    <li>"Games missed" counts any game without a stat line, so a benching looks like an injury. There is no injury report in the data.</li>
+    <li>In backtests on 2016-2025, the redraft values and the dynasty values both ranked what actually happened better than "his current pace continues." Details are in <a href="../guide/#redraft">the guide</a>.</li>
+  </ul>
+</section>
+
+<p class="pa-tip" style="margin:0;font-size:.9rem;color:var(--muted);max-width:72ch">Prospect Actuary is free to use. If it helped you, you can <a href="https://buymeacoffee.com/kylemschyma" target="_blank" rel="noopener">buy me a coffee</a>. A dollar is plenty.</p>
+<footer style="border-top:1px solid var(--line);padding-top:16px;font-size:.85rem;color:var(--muted);max-width:72ch">Data: NFL weekly player stats, rosters, birth dates and draft picks from <a href="https://nflverse.com">nflverse</a> (via <a href="https://nflreadr.nflverse.com">nflreadr</a>), shared under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The values are in <a href="data/redraft_trade_values.csv">redraft_trade_values.csv</a> and <a href="data/dynasty_trade_values.csv">dynasty_trade_values.csv</a>. Values and models by Prospect Actuary. Not affiliated with the NFL or any team.</footer>
+</div>
+<script>
+window.TV = /*DATA*/;
+(function(){
+const D = window.TV, POS = ["QB","RB","WR","TE"];
+const esc = s => String(s==null?"":s).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt = x => Math.round(x).toLocaleString("en-US");
+const f1 = x => x==null ? "" : Number(x).toFixed(1);
+const pchip = p => `<span class="pos" style="color:var(--${p})">${p}</span>`;
+document.getElementById("asof").textContent = D.asof;
+function board(key, rows, cols){
+  let pos = "ALL", shown = 100;
+  const tabs = document.getElementById(key+"Tabs"), name = document.getElementById(key+"Name");
+  tabs.innerHTML = [["ALL","All"],...POS.map(p=>[p,p])].map(([v,l])=>`<button type="button" data-v="${v}" aria-pressed="${v==="ALL"}">${l}</button>`).join("");
+  tabs.addEventListener("click", e=>{const b=e.target.closest("button"); if(!b) return; tabs.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed", x===b)); pos=b.dataset.v; shown=100; draw();});
+  name.addEventListener("input", ()=>{shown=100; draw();});
+  document.getElementById(key+"More").addEventListener("click", ()=>{shown+=100; draw();});
+  const max = Math.max(...rows.map(r=>r.v));
+  function draw(){
+    let x = rows.filter(r=>pos==="ALL"||r.p===pos);
+    const q = name.value.trim().toLowerCase(); if(q) x = x.filter(r=>(r.n+" "+(r.tm||"")).toLowerCase().includes(q));
+    document.getElementById(key+"Count").textContent = `${x.length} players` + (x.length>shown?`, showing ${shown}`:"");
+    document.getElementById(key+"Table").innerHTML = `<thead><tr>${cols.map(c=>`<th class="${c.r?"r":""}">${c.h}</th>`).join("")}<th class="r">Trade value</th></tr></thead><tbody>` +
+      x.slice(0,shown).map(r=>`<tr>${cols.map(c=>`<td class="${c.r?"r num":""}">${c.f(r)}</td>`).join("")}<td class="r num val"><span class="barcell">${fmt(r.v)}<span class="minibar" style="width:${Math.max(2,Math.round(60*r.v/max))}px"></span></span></td></tr>`).join("") + "</tbody>";
+    document.getElementById(key+"More").hidden = x.length<=shown;
+  }
+  draw();
+}
+board("r", D.redraft, [
+  {h:"Rank", r:1, f:r=>r.r}, {h:"Player", f:r=>esc(r.n)}, {h:"Pos", f:r=>pchip(r.p)+` <span class="muted small num">${r.rp}</span>`}, {h:"Team", f:r=>esc(r.tm)},
+  {h:"Games", r:1, f:r=>r.g}, {h:"2026 PPG", r:1, f:r=>f1(r.ppg)}, {h:"Credible PPG", r:1, f:r=>f1(r.cppg)},
+  {h:"Over repl. / game", r:1, f:r=>f1(r.por)}, {h:"Exp. games left", r:1, f:r=>f1(r.eg)}]);
+board("d", D.dynasty, [
+  {h:"Rank", r:1, f:r=>r.r}, {h:"Player", f:r=>esc(r.n)}, {h:"Pos", f:r=>pchip(r.p)+` <span class="muted small num">${r.rp}</span>`}, {h:"Team", f:r=>esc(r.tm)},
+  {h:"Age", r:1, f:r=>f1(r.a)}, {h:"Draft pick", r:1, f:r=>r.dp==null?"UDFA":r.dp}, {h:"Credible PPG", r:1, f:r=>f1(r.cppg)},
+  {h:"Proj. PPG 2027", r:1, f:r=>f1(r.p27)}, {h:"Proj. PPG 2030", r:1, f:r=>f1(r.p30)}, {h:"Still playing 2030", r:1, f:r=>Math.round(100*r.s30)+"%"}]);
+})();
+</script>
+</body></html>
