@@ -1,7 +1,83 @@
-QB : drafted 2010-2023 156  2024-26 35  2027 projected 14 
-RB : drafted 2010-2023 287  2024-26 53  2027 projected 21 
-WR : drafted 2010-2023 417  2024-26 102  2027 projected 34 
-TE : drafted 2010-2023 189  2024-26 50  2027 projected 18 
+QB : drafted 2010-2023 156  2024-26 35  2027 projected 16 
+RB : drafted 2010-2023 287  2024-26 53  2027 projected 26 
+WR : drafted 2010-2023 417  2024-26 102  2027 projected 37 
+TE : drafted 2010-2023 189  2024-26 50  2027 projected 19 
+
+community watchlist: 35 listed, 35 matched in the 2027 pool
+
+===== Community watchlist players, model order =====
+ position pos_rank_all               name           college score grade
+       QB           11      Darian Mensah             Miami 1.621     A
+       QB           25          C.J. Carr        Notre Dame 0.987    A-
+       QB           40    Drew Mestemaker    Oklahoma State 0.792    B+
+       QB           50        Sam Leavitt               LSU 0.667    B+
+       QB           56 Trinidad Chambliss          Ole Miss 0.632    B+
+       QB          102       Arch Manning             Texas 0.232    C+
+       QB          109        Dante Moore            Oregon 0.195    C+
+       QB          131     Austin Simmons          Missouri 0.115     C
+       RB           23        Dylan Riley       Boise State 1.296     A
+       RB           24    Wayshawn Parker              Utah 1.296     A
+       RB           81        Jadan Baugh           Florida 0.720    B+
+       RB          116     Antwan Raymond           Rutgers 0.485     B
+       RB          201     Fluff Bothwell Mississippi State 0.233    C+
+       RB          223     Justice Haynes      Georgia Tech 0.197     C
+       RB          228       Nate Frazier           Georgia 0.183     C
+       RB          238         Kewan Lacy          Ole Miss 0.159     C
+       RB          263          LJ Martin               BYU 0.118    C-
+       RB          309    Daylan Smothers             Texas 0.052     D
+       TE           22      Luke Reynolds     Virginia Tech 1.069     A
+       TE           55     Trey'Dez Green               LSU 0.562    B+
+       TE          129     Jamari Johnson            Oregon 0.223    C+
+       WR            1     Jeremiah Smith        Ohio State 2.476    A+
+       WR           40            KJ Duff           Rutgers 1.007     A
+       WR           43     Charlie Becker           Indiana 0.968     A
+       WR           74        Reed Harris     Arizona State 0.694    A-
+       WR           77         Nick Marsh           Indiana 0.679    A-
+       WR          106         Ryan Wingo             Texas 0.476    B+
+       WR          120        Cam Coleman             Texas 0.418    B+
+       WR          138     Jackson Harris               LSU 0.368    B+
+       WR          141      Ryan Williams           Alabama 0.364    B+
+       WR          146   Bryant Wesco Jr.           Clemson 0.354     B
+       WR          162    Junior Sherrill        Vanderbilt 0.336     B
+       WR          228       Amare Thomas           Houston 0.230    B-
+       WR          254    Deuce Alexander          Ole Miss 0.192    B-
+       WR          295       Mario Craver         Texas A&M 0.135    C+
+ grade_asis
+          A
+         B+
+         B+
+          B
+          B
+         C+
+          B
+          C
+         B+
+         B+
+          B
+         C+
+          C
+          C
+          C
+         C-
+         C-
+          D
+         A-
+          B
+         C+
+         A+
+         B+
+         B+
+          B
+         B+
+          B
+          B
+         B-
+          B
+         B+
+         C+
+         C+
+          C
+          C
 
 ===== Hit rates by grade, drafted 2010-2023 (any = any-tier season in years 1-3) =====
  position grade  n mean_pick top_rate top2_rate any_rate any_lo any_hi exp_any
@@ -381,7 +457,9 @@ thin-data (FCS before 2022) players among drafted 2010-2023, by grade band:
            56  Trinidad Chambliss         Ole Miss             3 0.632    B+
            59       Beau Brungard Youngstown State             5 0.604    B+
            62        Aidan Chiles     Northwestern             4 0.575     B
-          108         Dante Moore           Oregon             4 0.195    C+
+          102        Arch Manning            Texas             4 0.232    C+
+          109         Dante Moore           Oregon             4 0.195    C+
+          131      Austin Simmons         Missouri             4 0.115     C
  score_asis grade_asis p_declare
       1.417          A      0.24
       0.874         B+      0.26
@@ -396,7 +474,9 @@ thin-data (FCS before 2022) players among drafted 2010-2023, by grade band:
       0.466          B      0.14
       0.473          B      0.65
       0.489          B      0.32
+      0.177         C+      0.30
       0.547          B      0.39
+      0.087          C      0.26
 -- RB --
  pos_rank_all             name           college yrs_out_of_hs score grade
            16        Cole Tabb        Cincinnati             3 1.525    A+
@@ -420,6 +500,11 @@ thin-data (FCS before 2022) players among drafted 2010-2023, by grade band:
           176      AJ Newberry      Oregon State             4 0.312    B-
           188    Turbo Richard           Indiana             3 0.282    C+
           201   Fluff Bothwell Mississippi State             3 0.233    C+
+          223   Justice Haynes      Georgia Tech             4 0.197     C
+          228     Nate Frazier           Georgia             3 0.183     C
+          238       Kewan Lacy          Ole Miss             3 0.159     C
+          263        LJ Martin               BYU             4 0.118    C-
+          309  Daylan Smothers             Texas             4 0.052     D
  score_asis grade_asis p_declare
       1.110          A      0.12
       0.782         B+      0.10
@@ -442,6 +527,11 @@ thin-data (FCS before 2022) players among drafted 2010-2023, by grade band:
       0.168          C      0.34
       0.220         C+      0.11
       0.178          C      0.11
+      0.162          C      0.36
+      0.142          C      0.15
+      0.125         C-      0.13
+      0.094         C-      0.38
+      0.041          D      0.36
 -- WR --
  pos_rank_all              name           college yrs_out_of_hs score grade
             1    Jeremiah Smith        Ohio State             3 2.476    A+
@@ -477,7 +567,10 @@ thin-data (FCS before 2022) players among drafted 2010-2023, by grade band:
           205      Micahi Danzy     Florida State             3 0.252     B
           217 Jacory Barney Jr.          Nebraska             3 0.244    B-
           221      Nitro Tuggle            Purdue             3 0.236    B-
-          272      Isiah Canion      Georgia Tech             3 0.167    C+
+          228      Amare Thomas           Houston             4 0.230    B-
+          254   Deuce Alexander          Ole Miss             4 0.192    B-
+          274      Isiah Canion      Georgia Tech             3 0.167    C+
+          295      Mario Craver         Texas A&M             3 0.135    C+
  score_asis grade_asis p_declare
       1.941         A+      0.14
       0.609         B+      0.14
@@ -512,7 +605,10 @@ thin-data (FCS before 2022) players among drafted 2010-2023, by grade band:
       0.166         C+      0.15
       0.154         C+      0.14
       0.236         B-      0.16
+      0.125         C+      0.36
+      0.106          C      0.36
       0.167         C+      0.16
+      0.103          C      0.14
 -- TE --
  pos_rank_all             name            college yrs_out_of_hs score grade
            22    Luke Reynolds      Virginia Tech             3 1.069     A
@@ -533,6 +629,7 @@ thin-data (FCS before 2022) players among drafted 2010-2023, by grade band:
           110      DJ Vonnahme               Iowa             3 0.287    B-
           111      Joshua Long   Eastern Michigan             3 0.287    B-
           115 Andrew Rappleyea         Penn State             4 0.282    B-
+          129   Jamari Johnson             Oregon             4 0.223    C+
  score_asis grade_asis p_declare
       0.832         A-      0.14
       0.545         B+      0.37
@@ -552,6 +649,7 @@ thin-data (FCS before 2022) players among drafted 2010-2023, by grade band:
       0.241         B-      0.13
       0.258         B-      0.23
       0.245         B-      0.41
+      0.184         C+      0.40
 
 ===== Grade distribution by class (drafted) =====
  class A range B range C range D/F
