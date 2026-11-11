@@ -1,3 +1,0 @@
-== Dynasty step 9: public page ==
-[1] TRUE TRUE TRUE TRUE
-wrote ../ProspectActuary/dynasty/index.html  ( 126 KB ) players: 657 
