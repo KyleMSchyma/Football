@@ -99,7 +99,7 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-wid
   <div class="eyebrow">Sheet 2 · rest of 2026 plus 2027-2030 · with 2027 rookie picks</div>
   <h2>Dynasty Trade Values</h2>
   <p>Value over the rest of 2026 and the next four seasons. It adds a young player's potential from his draft slot, how players at his position age, his chance of staying in the league, and a discount that makes later seasons count a little less.</p>
-  <p class="small muted"><b>2027 rookie picks</b> are worth the expected value of the player taken at that spot in your league's rookie draft. Each of the last ten NFL draft classes (2016-2025) is projected from draft slot alone, the way a brand-new rookie would be, then ranked by value for your settings. Early, mid and late are the first, middle and last third of each round.</p>
+  <p class="small muted"><b>2027 rookie picks</b> are priced from the <a href="../pre-draft/">pre-draft model</a>, with no NFL draft capital, until the 2027 class is drafted. Each 2027 prospect gets an expected value from his chances of each fantasy tier, with what past players in that tier scored, adjusted for his age. Then the prospects are ranked for your league: pick 1.01 is worth the best prospect's value, 1.02 the second best, and so on through round 3. It assumes every prospect on the board enters the draft.</p>
   <div class="tabs" id="dTabs" role="group" aria-label="Position"></div>
   <div class="ctl"><input id="dName" type="search" placeholder="Search player, team or pick" aria-label="Search dynasty values"><span class="small muted" id="dCount"></span></div>
   <div class="tablebox"><table id="dTable"></table></div>
@@ -113,7 +113,7 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-wid
     <li>Each scoring setting has its own fitted model (credibility, aging, availability and staying in the league), not just rescored points. Lineup settings move the replacement lines.</li>
     <li>QB catches always score full PPR, and RB or WR passing TDs always score 4 points. Both are too rare to matter. There is no first-down bonus.</li>
     <li>"Games missed" counts any game without a stat line, so a benching looks like an injury. The injury report is not used yet.</li>
-    <li>Rookie picks use past draft classes as stand-ins, so they show what a typical class is worth, not the 2027 class itself.</li>
+    <li>Rookie pick values use college data only, so they are rougher than player values. NFL draft slot is the strongest signal for rookies, and it isn't in yet. Ages are estimated from years out of high school.</li>
     <li>In backtests on 2016-2025, the redraft values and the dynasty values both ranked what actually happened better than "his current pace continues," for every scoring setting and every league size tested. Details are in <a href="../guide/#redraft">the guide</a>.</li>
   </ul>
 </section>
@@ -196,14 +196,13 @@ function compute(){
     for (let t=1; t<=4; t++) v += Math.pow(V,t) * x[1+2*t] * stoploss(x[2+2*t], r, sd[1]*Math.sqrt(t));
     dyn.push({n:pl.n, p:pl.p, tm:pl.tm, a:pl.a, dp:pl.dp, cppg:x[1], p27:x[4], p30:x[10], s30:x[11], raw:v});
   });
-  // 2027 rookie picks: expected value of the player taken at each rookie-draft slot, averaged over ten template classes
-  const classVals = D.picks.cls.map(c=>c.map(rk=>{ const key = keyOf(rk.p), x = rk.k[key], sd = D.picks.sdR[key], r = RD.rep[rk.p];
-    let v = 0; for (let t=1; t<=4; t++) v += Math.pow(V,t) * x[2*t-2] * stoploss(x[2*t-1], r, sd[t-1]); return v; }).sort((a,b)=>b-a));
-  const slot = s => classVals.reduce((m,c)=>m+(c[s]||0),0)/classVals.length;
-  const RN = ["1st","2nd","3rd"], TH = ["Early","Mid","Late"];
-  for (let r=0; r<3; r++){ const g = [[],[],[]];
-    for (let i=0; i<S.teams; i++) g[Math.floor(3*i/S.teams)].push(slot(r*S.teams+i));
-    g.forEach((sl,j)=>{ if (sl.length) dyn.push({n:`2027 ${RN[r]} (${TH[j]})`, p:"PICK", pick:true, raw:sl.reduce((a,b)=>a+b,0)/sl.length}); }); }
+  // 2027 rookie picks from the pre-draft model (no draft capital): each prospect's value = sum over tiers of
+  // P(tier) x sum_k v^k x games(tier,k) x E[(PPG(tier,k) + age adj_k - replacement)+]; pick 1.01 = best value, 1.02 = second ...
+  const pv = D.picks.pros.map(pr=>{ const key = keyOf(pr.p), c = D.picks.cal[key], d = pr.d[key], r = RD.rep[pr.p]; let v = 0;
+    for (let tr=0; tr<4; tr++) for (let k=0; k<4; k++){ const i = 4*tr+k; v += pr.P[tr] * Math.pow(V,k+1) * c.G[i] * stoploss(c.mu[i]+d[k], r, c.sd[i]); }
+    return v; }).sort((a,b)=>b-a);
+  for (let s=0; s<3*S.teams && s<pv.length; s++){ const rd = Math.floor(s/S.teams)+1, pk = s%S.teams+1;
+    dyn.push({n:`2027 Pick ${rd}.${String(pk).padStart(2,"0")}`, p:"PICK", pick:true, raw:pv[s]}); }
   [red, dyn].forEach(rows=>{ const top = Math.max(...rows.filter(r=>!r.pick).map(r=>r.raw));
     rows.forEach(r=>r.v = 1e5*r.raw/top); rows.sort((a,b)=>b.v-a.v);
     const pc = {}; rows.forEach((r,i)=>{ r.r = i+1; pc[r.p] = (pc[r.p]||0)+1; r.rp = r.pick ? "" : r.p+pc[r.p]; }); });

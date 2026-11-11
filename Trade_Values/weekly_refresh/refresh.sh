@@ -41,11 +41,6 @@ git pull -q --ff-only origin main >> "$LOG" 2>&1 || fail "git pull ProspectActua
 rr "$HERE" rf_01_pull_nfl.R 01_pull_nfl.txt
 cat "$LOGDIR/01_pull_nfl.txt" >> "$LOG"
 
-# ---------- 2-3. trade values ----------
-rr "$DYN" dv_13_league_presets.R 02_values.txt       # runs dv_11 (and dv_10) once per scoring preset group; default run writes the usual boards
-rr "$DYN" dv_12_trade_values_page.R 03_page.txt
-cat "$LOGDIR/03_page.txt" >> "$LOG"
-
 # ---------- 4. pre-draft grades (college season only) ----------
 PRE_DONE=0
 if [[ "$(date +%Y-%m-%d)" < "$PREDRAFT_UNTIL" || "$(date +%Y-%m-%d)" == "$PREDRAFT_UNTIL" ]]; then
@@ -62,6 +57,12 @@ if [[ "$(date +%Y-%m-%d)" < "$PREDRAFT_UNTIL" || "$(date +%Y-%m-%d)" == "$PREDRA
 else
   say "pre-draft skipped (college regular season over)"
 fi
+
+# ---------- 2-3. trade values (after the pre-draft grades: 2027 rookie picks come from them) ----------
+rr "$DYN" dv_13_league_presets.R 02_values.txt       # runs dv_11 (and dv_10) once per scoring preset group; default run writes the usual boards
+rr "$DYN" dv_12_trade_values_page.R 03_page.txt
+cat "$LOGDIR/03_page.txt" >> "$LOG"
+
 
 # ---------- 5a. publish the site ----------
 cd "$SITE"

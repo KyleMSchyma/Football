@@ -19,13 +19,16 @@ pl <- lapply(seq_len(nrow(P$base)), function(i) { b <- P$base[i, ]
   if (!is.null(P$rd_frozen)) { o$r <- setNames(lapply(keys_of(b$pos), function(key) { x <- P$rd_frozen[[key]][[b$player_id]]
     if (is.null(x)) NULL else r3(x) }), keys_of(b$pos)) }
   o })
-tm <- P$picks$tmpl
-cls <- lapply(split(seq_len(nrow(tm)), tm$draft_year), function(ii) lapply(ii, function(j) { ps <- tm$pos[j]
-  list(p = ps, k = setNames(lapply(keys_of(ps), function(key) r3(P$picks$p[[key]][[paste(tm$draft_year[j], tm$draft_pick[j])]])), keys_of(ps))) }))
+# 2027 rookie picks (pre-draft model, no draft capital): per prospect his tier probabilities and age adjustment per scoring key,
+# per scoring key the tier calibration (games, PPG, spread by tier and season). Names stay off the page (Kyle: picks only).
+pp <- P$picks$pp
+pros <- lapply(seq_len(nrow(pp)), function(j) { ps <- pp$pos[j]
+  list(p = ps, P = r3(unlist(pp[j, c("P1", "P2", "P3", "P4")])), d = setNames(lapply(keys_of(ps), function(key) r3(P$picks$D[[key]][[as.character(j)]])), keys_of(ps))) })
+cal <- lapply(P$picks$cal, function(x) lapply(x, r3))
 wk <- max(subset(readRDS("nfl_weekly_2026.rds"), season_type == "REG")$week)
 asof <- sprintf("2026 stats through week %d. Updated %s.%s", wk, format(Sys.Date(), "%B %d, %Y"),
                 if (wk >= 18) " The regular season is over, so redraft values are frozen at the last week with games left." else "")
-js <- toJSON(list(asof = asof, v = P$v, players = pl, sd = lapply(P$sdk, r3), picks = list(sdR = lapply(P$picks$sdR, r3), cls = unname(cls))),
+js <- toJSON(list(asof = asof, v = P$v, players = pl, sd = lapply(P$sdk, r3), picks = list(cal = cal, pros = pros)),
              auto_unbox = TRUE, digits = NA, na = "null", null = "null")
 js <- gsub("</", "<\\/", js, fixed = TRUE)
 html <- sub("/*DATA*/", js, paste(readLines("tv_page_template.html", encoding = "UTF-8"), collapse = "\n"), fixed = TRUE)
@@ -37,5 +40,5 @@ write.csv(r %>% select(rank, rank_pos, name, pos, team, games_2026, ppg_2026, cr
                        exp_games_left, trade_value = value_100k), file.path(out, "data", "redraft_trade_values.csv"), row.names = FALSE)
 write.csv(d %>% select(rank, rank_pos, name, pos, team, age, draft_pick, credible_ppg, ppg_2027, ppg_2028, ppg_2030, still_playing_2030 = S_2030,
                        trade_value = value_100k), file.path(out, "data", "dynasty_trade_values.csv"), row.names = FALSE)
-cat("wrote", file.path(out, "index.html"), " players:", length(pl), " pick template classes:", length(cls),
+cat("wrote", file.path(out, "index.html"), " players:", length(pl), " 2027 prospects:", length(pros),
     " page size:", round(file.size(file.path(out, "index.html")) / 1024), "KB\n")

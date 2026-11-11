@@ -14,7 +14,7 @@
 # Lineup settings are computed in the browser from these projections: replacement lines by filling every team's lineup
 # (rep_lines in dv_10), then points over replacement x expected games, with the stop-loss upside for dynasty.
 #
-# Also builds the 2027 rookie pick profiles (template classes 2016-2025, projected from draft slot) and the backtests of
+# Also builds the 2027 rookie pick values from the pre-draft model (no draft capital) and the backtests of
 # the scoring presets and of several lineup settings. Writes dv_league_presets.rds (read by dv_12), dv_league_backtest.csv,
 # dv_scoring_backtest.csv, dv_anchor_check.csv.
 # =============================================================================
@@ -31,36 +31,39 @@ LG_TEST_ <- list(
   "8 teams, 1 QB, 2 RB 2 WR 1 TE, 1 flex"                  = list(teams = 8,  qb = 1, rb = 2, wr = 2, te = 1, flex = 1, sf = 0))
 T0_ <- Sys.time(); OUT_ <- list(); SCBT_ <- list()
 
-# ---------- rookie pick profiles: what a rookie drafted at each NFL slot projects to, for 2027-2030 ----------
-rookie_profiles <- function() {
+# ---------- 2027 rookie picks from the pre-draft model (Kyle 2026-11-11: no draft capital at all) ----------
+# Each 2027 prospect on the pre-draft board has P(tier 1), P(tier 1-2), P(any tier) for his first three NFL seasons
+# (QB/RB/TE tiers = top 8 / 16 / 24, WR = top 12 / 24 / 36). Tier outcomes are turned into points with what past drafted
+# players in that tier actually did (classes 2010-2022, seasons 1-4: games per 17, PPG, PPG spread), so
+#   value = sum over tiers of P(tier) x sum_{k=1..4} v^k x games_tier,k x E[(PPG_tier,k + age adj_k - replacement)+]
+# Age adjustment: the aging model's age curve, his age vs the average rookie's age at his position, applied season by season.
+# Age = 18.6 + years out of high school (college data has no birth dates). Every prospect is assumed to declare.
+# The page ranks the prospects for the chosen league: pick 1.01 = the best value, 1.02 the second, and so on.
+PD_DIR <- "../Football2_PreDraft"
+prospect_profiles <- function() {
+  gr <- read.csv(file.path(PD_DIR, "pd_player_grades.csv"), stringsAsFactors = FALSE)
   pr_ <- readRDS(file.path(SHARED, "players_raw.rds")) %>%
     transmute(player_id = gsis_id, pos = ifelse(position == "FB", "RB", position), draft_year, draft_pick, birth_date = as.Date(birth_date)) %>%
-    filter(pos %in% POSITIONS, !is.na(draft_pick), !is.na(draft_year))
-  # rookie-season games (zero when he never plays), by position and draft slot
-  rk <- pr_ %>% filter(draft_year %in% 2012:2025) %>%
-    left_join(seas %>% select(player_id, season, g), by = c("player_id", "draft_year" = "season")) %>%
-    mutate(g = coalesce(g, 0L), tg = ifelse(draft_year >= 2021, 17, 16), g = pmin(g, tg), lpick = log(draft_pick))
-  gfit <- lapply(setNames(POSITIONS, POSITIONS), function(ps) glm(cbind(g, tg - g) ~ ns(lpick, 3), family = binomial, data = rk %>% filter(pos == ps)))
-  # rookie-season PPG uncertainty: residual sd of the draft-capital potential fit, rookies only
-  pf <- POT_CACHE[[as.character(CUR)]]; if (is.null(pf)) { invisible(potential_ppg(CUR, data.frame(pos = "QB", lpick = 1, exp = 0))); pf <- POT_CACHE[[as.character(CUR)]] }
-  sdr <- sapply(POSITIONS, function(ps) { m <- pf[[ps]]; e0 <- m$model$`factor(exp)` == "0"
-    sqrt(sum(m$weights[e0] * residuals(m)[e0]^2) / sum(m$weights[e0])) })
-  tmpl <- pr_ %>% filter(draft_year %in% 2016:2025) %>% group_by(draft_year) %>% arrange(draft_pick, .by_group = TRUE) %>%
-    slice_head(n = 60) %>% ungroup() %>%
-    mutate(age = as.numeric(as.Date(paste0(draft_year, "-09-01")) - birth_date) / 365.25, lpick = log(draft_pick), exp = 0) %>%
-    group_by(pos) %>% mutate(age = ifelse(is.na(age), median(age, na.rm = TRUE), age)) %>% ungroup()
-  tmpl$mu1 <- potential_ppg(CUR, tmpl)
-  tmpl$G1 <- NA_real_
-  for (ps in POSITIONS) { i <- which(tmpl$pos == ps); tmpl$G1[i] <- 17 * predict(gfit[[ps]], tmpl[i, ], type = "response") }
-  SG <- matrix(0, nrow(tmpl), 4); MU <- matrix(0, nrow(tmpl), 4); SG[, 1] <- tmpl$G1; MU[, 1] <- tmpl$mu1
-  for (ps in POSITIONS) { i <- which(tmpl$pos == ps); if (!length(i)) next
-    f <- F[[ps]]; x <- tmpl[i, ]; cp <- x$mu1; av <- x$G1 / 17; S <- rep(1, length(i))
-    for (k in 1:3) {                                    # 2028-2030, from the rookie season (2027) forward
-      nd <- data.frame(cppg = cp, age = x$age + k - 1, exp = k - 1, lpick = x$lpick, avail = av)
-      S <- S * predict(f$act, nd, type = "response"); ppg_k <- predict(f$prod, nd); av_k <- predict(f$av, nd, type = "response")
-      SG[i, k + 1] <- S * 17 * av_k; MU[i, k + 1] <- ppg_k; cp <- ppg_k; av <- av_k } }
-  sdR <- lapply(setNames(POSITIONS, POSITIONS), function(ps) sqrt(sdr[ps]^2 + F[[ps]]$sig^2 * (0:3)))
-  list(tmpl = tmpl %>% select(player_id, pos, draft_year, draft_pick, age), SG = SG, MU = MU, sdR = sdR)
+    filter(pos %in% POSITIONS, !is.na(draft_pick))
+  h <- gr %>% filter(status == "drafted", class %in% 2010:2022, !is.na(nfl_tier), !is.na(pick)) %>%
+    transmute(pos = position, class, pick, tier = pmin(nfl_tier, 4)) %>%
+    inner_join(pr_, by = c("pos", "class" = "draft_year", "pick" = "draft_pick")) %>%
+    mutate(age0 = as.numeric(as.Date(paste0(class, "-09-01")) - birth_date) / 365.25)
+  hk <- bind_rows(lapply(1:4, function(k) h %>% mutate(k = k, season = class + k - 1))) %>%
+    left_join(seas %>% select(player_id, season, g, pts, tg_season), by = c("player_id", "season")) %>%
+    mutate(g = coalesce(g, 0L), pts = coalesce(pts, 0), tg = coalesce(tg_season, ifelse(season >= 2021, 17L, 16L)), g17 = pmin(g / tg, 1) * 17)
+  cal <- hk %>% group_by(pos, tier, k) %>%
+    summarise(n = n(), G = mean(g17), mu = if (sum(g) > 0) sum(pts) / sum(g) else 0,
+              sd = if (sum(g > 0) > 2) sqrt(sum(g[g > 0] * (pts[g > 0] / g[g > 0] - sum(pts) / sum(g))^2) / sum(g)) else NA_real_, .groups = "drop") %>%
+    group_by(pos, k) %>% mutate(sd = ifelse(is.na(sd) | sd < 1, max(sd, na.rm = TRUE), sd)) %>% ungroup() %>% arrange(pos, tier, k)
+  a_ref <- h %>% group_by(pos) %>% summarise(a = mean(age0, na.rm = TRUE))
+  agef <- function(ps, a) predict(F[[ps]]$prod, data.frame(cppg = 0, age = a, exp = 0, lpick = 0))   # only the age curve matters (differences)
+  pp <- gr %>% filter(class == 2027) %>%
+    transmute(name, pos = position, college, age = 18.6 + yrs_out_of_hs, score, grade,
+              P1 = p_top, P2 = p_top2 - p_top, P3 = p_any - p_top2, P4 = 1 - p_any)
+  D <- t(sapply(seq_len(nrow(pp)), function(i) { ps <- pp$pos[i]; a0 <- a_ref$a[a_ref$pos == ps]
+    d <- sapply(2:4, function(k) agef(ps, pp$age[i] + k - 2) - agef(ps, a0 + k - 2)); c(0, cumsum(d)) }))
+  list(cal = cal, pp = pp, D = D, a_ref = a_ref)
 }
 
 for (I_ in seq_along(RUNS_)) {
@@ -75,7 +78,7 @@ for (I_ in seq_along(RUNS_)) {
   dy <- cbind(pr$G[mi, 2:5, drop = FALSE], pr$ppg[mi, 2:5, drop = FALSE])[, c(1, 5, 2, 6, 3, 7, 4, 8)]   # SG1, mu1, ..., SG4, mu4
   dy <- cbind(dy, S4 = pr$S[mi, 5])                                   # chance he is still playing in 2030
   dy[is.na(mi), ] <- NA
-  rp <- rookie_profiles()
+  rp <- prospect_profiles()
   sdk <- lapply(setNames(POSITIONS, POSITIONS), function(ps) c(sd0 = unname(setNames(m1$rmse_credibility, m1$pos)[ps]), sig = F[[ps]]$sig))
   OUT_[[I_]] <- list(keys = keys, pl = pl, dy = dy, rp = rp, sdk = sdk, chk = tibble(player_id = d26$player_id, dyn = pr$value),
                      chk_rd = tibble(player_id = b26$player_id, rd = b26$value))
@@ -109,16 +112,16 @@ for (o in OUT_) for (ps in names(o$keys)) { key <- paste0(ps, "_", o$keys[[ps]])
   rd[[key]]  <- setNames(lapply(i, function(j) c(o$pl$ppg[j], o$pl$cppg[j], o$pl$G0[j])), o$pl$player_id[i])   # 2026 PPG, credible PPG, exp. games left
   dyl[[key]] <- setNames(lapply(i, function(j) o$dy[j, ]), o$pl$player_id[i])
   sdk[[key]] <- o$sdk[[ps]]
-  ri <- which(o$rp$tmpl$pos == ps)
-  pk[[key]]  <- lapply(ri, function(j) c(o$rp$SG[j, 1], o$rp$MU[j, 1], o$rp$SG[j, 2], o$rp$MU[j, 2], o$rp$SG[j, 3], o$rp$MU[j, 3], o$rp$SG[j, 4], o$rp$MU[j, 4]))
-  names(pk[[key]]) <- paste(o$rp$tmpl$draft_year[ri], o$rp$tmpl$draft_pick[ri])
-  sdR[[key]] <- o$rp$sdR[[ps]] }
+  cc <- o$rp$cal %>% filter(pos == ps)                                 # tier-major: tier 1 seasons 1-4, tier 2 ...
+  pk[[key]]  <- list(G = cc$G, mu = cc$mu, sd = cc$sd)
+  ri <- which(o$rp$pp$pos == ps)
+  sdR[[key]] <- setNames(lapply(ri, function(j) o$rp$D[j, ]), ri) }   # age adjustment per prospect, seasons 1-4
 # after Week 18 there are no games left: keep the redraft numbers from the last week that had games
 rd_frozen <- NULL
 if (max(sapply(unlist(rd, recursive = FALSE), `[`, 3)) <= 0 && file.exists("dv_league_presets.rds")) { old <- readRDS("dv_league_presets.rds")
   rd_frozen <- if (!is.null(old$rd_frozen)) old$rd_frozen else old$rd
   cat("\nregular season over: the redraft sheet keeps the projections from the last week with games left\n") }
-presets <- list(base = base, rd = rd, rd_frozen = rd_frozen, dy = dyl, sdk = sdk, picks = list(tmpl = OUT_[[1]]$rp$tmpl %>% select(pos, draft_year, draft_pick), p = pk, sdR = sdR),
+presets <- list(base = base, rd = rd, rd_frozen = rd_frozen, dy = dyl, sdk = sdk, picks = list(pp = OUT_[[1]]$rp$pp, cal = pk, D = sdR),
                 v = 1 / (1 + I_MAIN), week = CUT26, made = Sys.time())
 saveRDS(presets, "dv_league_presets.rds")
 write.csv(LGBT_, "dv_league_backtest.csv", row.names = FALSE)
@@ -138,11 +141,12 @@ league_values <- function(P, lg, ppr = 1, tep = 0, ptd = 4) {
   b$redraft <- (b$cppg - b$rep) * b$G0
   b$dynasty <- sapply(seq_len(nrow(b)), function(j) { x <- P$dy[[k[j]]][[b$player_id[j]]]; if (is.null(x) || anyNA(x)) return(NA)
     s <- P$sdk[[k[j]]]; sum(P$v^(0:4) * c(b$G0[j], x[c(1, 3, 5, 7)]) * stoploss(c(b$cppg[j], x[c(2, 4, 6, 8)]), b$rep[j], c(s[1], s[2] * sqrt(1:4)))) })
-  tm <- P$picks$tmpl; tk <- key[tm$pos]
-  tm$val <- sapply(seq_len(nrow(tm)), function(j) { x <- P$picks$p[[tk[j]]][[paste(tm$draft_year[j], tm$draft_pick[j])]]
-    sum(P$v^(1:4) * x[c(1, 3, 5, 7)] * stoploss(x[c(2, 4, 6, 8)], rp$rep_ppg[match(tm$pos[j], rp$pos)], P$picks$sdR[[tk[j]]])) })
-  slots <- tm %>% group_by(draft_year) %>% arrange(desc(val), .by_group = TRUE) %>% mutate(slot = row_number()) %>% group_by(slot) %>% summarise(val = mean(val))
-  list(players = b, slots = slots, rep = rp)
+  pp <- P$picks$pp; tk <- key[pp$pos]
+  pp$val <- sapply(seq_len(nrow(pp)), function(j) { cc <- P$picks$cal[[tk[j]]]; d <- P$picks$D[[tk[j]]][[as.character(j)]]
+    pr4 <- unlist(pp[j, c("P1", "P2", "P3", "P4")]); r <- rp$rep_ppg[match(pp$pos[j], rp$pos)]
+    sum(rep(pr4, each = 4) * rep(P$v^(1:4), 4) * cc$G * stoploss(cc$mu + rep(d, 4), r, cc$sd)) })
+  pp <- pp %>% arrange(desc(val)) %>% mutate(slot = row_number())
+  list(players = b, slots = pp, rep = rp)
 }
 lv <- league_values(presets, LG_DEFAULT)
 c1 <- OUT_[[1]]$chk; c2 <- OUT_[[1]]$chk_rd
@@ -157,8 +161,11 @@ AC <- bind_rows(lapply(names(LG_TEST_), function(nm) { L <- league_values(preset
     anc %>% mutate(setting = nm, sheet = sh, get_value = v[get_rank], give_value = v[give_rank_1] + v[give_rank_2], ratio = round(give_value / get_value, 2)) })) }))
 write.csv(AC, "dv_anchor_check.csv", row.names = FALSE)
 cat("\nANCHOR CHECK (ratio = package / single player; Kyle's anchors say about 1.0):\n"); print(as.data.frame(AC %>% select(setting, sheet, get_rank, give_rank_1, give_rank_2, ratio)))
-n12 <- 12; s <- lv$slots$val; top <- max(lv$players$dynasty, na.rm = TRUE)
-cat("\ndefault league, 2027 rookie pick values (100k scale): \n")
-for (r in 1:3) { sl <- (r - 1) * n12 + 1:n12; th <- split(sl, rep(1:3, each = 4))
-  cat(sprintf("  round %d  early %6.0f  mid %6.0f  late %6.0f\n", r, 1e5 * mean(s[th[[1]]]) / top, 1e5 * mean(s[th[[2]]]) / top, 1e5 * mean(s[th[[3]]]) / top)) }
+top <- max(lv$players$dynasty, na.rm = TRUE); dr <- rank(-lv$players$dynasty, na.last = "keep")
+cat("\ntier calibration (default scoring): games per 17 and PPG by tier, seasons 1-4\n")
+print(as.data.frame(OUT_[[1]]$rp$cal %>% mutate(across(c(G, mu, sd), ~ round(.x, 1)))), row.names = FALSE)
+cat("\ndefault league, 2027 rookie picks from the pre-draft model (100k scale; 'like' = the dynasty rank of a player with that value):\n")
+print(lv$slots %>% head(36) %>% mutate(pick = sprintf("%d.%02d", (slot - 1) %/% 12 + 1, (slot - 1) %% 12 + 1),
+  value = round(1e5 * val / top), like = sapply(val, function(x) sum(lv$players$dynasty > x, na.rm = TRUE) + 1),
+  p_tier1 = round(P1, 2), p_any = round(1 - P4, 2), age = round(age, 1)) %>% select(pick, name, pos, college, grade, age, p_tier1, p_any, value, like) %>% as.data.frame(), row.names = FALSE)
 cat("\nelapsed:", round(as.numeric(difftime(Sys.time(), T0_, units = "mins")), 1), "min\n")
