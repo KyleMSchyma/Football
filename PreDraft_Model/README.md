@@ -8,6 +8,9 @@ landing spot and no combine data**: only college box-score production, usage sha
 
 Results write-up: https://claude.ai/artifact/LpjqTZULpQXjUzYEnTzFYr
 
+**What drives each position (WR, QB, RB, TE):** [PREDICTORS.md](PREDICTORS.md) ranks the most
+important college inputs per position, with effect sizes, partial dependence and SHAP plots.
+
 ## Design
 
 - **Who is modeled:** every draft-eligible college player (3+ years out of high school) at
