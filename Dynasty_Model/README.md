@@ -245,3 +245,10 @@ Tiers on the score: Cornerstone 70+, Core 45-70, Starter 25-45, Flex 10-25, Dept
 - The death rule has a comeback blind spot: about a quarter of veterans who "die" later have
   another startable season. Their later seasons are not counted.
 - Points are full PPR with the nflverse default scoring (4-point passing TDs).
+
+## Public page
+
+`dv_09_public_page.R` fills `dv_page_template.html` with the board, life tables, age PDP and
+backtest and writes the Prospect Actuary page (`../ProspectActuary/dynasty/` on Kyle's PC):
+https://kylemschyma.github.io/prospect-actuary/dynasty/. Re-run steps 5, 8 and 9 (and 6-7 if the
+models change) after new data, then commit the ProspectActuary repo.
