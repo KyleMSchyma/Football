@@ -205,6 +205,32 @@ late picks with strong college numbers, such as Alex Collins (A- to D).
 grade adds what the NFL said with its pick. When they disagree, history sides with the
 pick more often, which is why a pre-draft A who goes in round 6 usually fades."
 
+## 11. Dynasty value model (every active player)
+
+**What it is.** A Dynasty Value Score for every active QB, RB, WR and TE, drafted or
+undrafted, that combines how productive a player is with how long he will stay useful.
+It lives in `Dynasty_Model/`, and its README has every number.
+
+**The final model.** It's priced like a life annuity. For each of the next 10 seasons, take
+the chance the player is still a "living" fantasy asset, times the points he's expected to
+score above the replacement line (QB24, RB24, WR36, TE12), discounted 15% a year, and add
+them up. A career "ends" after two straight seasons below the line, with a free pass for the
+rookie year. The survival chance is the average of a discrete-time logistic hazard GLM and a
+survival random forest. The points come from the average of a Tweedie GLM (the insurance
+"pure premium" model) and a random forest. Kaplan-Meier and a Cox model were fit too. Cox
+lost because its key assumption (effects stay constant over time) clearly fails.
+
+**The result.** On held-out seasons, the score ranked startable players' next three seasons
+better than "he'll repeat this year" (rank correlation 0.58 vs 0.46), with about 40% less
+error. Once startable, QBs last a median of 5 seasons, WRs 4, and RBs and TEs 3. Two extra
+years of age cut a WR's or RB's value by about a quarter but a QB's by only 3%. Because QB24
+counts as startable, it's a superflex board, so QBs dominate the top.
+
+**How to explain it.** "It's how an insurer values a pension. Each future season is a
+payment, weighted by the chance he's still around to collect it. A star with two years
+left and a young player with a long runway can end up worth the same, and the board shows
+you which is which."
+
 ## Course concepts to point to (ATPA / PA)
 
 | If someone asks... | Point to |
@@ -215,3 +241,5 @@ pick more often, which is why a pre-draft A who goes in round 6 usually fades."
 | "What about missing college data?" | Leakage-safe imputation with missing flags (ATPA 3.7a) |
 | "Does conference strength matter?" | Credibility / mixed-model test (ATPA 3.3), no gain |
 | "Why are probabilities nested?" | Ordered (cumulative logit) models and forced monotone probabilities |
+| "How long will a player stay useful?" | Survival analysis: Kaplan-Meier, discrete-time hazard GLM, Cox (with the PH check), survival forest |
+| "Why Tweedie for points?" | Many zero seasons plus a long tail, the same shape as insurance pure premium |

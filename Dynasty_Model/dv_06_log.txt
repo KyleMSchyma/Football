@@ -1,0 +1,88 @@
+== Dynasty step 6: interpretation ==
+
+PDP: average for today's startable players if they were this age (S3 = alive 3 seasons out):
+# A tibble: 6 × 9
+    age score_QB score_RB score_WR score_TE e_life_QB e_life_RB e_life_WR
+  <dbl>    <dbl>    <dbl>    <dbl>    <dbl>     <dbl>     <dbl>     <dbl>
+1    23     53.1    25.7     31.9     17.2       6.28      4.01      4.66
+2    25     53.3    20.8     26.4     15.0       6.21      3.59      4.01
+3    27     53.0    16.5     20.9     13.1       6.13      3.14      3.44
+4    29     50.7    11.4     14.9     11.0       5.89      2.67      2.92
+5    31     47.8     8.94    11.5      9.66      5.5       2.37      2.54
+6    33     43.8     7.6      9.33     8.88      5.07      2.18      2.28
+# ℹ 1 more variable: e_life_TE <dbl>
+
+kernel SHAP time: 17.9 min
+
+baseline (average background player): 2.3 
+                 name position score
+1          Josh Allen       QB 100.0
+2          Joe Burrow       QB  94.7
+3          Drake Maye       QB  90.6
+4         C.J. Stroud       QB  82.1
+5         Jordan Love       QB  79.3
+6     Trevor Lawrence       QB  79.2
+7  Jaxon Smith-Njigba       WR  78.3
+8         Brock Purdy       QB  76.4
+9       Lamar Jackson       QB  60.5
+10     Jayden Daniels       QB  57.1
+11         Jared Goff       QB  56.7
+12        Bryce Young       QB  55.0
+13         Puka Nacua       WR  52.6
+14      Ja'Marr Chase       WR  52.2
+15     Matthew Golden       WR  47.2
+16    Patrick Mahomes       QB  46.9
+17  Amon-Ra St. Brown       WR  46.8
+18     Caleb Williams       QB  46.8
+19        Tee Higgins       WR  46.4
+20        CeeDee Lamb       WR  44.9
+21       Dak Prescott       QB  42.8
+22       Jahmyr Gibbs       RB  40.6
+23   Christian Watson       WR  40.1
+24  Tetairoa McMillan       WR  38.3
+25     Bijan Robinson       RB  37.3
+                                                                                                           why
+1                         per-game pace above replacement +47.2; position +40.1; best season of last three +38
+2                         per-game pace above replacement +44.9; best season of last three +37; position +36.1
+3                       per-game pace above replacement +36.7; position +28.8; best season of last three +25.4
+4                       per-game pace above replacement +35.4; position +27.3; best season of last three +22.9
+5                         per-game pace above replacement +34.8; position +29.8; best season of last three +23
+6                         per-game pace above replacement +30.6; position +27.8; best season of last three +21
+7    per-game pace above replacement +39.7; best season of last three +34; season pace above replacement -28.4
+8                           per-game pace above replacement +35; position +27.5; best season of last three +24
+9                       best season of last three +32.8; position +29.9; per-game pace above replacement +28.5
+10                      per-game pace above replacement +26.4; position +20.8; best season of last three +19.2
+11                                            per-game pace above replacement +26.5; position +24.9; age -23.9
+12                         per-game pace above replacement +25.6; position +21.2; opportunities per game -17.4
+13               per-game pace above replacement +25.9; best season of last three +18.5; points per game +13.4
+14               per-game pace above replacement +24.5; best season of last three +19.5; points per game +10.3
+15                            per-game pace above replacement +20.7; best season of last three +12.5; age +9.5
+16                                            per-game pace above replacement +22.1; position +21.9; age -18.7
+17                per-game pace above replacement +20.6; best season of last three +14.4; points per game +9.3
+18                        per-game pace above replacement +21.9; position +17.4; best season of last three +14
+19                per-game pace above replacement +21.9; best season of last three +15.2; points per game +9.4
+20 per-game pace above replacement +24.8; best season of last three +18.6; season pace above replacement -11.1
+21                                              age -25; per-game pace above replacement +22.2; position +20.9
+22 season pace above replacement -29.8; per-game pace above replacement +29.6; best season of last three +25.9
+23                per-game pace above replacement +19.8; best season of last three +13.1; points per game +8.6
+24                             per-game pace above replacement +14.8; best season of last three +7.3; age +6.7
+25 per-game pace above replacement +20.3; best season of last three +14.6; season pace above replacement -11.9
+
+mean |SHAP| over the top 25:
+# A tibble: 14 × 3
+   feature        mean_abs_shap label                          
+   <chr>                  <dbl> <chr>                          
+ 1 par_rate              28.0   per-game pace above replacement
+ 2 par_best3             20.3   best season of last three      
+ 3 pos                   15.4   position                       
+ 4 par                   12.3   season pace above replacement  
+ 5 ppg                   10.7   points per game                
+ 6 age                    9.55  age                            
+ 7 opp_pg                 9.40  opportunities per game         
+ 8 exp                    6.16  years in NFL                   
+ 9 games_frac             5.56  share of games played          
+10 n_startable            2.94  career startable seasons       
+11 draft                  1.90  draft round                    
+12 par_prev               1.64  last season above replacement  
+13 startable              1.55  startable this season          
+14 startable_prev         0.865 startable last season          
