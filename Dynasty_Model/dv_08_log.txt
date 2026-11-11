@@ -1,0 +1,43 @@
+== Dynasty step 8: trade value ==
+score^k                loss 0.3038  params k=0.9725
+rank^-alpha            loss 0.1945  params alpha=0.378
+stretched exponential  loss 0.0518  params a=0.2611 b=0.4723
+
+Anchor check (stretched exponential): give / get should be near 1
+  get_rank give_rank_1 give_rank_2 get_value give_value give_over_get
+1        1           5           7       100      114.9          1.15
+2        1           8          20       100       87.0          0.87
+3        8          20          40        52       57.9          1.11
+4       20          45          80        35       33.8          0.97
+
+Trade values at selected ranks:
+   rank               name score trade_value
+1     1         Josh Allen 100.0       100.0
+2     2         Joe Burrow  94.7        77.0
+3     3         Drake Maye  90.6        69.6
+4     5        Jordan Love  79.3        60.5
+5     7 Jaxon Smith-Njigba  78.3        54.4
+6     8        Brock Purdy  76.4        52.0
+7    10     Jayden Daniels  57.1        47.9
+8    12        Bryce Young  55.0        44.5
+9    15     Matthew Golden  47.2        40.3
+10   20        Jaxson Dart  46.2        35.0
+11   24   Christian Watson  40.1        31.7
+12   30        Chris Olave  35.2        27.8
+13   36       Malik Nabers  33.0        24.7
+14   40   Javonte Williams  25.8        22.9
+15   45      Isaiah Likely  23.9        21.0
+16   50     Tua Tagovailoa  21.4        19.4
+17   60         Geno Smith  19.6        16.7
+18   80    Jacoby Brissett  12.8        12.8
+19  100      De'Von Achane   7.4        10.2
+20  150      Devaughn Vele   3.9         6.2
+
+How many players at rank r equal the #1 player:
+  rank   n
+1    5 1.7
+2   10 2.1
+3   20 2.9
+4   36 4.1
+5   50 5.2
+6  100 9.8

@@ -61,6 +61,7 @@ Dynasty Value = sum over the next 10 seasons (t = 1 is 2027) of
 | `dv_05_value_score.R` | Backtest of the value score, then the board for every active player |
 | `dv_06_interpret.R` | PDP / ICE plots and SHAP explanations for the top 25 |
 | `dv_07_effect_sizes.R` | Plain-English "what if" effects of age, production, missed games and draft round |
+| `dv_08_trade_value.R` | Trade value curve fit to the anchor trades in `dv_trade_anchors.csv` |
 
 Run them in order from this folder (`./run.sh dv_01_data_build.R dv_01_log.txt` and so on).
 Step 6 takes about 15-20 minutes because of kernel SHAP; everything else takes under 2 minutes.
@@ -197,6 +198,30 @@ three seasons. That was compared with what actually happened (`dv_value_backtest
   (Goff, Mahomes, Prescott). One caution: the production inputs move together, and kernel SHAP
   sometimes splits credit between them oddly (for example a negative "season pace" next to a
   large positive "per-game pace"). Read the production rows as one group.
+
+## Step 8: trade value (so sums trade fairly)
+
+The score adds up as points, but roster spots are limited, so one great player is worth more than
+two good ones. `trade_value` on the board puts every player on a scale where sums are fair trades.
+It is a stretched exponential on overall rank, fit to Kyle's anchor trades in
+`dv_trade_anchors.csv` by least squares on the log scale:
+
+```
+Trade value(rank r) = 100 * exp(-0.261 * (r - 1)^0.472)
+```
+
+| Anchor | Fitted give / get |
+|---|---|
+| #1 = #5 + #7 | 1.15 |
+| #1 = #8 + #20 | 0.87 |
+| #8 = #20 + #40 | 1.11 |
+| #20 = #45 + #80 | 0.97 |
+
+No decreasing curve can hit the first two exactly, because #5 + #7 must be worth more than
+#8 + #20, so the fit splits the difference. One-parameter curves fit worse (log-loss 0.19 for
+rank^-alpha and 0.30 for score^k, against 0.05 here). On this scale about 2 players ranked #10, 3
+ranked #20, 4 ranked #36 or 10 ranked #100 equal the #1 player. Edit the anchors CSV and re-run
+step 8 to refit.
 
 ## The board
 
