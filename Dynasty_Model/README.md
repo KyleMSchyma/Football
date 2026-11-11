@@ -207,21 +207,18 @@ It is a stretched exponential on overall rank, fit to Kyle's anchor trades in
 `dv_trade_anchors.csv` by least squares on the log scale:
 
 ```
-Trade value(rank r) = 100 * exp(-0.261 * (r - 1)^0.472)
+Trade value(rank r) = 100 * exp(-0.193 * (r - 1)^0.534)
 ```
 
 | Anchor | Fitted give / get |
 |---|---|
-| #1 = #5 + #7 | 1.15 |
-| #1 = #8 + #20 | 0.87 |
-| #8 = #20 + #40 | 1.11 |
-| #20 = #45 + #80 | 0.97 |
+| #1 = #8 + #20 | 0.97 |
+| #8 = #20 + #40 | 1.12 |
+| #20 = #45 + #80 | 0.94 |
 
-No decreasing curve can hit the first two exactly, because #5 + #7 must be worth more than
-#8 + #20, so the fit splits the difference. One-parameter curves fit worse (log-loss 0.19 for
-rank^-alpha and 0.30 for score^k, against 0.05 here). On this scale about 2 players ranked #10, 3
-ranked #20, 4 ranked #36 or 10 ranked #100 equal the #1 player. Edit the anchors CSV and re-run
-step 8 to refit.
+One-parameter curves fit worse (log-loss 0.08 for score^k and 0.19 for rank^-alpha, against 0.02
+here). On this scale about 2 players ranked #10, 2.5 ranked #20, 3.6 ranked #36 or 9 ranked #100
+equal the #1 player. Edit the anchors CSV and re-run step 8 to refit.
 
 ## The board
 
