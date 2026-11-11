@@ -9,6 +9,11 @@ draft capital moved each player and each class.
 Results page: https://claude.ai/artifact/CXjjafaBwrK84knShtR4n6 (offline copy:
 `pd_post_player_grades.html`). It uses the same layout as the pre-draft grades page.
 
+**What drives the model:** [PREDICTORS.md](PREDICTORS.md) explains, position by position,
+which inputs the post-draft model leans on (permutation importance, odds per SD, PDP/ICE and
+SHAP), how much draft capital dominates, and which high ranks come from data artifacts.
+`pd_08_post_predictors.R` rebuilds it.
+
 ## Design
 
 - **Source model:** the "post" tier ladder of each position model (QB/RB/TE phase 4, WR
@@ -38,7 +43,13 @@ Needs the four position models' outputs (`../QB_Model`, `../RB_Model`, `../WR_Mo
 
 ```bash
 ./run.sh pd_07_postdraft_grades.R phase7_log.txt
+./run.sh pd_08_post_predictors.R phase8_log.txt
 ```
+
+`pd_08_post_predictors.R` only needs the position folders' model tables
+(`qb_model_table.rds`, `rb_model_table.rds`, `te_model_table.rds`, `wr_model_table.rds` +
+`phase5_finish_targets.csv`) and their `*_common.R` helpers. It refits the final post ladder
+on 2010-2023 and takes about 1.5 minutes.
 
 The script finds its sibling folders under either the repo names (`PreDraft_Model`, ...)
 or Kyle's PC names (`Football2_PreDraft`, ...). The file name keeps its old `pd_07` prefix
@@ -59,3 +70,11 @@ from when it was Phase 7 of the pre-draft model, so older links and logs still m
 | `plot_post_vs_pre.png` | Pre-draft vs post-draft percentile by position |
 | `pd_post_player_grades.html` | Offline copy of the results page |
 | `phase7_log.txt` | Console log of the last run |
+| `PREDICTORS.md` | What drives the post-draft model, by position |
+| `pd_08_post_predictors.R` | Refits the final post ladders and builds the predictor tables and plots |
+| `pd_post_<pos>_importance.csv` | Permutation importance (AUC drop) with coefficients and odds per SD |
+| `pd_post_<pos>_coefs.csv` | Every model column's ordinal coefficient, odds per SD and SD |
+| `pd_post_<pos>_pdp_ice.csv` | PDP (id 0) and 40 ICE curves for the top 3 inputs |
+| `pd_post_predictors_summary.csv` | Training n, hits, inputs kept, log-pick dominance by position |
+| `plot_post_<pos>_importance.png`, `plot_post_<pos>_pdp_ice.png`, `plot_post_<pos>_shap.png` | Predictor plots |
+| `phase8_log.txt` | Console log of the predictors run |

@@ -1,0 +1,355 @@
+
+===== WR =====
+training rows: 445  classes 2010 - 2023  hits top / top two / any: 39 / 68 / 95 
+lambda index 13 of 25  lambda = 0.044 
+[PASS] sign check: log_pick coefficient -0.850 (a later pick lowers the odds of a tier season)
+in-sample AUC P(any tier): 0.854 
+             variable auc_drop    beta odds_per_sd flag_beta flag_odds
+             log_pick   0.2563 -0.8496      0.4276        NA        NA
+  breakout_age_filled   0.0068 -0.1074      0.8982    0.0000     1.000
+         athletic_pc1   0.0036 -0.0582      0.9435        NA        NA
+        early_declare   0.0017  0.1531      1.1655        NA        NA
+       recruit_rating   0.0015  0.0000      1.0000   -0.0264     0.974
+         age_at_draft   0.0013 -0.0403      0.9605    0.0000     1.000
+      college_seasons   0.0011 -0.0921      0.9120    0.0000     1.000
+       best_dominator   0.0003  0.0061      1.0061    0.0000     1.000
+       career_rec_yds   0.0002  0.0027      1.0027    0.0000     1.000
+      final_dominator   0.0000  0.0000      1.0000    0.0000     1.000
+          final_yptpa   0.0000  0.0000      1.0000    0.0000     1.000
+            height_in   0.0000  0.0000      1.0000    0.0000     1.000
+            weight_lb   0.0000  0.0000      1.0000    0.0000     1.000
+ vacated_target_share   0.0000  0.0000      1.0000        NA        NA
+    team_targets_prev   0.0000  0.0000      1.0000        NA        NA
+         athletic_pc2   0.0000  0.0000      1.0000        NA        NA
+            broke_out   0.0000  0.0000      1.0000        NA        NA
+          transferred   0.0000  0.0000      1.0000        NA        NA
+         final_power5   0.0000  0.0000      1.0000        NA        NA
+      college_matched   0.0000  0.0000      1.0000        NA        NA
+      combine_invited   0.0000  0.0000      1.0000        NA        NA
+           miss_forty   0.0000  0.0000      1.0000        NA        NA
+        miss_vertical   0.0000  0.0000      1.0000        NA        NA
+      miss_broad_jump   0.0000  0.0000      1.0000        NA        NA
+                                   label
+                        Draft pick (log)
+                            Breakout age
+                            Athletic PC1
+                           Early declare
+                       Recruiting rating
+                            Age at draft
+                         College seasons
+                   Best-season dominator
+                  Career receiving yards
+                 Dominator, final season
+ Rec. yards per team pass attempt, final
+                                  Height
+                                  Weight
+                    Vacated target share
+            Team targets the year before
+                            Athletic PC2
+                               Broke out
+                             Transferred
+                          Power 5 school
+                   College stats matched
+                          Combine invite
+                              No 40 time
+                             No vertical
+                           No broad jump
+PDP pick  10: P(any tier) 0.637
+PDP pick  32: P(any tier) 0.376
+PDP pick  64: P(any tier) 0.241
+PDP pick 100: P(any tier) 0.174
+PDP pick 150: P(any tier) 0.126
+PDP pick 200: P(any tier) 0.099
+PDP endpoints (5th -> 95th pct):
+            variable  x_lo  p_lo   x_hi   p_hi
+        athletic_pc1 -2.35 0.226   2.65 0.1990
+ breakout_age_filled 18.40 0.233  23.20 0.1830
+            log_pick 15.00 0.547 240.00 0.0851
+SHAP mean |value| (log-odds):
+           log_pick       early_declare breakout_age_filled     college_seasons 
+              0.665               0.153               0.086               0.080 
+       athletic_pc1        age_at_draft      recruit_rating      best_dominator 
+              0.042               0.032               0.026               0.004 
+     career_rec_yds     final_dominator         final_yptpa           height_in 
+              0.002               0.000               0.000               0.000 
+
+===== QB =====
+training rows: 163  classes 2010 - 2023  hits top / top two / any: 21 / 32 / 45 
+lambda index 11 of 20  lambda = 0.0523 
+[PASS] sign check: log_pick coefficient -0.965 (a later pick lowers the odds of a tier season)
+in-sample AUC P(any tier): 0.936 
+           variable auc_drop    beta odds_per_sd flag_beta flag_odds
+           log_pick   0.1991 -0.9651      0.3809        NA        NA
+         p_comp_pct   0.0404  0.4741      1.6066    0.0000    1.0000
+      incumbent_pts   0.0134  0.0000      1.0000   -0.2044    0.8151
+ starter_age_filled   0.0056 -0.1810      0.8345    0.0000    1.0000
+         p_rush_yds   0.0049  0.2684      1.3079    0.0000    1.0000
+    career_rush_yds   0.0022  0.2091      1.2325    0.0000    1.0000
+        transferred   0.0009  0.0095      1.0096        NA        NA
+          weight_lb   0.0004  0.0000      1.0000   -0.0111    0.9889
+          height_in   0.0003  0.0000      1.0000   -0.0111    0.9889
+              forty   0.0001 -0.0087      0.9913    0.0000    1.0000
+              p_aya   0.0000  0.0000      1.0000    0.0000    1.0000
+          p_td_rate   0.0000  0.0000      1.0000    0.0000    1.0000
+         p_int_rate   0.0000  0.0000      1.0000    0.0000    1.0000
+       p_pass_share   0.0000  0.0000      1.0000    0.0000    1.0000
+          p_rush_td   0.0000  0.0000      1.0000    0.0000    1.0000
+           best_aya   0.0000  0.0000      1.0000    0.0000    1.0000
+         career_att   0.0000  0.0000      1.0000    0.0000    1.0000
+    starter_seasons   0.0000  0.0000      1.0000    0.0000    1.0000
+     recruit_rating   0.0000  0.0000      1.0000    0.0000    1.0000
+       ever_starter   0.0000  0.0000      1.0000        NA        NA
+      early_declare   0.0000  0.0000      1.0000        NA        NA
+           p_power5   0.0000  0.0000      1.0000        NA        NA
+    college_matched   0.0000  0.0000      1.0000        NA        NA
+         miss_forty   0.0000  0.0000      1.0000        NA        NA
+        final_short   0.0000  0.0000      1.0000        NA        NA
+       recruit_dual   0.0000  0.0000      1.0000        NA        NA
+    combine_invited  -0.0004  0.0111      1.0112        NA        NA
+       age_at_draft  -0.0013 -0.0591      0.9426    0.0000    1.0000
+  vacated_att_share  -0.0017  0.0876      1.0915        NA        NA
+                         label
+              Draft pick (log)
+                  Completion %
+    Incumbent's fantasy points
+  Age when he became a starter
+ Rushing yards, primary season
+          Career rushing yards
+                   Transferred
+                        Weight
+                        Height
+                  40-yard dash
+          AY/A, primary season
+                       TD rate
+                      INT rate
+   Share of team pass attempts
+   Rushing TDs, primary season
+              Best-season AY/A
+          Career pass attempts
+            Seasons as starter
+             Recruiting rating
+                Ever a starter
+                 Early declare
+                Power 5 school
+         College stats matched
+                    No 40 time
+            Short final season
+           Dual-threat recruit
+                Combine invite
+                  Age at draft
+    Vacated pass-attempt share
+PDP pick  10: P(any tier) 0.439
+PDP pick  32: P(any tier) 0.301
+PDP pick  64: P(any tier) 0.231
+PDP pick 100: P(any tier) 0.191
+PDP pick 150: P(any tier) 0.160
+PDP pick 200: P(any tier) 0.141
+PDP endpoints (5th -> 95th pct):
+      variable  x_lo  p_lo    x_hi  p_hi
+ incumbent_pts 0.000 0.291 294.000 0.291
+      log_pick 1.000 0.721 244.000 0.128
+    p_comp_pct 0.568 0.169   0.724 0.390
+SHAP mean |value| (log-odds):
+          log_pick         p_comp_pct         p_rush_yds      incumbent_pts 
+             0.772              0.366              0.197              0.181 
+   career_rush_yds starter_age_filled  vacated_att_share       age_at_draft 
+             0.162              0.138              0.081              0.044 
+       transferred              forty    combine_invited          weight_lb 
+             0.008              0.006              0.006              0.006 
+
+===== RB =====
+training rows: 298  classes 2010 - 2023  hits top / top two / any: 36 / 56 / 78 
+lambda index 11 of 20  lambda = 0.0454 
+[PASS] sign check: log_pick coefficient -1.076 (a later pick lowers the odds of a tier season)
+in-sample AUC P(any tier): 0.842 
+            variable auc_drop    beta odds_per_sd flag_beta flag_odds
+            log_pick   0.2730 -1.0755      0.3411        NA        NA
+               p_rec   0.0159  0.2333      1.2628    0.0000    1.0000
+ vacated_touch_share   0.0071  0.0797      1.0830        NA        NA
+         speed_score   0.0022  0.0646      1.0668   -0.0624    0.9395
+               forty   0.0017  0.0000      1.0000   -0.0345    0.9661
+          miss_forty   0.0016 -0.0345      0.9661        NA        NA
+          career_ypc   0.0011  0.0627      1.0647    0.0000    1.0000
+          broad_jump   0.0002  0.0213      1.0215    0.0000    1.0000
+         transferred   0.0002  0.0010      1.0010        NA        NA
+        age_at_draft   0.0000  0.0000      1.0000    0.0000    1.0000
+          p_rush_yds   0.0000  0.0000      1.0000    0.0000    1.0000
+               p_ypc   0.0000  0.0000      1.0000    0.0000    1.0000
+           p_rush_td   0.0000  0.0000      1.0000    0.0000    1.0000
+         p_rec_share   0.0000  0.0000      1.0000    0.0000    1.0000
+         p_car_share   0.0000  0.0000      1.0000    0.0000    1.0000
+       p_scrim_share   0.0000  0.0000      1.0000    0.0000    1.0000
+          p_td_share   0.0000  0.0000      1.0000    0.0000    1.0000
+    best_scrim_share   0.0000  0.0000      1.0000    0.0000    1.0000
+     career_rush_yds   0.0000  0.0000      1.0000    0.0000    1.0000
+          career_rec   0.0000  0.0000      1.0000    0.0000    1.0000
+    featured_seasons   0.0000  0.0000      1.0000    0.0000    1.0000
+ breakout_age_filled   0.0000  0.0000      1.0000    0.0000    1.0000
+           height_in   0.0000  0.0000      1.0000    0.0000    1.0000
+           weight_lb   0.0000  0.0000      1.0000    0.0000    1.0000
+            vertical   0.0000  0.0000      1.0000    0.0000    1.0000
+      recruit_rating   0.0000  0.0000      1.0000    0.0000    1.0000
+       incumbent_pts   0.0000  0.0000      1.0000        NA        NA
+       ever_breakout   0.0000  0.0000      1.0000        NA        NA
+       early_declare   0.0000  0.0000      1.0000        NA        NA
+     college_matched   0.0000  0.0000      1.0000        NA        NA
+     combine_invited   0.0000  0.0000      1.0000        NA        NA
+         final_short   0.0000  0.0000      1.0000        NA        NA
+            p_power5  -0.0002  0.0107      1.0108        NA        NA
+                         label
+              Draft pick (log)
+    Receptions, primary season
+           Vacated touch share
+                   Speed score
+                  40-yard dash
+                    No 40 time
+        Career yards per carry
+                    Broad jump
+                   Transferred
+                  Age at draft
+ Rushing yards, primary season
+               Yards per carry
+   Rushing TDs, primary season
+         Share of team catches
+         Share of team carries
+ Share of team scrimmage yards
+             Share of team TDs
+   Best-season scrimmage share
+          Career rushing yards
+             Career receptions
+              Featured seasons
+                  Breakout age
+                        Height
+                        Weight
+                 Vertical jump
+             Recruiting rating
+    Incumbent's fantasy points
+                Ever broke out
+                 Early declare
+         College stats matched
+                Combine invite
+            Short final season
+                Power 5 school
+PDP pick  10: P(any tier) 0.880
+PDP pick  32: P(any tier) 0.614
+PDP pick  64: P(any tier) 0.390
+PDP pick 100: P(any tier) 0.263
+PDP pick 150: P(any tier) 0.173
+PDP pick 200: P(any tier) 0.125
+PDP endpoints (5th -> 95th pct):
+            variable x_lo  p_lo    x_hi   p_hi
+            log_pick 27.8 0.656 244.000 0.0989
+               p_rec  4.0 0.212  43.000 0.3380
+ vacated_touch_share  0.0 0.248   0.881 0.2880
+SHAP mean |value| (log-odds):
+           log_pick               p_rec         speed_score vacated_touch_share 
+              0.782               0.179               0.074               0.067 
+         career_ypc               forty          miss_forty          broad_jump 
+              0.045               0.027               0.027               0.014 
+           p_power5         transferred        age_at_draft          p_rush_yds 
+              0.010               0.001               0.000               0.000 
+
+===== TE =====
+training rows: 202  classes 2010 - 2023  hits top / top two / any: 22 / 42 / 55 
+lambda index 12 of 20  lambda = 0.037 
+[PASS] sign check: log_pick coefficient -0.922 (a later pick lowers the odds of a tier season)
+in-sample AUC P(any tier): 0.899 
+            variable auc_drop    beta odds_per_sd flag_beta flag_odds
+            log_pick   0.1813 -0.9215      0.3979        NA        NA
+         transferred   0.0170 -0.1904      0.8266        NA        NA
+      recruit_rating   0.0124  0.1473      1.1588    0.0000    1.0000
+           weight_lb   0.0085 -0.1159      0.8906   -0.1231    0.8842
+   vacated_tgt_share   0.0047  0.1374      1.1473        NA        NA
+          broad_jump   0.0042  0.0000      1.0000    0.0780    1.0811
+            vertical   0.0041  0.1255      1.1337    0.0000    1.0000
+           height_in   0.0022  0.0000      1.0000   -0.1231    0.8842
+       ever_breakout   0.0019  0.1252      1.1334        NA        NA
+    featured_seasons   0.0014  0.0519      1.0533    0.0000    1.0000
+     combine_invited   0.0011  0.1231      1.1310        NA        NA
+        age_at_draft   0.0000  0.0000      1.0000    0.0000    1.0000
+               p_rec   0.0000  0.0000      1.0000    0.0000    1.0000
+           p_rec_yds   0.0000  0.0000      1.0000    0.0000    1.0000
+            p_rec_td   0.0000  0.0000      1.0000    0.0000    1.0000
+               p_ypr   0.0000  0.0000      1.0000    0.0000    1.0000
+         p_rec_share   0.0000  0.0000      1.0000    0.0000    1.0000
+         p_dominator   0.0000  0.0000      1.0000    0.0000    1.0000
+              p_ypta   0.0000  0.0000      1.0000    0.0000    1.0000
+ breakout_age_filled   0.0000  0.0000      1.0000    0.0000    1.0000
+         speed_score   0.0000  0.0000      1.0000    0.0000    1.0000
+       incumbent_pts   0.0000  0.0000      1.0000        NA        NA
+            p_power5   0.0000  0.0000      1.0000        NA        NA
+     college_matched   0.0000  0.0000      1.0000        NA        NA
+          miss_forty   0.0000  0.0000      1.0000        NA        NA
+      best_dominator  -0.0003  0.0210      1.0212    0.0000    1.0000
+         final_short  -0.0005 -0.0258      0.9745        NA        NA
+      career_rec_yds  -0.0006  0.0357      1.0363    0.0000    1.0000
+                cone  -0.0016 -0.1071      0.8984    0.0000    1.0000
+               forty  -0.0016 -0.0713      0.9311    0.0000    1.0000
+       early_declare  -0.0020  0.0711      1.0737        NA        NA
+                            label
+                 Draft pick (log)
+                      Transferred
+                Recruiting rating
+                           Weight
+             Vacated target share
+                       Broad jump
+                    Vertical jump
+                           Height
+                   Ever broke out
+                 Featured seasons
+                   Combine invite
+                     Age at draft
+       Receptions, primary season
+  Receiving yards, primary season
+    Receiving TDs, primary season
+                  Yards per catch
+            Share of team catches
+                 Dominator rating
+ Rec. yards per team pass attempt
+                     Breakout age
+                      Speed score
+       Incumbent's fantasy points
+                   Power 5 school
+            College stats matched
+                       No 40 time
+            Best-season dominator
+               Short final season
+           Career receiving yards
+                           3-cone
+                     40-yard dash
+                    Early declare
+PDP pick  10: P(any tier) 0.852
+PDP pick  32: P(any tier) 0.584
+PDP pick  64: P(any tier) 0.379
+PDP pick 100: P(any tier) 0.261
+PDP pick 150: P(any tier) 0.176
+PDP pick 200: P(any tier) 0.130
+PDP endpoints (5th -> 95th pct):
+       variable   x_lo  p_lo    x_hi  p_hi
+       log_pick 29.200 0.610 246.000 0.103
+ recruit_rating  0.767 0.209   0.983 0.315
+    transferred  0.000 0.273   1.000 0.161
+SHAP mean |value| (log-odds):
+         log_pick         weight_lb vacated_tgt_share     ever_breakout 
+            0.700             0.134             0.122             0.122 
+         vertical   combine_invited         height_in       transferred 
+            0.085             0.084             0.084             0.082 
+   recruit_rating        broad_jump     early_declare              cone 
+            0.082             0.075             0.071             0.063 
+ position   n hits_top hits_top2 hits_any inputs nonzero auc_any lambda
+       WR 445       39        68       95     34       9   0.854 0.0440
+       QB 163       21        32       45     47      13   0.936 0.0523
+       RB 298       36        56       78     55      11   0.842 0.0454
+       TE 202       22        42       55     51      18   0.899 0.0370
+ log_pick_beta log_pick_odds_per_sd log_pick_auc_drop next_auc_drop
+        -0.850                0.428            0.2563        0.0068
+        -0.965                0.381            0.1991        0.0404
+        -1.076                0.341            0.2730        0.0159
+        -0.922                0.398            0.1813        0.0170
+ log_pick_shap_share shap_rank_matches_importance_top3
+               0.610                             FALSE
+               0.391                             FALSE
+               0.638                             FALSE
+               0.378                             FALSE
+
+done
