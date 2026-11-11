@@ -1,20 +1,20 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Trade Values | Prospect Actuary</title>
-<meta name="description" content="Redraft and dynasty fantasy football trade values for every NFL QB, RB, WR and TE, built on points per game over replacement. In development.">
+<meta name="description" content="Redraft and dynasty fantasy football trade values for every NFL QB, RB, WR and TE, set to your league's scoring and lineup, with 2027 rookie picks. In development.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 :root{
   --bg:#f5f6f3; --panel:#ffffff; --ink:#18201c; --muted:#5d6862; --line:#d9ddd6; --accent:#1f6b4f; --accent-soft:#e2efe8;
   --warn:#8a5a00; --warn-soft:#fbf0d9; --bar:#2f6d8f;
-  --QB:#c4502f; --RB:#1d7a50; --WR:#2f6d8f; --TE:#9b4f8a;
+  --QB:#c4502f; --RB:#1d7a50; --WR:#2f6d8f; --TE:#9b4f8a; --PICK:#8a5a00;
   --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif; --f-body:Inter,system-ui,-apple-system,"Segoe UI",sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#121815; --panel:#1a221e; --ink:#e7ece8; --muted:#9aa69f; --line:#2c3732; --accent:#5cc497; --accent-soft:#1f3229;
-  --warn:#f0c46a; --warn-soft:#3a2f17; --bar:#5b9cc0; --QB:#e2754f; --RB:#3fb07c; --WR:#5b9cc0; --TE:#c27bb3; color-scheme:dark}}
+  --warn:#f0c46a; --warn-soft:#3a2f17; --bar:#5b9cc0; --QB:#e2754f; --RB:#3fb07c; --WR:#5b9cc0; --TE:#c27bb3; --PICK:#f0c46a; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#121815; --panel:#1a221e; --ink:#e7ece8; --muted:#9aa69f; --line:#2c3732; --accent:#5cc497; --accent-soft:#1f3229;
-  --warn:#f0c46a; --warn-soft:#3a2f17; --bar:#5b9cc0; --QB:#e2754f; --RB:#3fb07c; --WR:#5b9cc0; --TE:#c27bb3; color-scheme:dark}
+  --warn:#f0c46a; --warn-soft:#3a2f17; --bar:#5b9cc0; --QB:#e2754f; --RB:#3fb07c; --WR:#5b9cc0; --TE:#c27bb3; --PICK:#f0c46a; color-scheme:dark}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55}
 .wrap{max-width:1080px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:40px}
@@ -37,32 +37,51 @@ a{color:var(--accent)}
 button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .ctl{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .ctl input{cursor:text;min-width:0;width:200px}
+.league{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px 20px}
+.setting{display:flex;flex-direction:column;gap:5px;min-width:0}
+.setting .lbl{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+.setting .tabs button{padding:4px 10px;font-size:.85rem}
+.repl{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.85rem}
+.reset{font:inherit;font-size:.82rem;background:none;border:none;color:var(--accent);text-decoration:underline;cursor:pointer;padding:0;align-self:flex-start}
 .tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
 table{border-collapse:collapse;width:100%;font-size:.88rem}
 th,td{padding:6px 10px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
 th{font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--panel);position:sticky;top:0}
 td.r,th.r{text-align:right}
+tr.pick td{background:var(--warn-soft)}
 .val{font-weight:600}
 .barcell{display:flex;align-items:center;gap:8px;justify-content:flex-end}
 .minibar{display:inline-block;height:8px;border-radius:2px;background:var(--bar)}
 ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-width:72ch}
-@media (max-width:520px){h1{font-size:2.1rem} .ctl input{width:100%}}
+@media (max-width:520px){h1{font-size:2.1rem} .ctl input{width:100%} .league{grid-template-columns:1fr 1fr;gap:12px}}
 </style></head>
 <body><div class="wrap">
 <header style="display:flex;flex-direction:column;gap:14px">
   <nav class="pa-brand" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em"><a href="../" style="color:var(--ink);text-decoration:none;font-weight:600">Prospect Actuary</a><span style="display:flex;gap:14px;flex-wrap:wrap"><a href="../pre-draft/">Pre-draft</a><a href="../post-draft/">Post-draft</a><a href="../trade-values/" aria-current="page">Trade values</a><a href="../guide/">Guide</a></span></nav>
   <div class="dev" role="note"><b>IN DEVELOPMENT</b><span>These trade values are still being built and tested. Expect the numbers and methods to change.</span></div>
-  <div class="eyebrow">Fantasy trade values · full PPR · QB, RB, WR, TE</div>
+  <div class="eyebrow">Fantasy trade values · your league's scoring and lineup · QB, RB, WR, TE, rookie picks</div>
   <h1>Trade Values</h1>
   <p class="small muted" id="asof"></p>
-  <div class="toc"><a href="#how">How to use them</a><a href="#redraft">Redraft Trade Values</a><a href="#dynasty">Dynasty Trade Values</a><a href="../guide/#redraft">How they're built</a></div>
+  <div class="toc"><a href="#how">How to use them</a><a href="#league">Your league</a><a href="#redraft">Redraft Trade Values</a><a href="#dynasty">Dynasty Trade Values</a><a href="../guide/#redraft">How they're built</a></div>
 </header>
 
 <section id="how">
   <h2>These values add up</h2>
   <div class="explain">
     <p><b>Every value is on one 100,000-point scale, and values add.</b> Two players together are worth the sum of their values, so a 60,000 player plus a 40,000 player equals one 100,000 player. To check a trade, add up each side and compare the totals.</p>
-    <p class="small muted">The values are built from fantasy points per game over replacement: how many more points a player scores each game than the player you could start instead (the QB24, RB24, WR36 or TE12). Because they are measured in points, they add up the way points do. The top player on each sheet is 100,000.</p>
+    <p class="small muted">The values are built from fantasy points per game over replacement: how many more points a player scores each game than the player you could start instead. Who that is depends on your league, so set your league below and every value updates. Because the values are measured in points, they add up the way points do. The top player on each sheet is 100,000.</p>
+  </div>
+</section>
+
+<section id="league">
+  <div class="eyebrow">Settings · remembered in this browser</div>
+  <h2>Your league</h2>
+  <div class="league" id="lg"></div>
+  <div class="explain">
+    <p class="small" id="lgSum"></p>
+    <div class="repl num" id="lgRep"></div>
+    <p class="small muted">The replacement line is the last starter at each position when every team fills its lineup: the position slots first, then FLEX (RB, WR or TE), then SUPERFLEX (any position, almost always a QB), each going to the best player left by credible points per game. Copy the page address to share your settings.</p>
+    <button type="button" class="reset" id="lgReset">Back to the default league</button>
   </div>
 </section>
 
@@ -77,11 +96,12 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-wid
 </section>
 
 <section id="dynasty">
-  <div class="eyebrow">Sheet 2 · rest of 2026 plus 2027-2030</div>
+  <div class="eyebrow">Sheet 2 · rest of 2026 plus 2027-2030 · with 2027 rookie picks</div>
   <h2>Dynasty Trade Values</h2>
   <p>Value over the rest of 2026 and the next four seasons. It adds a young player's potential from his draft slot, how players at his position age, his chance of staying in the league, and a discount that makes later seasons count a little less.</p>
+  <p class="small muted"><b>2027 rookie picks</b> are worth the expected value of the player taken at that spot in your league's rookie draft. Each of the last ten NFL draft classes (2016-2025) is projected from draft slot alone, the way a brand-new rookie would be, then ranked by value for your settings. Early, mid and late are the first, middle and last third of each round.</p>
   <div class="tabs" id="dTabs" role="group" aria-label="Position"></div>
-  <div class="ctl"><input id="dName" type="search" placeholder="Search player or team" aria-label="Search dynasty values"><span class="small muted" id="dCount"></span></div>
+  <div class="ctl"><input id="dName" type="search" placeholder="Search player, team or pick" aria-label="Search dynasty values"><span class="small muted" id="dCount"></span></div>
   <div class="tablebox"><table id="dTable"></table></div>
   <button type="button" class="more" id="dMore">Show more</button>
 </section>
@@ -90,50 +110,145 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-wid
   <h2>Read them with care</h2>
   <ul>
     <li>2026 data runs through the latest week shown above. Values will move as the season goes on.</li>
-    <li>Scoring is full PPR (4-point passing TDs). Replacement is the QB24, RB24, WR36 and TE12, so this is a superflex-style setup.</li>
-    <li>"Games missed" counts any game without a stat line, so a benching looks like an injury. There is no injury report in the data.</li>
-    <li>In backtests on 2016-2025, the redraft values and the dynasty values both ranked what actually happened better than "his current pace continues." Details are in <a href="../guide/#redraft">the guide</a>.</li>
+    <li>Each scoring setting has its own fitted model (credibility, aging, availability and staying in the league), not just rescored points. Lineup settings move the replacement lines.</li>
+    <li>QB catches always score full PPR, and RB or WR passing TDs always score 4 points. Both are too rare to matter. There is no first-down bonus.</li>
+    <li>"Games missed" counts any game without a stat line, so a benching looks like an injury. The injury report is not used yet.</li>
+    <li>Rookie picks use past draft classes as stand-ins, so they show what a typical class is worth, not the 2027 class itself.</li>
+    <li>In backtests on 2016-2025, the redraft values and the dynasty values both ranked what actually happened better than "his current pace continues," for every scoring setting and every league size tested. Details are in <a href="../guide/#redraft">the guide</a>.</li>
   </ul>
 </section>
 
 <p class="pa-tip" style="margin:0;font-size:.9rem;color:var(--muted);max-width:72ch">Prospect Actuary is free to use. If it helped you, you can <a href="https://buymeacoffee.com/kylemschyma" target="_blank" rel="noopener">buy me a coffee</a>. A dollar is plenty.</p>
-<footer style="border-top:1px solid var(--line);padding-top:16px;font-size:.85rem;color:var(--muted);max-width:72ch">Data: NFL weekly player stats, rosters, birth dates and draft picks from <a href="https://nflverse.com">nflverse</a> (via <a href="https://nflreadr.nflverse.com">nflreadr</a>), shared under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The values are in <a href="data/redraft_trade_values.csv">redraft_trade_values.csv</a> and <a href="data/dynasty_trade_values.csv">dynasty_trade_values.csv</a>. Values and models by Prospect Actuary. Not affiliated with the NFL or any team.</footer>
+<footer style="border-top:1px solid var(--line);padding-top:16px;font-size:.85rem;color:var(--muted);max-width:72ch">Data: NFL weekly player stats, rosters, birth dates and draft picks from <a href="https://nflverse.com">nflverse</a> (via <a href="https://nflreadr.nflverse.com">nflreadr</a>), shared under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Values for the default league (12 teams, superflex, full PPR, 2 RB, 3 WR, 1 TE, no flex) are in <a href="data/redraft_trade_values.csv">redraft_trade_values.csv</a> and <a href="data/dynasty_trade_values.csv">dynasty_trade_values.csv</a>. Values and models by Prospect Actuary. Not affiliated with the NFL or any team.</footer>
 </div>
 <script>
 window.TV = /*DATA*/;
 (function(){
-const D = window.TV, POS = ["QB","RB","WR","TE"];
+const D = window.TV, POS = ["QB","RB","WR","TE"], V = D.v;
 const esc = s => String(s==null?"":s).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const fmt = x => Math.round(x).toLocaleString("en-US");
 const f1 = x => x==null ? "" : Number(x).toFixed(1);
-const pchip = p => `<span class="pos" style="color:var(--${p})">${p}</span>`;
+const pchip = p => `<span class="pos" style="color:var(--${p})">${p==="PICK"?"Pick":p}</span>`;
 document.getElementById("asof").textContent = D.asof;
-function board(key, rows, cols){
-  let pos = "ALL", shown = 100;
+
+// ---------- league settings ----------
+const DEF = {teams:12, ppr:1, tep:0, ptd:4, sf:1, rb:2, wr:3, te:1, flex:0};
+const OPTS = [
+  ["teams","Teams",[[8,"8"],[10,"10"],[12,"12"],[14,"14"]]],
+  ["ppr","Points per catch",[[0.5,"0.5 PPR"],[1,"PPR"]]],
+  ["tep","TE premium",[[0,"None"],[0.5,"+0.5"],[1,"+1.0"]]],
+  ["ptd","Passing TD",[[4,"4 pts"],[5,"5 pts"],[6,"6 pts"]]],
+  ["sf","Superflex",[[0,"Off"],[1,"On"]]],
+  ["rb","Starting RB",[[2,"2"],[3,"3"]]],
+  ["wr","Starting WR",[[2,"2"],[3,"3"]]],
+  ["te","Starting TE",[[1,"1"],[2,"2"]]],
+  ["flex","FLEX (RB/WR/TE)",[[0,"0"],[1,"1"],[2,"2"],[3,"3"]]]];
+const ORDER = OPTS.map(o=>o[0]);
+let S = Object.assign({}, DEF);
+const valid = (k,v) => OPTS.find(o=>o[0]===k)[2].some(([x])=>x===v);
+function load(){
+  let src = null;
+  try { src = new URLSearchParams(location.search).get("league"); } catch(e){}
+  if (!src) try { src = localStorage.getItem("pa-tv-league"); } catch(e){}
+  if (!src) return;
+  const a = src.split("_").map(Number);
+  if (a.length === ORDER.length && ORDER.every((k,i)=>valid(k,a[i]))) ORDER.forEach((k,i)=>S[k]=a[i]);
+}
+function save(){
+  const s = ORDER.map(k=>S[k]).join("_"), isDef = ORDER.every(k=>S[k]===DEF[k]);
+  try { localStorage.setItem("pa-tv-league", s); } catch(e){}
+  try { const u = new URL(location.href); if (isDef) u.searchParams.delete("league"); else u.searchParams.set("league", s); history.replaceState(null, "", u); } catch(e){}
+}
+load();
+const lgBox = document.getElementById("lg");
+lgBox.innerHTML = OPTS.map(([k,l,os])=>`<div class="setting"><span class="lbl" id="l-${k}">${l}</span><div class="tabs" role="group" aria-labelledby="l-${k}" data-k="${k}">${os.map(([v,t])=>`<button type="button" data-v="${v}">${t}</button>`).join("")}</div></div>`).join("");
+lgBox.addEventListener("click", e=>{ const b = e.target.closest("button"); if(!b) return; S[b.parentNode.dataset.k] = Number(b.dataset.v); save(); update(); });
+document.getElementById("lgReset").addEventListener("click", ()=>{ S = Object.assign({}, DEF); save(); update(); });
+
+// ---------- the math (mirrors the R code: dv_10 rep_lines, dv_11 project, dv_13 league_values) ----------
+const keyOf = p => p==="QB" ? "QB_p"+S.ptd : p==="TE" ? "TE_t"+(S.ppr+S.tep) : p+"_r"+S.ppr;
+function erf(x){ const s = x<0?-1:1; x = Math.abs(x); const t = 1/(1+0.3275911*x);
+  return s*(1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x)); }
+const pnorm = z => 0.5*(1+erf(z/Math.SQRT2)), dnorm = z => Math.exp(-z*z/2)/Math.sqrt(2*Math.PI);
+const stoploss = (mu, r, s) => { const z = (mu-r)/s; return s*dnorm(z) + (mu-r)*pnorm(z); };   // E[(PPG - replacement)+]
+function repLines(cp){                    // cp(player) = credible PPG under the chosen scoring
+  const by = {}; POS.forEach(p=>by[p]=[]);
+  D.players.forEach(pl=>{ if (pl.pool) { const c = cp(pl); if (c!=null) by[pl.p].push(c); } });
+  POS.forEach(p=>by[p].sort((a,b)=>b-a));
+  const n = {QB:S.teams, RB:S.rb*S.teams, WR:S.wr*S.teams, TE:S.te*S.teams};
+  POS.forEach(p=>n[p]=Math.min(n[p], by[p].length));
+  const take = (ps, k) => { for (let s=0; s<k; s++){ let best=null, bv=-Infinity;
+    ps.forEach(p=>{ if (n[p]<by[p].length && by[p][n[p]]>bv){ bv=by[p][n[p]]; best=p; } }); if (!best) break; n[best]++; } };
+  take(["RB","WR","TE"], S.flex*S.teams); take(POS, S.sf*S.teams);
+  const rep = {}; POS.forEach(p=>rep[p]=by[p][Math.max(n[p],1)-1]); return {rep, n};
+}
+function compute(){
+  const rdArr = pl => (pl.r && pl.r[keyOf(pl.p)]) || pl.k[keyOf(pl.p)];      // pl.r: redraft frozen after Week 18
+  const RR = repLines(pl => { const a = rdArr(pl); return a ? a[1] : null; });
+  const RD = repLines(pl => { const a = pl.k[keyOf(pl.p)]; return a ? a[1] : null; });
+  const red = [], dyn = [];
+  D.players.forEach(pl=>{
+    const key = keyOf(pl.p), a = rdArr(pl);
+    if (a) { const por = a[1]-RR.rep[pl.p], v = por*a[2]; if (v>0) red.push({n:pl.n, p:pl.p, tm:pl.tm, g:pl.g, ppg:a[0], cppg:a[1], por, eg:a[2], raw:v}); }
+    const x = pl.k[key]; if (!x || x.length<12) return;          // [2026 PPG, credible PPG, games left, (games, PPG) 2027..2030, P(playing 2030)]
+    const sd = D.sd[key], r = RD.rep[pl.p];
+    let v = x[2]*stoploss(x[1], r, sd[0]);
+    for (let t=1; t<=4; t++) v += Math.pow(V,t) * x[1+2*t] * stoploss(x[2+2*t], r, sd[1]*Math.sqrt(t));
+    dyn.push({n:pl.n, p:pl.p, tm:pl.tm, a:pl.a, dp:pl.dp, cppg:x[1], p27:x[4], p30:x[10], s30:x[11], raw:v});
+  });
+  // 2027 rookie picks: expected value of the player taken at each rookie-draft slot, averaged over ten template classes
+  const classVals = D.picks.cls.map(c=>c.map(rk=>{ const key = keyOf(rk.p), x = rk.k[key], sd = D.picks.sdR[key], r = RD.rep[rk.p];
+    let v = 0; for (let t=1; t<=4; t++) v += Math.pow(V,t) * x[2*t-2] * stoploss(x[2*t-1], r, sd[t-1]); return v; }).sort((a,b)=>b-a));
+  const slot = s => classVals.reduce((m,c)=>m+(c[s]||0),0)/classVals.length;
+  const RN = ["1st","2nd","3rd"], TH = ["Early","Mid","Late"];
+  for (let r=0; r<3; r++){ const g = [[],[],[]];
+    for (let i=0; i<S.teams; i++) g[Math.floor(3*i/S.teams)].push(slot(r*S.teams+i));
+    g.forEach((sl,j)=>{ if (sl.length) dyn.push({n:`2027 ${RN[r]} (${TH[j]})`, p:"PICK", pick:true, raw:sl.reduce((a,b)=>a+b,0)/sl.length}); }); }
+  [red, dyn].forEach(rows=>{ const top = Math.max(...rows.filter(r=>!r.pick).map(r=>r.raw));
+    rows.forEach(r=>r.v = 1e5*r.raw/top); rows.sort((a,b)=>b.v-a.v);
+    const pc = {}; rows.forEach((r,i)=>{ r.r = i+1; pc[r.p] = (pc[r.p]||0)+1; r.rp = r.pick ? "" : r.p+pc[r.p]; }); });
+  return {red, dyn:dyn.filter(r=>r.v>=500), RD};
+}
+
+// ---------- tables ----------
+function board(key, cols, tabsList){
+  let pos = "ALL", shown = 100, rows = [], max = 1;
   const tabs = document.getElementById(key+"Tabs"), name = document.getElementById(key+"Name");
-  tabs.innerHTML = [["ALL","All"],...POS.map(p=>[p,p])].map(([v,l])=>`<button type="button" data-v="${v}" aria-pressed="${v==="ALL"}">${l}</button>`).join("");
+  tabs.innerHTML = tabsList.map(([v,l])=>`<button type="button" data-v="${v}" aria-pressed="${v==="ALL"}">${l}</button>`).join("");
   tabs.addEventListener("click", e=>{const b=e.target.closest("button"); if(!b) return; tabs.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed", x===b)); pos=b.dataset.v; shown=100; draw();});
   name.addEventListener("input", ()=>{shown=100; draw();});
   document.getElementById(key+"More").addEventListener("click", ()=>{shown+=100; draw();});
-  const max = Math.max(...rows.map(r=>r.v));
   function draw(){
     let x = rows.filter(r=>pos==="ALL"||r.p===pos);
     const q = name.value.trim().toLowerCase(); if(q) x = x.filter(r=>(r.n+" "+(r.tm||"")).toLowerCase().includes(q));
-    document.getElementById(key+"Count").textContent = `${x.length} players` + (x.length>shown?`, showing ${shown}`:"");
+    document.getElementById(key+"Count").textContent = `${x.length} rows` + (x.length>shown?`, showing ${shown}`:"");
     document.getElementById(key+"Table").innerHTML = `<thead><tr>${cols.map(c=>`<th class="${c.r?"r":""}">${c.h}</th>`).join("")}<th class="r">Trade value</th></tr></thead><tbody>` +
-      x.slice(0,shown).map(r=>`<tr>${cols.map(c=>`<td class="${c.r?"r num":""}">${c.f(r)}</td>`).join("")}<td class="r num val"><span class="barcell">${fmt(r.v)}<span class="minibar" style="width:${Math.max(2,Math.round(60*r.v/max))}px"></span></span></td></tr>`).join("") + "</tbody>";
+      x.slice(0,shown).map(r=>`<tr${r.pick?' class="pick"':""}>${cols.map(c=>`<td class="${c.r?"r num":""}">${r.pick&&c.skip?"":c.f(r)}</td>`).join("")}<td class="r num val"><span class="barcell">${fmt(r.v)}<span class="minibar" style="width:${Math.max(2,Math.round(60*r.v/max))}px"></span></span></td></tr>`).join("") + "</tbody>";
     document.getElementById(key+"More").hidden = x.length<=shown;
   }
-  draw();
+  return { set(r){ rows = r; max = Math.max(...r.map(z=>z.v)); draw(); } };
 }
-board("r", D.redraft, [
+const TABS = [["ALL","All"],...POS.map(p=>[p,p])];
+const rB = board("r", [
   {h:"Rank", r:1, f:r=>r.r}, {h:"Player", f:r=>esc(r.n)}, {h:"Pos", f:r=>pchip(r.p)+` <span class="muted small num">${r.rp}</span>`}, {h:"Team", f:r=>esc(r.tm)},
   {h:"Games", r:1, f:r=>r.g}, {h:"2026 PPG", r:1, f:r=>f1(r.ppg)}, {h:"Credible PPG", r:1, f:r=>f1(r.cppg)},
-  {h:"Over repl. / game", r:1, f:r=>f1(r.por)}, {h:"Exp. games left", r:1, f:r=>f1(r.eg)}]);
-board("d", D.dynasty, [
-  {h:"Rank", r:1, f:r=>r.r}, {h:"Player", f:r=>esc(r.n)}, {h:"Pos", f:r=>pchip(r.p)+` <span class="muted small num">${r.rp}</span>`}, {h:"Team", f:r=>esc(r.tm)},
-  {h:"Age", r:1, f:r=>f1(r.a)}, {h:"Draft pick", r:1, f:r=>r.dp==null?"UDFA":r.dp}, {h:"Credible PPG", r:1, f:r=>f1(r.cppg)},
-  {h:"Proj. PPG 2027", r:1, f:r=>f1(r.p27)}, {h:"Proj. PPG 2030", r:1, f:r=>f1(r.p30)}, {h:"Still playing 2030", r:1, f:r=>Math.round(100*r.s30)+"%"}]);
+  {h:"Over repl. / game", r:1, f:r=>f1(r.por)}, {h:"Exp. games left", r:1, f:r=>f1(r.eg)}], TABS);
+const dB = board("d", [
+  {h:"Rank", r:1, f:r=>r.r}, {h:"Player", f:r=>esc(r.n)}, {h:"Pos", f:r=>pchip(r.p)+(r.pick?"":` <span class="muted small num">${r.rp}</span>`)}, {h:"Team", skip:1, f:r=>esc(r.tm)},
+  {h:"Age", r:1, skip:1, f:r=>f1(r.a)}, {h:"Draft pick", r:1, skip:1, f:r=>r.dp==null?"UDFA":r.dp}, {h:"Credible PPG", r:1, skip:1, f:r=>f1(r.cppg)},
+  {h:"Proj. PPG 2027", r:1, skip:1, f:r=>f1(r.p27)}, {h:"Proj. PPG 2030", r:1, skip:1, f:r=>f1(r.p30)}, {h:"Still playing 2030", r:1, skip:1, f:r=>Math.round(100*r.s30)+"%"}],
+  [...TABS, ["PICK","Picks"]]);
+
+function update(){
+  lgBox.querySelectorAll(".tabs").forEach(t=>t.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed", Number(b.dataset.v)===S[t.dataset.k])));
+  const C = compute();
+  const per = ["1 QB", `${S.rb} RB`, `${S.wr} WR`, `${S.te} TE`]; if (S.flex) per.push(`${S.flex} FLEX`); if (S.sf) per.push("1 SUPERFLEX");
+  const nst = S.teams*(1+S.rb+S.wr+S.te+S.flex+S.sf);
+  document.getElementById("lgSum").innerHTML = `<b>${S.teams} teams</b>, each starting ${per.join(", ")} (${nst} starters in all). ${S.ppr===1?"Full PPR":"Half PPR"}${S.tep?`, TE premium +${S.tep}`:""}, ${S.ptd}-point passing TDs.`;
+  document.getElementById("lgRep").innerHTML = `<span class="muted">Replacement line:</span>` + POS.map(p=>`<span>${pchip(p)}${C.RD.n[p]} · ${f1(C.RD.rep[p])} PPG</span>`).join("");
+  rB.set(C.red); dB.set(C.dyn);
+}
+update();
 })();
 </script>
 </body></html>

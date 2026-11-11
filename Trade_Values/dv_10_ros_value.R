@@ -25,7 +25,15 @@ w <- readRDS(file.path(SHARED, "nfl_weekly_raw.rds"))
 w26 <- readRDS("nfl_weekly_2026.rds")
 w <- bind_rows(w, w26[, intersect(names(w26), names(w))]) %>% filter(season_type == "REG")
 w$position[w$position == "FB"] <- "RB"
-w <- w %>% filter(position %in% POSITIONS) %>% select(player_id, name = player_display_name, position, season, week, team, pts = fantasy_points_ppr)
+# league scoring (Kyle 2026-11-11): reception points (0.5 / 1 PPR), TE premium (+0 / 0.5 / 1 per TE catch), passing TD (4 / 5 / 6).
+# Each knob touches only one position group, and every fit below is per position, so the fits are run once per distinct
+# position scoring (dv_13): SC$ppr = points per RB/WR catch, SC$te = points per TE catch (PPR + premium), SC$ptd = QB passing TD.
+if (!exists("SC")) SC <- list(ppr = 1, te = 1, ptd = 4)          # default: full PPR, no TE premium, 4-point passing TDs
+WRITE <- !exists("NO_WRITE") || !isTRUE(NO_WRITE)               # the league-preset loop (dv_13) writes only the default run's files
+w <- w %>% filter(position %in% POSITIONS) %>% mutate(fantasy_points_ppr = coalesce(fantasy_points_ppr, 0) +
+  coalesce(receptions, 0) * ifelse(position == "TE", SC$te - 1, ifelse(position %in% c("RB", "WR"), SC$ppr - 1, 0)) +
+  coalesce(passing_tds, 0) * ifelse(position == "QB", SC$ptd - 4, 0))
+w <- w %>% select(player_id, name = player_display_name, position, season, week, team, pts = fantasy_points_ppr)
 w$pts[is.na(w$pts)] <- 0
 tw <- w %>% distinct(season, team, week)                                   # team schedule actually played
 team_n <- function(yr, wk_lo, wk_hi) tw %>% filter(season == yr, week >= wk_lo, week <= wk_hi) %>% count(team, name = "tg")
@@ -129,7 +137,22 @@ m2 <- bt %>% filter(n_cur >= 2) %>% group_by(pos) %>%
 cat("\nPredicting the share of weeks 10-18 games played, RMSE:\n"); print(m2 %>% mutate(across(where(is.numeric), ~ round(.x, 3))))
 
 # ---------- replacement and value ----------
-value_board <- function(d) {
+# league replacement lines: fill every team's dedicated slots, then FLEX (RB/WR/TE), then SUPERFLEX (any position),
+# greedily by credible PPG; the last player started at each position is its replacement line. The page runs the same in JS.
+LG_DEFAULT <- list(teams = 12, qb = 1, rb = 2, wr = 3, te = 1, flex = 0, sf = 1)   # gives QB24 / RB24 / WR36 / TE12
+rep_lines <- function(d, lg = LG_DEFAULT) {
+  pool <- d %>% filter(n_cur >= MIN_G_REP, !is.na(cppg)) %>% arrange(desc(cppg))
+  by <- split(pool$cppg, factor(pool$pos, POSITIONS))
+  n <- pmin(c(QB = lg$qb, RB = lg$rb, WR = lg$wr, TE = lg$te) * lg$teams, lengths(by)[POSITIONS])
+  take_mixed <- function(ps, k) for (s in seq_len(k)) {
+    nxt <- sapply(ps, function(q) if (n[q] < length(by[[q]])) by[[q]][n[q] + 1] else -Inf)
+    if (all(!is.finite(nxt))) break; q <- ps[which.max(nxt)]; n[q] <<- n[q] + 1 }
+  take_mixed(c("RB", "WR", "TE"), lg$flex * lg$teams); take_mixed(POSITIONS, lg$sf * lg$teams)
+  tibble(pos = POSITIONS, rep_ppg = sapply(POSITIONS, function(q) by[[q]][max(n[q], 1)]), n_started = as.integer(n[POSITIONS]))
+}
+value_board <- function(d, lg = NULL) {
+  if (!is.null(lg)) return(d %>% left_join(rep_lines(d, lg) %>% select(pos, rep_ppg), by = "pos") %>%
+    mutate(por_pg = cppg - rep_ppg, exp_games = tg_left * cavail, value = por_pg * exp_games))
   rep <- d %>% filter(n_cur >= MIN_G_REP) %>% group_by(pos) %>% arrange(desc(cppg), .by_group = TRUE) %>%
     summarise(rep_ppg = cppg[STARTABLE[pos[1]]], rep_raw = sort(ppg_cur, decreasing = TRUE)[STARTABLE[pos[1]]], .groups = "drop")
   d %>% left_join(rep, by = "pos") %>% mutate(por_pg = cppg - rep_ppg, exp_games = tg_left * cavail, value = por_pg * exp_games)
@@ -153,15 +176,15 @@ out <- b26 %>% transmute(rank, rank_pos = paste0(pos, rank_pos), name, pos, team
   hist_games = g_h, hist_ppg = round(ppg_h, 2), Z_2026 = round(Z, 2), credible_ppg = round(cppg, 2), replacement_ppg = round(rep_ppg, 2),
   por_per_game = round(por_pg, 2), team_games_left = tg_left, avail_rate = round(cavail, 3), exp_games_left = round(exp_games, 2),
   ros_value = round(value, 1), value_100k = round(100000 * pmax(value, 0) / max(max(value), 1e-9)), missed_last2 = missed_last2, player_id)
-if (max(b26$value) > 0) write.csv(out, "dv_ros_2026_board.csv", row.names = FALSE) else
+if (WRITE) if (max(b26$value) > 0) write.csv(out, "dv_ros_2026_board.csv", row.names = FALSE) else
   cat("\nregular season over (no games left): dv_ros_2026_board.csv kept from the last week with games left\n")
-write.csv(K %>% as.data.frame() %>% tibble::rownames_to_column("pos"), "dv_ros_credibility_k.csv", row.names = FALSE)
-write.csv(bind_rows(m1 %>% mutate(test = "ppg"), m2 %>% mutate(test = "availability")), "dv_ros_backtest_parts.csv", row.names = FALSE)
-write.csv(m3, "dv_ros_backtest_value.csv", row.names = FALSE)
+if (WRITE) write.csv(K %>% as.data.frame() %>% tibble::rownames_to_column("pos"), "dv_ros_credibility_k.csv", row.names = FALSE)
+if (WRITE) write.csv(bind_rows(m1 %>% mutate(test = "ppg"), m2 %>% mutate(test = "availability")), "dv_ros_backtest_parts.csv", row.names = FALSE)
+if (WRITE) write.csv(m3, "dv_ros_backtest_value.csv", row.names = FALSE)
 options(width = 220)
 cat("\nTOP 40, 2026 rest-of-season value:\n")
 print(out %>% select(rank, rank_pos, name, team, games_2026, ppg_2026, hist_ppg, Z_2026, credible_ppg, por_per_game, exp_games_left, ros_value, missed_last2) %>% head(40), n = 40)
 cat("\nposition mix, top 24 / 50 / 100:\n"); for (k in c(24, 50, 100)) print(table(out$pos[out$rank <= k]))
 
 # objects reused by the multi-season dynasty value (dv_11)
-saveRDS(list(K = K, b26 = b26, ppg_rmse = setNames(m1$rmse_credibility, m1$pos)), "dv_ros_objects.rds")
+if (WRITE) saveRDS(list(K = K, b26 = b26, ppg_rmse = setNames(m1$rmse_credibility, m1$pos)), "dv_ros_objects.rds")

@@ -55,9 +55,10 @@ stoploss <- function(mu, r, s) { z <- (mu - r) / s; s * dnorm(z) + (mu - r) * pn
 # d needs: pos, cppg, cavail, age (at the snapshot season), exp, lpick, rep_ppg, tg_left; sd0 = rest-of-season PPG error
 project <- function(d, F, sd0) {
   out <- matrix(0, nrow(d), NFUT + 1); Sm <- matrix(1, nrow(d), NFUT + 1); Pm <- matrix(NA, nrow(d), NFUT + 1)
+  Gm <- matrix(0, nrow(d), NFUT + 1)   # expected games, survival included (S x 17 x availability)
   for (ps in POSITIONS) { i <- which(d$pos == ps); if (!length(i)) next
     f <- F[[ps]]; x <- d[i, ]
-    Pm[i, 1] <- x$cppg
+    Pm[i, 1] <- x$cppg; Gm[i, 1] <- x$tg_left * x$cavail
     out[i, 1] <- x$tg_left * x$cavail * stoploss(x$cppg, x$rep_ppg, sd0[ps])   # sd0 = backtest error of credible PPG for the rest of the season
     cp <- x$cppg; av <- x$cavail; S <- rep(1, length(i))
     for (t in 1:NFUT) {
@@ -66,12 +67,12 @@ project <- function(d, F, sd0) {
       ppg_t <- predict(f$prod, nd); av_t <- predict(f$av, nd, type = "response")
       sd_t <- f$sig * sqrt(t)
       out[i, t + 1] <- S * 17 * av_t * stoploss(ppg_t, x$rep_ppg, sd_t)
-      Sm[i, t + 1] <- S; Pm[i, t + 1] <- ppg_t
+      Sm[i, t + 1] <- S; Pm[i, t + 1] <- ppg_t; Gm[i, t + 1] <- S * 17 * av_t
       cp <- ppg_t; av <- av_t
     }
   }
   disc <- v^(0:NFUT)
-  list(value = as.vector(out %*% disc), seasons = out, S = Sm, ppg = Pm)
+  list(value = as.vector(out %*% disc), seasons = out, S = Sm, ppg = Pm, G = Gm)
 }
 
 # residual sd of the season-level PPG model (per game), used for the uncertainty in future seasons
@@ -80,10 +81,11 @@ fix_sig <- function(F) lapply(F, function(f) { r <- residuals(f$prod); w8 <- f$p
 
 # ---------- backtest: week-9 snapshots 2016-2020, 5 seasons of outcomes ----------
 seas_pp <- seas %>% transmute(player_id, season, g, ppg = pts / g)
-BT <- list()
+# lg = NULL: the QB24 / RB24 / WR36 / TE12 lines; otherwise a league setting (rep_lines in dv_10)
+bt_dyn <- function(lg = NULL) { BT <- list()
 for (Y in 2016:2020) {
   F <- fix_sig(fit_future(Y - 2))
-  d <- value_board(bt %>% filter(season == Y)) %>% filter(n_cur >= 3) %>%
+  d <- value_board(bt %>% filter(season == Y), lg) %>% filter(n_cur >= 3) %>%
     mutate(age = as.numeric(as.Date(paste0(Y, "-09-01")) - birth_date) / 365.25) %>% filter(!is.na(age))
   pr <- project(d, F, setNames(m1$rmse_credibility, m1$pos))
   act0 <- pmax(d$ppg_ros - d$rep_ppg, 0) * d$n_ros; act0[is.na(act0)] <- 0
@@ -94,14 +96,15 @@ for (Y in 2016:2020) {
   BT[[as.character(Y)]] <- d %>% transmute(season = Y, pos, name, age, exp, young = exp <= 2) %>%
     mutate(pred = pr$value, actual = actual, naive = naive, this_season = pmax(d$value, 0))
 }
-BT <- bind_rows(BT)
+bind_rows(BT) }
+BT <- bt_dyn()
 sm <- function(x) x %>% summarise(n = n(), spearman_v4 = cor(pred, actual, method = "spearman"),
   spearman_naive = cor(naive, actual, method = "spearman"), spearman_this_season_only = cor(this_season, actual, method = "spearman"),
   pred_total = sum(pred), actual_total = sum(actual), .groups = "drop")
 res <- bind_rows(BT %>% group_by(group = pos) %>% sm(), BT %>% filter(young) %>% group_by(group = paste(pos, "years 0-2")) %>% sm(),
                  BT %>% mutate(group = "all") %>% group_by(group) %>% sm()) %>% mutate(across(where(is.numeric), ~ round(.x, 3)))
 cat("\nBACKTEST (week-9 snapshots 2016-2020): predicted vs actual 5-season discounted points over replacement\n"); print(as.data.frame(res))
-write.csv(res, "dv_v4_backtest.csv", row.names = FALSE)
+if (WRITE) write.csv(res, "dv_v4_backtest.csv", row.names = FALSE)
 
 # ---------- 2026 board ----------
 F <- fix_sig(fit_future(2024))
@@ -117,7 +120,7 @@ b4 <- d26 %>% transmute(name, pos, team, age, exp, draft_pick, games_2026 = n_cu
          value_raw = pr$value) %>%
   arrange(desc(value_raw)) %>% mutate(rank = row_number(), value_100k = round(100000 * value_raw / max(value_raw))) %>%
   group_by(pos) %>% mutate(rank_pos = paste0(pos, row_number())) %>% ungroup()
-write.csv(b4 %>% select(rank, rank_pos, everything(), -value_raw), "dv_v4_board.csv", row.names = FALSE)
+if (WRITE) write.csv(b4 %>% select(rank, rank_pos, everything(), -value_raw), "dv_v4_board.csv", row.names = FALSE)
 options(width = 220)
 cat("\nTOP 40, dynasty value v4 (100k scale):\n")
 print(b4 %>% select(rank, rank_pos, name, team, age, exp, draft_pick, ppg_2026, credible_ppg, ppg_2027, ppg_2030, S_2030, value_100k) %>% head(40), n = 40)

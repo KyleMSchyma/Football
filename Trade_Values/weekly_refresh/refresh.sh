@@ -3,7 +3,7 @@
 # Weekly refresh, 2026 NFL regular season (runs every Tuesday morning through Week 18)
 #
 #   1. pull fresh nflverse data: 2026 weekly player stats, injury report, weekly rosters
-#   2. re-run the redraft (rest-of-season) and dynasty trade values  (Football2_Dynasty dv_10 + dv_11)
+#   2. re-run the redraft (rest-of-season) and dynasty trade values for every scoring preset, plus rookie picks (dv_13 -> dv_10 + dv_11)
 #   3. rebuild the Prospect Actuary "Trade values" page                 (dv_12)
 #   4. while the college regular season is on: re-pull CFBD 2026 stats and re-grade the 2027 pre-draft
 #      prospects (pd_01 pro-rated + as-is, pd_06), then refresh the pre-draft page data
@@ -42,7 +42,7 @@ rr "$HERE" rf_01_pull_nfl.R 01_pull_nfl.txt
 cat "$LOGDIR/01_pull_nfl.txt" >> "$LOG"
 
 # ---------- 2-3. trade values ----------
-rr "$DYN" dv_11_dynasty_v4.R 02_values.txt          # sources dv_10 (redraft) first
+rr "$DYN" dv_13_league_presets.R 02_values.txt       # runs dv_11 (and dv_10) once per scoring preset group; default run writes the usual boards
 rr "$DYN" dv_12_trade_values_page.R 03_page.txt
 cat "$LOGDIR/03_page.txt" >> "$LOG"
 
@@ -88,7 +88,8 @@ cleanup_wt() { cd "$REPO"; git worktree remove --force "$WT" >/dev/null 2>&1; }
 mkdir -p "$WT/Trade_Values/weekly_refresh"
 cp "$DYN"/dv_common.R "$DYN"/dv_10_ros_value.R "$DYN"/dv_11_dynasty_v4.R "$DYN"/dv_12_trade_values_page.R "$DYN"/tv_page_template.html \
    "$DYN"/dv_ros_2026_board.csv "$DYN"/dv_v4_board.csv "$DYN"/dv_v4_backtest.csv "$DYN"/dv_ros_backtest_parts.csv \
-   "$DYN"/dv_ros_backtest_value.csv "$DYN"/dv_ros_credibility_k.csv "$WT/Trade_Values/"
+   "$DYN"/dv_ros_backtest_value.csv "$DYN"/dv_ros_credibility_k.csv "$DYN"/dv_13_league_presets.R "$DYN"/dv_league_backtest.csv \
+   "$DYN"/dv_scoring_backtest.csv "$DYN"/dv_anchor_check.csv "$WT/Trade_Values/"
 cp "$HERE"/refresh.sh "$HERE"/run_r.sh "$HERE"/rf_01_pull_nfl.R "$HERE"/rf_02_predraft_page.R "$HERE"/run_weekly.cmd \
    "$HERE"/README.md "$WT/Trade_Values/weekly_refresh/" 2>/dev/null
 if [ "$PRE_DONE" = 1 ]; then
