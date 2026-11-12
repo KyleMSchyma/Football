@@ -1,0 +1,87 @@
+2027 ROOKIE PROSPECT GUIDE: QUARTERBACKS
+Draft posts for X. Each block between the lines is one post (all under 280 characters).
+Source: Prospect Actuary pre-draft model, 2027 board in PreDraft_Model/pd_player_grades.csv
+(weekly refresh, 2026 college stats through about week 10). No mock drafts, no draft position.
+
+==== 1/9 ====
+2027 Rookie Prospect Guide, part 1: QBs 🧵
+
+My pre-draft model grades every draft-eligible college QB using only his college stats, age and recruiting. No combine, no mocks, no draft slot.
+
+Its verdict: the 2027 QB class grades A-, with top-end depth matching 2020.
+
+==== 2/9 ====
+How to read the grades:
+
+Each grade says how often QBs with a similar college profile went on to post a top-24 fantasy season in their first 3 NFL years, with extra credit for top-8 (QB1) seasons.
+
+The base rate is low: about 1 in 20 draft-eligible QBs gets there.
+
+==== 3/9 ====
+Do the grades mean anything? Since 2010, QBs graded A or A+ by the model went 13 for 16 on a top-24 season in their first 3 years.
+
+Past A/A+ grades include Burrow, Lamar, Hurts, Kyler, Fields and Russell Wilson.
+
+==== 4/9 ====
+1. Darian Mensah, Miami: A
+
+The model's QB1 by a wide margin. 73% chance of a top-24 season and 43% chance of a top-8 season.
+
+Why: 77% completions and 11.5 adjusted yards per attempt this year. That accuracy plus efficiency combo is the model's favorite profile.
+
+==== 5/9 ====
+2. Devon Dampier, Utah: A-
+
+35% chance of a top-24 season, with almost all of that being QB1 upside.
+
+Why: the legs. About 2,800 career rushing yards, the most of any QB on the board, plus a solid 68% completion rate. Rushing QBs have fantasy ceilings.
+
+==== 6/9 ====
+3. C.J. Carr, Notre Dame: A-
+4. Julian Sayin, Ohio State: A-
+
+Carr: 57% top-24 chance. Young (3 years out of HS), efficient, and almost never throws picks.
+
+Sayin: 39%. Elite efficiency (11.5 adj. yards/attempt) and a 5-star pedigree. Zero rushing value holds him back.
+
+==== 7/9 ====
+Next up, the B+ tier:
+
+5. Brad Jackson, Texas State
+6. Drew Mestemaker, Oklahoma State
+7. Ethan Grunkemeyer, Virginia Tech
+8. Sam Leavitt, LSU
+9. Giovanni Lopez, Wake Forest
+10. Michael Hawkins Jr., West Virginia
+11. Trinidad Chambliss, Ole Miss
+12. Beau Brungard, Youngstown State
+
+==== 8/9 ====
+The model's biggest fade: Arch Manning, Texas, graded C+ (14th of 16 QBs on the board).
+
+Only a 13% chance of a top-24 season. The 5-star recruiting rating is his biggest plus, but 66% completions and 8.1 adj. yards/attempt are ordinary next to this class.
+
+==== 9/9 ====
+What drives the QB grade, in one line: accuracy and efficiency first, then being young for your class, then rushing.
+
+Caveats: no combine data, FCS stats count for less, 2026 stats are mid-season, and it assumes everyone declares. Some won't.
+
+Full board: kylemschyma.github.io/prospect-actuary
+
+==== NOTES FOR KYLE (not for posting) ====
+- Grades and percentages are the 2027 QB rows of pd_player_grades.csv as of the latest weekly refresh
+  (commit 6311ce2). They will move as the 2026 season finishes; re-check numbers before posting.
+- "Chance of a top-24 / top-8 season" = p_any / p_top for that player, assuming he enters the 2027 draft.
+- Class grade A- and depth grade A come from pd_eligible_pool_grades.csv. 2027 depth (3.02 expected
+  hits beyond the top 3) ties 2020 (3.02) and 2023 (3.02) as the highest since 2010. Class-level QB grades
+  are noisy (class correlation 0.22), so the post says "depth matching 2020" rather than "best class ever".
+- 13 for 16: pd_grade_validation.csv, QB A+ (7 of 8) and A (6 of 8) had a QB24 season in years 1-3.
+  Misses were Manziel, Haskins and Zach Wilson. Most A/A+ QBs were also first-round picks, so the grade
+  partly picks up the same production scouts reward.
+- Base rate: 44 of 882 draft-eligible QBs (5%) in the 2010-2023 training pool had a QB24 season.
+- Dampier's top-8 and top-24 chances are both 34.5% (the tier models cap the any-tier number), so the post
+  gives one number for him.
+- Left out on purpose: Dante Moore (C+). His model row shows only 132 primary-season attempts and a 30%
+  share of Oregon's throws, which looks like a partial or mismatched 2026 season. Worth checking before
+  calling him a fade. Aidan Chiles (B, 13th) and Austin Simmons (C, 16th) also left out for space.
+- Brad Jackson is tagged Power 5 because Texas State is in the Pac-12 as of 2026.
