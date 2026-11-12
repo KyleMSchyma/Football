@@ -939,6 +939,56 @@ Outputs: `pd_post_player_grades.csv`, `pd_post_grade_validation.csv`,
 
 ---
 
+### 3.12 Drafted-player recalibration and the cross-position Value column (added 2026-11-12)
+
+**Problem.** The pre-draft model is trained on every draft-eligible college player, so
+P(tier | college profile) includes the chance of never being drafted. Among players who were
+drafted (2010-2023, LOCO predictions) the probabilities run low: mean predicted vs actual any-tier
+rate QB 0.199 / 0.282, RB 0.192 / 0.268, WR 0.140 / 0.218, TE (TE18) 0.138 / 0.238; pooled 0.163
+vs 0.245. Post-draft probabilities are already calibrated.
+
+**Fix (`PreDraft_Model/pd_11_drafted_calibration.R`).** Per position and cumulative tier k,
+P(hit_k | drafted) = plogis(a + b · logit(p_k)), fit on drafted 2010-2023 rows using their
+out-of-class predictions; the three are then forced to stay nested. Final coefficients
+(a / b): QB8 −0.31 / 0.56, QB16 0.04 / 0.65, QB24 0.16 / 0.61; RB8 −0.30 / 0.62, RB16 −0.33 / 0.51,
+RB24 −0.02 / 0.56; WR12 −1.08 / 0.35, WR24 −0.41 / 0.47, WR36 −0.14 / 0.50; TE6 −0.40 / 0.62,
+TE12 −0.35 / 0.44, TE18 −0.08 / 0.49. Slopes below 1 mean the college model is over-confident
+among drafted players: low probabilities are raised a lot, high ones a little or even lowered
+(Jeremiah Smith's raw P(WR12) 0.70 becomes 0.31; he is priced from the mock anyway).
+The original probabilities and the grades are unchanged; the recalibrated ones are written to
+`pd_player_probs_drafted.csv` (`p_top_d`, `p_top2_d`, `p_any_d`).
+
+**Validation** (`pd_drafted_calibration_check.csv`, `_bins.csv`). Level: pooled mean any-tier
+0.163 → 0.245 (actual 0.245), top tier 0.066 → 0.102 (0.102). Brier, any tier, LOCO / rolling
+2016-2023: QB24 0.157 → 0.158 / 0.155 → 0.155; RB24 0.174 → 0.171 / 0.170 → 0.170; WR36 0.155 →
+0.152 / 0.174 → 0.166 (rolling −0.0082 [−0.0158, −0.0011], the one significant change); TE18
+0.180 → 0.172 / 0.180 → 0.178. Every other tier's Brier change has a CI covering zero (ranges
+−0.008 to +0.007): recalibration fixes the level and the low-end calibration (bottom quintile,
+e.g. RB mean 0.013 vs actual 0.103 raw, 0.077 vs 0.121 after) but cannot add ranking skill (AUC
+is unchanged in sample; LOCO AUC drops slightly, about 0.01-0.03, from refitting the map). A
+shift-only version (b fixed at 1) had a worse summed Brier (1.556 vs 1.532 for the two-parameter
+fit and 1.536 raw), so the two-parameter version is used.
+
+**Value column (`Trade_Values/dv_13_league_presets.R`, `board_profiles()` →
+`dv_rookie_board_values.csv`).** For every row of the pre-draft board, the post-draft board and
+the 2027 mock: value = Σ_tier P(tier) · Σ_{k=1..4} v^k · G_tier,k · E[(PPG_tier,k + age_k − rep)+],
+the same formula and tier calibration as the 2027 rookie picks (v = 1/1.15, stop-loss E[(X − r)+]
+with the calibrated PPG spread), in the default league (12 teams, superflex, 2 RB / 3 WR / 1 TE,
+no flex, default full-PPR scoring) on the 100k trade-value scale. Probabilities: post-draft for
+drafted players (2010-2026) and 2027 mock players, drafted-recalibrated pre-draft for the other
+2027 prospects. Age: Sept 1 of the draft year from the birth date where known, else 18.6 + years
+out of high school (the mock's age estimate for mock players). Check: every 2027 board value
+equals that player's 2027 rookie-pick value (max abs difference 0, n = 96). For past classes the
+number is the value at draft time in today's league (today's replacement lines, tier outcomes of
+the 2010-2022 classes, which include those same players), not current worth. The pages read it
+by key (position + class + name + college, or position + class + pick), never by row order.
+
+Effect on the 2027 board (top 30 by Value vs top 30 by within-position percentile): 18 players in
+both; by Value 13 QB / 11 WR / 5 RB / 1 TE, by percentile 6 / 13 / 6 / 5. Superflex and the QB
+tier calibration put QBs high; TEs with A-range grades (Reynolds, Finley, Thurman, Overmyer) sit
+around 3,000-5,000 because a TE tier season is worth fewer points over replacement.
+
+
 ## 4. ATPA / PA course concepts used
 
 | Concept (course module) | Where it is used |

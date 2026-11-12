@@ -90,6 +90,12 @@ Needs the four position models' outputs (`../QB_Model`, `../RB_Model`, `../WR_Mo
 ./run.sh pd_08_post_predictors.R phase8_log.txt
 ```
 
+`pd_10_site_page.R page.html` rebuilds the two data lines of the public post-draft page
+(`window.PD` players + validation tables, `window.MOCK27` mock draft), including the
+cross-position Value column read from `../Trade_Values/dv_rookie_board_values.csv` (PC:
+`../Football2_Dynasty/`, written by `dv_13_league_presets.R`). The weekly refresh runs it every
+Tuesday after the trade values.
+
 `pd_08_post_predictors.R` only needs the position folders' model tables
 (`qb_model_table.rds`, `rb_model_table.rds`, `te_model_table.rds`, `wr_model_table.rds` +
 `phase5_finish_targets.csv`) and their `*_common.R` helpers. It refits the final post ladder

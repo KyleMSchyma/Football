@@ -1,0 +1,95 @@
+===== Drafted 2010-2023: raw pre-draft probabilities vs drafted-recalibrated (LOCO and rolling 2016-2023) =====
+ position  target    n hits actual mean_raw mean_loco brier_raw brier_loco n_roll actual_roll mean_raw_roll mean_roll brier_raw_roll brier_roll auc_raw auc_loco
+       QB     QB8  156   20 0.1282   0.0806    0.1274    0.1006     0.1032     93      0.1505        0.0819    0.1245         0.1105     0.1157  0.7329   0.7066
+       QB    QB16  156   31 0.1987   0.1385    0.1993    0.1246     0.1277     93      0.2043        0.1458    0.2175         0.1162     0.1231  0.7734   0.7622
+       QB    QB24  156   44 0.2821   0.1988    0.2819    0.1569     0.1581     93      0.2903        0.2052    0.2969         0.1548     0.1553  0.7620   0.7531
+       RB     RB8  287   35 0.1220   0.0873    0.1223    0.0908     0.0939    169      0.1420        0.0878    0.1044         0.1027     0.1052  0.7209   0.7023
+       RB    RB16  287   55 0.1916   0.1380    0.1921    0.1375     0.1398    169      0.2189        0.1389    0.1762         0.1547     0.1554  0.6859   0.6719
+       RB    RB24  287   77 0.2683   0.1915    0.2684    0.1738     0.1710    169      0.2840        0.1946    0.2627         0.1699     0.1704  0.7183   0.7096
+       WR    WR12  417   39 0.0935   0.0564    0.0937    0.0820     0.0833    247      0.1012        0.0560    0.0861         0.0888     0.0913  0.6536   0.6167
+       WR    WR24  417   67 0.1607   0.1020    0.1605    0.1240     0.1250    247      0.1660        0.0998    0.1497         0.1326     0.1313  0.6986   0.6821
+       WR    WR36  417   91 0.2182   0.1403    0.2177    0.1553     0.1521    247      0.2348        0.1383    0.1974         0.1742     0.1660  0.7156   0.7078
+       TE     TE6  189   13 0.0688   0.0404    0.0692    0.0639     0.0627    106      0.0755        0.0411    0.0725         0.0687     0.0674  0.7708   0.7489
+       TE    TE12  189   34 0.1799   0.1027    0.1802    0.1475     0.1429    106      0.1887        0.1073    0.1952         0.1586     0.1597  0.6859   0.6577
+       TE    TE18  189   45 0.2381   0.1377    0.2384    0.1796     0.1719    106      0.2358        0.1429    0.2694         0.1802     0.1777  0.6933   0.6704
+      All     top 1049  107 0.1020   0.0656    0.1021    0.0839     0.0855    615      0.1154        0.0661    0.0946         0.0924     0.0947  0.7119   0.6842
+      All top two 1049  187 0.1783   0.1174    0.1785    0.1320     0.1327    615      0.1902        0.1188    0.1751         0.1407     0.1416  0.7068   0.6920
+      All     any 1049  257 0.2450   0.1625    0.2448    0.1650     0.1617    615      0.2569        0.1647    0.2428         0.1711     0.1676  0.7232   0.7123
+
+===== Brier change, recalibrated minus raw (bootstrap 95% CI; negative = recalibration better) =====
+QB8   LOCO +0.0027 [-0.0036, +0.0084] | rolling +0.0051 [-0.0060, +0.0171]
+QB16  LOCO +0.0031 [-0.0052, +0.0110] | rolling +0.0069 [-0.0058, +0.0190]
+QB24  LOCO +0.0013 [-0.0107, +0.0121] | rolling +0.0005 [-0.0173, +0.0165]
+RB8   LOCO +0.0032 [-0.0006, +0.0068] | rolling +0.0025 [-0.0020, +0.0076]
+RB16  LOCO +0.0024 [-0.0039, +0.0085] | rolling +0.0007 [-0.0080, +0.0090]
+RB24  LOCO -0.0028 [-0.0119, +0.0055] | rolling +0.0004 [-0.0132, +0.0125]
+WR12  LOCO +0.0013 [-0.0024, +0.0052] | rolling +0.0025 [-0.0024, +0.0075]
+WR24  LOCO +0.0010 [-0.0041, +0.0058] | rolling -0.0013 [-0.0077, +0.0049]
+WR36  LOCO -0.0032 [-0.0099, +0.0032] | rolling -0.0082 [-0.0158, -0.0011]
+TE6   LOCO -0.0013 [-0.0040, +0.0011] | rolling -0.0013 [-0.0062, +0.0031]
+TE12  LOCO -0.0046 [-0.0136, +0.0037] | rolling +0.0011 [-0.0163, +0.0195]
+TE18  LOCO -0.0078 [-0.0203, +0.0038] | rolling -0.0024 [-0.0256, +0.0215]
+
+===== Calibration by quintile, P(any tier), drafted 2010-2023 =====
+ position q  n mean_pred_raw actual_raw mean_pred_recalibrated (LOCO) actual_recalibrated (LOCO)
+       QB 1 32         0.012      0.219                         0.067                      0.250
+       QB 2 31         0.034      0.032                         0.135                      0.000
+       QB 3 31         0.096      0.097                         0.229                      0.097
+       QB 4 31         0.261      0.387                         0.383                      0.387
+       QB 5 31         0.596      0.677                         0.602                      0.677
+       RB 1 58         0.013      0.103                         0.077                      0.121
+       RB 2 58         0.054      0.207                         0.165                      0.207
+       RB 3 57         0.126      0.211                         0.247                      0.211
+       RB 4 57         0.244      0.263                         0.343                      0.263
+       RB 5 57         0.526      0.561                         0.516                      0.544
+       WR 1 84         0.007      0.095                         0.065                      0.119
+       WR 2 84         0.029      0.119                         0.128                      0.107
+       WR 3 83         0.073      0.181                         0.195                      0.157
+       WR 4 83         0.157      0.181                         0.271                      0.193
+       WR 5 83         0.439      0.518                         0.432                      0.518
+       TE 1 38         0.014      0.105                         0.099                      0.132
+       TE 2 38         0.036      0.105                         0.155                      0.105
+       TE 3 38         0.082      0.211                         0.218                      0.158
+       TE 4 38         0.168      0.316                         0.294                      0.368
+       TE 5 37         0.394      0.459                         0.430                      0.432
+
+===== Final recalibration (logit scale): P(hit | drafted) = plogis(a + b * logit(p)) =====
+ position target   n hits       a      b
+       QB    QB8 156   20 -0.3125 0.5594
+       QB   QB16 156   31  0.0425 0.6483
+       QB   QB24 156   44  0.1646 0.6080
+       RB    RB8 287   35 -0.3049 0.6191
+       RB   RB16 287   55 -0.3305 0.5067
+       RB   RB24 287   77 -0.0159 0.5575
+       WR   WR12 417   39 -1.0804 0.3508
+       WR   WR24 417   67 -0.4050 0.4695
+       WR   WR36 417   91 -0.1430 0.4992
+       TE    TE6 189   13 -0.4035 0.6188
+       TE   TE12 189   34 -0.3531 0.4429
+       TE   TE18 189   45 -0.0846 0.4878
+
+2027 projected prospects, raw vs drafted-recalibrated P(any tier), top 5 per position:
+ position              name        college grade p_top p_top_d p_any p_any_d
+       QB     Darian Mensah          Miami     A 0.427  0.3830 0.726  0.6807
+       QB         C.J. Carr     Notre Dame    A- 0.135  0.2056 0.572  0.5844
+       QB Ethan Grunkemeyer  Virginia Tech    B+ 0.147  0.2148 0.403  0.4814
+       QB      Julian Sayin     Ohio State    A- 0.160  0.2244 0.389  0.4725
+       QB   Drew Mestemaker Oklahoma State    B+ 0.133  0.2041 0.389  0.4725
+       RB         Cole Tabb     Cincinnati    A+ 0.195  0.2346 0.723  0.6269
+       RB       Dylan Riley    Boise State     A 0.228  0.2573 0.632  0.5709
+       RB   Wayshawn Parker           Utah     A 0.213  0.2471 0.619  0.5633
+       RB      Jahiem White    North Texas    A- 0.191  0.2317 0.574  0.5375
+       RB   J'Koby Williams     Texas Tech    A- 0.115  0.1725 0.486  0.4882
+       TE     Luke Reynolds  Virginia Tech     A 0.148  0.1844 0.409  0.4343
+       TE        Eli Finley Louisiana Tech    A- 0.128  0.1693 0.386  0.4229
+       TE    Jelani Thurman North Carolina    A- 0.133  0.1731 0.376  0.4178
+       TE  Patrick Overmyer        Houston    A- 0.123  0.1654 0.306  0.3813
+       TE    Trey'Dez Green            LSU    B+ 0.022  0.0600 0.257  0.3538
+       WR    Jeremiah Smith     Ohio State    A+ 0.697  0.3126 0.917  0.7420
+       WR    Charlie Becker        Indiana     A 0.177  0.1653 0.447  0.4380
+       WR           KJ Duff        Rutgers     A 0.210  0.1758 0.438  0.4335
+       WR   Joseph Williams       Colorado    A- 0.147  0.1548 0.393  0.4110
+       WR      Collin Dixon       Illinois    A- 0.144  0.1537 0.363  0.3956
+[PASS] one recalibrated row per board row 
+[PASS] recalibrated probabilities nested 
+[PASS] ranking within position kept for P(any tier) 

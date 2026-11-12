@@ -72,6 +72,8 @@ season, 2026 team stats, 2023-2026 recruiting) go to `./cache` (not committed). 
 | 2 | `pd_02_models.R QB` (also RB, WR, TE) | Model comparison, rolling + LOCO validation, class backtest, final fit, 2024-2027 board (about 2-3 min each) |
 | 3 | `pd_03_interpret.R` | Permutation importance, PDP/ICE, SHAP |
 | 4 | `pd_04_grades.R` | Class grades, depth, overall grade, player deep dives |
+| 6 | `pd_06_player_grades.R` | All-time player grades 2010-2027 (`pd_player_grades.csv`) |
+| 7 | `pd_11_drafted_calibration.R` | Probabilities conditional on being drafted: logistic recalibration of logit(p) per position and tier on drafted 2010-2023 (LOCO + rolling validation). Writes `pd_player_probs_drafted.csv`, used by the 2027 rookie-pick prices and the boards' cross-position Value column (`../Football2_Dynasty/dv_13_league_presets.R`). Grades are unchanged |
 | - | `pd_05_conference_test.R` | Conference as a predictor: tier indicators, tier x production, conference indicators, credibility (random conference intercept) |
 
 Outputs: `pd_class_grades.csv`, `pd_overall_grades.csv`, `pd_eligible_pool_grades.csv`,

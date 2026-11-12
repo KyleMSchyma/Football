@@ -211,6 +211,35 @@ late picks with strong college numbers, such as Alex Collins (A- to D).
 grade adds what the NFL said with its pick. When they disagree, history sides with the
 pick more often, which is why a pre-draft A who goes in round 6 usually fades."
 
+## 11. Comparing rookies across positions: the Value column
+
+**What it is.** Grades are ranks *within* a position (an A QB and an A TE are both near the
+top of their own position, not worth the same). The pre-draft and post-draft boards now show
+**Value**: each player's expected dynasty trade value on the trade-values page's 100,000-point
+scale, in the default league (12 teams, superflex, PPR, 2 RB / 3 WR / 1 TE). The All tab is
+sorted by Value.
+
+**Final model in plain words.** Chance of each fantasy tier × what past drafted players in
+that tier scored over their first four seasons above the replacement starter (discounted 15% a
+year, adjusted for age), added up. It's the same math as the 2027 rookie-pick prices, so a 2027
+prospect's Value equals his pick value.
+
+**The fix it needed.** The college-only model's chances include the risk of going undrafted,
+so among players who were drafted they ran about a third too low (16% expected any-tier vs 25%
+actual). A small logistic recalibration per position and tier, fit on drafted players'
+out-of-class predictions, fixes the level without changing anyone's order. It doesn't add
+accuracy (Brier changes are within noise except WR36, which improves); it makes the chances
+honest for a player we already know will be drafted. Drafted and mocked players use the
+post-draft chances instead. The original grades don't change.
+
+**What we found.** On the 2027 board, ranking by Value instead of percentile keeps 18 of the
+top 30 but moves QBs up (13 of the top 30, because of superflex) and TEs down (one, Trey'Dez
+Green), since a TE tier season is worth fewer points over replacement.
+
+**How to explain it.** "The grade says how good he is for his position. Value says what he's
+worth in a trade, so you can compare a running back with a quarterback."
+
+
 ## Course concepts to point to (ATPA / PA)
 
 | If someone asks... | Point to |

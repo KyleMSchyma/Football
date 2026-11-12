@@ -7,7 +7,9 @@
 #   3. rebuild the Prospect Actuary "Trade values" page                 (dv_12)
 #      and the Dynasty Daddy snapshot for the "Value research" page     (dv_14, called by dv_12)
 #   4. while the college regular season is on: re-pull CFBD 2026 stats and re-grade the 2027 pre-draft
-#      prospects (pd_01 pro-rated + as-is, pd_06), then refresh the pre-draft page data
+#      prospects (pd_01 pro-rated + as-is, pd_06, pd_11 drafted recalibration)
+#   4b. after dv_13, every week: swap the data lines of the pre-draft and post-draft grade pages (rf_02, pd_10),
+#      which carry the cross-position Value column (dv_rookie_board_values.csv from dv_13)
 #   5. push: ProspectActuary main (the live site) and the Football repo (branch or main, see FOOTBALL_BRANCH)
 #
 # Post-draft grades are not re-run: they use draft capital and college data only, so new NFL weeks
@@ -51,7 +53,7 @@ if [[ "$(date +%Y-%m-%d)" < "$PREDRAFT_UNTIL" || "$(date +%Y-%m-%d)" == "$PREDRA
   "$HERE/run_r.sh" "$PRE" pd_01_pool_build.R "$LOGDIR/04_pd01.txt" || { restore; fail "pd_01 (see 04_pd01.txt)"; }
   PD_NO_SCALE=1 "$HERE/run_r.sh" "$PRE" pd_01_pool_build.R "$LOGDIR/04_pd01_asis.txt" || { restore; fail "pd_01 as-is"; }
   rr "$PRE" pd_06_player_grades.R 05_pd06.txt
-  rr "$HERE" rf_02_predraft_page.R 06_predraft_page.txt "$SITE/pre-draft/index.html"
+  rr "$PRE" pd_11_drafted_calibration.R 05b_pd11.txt   # pre-draft probabilities conditional on being drafted (2027 picks + Value column)
   cp "$PRE"/pd_player_grades.csv "$PRE"/pd_grade_validation.csv "$PRE"/pd_grade_vs_pick.csv \
      "$PRE"/pd_grade_by_round.csv "$PRE"/pd_grade_scale.csv "$SITE/pre-draft/data/"
   PRE_DONE=1; say "pre-draft 2027 board refreshed"
@@ -64,11 +66,18 @@ rr "$DYN" dv_13_league_presets.R 02_values.txt       # runs dv_11 (and dv_10) on
 rr "$DYN" dv_12_trade_values_page.R 03_page.txt
 cat "$LOGDIR/03_page.txt" >> "$LOG"
 
+# ---------- 3b. grade pages: swap only their data lines (window.PD, window.MOCK27) ----------
+# Runs every week, after dv_13: the boards' cross-position Value column (dv_rookie_board_values.csv) moves with the
+# NFL replacement lines even after the college season. The post-draft grades themselves are not re-run.
+rr "$HERE" rf_02_predraft_page.R 06_predraft_page.txt "$SITE/pre-draft/index.html"
+"$HERE/run_r.sh" "$ROOT/Football2_PostDraft" pd_10_site_page.R "$LOGDIR/06b_postdraft_page.txt" "$SITE/post-draft/index.html" || fail "post-draft page (see 06b_postdraft_page.txt)"
+cp "$DYN"/dv_rookie_board_values.csv "$SITE/pre-draft/data/rookie_board_values.csv"
+
 
 # ---------- 5a. publish the site ----------
 cd "$SITE"
 [ -e dynasty ] && fail "a dynasty/ folder is on the site; it must stay unpublished. Nothing pushed."
-git add trade-values pre-draft value-research   # value-research/data/dd.js: Dynasty Daddy snapshot (dv_14, run by dv_12)
+git add trade-values pre-draft post-draft value-research   # value-research/data/dd.js: Dynasty Daddy snapshot (dv_14, run by dv_12)
 WK="$(grep -o 'through week [0-9]*' "$SITE/trade-values/index.html" | head -1)"
 WHAT=""; [ "$PRE_DONE" = 1 ] && WHAT=" and 2027 pre-draft grades"
 if git diff --cached --quiet; then say "site: no changes"
@@ -91,12 +100,13 @@ mkdir -p "$WT/Trade_Values/weekly_refresh"
 cp "$DYN"/dv_common.R "$DYN"/dv_10_ros_value.R "$DYN"/dv_11_dynasty_v4.R "$DYN"/dv_12_trade_values_page.R "$DYN"/dv_14_value_research_data.R "$DYN"/tv_page_template.html \
    "$DYN"/dv_ros_2026_board.csv "$DYN"/dv_v4_board.csv "$DYN"/dv_v4_backtest.csv "$DYN"/dv_ros_backtest_parts.csv \
    "$DYN"/dv_ros_backtest_value.csv "$DYN"/dv_ros_credibility_k.csv "$DYN"/dv_13_league_presets.R "$DYN"/dv_league_backtest.csv \
-   "$DYN"/dv_scoring_backtest.csv "$DYN"/dv_anchor_check.csv "$WT/Trade_Values/"
+   "$DYN"/dv_scoring_backtest.csv "$DYN"/dv_anchor_check.csv "$DYN"/dv_rookie_board_values.csv "$WT/Trade_Values/"
 cp "$HERE"/refresh.sh "$HERE"/run_r.sh "$HERE"/rf_01_pull_nfl.R "$HERE"/rf_02_predraft_page.R "$HERE"/run_weekly.cmd \
    "$HERE"/README.md "$WT/Trade_Values/weekly_refresh/" 2>/dev/null
 if [ "$PRE_DONE" = 1 ]; then
   cp "$PRE"/pd_player_grades.csv "$PRE"/pd_grade_validation.csv "$PRE"/pd_grade_vs_pick.csv "$PRE"/pd_grade_by_round.csv \
-     "$PRE"/pd_grade_scale.csv "$WT/PreDraft_Model/"
+     "$PRE"/pd_grade_scale.csv "$PRE"/pd_player_probs_drafted.csv "$PRE"/pd_drafted_calibration.csv "$PRE"/pd_drafted_calibration_check.csv \
+     "$PRE"/pd_drafted_calibration_bins.csv "$WT/PreDraft_Model/"
   "$HERE/run_r.sh" "$HERE" rf_02_predraft_page.R "$LOGDIR/07_repo_page.txt" "$WT/PreDraft_Model/pd_player_grades.html" || { cleanup_wt; fail "repo pre-draft page"; }
 fi
 cd "$WT"
