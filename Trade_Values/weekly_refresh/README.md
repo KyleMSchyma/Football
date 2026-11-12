@@ -9,7 +9,7 @@ from November 17, 2026 through **January 5, 2027**, the Tuesday after Week 18. A
 | Step | What | Where |
 |---|---|---|
 | 1 | Pull 2026 weekly player stats, the injury report and weekly rosters from nflverse (`rf_01_pull_nfl.R`) | `Football2_Dynasty/nfl_weekly_2026.rds`, `nfl_injuries_2026.rds`, `nfl_rosters_weekly_2026.rds` |
-| 2 | Re-run redraft (rest-of-season) and dynasty trade values for every scoring preset and the 2027 rookie pick profiles (`dv_13`, which runs `dv_11` and `dv_10` four times, about 1 minute) | `dv_league_presets.rds` (all presets, read by the page), `dv_ros_2026_board.csv` and `dv_v4_board.csv` (default league), backtests |
+| 2 | Re-run redraft (rest-of-season) and dynasty trade values for every scoring preset and the 2027 rookie pick profiles (`dv_13`, which runs `dv_11` and `dv_10` 20 times to cover every scoring and first-down bonus, about 3 minutes) | `dv_league_presets.rds` (all presets, read by the page), `dv_ros_2026_board.csv` and `dv_v4_board.csv` (default league), backtests |
 | 3 | Rebuild the Trade Values page (`dv_12`) | `ProspectActuary/trade-values/` |
 | 4 | Until Dec 16 (college regular season): re-pull CFBD 2026 stats, rebuild the 2027 pool (pro-rated and as-is), re-grade (`pd_01`, `pd_06`), refresh the pre-draft page data (`rf_02_predraft_page.R`) | `Football2_PreDraft/`, `ProspectActuary/pre-draft/` |
 | 5 | Push the site to `prospect-actuary` main; push code + outputs to Football main | `Trade_Values/`, `PreDraft_Model/` |

@@ -2,7 +2,7 @@
 # Prospect Actuary "Trade Values" page (IN DEVELOPMENT): Redraft and Dynasty sheets, customizable by league
 # Reads dv_league_presets.rds (dv_13: projections for every scoring preset + 2027 rookie pick profiles) and the default
 # boards (dv_ros_2026_board.csv from dv_10, dv_v4_board.csv from dv_11), fills tv_page_template.html,
-# writes <site>/trade-values/index.html and <site>/trade-values/data/*.csv.
+# writes <site>/trade-values/index.html, <site>/trade-values/data/*.csv and <site>/trade-values/data/tv.js (read by /trade-calculator/).
 # The page computes replacement lines, values and pick values in the browser for the league settings a visitor picks.
 # =============================================================================
 source("dv_common.R"); suppressMessages(library(jsonlite))
@@ -33,6 +33,8 @@ js <- toJSON(list(asof = asof, v = P$v, players = pl, sd = lapply(P$sdk, r3), pi
 js <- gsub("</", "<\\/", js, fixed = TRUE)
 html <- sub("/*DATA*/", js, paste(readLines("tv_page_template.html", encoding = "UTF-8"), collapse = "\n"), fixed = TRUE)
 writeLines(html, file.path(out, "index.html"), useBytes = TRUE)
+# same data as a standalone script for the Trade Calculator page (/trade-calculator/ loads ../trade-values/data/tv.js)
+writeLines(paste0("window.TV = ", js, ";"), file.path(out, "data", "tv.js"), useBytes = TRUE)
 # downloads: the default league (12 teams, superflex, full PPR, QB24 / RB24 / WR36 / TE12 lines)
 r <- read.csv("dv_ros_2026_board.csv") %>% filter(value_100k > 0)
 d <- read.csv("dv_v4_board.csv") %>% filter(value_100k >= 500)
@@ -42,3 +44,5 @@ write.csv(d %>% select(rank, rank_pos, name, pos, team, age, draft_pick, credibl
                        trade_value = value_100k), file.path(out, "data", "dynasty_trade_values.csv"), row.names = FALSE)
 cat("wrote", file.path(out, "index.html"), " players:", length(pl), " 2027 prospects:", length(pros),
     " page size:", round(file.size(file.path(out, "index.html")) / 1024), "KB\n")
+# Value Research page: refresh the Dynasty Daddy snapshot it compares against (a failure keeps last week's copy)
+tryCatch(source("dv_14_value_research_data.R"), error = function(e) cat("Value Research: Dynasty Daddy pull failed:", conditionMessage(e), "\n"))

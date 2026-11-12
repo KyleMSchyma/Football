@@ -18,11 +18,16 @@
 # the scoring presets and of several lineup settings. Writes dv_league_presets.rds (read by dv_12), dv_league_backtest.csv,
 # dv_scoring_backtest.csv, dv_anchor_check.csv.
 # =============================================================================
-RUNS_ <- list(
-  list(sc = list(ppr = 1,   te = 1,   ptd = 4), keys = c(QB = "p4", RB = "r1",   WR = "r1",   TE = "t1")),    # default, writes the usual CSVs
-  list(sc = list(ppr = 0.5, te = 0.5, ptd = 5), keys = c(QB = "p5", RB = "r0.5", WR = "r0.5", TE = "t0.5")),
-  list(sc = list(ppr = 1,   te = 1.5, ptd = 6), keys = c(QB = "p6", TE = "t1.5")),
-  list(sc = list(ppr = 1,   te = 2,   ptd = 4), keys = c(TE = "t2")))
+# First-down bonus (Kyle 2026-11-12): 0 / 0.25 / 0.5 / 0.75 / 1 per rushing or receiving first down, set per position.
+# Per-position scoring variants: QB 3 TD x 5 FD = 15, RB / WR 2 PPR x 5 FD = 10, TE 4 catch values x 5 FD = 20, so 20 runs.
+# Keys look like QB_p4f0, RB_r1f0.25, TE_t1.5f1. Run 1 is the default (full PPR, no premium, 4-pt TD, no FD bonus).
+FD_ <- c(0, 0.25, 0.5, 0.75, 1)
+qbv <- expand.grid(fd = FD_, ptd = c(4, 5, 6)); rwv <- expand.grid(fd = FD_, ppr = c(1, 0.5)); tev <- expand.grid(fd = FD_, te = c(1, 0.5, 1.5, 2))
+RUNS_ <- lapply(1:20, function(i) {
+  q <- qbv[min(i, 15), ]; r <- rwv[min(i, 10), ]; t <- tev[i, ]
+  keys <- c(QB = paste0("p", q$ptd, "f", q$fd), RB = paste0("r", r$ppr, "f", r$fd), WR = paste0("r", r$ppr, "f", r$fd), TE = paste0("t", t$te, "f", t$fd))
+  keys <- keys[c(if (i <= 15) "QB", if (i <= 10) c("RB", "WR"), "TE")]      # later runs only add the positions with more variants
+  list(sc = list(ppr = r$ppr, te = t$te, ptd = q$ptd, fd = c(QB = q$fd, RB = r$fd, WR = r$fd, TE = t$fd)), keys = keys) })
 LG_TEST_ <- list(
   "12 teams, superflex, 2 RB 3 WR 1 TE, no flex (default)" = list(teams = 12, qb = 1, rb = 2, wr = 3, te = 1, flex = 0, sf = 1),
   "12 teams, 1 QB, 2 RB 3 WR 1 TE, 1 flex"                 = list(teams = 12, qb = 1, rb = 2, wr = 3, te = 1, flex = 1, sf = 0),
@@ -68,7 +73,8 @@ prospect_profiles <- function() {
 
 for (I_ in seq_along(RUNS_)) {
   SC <- RUNS_[[I_]]$sc; NO_WRITE <- I_ > 1
-  cat(sprintf("\n\n######## scoring run %d: %.1f per RB/WR catch, %.1f per TE catch, %d per passing TD ########\n", I_, SC$ppr, SC$te, SC$ptd))
+  cat(sprintf("\n\n######## scoring run %d: %.1f per RB/WR catch, %.1f per TE catch, %d per passing TD, first-down bonus %s ########\n", I_, SC$ppr, SC$te, SC$ptd,
+              paste(names(SC$fd), SC$fd, collapse = " ")))
   source("dv_11_dynasty_v4.R")
   keys <- RUNS_[[I_]]$keys
   # players: every 2026 player (the replacement pool needs them all); dynasty projection where age is known
@@ -131,8 +137,9 @@ cat("\nSCORING-PRESET BACKTEST (default lineup lines):\n"); print(as.data.frame(
 
 # ---------- the page's math, in R: value of every player and pick for a league setting ----------
 stoploss <- function(mu, r, s) { z <- (mu - r) / s; s * dnorm(z) + (mu - r) * pnorm(z) }
-league_values <- function(P, lg, ppr = 1, tep = 0, ptd = 4) {
-  key <- c(QB = paste0("QB_p", ptd), RB = paste0("RB_r", ppr), WR = paste0("WR_r", ppr), TE = paste0("TE_t", ppr + tep))
+league_values <- function(P, lg, ppr = 1, tep = 0, ptd = 4, fd = c(QB = 0, RB = 0, WR = 0, TE = 0)) {
+  key <- c(QB = paste0("QB_p", ptd, "f", fd[["QB"]]), RB = paste0("RB_r", ppr, "f", fd[["RB"]]), WR = paste0("WR_r", ppr, "f", fd[["WR"]]),
+           TE = paste0("TE_t", ppr + tep, "f", fd[["TE"]]))
   b <- P$base; k <- key[b$pos]
   g_ <- function(kk, id, j) { x <- P$rd[[kk]][[id]]; if (is.null(x)) NA_real_ else x[j + 1] }   # skip the 2026 PPG
   b$cppg <- mapply(g_, k, b$player_id, 1); b$G0 <- mapply(g_, k, b$player_id, 2)

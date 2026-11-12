@@ -28,11 +28,15 @@ w$position[w$position == "FB"] <- "RB"
 # league scoring (Kyle 2026-11-11): reception points (0.5 / 1 PPR), TE premium (+0 / 0.5 / 1 per TE catch), passing TD (4 / 5 / 6).
 # Each knob touches only one position group, and every fit below is per position, so the fits are run once per distinct
 # position scoring (dv_13): SC$ppr = points per RB/WR catch, SC$te = points per TE catch (PPR + premium), SC$ptd = QB passing TD.
+# Kyle 2026-11-12: first-down bonus per position (0 / 0.25 / 0.5 / 0.75 / 1 per rushing or receiving first down, never passing),
+# SC$fd = c(QB = , RB = , WR = , TE = ).
 if (!exists("SC")) SC <- list(ppr = 1, te = 1, ptd = 4)          # default: full PPR, no TE premium, 4-point passing TDs
+if (is.null(SC$fd)) SC$fd <- c(QB = 0, RB = 0, WR = 0, TE = 0)   # default: no first-down bonus
 WRITE <- !exists("NO_WRITE") || !isTRUE(NO_WRITE)               # the league-preset loop (dv_13) writes only the default run's files
 w <- w %>% filter(position %in% POSITIONS) %>% mutate(fantasy_points_ppr = coalesce(fantasy_points_ppr, 0) +
   coalesce(receptions, 0) * ifelse(position == "TE", SC$te - 1, ifelse(position %in% c("RB", "WR"), SC$ppr - 1, 0)) +
-  coalesce(passing_tds, 0) * ifelse(position == "QB", SC$ptd - 4, 0))
+  coalesce(passing_tds, 0) * ifelse(position == "QB", SC$ptd - 4, 0) +
+  (coalesce(rushing_first_downs, 0) + coalesce(receiving_first_downs, 0)) * unname(SC$fd[position]))
 w <- w %>% select(player_id, name = player_display_name, position, season, week, team, pts = fantasy_points_ppr)
 w$pts[is.na(w$pts)] <- 0
 tw <- w %>% distinct(season, team, week)                                   # team schedule actually played

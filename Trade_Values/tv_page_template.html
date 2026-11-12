@@ -57,7 +57,7 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-wid
 </style></head>
 <body><div class="wrap">
 <header style="display:flex;flex-direction:column;gap:14px">
-  <nav class="pa-brand" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em"><a href="../" style="color:var(--ink);text-decoration:none;font-weight:600">Prospect Actuary</a><span style="display:flex;gap:14px;flex-wrap:wrap"><a href="../pre-draft/">Pre-draft</a><a href="../post-draft/">Post-draft</a><a href="../trade-values/" aria-current="page">Trade values</a><a href="../guide/">Guide</a></span></nav>
+  <nav class="pa-brand" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em"><a href="../" style="color:var(--ink);text-decoration:none;font-weight:600">Prospect Actuary</a><span style="display:flex;gap:14px;flex-wrap:wrap"><a href="../pre-draft/">Pre-draft</a><a href="../post-draft/">Post-draft</a><a href="../trade-values/" aria-current="page">Trade values</a><a href="../trade-calculator/">Trade calculator</a><a href="../value-research/">Value research</a><a href="../guide/">Guide</a></span></nav>
   <div class="dev" role="note"><b>IN DEVELOPMENT</b><span>These trade values are still being built and tested. Expect the numbers and methods to change.</span></div>
   <div class="eyebrow">Fantasy trade values · your league's scoring and lineup · QB, RB, WR, TE, rookie picks</div>
   <h1>Trade Values</h1>
@@ -111,7 +111,7 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-wid
   <ul>
     <li>2026 data runs through the latest week shown above. Values will move as the season goes on.</li>
     <li>Each scoring setting has its own fitted model (credibility, aging, availability and staying in the league), not just rescored points. Lineup settings move the replacement lines.</li>
-    <li>QB catches always score full PPR, and RB or WR passing TDs always score 4 points. Both are too rare to matter. There is no first-down bonus.</li>
+    <li>QB catches always score full PPR, and RB or WR passing TDs always score 4 points. Both are too rare to matter. The first-down bonus counts rushing and receiving first downs only, never passing.</li>
     <li>"Games missed" counts any game without a stat line, so a benching looks like an injury. The injury report is not used yet.</li>
     <li>Rookie pick values use college data only, so they are rougher than player values. NFL draft slot is the strongest signal for rookies, and it isn't in yet. Ages are estimated from years out of high school.</li>
     <li>In backtests on 2016-2025, the redraft values and the dynasty values both ranked what actually happened better than "his current pace continues," for every scoring setting and every league size tested. Details are in <a href="../guide/#redraft">the guide</a>.</li>
@@ -132,7 +132,8 @@ const pchip = p => `<span class="pos" style="color:var(--${p})">${p==="PICK"?"Pi
 document.getElementById("asof").textContent = D.asof;
 
 // ---------- league settings ----------
-const DEF = {teams:12, ppr:1, tep:0, ptd:4, sf:1, rb:2, wr:3, te:1, flex:0};
+const DEF = {teams:12, ppr:1, tep:0, ptd:4, sf:1, rb:2, wr:3, te:1, flex:0, fdQB:0, fdRB:0, fdWR:0, fdTE:0};
+const FDO = [[0,"0"],[0.25,".25"],[0.5,".5"],[0.75,".75"],[1,"1"]];
 const OPTS = [
   ["teams","Teams",[[8,"8"],[10,"10"],[12,"12"],[14,"14"]]],
   ["ppr","Points per catch",[[0.5,"0.5 PPR"],[1,"PPR"]]],
@@ -142,7 +143,8 @@ const OPTS = [
   ["rb","Starting RB",[[2,"2"],[3,"3"]]],
   ["wr","Starting WR",[[2,"2"],[3,"3"]]],
   ["te","Starting TE",[[1,"1"],[2,"2"]]],
-  ["flex","FLEX (RB/WR/TE)",[[0,"0"],[1,"1"],[2,"2"],[3,"3"]]]];
+  ["flex","FLEX (RB/WR/TE)",[[0,"0"],[1,"1"],[2,"2"],[3,"3"]]],
+  ["fdQB","1st-down bonus · QB",FDO], ["fdRB","1st-down bonus · RB",FDO], ["fdWR","1st-down bonus · WR",FDO], ["fdTE","1st-down bonus · TE",FDO]];
 const ORDER = OPTS.map(o=>o[0]);
 let S = Object.assign({}, DEF);
 const valid = (k,v) => OPTS.find(o=>o[0]===k)[2].some(([x])=>x===v);
@@ -151,7 +153,7 @@ function load(){
   try { src = new URLSearchParams(location.search).get("league"); } catch(e){}
   if (!src) try { src = localStorage.getItem("pa-tv-league"); } catch(e){}
   if (!src) return;
-  const a = src.split("_").map(Number);
+  const a = src.split("_").map(Number); while (a.length < ORDER.length && a.length >= 9) a.push(0);   // links made before the first-down bonus
   if (a.length === ORDER.length && ORDER.every((k,i)=>valid(k,a[i]))) ORDER.forEach((k,i)=>S[k]=a[i]);
 }
 function save(){
@@ -166,7 +168,7 @@ lgBox.addEventListener("click", e=>{ const b = e.target.closest("button"); if(!b
 document.getElementById("lgReset").addEventListener("click", ()=>{ S = Object.assign({}, DEF); save(); update(); });
 
 // ---------- the math (mirrors the R code: dv_10 rep_lines, dv_11 project, dv_13 league_values) ----------
-const keyOf = p => p==="QB" ? "QB_p"+S.ptd : p==="TE" ? "TE_t"+(S.ppr+S.tep) : p+"_r"+S.ppr;
+const keyOf = p => (p==="QB" ? "QB_p"+S.ptd : p==="TE" ? "TE_t"+(S.ppr+S.tep) : p+"_r"+S.ppr) + "f" + S["fd"+p];
 function erf(x){ const s = x<0?-1:1; x = Math.abs(x); const t = 1/(1+0.3275911*x);
   return s*(1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x)); }
 const pnorm = z => 0.5*(1+erf(z/Math.SQRT2)), dnorm = z => Math.exp(-z*z/2)/Math.sqrt(2*Math.PI);
@@ -243,7 +245,7 @@ function update(){
   const C = compute();
   const per = ["1 QB", `${S.rb} RB`, `${S.wr} WR`, `${S.te} TE`]; if (S.flex) per.push(`${S.flex} FLEX`); if (S.sf) per.push("1 SUPERFLEX");
   const nst = S.teams*(1+S.rb+S.wr+S.te+S.flex+S.sf);
-  document.getElementById("lgSum").innerHTML = `<b>${S.teams} teams</b>, each starting ${per.join(", ")} (${nst} starters in all). ${S.ppr===1?"Full PPR":"Half PPR"}${S.tep?`, TE premium +${S.tep}`:""}, ${S.ptd}-point passing TDs.`;
+  document.getElementById("lgSum").innerHTML = `<b>${S.teams} teams</b>, each starting ${per.join(", ")} (${nst} starters in all). ${S.ppr===1?"Full PPR":"Half PPR"}${S.tep?`, TE premium +${S.tep}`:""}, ${S.ptd}-point passing TDs${POS.some(p=>S["fd"+p]) ? ", first-down bonus "+POS.filter(p=>S["fd"+p]).map(p=>`${p} +${S["fd"+p]}`).join(", ") : ""}.`;
   document.getElementById("lgRep").innerHTML = `<span class="muted">Replacement line:</span>` + POS.map(p=>`<span>${pchip(p)}${C.RD.n[p]} · ${f1(C.RD.rep[p])} PPG</span>`).join("");
   rB.set(C.red); dB.set(C.dyn);
 }

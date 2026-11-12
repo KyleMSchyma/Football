@@ -5,6 +5,7 @@
 #   1. pull fresh nflverse data: 2026 weekly player stats, injury report, weekly rosters
 #   2. re-run the redraft (rest-of-season) and dynasty trade values for every scoring preset, plus rookie picks (dv_13 -> dv_10 + dv_11)
 #   3. rebuild the Prospect Actuary "Trade values" page                 (dv_12)
+#      and the Dynasty Daddy snapshot for the "Value research" page     (dv_14, called by dv_12)
 #   4. while the college regular season is on: re-pull CFBD 2026 stats and re-grade the 2027 pre-draft
 #      prospects (pd_01 pro-rated + as-is, pd_06), then refresh the pre-draft page data
 #   5. push: ProspectActuary main (the live site) and the Football repo (branch or main, see FOOTBALL_BRANCH)
@@ -67,7 +68,7 @@ cat "$LOGDIR/03_page.txt" >> "$LOG"
 # ---------- 5a. publish the site ----------
 cd "$SITE"
 [ -e dynasty ] && fail "a dynasty/ folder is on the site; it must stay unpublished. Nothing pushed."
-git add trade-values pre-draft
+git add trade-values pre-draft value-research   # value-research/data/dd.js: Dynasty Daddy snapshot (dv_14, run by dv_12)
 WK="$(grep -o 'through week [0-9]*' "$SITE/trade-values/index.html" | head -1)"
 WHAT=""; [ "$PRE_DONE" = 1 ] && WHAT=" and 2027 pre-draft grades"
 if git diff --cached --quiet; then say "site: no changes"
@@ -87,7 +88,7 @@ WT="$(mktemp -d)/football_wt"
 git worktree add -q --detach "$WT" "$BASE" >> "$LOG" 2>&1 || fail "worktree"
 cleanup_wt() { cd "$REPO"; git worktree remove --force "$WT" >/dev/null 2>&1; }
 mkdir -p "$WT/Trade_Values/weekly_refresh"
-cp "$DYN"/dv_common.R "$DYN"/dv_10_ros_value.R "$DYN"/dv_11_dynasty_v4.R "$DYN"/dv_12_trade_values_page.R "$DYN"/tv_page_template.html \
+cp "$DYN"/dv_common.R "$DYN"/dv_10_ros_value.R "$DYN"/dv_11_dynasty_v4.R "$DYN"/dv_12_trade_values_page.R "$DYN"/dv_14_value_research_data.R "$DYN"/tv_page_template.html \
    "$DYN"/dv_ros_2026_board.csv "$DYN"/dv_v4_board.csv "$DYN"/dv_v4_backtest.csv "$DYN"/dv_ros_backtest_parts.csv \
    "$DYN"/dv_ros_backtest_value.csv "$DYN"/dv_ros_credibility_k.csv "$DYN"/dv_13_league_presets.R "$DYN"/dv_league_backtest.csv \
    "$DYN"/dv_scoring_backtest.csv "$DYN"/dv_anchor_check.csv "$WT/Trade_Values/"
