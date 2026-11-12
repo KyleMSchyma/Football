@@ -1,0 +1,113 @@
+2026 weeks in the data: 1-9 
+teams with 2026 data: 32  games played range: 8-9 
+mock rows (QB/RB/WR/TE): 30  from mock_2027/mock_2027_fantasy_positions.csv 
+
+===== QB =====
+training rows: 163  lambda index 11 of 20 
+age fit: n=35 R2=0.50 resid SD 0.71 yrs | starter_age_filled fit R2=0.26 resid SD 1.30
+check 2024-2026 (n=35): Spearman real vs estimated post score 0.961, mean abs diff 0.152, mean diff -0.128, same grade 23%, within one grade 80%
+mock QB : 7  matched to the 2027 board: 7 
+[PASS] QB landing spot found for every mocked team 
+
+===== RB =====
+training rows: 298  lambda index 11 of 20 
+age fit: n=53 R2=0.64 resid SD 0.75 yrs | breakout_age_filled fit R2=0.83 resid SD 0.72
+check 2024-2026 (n=53): Spearman real vs estimated post score 0.954, mean abs diff 0.057, mean diff -0.004, same grade 55%, within one grade 94%
+mock RB : 5  matched to the 2027 board: 5 
+[PASS] RB landing spot found for every mocked team 
+
+===== WR =====
+training rows: 445  lambda index 13 of 25 
+age fit: n=102 R2=0.33 resid SD 0.71 yrs | breakout_age_filled fit R2=0.75 resid SD 0.76
+check 2024-2026 (n=102): Spearman real vs estimated post score 0.984, mean abs diff 0.026, mean diff +0.010, same grade 79%, within one grade 97%
+mock WR : 12  matched to the 2027 board: 12 
+[PASS] WR landing spot found for every mocked team 
+
+===== TE =====
+training rows: 202  lambda index 12 of 20 
+age fit: n=50 R2=0.33 resid SD 0.89 yrs | breakout_age_filled fit R2=0.68 resid SD 1.05
+check 2024-2026 (n=50): Spearman real vs estimated post score 0.907, mean abs diff 0.134, mean diff -0.100, same grade 34%, within one grade 86%
+mock TE : 6  matched to the 2027 board: 6 
+[PASS] TE landing spot found for every mocked team 
+
+calibration (real = a + b * estimated, 2024-2026 drafted players):
+  QB a=+0.093 b=1.057 | same grade raw 23% -> calibrated 37%, within one grade 80% -> 74%
+  RB a=-0.002 b=1.010 | same grade raw 55% -> calibrated 53%, within one grade 94% -> 96%
+  TE a=+0.052 b=1.095 | same grade raw 34% -> calibrated 48%, within one grade 86% -> 88%
+  WR a=-0.016 b=1.015 | same grade raw 79% -> calibrated 73%, within one grade 97% -> 97%
+
+===== 2027 post-draft grades from the mock ( Renner 2027 mock (post-deadline) ) =====
+ pick               name position team_abbr pre_grade post_grade_raw post_grade
+    1     Jeremiah Smith       WR       LAC        A+             A+         A+
+    3    Drew Mestemaker       QB       MIA        B+             A-          A
+    4            CJ Carr       QB       NYJ        A-             A-          A
+    5       Arch Manning       QB       PHI        C+             B+         A-
+    8     Charlie Becker       WR        TB         A             A+         A+
+    9 Trinidad Chambliss       QB       ARI        B+             B+         B+
+   14     Trey'Dez Green       TE       BAL        B+             A+         A+
+   15     Jackson Harris       WR        LV        B+             A-         A-
+   16        Dante Moore       QB       CLE        C+              B         B+
+   22        Cam Coleman       WR       NYG        B+              A          A
+   24     Jamari Johnson       TE        KC        C+             B+         A-
+   28            KJ Duff       WR       MIN         A             A-         A-
+   36         Nick Marsh       WR       PHI        A-             A-         A-
+   39        Jadan Baugh       RB       WAS        B+             A-         A-
+   42      Darian Mensah       QB        TB         A             B+         B+
+   44    Deuce Alexander       WR       ARI        B-              B          B
+   48    Junior Sherrill       WR       SEA         B              B          B
+   56      Luke Reynolds       TE       CIN         A              B         B+
+   59         Kewan Lacy       RB       MIN         C             B+         B+
+   64      Lawson Luckie       TE        SF         C              B         B+
+   66       Braden Pegan       WR       TEN         C              B          B
+   72      Jayden Maiava       QB       ATL        B-              C         B-
+   74    Terrance Carter       TE       ARI        B-             C+         B-
+   75        Dylan Riley       RB       HOU         A             B+         B+
+   79        Isaac Brown       RB       BAL        B+             B+         B+
+   80        Reed Harris       WR        KC        A-             B-         B-
+   82    Wayshawn Parker       RB       IND         A             B+         B+
+   91      Jordan Faison       WR       JAX        C-             C+          C
+   92     Chris Marshall       WR       PIT        B-             C+         C+
+   93       Peter Clarke       TE       DEN         C             B-          B
+ grade_move p_top p_any incumbent_pts_2026
+          0 0.862 0.958                 NA
+          2 0.316 0.676              223.2
+          1 0.298 0.657              246.5
+          4 0.235 0.581              151.1
+          1 0.428 0.731                 NA
+          0 0.173 0.486              210.0
+          3 0.644 0.897              110.9
+          1 0.214 0.497                 NA
+          3 0.116 0.371                 NA
+          2 0.252 0.550                 NA
+          4 0.145 0.449              211.0
+         -1 0.200 0.476                 NA
+          0 0.175 0.435                 NA
+          1 0.227 0.516              152.4
+         -2 0.218 0.557               96.1
+          1 0.084 0.249                 NA
+          0 0.084 0.249                 NA
+         -2 0.090 0.324              170.4
+          4 0.142 0.375              176.2
+          4 0.100 0.348              242.9
+          3 0.089 0.261                 NA
+          0 0.033 0.132                 NA
+          0 0.045 0.187              307.5
+         -2 0.146 0.383              150.7
+          0 0.143 0.377              268.8
+         -3 0.054 0.170                 NA
+         -2 0.168 0.423              290.1
+          1 0.039 0.129                 NA
+         -1 0.041 0.134                 NA
+          3 0.068 0.259               75.4
+
+school differs between mock and board:
+ pick            name     school board_school
+   42   Darian Mensah Miami (FL)        Miami
+   74 Terrance Carter   Michigan   Texas Tech
+
+not matched to the 2027 pre-draft board:
+data frame with 0 columns and 0 rows
+[PASS] every mocked QB/RB/WR/TE graded (30 of 30)
+[PASS] probabilities ordered 
+
+done
