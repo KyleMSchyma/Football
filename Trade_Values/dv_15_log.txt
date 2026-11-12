@@ -1,0 +1,5 @@
+default  rep QB/RB/WR/TE 13.41/11.24/10.06/9.65 | 2027 board vs pick value: max abs diff 1.0 (n = 126) | default-league board CSV vs R: max abs diff 1.7
+oneQB    rep QB/RB/WR/TE 17.45/11.24/10.06/9.65 | 2027 board vs pick value: max abs diff 0.7 (n = 126) | default-league board CSV vs R: -
+halfPPR  rep QB/RB/WR/TE 13.41/9.64/8.3/8.07 | 2027 board vs pick value: max abs diff 1.7 (n = 126) | default-league board CSV vs R: -
+TEP1     rep QB/RB/WR/TE 13.41/11.24/10.06/13.35 | 2027 board vs pick value: max abs diff 1.0 (n = 126) | default-league board CSV vs R: -
+teams10  rep QB/RB/WR/TE 14.57/11.51/10.73/10.52 | 2027 board vs pick value: max abs diff 1.0 (n = 126) | default-league board CSV vs R: -

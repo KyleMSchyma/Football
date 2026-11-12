@@ -35,6 +35,9 @@ LG_TEST_ <- list(
   "14 teams, superflex, 2 RB 3 WR 1 TE, 1 flex"            = list(teams = 14, qb = 1, rb = 2, wr = 3, te = 1, flex = 1, sf = 1),
   "8 teams, 1 QB, 2 RB 2 WR 1 TE, 1 flex"                  = list(teams = 8,  qb = 1, rb = 2, wr = 2, te = 1, flex = 1, sf = 0))
 T0_ <- Sys.time(); OUT_ <- list(); SCBT_ <- list()
+# Age-adjustment tables for the grade boards' Value column under any league (Kyle 2026-11-12): per scoring key, the cumulative
+# age adjustment to PPG in seasons 2-4 (season 1 = 0) for ages AGE_GRID_, same formula as the 2027 pick profiles.
+AGE_GRID_ <- round(seq(18.5, 31, by = 0.1), 1); AGET_ <- list()
 
 # ---------- 2027 rookie picks (Kyle 2026-11-12: mocked players from the post-draft model with the mock pick, the rest pre-draft) ----------
 # Each 2027 prospect on the pre-draft board has P(tier 1), P(tier 1-2), P(any tier) for his first three NFL seasons
@@ -133,7 +136,7 @@ board_profiles <- function(rp) {
     left_join(rp$pr_ %>% distinct(pos, draft_year, draft_pick, .keep_all = TRUE) %>% select(pos, draft_year, draft_pick, birth_date),
               by = c("position" = "pos", "class" = "draft_year", "pick" = "draft_pick")) %>%
     mutate(age_bd = as.numeric(as.Date(paste0(class, "-09-01")) - birth_date) / 365.25,
-           age = coalesce(age_mk, age_bd, age_hs, rp$a_ref$a[match(position, rp$a_ref$pos)]),
+           age = round(coalesce(age_mk, age_bd, age_hs, rp$a_ref$a[match(position, rp$a_ref$pos)]), 1),   # 0.1 grid = the pages' age table
            P12 = pmax(P12, P1), P123 = pmax(P123, P12),
            P1_ = P1, P2_ = P12 - P1, P3_ = P123 - P12, P4_ = 1 - P123)
   D <- matrix(0, nrow(b), 4)
@@ -157,6 +160,9 @@ for (I_ in seq_along(RUNS_)) {
   dy[is.na(mi), ] <- NA
   rp <- prospect_profiles()
   if (I_ == 1) BOARD_ <- board_profiles(rp)     # default scoring run: age curves for the board Value column
+  for (ps in names(keys)) { a0 <- rp$a_ref$a[rp$a_ref$pos == ps]
+    d <- sapply(2:4, function(k) rp$agef(ps, AGE_GRID_ + k - 2) - rp$agef(ps, a0 + k - 2))
+    AGET_[[paste0(ps, "_", keys[[ps]])]] <- t(apply(matrix(d, ncol = 3), 1, cumsum)) }
   sdk <- lapply(setNames(POSITIONS, POSITIONS), function(ps) c(sd0 = unname(setNames(m1$rmse_credibility, m1$pos)[ps]), sig = F[[ps]]$sig))
   OUT_[[I_]] <- list(keys = keys, pl = pl, dy = dy, rp = rp, sdk = sdk, chk = tibble(player_id = d26$player_id, dyn = pr$value),
                      chk_rd = tibble(player_id = b26$player_id, rd = b26$value))
@@ -200,6 +206,7 @@ if (max(sapply(unlist(rd, recursive = FALSE), `[`, 3)) <= 0 && file.exists("dv_l
   rd_frozen <- if (!is.null(old$rd_frozen)) old$rd_frozen else old$rd
   cat("\nregular season over: the redraft sheet keeps the projections from the last week with games left\n") }
 presets <- list(base = base, rd = rd, rd_frozen = rd_frozen, dy = dyl, sdk = sdk, picks = list(pp = OUT_[[1]]$rp$pp, cal = pk, D = sdR),
+                agetab = list(grid = AGE_GRID_, t = AGET_),
                 v = 1 / (1 + I_MAIN), week = CUT26, made = Sys.time())
 saveRDS(presets, "dv_league_presets.rds")
 write.csv(LGBT_, "dv_league_backtest.csv", row.names = FALSE)

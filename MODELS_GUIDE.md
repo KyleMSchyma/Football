@@ -216,7 +216,8 @@ pick more often, which is why a pre-draft A who goes in round 6 usually fades."
 **What it is.** Grades are ranks *within* a position (an A QB and an A TE are both near the
 top of their own position, not worth the same). The pre-draft and post-draft boards now show
 **Value**: each player's expected dynasty trade value on the trade-values page's 100,000-point
-scale, in the default league (12 teams, superflex, PPR, 2 RB / 3 WR / 1 TE). The All tab is
+scale, for the league you set on the Trade Values page (every setting there), or the default
+league (12 teams, superflex, PPR, 2 RB / 3 WR / 1 TE) if none is saved. The All tab is
 sorted by Value.
 
 **Final model in plain words.** Chance of each fantasy tier × what past drafted players in

@@ -988,6 +988,19 @@ both; by Value 13 QB / 11 WR / 5 RB / 1 TE, by percentile 6 / 13 / 6 / 5. Superf
 tier calibration put QBs high; TEs with A-range grades (Reynolds, Finley, Thurman, Overmyer) sit
 around 3,000-5,000 because a TE tier season is worth fewer points over replacement.
 
+**League-aware Value on the site (added 2026-11-12, Kyle's request).** The boards' Value follows the
+league chosen on the Trade Values page (`pa-tv-league` in browser storage, or a `?league=` link;
+default league when none is saved). `ProspectActuary/shared/league-value.js` loads
+`trade-values/data/tv.js` (players per scoring key, pick tier calibration) and
+`trade-values/data/agetab.js` (dv_13 → dv_12: per scoring key, the cumulative seasons 2-4 age
+adjustment on a 0.1-year grid, ages 18.5-31.0), recomputes the replacement lines and the 100k top
+exactly as the Trade Values page does, and prices each row from its tier probabilities (`vq`) and
+age (`ag`, rounded to 0.1 in dv_13 so it sits on the grid). `dv_15_board_value_check.R` prices the
+board in R for five leagues; browser vs R max abs difference (100k scale, all 1,385 pre-board rows):
+default 2.2, 1-QB 2.2, half PPR 5.5, TE premium +1 2.3, 10 teams 3.8; 2027 board value vs that
+league's rookie-pick value ≤ 3.8 (rounding of the shipped 3-decimal data). In the browser the top
+four 2027 board values for half PPR equal the Trade Values page's picks 1.01-1.04 exactly.
+
 
 ## 4. ATPA / PA course concepts used
 
