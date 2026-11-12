@@ -26,7 +26,11 @@
 #   (same reference and cut points as pd_07_postdraft_grades.R).
 # Check: the 2024-2026 drafted players are scored the same way (board features, estimated
 #   age, average combine, estimated landing spot) and compared with their real post scores.
-# Outputs: pd_post_2027_mock_grades.csv, pd_post_2027_mock_check.csv, phase9_log.txt
+#   The estimated inputs score QB and TE about 0.1 low on that check, so the final grade maps
+#   the estimated score to the real-score scale with a per-position linear fit on the check
+#   (post_grade_raw keeps the uncalibrated grade). Probabilities (p_top/p_top2/p_any) are raw.
+# Outputs: pd_post_2027_mock_grades.csv, pd_post_2027_mock_check.csv,
+#          pd_post_2027_mock_inputs.csv (every model input per mocked player), phase9_log.txt
 # Run:     MOCK_FILE=<csv> ./run.sh pd_09_mock_2027.R phase9_log.txt
 #   MOCK_FILE columns: round, pick, team, team_abbr (nflverse), player, pos, school,
 #   height_in, weight_lb (blank if unknown). MOCK_NAME labels the source in the output.
@@ -182,7 +186,7 @@ post_all   <- read.csv("pd_post_player_grades.csv", stringsAsFactors = FALSE, na
 mock <- read.csv(MOCK_FILE, stringsAsFactors = FALSE, na.strings = "") %>% mutate(key = nkey(player))
 cat("mock rows (QB/RB/WR/TE):", nrow(mock), " from", MOCK_FILE, "\n")
 
-res <- list(); chk <- list(); unmatched <- list()
+res <- list(); chk <- list(); unmatched <- list(); inputs <- list()
 for (POS in c("QB", "RB", "WR", "TE")) {
   cat("\n=====", POS, "=====\n")
   L <- load_pos(POS); F <- fit_ladder(L)
@@ -231,10 +235,29 @@ for (POS in c("QB", "RB", "WR", "TE")) {
   d <- build(POS, mm, L, AM, LAND %>% filter(next_season == 2027) %>% select(-next_season))
   check(paste(POS, "landing spot found for every mocked team"), all(!is.na(d$team_targets_prev)))
   s <- score(F, L, d)
+  inputs[[POS]] <- data.frame(position = POS, pick = d$pick, name = d$player, round(L$prep(d), 4), check.names = FALSE) %>%
+    pivot_longer(-c(position, pick, name), names_to = "input", values_to = "value")
   pg <- pre_grades %>% filter(class == 2027, position == POS) %>% mutate(key = nkey(name)) %>%
     select(key, pre_grade = grade, pre_score = score, pre_pctile = pctile, pre_rank_class = pos_rank_class)
   res[[POS]] <- bind_cols(d, s) %>% mutate(pre_score_board = p1 + p2 + p3) %>% left_join(pg, by = "key") %>% mutate(position = POS, post_pctile = pct(post_score), post_grade = grade_from_pct(post_pctile))
 }
+
+# --- calibration: the estimated inputs run low for QB and TE on the 2024-2026 check, so the
+# grade uses a per-position linear map from estimated to real post score fitted on that check
+# (rank order is kept; post_score_raw / post_grade_raw keep the uncalibrated values)
+C <- bind_rows(chk)
+cal <- lapply(split(C, C$position), function(x) lm(post_score_real ~ post_score_est, data = x))
+cat("\ncalibration (real = a + b * estimated, 2024-2026 drafted players):\n")
+for (P in names(cal)) { cf <- coef(cal[[P]]); x <- C[C$position == P, ]; fit <- fitted(cal[[P]])
+  ref <- post_all %>% filter(position == P, class <= 2023) %>% pull(post_score); pc <- function(v) sapply(v, function(s) mean(ref < s) + 0.5 * mean(ref == s))
+  cat(sprintf("  %s a=%+.3f b=%.3f | same grade raw %.0f%% -> calibrated %.0f%%, within one grade %.0f%% -> %.0f%%\n", P, cf[1], cf[2],
+    100 * mean(x$grade_est == x$grade_real), 100 * mean(grade_from_pct(pc(fit)) == x$grade_real),
+    100 * mean(abs(gidx(x$grade_est) - gidx(x$grade_real)) <= 1), 100 * mean(abs(gidx(grade_from_pct(pc(fit))) - gidx(x$grade_real)) <= 1))) }
+res <- lapply(names(res), function(P) { r <- res[[P]]
+  ref <- post_all %>% filter(position == P, class <= 2023) %>% pull(post_score); pc <- function(v) sapply(v, function(s) mean(ref < s) + 0.5 * mean(ref == s))
+  r %>% mutate(post_score_raw = post_score, post_grade_raw = post_grade,
+               post_score = pmax(predict(cal[[P]], newdata = data.frame(post_score_est = post_score_raw)), 0.01),
+               post_pctile = pc(post_score), post_grade = grade_from_pct(post_pctile)) })
 
 # pre-draft grade for prospects outside the published 2027 pre-draft list: from the pre-draft grade scale
 pscale <- read.csv(file.path(PRE_DIR, "pd_grade_scale.csv"), stringsAsFactors = FALSE)
@@ -244,6 +267,7 @@ out <- bind_rows(res) %>% mutate(pre_grade = ifelse(is.na(pre_grade), pre_from_s
   group_by(position) %>% mutate(post_rank_class = rank(-post_score, ties.method = "first")) %>% ungroup() %>%
   transmute(position, post_rank_class, pre_rank_class, name = player, board_name = name, school, board_school = p_team,
             round, pick, team, team_abbr, post_grade, post_score = round(post_score, 3), post_pctile = round(post_pctile, 3),
+            post_grade_raw, post_score_raw = round(post_score_raw, 3),
             pre_grade, pre_score = round(coalesce(pre_score, pre_score_board), 3), pre_pctile = round(pre_pctile, 3), grade_move,
             p_top = round(q1, 3), p_top2 = round(q2, 3), p_any = round(q3, 3),
             age_est = round(age_at_draft, 1), incumbent_pts_2026 = round(coalesce(incumbent_pts, NA_real_), 1),
@@ -252,9 +276,10 @@ out <- bind_rows(res) %>% mutate(pre_grade = ifelse(is.na(pre_grade), pre_from_s
   arrange(pick)
 write.csv(out, "pd_post_2027_mock_grades.csv", row.names = FALSE, na = "")
 write.csv(bind_rows(chk), "pd_post_2027_mock_check.csv", row.names = FALSE, na = "")
+write.csv(bind_rows(inputs), "pd_post_2027_mock_inputs.csv", row.names = FALSE, na = "")
 
 cat("\n===== 2027 post-draft grades from the mock (", MOCK_NAME, ") =====\n")
-print(as.data.frame(out %>% select(pick, name, position, team_abbr, pre_grade, post_grade, grade_move, p_top, p_any, incumbent_pts_2026)), row.names = FALSE)
+print(as.data.frame(out %>% select(pick, name, position, team_abbr, pre_grade, post_grade_raw, post_grade, grade_move, p_top, p_any, incumbent_pts_2026)), row.names = FALSE)
 cat("\nschool differs between mock and board:\n")
 print(as.data.frame(out %>% filter(nkey(school) != nkey(board_school)) %>% select(pick, name, school, board_school)), row.names = FALSE)
 cat("\nnot matched to the 2027 pre-draft board:\n"); print(as.data.frame(bind_rows(unmatched)), row.names = FALSE)
