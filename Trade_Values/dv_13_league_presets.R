@@ -36,7 +36,7 @@ LG_TEST_ <- list(
   "8 teams, 1 QB, 2 RB 2 WR 1 TE, 1 flex"                  = list(teams = 8,  qb = 1, rb = 2, wr = 2, te = 1, flex = 1, sf = 0))
 T0_ <- Sys.time(); OUT_ <- list(); SCBT_ <- list()
 
-# ---------- 2027 rookie picks from the pre-draft model (Kyle 2026-11-11: no draft capital at all) ----------
+# ---------- 2027 rookie picks (Kyle 2026-11-12: mocked players from the post-draft model with the mock pick, the rest pre-draft) ----------
 # Each 2027 prospect on the pre-draft board has P(tier 1), P(tier 1-2), P(any tier) for his first three NFL seasons
 # (QB/RB/TE tiers = top 8 / 16 / 24, WR = top 12 / 24 / 36). Tier outcomes are turned into points with what past drafted
 # players in that tier actually did (classes 2010-2022, seasons 1-4: games per 17, PPG, PPG spread), so
@@ -44,7 +44,7 @@ T0_ <- Sys.time(); OUT_ <- list(); SCBT_ <- list()
 # Age adjustment: the aging model's age curve, his age vs the average rookie's age at his position, applied season by season.
 # Age = 18.6 + years out of high school (college data has no birth dates). Every prospect is assumed to declare.
 # The page ranks the prospects for the chosen league: pick 1.01 = the best value, 1.02 the second, and so on.
-PD_DIR <- "../Football2_PreDraft"
+PD_DIR <- "../Football2_PreDraft"; MOCK_DIR <- "../Football2_PostDraft"
 prospect_profiles <- function() {
   gr <- read.csv(file.path(PD_DIR, "pd_player_grades.csv"), stringsAsFactors = FALSE)
   pr_ <- readRDS(file.path(SHARED, "players_raw.rds")) %>%
@@ -65,7 +65,20 @@ prospect_profiles <- function() {
   agef <- function(ps, a) predict(F[[ps]]$prod, data.frame(cppg = 0, age = a, exp = 0, lpick = 0))   # only the age curve matters (differences)
   pp <- gr %>% filter(class == 2027) %>%
     transmute(name, pos = position, college, age = 18.6 + yrs_out_of_hs, score, grade,
-              P1 = p_top, P2 = p_top2 - p_top, P3 = p_any - p_top2, P4 = 1 - p_any)
+              P1 = p_top, P2 = p_top2 - p_top, P3 = p_any - p_top2, P4 = 1 - p_any, source = "pre-draft")
+  # Kyle 2026-11-12: players in the mock draft are priced from the POST-draft model with the mock pick as draft capital
+  # (pd_09_mock_2027.R output, its age estimate too); everyone else keeps the pre-draft probabilities above.
+  mk_file <- file.path(MOCK_DIR, "pd_post_2027_mock_grades.csv")
+  if (file.exists(mk_file)) {
+    nm <- function(x) gsub("[^a-z]", "", tolower(sub(" (jr|sr|ii|iii|iv)\\.?$", "", x, ignore.case = TRUE)))
+    mk <- read.csv(mk_file, stringsAsFactors = FALSE) %>%
+      transmute(name = board_name, pos = position, college = board_school, age = age_est, score = post_score, grade = post_grade,
+                P1 = p_top, P2 = p_top2 - p_top, P3 = p_any - p_top2, P4 = 1 - p_any, source = paste0("post-draft, mock pick ", round, ".", pick))
+    hit <- paste(nm(pp$name), pp$pos) %in% paste(nm(mk$name), mk$pos)
+    cat(sprintf("\n2027 picks: %d mocked players priced post-draft (%d matched to the pre-draft board), %d priced pre-draft\n",
+                nrow(mk), sum(hit), sum(!hit)))
+    pp <- bind_rows(mk, pp[!hit, ])
+  }
   D <- t(sapply(seq_len(nrow(pp)), function(i) { ps <- pp$pos[i]; a0 <- a_ref$a[a_ref$pos == ps]
     d <- sapply(2:4, function(k) agef(ps, pp$age[i] + k - 2) - agef(ps, a0 + k - 2)); c(0, cumsum(d)) }))
   list(cal = cal, pp = pp, D = D, a_ref = a_ref)
@@ -171,8 +184,8 @@ cat("\nANCHOR CHECK (ratio = package / single player; Kyle's anchors say about 1
 top <- max(lv$players$dynasty, na.rm = TRUE); dr <- rank(-lv$players$dynasty, na.last = "keep")
 cat("\ntier calibration (default scoring): games per 17 and PPG by tier, seasons 1-4\n")
 print(as.data.frame(OUT_[[1]]$rp$cal %>% mutate(across(c(G, mu, sd), ~ round(.x, 1)))), row.names = FALSE)
-cat("\ndefault league, 2027 rookie picks from the pre-draft model (100k scale; 'like' = the dynasty rank of a player with that value):\n")
+cat("\ndefault league, 2027 rookie picks (mocked players post-draft, the rest pre-draft; 100k scale; 'like' = the dynasty rank of a player with that value):\n")
 print(lv$slots %>% head(36) %>% mutate(pick = sprintf("%d.%02d", (slot - 1) %/% 12 + 1, (slot - 1) %% 12 + 1),
   value = round(1e5 * val / top), like = sapply(val, function(x) sum(lv$players$dynasty > x, na.rm = TRUE) + 1),
-  p_tier1 = round(P1, 2), p_any = round(1 - P4, 2), age = round(age, 1)) %>% select(pick, name, pos, college, grade, age, p_tier1, p_any, value, like) %>% as.data.frame(), row.names = FALSE)
+  p_tier1 = round(P1, 2), p_any = round(1 - P4, 2), age = round(age, 1)) %>% select(pick, name, pos, grade, age, p_tier1, p_any, value, like, source) %>% as.data.frame(), row.names = FALSE)
 cat("\nelapsed:", round(as.numeric(difftime(Sys.time(), T0_, units = "mins")), 1), "min\n")
