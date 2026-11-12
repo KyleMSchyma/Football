@@ -1,10 +1,10 @@
 cached: cache/cfbd_stats_2026.rds 
 cached: cache/cfbd_team_stats_2026.rds 
-2026 rows: 16469  team-stat columns with 'games': games 
+2026 rows: 16485  team-stat columns with 'games': games 
 2026 scale factor (12 / games played) quantiles:
       0%      10%      50%      90%     100% 
-1.200000 1.200000 1.200000 1.333333 1.333333 
-translation rec_m: FCS->FBS transfers n = 139, FBS->FBS n =  362, factor = 0.685
+1.090909 1.200000 1.200000 1.333333 1.333333 
+translation rec_m: FCS->FBS transfers n = 137, FBS->FBS n =  362, factor = 0.687
 translation rush_m: FCS->FBS transfers n =  62, FBS->FBS n =  206, factor = 0.685
 translation pass_m: FCS->FBS transfers n =  27, FBS->FBS n =  107, factor = 0.789
 Warning message:
@@ -18,9 +18,9 @@ recruits with a cfbd athlete id: 14635
 drafted players: 1351   with a college match: 1292 
 UDFAs with NFL fantasy points: 813  matched to college: 609 
 median gap between HS class and first season with stats: 1 
-QB: 3953 college players at the position; eligible 2806; eligible + productive 1604; drafted kept 191 of 191 matched
-RB: 7426 college players at the position; eligible 5102; eligible + productive 2838; drafted kept 340 of 341 matched
-WR: 11472 college players at the position; eligible 7932; eligible + productive 4684; drafted kept 519 of 520 matched
+QB: 3955 college players at the position; eligible 2807; eligible + productive 1604; drafted kept 191 of 191 matched
+RB: 7426 college players at the position; eligible 5102; eligible + productive 2841; drafted kept 340 of 341 matched
+WR: 11473 college players at the position; eligible 7932; eligible + productive 4685; drafted kept 519 of 520 matched
 TE: 3969 college players at the position; eligible 2804; eligible + productive 1752; drafted kept 239 of 240 matched
 Warning message:
 There was 1 warning in `mutate()`.
@@ -59,11 +59,11 @@ Caused by warning:
        RB  2020 137      18        0    2    4    7
        RB  2023 152      18        0    4    4    5
        RB  2026 253      10        0    0    0    0
-       RB  2027 538       0        0    0    0    0
-       TE  2010  68      16        0    4    5    8
-       TE  2015  73      18        0    0    1    2
-       TE  2020  77      11        0    1    2    2
-       TE  2023 101      15        0    1    3    4
+       RB  2027 540       0        0    0    0    0
+       TE  2010  68      16        0    3    5    7
+       TE  2015  73      18        0    0    0    1
+       TE  2020  77      11        0    0    1    2
+       TE  2023 101      15        0    1    3    3
        TE  2026 176      22        0    0    0    0
        TE  2027 315       0        0    0    0    0
        WR  2010 164      26        0    3    5    5
@@ -71,11 +71,11 @@ Caused by warning:
        WR  2020 212      35        0    2    8   10
        WR  2023 271      33        0    4    5   10
        WR  2026 431      36        0    0    0    0
-       WR  2027 808       0        0    0    0    0
+       WR  2027 809       0        0    0    0    0
 [PASS] QB: pool keeps 90%+ of drafted QB24 hitters (44 of 45)
 [PASS] RB: pool keeps 90%+ of drafted RB24 hitters (77 of 78)
 [PASS] WR: pool keeps 90%+ of drafted WR36 hitters (91 of 95)
-[PASS] TE: pool keeps 90%+ of drafted TE24 hitters (54 of 55)
+[PASS] TE: pool keeps 90%+ of drafted TE18 hitters (45 of 46)
 [PASS] no college season on/after class year 
 [PASS] one row per athlete 
 UDFA hitters in the pool (top tier-3 finish):
@@ -88,15 +88,12 @@ UDFA hitters in the pool (top tier-3 finish):
        WR  2013    Rod Streater         Temple   33
        WR  2014     Allen Hurns          Miami   18
        WR  2014    Willie Snead     Ball State   32
-       TE  2010    Jake Ballard     Ohio State   20
-       TE  2017 Jacob Hollister        Wyoming   24
        TE  2013  Timothy Wright        Rutgers   13
        TE  2020   Juwan Johnson         Oregon   15
-       TE  2017     Taysom Hill            BYU   21
 2027 candidates by position:
 
  QB  RB  TE  WR 
-326 538 315 808 
+326 540 315 809 
 feature missingness (share NA), 2010-2023 pool:
 QB : yrs_since_hs=0.00 recruit_rating=0.41 college_seasons=0.00 power5=0.00 transferred=0.00 early=0.00 final_short=0.00 recruit_missing=0.00 ever_breakout=0.00 p_att=0.00 p_comp_pct=0.00 p_ypa=0.00 p_aya=0.00 p_td_rate=0.00 p_int_rate=0.00 p_pass_share=0.02 p_rush_yds=0.00 p_rush_td=0.00 best_aya=0.14 career_att=0.00 career_rush_yds=0.00 starter_seasons=0.00 breakout_yrs=0.00 
 RB : yrs_since_hs=0.00 recruit_rating=0.56 college_seasons=0.00 power5=0.00 transferred=0.00 early=0.00 final_short=0.00 recruit_missing=0.00 ever_breakout=0.00 p_car=0.00 p_rush_yds=0.00 p_ypc=0.02 p_rush_td=0.00 p_rec=0.00 p_rec_yds=0.00 p_car_share=0.02 p_scrim_share=0.02 p_td_share=0.02 p_rec_share=0.03 best_scrim_share=0.01 career_rush_yds=0.00 career_rec=0.00 featured_seasons=0.00 breakout_yrs=0.00 
@@ -120,8 +117,8 @@ TE : yrs_since_hs=0.00 recruit_rating=0.47 college_seasons=0.00 power5=0.00 tran
        RB  2015 263     128
        RB  2020 308     136
        RB  2023 441     152
-       RB  2026 531     253
-       RB  2027 538     538
+       RB  2026 533     253
+       RB  2027 540     540
        TE  2015 134      70
        TE  2020 163      77
        TE  2023 243     101
@@ -131,4 +128,4 @@ TE : yrs_since_hs=0.00 recruit_rating=0.47 college_seasons=0.00 power5=0.00 tran
        WR  2020 449     212
        WR  2023 660     271
        WR  2026 804     431
-       WR  2027 808     808
+       WR  2027 809     809

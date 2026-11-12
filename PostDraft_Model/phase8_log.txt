@@ -250,106 +250,106 @@ SHAP mean |value| (log-odds):
               0.010               0.001               0.000               0.000 
 
 ===== TE =====
-training rows: 202  classes 2010 - 2023  hits top / top two / any: 22 / 42 / 55 
-lambda index 12 of 20  lambda = 0.037 
-[PASS] sign check: log_pick coefficient -0.922 (a later pick lowers the odds of a tier season)
-in-sample AUC P(any tier): 0.899 
+training rows: 202  classes 2010 - 2023  hits top / top two / any: 14 / 35 / 46 
+lambda index 11 of 20  lambda = 0.0421 
+[PASS] sign check: log_pick coefficient -0.829 (a later pick lowers the odds of a tier season)
+in-sample AUC P(any tier): 0.901 
             variable auc_drop    beta odds_per_sd flag_beta flag_odds
-            log_pick   0.1813 -0.9215      0.3979        NA        NA
-         transferred   0.0170 -0.1904      0.8266        NA        NA
-      recruit_rating   0.0124  0.1473      1.1588    0.0000    1.0000
-           weight_lb   0.0085 -0.1159      0.8906   -0.1231    0.8842
-   vacated_tgt_share   0.0047  0.1374      1.1473        NA        NA
-          broad_jump   0.0042  0.0000      1.0000    0.0780    1.0811
-            vertical   0.0041  0.1255      1.1337    0.0000    1.0000
-           height_in   0.0022  0.0000      1.0000   -0.1231    0.8842
-       ever_breakout   0.0019  0.1252      1.1334        NA        NA
-    featured_seasons   0.0014  0.0519      1.0533    0.0000    1.0000
-     combine_invited   0.0011  0.1231      1.1310        NA        NA
+            log_pick   0.1740 -0.8287      0.4366        NA        NA
+      recruit_rating   0.0210  0.1828      1.2005    0.0000    1.0000
+   vacated_tgt_share   0.0144  0.1556      1.1683        NA        NA
+         transferred   0.0127 -0.1217      0.8854        NA        NA
+                cone   0.0125 -0.2011      0.8179    0.0000    1.0000
+         p_rec_share   0.0110  0.1615      1.1753    0.0000    1.0000
+           weight_lb   0.0079 -0.0607      0.9411   -0.0814    0.9218
+          broad_jump   0.0034  0.0000      1.0000    0.0357    1.0363
+           height_in   0.0034  0.0000      1.0000   -0.0814    0.9218
+               forty   0.0020 -0.0711      0.9314    0.0000    1.0000
+     combine_invited   0.0009  0.0814      1.0848        NA        NA
+      best_dominator   0.0004  0.0233      1.0236    0.0000    1.0000
+      career_rec_yds   0.0004  0.0143      1.0144    0.0000    1.0000
         age_at_draft   0.0000  0.0000      1.0000    0.0000    1.0000
                p_rec   0.0000  0.0000      1.0000    0.0000    1.0000
            p_rec_yds   0.0000  0.0000      1.0000    0.0000    1.0000
             p_rec_td   0.0000  0.0000      1.0000    0.0000    1.0000
                p_ypr   0.0000  0.0000      1.0000    0.0000    1.0000
-         p_rec_share   0.0000  0.0000      1.0000    0.0000    1.0000
          p_dominator   0.0000  0.0000      1.0000    0.0000    1.0000
               p_ypta   0.0000  0.0000      1.0000    0.0000    1.0000
+    featured_seasons   0.0000  0.0000      1.0000    0.0000    1.0000
  breakout_age_filled   0.0000  0.0000      1.0000    0.0000    1.0000
          speed_score   0.0000  0.0000      1.0000    0.0000    1.0000
+            vertical   0.0000  0.0000      1.0000    0.0000    1.0000
        incumbent_pts   0.0000  0.0000      1.0000        NA        NA
+       ever_breakout   0.0000  0.0000      1.0000        NA        NA
+       early_declare   0.0000  0.0000      1.0000        NA        NA
             p_power5   0.0000  0.0000      1.0000        NA        NA
      college_matched   0.0000  0.0000      1.0000        NA        NA
           miss_forty   0.0000  0.0000      1.0000        NA        NA
-      best_dominator  -0.0003  0.0210      1.0212    0.0000    1.0000
-         final_short  -0.0005 -0.0258      0.9745        NA        NA
-      career_rec_yds  -0.0006  0.0357      1.0363    0.0000    1.0000
-                cone  -0.0016 -0.1071      0.8984    0.0000    1.0000
-               forty  -0.0016 -0.0713      0.9311    0.0000    1.0000
-       early_declare  -0.0020  0.0711      1.0737        NA        NA
+         final_short   0.0000  0.0000      1.0000        NA        NA
                             label
                  Draft pick (log)
-                      Transferred
                 Recruiting rating
-                           Weight
              Vacated target share
+                      Transferred
+                           3-cone
+            Share of team catches
+                           Weight
                        Broad jump
-                    Vertical jump
                            Height
-                   Ever broke out
-                 Featured seasons
+                     40-yard dash
                    Combine invite
+            Best-season dominator
+           Career receiving yards
                      Age at draft
        Receptions, primary season
   Receiving yards, primary season
     Receiving TDs, primary season
                   Yards per catch
-            Share of team catches
                  Dominator rating
  Rec. yards per team pass attempt
+                 Featured seasons
                      Breakout age
                       Speed score
+                    Vertical jump
        Incumbent's fantasy points
+                   Ever broke out
+                    Early declare
                    Power 5 school
             College stats matched
                        No 40 time
-            Best-season dominator
                Short final season
-           Career receiving yards
-                           3-cone
-                     40-yard dash
-                    Early declare
-PDP pick  10: P(any tier) 0.852
-PDP pick  32: P(any tier) 0.584
-PDP pick  64: P(any tier) 0.379
-PDP pick 100: P(any tier) 0.261
-PDP pick 150: P(any tier) 0.176
-PDP pick 200: P(any tier) 0.130
+PDP pick  10: P(any tier) 0.777
+PDP pick  32: P(any tier) 0.488
+PDP pick  64: P(any tier) 0.306
+PDP pick 100: P(any tier) 0.211
+PDP pick 150: P(any tier) 0.145
+PDP pick 200: P(any tier) 0.109
 PDP endpoints (5th -> 95th pct):
-       variable   x_lo  p_lo    x_hi  p_hi
-       log_pick 29.200 0.610 246.000 0.103
- recruit_rating  0.767 0.209   0.983 0.315
-    transferred  0.000 0.273   1.000 0.161
+          variable   x_lo  p_lo    x_hi   p_hi
+          log_pick 29.200 0.513 246.000 0.0876
+    recruit_rating  0.767 0.158   0.983 0.2780
+ vacated_tgt_share  0.000 0.198   1.000 0.2620
 SHAP mean |value| (log-odds):
-         log_pick         weight_lb vacated_tgt_share     ever_breakout 
-            0.700             0.134             0.122             0.122 
-         vertical   combine_invited         height_in       transferred 
-            0.085             0.084             0.084             0.082 
-   recruit_rating        broad_jump     early_declare              cone 
-            0.082             0.075             0.071             0.063 
+         log_pick vacated_tgt_share       p_rec_share              cone 
+            0.630             0.138             0.123             0.117 
+   recruit_rating         weight_lb         height_in   combine_invited 
+            0.102             0.078             0.055             0.055 
+      transferred             forty        broad_jump    best_dominator 
+            0.053             0.050             0.034             0.017 
  position   n hits_top hits_top2 hits_any inputs nonzero auc_any lambda
        WR 445       39        68       95     34       9   0.854 0.0440
        QB 163       21        32       45     47      13   0.936 0.0523
        RB 298       36        56       78     55      11   0.842 0.0454
-       TE 202       22        42       55     51      18   0.899 0.0370
+       TE 202       14        35       46     51      14   0.901 0.0421
  log_pick_beta log_pick_odds_per_sd log_pick_auc_drop next_auc_drop
         -0.850                0.428            0.2563        0.0068
         -0.965                0.381            0.1991        0.0404
         -1.076                0.341            0.2730        0.0159
-        -0.922                0.398            0.1813        0.0170
+        -0.829                0.437            0.1740        0.0210
  log_pick_shap_share shap_rank_matches_importance_top3
                0.610                             FALSE
                0.391                             FALSE
                0.638                             FALSE
-               0.378                             FALSE
+               0.430                             FALSE
 
 done

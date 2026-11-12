@@ -1,5 +1,5 @@
 position: TE 
-training pool: 997  hits: 21 / 43 / 59  ( TE8 / TE16 / TE24 )
+training pool: 997  hits: 13 / 34 / 47  ( TE6 / TE12 / TE18 )
 Rolling 2016 train 267 test 66 
 Rolling 2017 train 345 test 73 
 Rolling 2018 train 418 test 64 
@@ -22,168 +22,171 @@ LOCO 2020 train 920 test 77
 LOCO 2021 train 956 test 41 
 LOCO 2022 train 913 test 84 
 LOCO 2023 train 896 test 101 
-CV time: 1.4 min
+CV time: 1.3 min
 
 ===== Player-level performance (BSS = Brier skill vs base rate; higher = better) =====
-  scheme model target   n hits    AUC  Brier    BSS LogLoss Gain_top5pct
- Rolling  null    TE8 579   11 0.5941 0.0187 0.0000  0.0951       0.0000
- Rolling  null   TE16 579   26 0.4725 0.0429 0.0000  0.1838       0.0000
- Rolling  null   TE24 579   34 0.4831 0.0554 0.0000  0.2244       0.0000
- Rolling   glm    TE8 579   11 0.9190 0.0184 0.0177  0.0712       0.4545
- Rolling   glm   TE16 579   26 0.8533 0.0406 0.0549  0.1510       0.3462
- Rolling   glm   TE24 579   34 0.8603 0.0491 0.1132  0.1801       0.3235
- Rolling  enet    TE8 579   11 0.9245 0.0174 0.0671  0.0686       0.5455
- Rolling  enet   TE16 579   26 0.8765 0.0373 0.1309  0.1377       0.3846
- Rolling  enet   TE24 579   34 0.8727 0.0458 0.1734  0.1675       0.3529
- Rolling    rf    TE8 579   11 0.8988 0.0179 0.0404  0.0727       0.5455
- Rolling    rf   TE16 579   26 0.8319 0.0389 0.0931  0.1654       0.3846
- Rolling    rf   TE24 579   34 0.8432 0.0500 0.0968  0.1827       0.3529
- Rolling   xgb    TE8 579   11 0.9020 0.0175 0.0635  0.0724       0.3636
- Rolling   xgb   TE16 579   26 0.8498 0.0386 0.1015  0.1446       0.3077
- Rolling   xgb   TE24 579   34 0.8407 0.0488 0.1188  0.1780       0.2647
- Rolling   ens    TE8 579   11 0.9301 0.0170 0.0914  0.0674       0.4545
- Rolling   ens   TE16 579   26 0.8628 0.0374 0.1282  0.1395       0.3462
- Rolling   ens   TE24 579   34 0.8511 0.0471 0.1499  0.1705       0.3529
-    LOCO  null    TE8 997   21 0.2849 0.0207 0.0000  0.1032       0.0000
-    LOCO  null   TE16 997   43 0.3584 0.0413 0.0000  0.1786       0.0000
-    LOCO  null   TE24 997   59 0.3524 0.0558 0.0000  0.2261       0.0169
-    LOCO   glm    TE8 997   21 0.8931 0.0204 0.0150  0.0799       0.4286
-    LOCO   glm   TE16 997   43 0.8741 0.0357 0.1369  0.1338       0.4419
-    LOCO   glm   TE24 997   59 0.8764 0.0468 0.1609  0.1690       0.3729
-    LOCO  enet    TE8 997   21 0.8998 0.0199 0.0380  0.0783       0.3810
-    LOCO  enet   TE16 997   43 0.8828 0.0351 0.1506  0.1302       0.3953
-    LOCO  enet   TE24 997   59 0.8816 0.0452 0.1902  0.1630       0.4237
-    LOCO    rf    TE8 997   21 0.9211 0.0191 0.0739  0.0723       0.3810
-    LOCO    rf   TE16 997   43 0.8498 0.0350 0.1524  0.1400       0.4186
-    LOCO    rf   TE24 997   59 0.8648 0.0459 0.1783  0.1695       0.3390
-    LOCO   xgb    TE8 997   21 0.8846 0.0198 0.0441  0.0811       0.3810
-    LOCO   xgb   TE16 997   43 0.8240 0.0361 0.1265  0.1399       0.3953
-    LOCO   xgb   TE24 997   59 0.8377 0.0467 0.1629  0.1725       0.3729
-    LOCO   ens    TE8 997   21 0.9232 0.0193 0.0670  0.0741       0.3810
-    LOCO   ens   TE16 997   43 0.8665 0.0349 0.1553  0.1321       0.3953
-    LOCO   ens   TE24 997   59 0.8740 0.0452 0.1912  0.1625       0.3729
+  scheme model target   n hits    AUC  Brier     BSS LogLoss Gain_top5pct
+ Rolling  null    TE6 579    8 0.5602 0.0136  0.0000  0.0729       0.0000
+ Rolling  null   TE12 579   20 0.4622 0.0334  0.0000  0.1514       0.0000
+ Rolling  null   TE18 579   26 0.5257 0.0430  0.0000  0.1841       0.0000
+ Rolling   glm    TE6 579    8 0.7758 0.0167 -0.2276  0.0870       0.5000
+ Rolling   glm   TE12 579   20 0.8450 0.0336 -0.0034  0.1279       0.3500
+ Rolling   glm   TE18 579   26 0.8631 0.0415  0.0348  0.1500       0.3462
+ Rolling  enet    TE6 579    8 0.7958 0.0135  0.0091  0.0643       0.5000
+ Rolling  enet   TE12 579   20 0.8579 0.0308  0.0795  0.1187       0.4000
+ Rolling  enet   TE18 579   26 0.8766 0.0368  0.1445  0.1357       0.3846
+ Rolling    rf    TE6 579    8 0.8600 0.0129  0.0551  0.0655       0.6250
+ Rolling    rf   TE12 579   20 0.8033 0.0321  0.0389  0.1478       0.4000
+ Rolling    rf   TE18 579   26 0.8267 0.0394  0.0841  0.1650       0.4231
+ Rolling   xgb    TE6 579    8 0.7846 0.0133  0.0207  0.0652       0.1250
+ Rolling   xgb   TE12 579   20 0.8194 0.0316  0.0559  0.1279       0.3000
+ Rolling   xgb   TE18 579   26 0.8432 0.0391  0.0894  0.1472       0.3077
+ Rolling   ens    TE6 579    8 0.8982 0.0128  0.0591  0.0547       0.5000
+ Rolling   ens   TE12 579   20 0.8251 0.0306  0.0845  0.1220       0.3500
+ Rolling   ens   TE18 579   26 0.8548 0.0374  0.1289  0.1398       0.3462
+    LOCO  null    TE6 997   13 0.2586 0.0129  0.0000  0.0704       0.0000
+    LOCO  null   TE12 997   34 0.3116 0.0330  0.0000  0.1499       0.0000
+    LOCO  null   TE18 997   47 0.3461 0.0450  0.0000  0.1912       0.0000
+    LOCO   glm    TE6 997   13 0.9069 0.0137 -0.0619  0.0544       0.6154
+    LOCO   glm   TE12 997   34 0.8662 0.0295  0.1053  0.1139       0.4706
+    LOCO   glm   TE18 997   47 0.8741 0.0392  0.1287  0.1444       0.3830
+    LOCO  enet    TE6 997   13 0.8646 0.0131 -0.0168  0.0566       0.5385
+    LOCO  enet   TE12 997   34 0.8781 0.0294  0.1097  0.1118       0.3529
+    LOCO  enet   TE18 997   47 0.8833 0.0380  0.1554  0.1388       0.4043
+    LOCO    rf    TE6 997   13 0.9114 0.0121  0.0597  0.0509       0.6923
+    LOCO    rf   TE12 997   34 0.8552 0.0290  0.1215  0.1161       0.4118
+    LOCO    rf   TE18 997   47 0.8610 0.0386  0.1429  0.1455       0.3830
+    LOCO   xgb    TE6 997   13 0.8452 0.0126  0.0203  0.0575       0.4615
+    LOCO   xgb   TE12 997   34 0.8164 0.0302  0.0856  0.1220       0.3529
+    LOCO   xgb   TE18 997   47 0.8391 0.0389  0.1359  0.1473       0.3191
+    LOCO   ens    TE6 997   13 0.9037 0.0123  0.0430  0.0514       0.6154
+    LOCO   ens   TE12 997   34 0.8618 0.0290  0.1211  0.1125       0.4118
+    LOCO   ens   TE18 997   47 0.8740 0.0378  0.1595  0.1398       0.3830
 
 Rolling-origin ranking (mean over the three tiers):
- model   mean_BSS  mean_AUC
-  enet 0.12380000 0.8912333
-   ens 0.12316667 0.8813333
-   xgb 0.09460000 0.8641667
-    rf 0.07676667 0.8579667
-   glm 0.06193333 0.8775333
-chosen model: enet 
+ model    mean_BSS  mean_AUC
+   ens  0.09083333 0.8593667
+  enet  0.07770000 0.8434333
+    rf  0.05936667 0.8300000
+   xgb  0.05533333 0.8157333
+   glm -0.06540000 0.8279667
+chosen model: ens 
 
 ===== Bootstrap (rolling, players resampled; negative = first model better) =====
-TE8    Brier enet - null: -0.00125  95% CI [-0.00648, +0.00393]
-TE8    Brier enet - glm: -0.00092  95% CI [-0.00355, +0.00155]
-TE16   Brier enet - null: -0.00562  95% CI [-0.01486, +0.00368]
-TE16   Brier enet - glm: -0.00326  95% CI [-0.00655, -0.00032]
-TE24   Brier enet - null: -0.00960  95% CI [-0.02008, +0.00121]
-TE24   Brier enet - glm: -0.00333  95% CI [-0.00677, -0.00016]
+TE6    Brier ens - null: -0.00080  95% CI [-0.00236, +0.00049]
+TE6    Brier ens - glm: -0.00391  95% CI [-0.00852, -0.00093]
+TE6    Brier ens - enet: -0.00068  95% CI [-0.00188, +0.00036]
+TE12   Brier ens - null: -0.00283  95% CI [-0.00953, +0.00318]
+TE12   Brier ens - glm: -0.00294  95% CI [-0.00665, +0.00005]
+TE12   Brier ens - enet: -0.00017  95% CI [-0.00255, +0.00203]
+TE18   Brier ens - null: -0.00554  95% CI [-0.01315, +0.00209]
+TE18   Brier ens - glm: -0.00405  95% CI [-0.00832, -0.00042]
+TE18   Brier ens - enet: +0.00067  95% CI [-0.00193, +0.00297]
 
 ===== Class level: expected vs actual hits per class =====
   scheme model target classes actual_mean expected_mean   corr spearman  RMSE
- Rolling  null    TE8       8       1.375         1.841 -0.531   -0.507 0.927
- Rolling  null   TE16       8       3.250         3.217  0.010    0.086 1.483
- Rolling  null   TE24       8       4.250         4.647  0.120    0.135 2.312
- Rolling  enet    TE8       8       1.375         2.066 -0.097   -0.169 1.013
- Rolling  enet   TE16       8       3.250         3.585  0.276    0.136 1.353
- Rolling  enet   TE24       8       4.250         4.900  0.630    0.479 1.846
- Rolling    rf    TE8       8       1.375         1.815 -0.383   -0.394 0.960
- Rolling    rf   TE16       8       3.250         3.322  0.086    0.358 1.506
- Rolling    rf   TE24       8       4.250         4.758  0.314    0.344 2.149
- Rolling   xgb    TE8       8       1.375         1.899 -0.175   -0.282 0.969
- Rolling   xgb   TE16       8       3.250         3.587  0.179    0.247 1.454
- Rolling   xgb   TE24       8       4.250         4.711  0.371    0.454 2.063
- Rolling   ens    TE8       8       1.375         1.927 -0.231   -0.282 0.960
- Rolling   ens   TE16       8       3.250         3.446  0.181    0.296 1.396
- Rolling   ens   TE24       8       4.250         4.688  0.471    0.393 1.967
-    LOCO  null    TE8      14       1.500         1.508 -0.454   -0.626 1.244
-    LOCO  null   TE16      14       3.071         3.077 -0.001    0.029 1.616
-    LOCO  null   TE24      14       4.214         4.221 -0.001    0.032 2.346
-    LOCO  enet    TE8      14       1.500         1.470 -0.155   -0.225 1.163
-    LOCO  enet   TE16      14       3.071         3.070  0.368    0.482 1.383
-    LOCO  enet   TE24      14       4.214         4.237  0.461    0.558 1.952
-    LOCO    rf    TE8      14       1.500         1.574  0.363    0.086 1.001
-    LOCO    rf   TE16      14       3.071         3.287  0.350    0.468 1.457
-    LOCO    rf   TE24      14       4.214         4.466  0.511    0.567 1.889
-    LOCO   xgb    TE8      14       1.500         1.444  0.182    0.123 1.052
-    LOCO   xgb   TE16      14       3.071         2.984  0.412    0.533 1.359
-    LOCO   xgb   TE24      14       4.214         4.099  0.464    0.461 1.935
-    LOCO   ens    TE8      14       1.500         1.496  0.186    0.051 1.052
-    LOCO   ens   TE16      14       3.071         3.087  0.386    0.522 1.375
-    LOCO   ens   TE24      14       4.214         4.214  0.510    0.552 1.892
+ Rolling  null    TE6       8       1.000         1.023 -0.051   -0.109 0.563
+ Rolling  null   TE12       8       2.500         2.659 -0.186   -0.222 1.486
+ Rolling  null   TE18       8       3.250         3.796  0.064    0.198 1.579
+ Rolling  enet    TE6       8       1.000         0.945 -0.315   -0.436 0.689
+ Rolling  enet   TE12       8       2.500         2.870  0.083    0.272 1.415
+ Rolling  enet   TE18       8       3.250         4.078  0.302    0.222 1.559
+ Rolling    rf    TE6       8       1.000         0.974 -0.119   -0.109 0.669
+ Rolling    rf   TE12       8       2.500         2.699 -0.167   -0.124 1.589
+ Rolling    rf   TE18       8       3.250         3.862  0.088    0.358 1.662
+ Rolling   xgb    TE6       8       1.000         0.973  0.042    0.109 0.523
+ Rolling   xgb   TE12       8       2.500         2.889 -0.033    0.049 1.530
+ Rolling   xgb   TE18       8       3.250         3.980  0.217    0.296 1.587
+ Rolling   ens    TE6       8       1.000         0.964 -0.188   -0.109 0.605
+ Rolling   ens   TE12       8       2.500         2.771 -0.053   -0.062 1.468
+ Rolling   ens   TE18       8       3.250         3.886  0.226    0.296 1.505
+    LOCO  null    TE6      14       0.929         0.932 -0.348   -0.311 0.891
+    LOCO  null   TE12      14       2.429         2.435 -0.191   -0.268 1.673
+    LOCO  null   TE18      14       3.357         3.362 -0.017    0.002 1.938
+    LOCO  enet    TE6      14       0.929         0.913 -0.183   -0.234 0.892
+    LOCO  enet   TE12      14       2.429         2.395  0.066    0.074 1.550
+    LOCO  enet   TE18      14       3.357         3.377  0.390    0.441 1.658
+    LOCO    rf    TE6      14       0.929         1.010  0.523    0.313 0.688
+    LOCO    rf   TE12      14       2.429         2.592  0.218    0.268 1.532
+    LOCO    rf   TE18      14       3.357         3.647  0.426    0.466 1.660
+    LOCO   xgb    TE6      14       0.929         0.875  0.117    0.086 0.809
+    LOCO   xgb   TE12      14       2.429         2.346  0.090    0.196 1.578
+    LOCO   xgb   TE18      14       3.357         3.277  0.347    0.390 1.692
+    LOCO   ens    TE6      14       0.929         0.933  0.227    0.225 0.780
+    LOCO   ens   TE12      14       2.429         2.434  0.137    0.282 1.532
+    LOCO   ens   TE18      14       3.357         3.379  0.420    0.600 1.632
 
 per-class detail, LOCO, chosen model:
  class n_pool act1 exp1 act2 exp2 act3 exp3
-  2010     68    4 1.57    5 3.50    8 4.66
-  2011     55    2 0.85    3 2.04    4 2.90
-  2012     61    1 1.08    1 2.26    2 3.26
-  2013     83    3 1.40    5 3.48    6 4.93
-  2014     78    0 1.64    2 3.31    3 4.40
-  2015     73    0 1.40    1 3.16    2 4.61
-  2016     66    1 1.33    2 2.77    2 3.87
-  2017     73    2 1.95    4 3.68    8 4.99
-  2018     64    2 1.37    6 2.88    7 4.10
-  2019     73    1 1.64    3 3.80    4 4.94
-  2020     77    1 1.59    2 3.37    2 4.61
-  2021     41    2 0.84    2 1.86    2 2.82
-  2022     84    1 2.03    4 3.55    5 4.88
-  2023    101    1 1.89    3 3.32    4 4.36
+  2010     68    3 1.24    5 3.06    7 4.17
+  2011     55    1 0.58    3 1.65    3 2.45
+  2012     61    0 0.69    1 1.87    1 2.54
+  2013     83    1 1.19    4 2.98    6 4.07
+  2014     78    0 1.04    1 2.39    3 3.35
+  2015     73    0 0.97    0 2.61    1 3.64
+  2016     66    1 0.87    1 2.21    2 3.02
+  2017     73    2 0.99    3 3.18    4 4.16
+  2018     64    1 0.70    5 1.67    6 2.73
+  2019     73    1 1.03    3 2.94    3 3.89
+  2020     77    0 1.09    1 2.58    2 3.65
+  2021     41    1 0.40    2 1.30    2 1.91
+  2022     84    1 1.13    2 3.03    4 4.03
+  2023    101    1 1.14    3 2.62    3 3.69
 
-===== Top 12 per class, chosen model ( enet ) =====
+===== Top 12 per class, chosen model ( ens ) =====
 class 2024 
-              name                 p_team pick yrs    p1    p2    p3
-      Brock Bowers                Georgia   13   3 0.395 0.714 0.748
-       Ben Sinnott           Kansas State   53   4 0.075 0.185 0.262
- Ja'Tavion Sanders                  Texas  101   3 0.071 0.240 0.247
-       Cade Stover             Ohio State  123   4 0.050 0.142 0.204
-      Theo Johnson             Penn State  107   4 0.033 0.080 0.176
-   Mason Fairchild                 Kansas   NA   5 0.020 0.033 0.070
-       Jaheim Bell          Florida State  231   5 0.017 0.051 0.069
-         Trey Knox         South Carolina   NA   5 0.015 0.035 0.067
-     Cyrus Wallace            Idaho State   NA   3 0.027 0.047 0.066
-       Jared Wiley                    TCU  131   5 0.033 0.033 0.057
-     Dallin Holker         Colorado State   NA   6 0.040 0.046 0.053
-      Owen Glascoe Long Island University   NA   4 0.025 0.043 0.052
+                  name         p_team pick yrs    p1    p2    p3
+          Brock Bowers        Georgia   13   3 0.132 0.427 0.508
+     Ja'Tavion Sanders          Texas  101   3 0.047 0.200 0.288
+           Ben Sinnott   Kansas State   53   4 0.071 0.189 0.274
+           Cade Stover     Ohio State  123   4 0.027 0.110 0.201
+          Theo Johnson     Penn State  107   4 0.008 0.052 0.142
+      Tanner McLachlan        Arizona  194   6 0.002 0.044 0.138
+           Jaheim Bell  Florida State  231   5 0.004 0.044 0.116
+             Trey Knox South Carolina   NA   5 0.005 0.028 0.088
+        Austin Stogner       Oklahoma   NA   5 0.002 0.012 0.082
+         Dallin Holker Colorado State   NA   6 0.027 0.064 0.064
+ David Martin-Robinson         Temple   NA   7 0.005 0.029 0.056
+           Jared Wiley            TCU  131   5 0.013 0.045 0.054
 class 2025 
               name           p_team pick yrs    p1    p2    p3
-     Harold Fannin    Bowling Green   67   4 0.729 0.839 0.839
-      Tyler Warren       Penn State   14   5 0.248 0.488 0.559
-  Colston Loveland         Michigan   10   3 0.275 0.500 0.537
- Jake Briningstool          Clemson   NA   4 0.057 0.140 0.307
- Oronde Gadsden II         Syracuse  165   4 0.112 0.251 0.299
- Terrance Ferguson           Oregon   46   4 0.037 0.149 0.282
-      Mason Taylor              LSU   42   3 0.057 0.189 0.276
-     Thomas Fidone         Nebraska  219   4 0.010 0.104 0.172
-       Gunnar Helm            Texas  120   4 0.037 0.107 0.162
-     Elijah Arroyo            Miami   50   4 0.025 0.057 0.155
-     Holden Willis Middle Tennessee   NA   5 0.109 0.136 0.154
-     Bryson Nesbit   North Carolina   NA   4 0.028 0.089 0.128
+     Harold Fannin    Bowling Green   67   4 0.450 0.575 0.693
+  Colston Loveland         Michigan   10   3 0.239 0.405 0.522
+      Tyler Warren       Penn State   14   5 0.229 0.395 0.510
+      Mason Taylor              LSU   42   3 0.028 0.127 0.291
+ Terrance Ferguson           Oregon   46   4 0.009 0.081 0.275
+ Oronde Gadsden II         Syracuse  165   4 0.064 0.164 0.234
+     Holden Willis Middle Tennessee   NA   5 0.064 0.148 0.223
+ Jake Briningstool          Clemson   NA   4 0.017 0.086 0.198
+      Brant Kuithe             Utah   NA   8 0.043 0.159 0.172
+    Moliki Matavao             UCLA  248   4 0.007 0.071 0.158
+     Thomas Fidone         Nebraska  219   4 0.010 0.055 0.140
+       Gunnar Helm            Texas  120   4 0.019 0.079 0.124
 class 2026 
-            name     p_team pick yrs    p1    p2    p3
-     Eli Stowers Vanderbilt   54   4 0.144 0.402 0.402
-    Kenyon Sadiq     Oregon   16   3 0.133 0.216 0.394
-   Tanner Koziol    Houston  164   5 0.178 0.335 0.335
-       Sam Roush   Stanford   69   4 0.042 0.158 0.261
-     Jaren Kanak   Oklahoma  225   2 0.039 0.200 0.200
-  Dallen Bentley       Utah  256   3 0.071 0.149 0.193
-   Michael Trigg     Baylor   NA   5 0.054 0.095 0.168
-   R.J. Maryland        SMU   NA   4 0.026 0.100 0.168
- Cameron Barmore Mercyhurst   NA   3 0.153 0.153 0.153
-     Justin Joly   NC State  152   4 0.113 0.153 0.153
-     Eli Raridon Notre Dame   95   4 0.015 0.099 0.151
-       Max Klare Ohio State   61   4 0.034 0.128 0.128
+            name         p_team pick yrs    p1    p2    p3
+     Eli Stowers     Vanderbilt   54   4 0.138 0.272 0.488
+   Tanner Koziol        Houston  164   5 0.159 0.288 0.324
+    Kenyon Sadiq         Oregon   16   3 0.049 0.241 0.248
+     Jaren Kanak       Oklahoma  225   2 0.075 0.165 0.190
+ Cameron Barmore     Mercyhurst   NA   3 0.091 0.186 0.186
+       Sam Roush       Stanford   69   4 0.020 0.085 0.162
+       Max Klare     Ohio State   61   4 0.009 0.055 0.151
+ Dae'Quan Wright       Ole Miss   NA   4 0.008 0.038 0.143
+   Michael Trigg         Baylor   NA   5 0.030 0.085 0.141
+     Eli Raridon     Notre Dame   95   4 0.009 0.081 0.129
+    Jack Velling Michigan State   NA   4 0.010 0.034 0.126
+  Dallen Bentley           Utah  256   3 0.047 0.125 0.125
 class 2027 
-             name             p_team pick yrs    p1    p2    p3
-    Luke Reynolds      Virginia Tech   NA   3 0.252 0.373 0.445
-   Jelani Thurman     North Carolina   NA   4 0.151 0.186 0.343
-   Trey'Dez Green                LSU   NA   3 0.051 0.176 0.336
- Patrick Overmyer            Houston   NA   4 0.158 0.253 0.317
-       Eli Finley     Louisiana Tech   NA   4 0.170 0.191 0.312
-       Cade Keith         New Mexico   NA   3 0.159 0.230 0.274
- Willie Rodriguez           Kentucky   NA   3 0.105 0.204 0.233
-     Elija Lofton              Miami   NA   3 0.049 0.119 0.197
-       Caleb Odom           Ole Miss   NA   3 0.045 0.134 0.179
-    Hunter Tipton            Memphis   NA   4 0.085 0.121 0.159
-      Reis Kessel North Dakota State   NA   3 0.080 0.113 0.158
- Andrew Rappleyea         Penn State   NA   4 0.020 0.105 0.157
+             name         p_team pick yrs    p1    p2    p3
+    Luke Reynolds  Virginia Tech   NA   3 0.148 0.311 0.409
+       Eli Finley Louisiana Tech   NA   4 0.128 0.259 0.386
+   Jelani Thurman North Carolina   NA   4 0.133 0.255 0.376
+ Patrick Overmyer        Houston   NA   4 0.123 0.271 0.306
+   Trey'Dez Green            LSU   NA   3 0.022 0.121 0.257
+       Cade Keith     New Mexico   NA   3 0.117 0.215 0.251
+    Hunter Tipton        Memphis   NA   4 0.091 0.139 0.225
+       Caleb Odom       Ole Miss   NA   3 0.018 0.123 0.202
+ Willie Rodriguez       Kentucky   NA   3 0.065 0.141 0.170
+   Jamari Johnson         Oregon   NA   4 0.007 0.059 0.169
+      Rocky Beers       Oklahoma   NA   5 0.046 0.115 0.158
+     Walker Lyons            BYU   NA   4 0.011 0.065 0.158

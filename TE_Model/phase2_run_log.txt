@@ -2,60 +2,52 @@
 ===== Targets =====
 [PASS] one row per drafted TE 
 [PASS] 3-year targets only for classes <= 2023 
-[PASS] hit8 implies hit16 implies hit24 
+[PASS] hit6 implies hit12 implies hit18 
 [PASS] finish sum within [3, 180] 
 rows with a full 3-year target: 202 
- draft_season  n hit24 hit16 hit8 mean_pts zero_pts
-         2010 19     7     5    4      179        1
-         2011 13     5     4    3      133        1
-         2012 12     2     1    1       75        1
-         2013 16     5     4    3      165        1
-         2014 10     3     2    0      123        3
-         2015 19     2     1    0       68        2
-         2016 11     2     2    1       99        3
-         2017 14     6     4    2      162        2
-         2018 15     7     6    2      191        0
-         2019 16     4     3    1      117        2
-         2020 12     1     1    1       87        0
-         2021 11     2     2    2      143        1
-         2022 19     5     4    1      138        0
-         2023 15     4     3    1      156        3
-total top-24 hits: 55  top-16: 42  top-8: 22  top-32: 70 of 202 
-tiers (1 = top 8, 2 = 9-16, 3 = 17-24, 4 = rest):
+ draft_season  n hit18 hit12 hit6 mean_pts zero_pts
+         2010 19     7     5    3      179        1
+         2011 13     4     4    2      133        1
+         2012 12     1     1    0       75        1
+         2013 16     5     4    1      165        1
+         2014 10     3     1    0      123        3
+         2015 19     1     0    0       68        2
+         2016 11     2     1    1       99        3
+         2017 14     4     3    2      162        2
+         2018 15     6     5    1      191        0
+         2019 16     3     3    1      117        2
+         2020 12     1     1    0       87        0
+         2021 11     2     2    1      143        1
+         2022 19     4     2    1      138        0
+         2023 15     3     3    1      156        3
+total top-18 hits: 46  top-12: 35  top-6: 14  top-32: 70 of 202 
+tiers (1 = top 6, 2 = 7-12, 3 = 13-18, 4 = rest):
 
   1   2   3   4 
- 22  20  13 147 
-  grp   n hit24 hit16 hit8 median_finish_sum
-   R1  11  1.00  1.00 0.36              61.0
- R2-3  62  0.47  0.32 0.19             126.5
- R4-7 129  0.12  0.09 0.05             180.0
+ 14  21  11 156 
+  grp   n hit18 hit12 hit6 median_finish_sum
+   R1  11  1.00  0.82 0.27              61.0
+ R2-3  62  0.37  0.29 0.11             126.5
+ R4-7 129  0.09  0.06 0.03             180.0
 
-top-8 hits (name, class, pick, best finish, 3-yr pts):
+top-6 hits (name, class, pick, best finish, 3-yr pts):
  pfr_player_name draft_season pick best_finish_3yr total_pts_3yr
   Rob Gronkowski         2010   42               1           684
     Jimmy Graham         2010   95               1           628
  Aaron Hernandez         2010  113               3           486
-    Dennis Pitta         2010  114               8           270
   Jordan Cameron         2011  102               4           272
    Julius Thomas         2011  129               3           217
-    Charles Clay         2011  174               8           297
-    Coby Fleener         2012   34               8           383
-    Tyler Eifert         2013   21               7           294
-    Travis Kelce         2013   63               7           367
      Jordan Reed         2013   85               3           453
    Austin Hooper         2016   81               6           347
      Evan Engram         2017   23               5           409
    George Kittle         2017  146               2           588
-    Mike Gesicki         2018   42               7           336
     Mark Andrews         2018   86               5           485
   T.J. Hockenson         2019    8               5           401
-       Cole Kmet         2020   43               8           330
       Kyle Pitts         2021    4               6           390
-  Pat Freiermuth         2021   55               7           377
     Trey McBride         2022   55               2           487
      Sam LaPorta         2023   34               1           521
 
-Day 3 (round 4+) top-24 hits:
+Day 3 (round 4+) top-18 hits:
  pfr_player_name draft_season round pick best_finish_3yr
  Aaron Hernandez         2010     4  113               3
     Dennis Pitta         2010     4  114               8
@@ -63,17 +55,14 @@ Day 3 (round 4+) top-24 hits:
    Julius Thomas         2011     4  129               3
     Charles Clay         2011     6  174               8
    Mychal Rivera         2013     6  184              17
-     Jesse James         2015     5  160              22
    George Kittle         2017     5  146               2
-      Ian Thomas         2018     4  101              24
    Chris Herndon         2018     4  107              16
   Dalton Schultz         2018     4  137              12
       Cade Otton         2022     4  106              14
    Jake Ferguson         2022     4  129               9
    Isaiah Likely         2022     4  139              16
-    Chig Okonkwo         2022     4  143              21
 
-finish by NFL year among training TEs (share top-24): y1 0.104  y2 0.173  y3 0.193 
+finish by NFL year among training TEs (share top-18): y1 0.059  y2 0.139  y3 0.153 
 
 ===== Feature coverage (% non-missing) =====
               p_rec           p_rec_yds               p_ypr         p_rec_share 
@@ -170,4 +159,4 @@ within rounds 1-3 only (n = 73 ), Spearman with total_pts_3yr:
 `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 
 saved te_model_table.rds ( 252 rows, 99 cols ), dictionary and 3 plots
-[PASS] Phase 2 ready for Phase 3 (202 training rows, 55 top-24, 42 top-16, 22 top-8)
+[PASS] Phase 2 ready for Phase 3 (202 training rows, 46 top-18, 35 top-12, 14 top-6)

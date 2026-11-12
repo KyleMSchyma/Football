@@ -7,6 +7,11 @@
 suppressMessages({ library(dplyr); library(tidyr); library(glmnet); library(pROC) })
 select <- dplyr::select
 
+# Kyle's TE tier cutoffs (best season-total TE finish in NFL years 1-3): tier 1 = TE1-6, tier 2 = TE7-12,
+#   tier 3 = TE13-18, tier 4 = rest. Changed from 8/16/24 on 2026-11-12: a 12-team league starts 12 TEs, so
+#   TE16/TE24 seasons were below replacement. Column names follow the cutoffs (hit6/hit12/hit18, p_top6/12/18).
+TE_CUT <- c(6L, 12L, 18L)
+
 pre_num  <- c("age_at_draft", "p_rec", "p_rec_yds", "p_rec_td", "p_ypr", "p_rec_share", "p_dominator", "p_ypta",
               "best_dominator", "career_rec_yds", "featured_seasons", "breakout_age_filled", "height_in", "weight_lb",
               "forty", "speed_score", "vertical", "broad_jump", "cone", "recruit_rating")

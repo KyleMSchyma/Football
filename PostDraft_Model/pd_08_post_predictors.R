@@ -5,7 +5,7 @@
 #   QB/RB/TE: *_phase4_finish_tiers.R      WR: wr_phase6_tier_ladder.R
 # an ordinal elastic net (ordinalNet, cumulative logit, alpha 0.5, parallel terms,
 # lambda by class-grouped CV) on college features + combine + age + log(pick) +
-# landing spot. Tiers: QB/RB/TE 8/16/24, WR 12/24/36 (tier 1 = top).
+# landing spot. Tiers: QB/RB 8/16/24, TE 6/12/18, WR 12/24/36 (tier 1 = top).
 # Those scripts don't save the fitted model, so this script refits the final post
 # ladder on every 2010-2023 training row with the exact same features and in-fold
 # preprocessing (median impute + missing flags, standardize on train; WR adds the
@@ -29,7 +29,7 @@ mycols <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#
 OUT <- getwd()
 POS_DIR <- if (dir.exists("../WR_Model")) c(QB = "../QB_Model", RB = "../RB_Model", WR = "../WR_Model", TE = "../TE_Model") else
   c(QB = "../Football2_QB", RB = "../Football2_RB", WR = "../Football2", TE = "../Football2_TE")
-TIERS <- list(QB = c(8, 16, 24), RB = c(8, 16, 24), WR = c(12, 24, 36), TE = c(8, 16, 24))
+TIERS <- list(QB = c(8, 16, 24), RB = c(8, 16, 24), WR = c(12, 24, 36), TE = c(6, 12, 18))
 aucf <- function(y, p) as.numeric(auc(roc(y, p, quiet = TRUE, direction = "<")))
 
 # --- load each position's training table and its exact post-draft preprocessing ---------

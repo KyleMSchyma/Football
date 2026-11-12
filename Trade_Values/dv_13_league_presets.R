@@ -38,7 +38,8 @@ T0_ <- Sys.time(); OUT_ <- list(); SCBT_ <- list()
 
 # ---------- 2027 rookie picks (Kyle 2026-11-12: mocked players from the post-draft model with the mock pick, the rest pre-draft) ----------
 # Each 2027 prospect on the pre-draft board has P(tier 1), P(tier 1-2), P(any tier) for his first three NFL seasons
-# (QB/RB/TE tiers = top 8 / 16 / 24, WR = top 12 / 24 / 36). Tier outcomes are turned into points with what past drafted
+# (QB/RB tiers = top 8 / 16 / 24, TE = top 6 / 12 / 18 since 2026-11-12, WR = top 12 / 24 / 36; the per-tier calibration below
+# is read from pd_player_grades.csv nfl_tier, so it follows whatever cutoffs pd_common.R TIERS sets). Tier outcomes are turned into points with what past drafted
 # players in that tier actually did (classes 2010-2022, seasons 1-4: games per 17, PPG, PPG spread), so
 #   value = sum over tiers of P(tier) x sum_{k=1..4} v^k x games_tier,k x E[(PPG_tier,k + age adj_k - replacement)+]
 # Age adjustment: the aging model's age curve, his age vs the average rookie's age at his position, applied season by season.

@@ -88,11 +88,15 @@ classes with three complete NFL seasons (2010-2023); 2024-2026 are projected.
 | Target | WR | QB | RB | TE |
 |---|---|---|---|---|
 | 3-yr points | `total_ppr_3yr` | `total_pts_3yr` | `total_pts_3yr` | `total_pts_3yr` |
-| Hit flags (any season in yrs 1-3) | `hit_3yr` = top-24 | top-8 / 16 / 24 (also top-12) | top-8 / 16 / 24 | top-8 / 16 / 24 |
+| Hit flags (any season in yrs 1-3) | `hit_3yr` = top-24 | top-8 / 16 / 24 (also top-12) | top-8 / 16 / 24 | top-6 / 12 / 18 (`hit6/hit12/hit18_3yr`) |
 | Finish score | Sum of yearly WR ranks, each capped at 100 (3 best, 300 worst) | Capped at 50 (3-150) | Capped at 60 (3-180) | Capped at 60 (3-180) |
-| Tier ladder (best finish yrs 1-3) | WR1 ≤12 / WR2 13-24 / WR3 25-36 / rest | QB8 / QB16 / QB24 / rest | RB8 / RB16 / RB24 / rest | TE8 / TE16 / TE24 / rest |
+| Tier ladder (best finish yrs 1-3) | WR1 ≤12 / WR2 13-24 / WR3 25-36 / rest | QB8 / QB16 / QB24 / rest | RB8 / RB16 / RB24 / rest | TE6 / TE12 / TE18 / rest |
 
-Kyle's tier cutoffs: QB, RB and TE use 8 / 16 / 24; WR uses 12 / 24 / 36.
+Kyle's tier cutoffs: QB and RB use 8 / 16 / 24; TE uses 6 / 12 / 18; WR uses 12 / 24 / 36. The TE
+cutoffs were 8 / 16 / 24 until 2026-11-12; Kyle moved them because a 12-team league starts
+only 12 TEs, so TE16 and TE24 seasons were below replacement. They are a per-position
+setting: `TE_CUT` in `TE_Model/te_common.R`, `TIERS` in `PreDraft_Model/pd_common.R` (and
+the copies in `pd_08` / `pd_09`), and the site pages' `TIER` object.
 
 Base rates in the training classes:
 
@@ -101,7 +105,7 @@ Base rates in the training classes:
 | WR | 445 | 39 WR1 | 68 WR2+ (top-24) | 95 WR3+ | Top-24 hit: R1 55%, R2 27%, R3 19%, R4 3%, R5 9%, R6 1%, R7 0% |
 | QB | 163 | 21 top-8 | 32 top-16 | 45 top-24 | Top-24: R1 67%, R2-3 38%, R4-7 5% |
 | RB | 298 | 36 top-8 | 56 top-16 | 78 top-24 | (see README) |
-| TE | 202 | 22 top-8 | 42 top-16 | 55 top-24 | Top-24: every R1 TE (11 of 11), R2-3 47%, R4-7 12% |
+| TE | 202 | 14 top-6 | 35 top-12 | 46 top-18 | Top-18: every R1 TE (11 of 11), R2-3 37%, R4-7 9% (old 8/16/24: 22 / 42 / 55 hits; no TE6 hit at all in 2012, 2014, 2015, 2020) |
 
 The WR finish score has a spike: 48.3% of WRs never post a top-100 season (score 300).
 Its Spearman correlation with 3-yr PPR is -0.924 (QB -0.948, RB -0.926), so it mostly
@@ -377,14 +381,15 @@ pick +0.008 [+0.001, +0.016] (significantly worse); two-step post − single pos
 | Target | Pick-only | Post EN | Pre EN |
 |---|---|---|---|
 | 3-yr PPR Spearman / RMSE | 0.667 / 108.8 | 0.558 / 114.2 | 0.200 / 136.4 |
-| Top-24 AUC / Brier | 0.866 / 0.124 | 0.816 / 0.138 | 0.698 / 0.184 |
-| Top-16 AUC / Brier | 0.865 / 0.108 | 0.833 / 0.118 | 0.732 / 0.155 |
-| Top-8 AUC / Brier | 0.889 / 0.070 | 0.713 / 0.079 | 0.680 / 0.082 |
+| Top-18 AUC / Brier | 0.861 / 0.111 | 0.822 / 0.120 | 0.709 / 0.160 |
+| Top-12 AUC / Brier | 0.872 / 0.100 | 0.816 / 0.115 | 0.676 / 0.139 |
+| Top-6 AUC / Brier | 0.875 / 0.055 | 0.763 / 0.064 | 0.669 / 0.066 |
 | Finish score Spearman | 0.676 | 0.580 | 0.245 |
-| Ladder RPS / AUC TE8 / TE24 | 0.102 / 0.887 / 0.867 | 0.111 / 0.859 / 0.821 | 0.138 / 0.751 / 0.691 |
+| Ladder RPS / AUC TE6 / TE18 | 0.087 / 0.864 / 0.864 | 0.096 / 0.830 / 0.819 | 0.119 / 0.718 / 0.702 |
 
-Bootstrap: points RMSE post − pick +5.4 [−1.5, +13.2]; top-24 Brier +0.014 [−0.008, +0.036];
-ladder RPS post − pick +0.009 [−0.001, +0.020]; pre − pick +0.036 [+0.016, +0.057];
+Bootstrap: points RMSE post − pick +5.4 [−1.5, +13.2]; top-18 Brier +0.009 [−0.007, +0.025];
+top-6 Brier +0.009 [+0.002, +0.019] (significantly worse);
+ladder RPS post − pick +0.010 [+0.000, +0.019] (just significant); pre − pick +0.032 [+0.014, +0.054];
 two-step post − pick RMSE +3.0 [+0.3, +5.7].
 
 **Conclusion across positions.** At the draft, draft slot carries nearly all the
@@ -464,9 +469,9 @@ p_ypta +9.3; age_at_draft −5.7; speed_score +2.5.
 forty −75.4; cone −36.0; transferred −33.8; vacated_tgt_share +21.3; p_rec_share +16.7;
 recruit_rating +10.5.
 
-**TE, post-draft, top-24 (log-odds):** intercept 11.34; recruit_rating +4.09; log_pick
-−1.60; transferred −0.87; cone −0.54; early_declare +0.32; best_dominator +0.27;
-vacated_tgt_share +0.20.
+**TE, post-draft, top-18 (log-odds):** intercept 15.45; recruit_rating +7.13; cone −1.68;
+log_pick −1.47; transferred −0.72; forty −0.48; best_dominator +0.47; p_rec_share +0.43;
+na_weight_lb −0.30; na_height_in −0.30; combine_invited +0.30; vacated_tgt_share +0.28.
 
 ### 2.8 Value score and hidden talent
 
@@ -485,8 +490,8 @@ vacated_tgt_share +0.20.
   18th of 22, Hunter Renfrow 15th of 15, Puka Nacua 15th of 19.
 - **RB Day 3:** 117 backs, 12 top-24 hits; top 3 per class by post hidden score caught 1,
   pre hidden 0, earliest picks 4, random 2.2.
-- **TE Day 3:** 68 TEs, 8 top-24 hits; top 2 per class by hidden score caught 2-3,
-  earliest picks 3, random 1.4.
+- **TE Day 3:** 68 TEs, 6 top-18 hits; top 2 per class by hidden score caught 2,
+  earliest picks 2, random 1.0.
 - **QB rounds 2-7:** 68 QBs, 9 top-24; top 3 per class: post hidden 4, pre hidden 5,
   post P 5, earliest pick 5, random 3.3.
 
@@ -501,7 +506,7 @@ limited: the data exist only for 2014+ classes.
 
 **Population.** Drafted players who played as rookies (WR: classes 2013-2023 because snap
 counts start in 2013, 291 training rows; QB 161; RB 296; TE as in README). Targets: best
-finish in years 2-3 as tier hits (WR: WR2+ / WR3+; QB/RB/TE: top-8/16/24) and points in
+finish in years 2-3 as tier hits (WR: WR2+ / WR3+; QB/RB: top-8/16/24; TE: top-6/12/18) and points in
 years 2-3.
 
 **Features (all known at the end of the rookie regular season).**
@@ -541,15 +546,15 @@ usage elastic net (α 0.5) on all features, with nested probabilities.
 | RB (n = 171) | Pick-only | 0.820 | 0.144 | RMSE pts 154.2 |
 | | Pick + rookie pts | 0.862 | 0.126 | 138.5 |
 | | Usage EN | 0.847 | 0.133 | 136.2 |
-| TE (n = 113) | Pick-only | 0.868 | 0.115 | RMSE pts 87.9 |
-| | Pick + rookie pts | 0.939 | 0.089 | 82.7 |
-| | Usage EN | 0.925 | 0.103 | 83.9 |
+| TE (n = 113, TE18) | Pick-only | 0.856 | 0.110 | RMSE pts 87.9 |
+| | Pick + rookie pts | 0.925 | 0.088 | 82.7 |
+| | Usage EN | 0.901 | 0.101 | 83.9 |
 
-*For WRs the column is WR3+ (top-36). WR2+ AUC: 0.787 / 0.923 / 0.915.
+*For WRs the column is WR3+ (top-36), for TEs top-18. WR2+ AUC: 0.787 / 0.923 / 0.915.
 
 Bootstrap (usage − rookie points, rolling): WR Brier WR3+ −0.0043 [−0.0143, +0.0053]
 (tie); QB Brier top-24 −0.033 [−0.064, −0.004] (usage significantly better); RB +0.007
-[−0.004, +0.018] (tie); TE +0.014 [+0.003, +0.026] (usage significantly worse). Usage −
+[−0.004, +0.018] (tie); TE (top-18) +0.013 [+0.002, +0.025] (usage significantly worse). Usage −
 pick-only: WR −0.048 [−0.077, −0.019]; QB −0.052 [−0.094, −0.012]; RB points RMSE −18.0
 [−27.8, −7.2].
 
@@ -581,11 +586,11 @@ pick + year-2 points, pick + year-1 + year-2 points.
 | WR3+ (n = 235) | 0.793 / 0.117 | 0.916 / 0.087 | 0.928 / 0.078 | 0.905 / 0.078 |
 | QB top-24 (n = 94) | 0.863 / 0.097 | 0.990 / 0.032 | 0.989 / 0.034 | 0.985 / 0.043 |
 | RB top-24 (n = 171) | 0.820 / 0.118 | 0.944 / 0.084 | 0.940 / 0.085 | 0.933 / 0.092 |
-| TE top-24 (n = 113) | 0.800 / 0.126 | 0.906 / 0.095 | 0.908 / 0.099 | 0.905 / 0.102 |
+| TE top-18 (n = 113) | 0.795 / 0.103 | 0.884 / 0.084 | 0.886 / 0.088 | 0.878 / 0.087 |
 
 Year-2 points dominate at every position; the usage model ties them (e.g. WR Brier vs y1+y2
-points −0.001 [−0.010, +0.007]; RB vs y2 points +0.008 [−0.001, +0.016]; TE +0.007
-[−0.010, +0.022]). RB usage is slightly better at the RB8 end (AUC 0.949 vs 0.916), not
+points −0.001 [−0.010, +0.007]; RB vs y2 points +0.008 [−0.001, +0.016]; TE (top-18) +0.003
+[−0.009, +0.014]). RB usage is slightly better at the RB8 end (AUC 0.949 vs 0.916), not
 significant.
 
 Final usage coefficients (top-24, log-odds):
@@ -604,7 +609,7 @@ Final usage coefficients (top-24, log-odds):
 | WR | 360 (76.1% college-matched; pick = 262 sentinel, round 8) | 8 WR3+: Victor Cruz, Josh Gordon, Robbie Chosen, Allen Hurns, Tyrell Williams, Jakobi Meyers, Willie Snead, Rod Streater | No conclusion changes; pre-draft model still ranks UDFA hits low (Chosen 19th of 52, Meyers 29th of 51) |
 | QB | 38 | 0 top-24 (Kyle Allen best, QB28) | Usage AUC 0.955 → 0.958 |
 | RB | 199 (183 with 3 seasons) | 8 top-24, 2 top-8 (Austin Ekeler, James Robinson); 4.4% vs 10.9% for rounds 4-7 | Year-2 usage AUC 0.847 → 0.859 |
-| TE | 161 with three seasons | 7 top-24, 1 top-8 (Cameron Brate); 4.3% vs 11.6% for rounds 4-7 | Year-2 usage Brier 0.103 → 0.095 |
+| TE | 161 with three seasons | 4 top-18, 0 top-6 (TE6/12/18 tiers; under 8/16/24 it was 7 top-24 and 1 top-8, Cameron Brate) | Year-2 usage Brier (top-18) 0.101 → 0.099 |
 
 ### 2.12 Buy / sell lists (`*_summary_lists.R`)
 
@@ -614,7 +619,7 @@ No new modeling; rules on the boards.
   stashes = top pre-draft value gaps among rounds 4-7.
 - **Year 2 buys (WR):** usage edge (P_usage − P_rookie-pts for WR3+) ≥ +0.03, or P(WR3+) ≥
   0.40 with a rookie finish worse than WR36; P ≥ 0.10. **RB/TE:** usage edge ≥ +0.05 with
-  P(top-24) ≥ 0.15, or P ≥ 0.40 with a rookie finish worse than 24th; edge > −0.05.
+  P(top-24; TE top-18) ≥ 0.15, or P ≥ 0.40 with a rookie finish worse than 24th (TE 18th); edge > −0.05.
 - **Year 2 sells (WR):** rookie finish ≤ WR60 and (usage edge ≤ −0.03, or last-6 snaps
   < 50%, or falling target share, or TDs ≥ 30% of PPR). **RB/TE:** rookie finish ≤ 36 and
   edge < 0 and (edge ≤ −0.05, or last-6 snaps 5+ points below the season average, or TDs
@@ -654,9 +659,9 @@ P(tier hit | college profile), which includes the chance he is never drafted.
   7,932 → 4,684 (519 of 520); TE 3,969 → 2,804 → 1,752 (239 of 240).
 - **Training pool (2010-2023, outcome known), as used in Phase 2:** QB 882 (hits 20 / 31 /
   44 for QB8/16/24), RB 1,618 (36 / 58 / 81), WR 2,765 (39 / 68 / 95 for WR12/24/36), TE
-  997 (21 / 43 / 59). (The README lists slightly larger counts from an earlier run.)
+  997 (13 / 34 / 47 for TE6/12/18; 21 / 43 / 59 under the old 8/16/24). (The README lists slightly larger counts from an earlier run.)
 - **Pool keeps the hitters:** QB 44 of 45 drafted QB24 hitters, RB 77 of 78, WR 91 of 95,
-  TE 54 of 55.
+  TE 45 of 46 TE18 hitters.
 - **Outcomes:** drafted players from the four rookie models; UDFAs rebuilt from weekly
   data and matched to college by name + school (813 UDFAs with fantasy points, 609
   matched). Non-NFL players are misses once three seasons would have passed.
@@ -757,17 +762,18 @@ Rolling results (mean over thresholds):
 | QB (n = 515) | 0.261 / 0.908 | 0.229 / 0.892 | 0.167 / 0.869 | 0.179 / 0.861 | 0.139 / 0.870 | **enet** |
 | RB (n = 973) | 0.235 / 0.905 | 0.212 / 0.896 | 0.185 / 0.876 | 0.172 / 0.873 | 0.188 / 0.869 | **enet** |
 | WR (n = 1,636) | 0.124 / 0.875 | 0.118 / 0.868 | 0.128 / 0.854 | 0.106 / 0.856 | 0.069 / 0.852 | **glm** |
-| TE (n = 579) | 0.124 / 0.891 | 0.123 / 0.881 | 0.062 / 0.878 | 0.077 / 0.858 | 0.095 / 0.864 | **enet** |
+| TE (n = 579, TE6/12/18) | 0.078 / 0.843 | 0.091 / 0.859 | −0.065 / 0.828 | 0.059 / 0.830 | 0.055 / 0.816 | **ens** (was enet, 0.124 / 0.891, under TE8/16/24) |
 
 Chosen model, per threshold (rolling): QB8 AUC 0.883 / BSS 0.145; QB16 0.927 / 0.300; QB24
 0.915 / 0.339. RB8 0.914 / 0.203; RB16 0.880 / 0.209; RB24 0.922 / 0.294. WR12 0.806 /
-0.053; WR24 0.868 / 0.146; WR36 0.889 / 0.185. TE8 0.925 / 0.067; TE16 0.877 / 0.131; TE24
-0.873 / 0.173.
+0.053; WR24 0.868 / 0.146; WR36 0.889 / 0.185. TE6 (ens) 0.898 / 0.059; TE12 0.825 / 0.085; TE18
+0.855 / 0.129 (only 8 TE6 hits in the rolling test years; the elastic net ranked them at AUC 0.80).
 
 Bootstrap (rolling): QB24 Brier enet − null −0.0168 [−0.0279, −0.0065], enet − glm −0.0045
 [−0.0096, +0.0001]; RB24 enet − null −0.0146 [−0.0214, −0.0086]; WR36 glm − null −0.0064
 [−0.0102, −0.0030], glm − enet +0.00003 [−0.0017, +0.0019] (a tie; the simpler model wins
-the selection rule); TE24 enet − glm −0.0033 [−0.0068, −0.0002].
+the selection rule); TE18 ens − enet +0.0007 [−0.0019, +0.0030] (a tie), ens − glm −0.0041
+[−0.0083, −0.0004]; TE6 ens − enet −0.0007 [−0.0019, +0.0004].
 
 Why the trees lost: with 20-95 hits per position the signal is mostly monotone and
 additive (more production, younger, better recruit, Power 5), which a penalized linear
@@ -802,7 +808,11 @@ power5 +1.08, yrs_since_hs −0.73, p_rec_yds +0.0020. Worked reading: each extr
 of high school multiplies the odds by e^−0.77 ≈ 0.46; 500 more primary-season receiving
 yards multiplies them by e^(0.0032·500) ≈ 5.0.
 
-**TE (elastic net).** Any tier (TE24), base rate 0.059: intercept −9.30; recruit_rating
+**TE (ensemble since 2026-11-12: average of the elastic net, random forest and xgboost).** No
+single coefficient set. Top inputs by permutation importance: career_rec_yds, best_dominator,
+recruit_rating, p_dominator, p_rec, yrs_since_hs; PDP (5th → 95th pct) career receiving
+yards 112 → 1,446 moves P(TE18) 3.6% → 9.7%, recruiting 0.74 → 0.96 moves it 3.2% → 9.0%.
+The old elastic net under TE8/16/24 was: any tier (TE24), base rate 0.059: intercept −9.30; recruit_rating
 +7.56; p_ypta +0.84; na_p_rec_share +0.57; na_p_ypr +0.55; transferred −0.48;
 best_dominator +0.39; p_rec_share +0.35; final_short −0.35; yrs_since_hs −0.32;
 featured_seasons +0.32; power5 +0.31; college_seasons −0.21; p_rec_td +0.089. Top tier
@@ -860,7 +870,7 @@ Results:
 
 Class-level validation (LOCO 2010-2023, 14 classes), correlation of expected vs actual
 tier points: QB 0.224 (permutation p 0.219), RB 0.326 (p 0.127), WR 0.477 (p 0.040), TE
-0.314 (p 0.132), all positions combined 0.518 (Spearman 0.597). Trust the overall grade
+0.256 (p 0.175), all positions combined 0.522 (Spearman 0.597). Trust the overall grade
 more than any single position's.
 
 ### 3.10 All-time pre-draft player grades (`pd_06_player_grades.R`)
@@ -880,7 +890,7 @@ Validation (drafted 2010-2023):
 - Any-tier hit rate: about 59% for A-range grades, 31% for B, 14% for C-range and below.
   C, D and F hit at about the same rate, so the grade separates the top, not the bottom.
 - AUC, grade vs pick vs both: QB24 0.773 / 0.874 / 0.897; RB24 0.714 / 0.822 / 0.825; WR36
-  0.717 / 0.849 / 0.848; TE24 0.716 / 0.858 / 0.864.
+  0.717 / 0.849 / 0.848; TE18 0.698 / 0.851 / 0.853 (TE6 0.752 / 0.795 / 0.797).
 - Nested logistic `hit ~ log(pick)` vs `hit ~ log(pick) + grade` (likelihood-ratio test):
   the grade adds significantly only for QBs (QB16 p = 0.018, QB24 p = 0.004; AIC 126 →
   120). RB, WR and TE p-values 0.16-0.93.
@@ -911,13 +921,13 @@ Lives in its own folder (`PostDraft_Model/`, PC `Football2_PostDraft`). It reads
 
 Validation (players with both grades, 2010-2023):
 
-- Any-tier hit rate by grade band, pre → post: A 59% → 69%, B 31% → 35%, C 14% → 9%,
+- Any-tier hit rate by grade band, pre → post: A 59% → 66%, B 28% → 34%, C 14% → 10%,
   D/F 13% → 4%.
 - AUC pre / pick only / post: QB24 0.773 / 0.874 / 0.905; RB24 0.714 / 0.822 / 0.790; WR36
-  0.717 / 0.849 / 0.833; TE24 0.717 / 0.858 / 0.828. The post model beats pick-only only for
+  0.717 / 0.849 / 0.833; TE18 0.699 / 0.851 / 0.814 (TE6 0.752 / 0.795 / 0.747). The post model beats pick-only only for
   QBs; for RB, WR and TE draft slot alone is slightly better.
 - Spearman with 3-year PPR points, pre → post: QB 0.39 → 0.67, RB 0.44 → 0.64, WR 0.36 →
-  0.61, TE 0.33 → 0.63. Spearman between pre and post scores 0.53-0.68.
+  0.61, TE 0.31 → 0.61. Spearman between pre and post scores 0.53-0.68.
 - Within-class Spearman (score vs tier, averaged over 14 classes), pre → post: QB 0.45 →
   0.61, RB 0.32 → 0.51, WR 0.31 → 0.49, TE 0.35 → 0.51. Class-total correlations are noisy
   (14 classes) and not reported as evidence.
@@ -956,8 +966,8 @@ Outputs: `pd_post_player_grades.csv`, `pd_post_grade_validation.csv`,
 
 ## 5. Known caveats
 
-1. **Small samples.** 14 training classes; 20-40 top-tier hits per position. TE8 (22
-   hits) and QB tiers are noisy. Single-position class grades are noisy.
+1. **Small samples.** 14 training classes; 20-40 top-tier hits per position. TE6 (14
+   hits, none in four of the 14 classes, 8 in the rolling test years) and QB tiers are noisy. Single-position class grades are noisy.
 2. **College coverage.** cfbd is unusable before 2008 (classes start 2010) and logs FCS
    players only in games vs FBS teams before 2022. Some FBS players are missing entirely
    (Todd Gurley, LaMichael James, Anthony Dixon) or partial (Duke Johnson; Ray Davis 2023;

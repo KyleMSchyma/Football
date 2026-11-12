@@ -16,7 +16,7 @@ much. Back to the [Post-Draft README](README.md). For the college-only version, 
   training rows; WR also uses the athletic PCA of forty, vertical, broad jump and speed
   score).
 - **Target:** best PPR finish in NFL years 1-3 as an ordered tier: top, middle, bottom or
-  none (QB/RB/TE 8/16/24, WR 12/24/36). One set of coefficients covers all three cut points
+  none (QB/RB 8/16/24, TE 6/12/18, WR 12/24/36). One set of coefficients covers all three cut points
   (parallel terms), so an input's effect is the same for "top tier" and "any tier". The
   probabilities below are P(any tier).
 - **Permutation importance:** how much the in-sample AUC for P(any tier) drops when one input
@@ -41,7 +41,7 @@ much. Back to the [Post-Draft README](README.md). For the college-only version, 
 | WR | Ordinal elastic net | 445 | 39 / 68 / 95 | 9 of 34 | 0.85 |
 | QB | Ordinal elastic net | 163 | 21 / 32 / 45 | 13 of 47 | 0.94 |
 | RB | Ordinal elastic net | 298 | 36 / 56 / 78 | 11 of 55 | 0.84 |
-| TE | Ordinal elastic net | 202 | 22 / 42 / 55 | 18 of 51 | 0.90 |
+| TE | Ordinal elastic net | 202 | 14 / 35 / 46 (TE6/12/18) | 14 of 51 | 0.90 |
 
 "Inputs" counts model columns, including missing-value flags and the two WR athletic
 components.
@@ -59,7 +59,7 @@ At every position, log(pick) is the biggest input by a wide margin. Shuffling it
 | WR | x0.43 | x2.5 in pick number | 0.256 vs 0.007 | 61% | 64% / 38% / 17% / 10% |
 | QB | x0.38 | x5.2 in pick number | 0.199 vs 0.040 | 39% | 44% / 30% / 19% / 14% |
 | RB | x0.34 | x2.2 in pick number | 0.273 vs 0.016 | 64% | 88% / 61% / 26% / 13% |
-| TE | x0.40 | x2.0 in pick number | 0.181 vs 0.017 | 38% | 85% / 58% / 26% / 13% |
+| TE | x0.44 | x2.0 in pick number | 0.174 vs 0.021 | 43% | 78% / 49% / 21% / 11% |
 
 The college profile adds the most for QBs (completion % and rushing) and the least for WRs,
 where only small age and athleticism effects survive once the pick is known. This matches
@@ -181,39 +181,38 @@ and became a starter young.
 
 ## Tight ends
 
-**In one line:** an early pick with a strong recruiting pedigree, a lighter, more athletic
-frame, and an open target share, who didn't transfer.
+**In one line:** an early pick with a strong recruiting pedigree, an open target share and
+a real share of his college team's catches, who didn't transfer. (Tiers TE6 / TE12 / TE18
+since 2026-11-12; 14 / 35 / 46 hits in 2010-2023.)
 
 | Rank | Input | AUC drop | Odds per SD (any tier) |
 |---|---|---|---|
-| 1 | Draft pick (log) | 0.181 | x0.40 |
-| 2 | Transferred | 0.017 | x0.83 (see note) |
-| 3 | Recruiting rating | 0.012 | x1.16 |
-| 4 | Weight | 0.009 | x0.89 (missing flag x0.88) |
-| 5 | Vacated target share | 0.005 | x1.15 |
-| 6 | Broad jump | 0.004 | missing flag only, x1.08 (see note) |
-| 7 | Vertical jump | 0.004 | x1.13 |
-| 8 | Height | 0.002 | missing flag only, x0.88 |
-| 9 | Ever broke out | 0.002 | x1.13 |
-| 10 | Featured seasons | 0.001 | x1.05 |
+| 1 | Draft pick (log) | 0.174 | x0.44 |
+| 2 | Recruiting rating | 0.021 | x1.20 |
+| 3 | Vacated target share | 0.014 | x1.17 |
+| 4 | Transferred | 0.013 | x0.89 (see note) |
+| 5 | 3-cone | 0.013 | x0.82 (faster is better) |
+| 6 | Share of team catches | 0.011 | x1.18 |
+| 7 | Weight | 0.008 | x0.94 (missing flag x0.92) |
+| 8 | Broad jump | 0.003 | missing flag only, x1.04 |
+| 9 | Height | 0.003 | missing flag only, x0.92 |
+| 10 | 40-yard dash | 0.002 | x0.93 (faster is better) |
 
 - **Recruiting pedigree survives the draft.** It is the one college input the TE model keeps
-  from its pre-draft version: a rating from 0.77 to 0.98 moves P(TE24) from 21% to 32% at
-  the same pick.
-- **"Transferred" ranks 2nd on a tiny sample.** Only 10 of 202 drafted TEs transferred, and
-  none of them hit. The PDP (27% vs 16%) is real in the data, but 10 players is too few to
-  trust. Treat it as a small-sample artifact.
-- **Combine missing flags carry real weight here.** Missing height and weight (x0.88, set
-  for 27 TEs who weren't measured, none of whom hit) is a "wasn't invited or didn't test"
-  signal. A missing broad jump is a small plus (x1.08), which reflects which TEs chose to
-  skip that drill. Both say more about combine attendance than about the players.
-- **Lighter and bouncier is better at the same pick:** x0.89 per SD of weight and x1.13 per
-  SD of vertical. Receiving TEs score fantasy points; blocking TEs get drafted for other
-  reasons.
-- **Open targets help:** x1.15 per SD of vacated target share, the biggest landing-spot
-  effect of the four positions.
-- The TE model has the smallest sample (22 top-8 hits), so these effects are the least
-  certain of the four.
+  strongly from its pre-draft version: a rating from 0.77 to 0.98 moves P(TE18) from 16% to
+  28% at the same pick.
+- **Open targets help:** vacated target share from 0 to 1 moves P(TE18) from 20% to 26%,
+  still the biggest landing-spot effect of the four positions.
+- **"Transferred" is a small-sample artifact.** Only 10 of 202 drafted TEs transferred, and
+  none of them hit. Don't read much into it.
+- **Combine missing flags** (height, weight, broad jump) say more about combine attendance
+  than about the players.
+- **Athleticism and role:** a quicker 3-cone and forty and a bigger college catch share all
+  help at the same pick. Receiving TEs score fantasy points; blocking TEs get drafted for
+  other reasons.
+- The TE model has the smallest sample (14 top-6 hits), so these effects are the least
+  certain of the four. Draft pick alone: pick 10 gives P(TE18) 0.78, pick 32 0.49, pick 64
+  0.31, pick 100 0.21, pick 150 0.15.
 
 ![TE permutation importance](plot_post_TE_importance.png)
 ![TE PDP and ICE](plot_post_TE_pdp_ice.png)

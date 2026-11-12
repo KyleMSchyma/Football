@@ -3,8 +3,8 @@
 #   usage: Rscript pd_02_models.R QB   (one position per run, so they run in parallel)
 #
 # Targets (each a 0/1 per pool player, classes 2010-2023):
-#   y1 = top tier (QB8 / RB8 / WR12 / TE8 season in NFL years 1-3)
-#   y2 = top two tiers (QB16 / RB16 / WR24 / TE16), y3 = any tier (QB24 / RB24 / WR36 / TE24)
+#   y1 = top tier (QB8 / RB8 / WR12 / TE6 season in NFL years 1-3)
+#   y2 = top two tiers (QB16 / RB16 / WR24 / TE12), y3 = any tier (QB24 / RB24 / WR36 / TE18)
 # Candidate models (ATPA 4.5-style comparison, all on the same leakage-safe matrix):
 #   null      training base rate
 #   glm       logistic regression on 5 hand-picked inputs (production share, volume,

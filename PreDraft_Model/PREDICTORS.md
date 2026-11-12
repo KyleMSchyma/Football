@@ -6,7 +6,7 @@ This page explains which college inputs matter most in each position's pre-draft
 **How to read it**
 
 - **Target:** a season in NFL years 1-3 at the top tier, the top two tiers, or any tier
-  (QB/RB/TE 8/16/24, WR 12/24/36). The effects below are for the any-tier model unless a
+  (QB/RB 8/16/24, TE 6/12/18, WR 12/24/36). The effects below are for the any-tier model unless a
   tier is named.
 - **Permutation importance:** how much the model's AUC on the training pool drops when one input is
   shuffled (its missing-value flag is shuffled with it). A bigger drop means the model
@@ -31,7 +31,7 @@ This page explains which college inputs matter most in each position's pre-draft
 | WR | Logistic regression, 5 inputs | 2,785 | 39 / 68 / 95 |
 | QB | Elastic net, 23 inputs | 882 | 20 / 31 / 44 |
 | RB | Elastic net, 24 inputs | 1,618 | 36 / 58 / 81 |
-| TE | Elastic net, 20 inputs | 997 | 21 / 43 / 59 |
+| TE | Ensemble (average of elastic net, random forest and xgboost), 20 inputs | 997 | 13 / 34 / 47 (TE6/12/18) |
 
 ---
 
@@ -144,33 +144,39 @@ season cut short.
 
 ## Tight ends
 
-**In one line:** a highly recruited, young TE who was a real part of the passing game
-(yards per team pass attempt) over several seasons.
+**In one line:** a young, highly recruited TE with a long, productive receiving career who
+was a real part of his team's passing game.
 
-| Rank | Input | AUC drop | Odds per SD (any tier) |
+Since the 2026-11-12 switch to TE6 / TE12 / TE18 tiers, the chosen TE model is the
+ensemble (simple average of the elastic net, random forest and xgboost) instead of the
+elastic net: it had the best rolling Brier skill averaged over the three tiers (0.091 vs
+0.078; AUC 0.859 vs 0.843), mostly because the elastic net ranked the 8 rolling-test TE6
+hits worse (AUC 0.80 vs 0.90). The two are a statistical tie on TE18 Brier (ens − enet
++0.0007, CI [−0.0019, +0.0030]). An average of three models has no single coefficient, so
+this section shows importance, SHAP and PDP instead of odds per SD.
+
+| Rank | Input | AUC drop | Mean \|SHAP\| (xgboost part) |
 |---|---|---|---|
-| 1 | Recruiting rating | 0.026 | x1.4 |
-| 2 | Years out of high school | 0.023 | x0.73 |
-| 3 | Receiving yards per team pass attempt, primary season | 0.012 | x1.5 |
-| 4 | College seasons | 0.011 | x0.83 |
-| 5 | Career receiving yards | 0.008 | x1.2 (x1.6-1.7 for TE8 / TE16) |
-| 6 | Share of team catches | 0.005 | x1.2 (top tiers) |
-| 7 | Short final season | 0.003 | x0.88 |
-| 8 | Power 5 school | 0.003 | x1.2 |
-| 9 | Yards per catch | 0.002 | small |
-| 10 | Transferred | 0.002 | x0.87 |
+| 1 | Career receiving yards | 0.010 | 0.58 |
+| 2 | Best-season dominator | 0.010 | 0.09 |
+| 3 | Recruiting rating | 0.009 | 0.26 |
+| 4 | Dominator, primary season | 0.005 | small |
+| 5 | Receptions, primary season | 0.005 | 0.10 |
+| 6 | Years out of high school | 0.005 | 0.20 |
+| 7 | Yards per catch | 0.004 | 0.09 |
+| 8 | College seasons | 0.004 | 0.11 |
+| 9 | Receiving yards, primary season | 0.003 | 0.15 |
+| 10 | Share of team catches | 0.003 | 0.10 |
 
-- **TE is the one position where pedigree beats production.** Recruiting rating from 0.74
-  to 0.96 moves P(TE24) from 3.1% to 11.1%. Tight ends develop late, and the recruiting
-  services' read on size and athleticism carries information the box score doesn't.
-- **Youth matters:** 3 to 6 years out of high school cuts P(TE24) from 8.0% to 3.8%.
-- **Yards per team pass attempt** is the best production measure. It captures how much of
-  the passing game ran through him, independent of how much his team threw. Going from
-  0.19 to 1.73 moves P(TE24) from 3.1% to 9.2%.
-- **For the top tiers (TE8, TE16),** career receiving yards take over as the biggest
-  effect (x1.6 to x1.7 per SD).
-- The TE model has the smallest sample (21 top-8 hits), so these effects are the least
-  certain of the four positions.
+- **Production now leads.** With the higher bar (TE18 instead of TE24), career receiving
+  yards are the top input: from 112 to 1,446 yards moves P(TE18) from 3.6% to 9.7%.
+- **Pedigree still matters:** recruiting rating from 0.74 to 0.96 moves P(TE18) from 3.2%
+  to 9.0%. Tight ends develop late, and the recruiting services' read on size and
+  athleticism carries information the box score doesn't.
+- **Youth matters:** more years out of high school lowers the odds, as at every position.
+- The TE model has the smallest sample (13 top-6 hits in the pool), so these effects are
+  the least certain of the four positions. The in-sample AUC (0.98) is inflated by the
+  random forest and xgboost parts; use the rolling AUC (0.86) as the honest number.
 
 ![TE permutation importance](plot_TE_importance.png)
 ![TE PDP and ICE](plot_TE_pdp_ice.png)

@@ -20,7 +20,7 @@ important college inputs per position, with effect sizes, partial dependence and
   P(tier hit | college profile), which includes the chance he gets drafted at all.
   Training pool (2010-2023): QB 882, RB 1,629, WR 2,785, TE 1,002.
 - **Targets:** a top-tier / top-two-tier / any-tier season in NFL years 1-3, with Kyle's
-  cutoffs (QB/RB/TE 8/16/24, WR 12/24/36). Drafted players' outcomes come from the four
+  cutoffs (QB/RB 8/16/24, TE 6/12/18 since 2026-11-12, WR 12/24/36). Drafted players' outcomes come from the four
   existing models; UDFA outcomes are rebuilt from weekly data and matched to college by
   name + school.
 - **Features** (`pd_common.R`, `FEATS`): primary-season production and team shares,
@@ -31,7 +31,9 @@ important college inputs per position, with effect sizes, partial dependence and
   net, random forest, XGBoost and their average. Strict rolling origin (test classes
   2016-2023, train on classes <= Y - 3) plus leave-one-class-out; AUC, Brier, Brier skill,
   log loss, gain at the top 5%, bootstrap CIs. The best rolling Brier skill is "chosen":
-  elastic net for QB, RB and TE, logistic regression for WR.
+  elastic net for QB and RB, logistic regression for WR, and for TE the ensemble (average of
+  elastic net, random forest and xgboost; it overtook the elastic net when the TE tiers moved
+  to 6/12/18).
 - **Interpretation** (ATPA 4.3 style): permutation importance, PDP + ICE for the top three
   inputs, SHAP values (exact linear contributions for the chosen linear models; TreeSHAP
   code path for xgboost).
@@ -47,14 +49,14 @@ important college inputs per position, with effect sizes, partial dependence and
 
 | Class | Overall | QB | RB | WR | TE |
 |---|---|---|---|---|---|
-| 2027 (projected) | A- | A- | C- | B | D |
+| 2027 (projected) | A- | A- | C- | B | C- |
 | 2026 | F | C- | F | D | C |
 | 2025 | A | C- | A | D | A |
-| 2024 | C- | A | C- | C- | D |
+| 2024 | C | A | C- | C- | C- |
 
 Validation: player-level rolling AUC about 0.85-0.91 and Brier skill 0.12-0.24 by
 position. Class level (2010-2023, 14 classes): correlation of expected vs actual class
-tier points QB 0.22, RB 0.33, WR 0.48 (permutation p = 0.04), TE 0.31, all positions
+tier points QB 0.22, RB 0.33, WR 0.48 (permutation p = 0.04), TE 0.26, all positions
 combined 0.52. Trust the overall grade more than any single position's.
 
 ## How to run
@@ -135,3 +137,11 @@ Outputs: `pd_player_grades.csv` (every graded player), `pd_grade_scale.csv`,
 The post-draft grades (formerly Phase 7 here) now live in their own folder,
 [`../PostDraft_Model`](../PostDraft_Model/README.md). That folder reads `pd_player_grades.csv`
 and `pd_common.R` from this one, so run `pd_06_player_grades.R` first.
+
+### Community watchlist for 2027
+
+`pd_2027_watchlist.csv` lists 2027 prospects the community expects (from Kyle). Phase 6 always
+inserts them onto the 2027 board, tagged `community_list = yes`, and ranks them by the model,
+not by the list's order. `cfbd_name` holds the cfbd spelling when it differs (Ryan
+Coleman-Williams = Ryan Williams, Hollywood Smothers = Daylan Smothers). All 35 listed players
+match the 2027 pool.

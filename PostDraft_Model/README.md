@@ -18,7 +18,7 @@ SHAP), how much draft capital dominates, and which high ranks come from data art
 
 - **Source model:** the "post" tier ladder of each position model (QB/RB/TE phase 4, WR
   phase 6). It is an ordinal elastic net on college features + age + log(pick) + landing
-  spot (vacated share, incumbent production), with tiers QB/RB/TE 8/16/24 and WR 12/24/36.
+  spot (vacated share, incumbent production), with tiers QB/RB 8/16/24, TE 6/12/18 (since 2026-11-12) and WR 12/24/36.
 - **Scores:** 2010-2023 use leave-one-class-out (LOCO) predictions, and 2024-2026 use the
   final post model (trained on 2010-2023) from each position's board. Score = expected tier
   points = P(top) + P(top two) + P(any tier). 2027 is graded separately from a mock
@@ -30,8 +30,8 @@ SHAP), how much draft capital dominates, and which high ranks come from data art
 
 ## Findings (players with both grades, 2010-2023)
 
-Any-tier hit rate by grade band, pre to post: A 59% to 69%, B 31% to 35%, C 14% to 9%,
-D/F 13% to 4%. Within-class rank correlation with actual tier rises from 0.31-0.45 to
+Any-tier hit rate by grade band, pre to post: A 59% to 66%, B 28% to 34%, C 14% to 10%,
+D/F 13% to 4% (TE alone, TE18 tiers: A 46% to 59%, B 33% to 33%, C 14% to 16%, D/F 11% to 0%). Within-class rank correlation with actual tier rises from 0.31-0.45 to
 0.49-0.61. The post model beats pick-only for QBs (QB16 AUC 0.91 vs 0.87) and trails it
 slightly for RB, WR and TE.
 
@@ -56,7 +56,7 @@ Inputs that don't exist yet are estimated:
   17 games.
 
 **Check:** the 2024-2026 drafted players were scored the same way and compared with their real
-post-draft scores. Spearman is QB .96, RB .95, WR .98 and TE .91. The estimate ran low for QB
+post-draft scores. Spearman is QB .96, RB .95, WR .98 and TE .92. The estimate ran low for QB
 and TE (by about 0.1), so the final grade maps the estimated score onto the real-score scale
 with a per-position linear fit from that check. `post_grade_raw` keeps the uncalibrated grade.
 After calibration, the share of players landing within one grade of their real grade is

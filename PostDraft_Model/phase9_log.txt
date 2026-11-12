@@ -24,16 +24,16 @@ mock WR : 12  matched to the 2027 board: 12
 [PASS] WR landing spot found for every mocked team 
 
 ===== TE =====
-training rows: 202  lambda index 12 of 20 
+training rows: 202  lambda index 11 of 20 
 age fit: n=50 R2=0.33 resid SD 0.89 yrs | breakout_age_filled fit R2=0.68 resid SD 1.05
-check 2024-2026 (n=50): Spearman real vs estimated post score 0.907, mean abs diff 0.134, mean diff -0.100, same grade 34%, within one grade 86%
+check 2024-2026 (n=50): Spearman real vs estimated post score 0.915, mean abs diff 0.082, mean diff -0.058, same grade 46%, within one grade 84%
 mock TE : 6  matched to the 2027 board: 6 
 [PASS] TE landing spot found for every mocked team 
 
 calibration (real = a + b * estimated, 2024-2026 drafted players):
   QB a=+0.093 b=1.057 | same grade raw 23% -> calibrated 37%, within one grade 80% -> 74%
   RB a=-0.002 b=1.010 | same grade raw 55% -> calibrated 53%, within one grade 94% -> 96%
-  TE a=+0.052 b=1.095 | same grade raw 34% -> calibrated 48%, within one grade 86% -> 88%
+  TE a=+0.032 b=1.062 | same grade raw 46% -> calibrated 42%, within one grade 84% -> 88%
   WR a=-0.016 b=1.015 | same grade raw 79% -> calibrated 73%, within one grade 97% -> 97%
 
 ===== 2027 post-draft grades from the mock ( Renner 2027 mock (post-deadline) ) =====
@@ -48,26 +48,26 @@ calibration (real = a + b * estimated, 2024-2026 drafted players):
    15     Jackson Harris       WR        LV        B+             A-         A-
    16        Dante Moore       QB       CLE        C+              B         B+
    22        Cam Coleman       WR       NYG        B+              A          A
-   24     Jamari Johnson       TE        KC        C+             B+         A-
+   24     Jamari Johnson       TE        KC        B-             A-         A-
    28            KJ Duff       WR       MIN         A             A-         A-
    36         Nick Marsh       WR       PHI        A-             A-         A-
    39        Jadan Baugh       RB       WAS        B+             A-         A-
    42      Darian Mensah       QB        TB         A             B+         B+
    44    Deuce Alexander       WR       ARI        B-              B          B
    48    Junior Sherrill       WR       SEA         B              B          B
-   56      Luke Reynolds       TE       CIN         A              B         B+
+   56      Luke Reynolds       TE       CIN         A             B+         A-
    59         Kewan Lacy       RB       MIN         C             B+         B+
-   64      Lawson Luckie       TE        SF         C              B         B+
+   64      Lawson Luckie       TE        SF        C-             B+         B+
    66       Braden Pegan       WR       TEN         C              B          B
    72      Jayden Maiava       QB       ATL        B-              C         B-
-   74    Terrance Carter       TE       ARI        B-             C+         B-
+   74    Terrance Carter       TE       ARI        C+             C+         C+
    75        Dylan Riley       RB       HOU         A             B+         B+
    79        Isaac Brown       RB       BAL        B+             B+         B+
    80        Reed Harris       WR        KC        A-             B-         B-
    82    Wayshawn Parker       RB       IND         A             B+         B+
    91      Jordan Faison       WR       JAX        C-             C+          C
    92     Chris Marshall       WR       PIT        B-             C+         C+
-   93       Peter Clarke       TE       DEN         C             B-          B
+   93       Peter Clarke       TE       DEN        C-             B-          B
  grade_move p_top p_any incumbent_pts_2026
           0 0.862 0.958                 NA
           2 0.316 0.676              223.2
@@ -75,30 +75,30 @@ calibration (real = a + b * estimated, 2024-2026 drafted players):
           4 0.235 0.581              151.1
           1 0.428 0.731                 NA
           0 0.173 0.486              210.0
-          3 0.644 0.897              110.9
+          3 0.393 0.793              110.9
           1 0.214 0.497                 NA
           3 0.116 0.371                 NA
           2 0.252 0.550                 NA
-          4 0.145 0.449              211.0
+          3 0.113 0.431              211.0
          -1 0.200 0.476                 NA
           0 0.175 0.435                 NA
           1 0.227 0.516              152.4
          -2 0.218 0.557               96.1
           1 0.084 0.249                 NA
           0 0.084 0.249                 NA
-         -2 0.090 0.324              170.4
+         -1 0.081 0.344              170.4
           4 0.142 0.375              176.2
-          4 0.100 0.348              242.9
+          5 0.069 0.305              242.9
           3 0.089 0.261                 NA
           0 0.033 0.132                 NA
-          0 0.045 0.187              307.5
+          0 0.028 0.146              307.5
          -2 0.146 0.383              150.7
           0 0.143 0.377              268.8
          -3 0.054 0.170                 NA
          -2 0.168 0.423              290.1
           1 0.039 0.129                 NA
          -1 0.041 0.134                 NA
-          3 0.068 0.259               75.4
+          4 0.041 0.202               75.4
 
 school differs between mock and board:
  pick            name     school board_school
