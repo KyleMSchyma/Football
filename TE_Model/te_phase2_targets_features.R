@@ -5,12 +5,12 @@
 #
 #   PART 1  Targets (regular season, nflverse fantasy_points_ppr = full PPR)
 #             total_pts_3yr   PPR points in NFL years 1-3 (0 if he never played)
-#             hit24_3yr       1 if any top-24 TE season in years 1-3
-#             hit16_3yr       1 if any top-16 TE season in years 1-3
-#             hit8_3yr        1 if any top-8 TE season in years 1-3
+#             hit18_3yr       1 if any top-18 TE season in years 1-3
+#             hit12_3yr       1 if any top-12 TE season in years 1-3
+#             hit6_3yr        1 if any top-6 TE season in years 1-3
 #             finish_y1..y3   season TE rank, capped at 60 (didn't play / worse = 60)
 #             finish_sum_3yr  sum of the three (3 best, 180 worst)
-#             tier            best finish yrs 1-3: 1 = top 8, 2 = 9-16, 3 = 17-24, 4 = rest
+#             tier            best finish yrs 1-3: 1 = top 6, 2 = 7-12, 3 = 13-18, 4 = rest
 #           3-year targets are NA for classes without 3 complete seasons (2024+).
 #   PART 2  College features from the "primary" season: the last college season
 #           with 15+ receptions, so an injury-shortened final year doesn't count as
@@ -34,6 +34,7 @@
 # =============================================================================
 
 suppressMessages({ library(dplyr); library(tidyr); library(ggplot2) })
+source("te_common.R")   # TE_CUT (tier cutoffs 6 / 12 / 18)
 mycols <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 
 te     <- readRDS("te_base.rds")
@@ -64,18 +65,18 @@ yrs <- te %>% select(gsis_id, draft_season = season, pick) %>% crossing(nfl_year
 
 targets <- yrs %>% group_by(draft_season, pick) %>%
   summarize(n_years_obs = n(), total_pts_3yr = sum(pts), games_3yr = sum(games),
-            hit24_3yr = as.integer(any(finish <= 24)), hit16_3yr = as.integer(any(finish <= 16)),
-            hit8_3yr = as.integer(any(finish <= 8)), hit32_3yr = as.integer(any(finish <= 32)),
+            hit18_3yr = as.integer(any(finish <= TE_CUT[3])), hit12_3yr = as.integer(any(finish <= TE_CUT[2])),
+            hit6_3yr = as.integer(any(finish <= TE_CUT[1])), hit32_3yr = as.integer(any(finish <= 32)),
             best_finish_3yr = min(finish), finish_sum_3yr = sum(finish),
             finish_y1 = finish[nfl_year == 1][1], finish_y2 = finish[nfl_year == 2][1],
             finish_y3 = finish[nfl_year == 3][1],
             yr1_pts = sum(pts[nfl_year == 1]), yr1_games = sum(games[nfl_year == 1]), .groups = "drop") %>%
   mutate(ppg_3yr = ifelse(games_3yr >= min_games_ppg, total_pts_3yr / games_3yr, NA_real_),
-         across(c(total_pts_3yr, games_3yr, hit24_3yr, hit16_3yr, hit8_3yr, hit32_3yr, best_finish_3yr,
+         across(c(total_pts_3yr, games_3yr, hit18_3yr, hit12_3yr, hit6_3yr, hit32_3yr, best_finish_3yr,
                   finish_sum_3yr, ppg_3yr), ~ ifelse(n_years_obs == 3, .x, NA)),
-         # Kyle's TE tiers: top 8 / 9-16 / 17-24 / rest
-         tier = case_when(is.na(best_finish_3yr) ~ NA_integer_, best_finish_3yr <= 8 ~ 1L,
-                          best_finish_3yr <= 16 ~ 2L, best_finish_3yr <= 24 ~ 3L, TRUE ~ 4L))
+         # Kyle's TE tiers: top 6 / 7-12 / 13-18 / rest
+         tier = case_when(is.na(best_finish_3yr) ~ NA_integer_, best_finish_3yr <= TE_CUT[1] ~ 1L,
+                          best_finish_3yr <= TE_CUT[2] ~ 2L, best_finish_3yr <= TE_CUT[3] ~ 3L, TRUE ~ 4L))
 
 # =============================================================================
 # PART 2: College features
@@ -160,26 +161,26 @@ train_ok <- tbl %>% filter(!is.na(total_pts_3yr))
 cat("\n===== Targets =====\n")
 check("one row per drafted TE", nrow(tbl) == nrow(te) && !any(duplicated(tbl[, c("draft_season", "pick")])))
 check("3-year targets only for classes <= 2023", all(is.na(tbl$total_pts_3yr[tbl$draft_season > last_nfl_season - 2])))
-check("hit8 implies hit16 implies hit24", all(train_ok$hit24_3yr >= train_ok$hit16_3yr & train_ok$hit16_3yr >= train_ok$hit8_3yr))
+check("hit6 implies hit12 implies hit18", all(train_ok$hit18_3yr >= train_ok$hit12_3yr & train_ok$hit12_3yr >= train_ok$hit6_3yr))
 check("finish sum within [3, 180]", all(train_ok$finish_sum_3yr >= 3 & train_ok$finish_sum_3yr <= 3 * CAP))
 cat("rows with a full 3-year target:", nrow(train_ok), "\n")
 print(as.data.frame(train_ok %>% group_by(draft_season) %>%
-  summarize(n = n(), hit24 = sum(hit24_3yr), hit16 = sum(hit16_3yr), hit8 = sum(hit8_3yr), mean_pts = round(mean(total_pts_3yr)),
+  summarize(n = n(), hit18 = sum(hit18_3yr), hit12 = sum(hit12_3yr), hit6 = sum(hit6_3yr), mean_pts = round(mean(total_pts_3yr)),
             zero_pts = sum(total_pts_3yr == 0), .groups = "drop")), row.names = FALSE)
-cat("total top-24 hits:", sum(train_ok$hit24_3yr), " top-16:", sum(train_ok$hit16_3yr), " top-8:", sum(train_ok$hit8_3yr),
+cat("total top-18 hits:", sum(train_ok$hit18_3yr), " top-12:", sum(train_ok$hit12_3yr), " top-6:", sum(train_ok$hit6_3yr),
     " top-32:", sum(train_ok$hit32_3yr), "of", nrow(train_ok), "\n")
-cat("tiers (1 = top 8, 2 = 9-16, 3 = 17-24, 4 = rest):\n"); print(table(train_ok$tier))
+cat("tiers (1 = top 6, 2 = 7-12, 3 = 13-18, 4 = rest):\n"); print(table(train_ok$tier))
 print(as.data.frame(train_ok %>% mutate(grp = ifelse(round == 1, "R1", ifelse(round <= 3, "R2-3", "R4-7"))) %>%
-  group_by(grp) %>% summarize(n = n(), hit24 = round(mean(hit24_3yr), 2), hit16 = round(mean(hit16_3yr), 2),
-                              hit8 = round(mean(hit8_3yr), 2), median_finish_sum = median(finish_sum_3yr), .groups = "drop")), row.names = FALSE)
-cat("\ntop-8 hits (name, class, pick, best finish, 3-yr pts):\n")
-print(as.data.frame(train_ok %>% filter(hit8_3yr == 1) %>% arrange(draft_season, pick) %>%
+  group_by(grp) %>% summarize(n = n(), hit18 = round(mean(hit18_3yr), 2), hit12 = round(mean(hit12_3yr), 2),
+                              hit6 = round(mean(hit6_3yr), 2), median_finish_sum = median(finish_sum_3yr), .groups = "drop")), row.names = FALSE)
+cat("\ntop-6 hits (name, class, pick, best finish, 3-yr pts):\n")
+print(as.data.frame(train_ok %>% filter(hit6_3yr == 1) %>% arrange(draft_season, pick) %>%
   transmute(pfr_player_name, draft_season, pick, best_finish_3yr, total_pts_3yr = round(total_pts_3yr))), row.names = FALSE)
-cat("\nDay 3 (round 4+) top-24 hits:\n")
-print(as.data.frame(train_ok %>% filter(hit24_3yr == 1, round >= 4) %>% arrange(draft_season, pick) %>%
+cat("\nDay 3 (round 4+) top-18 hits:\n")
+print(as.data.frame(train_ok %>% filter(hit18_3yr == 1, round >= 4) %>% arrange(draft_season, pick) %>%
   transmute(pfr_player_name, draft_season, round, pick, best_finish_3yr)), row.names = FALSE)
-cat("\nfinish by NFL year among training TEs (share top-24): y1", round(mean(train_ok$finish_y1 <= 24), 3),
-    " y2", round(mean(train_ok$finish_y2 <= 24), 3), " y3", round(mean(train_ok$finish_y3 <= 24), 3), "\n")
+cat("\nfinish by NFL year among training TEs (share top-18): y1", round(mean(train_ok$finish_y1 <= TE_CUT[3]), 3),
+    " y2", round(mean(train_ok$finish_y2 <= TE_CUT[3]), 3), " y3", round(mean(train_ok$finish_y3 <= TE_CUT[3]), 3), "\n")
 
 cat("\n===== Feature coverage (% non-missing) =====\n")
 feat_cols <- c("p_rec", "p_rec_yds", "p_ypr", "p_rec_share", "p_dominator", "p_ypta", "p_ppa_pass",
@@ -225,9 +226,9 @@ ggsave("plot_p2_pts_vs_speed_score.png", p3, width = 7, height = 5, dpi = 150)
 dict <- tribble(
   ~feature, ~set, ~definition,
   "total_pts_3yr", "target", "Regular-season PPR points (nflverse fantasy_points_ppr) in NFL years 1-3",
-  "hit24_3yr / hit16_3yr / hit8_3yr", "target", "1 if any top-24 / top-16 / top-8 TE PPR season in years 1-3",
+  "hit18_3yr / hit12_3yr / hit6_3yr", "target", "1 if any top-18 / top-12 / top-6 TE PPR season in years 1-3",
   "finish_y1..y3, finish_sum_3yr", "target", "Season TE rank capped at 60; sum over years 1-3 (3 best, 180 worst)",
-  "tier", "target", "Best finish yrs 1-3: 1 = top 8, 2 = 9-16, 3 = 17-24, 4 = rest",
+  "tier", "target", "Best finish yrs 1-3: 1 = top 6, 2 = 7-12, 3 = 13-18, 4 = rest",
   "p_*", "pre-draft", "Primary college season = last season with 15+ receptions (else most receptions)",
   "p_rec, p_rec_yds, p_rec_td, p_ypr", "pre-draft", "Receiving volume and efficiency, primary season",
   "p_rec_share, p_rec_yds_share, p_rec_td_share", "pre-draft", "Share of team receptions / receiving yards / receiving TDs",
@@ -249,6 +250,6 @@ dict <- tribble(
 write.csv(dict, "te_feature_dictionary.csv", row.names = FALSE)
 saveRDS(as.data.frame(tbl), "te_model_table.rds")
 cat("\nsaved te_model_table.rds (", nrow(tbl), "rows,", ncol(tbl), "cols ), dictionary and 3 plots\n")
-check("Phase 2 ready for Phase 3", nrow(train_ok) >= 180 && sum(train_ok$hit24_3yr) >= 30,
-      sprintf("(%d training rows, %d top-24, %d top-16, %d top-8)", nrow(train_ok), sum(train_ok$hit24_3yr),
-              sum(train_ok$hit16_3yr), sum(train_ok$hit8_3yr)))
+check("Phase 2 ready for Phase 3", nrow(train_ok) >= 180 && sum(train_ok$hit18_3yr) >= 30,
+      sprintf("(%d training rows, %d top-18, %d top-12, %d top-6)", nrow(train_ok), sum(train_ok$hit18_3yr),
+              sum(train_ok$hit12_3yr), sum(train_ok$hit6_3yr)))

@@ -43,7 +43,7 @@ POS_DIR <- if (REPO) c(QB = "../QB_Model", RB = "../RB_Model", WR = "../WR_Model
 PRE_DIR <- if (REPO) "../PreDraft_Model" else "../Football2_PreDraft"
 MOCK_FILE <- Sys.getenv("MOCK_FILE", "mock_2027/mock_2027_fantasy_positions.csv")
 MOCK_NAME <- Sys.getenv("MOCK_NAME", "mock draft")
-TIERS <- list(QB = c(8, 16, 24), RB = c(8, 16, 24), WR = c(12, 24, 36), TE = c(8, 16, 24))
+TIERS <- list(QB = c(8, 16, 24), RB = c(8, 16, 24), WR = c(12, 24, 36), TE = c(6, 12, 18))
 GRADE_CUTS <- c(0, .10, .25, .35, .45, .55, .65, .75, .85, .90, .95, 1.0001)
 GRADES     <- c("F", "D", "C-", "C", "C+", "B-", "B", "B+", "A-", "A", "A+")
 grade_from_pct <- function(p) as.character(cut(p, GRADE_CUTS, labels = GRADES, right = FALSE))

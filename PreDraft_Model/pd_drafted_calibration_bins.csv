@@ -1,0 +1,41 @@
+"position","version","q","n","mean_pred","actual"
+"QB","raw",1,32,0.012,0.219
+"QB","raw",2,31,0.034,0.032
+"QB","raw",3,31,0.096,0.097
+"QB","raw",4,31,0.261,0.387
+"QB","raw",5,31,0.596,0.677
+"QB","recalibrated (LOCO)",1,32,0.067,0.25
+"QB","recalibrated (LOCO)",2,31,0.135,0
+"QB","recalibrated (LOCO)",3,31,0.229,0.097
+"QB","recalibrated (LOCO)",4,31,0.383,0.387
+"QB","recalibrated (LOCO)",5,31,0.602,0.677
+"RB","raw",1,58,0.013,0.103
+"RB","raw",2,58,0.054,0.207
+"RB","raw",3,57,0.126,0.211
+"RB","raw",4,57,0.244,0.263
+"RB","raw",5,57,0.526,0.561
+"RB","recalibrated (LOCO)",1,58,0.077,0.121
+"RB","recalibrated (LOCO)",2,58,0.165,0.207
+"RB","recalibrated (LOCO)",3,57,0.247,0.211
+"RB","recalibrated (LOCO)",4,57,0.343,0.263
+"RB","recalibrated (LOCO)",5,57,0.516,0.544
+"WR","raw",1,84,0.007,0.095
+"WR","raw",2,84,0.029,0.119
+"WR","raw",3,83,0.073,0.181
+"WR","raw",4,83,0.157,0.181
+"WR","raw",5,83,0.439,0.518
+"WR","recalibrated (LOCO)",1,84,0.065,0.119
+"WR","recalibrated (LOCO)",2,84,0.128,0.107
+"WR","recalibrated (LOCO)",3,83,0.195,0.157
+"WR","recalibrated (LOCO)",4,83,0.271,0.193
+"WR","recalibrated (LOCO)",5,83,0.432,0.518
+"TE","raw",1,38,0.014,0.105
+"TE","raw",2,38,0.036,0.105
+"TE","raw",3,38,0.082,0.211
+"TE","raw",4,38,0.168,0.316
+"TE","raw",5,37,0.394,0.459
+"TE","recalibrated (LOCO)",1,38,0.099,0.132
+"TE","recalibrated (LOCO)",2,38,0.155,0.105
+"TE","recalibrated (LOCO)",3,38,0.218,0.158
+"TE","recalibrated (LOCO)",4,38,0.294,0.368
+"TE","recalibrated (LOCO)",5,37,0.43,0.432

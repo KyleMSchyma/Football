@@ -5,7 +5,7 @@
 #
 # Post-draft model = the "post" tier ladder of each position model (QB/RB/TE phase 4,
 # WR phase 6): college profile + age + draft pick + landing spot (vacated share,
-# incumbent production). Ordinal elastic net, tiers QB/RB/TE 8/16/24, WR 12/24/36.
+# incumbent production). Ordinal elastic net, tiers QB/RB 8/16/24, TE 6/12/18, WR 12/24/36.
 #   2010-2023  leave-one-class-out predictions (out-of-class, like Phase 6)
 #   2024-2026  the final post model (trained on 2010-2023), from each position's board
 # Score = expected tier points = P(top) + P(top two) + P(any tier).
@@ -35,7 +35,7 @@ src <- list(
   RB = list(oof = file.path(POS_DIR[["RB"]], "phase4_oof_predictions.csv"), board = file.path(POS_DIR[["RB"]], "rb_finish_tier_board_2024_2026.csv"),
             cols = c("p_top8_post", "p_top16_post", "p_top24_post")),
   TE = list(oof = file.path(POS_DIR[["TE"]], "phase4_oof_predictions.csv"), board = file.path(POS_DIR[["TE"]], "te_finish_tier_board_2024_2026.csv"),
-            cols = c("p_top8_post", "p_top16_post", "p_top24_post")),
+            cols = c("p_top6_post", "p_top12_post", "p_top18_post")),
   WR = list(oof = file.path(POS_DIR[["WR"]], "phase6_oof_predictions.csv"), board = file.path(POS_DIR[["WR"]], "wr_tier_board_2024_2026.csv"),
             cols = c("post_enet_p_wr1", "post_enet_p_wr2plus", "post_enet_p_wr3plus")))
 
@@ -48,7 +48,7 @@ for (POS in POSITIONS) {
       transmute(class = draft_season, round, pick, name = pfr_player_name, q1 = p_wr1, q2 = p_wr2plus, q3 = p_wr3plus, post_tier = tier)
   } else {
     o <- o %>% filter(scheme == "LOCO") %>%
-      transmute(class = draft_season, round, pick, name = pfr_player_name, q1 = p_top8_post, q2 = p_top16_post, q3 = p_top24_post, post_tier = tier)
+      transmute(class = draft_season, round, pick, name = pfr_player_name, q1 = .data[[s$cols[1]]], q2 = .data[[s$cols[2]]], q3 = .data[[s$cols[3]]], post_tier = tier)
   }
   b <- read.csv(s$board, stringsAsFactors = FALSE) %>%
     transmute(class = draft_season, round, pick, name = pfr_player_name, q1 = .data[[s$cols[1]]], q2 = .data[[s$cols[2]]], q3 = .data[[s$cols[3]]], post_tier = NA_integer_)

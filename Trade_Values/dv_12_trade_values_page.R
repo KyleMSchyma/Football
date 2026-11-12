@@ -35,6 +35,11 @@ html <- sub("/*DATA*/", js, paste(readLines("tv_page_template.html", encoding = 
 writeLines(html, file.path(out, "index.html"), useBytes = TRUE)
 # same data as a standalone script for the Trade Calculator page (/trade-calculator/ loads ../trade-values/data/tv.js)
 writeLines(paste0("window.TV = ", js, ";"), file.path(out, "data", "tv.js"), useBytes = TRUE)
+# age-adjustment tables (dv_13) for the grade boards' Value column under the visitor's league: per scoring key, rows = ages
+# grid[1], grid[1] + 0.1, ...; columns = cumulative PPG adjustment in seasons 2-4 (season 1 = 0). Read by ../shared/league-value.js.
+if (!is.null(P$agetab)) writeLines(paste0("window.TVAGE = ", toJSON(list(a0 = P$agetab$grid[1], step = 0.1, n = length(P$agetab$grid),
+  t = lapply(P$agetab$t, function(m) unname(round(m, 3)))), auto_unbox = TRUE, digits = NA), ";"),
+  file.path(out, "data", "agetab.js"), useBytes = TRUE)
 # downloads: the default league (12 teams, superflex, full PPR, QB24 / RB24 / WR36 / TE12 lines)
 r <- read.csv("dv_ros_2026_board.csv") %>% filter(value_100k > 0)
 d <- read.csv("dv_v4_board.csv") %>% filter(value_100k >= 500)

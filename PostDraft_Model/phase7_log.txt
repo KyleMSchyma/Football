@@ -29,17 +29,17 @@ post-draft rows: 1351  matched to a pre-draft grade: 1289
        RB    C- 30       181    0.000     0.067    0.167  0.033  0.300   0.129
        RB     D 44       209    0.045     0.045    0.091  0.023  0.182   0.099
        RB     F 30       232    0.000     0.100    0.100  0.000  0.233   0.070
-       TE     A 10        36    0.300     0.700    0.900  0.700  1.000   0.704
-       TE    A+ 10        21    0.400     0.800    0.800  0.500  1.000   0.865
-       TE    A- 10        62    0.300     0.400    0.400  0.100  0.700   0.513
-       TE     B 20       114    0.200     0.300    0.450  0.250  0.650   0.310
-       TE    B+ 21        66    0.048     0.190    0.429  0.238  0.667   0.404
-       TE    B- 20       116    0.200     0.250    0.300  0.100  0.500   0.250
-       TE     C 20       155    0.050     0.150    0.150  0.000  0.300   0.165
-       TE    C+ 20       133    0.050     0.150    0.150  0.000  0.300   0.199
-       TE    C- 21       189    0.048     0.095    0.143  0.000  0.286   0.128
-       TE     D 30       185    0.000     0.000    0.033  0.000  0.100   0.085
-       TE     F 20       224    0.000     0.000    0.000  0.000  0.000   0.043
+       TE     A 10        34    0.000     0.700    0.800  0.500  1.000   0.602
+       TE    A+ 10        21    0.400     0.600    0.800  0.500  1.000   0.795
+       TE    A- 10        65    0.100     0.100    0.100  0.000  0.300   0.416
+       TE     B 20       109    0.200     0.300    0.450  0.250  0.650   0.230
+       TE    B+ 21        71    0.000     0.286    0.381  0.190  0.571   0.310
+       TE    B- 20       130    0.100     0.100    0.150  0.000  0.300   0.194
+       TE     C 20       160    0.050     0.100    0.100  0.000  0.250   0.132
+       TE    C+ 20       124    0.100     0.150    0.150  0.000  0.350   0.159
+       TE    C- 21       165    0.000     0.095    0.190  0.048  0.381   0.111
+       TE     D 30       191    0.000     0.000    0.000  0.000  0.000   0.080
+       TE     F 20       229    0.000     0.000    0.000  0.000  0.000   0.047
        WR     A 23        22    0.391     0.522    0.609  0.391  0.783   0.550
        WR    A+ 22         9    0.364     0.591    0.773  0.591  0.955   0.736
        WR    A- 22        35    0.045     0.364    0.409  0.182  0.636   0.429
@@ -74,17 +74,17 @@ post-draft rows: 1351  matched to a pre-draft grade: 1289
       115.686
       101.800
        65.704
-      315.680
-      315.120
-      246.480
-      221.150
-      152.245
-      161.744
-      107.215
-       78.794
-       78.665
-       56.128
-       15.478
+      321.770
+      341.830
+      154.567
+      196.272
+      203.225
+      126.455
+       98.740
+      114.174
+      108.879
+       54.400
+       12.811
       455.104
       481.336
       358.733
@@ -108,9 +108,9 @@ post-draft rows: 1351  matched to a pre-draft grade: 1289
        WR   WR12 417   39   0.665    0.813    0.783            0.356
        WR   WR24 417   67   0.700    0.838    0.821            0.356
        WR   WR36 417   91   0.717    0.849    0.833            0.356
-       TE    TE8 189   21   0.733    0.808    0.789            0.334
-       TE   TE16 189   41   0.700    0.859    0.821            0.334
-       TE   TE24 189   54   0.717    0.858    0.828            0.334
+       TE    TE6 189   13   0.752    0.795    0.747            0.312
+       TE   TE12 189   34   0.694    0.850    0.806            0.312
+       TE   TE18 189   45   0.699    0.851    0.814            0.312
  spearman_pts_post spearman_pre_post
              0.666             0.681
              0.666             0.681
@@ -121,25 +121,25 @@ post-draft rows: 1351  matched to a pre-draft grade: 1289
              0.612             0.616
              0.612             0.616
              0.612             0.616
-             0.628             0.528
-             0.628             0.528
-             0.628             0.528
+             0.612             0.483
+             0.612             0.483
+             0.612             0.483
 
 ===== Any-tier hit rate by grade band, pre vs post =====
  position n_pre_A n_pre_B n_pre_C n_pre_DF n_post_A n_post_B n_post_C n_post_DF
        QB      23      47      47       39       22       49       45        40
        RB      43      86      86       72       44       88       86        69
-       TE      28      57      57       47       30       58       58        43
+       TE      28      57      57       47       29       58       58        44
        WR      63     125     125      104       66      129      124        98
  any_pre_A any_pre_B any_pre_C any_pre_DF any_post_A any_post_B any_post_C
      0.739     0.362     0.064      0.179      0.818      0.469      0.067
      0.651     0.267     0.198      0.125      0.727      0.330      0.105
-     0.464     0.474     0.140      0.128      0.700      0.414      0.138
+     0.464     0.333     0.140      0.106      0.586      0.328      0.155
      0.540     0.232     0.120      0.125      0.606      0.302      0.073
  any_post_DF
        0.000
        0.101
-       0.023
+       0.000
        0.031
 
 ===== Class summary (players with both grades) =====
@@ -178,23 +178,23 @@ post-draft rows: 1351  matched to a pre-draft grade: 1289
        RB  2024 19           0.459            0.517           0.316  6    4
        RB  2025 24           0.710            0.552          -1.500  3   13
        RB  2026 10           0.546            0.568           0.200  3    3
-       TE  2010 16           0.477            0.489          -0.125  4    4
-       TE  2011 11           0.441            0.500           0.727  4    3
-       TE  2012 12           0.554            0.561           0.167  3    3
-       TE  2013 16           0.454            0.483           0.312  3    2
-       TE  2014 10           0.645            0.619          -0.200  2    3
-       TE  2015 18           0.412            0.354          -0.389  5    8
-       TE  2016  9           0.480            0.480          -0.333  3    2
-       TE  2017 12           0.666            0.584          -0.417  3    4
-       TE  2018 15           0.433            0.536           0.933  7    3
-       TE  2019 16           0.575            0.548          -0.250  7    6
-       TE  2020 11           0.526            0.483          -0.455  2    5
-       TE  2021 10           0.471            0.592           1.100  6    3
-       TE  2022 18           0.458            0.411          -0.500  4    7
-       TE  2023 15           0.501            0.645           1.400  7    2
-       TE  2024 12           0.463            0.445          -0.083  3    3
-       TE  2025 16           0.575            0.502          -0.375  3    6
-       TE  2026 22           0.438            0.459           0.227  8    7
+       TE  2010 16           0.515            0.507          -0.062  4    3
+       TE  2011 11           0.470            0.466           0.091  3    3
+       TE  2012 12           0.547            0.567           0.250  3    4
+       TE  2013 16           0.450            0.478           0.312  3    2
+       TE  2014 10           0.627            0.564          -0.500  2    4
+       TE  2015 18           0.434            0.381          -0.500  4    8
+       TE  2016  9           0.533            0.485          -0.556  2    3
+       TE  2017 12           0.697            0.587          -0.833  2    5
+       TE  2018 15           0.376            0.544           1.533  6    1
+       TE  2019 16           0.546            0.559           0.125  8    6
+       TE  2020 11           0.528            0.457          -0.818  2    5
+       TE  2021 10           0.436            0.575           1.400  6    2
+       TE  2022 18           0.459            0.395          -0.722  5    7
+       TE  2023 15           0.484            0.625           1.333  7    3
+       TE  2024 12           0.501            0.444          -0.500  2    5
+       TE  2025 16           0.592            0.474          -1.000  3    6
+       TE  2026 22           0.427            0.486           0.545  9    7
        WR  2010 26           0.369            0.517           1.231 12    4
        WR  2011 25           0.394            0.529           1.360 11    2
        WR  2012 30           0.549            0.483          -0.567  7   11
@@ -244,26 +244,26 @@ post-draft rows: 1351  matched to a pre-draft grade: 1289
    6.953   10.013         10   0.558    0.632
    9.334    9.827         18   0.264    0.450
   10.029   11.918         13   0.270    0.645
-   5.972    8.339         NA      NA       NA
+   5.973    8.339         NA      NA       NA
   17.943   15.608         NA      NA       NA
    4.722    7.214         NA      NA       NA
-   5.842    8.226         16   0.657    0.738
-   2.905    5.861          9   0.354    0.232
-   4.055    7.140          4   0.302    0.473
-   4.216    8.869         12   0.571    0.600
-   5.630    8.995          5   0.337    0.337
-   5.131    5.928          3   0.087    0.189
-   3.937    4.403          5   0.504    0.707
-   6.614   10.602         12   0.195    0.571
-   4.062    8.621         15   0.414    0.594
-   7.578   11.138          8   0.130    0.569
-   4.182    4.845          3   0.200    0.500
-   3.882    7.076          6   0.522    0.696
-   5.868    6.604         10   0.444    0.360
-   6.230   11.611          8   0.145    0.503
-   4.219    7.001         NA      NA       NA
-   8.326   11.465         NA      NA       NA
-   5.973   11.617         NA      NA       NA
+   4.773    6.329         15   0.646    0.797
+   2.253    4.338          7   0.215    0.058
+   3.213    5.615          2   0.044    0.480
+   3.660    7.052         10   0.754    0.589
+   4.262    6.694          4   0.382    0.360
+   4.029    4.969          1  -0.117    0.304
+   2.871    3.560          4   0.502    0.707
+   5.329    8.642          9   0.002    0.542
+   2.279    6.810         12   0.214    0.632
+   5.620    8.687          7   0.110    0.454
+   3.128    3.489          2   0.200    0.500
+   2.325    5.553          5   0.545    0.701
+   4.343    5.271          7   0.461    0.048
+   4.970    9.436          7   0.182    0.512
+   3.302    5.550         NA      NA       NA
+   6.668    9.625         NA      NA       NA
+   4.531    9.241         NA      NA       NA
    5.857   10.310         13   0.154    0.373
    4.445   12.190         10   0.590    0.582
    9.130   12.686         12   0.378    0.635
@@ -278,7 +278,7 @@ post-draft rows: 1351  matched to a pre-draft grade: 1289
    9.045   15.983         16   0.386    0.466
    9.278   16.361         13   0.418    0.643
    8.797   11.437         19   0.183    0.457
-  10.666   16.641         NA      NA       NA
+  10.667   16.641         NA      NA       NA
    7.443   13.764         NA      NA       NA
    7.211   15.358         NA      NA       NA
 
@@ -286,7 +286,7 @@ class-level correlation of expected vs actual tier points, 2010-2023:
  position corr_pre corr_post mean_rho_pre mean_rho_post
        QB    0.224     0.421        0.448         0.605
        RB    0.335     0.021        0.324         0.515
-       TE    0.190     0.437        0.347         0.505
+       TE    0.202     0.445        0.296         0.477
        WR    0.492     0.184        0.308         0.494
 
 ===== Biggest movers, 2010-2023 (grade steps, + = draft capital raised him) =====
@@ -351,25 +351,25 @@ class-level correlation of expected vs actual tier points, 2010-2023:
   2020  Isaiah Hodgins  207         A         C+  best WR74 (no tier season)
   2020  Devin Duvernay   92         A         C+  best WR59 (no tier season)
 -- TE risers --
- class           name pick pre_grade post_grade                nfl_outcome
-  2023  Luke Musgrave   42         D         A- best TE31 (no tier season)
-  2018 Dallas Goedert   49         F         B+       best TE10 (TE16 hit)
-  2019    Drew Sample   52         F         B+ best TE31 (no tier season)
-  2023   Tucker Kraft   78         F          B       best TE10 (TE16 hit)
-  2011    Rob Housler   69         C         A- best TE28 (no tier season)
-  2013   Travis Kelce   63         C         A-         best TE7 (TE8 hit)
-  2015    Tyler Kroft   85        C-         B+       best TE15 (TE16 hit)
-  2021  Tommy Tremble   83        C-         B+ best TE39 (no tier season)
+ class             name pick pre_grade post_grade                nfl_outcome
+  2023    Luke Musgrave   42         D         A- best TE31 (no tier season)
+  2018   Dallas Goedert   49         F         B+       best TE10 (TE12 hit)
+  2019      Drew Sample   52         F         B+ best TE31 (no tier season)
+  2023     Tucker Kraft   78         F         B+       best TE10 (TE12 hit)
+  2023 Luke Schoonmaker   58         D         B+ best TE43 (no tier season)
+  2018     Hayden Hurst   25        C+          A       best TE11 (TE12 hit)
+  2022   Jeremy Ruckert  101         C         A- best TE60 (no tier season)
+  2013   Vance McDonald   55         C         A- best TE31 (no tier season)
 -- TE fallers --
  class            name pick pre_grade post_grade                nfl_outcome
-  2019    Caleb Wilson  254        A+         C- best TE60 (no tier season)
-  2016   Thomas Duarte  231        A+         C+ best TE60 (no tier season)
-  2022   Isaiah Likely  139        A+         C+       best TE16 (TE16 hit)
-  2019     Kaden Smith  176         A          C best TE36 (no tier season)
-  2017    Bucky Hodges  201         A          C best TE60 (no tier season)
-  2020 Harrison Bryant  115         A         C+ best TE39 (no tier season)
-  2015    Nick O'Leary  194        A-          C best TE33 (no tier season)
-  2019     Isaac Nauta  224        A-          C best TE60 (no tier season)
+  2020 Harrison Bryant  115        A+         C- best TE39 (no tier season)
+  2016   Thomas Duarte  231        A+          C best TE60 (no tier season)
+  2022   Isaiah Likely  139         A         C-       best TE16 (TE18 hit)
+  2019    Caleb Wilson  254        A+         C+ best TE60 (no tier season)
+  2017    Bucky Hodges  201        A-         C- best TE60 (no tier season)
+  2017   Mason Schreck  251         B          F best TE60 (no tier season)
+  2022    Trey McBride   55         A         C+         best TE2 (TE6 hit)
+  2022   Charlie Kolar  128        B+         C- best TE60 (no tier season)
 
 ===== Top 12 all-time post-draft by position =====
 -- QB --
@@ -455,31 +455,31 @@ class-level correlation of expected vs actual tier points, 2010-2023:
                     best WR5 (WR12 hit)
 -- TE --
  post_rank_all class                    name pick post_grade pre_grade
-             1  2021              Kyle Pitts    4         A+        A+
-             2  2019          T.J. Hockenson    8         A+        B+
-             3  2026            Kenyon Sadiq   16         A+        B+
-             4  2024            Brock Bowers   13         A+        A+
-             5  2014              Eric Ebron   10         A+        A-
-             6  2025        Colston Loveland   10         A+         A
-             7  2019               Noah Fant   20         A+         B
-             8  2017             Evan Engram   23         A+         A
-             9  2025            Tyler Warren   14         A+         A
-            10  2014 Austin Seferian-Jenkins   38         A+        A+
-            11  2017             O.J. Howard   19         A+         B
-            12  2017             David Njoku   29         A+        B+
+             1  2021              Kyle Pitts    4         A+         A
+             2  2025        Colston Loveland   10         A+        A+
+             3  2014              Eric Ebron   10         A+         A
+             4  2019          T.J. Hockenson    8         A+        B+
+             5  2024            Brock Bowers   13         A+        A+
+             6  2017             O.J. Howard   19         A+         B
+             7  2025            Tyler Warren   14         A+        A+
+             8  2026            Kenyon Sadiq   16         A+        B+
+             9  2023           Michael Mayer   35         A+        A+
+            10  2017             Evan Engram   23         A+         A
+            11  2019               Noah Fant   20         A+         B
+            12  2014 Austin Seferian-Jenkins   38         A+        A-
                            nfl_outcome
-                    best TE6 (TE8 hit)
-                    best TE5 (TE8 hit)
+                    best TE6 (TE6 hit)
+ best TE12 (TE12 hit), 1 season so far
+                  best TE14 (TE18 hit)
+                    best TE5 (TE6 hit)
+  best TE1 (TE6 hit), 2 seasons so far
+                  best TE14 (TE18 hit)
+   best TE4 (TE6 hit), 1 season so far
              rookie season in progress
-  best TE1 (TE8 hit), 2 seasons so far
-                  best TE14 (TE16 hit)
- best TE12 (TE16 hit), 1 season so far
-                   best TE9 (TE16 hit)
-                    best TE5 (TE8 hit)
-   best TE4 (TE8 hit), 1 season so far
+            best TE35 (no tier season)
+                    best TE5 (TE6 hit)
+                   best TE9 (TE12 hit)
             best TE33 (no tier season)
-                  best TE14 (TE16 hit)
-                   best TE9 (TE16 hit)
 
 done
 
@@ -494,9 +494,9 @@ done
        WR   WR12 445   39     0.791    0.818               0.820        0.612
        WR   WR24 445   68     0.824    0.839               0.838           NA
        WR   WR36 445   95     0.827    0.842               0.843           NA
-       TE    TE8 202   22     0.789    0.803               0.805        0.628
-       TE   TE16 202   42     0.823    0.857               0.858           NA
-       TE   TE24 202   55     0.831    0.857               0.857           NA
+       TE    TE6 202   14     0.751    0.784               0.780        0.612
+       TE   TE12 202   35     0.810    0.847               0.848           NA
+       TE   TE18 202   46     0.817    0.850               0.852           NA
  spearman_pts_pick    LRT_p AIC_pick AIC_pick_plus_grade
              0.701 0.226000     97.8                98.4
                 NA 0.005030    107.0               101.0
@@ -507,9 +507,9 @@ done
              0.632 0.604000    223.0               225.0
                 NA 0.433000    299.0               301.0
                 NA 0.762000    349.0               351.0
-             0.696 0.640000    121.0               122.0
-                NA 0.790000    147.0               148.0
-                NA 0.651000    168.0               170.0
+             0.696 0.582000     91.7                93.4
+                NA 0.229000    143.0               143.0
+                NA 0.460000    157.0               159.0
 
 ===== Post-draft: any-tier hit rate by grade band within round band =====
  position round_band n_A range n_B range n_D/F n_C range any_rate_A range
@@ -520,8 +520,8 @@ done
        RB Rounds 2-3        24        48    NA         3            0.667
        RB Rounds 4-7        NA        41    74        87               NA
        TE    Round 1        11        NA    NA        NA            1.000
-       TE Rounds 2-3        17        37    NA         8            0.588
-       TE Rounds 4-7         2        24    50        53            0.000
+       TE Rounds 2-3        18        35    NA         9            0.333
+       TE Rounds 4-7         1        26    50        52            0.000
        WR    Round 1        53         2    NA        NA            0.679
        WR Rounds 2-3        14        97     1        19            0.286
        WR Rounds 4-7        NA        34   110       115               NA
@@ -533,8 +533,8 @@ done
             0.458           NA            0.333
             0.171        0.095            0.092
                NA           NA               NA
-            0.459           NA            0.250
-            0.292        0.020            0.132
+            0.400           NA            0.333
+            0.231        0.000            0.115
             0.000           NA               NA
             0.361        1.000            0.211
             0.147        0.018            0.070
@@ -583,9 +583,10 @@ done
   2019 Hunter Renfrow  149          F best WR10 (WR12 hit)
 -- TE A/A+ no tier --
  class                    name pick post_grade                nfl_outcome
-  2014 Austin Seferian-Jenkins   38         A+ best TE33 (no tier season)
   2023           Michael Mayer   35         A+ best TE35 (no tier season)
-  2014              Jace Amaro   49          A best TE25 (no tier season)
+  2014 Austin Seferian-Jenkins   38         A+ best TE33 (no tier season)
+  2017          Gerald Everett   44          A best TE22 (no tier season)
+  2011         Lance Kendricks   47          A best TE21 (no tier season)
 -- TE D/F top tier --
 [1] class       name        pick        post_grade  nfl_outcome
 <0 rows> (or 0-length row.names)

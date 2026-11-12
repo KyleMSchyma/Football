@@ -9,8 +9,8 @@ select <- dplyr::select
 mycols <- c("#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 
 POSITIONS <- c("QB", "RB", "WR", "TE")
-# Kyle's tier cutoffs: WR 12/24/36, everyone else 8/16/24
-TIERS <- list(QB = c(8, 16, 24), RB = c(8, 16, 24), WR = c(12, 24, 36), TE = c(8, 16, 24))
+# Kyle's tier cutoffs (per position): QB and RB 8/16/24, WR 12/24/36, TE 6/12/18 (TE changed from 8/16/24 on 2026-11-12)
+TIERS <- list(QB = c(8, 16, 24), RB = c(8, 16, 24), WR = c(12, 24, 36), TE = c(6, 12, 18))
 tier_labels <- function(pos) paste0(pos, TIERS[[pos]])
 TRAIN_CLASSES <- 2010:2023       # three complete NFL seasons by 2025
 ROLL_TESTS    <- 2016:2023       # strict rolling origin: train on classes <= Y - 3

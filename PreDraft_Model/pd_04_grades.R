@@ -156,7 +156,7 @@ ggsave("plot_class_strength.png", g, width = 10, height = 6, dpi = 120)
 nfl_any <- bind_rows(
   read.csv("../Football2_QB/qb_finish_tier_board_2024_2026.csv") %>% transmute(position = "QB", draft_season, pick, p_nfl = p_top24_pick),
   read.csv("../Football2_RB/rb_finish_tier_board_2024_2026.csv") %>% transmute(position = "RB", draft_season, pick, p_nfl = p_top24_pick),
-  read.csv("../Football2_TE/te_finish_tier_board_2024_2026.csv") %>% transmute(position = "TE", draft_season, pick, p_nfl = p_top24_pick),
+  read.csv("../Football2_TE/te_finish_tier_board_2024_2026.csv") %>% transmute(position = "TE", draft_season, pick, p_nfl = p_top18_pick),
   read.csv("../Football2/wr_tier_board_2024_2026.csv") %>% transmute(position = "WR", draft_season, pick, p_nfl = pick_only_p_wr3plus))
 cmp <- cur %>% filter(drafted == 1, class <= 2026) %>% select(position, class, pick, name, p3) %>%
   left_join(nfl_any, by = c("position", "class" = "draft_season", "pick"))

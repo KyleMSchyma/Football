@@ -27,6 +27,11 @@
 source("pd_common.R"); source("pd_model_fns.R")
 suppressMessages(library(ggplot2))
 NTOP_2027 <- c(QB = 12, RB = 20, WR = 32, TE = 15)   # 2027 prospects inserted per position (same K as the class grades)
+# Kyle's community watchlist: these 2027 players are always inserted (flagged), whatever their score.
+# The list's order is NOT used; they are ranked by the model like everyone else. cfbd_name = name in cfbd if different.
+WATCH <- read.csv("pd_2027_watchlist.csv", stringsAsFactors = FALSE) %>%
+  mutate(nk = norm_name(ifelse(is.na(cfbd_name) | cfbd_name == "", name, cfbd_name)), sk = norm_school(team))
+watch_found <- character(0)
 
 # --- grade scale: percentile among drafted players at the position, 2010-2023 ------------
 GRADE_CUTS <- c(0, .10, .25, .35, .45, .55, .65, .75, .85, .90, .95, 1.0001)
@@ -84,9 +89,12 @@ for (POS in POSITIONS) {
   pr <- sc27(pp %>% filter(class == 2027))
   pr$p_declare <- p_declare(pr, POS)
   as <- sc27(pasis %>% filter(position == POS, class == 2027)) %>% select(athlete_id, p1_asis = p1, p2_asis = p2, p3_asis = p3, score_asis = score)
-  keep <- union(pr %>% arrange(desc(score)) %>% head(NTOP_2027[POS]) %>% pull(athlete_id),
-                as %>% arrange(desc(score_asis)) %>% head(NTOP_2027[POS]) %>% pull(athlete_id))
+  wl_ids <- pr %>% filter(paste(norm_name(name), norm_school(p_team)) %in% paste(WATCH$nk, WATCH$sk)) %>% pull(athlete_id)
+  keep <- union(union(pr %>% arrange(desc(score)) %>% head(NTOP_2027[POS]) %>% pull(athlete_id),
+                      as %>% arrange(desc(score_asis)) %>% head(NTOP_2027[POS]) %>% pull(athlete_id)), wl_ids)
+  watch_found <- c(watch_found, paste(norm_name(pr$name), norm_school(pr$p_team))[pr$athlete_id %in% wl_ids])
   proj <- pr %>% filter(athlete_id %in% keep) %>% left_join(as, by = "athlete_id") %>%
+    mutate(community_list = as.integer(athlete_id %in% wl_ids)) %>%
     mutate(class = 2027L, round = NA, pick = NA, tier = NA, gsis_id = NA, best_finish_3yr = NA, total_pts_3yr = NA,
            score_source = "final model, 2026 season in progress") %>%
     select(-recruit_rating, -p_att, -p_car, -p_rec)
@@ -141,8 +149,15 @@ final <- G %>% transmute(position, pos_rank_all, class, pos_rank_class, status, 
                          score_asis = round(score_asis, 3), grade_asis, p_declare = round(p_declare, 2),
                          nfl_outcome, nfl_best_finish = ifelse(is.finite(best_obs) & best_obs < 999, best_obs, NA),
                          nfl_tier = tier, nfl_ppr_pts = round(nfl_pts, 1), outcome_complete, score_source,
-                         data_flag = ifelse(level == "FCS" & class <= 2022, "thin college data (FCS before 2022: only games vs FBS logged)", ""))
+                         data_flag = ifelse(level == "FCS" & class <= 2022, "thin college data (FCS before 2022: only games vs FBS logged)", ""),
+                         community_list = ifelse(coalesce(community_list, 0L) == 1L, "yes", ""))
 write.csv(final, "pd_player_grades.csv", row.names = FALSE, na = "")
+miss_w <- WATCH %>% filter(!(paste(nk, sk) %in% watch_found))
+cat("\ncommunity watchlist:", nrow(WATCH), "listed,", nrow(WATCH) - nrow(miss_w), "matched in the 2027 pool\n")
+if (nrow(miss_w)) { cat("NOT matched:\n"); print(miss_w %>% select(name, listed_pos, team)) }
+cat("\n===== Community watchlist players, model order =====\n")
+print(as.data.frame(final %>% filter(community_list == "yes") %>% arrange(position, pos_rank_all) %>%
+  select(position, pos_rank_all, name, college, score, grade, grade_asis)), row.names = FALSE)
 
 # --- grade scale table --------------------------------------------------------------------
 scale_tab <- bind_rows(lapply(POSITIONS, function(POS) {

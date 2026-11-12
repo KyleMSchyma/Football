@@ -8,7 +8,7 @@ predictive-analytics project.
 | [`WR_Model/`](WR_Model/README.md) | Wide receivers | Phases 1-10: data build, targets, PPR / hit / finish-score / hurdle / tier-ladder models, value score, year-2 and year-3 breakout models, undrafted WRs, college usage/PPA test, buy/sell lists |
 | [`QB_Model/`](QB_Model/README.md) | Quarterbacks | Phases 1-7: same design adapted to QBs |
 | [`RB_Model/`](RB_Model/README.md) | Running backs | Phases 1-7: same design adapted to RBs, with RB8 / RB16 / RB24 tiers; summary buy/sell lists |
-| [`TE_Model/`](TE_Model/README.md) | Tight ends | Phases 1-7: same design adapted to TEs, with TE8 / TE16 / TE24 tiers; summary buy/sell lists |
+| [`TE_Model/`](TE_Model/README.md) | Tight ends | Phases 1-7: same design adapted to TEs, with TE6 / TE12 / TE18 tiers (changed from 8/16/24 on 2026-11-12); summary buy/sell lists |
 | [`PreDraft_Model/`](PreDraft_Model/README.md) | All four positions | Pre-draft (college-only, no draft capital or combine) player scores, class grades, position depth and player deep dives for 2010-2027 |
 | [`PostDraft_Model/`](PostDraft_Model/README.md) | All four positions | Post-draft (college + draft pick + landing spot) A+ to F grades for every drafted player 2010-2026, next to the pre-draft grade |
 

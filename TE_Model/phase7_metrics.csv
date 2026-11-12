@@ -1,5 +1,5 @@
-"trained_with_udfa","eval_on","n","TE24","AUC_usage","Brier_usage","AUC_rookie_pts","Brier_rookie_pts"
-FALSE,"UDFA",91,3,0.5947,0.034,0.6913,0.0318
-FALSE,"drafted",113,29,0.9253,0.1026,0.9392,0.0885
-TRUE,"UDFA",91,3,0.7045,0.0324,0.7481,0.0319
-TRUE,"drafted",113,29,0.9298,0.0951,0.9388,0.0882
+"trained_with_udfa","eval_on","n","TE18","AUC_usage","Brier_usage","AUC_rookie_pts","Brier_rookie_pts"
+FALSE,"UDFA",91,1,0.9667,0.0157,0.5556,0.0115
+FALSE,"drafted",113,23,0.9014,0.1014,0.9251,0.088
+TRUE,"UDFA",91,1,0.9333,0.0123,0.5556,0.0112
+TRUE,"drafted",113,23,0.9063,0.0989,0.9246,0.0881

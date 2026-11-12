@@ -1,12 +1,23 @@
 declare model: in-sample AUC 0.742 
+Warning messages:
+1: In lognet(x, is.sparse, y, weights, offset, alpha, nobs, nvars,  :
+  one multinomial or binomial class has fewer than 8  observations; dangerous ground
+2: In lognet(x, is.sparse, y, weights, offset, alpha, nobs, nvars,  :
+  one multinomial or binomial class has fewer than 8  observations; dangerous ground
+3: In lognet(x, is.sparse, y, weights, offset, alpha, nobs, nvars,  :
+  one multinomial or binomial class has fewer than 8  observations; dangerous ground
+4: In lognet(x, is.sparse, y, weights, offset, alpha, nobs, nvars,  :
+  one multinomial or binomial class has fewer than 8  observations; dangerous ground
+5: In lognet(x, is.sparse, y, weights, offset, alpha, nobs, nvars,  :
+  one multinomial or binomial class has fewer than 8  observations; dangerous ground
 
 ===== Eligible-pool view: does it track actual class strength too? (2010-2023) =====
  position   corr spearman
        QB  0.372    0.391
        RB  0.435    0.450
-       TE -0.451   -0.396
+       TE -0.508   -0.476
        WR  0.113    0.033
-      ALL  0.501    0.493
+      ALL  0.446    0.478
 eligible-pool grades, 2020-2027:
  position class n_pool points actual grade depth_grade
        QB  2020    147  11.61     11     A           A
@@ -21,18 +32,18 @@ eligible-pool grades, 2020-2027:
        RB  2021    237   8.86     10     D           F
        RB  2022    315  14.76     19     B           C
        RB  2023    441  13.69     13     C           B
-       RB  2024    529  11.24     NA    C-           C
-       RB  2025    540  18.95     NA     A           A
-       RB  2026    531   9.45     NA     D           D
-       RB  2027    538  13.17     NA    C-           B
-       TE  2020    163   8.87      5    A-           A
-       TE  2021    144   8.69      6     B          A-
-       TE  2022    200   8.39     10     C           B
-       TE  2023    243   8.08      8    C-           D
-       TE  2024    280   8.34     NA     C           C
-       TE  2025    320  12.00     NA     A           A
-       TE  2026    332   7.50     NA     D           C
-       TE  2027    315   7.54     NA     D           C
+       RB  2024    531  11.24     NA    C-           C
+       RB  2025    542  18.94     NA     A           A
+       RB  2026    533   9.45     NA     D           D
+       RB  2027    540  13.17     NA    C-           B
+       TE  2020    163   6.82      3     B          A-
+       TE  2021    144   6.66      5    C-          C-
+       TE  2022    200   5.86      7     D           B
+       TE  2023    243   6.69      7     C           D
+       TE  2024    280   6.55     NA    C-          A-
+       TE  2025    320  10.45     NA     A           A
+       TE  2026    332   5.73     NA     D           C
+       TE  2027    315   6.69     NA    C-           A
        WR  2020    449  16.62     20     B          A-
        WR  2021    401   9.83     16     F           F
        WR  2022    505  14.74     13     C           C
@@ -40,38 +51,38 @@ eligible-pool grades, 2020-2027:
        WR  2024    790  14.62     NA    C-           D
        WR  2025    815  13.86     NA     D          C-
        WR  2026    804  12.98     NA     D           D
-       WR  2027    808  17.09     NA     B           C
+       WR  2027    809  17.09     NA     B           C
  class                         period n_pos     z actual expected  pct grade
-  2010        history (eligible pool)     4 -0.90     41    38.79 0.14     D
-  2011        history (eligible pool)     4 -0.97     32    38.11 0.07     F
-  2012        history (eligible pool)     4  0.13     41    45.40 0.71     B
-  2013        history (eligible pool)     4 -0.05     37    47.03 0.43     C
-  2014        history (eligible pool)     4  0.80     45    52.76 0.93     A
-  2015        history (eligible pool)     4  0.15     28    47.43 0.79    A-
-  2016        history (eligible pool)     4 -0.50     34    40.46 0.21     D
-  2017        history (eligible pool)     4  0.76     67    51.80 0.86    A-
-  2018        history (eligible pool)     4 -0.30     45    42.55 0.36    C-
-  2019        history (eligible pool)     4 -0.02     45    41.91 0.50     C
-  2020        history (eligible pool)     4  1.16     49    55.68 1.00     A
-  2021        history (eligible pool)     4 -0.45     40    37.86 0.29    C-
-  2022        history (eligible pool)     4  0.10     48    45.97 0.64     B
-  2023        history (eligible pool)     4  0.10     43    45.77 0.57     C
-  2024                  eligible pool     4  0.10     NA    44.71 0.64     B
-  2025                  eligible pool     4  0.94     NA    50.38 0.93     A
-  2026                  eligible pool     4 -0.68     NA    38.26 0.14     D
-  2027 2027 projected (eligible pool)     4  0.19     NA    47.54 0.79    A-
+  2010        history (eligible pool)     4 -0.96     39    37.04 0.07     F
+  2011        history (eligible pool)     4 -0.93     30    36.77 0.14     D
+  2012        history (eligible pool)     4  0.05     39    43.44 0.57     C
+  2013        history (eligible pool)     4  0.14     34    46.20 0.64     B
+  2014        history (eligible pool)     4  0.99     44    51.85 0.93     A
+  2015        history (eligible pool)     4  0.27     26    46.31 0.79    A-
+  2016        history (eligible pool)     4 -0.41     33    39.22 0.29    C-
+  2017        history (eligible pool)     4  0.70     62    49.91 0.86    A-
+  2018        history (eligible pool)     4 -0.22     42    41.30 0.36    C-
+  2019        history (eligible pool)     4 -0.13     44    39.83 0.50     C
+  2020        history (eligible pool)     4  1.04     47    53.63 1.00     A
+  2021        history (eligible pool)     4 -0.55     39    35.84 0.21     D
+  2022        history (eligible pool)     4 -0.14     45    43.45 0.43     C
+  2023        history (eligible pool)     4  0.15     42    44.37 0.71     B
+  2024                  eligible pool     4  0.05     NA    42.92 0.57     C
+  2025                  eligible pool     4  1.00     NA    48.83 0.93     A
+  2026                  eligible pool     4 -0.74     NA    36.49 0.14     D
+  2027 2027 projected (eligible pool)     4  0.37     NA    46.68 0.79    A-
 
 ===== Does expected class strength track actual class strength? (2010-2023, LOCO) =====
  position classes corr_points spearman mean_expected mean_actual
        QB      14       0.224    0.098         5.846       6.786
        RB      14       0.326    0.432        10.163      12.500
-       TE      14       0.314    0.294         6.356       8.786
+       TE      14       0.256    0.420         4.982       6.714
        WR      14       0.477    0.335        11.436      14.429
-      ALL      14       0.518    0.597        33.801      42.500
+      ALL      14       0.522    0.542        32.426      40.429
 QB permutation test, corr 0.224, one-sided p = 0.219
 RB permutation test, corr 0.326, one-sided p = 0.127
 WR permutation test, corr 0.477, one-sided p = 0.040
-TE permutation test, corr 0.314, one-sided p = 0.132
+TE permutation test, corr 0.256, one-sided p = 0.175
 
 ===== Class grades =====
  position class n_eff   E1   E2   E3 depth points actual grade depth_grade
@@ -91,14 +102,14 @@ TE permutation test, corr 0.314, one-sided p = 0.132
        RB  2025    20 3.97 5.48 8.22  5.87  17.67     NA     A           A
        RB  2026    20 1.26 1.90 3.04  1.58   6.20     NA     F           D
        RB  2027    20 2.13 4.16 6.88  4.90  13.17     NA    C-           B
-       TE  2020    15 1.27 2.38 3.28  1.86   6.93      5     B           B
-       TE  2021    15 0.71 1.56 2.43  0.85   4.71      6     D           F
-       TE  2022    15 1.47 2.53 3.46  2.03   7.46     10    A-          A-
-       TE  2023    15 1.44 2.30 2.92  1.22   6.65      8     C           D
-       TE  2024    15 0.83 1.75 2.22  0.96   4.80     NA     D           F
-       TE  2025    15 1.82 3.25 4.19  2.25   9.26     NA     A           A
-       TE  2026    15 1.10 2.42 3.04  1.91   6.57     NA     C           B
-       TE  2027    15 1.48 2.52 3.54  2.42   7.54     NA     D           C
+       TE  2020    15 0.84 1.85 2.59  1.39   5.27      3     C           B
+       TE  2021    15 0.34 1.08 1.63  0.71   3.05      5     F           F
+       TE  2022    15 0.89 2.32 2.91  1.89   6.11      7    A-           A
+       TE  2023    15 0.87 1.91 2.52  0.99   5.30      7     B           D
+       TE  2024    15 0.38 1.33 2.15  1.08   3.86     NA    C-          C-
+       TE  2025    15 1.23 2.48 3.86  2.13   7.56     NA     A           A
+       TE  2026    15 0.66 1.77 2.75  1.69   5.19     NA     C          A-
+       TE  2027    15 0.95 2.25 3.48  2.31   6.69     NA    C-           A
        WR  2020    32 2.92 4.81 6.90  5.31  14.64     20     A           A
        WR  2021    32 1.89 3.36 4.41  2.38   9.66     16     D           D
        WR  2022    32 2.09 3.81 5.45  3.79  11.34     13     C           C
@@ -106,28 +117,28 @@ TE permutation test, corr 0.314, one-sided p = 0.132
        WR  2024    32 2.23 3.84 5.09  2.90  11.16     NA    C-           D
        WR  2025    32 1.93 3.28 4.42  3.04   9.63     NA     D           D
        WR  2026    32 1.70 2.87 3.90  2.71   8.47     NA     D           D
-       WR  2027    32 3.52 5.88 7.69  5.89  17.09     NA     B           C
+       WR  2027    32 3.51 5.88 7.69  5.89  17.09     NA     B           C
 
 ===== Overall class grades =====
  class                         period n_pos     z actual expected  pct grade
-  2010                 history (LOCO)     4 -0.37     41    29.04 0.36    C-
-  2011                 history (LOCO)     4 -1.36     32    22.96 0.07     F
-  2012                 history (LOCO)     4 -0.76     41    27.86 0.14     D
-  2013                 history (LOCO)     4 -0.09     37    33.68 0.43     C
-  2014                 history (LOCO)     4  0.99     45    43.53 0.93     A
-  2015                 history (LOCO)     4  0.23     28    35.88 0.71     B
-  2016                 history (LOCO)     4 -0.57     34    29.44 0.21     D
-  2017                 history (LOCO)     4  0.65     67    38.85 0.86    A-
-  2018                 history (LOCO)     4 -0.04     45    33.71 0.50     C
-  2019                 history (LOCO)     4  0.34     45    34.60 0.79    A-
-  2020                 history (LOCO)     4  1.27     49    44.79 1.00     A
-  2021                 history (LOCO)     4 -0.54     40    29.63 0.29    C-
-  2022                 history (LOCO)     4  0.14     48    34.36 0.64     B
-  2023                 history (LOCO)     4  0.12     43    34.89 0.57     C
-  2024                drafted already     4 -0.22     NA    32.59 0.36    C-
-  2025                drafted already     4  1.02     NA    41.60 0.93     A
-  2026                drafted already     4 -0.79     NA    25.73 0.07     F
-  2027 2027 projected (eligible pool)     4  0.19     NA    47.54 0.79    A-
+  2010                 history (LOCO)     4 -0.34     39    27.76 0.36    C-
+  2011                 history (LOCO)     4 -1.26     30    22.17 0.07     F
+  2012                 history (LOCO)     4 -0.68     39    26.95 0.14     D
+  2013                 history (LOCO)     4  0.09     34    33.12 0.50     C
+  2014                 history (LOCO)     4  0.93     44    41.83 0.93     A
+  2015                 history (LOCO)     4  0.26     26    34.64 0.71     B
+  2016                 history (LOCO)     4 -0.56     33    28.18 0.29    C-
+  2017                 history (LOCO)     4  0.66     62    37.44 0.86    A-
+  2018                 history (LOCO)     4 -0.25     42    31.38 0.43     C
+  2019                 history (LOCO)     4  0.28     44    32.84 0.79    A-
+  2020                 history (LOCO)     4  1.21     47    43.13 1.00     A
+  2021                 history (LOCO)     4 -0.63     39    27.98 0.21     D
+  2022                 history (LOCO)     4  0.17     45    33.01 0.64     B
+  2023                 history (LOCO)     4  0.13     42    33.54 0.57     C
+  2024                drafted already     4 -0.15     NA    31.66 0.43     C
+  2025                drafted already     4  0.99     NA    39.90 0.93     A
+  2026                drafted already     4 -0.79     NA    24.35 0.07     F
+  2027 2027 projected (eligible pool)     4  0.37     NA    46.68 0.79    A-
 Warning message:
 Removed 16 rows containing missing values or values outside the scale range
 (`geom_point()`). 
@@ -140,9 +151,9 @@ Removed 16 rows containing missing values or values outside the scale range
        RB  2024 19       3.14     3.69 0.64
        RB  2025 24       8.25     6.48 0.38
        RB  2026 10       2.16     2.87 0.32
-       TE  2024 12       1.93     3.27 0.54
-       TE  2025 16       3.75     5.10 0.69
-       TE  2026 22       2.77     5.61 0.06
+       TE  2024 12       1.81     2.76 0.52
+       TE  2025 16       3.37     4.46 0.55
+       TE  2026 22       2.36     4.64 0.04
        WR  2024 35       4.84     8.69 0.58
        WR  2025 31       3.37     7.05 0.61
        WR  2026 36       3.29     7.96 0.41
@@ -428,83 +439,83 @@ WR 2027 #15 Cayden Lee (Missouri) yrs 4 P(declare) 0.37 | P WR12/WR24/WR36: 0.06
    + receiving yards 1078.67 (+1.86); Power 5    1.00 (+0.56); dominator    0.32 (+0.38)
    - 
    comps: Tyler Hudson (2023, no NFL stats); Devin Lucien (2016, no tier season); Charleston Rambo (2022, no NFL stats)
-TE 2026 #1 Eli Stowers (Vanderbilt, pick 54) yrs 4 P(declare) 1.00 | P TE8/TE16/TE24: 0.144 / 0.402 / 0.402, hist pctl 0.97
-   + yards per team pass att    2.11 (+1.18); featured seasons    3.00 (+0.77); career receiving yards 1694.00 (+0.57)
-   - transferred  1.00 (-0.43); recruiting rating n/a (-0.02); yards/catch 12.54 (-0.02)
-   comps: Tyler Eifert (2013, best TE7); Eric Ebron (2014, best TE14); Dalton Kincaid (2023, best TE11)
-TE 2026 #2 Kenyon Sadiq (Oregon, pick 16) yrs 3 P(declare) 1.00 | P TE8/TE16/TE24: 0.133 / 0.216 / 0.394, hist pctl 0.97
-   + recruiting rating 0.95 (+0.84); yards per team pass att 1.46 (+0.64); receiving TDs 8.00 (+0.50)
-   - yards/catch 12.25 (-0.02)
-   comps: Cole Kmet (2020, best TE8); Devin Asiasi (2020, no tier season); Isaac Nauta (2019, no tier season)
-TE 2026 #3 Tanner Koziol (Houston, pick 164) yrs 5 P(declare) 1.00 | P TE8/TE16/TE24: 0.178 / 0.335 / 0.335, hist pctl 0.96
-   + featured seasons    4.00 (+1.08); yards per team pass att    1.91 (+1.02); career receiving yards 2158.00 (+0.80)
-   - transferred 1.00 (-0.43); recruiting rating 0.79 (-0.38); years out of HS 5.00 (-0.17)
-   comps: Clive Walford (2015, no tier season); Evan Engram (2017, best TE5); Troy Fumagalli (2018, no tier season)
-TE 2026 #4 Sam Roush (Stanford, pick 69) yrs 4 P(declare) 1.00 | P TE8/TE16/TE24: 0.042 / 0.158 / 0.261, hist pctl 0.95
-   + featured seasons 3.00 (+0.77); yards per team pass att 1.39 (+0.58); recruiting rating 0.90 (+0.50)
-   - college seasons  4.00 (-0.15); receiving TDs  2.00 (-0.03); yards/catch 11.12 (-0.02)
-   comps: Trey Burton (2014, no tier season); Mike Gesicki (2018, best TE7); Jake Butt (2017, no tier season)
-TE 2026 #5 Jaren Kanak (Oklahoma, pick 225) yrs 2 P(declare) 1.00 | P TE8/TE16/TE24: 0.039 / 0.200 / 0.200, hist pctl 0.93
-   + years out of HS 2.00 (+0.80); yards per team pass att 1.32 (+0.52); college seasons 1.00 (+0.49)
-   - receiving TDs   0 (-0.21); career receiving yards 511 (-0.02); recruiting rating n/a (-0.02)
-   comps: Henry Krieger-Coble (2016, no tier season); Austin Hooper (2016, best TE6); Ryan Taylor (2011, no tier season)
-TE 2026 #6 Dallen Bentley (Utah, pick 256) yrs 3 P(declare) 1.00 | P TE8/TE16/TE24: 0.071 / 0.149 / 0.193, hist pctl 0.92
-   + yards per team pass att 1.51 (+0.68); years out of HS 3.00 (+0.47); college seasons 2.00 (+0.28)
-   - recruiting rating n/a (-0.02); yards/catch  12.24 (-0.02); career receiving yards 529.00 (-0.01)
-   comps: Cole Hikutini (2017, no tier season); Austin Hooper (2016, best TE6); Henry Krieger-Coble (2016, no tier season)
-TE 2026 #7 Michael Trigg (Baylor) yrs 5 P(declare) 1.00 | P TE8/TE16/TE24: 0.054 / 0.095 / 0.168, hist pctl 0.92
-   + recruiting rating 0.94 (+0.79); yards per team pass att 1.36 (+0.55); featured seasons 2.00 (+0.45)
-   - transferred 1 (-0.43); college seasons 5 (-0.36); years out of HS 5 (-0.17)
-   comps: Will Mallory (2023, no tier season); Mike Gesicki (2018, best TE7); Lawrence Cager (2020, no tier season)
-TE 2026 #8 R.J. Maryland (SMU) yrs 4 P(declare) 1.00 | P TE8/TE16/TE24: 0.026 / 0.100 / 0.168, hist pctl 0.92
-   + featured seasons    3.0 (+0.77); career receiving yards 1489.0 (+0.47); recruiting rating    0.9 (+0.47)
-   - college seasons 4.0 (-0.15); receiving TDs 2.0 (-0.03); share of team catches 0.1 (-0.02)
-   comps: Jordan Leggett (2017, no tier season); Ethan Wolf (2018, no tier season); Juwan Johnson (2020, best TE15)
-TE 2026 #9 Cameron Barmore (Mercyhurst) yrs 3 P(declare) 1.00 | P TE8/TE16/TE24: 0.153 / 0.153 / 0.153, hist pctl 0.91
-   + yards per team pass att 1.64 (+0.79); receiving TDs 8.22 (+0.52); years out of HS 3.00 (+0.47)
-   - transferred 1 (-0.43); short final year 1 (-0.29); Power 5 0 (-0.16)
-   comps: Joel Ruiz (2016, no NFL stats); Garrett Griffin (2016, no tier season); Terrance Williams (2010, no NFL stats)
-TE 2026 #10 Justin Joly (NC State, pick 152) yrs 4 P(declare) 1.00 | P TE8/TE16/TE24: 0.113 / 0.153 / 0.153, hist pctl 0.91
-   + featured seasons    3.00 (+0.77); career receiving yards 1888.00 (+0.67); yards per team pass att    1.22 (+0.43)
-   - transferred 1.00 (-0.43); recruiting rating 0.78 (-0.42); college seasons 4.00 (-0.15)
-   comps: Cam Serigne (2018, no NFL stats); Brycen Hopkins (2020, no tier season); D.J. Williams (2011, no tier season)
-TE 2027 #1 Luke Reynolds (Virginia Tech) yrs 3 P(declare) 0.14 | P TE8/TE16/TE24: 0.252 / 0.373 / 0.445, hist pctl 0.98
-   + recruiting rating 0.97 (+0.98); yards per team pass att 1.78 (+0.90); receiving TDs 8.00 (+0.50)
-   - transferred  1 (-0.43); yards/catch 10 (-0.02)
-   comps: Aaron Hernandez (2010, best TE3); Hunter Henry (2016, best TE14); Hunter Bryant (2020, no tier season)
-TE 2027 #2 Jelani Thurman (North Carolina) yrs 4 P(declare) 0.41 | P TE8/TE16/TE24: 0.151 / 0.186 / 0.343, hist pctl 0.97
-   + yards per team pass att  1.88 (+0.99); recruiting rating  0.95 (+0.87); receiving TDs 10.67 (+0.74)
-   - transferred  1.00 (-0.43); college seasons  4.00 (-0.15); yards/catch 11.67 (-0.02)
-   comps: Jordan Reed (2013, best TE3); Trey Burton (2014, no tier season); Jake Butt (2017, no tier season)
-TE 2027 #3 Trey'Dez Green (LSU) yrs 3 P(declare) 0.14 | P TE8/TE16/TE24: 0.051 / 0.176 / 0.336, hist pctl 0.96
-   + recruiting rating 0.98 (+1.10); years out of HS 3.00 (+0.47); featured seasons 2.00 (+0.45)
-   - yards/catch 12.31 (-0.02); share of team catches  0.12 (-0.01)
-   comps: Kyle Rudolph (2011, best TE11); Isaac Nauta (2019, no tier season); Alizé Mack (2019, no tier season)
-TE 2027 #4 Patrick Overmyer (Houston) yrs 4 P(declare) 0.37 | P TE8/TE16/TE24: 0.158 / 0.253 / 0.317, hist pctl 0.96
-   + yards per team pass att 1.88 (+0.99); featured seasons 3.00 (+0.77); receiving TDs 9.33 (+0.62)
-   - transferred  1.00 (-0.43); recruiting rating  0.82 (-0.12); yards/catch 11.56 (-0.02)
-   comps: Hunter Long (2021, no tier season); Garrett Graham (2010, no tier season); Dalton Kincaid (2023, best TE11)
-TE 2027 #5 Eli Finley (Louisiana Tech) yrs 4 P(declare) 0.38 | P TE8/TE16/TE24: 0.170 / 0.191 / 0.312, hist pctl 0.96
-   + yards per team pass att 2 (+1.09); receiving TDs 8 (+0.50); featured seasons 2 (+0.45)
-   - Power 5  0.00 (-0.16); college seasons  4.00 (-0.15); yards/catch 11.33 (-0.02)
-   comps: Ed Dickson (2010, best TE17); Derrick Deese Jr. (2022, no NFL stats); Jack Doyle (2013, no tier season)
-TE 2027 #6 Cade Keith (New Mexico) yrs 3 P(declare) 0.24 | P TE8/TE16/TE24: 0.159 / 0.230 / 0.274, hist pctl 0.95
-   + yards per team pass att 2.18 (+1.24); years out of HS 3.00 (+0.47); college seasons 2.00 (+0.28)
-   - Power 5  0.00 (-0.16); recruiting rating n/a (-0.02); yards/catch 13.77 (-0.02)
-   comps: Armani Levias (2020, no NFL stats); Gerald Everett (2017, best TE22); Evan Rodriguez (2012, no tier season)
-TE 2027 #7 Willie Rodriguez (Kentucky) yrs 3 P(declare) 0.13 | P TE8/TE16/TE24: 0.105 / 0.204 / 0.233, hist pctl 0.94
-   + yards per team pass att 1.52 (+0.68); years out of HS 3.00 (+0.47); recruiting rating 0.87 (+0.28)
-   - yards/catch 9 (-0.02)
-   comps: Collin Franklin (2011, no tier season); Joseph Fauria (2013, no tier season); Cole Hikutini (2017, no tier season)
-TE 2027 #8 Elija Lofton (Miami) yrs 3 P(declare) 0.14 | P TE8/TE16/TE24: 0.049 / 0.119 / 0.197, hist pctl 0.92
-   + recruiting rating 0.91 (+0.56); years out of HS 3.00 (+0.47); yards per team pass att 1.16 (+0.38)
-   - yards/catch 12.93 (-0.02); share of team catches  0.12 (-0.01); best dominator  0.11 (-0.01)
-   comps: Pat Freiermuth (2021, best TE7); Levine Toilolo (2013, no tier season); Jesse James (2015, best TE22)
-TE 2027 #9 Caleb Odom (Ole Miss) yrs 3 P(declare) 0.14 | P TE8/TE16/TE24: 0.045 / 0.134 / 0.179, hist pctl 0.92
-   + recruiting rating 0.98 (+1.05); years out of HS 3.00 (+0.47); yards per team pass att 1.12 (+0.35)
-   - transferred  1.00 (-0.43); yards/catch 12.77 (-0.02); share of team catches  0.14 (-0.00)
-   comps: Isaac Nauta (2019, no tier season); Cole Kmet (2020, best TE8); Kyle Rudolph (2011, best TE11)
-TE 2027 #10 Hunter Tipton (Memphis) yrs 4 P(declare) 0.42 | P TE8/TE16/TE24: 0.085 / 0.121 / 0.159, hist pctl 0.91
-   + yards per team pass att 1.85 (+0.96); featured seasons 2.00 (+0.45); receiving TDs 6.67 (+0.39)
-   - transferred  1 (-0.43); Power 5  0 (-0.16); recruiting rating n/a (-0.02)
-   comps: Derrick Deese Jr. (2022, no NFL stats); David Morgan (2016, no tier season); Jacob Hollister (2017, best TE24)
+TE 2026 #1 Eli Stowers (Vanderbilt, pick 54) yrs 4 P(declare) 1.00 | P TE6/TE12/TE18: 0.138 / 0.272 / 0.488, hist pctl 0.99
+   + yards per team pass att    2.11 (+0.95); career receiving yards 1694.00 (+0.77); receiving yards  765.00 (+0.54)
+   - receiving TDs 4 (-0.09); early entrant 0 (-0.01); broke out 1 (-0.00)
+   comps: Hunter Long (2021, no tier season); Eric Ebron (2014, best TE14); Dalton Kincaid (2023, best TE11)
+TE 2026 #2 Tanner Koziol (Houston, pick 164) yrs 5 P(declare) 1.00 | P TE6/TE12/TE18: 0.159 / 0.288 / 0.324, hist pctl 0.97
+   + yards per team pass att    1.91 (+0.87); career receiving yards 2158.00 (+0.52); share of team catches    0.30 (+0.50)
+   - recruiting rating  0.79 (-0.88); years out of HS  5.00 (-0.30); yards/catch 10.02 (-0.13)
+   comps: Charlie Kolar (2022, no tier season); Brycen Hopkins (2020, no tier season); Jaylen Samuels (2018, no tier season)
+TE 2026 #3 Kenyon Sadiq (Oregon, pick 16) yrs 3 P(declare) 1.00 | P TE6/TE12/TE18: 0.049 / 0.241 / 0.248, hist pctl 0.95
+   + recruiting rating   0.95 (+0.65); receiving yards 490.00 (+0.47); years out of HS   3.00 (+0.29)
+   - career receiving yards 809.00 (-0.17); featured seasons   1.00 (-0.09); yards/catch  12.25 (-0.08)
+   comps: Cole Kmet (2020, best TE8); Dwayne Allen (2012, no tier season); Devin Asiasi (2020, no tier season)
+TE 2026 #4 Jaren Kanak (Oklahoma, pick 225) yrs 2 P(declare) 1.00 | P TE6/TE12/TE18: 0.075 / 0.165 / 0.190, hist pctl 0.94
+   + receiving yards 511 (+0.55); receptions  40 (+0.39); years out of HS   2 (+0.34)
+   - career receiving yards 511.00 (-0.85); featured seasons   1.00 (-0.10); share of team catches   0.17 (-0.07)
+   comps: Taylor Thompson (2012, no tier season); Deon Yelder (2018, no tier season); Henry Krieger-Coble (2016, no tier season)
+TE 2026 #5 Cameron Barmore (Mercyhurst) yrs 3 P(declare) 1.00 | P TE6/TE12/TE18: 0.091 / 0.186 / 0.186, hist pctl 0.94
+   + receiving yards 650.14 (+0.55); yards per team pass att   1.65 (+0.32); years out of HS   3.00 (+0.29)
+   - Power 5   0.00 (-0.17); career receiving yards 778.14 (-0.15); share of team catches   0.20 (-0.06)
+   comps: Mik'Quan Deane (2019, no NFL stats); T.J. Hockenson (2019, best TE5); Cole Hikutini (2017, no tier season)
+TE 2026 #6 Sam Roush (Stanford, pick 69) yrs 4 P(declare) 1.00 | P TE6/TE12/TE18: 0.020 / 0.085 / 0.162, hist pctl 0.93
+   + career receiving yards 1201.0 (+0.59); receiving yards  545.0 (+0.44); recruiting rating    0.9 (+0.24)
+   - best dominator  0.17 (-0.15); college seasons  4.00 (-0.14); yards/catch 11.12 (-0.07)
+   comps: Mike Gesicki (2018, best TE7); Trey Burton (2014, no tier season); Jake Butt (2017, no tier season)
+TE 2026 #7 Max Klare (Ohio State, pick 61) yrs 4 P(declare) 1.00 | P TE6/TE12/TE18: 0.009 / 0.055 / 0.151, hist pctl 0.92
+   + career receiving yards 1329 (+0.80); receptions   43 (+0.20); years out of HS    4 (+0.18)
+   - yards/catch  10.42 (-0.09); share of team catches   0.15 (-0.07); receiving yards 448.00 (-0.06)
+   comps: Crockett Gillmore (2014, no tier season); Stephen Anderson (2016, no tier season); Vance McDonald (2013, no tier season)
+TE 2026 #8 Dae'Quan Wright (Ole Miss) yrs 4 P(declare) 1.00 | P TE6/TE12/TE18: 0.008 / 0.038 / 0.143, hist pctl 0.92
+   + career receiving yards 1351 (+0.79); receiving yards  489 (+0.57); featured seasons    2 (+0.21)
+   - yards/catch 16.30 (-0.12); college seasons  4.00 (-0.12); best dominator  0.16 (-0.08)
+   comps: Jordan Leggett (2017, no tier season); Andrew Quarless (2010, no tier season); J.P. Holtz (2016, no tier season)
+TE 2026 #9 Michael Trigg (Baylor) yrs 5 P(declare) 1.00 | P TE6/TE12/TE18: 0.030 / 0.085 / 0.141, hist pctl 0.92
+   + career receiving yards 1419.00 (+0.64); recruiting rating    0.94 (+0.63); receiving yards  694.00 (+0.40)
+   - years out of HS 5.00 (-0.36); best dominator 0.19 (-0.30); college seasons 5.00 (-0.11)
+   comps: Will Mallory (2023, no tier season); Jake Butt (2017, no tier season); MarQueis Gray (2013, no tier season)
+TE 2026 #10 Eli Raridon (Notre Dame, pick 95) yrs 4 P(declare) 1.00 | P TE6/TE12/TE18: 0.009 / 0.081 / 0.129, hist pctl 0.91
+   + receiving yards 482.00 (+0.52); recruiting rating   0.93 (+0.51); dominator   0.08 (+0.10)
+   - career receiving yards 587.00 (-0.29); featured seasons   1.00 (-0.13); share of team catches   0.15 (-0.05)
+   comps: Stephen Sullivan (2020, no tier season); Tyler Petite (2019, no NFL stats); James Hanna (2012, no tier season)
+TE 2027 #1 Luke Reynolds (Virginia Tech) yrs 3 P(declare) 0.14 | P TE6/TE12/TE18: 0.148 / 0.311 / 0.409, hist pctl 0.98
+   + recruiting rating    0.97 (+0.65); career receiving yards 1063.67 (+0.61); receiving yards  746.67 (+0.46)
+   - yards/catch 10.00 (-0.13); featured seasons  1.00 (-0.09); dominator  0.27 (-0.00)
+   comps: Aaron Hernandez (2010, best TE3); Zach Ertz (2013, best TE10); Zack Kuntz (2023, no tier season)
+TE 2027 #2 Eli Finley (Louisiana Tech) yrs 4 P(declare) 0.38 | P TE6/TE12/TE18: 0.128 / 0.259 / 0.386, hist pctl 0.98
+   + yards per team pass att    2.00 (+0.91); career receiving yards 1424.67 (+0.72); receiving yards  694.67 (+0.58)
+   - Power 5  0.00 (-0.21); college seasons  4.00 (-0.05); yards/catch 11.33 (-0.02)
+   comps: Cole Turner (2022, no tier season); Sam LaPorta (2023, best TE1); Dalton Kincaid (2023, best TE11)
+TE 2027 #3 Jelani Thurman (North Carolina) yrs 4 P(declare) 0.41 | P TE6/TE12/TE18: 0.133 / 0.255 / 0.376, hist pctl 0.98
+   + yards per team pass att   1.88 (+0.77); recruiting rating   0.95 (+0.61); career receiving yards 844.00 (+0.51)
+   - dominator 0.34 (-0.16); college seasons 4.00 (-0.10); featured seasons 1.00 (-0.10)
+   comps: Zack Kuntz (2023, no tier season); Jordan Reed (2013, best TE3); Zach Ertz (2013, best TE10)
+TE 2027 #4 Patrick Overmyer (Houston) yrs 4 P(declare) 0.37 | P TE6/TE12/TE18: 0.123 / 0.271 / 0.306, hist pctl 0.96
+   + yards per team pass att    1.88 (+0.88); receiving yards  662.67 (+0.55); career receiving yards 1226.67 (+0.36)
+   - recruiting rating 0.82 (-0.94); no recruiting record 0.00 (-0.01); early entrant 0.00 (-0.00)
+   comps: Hunter Long (2021, no tier season); Collin Franklin (2011, no tier season); Dalton Kincaid (2023, best TE11)
+TE 2027 #5 Trey'Dez Green (LSU) yrs 3 P(declare) 0.14 | P TE6/TE12/TE18: 0.022 / 0.121 / 0.257, hist pctl 0.96
+   + recruiting rating   0.98 (+0.83); career receiving yards 877.00 (+0.59); years out of HS   3.00 (+0.32)
+   - best dominator  0.21 (-0.31); receiving TDs  2.67 (-0.12); yards/catch 12.31 (-0.09)
+   comps: Colby Parkinson (2020, no tier season); Cole Kmet (2020, best TE8); Isaac Nauta (2019, no tier season)
+TE 2027 #6 Cade Keith (New Mexico) yrs 3 P(declare) 0.24 | P TE6/TE12/TE18: 0.117 / 0.215 / 0.251, hist pctl 0.96
+   + yards per team pass att   2.18 (+0.85); receiving yards 477.33 (+0.40); share of team catches   0.26 (+0.37)
+   - career receiving yards 730.33 (-0.18); dominator   0.36 (-0.14); Power 5   0.00 (-0.13)
+   comps: Mik'Quan Deane (2019, no NFL stats); Joseph Fauria (2013, no tier season); Jace Sternberger (2019, no tier season)
+TE 2027 #7 Hunter Tipton (Memphis) yrs 4 P(declare) 0.42 | P TE6/TE12/TE18: 0.091 / 0.139 / 0.225, hist pctl 0.95
+   + yards per team pass att    1.85 (+0.69); receiving yards  660.00 (+0.58); career receiving yards 1094.00 (+0.52)
+   - best dominator 0.19 (-0.27); Power 5 0.00 (-0.21); share of team catches 0.19 (-0.05)
+   comps: Hayden Hurst (2018, best TE11); Chris Herndon (2018, best TE16); Nick Tow-Arnett (2010, no NFL stats)
+TE 2027 #8 Caleb Odom (Ole Miss) yrs 3 P(declare) 0.14 | P TE6/TE12/TE18: 0.018 / 0.123 / 0.202, hist pctl 0.94
+   + recruiting rating   0.98 (+0.67); receiving yards 510.67 (+0.50); years out of HS   3.00 (+0.34)
+   - career receiving yards 750.67 (-0.17); receiving TDs   2.67 (-0.16); featured seasons   1.00 (-0.13)
+   comps: Cole Kmet (2020, best TE8); Kyle Rudolph (2011, best TE11); Isaac Nauta (2019, no tier season)
+TE 2027 #9 Willie Rodriguez (Kentucky) yrs 3 P(declare) 0.13 | P TE6/TE12/TE18: 0.065 / 0.141 / 0.170, hist pctl 0.94
+   + career receiving yards 944.00 (+0.53); receiving yards 540.00 (+0.50); share of team catches   0.24 (+0.38)
+   - best dominator 0.21 (-0.30); featured seasons 1.00 (-0.11); receiving TDs 4.00 (-0.09)
+   comps: Bryce Williams (2016, no NFL stats); Collin Franklin (2011, no tier season); Chig Okonkwo (2022, no tier season)
+TE 2027 #10 Jamari Johnson (Oregon) yrs 4 P(declare) 0.40 | P TE6/TE12/TE18: 0.007 / 0.059 / 0.169, hist pctl 0.93
+   + career receiving yards 971.33 (+0.60); receiving yards 493.33 (+0.49); receptions  38.67 (+0.37)
+   - featured seasons 1.00 (-0.14); receiving TDs 4.00 (-0.06); best dominator 0.14 (-0.06)
+   comps: Chris Herndon (2018, best TE16); Trey Burton (2014, no tier season); Andrew Quarless (2010, no tier season)

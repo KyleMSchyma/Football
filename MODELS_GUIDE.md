@@ -16,9 +16,11 @@ draft position.
 
 ## Shared ideas (explain these once)
 
-- **Tiers.** "Hitting" means at least one season in years 1-3 inside a tier. For QBs, RBs
-  and TEs the tiers are top 8, top 16 and top 24 at the position. For WRs they are top 12,
-  top 24 and top 36 (more WRs start in fantasy lineups).
+- **Tiers.** "Hitting" means at least one season in years 1-3 inside a tier. For QBs and RBs
+  the tiers are top 8, top 16 and top 24 at the position. For TEs they are top 6, top 12
+  and top 18 (since 2026-11-12: a 12-team league starts only 12 TEs, so a TE16 or TE24
+  season is below replacement). For WRs they are top 12, top 24 and top 36 (more WRs start
+  in fantasy lineups).
 - **Fair testing.** Each draft class is predicted only with classes whose results were
   already known at the time, like a forecaster who is not allowed to peek at the future.
   This is called rolling-origin testing, and it's the honest score.
@@ -48,7 +50,7 @@ open opportunity nudge the projection up or down.
 - WR: younger breakout age and younger draft age, career receiving yards, recruiting.
 - QB: completion rate, low interception rate, touchdown rate.
 - RB: vacated touches on the new team, early declaring.
-- TE: best college "dominator" season (share of team receiving), a fast 40 and 3-cone.
+- TE: recruiting rating, open targets on the new team, share of team catches, a fast 3-cone.
 
 **The honest result.** Once you know the draft pick, college and combine data add
 nothing you can measure. For QB total points and the RB top-24 model, adding them made
@@ -65,7 +67,7 @@ projection. The college stats only help a little at the margins."
 (for example WR1, WR2, WR3), with the chances nested so they always add up sensibly.
 
 **Final model in plain words.** An ordered model: picture a ladder with rungs at top 8,
-top 16 and top 24. One score per player says how high up the ladder he's likely to
+top 16 and top 24 (top 6, 12 and 18 for TEs; top 12, 24 and 36 for WRs). One score per player says how high up the ladder he's likely to
 climb. The two-step finish score first asks "will he ever be a fantasy starter?" and then
 "if so, how good?"
 
@@ -144,17 +146,21 @@ counts as a miss. Uses no draft pick and no combine.
 
 **Final model in plain words.**
 
-- QB, RB, TE: an elastic net on college production, age, recruiting and conference level.
+- QB, RB: an elastic net on college production, age, recruiting and conference level.
+- TE: the average of an elastic net, a random forest and xgboost on the same inputs. The
+  elastic net was the TE choice until the TE tiers moved to 6/12/18 (2026-11-12); with
+  only 8 top-6 hits in the test years the average ranked them better, and the two tie on
+  the any-tier (TE18) model.
 - WR: a plain logistic regression on five inputs (receiving yards, dominator share, years
   out of high school, recruiting rating, Power 5). It tied the elastic net, and the
   simpler model wins ties.
 - Random forests, gradient boosting (xgboost) and an average of models were all tested
-  and lost. With only a few dozen hits per position, simpler models are more reliable.
+  and lost everywhere except TE. With only a few dozen hits per position, simpler models are more reliable.
 
 **Key drivers.** Youth (fewer years out of high school), recruiting rating, Power 5, and
 the position's production: QB accuracy, TD rate and low INT rate; RB touchdown share and
-receiving; WR receiving yards and dominator share; TE yards per team pass attempt and
-receiving share.
+receiving; WR receiving yards and dominator share; TE career receiving yards and
+recruiting rating.
 
 **FCS adjustment.** FCS stats are shrunk toward an FBS scale. Players who transferred from
 FCS to FBS saw their production share drop more than FBS-to-FBS transfers, which gives a
@@ -164,7 +170,7 @@ not help.
 
 **Class grades.** Add up the expected tier hits of each class's top prospects (QB 12, RB
 20, WR 32, TE 15) and grade against 2010-2023 (A = top 10%, F = bottom 10%). Current:
-2027 projected A− overall, 2026 F, 2025 A, 2024 C−. Class grades track reality modestly
+2027 projected A− overall, 2026 F, 2025 A, 2024 C. Class grades track reality modestly
 (correlation about 0.5 for the overall grade), so trust the overall grade more than any
 single position's.
 
@@ -204,6 +210,36 @@ late picks with strong college numbers, such as Alex Collins (A- to D).
 **How to explain it.** "The pre-draft grade is what the college stats say. The post-draft
 grade adds what the NFL said with its pick. When they disagree, history sides with the
 pick more often, which is why a pre-draft A who goes in round 6 usually fades."
+
+## 11. Comparing rookies across positions: the Value column
+
+**What it is.** Grades are ranks *within* a position (an A QB and an A TE are both near the
+top of their own position, not worth the same). The pre-draft and post-draft boards now show
+**Value**: each player's expected dynasty trade value on the trade-values page's 100,000-point
+scale, for the league you set on the Trade Values page (every setting there), or the default
+league (12 teams, superflex, PPR, 2 RB / 3 WR / 1 TE) if none is saved. The All tab is
+sorted by Value.
+
+**Final model in plain words.** Chance of each fantasy tier × what past drafted players in
+that tier scored over their first four seasons above the replacement starter (discounted 15% a
+year, adjusted for age), added up. It's the same math as the 2027 rookie-pick prices, so a 2027
+prospect's Value equals his pick value.
+
+**The fix it needed.** The college-only model's chances include the risk of going undrafted,
+so among players who were drafted they ran about a third too low (16% expected any-tier vs 25%
+actual). A small logistic recalibration per position and tier, fit on drafted players'
+out-of-class predictions, fixes the level without changing anyone's order. It doesn't add
+accuracy (Brier changes are within noise except WR36, which improves); it makes the chances
+honest for a player we already know will be drafted. Drafted and mocked players use the
+post-draft chances instead. The original grades don't change.
+
+**What we found.** On the 2027 board, ranking by Value instead of percentile keeps 18 of the
+top 30 but moves QBs up (13 of the top 30, because of superflex) and TEs down (one, Trey'Dez
+Green), since a TE tier season is worth fewer points over replacement.
+
+**How to explain it.** "The grade says how good he is for his position. Value says what he's
+worth in a trade, so you can compare a running back with a quarterback."
+
 
 ## Course concepts to point to (ATPA / PA)
 

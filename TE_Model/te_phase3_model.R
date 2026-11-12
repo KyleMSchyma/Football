@@ -2,7 +2,7 @@
 # TE Model -- Phase 3: draft-pick benchmark, pre/post-draft elastic nets,
 #                      value score and 2024-2026 projections
 #
-# Targets: total_pts_3yr (PPR, Gaussian); hit24_3yr, hit16_3yr, hit8_3yr (logistic: any top-24 / 16 / 8 season).
+# Targets: total_pts_3yr (PPR, Gaussian); hit18_3yr, hit12_3yr, hit6_3yr (logistic: any top-18 / 12 / 6 season).
 # Models:  pick_only  linear / logistic on log pick (the draft-capital benchmark)
 #          pre_enet   elastic net on college, age, combine, recruiting (no pick)
 #          post_enet  pre-draft features + log pick + landing spot
@@ -25,7 +25,7 @@ train <- tbl %>% filter(!is.na(total_pts_3yr))
 score <- tbl %>% filter(draft_season >= 2024)
 cat("training rows:", nrow(train), " rows to project:", nrow(score), "\n")
 
-targets <- c(total_pts_3yr = "gaussian", hit24_3yr = "binomial", hit16_3yr = "binomial", hit8_3yr = "binomial")
+targets <- c(total_pts_3yr = "gaussian", hit18_3yr = "binomial", hit12_3yr = "binomial", hit6_3yr = "binomial")
 
 fit_predict <- function(tr, te, target, extra = character(0)) {
   fam <- targets[[target]]; y <- tr[[target]]
@@ -78,8 +78,8 @@ for (target in names(targets)) {
   cat(sprintf("%-14s %s pre  - pick: %s\n", target, lab, boot_diff(function(i) f(r$pre_enet[i], r$actual[i]) - f(r$pick_only[i], r$actual[i]), nrow(r))))
 }
 
-cat("\n===== Calibration, rolling origin, post-draft P(top-24) =====\n")
-print(as.data.frame(oof %>% filter(scheme == "Rolling", target == "hit24_3yr") %>%
+cat("\n===== Calibration, rolling origin, post-draft P(top-18) =====\n")
+print(as.data.frame(oof %>% filter(scheme == "Rolling", target == "hit18_3yr") %>%
   mutate(bin = cut(post_enet, c(0, .1, .3, .5, .7, 1), include.lowest = TRUE)) %>%
   group_by(bin) %>% summarize(n = n(), mean_pred = round(mean(post_enet), 3), actual = round(mean(actual), 3), .groups = "drop")),
   row.names = FALSE)
@@ -91,7 +91,7 @@ v <- oof %>% filter(scheme == "Rolling") %>% select(draft_season, round, pick, p
          beat_slot = actual_total_pts_3yr - pick_only_total_pts_3yr,
          grp = ntile(value_gap, 3))
 vt <- v %>% group_by(grp) %>% summarize(n = n(), mean_gap = round(mean(value_gap)), mean_beat_slot = round(mean(beat_slot)),
-                                        hit24 = round(mean(actual_hit24_3yr), 3), pick_only_p24 = round(mean(pick_only_hit24_3yr), 3), .groups = "drop")
+                                        hit18 = round(mean(actual_hit18_3yr), 3), pick_only_p18 = round(mean(pick_only_hit18_3yr), 3), .groups = "drop")
 cat("\n===== Value score back-test (terciles of pre-draft minus pick-only predicted points), rolling 2016-2023 =====\n")
 print(as.data.frame(vt), row.names = FALSE)
 cat("top minus bottom tercile, actual minus pick-only points:",
@@ -110,7 +110,7 @@ print(as.data.frame(ab %>% group_by(feat, target) %>%
   summarize(pre_Spearman = round(cor(pre_enet, actual, method = "spearman"), 3),
             pre_AUC = round(ifelse(first(target) == "total_pts_3yr", NA, aucf(actual, pre_enet)), 3),
             post_Spearman = round(cor(post_enet, actual, method = "spearman"), 3), .groups = "drop")), row.names = FALSE)
-for (target in c("total_pts_3yr", "hit24_3yr")) {
+for (target in c("total_pts_3yr", "hit18_3yr")) {
   aa <- filter(a, target == !!target); bb <- filter(b, target == !!target)
   f <- if (target == "total_pts_3yr") rmse else brier
   cat(sprintf("%-14s pre-draft with PPA minus without: %s\n", target,
@@ -121,20 +121,20 @@ for (target in c("total_pts_3yr", "hit24_3yr")) {
 proj <- score %>% select(draft_season, round, pick, pfr_player_name, college, draft_team, yr1_pts, finish_y1, finish_y2)
 for (target in names(targets)) {
   f <- fit_predict(train, score, target)
-  names(f) <- paste0(names(f), "_", c(total_pts_3yr = "pts3", hit24_3yr = "p24", hit16_3yr = "p16", hit8_3yr = "p8")[target])
+  names(f) <- paste0(names(f), "_", c(total_pts_3yr = "pts3", hit18_3yr = "p18", hit12_3yr = "p12", hit6_3yr = "p6")[target])
   proj <- bind_cols(proj, f)
 }
-proj <- proj %>% mutate(across(matches("_pts3$"), ~ round(.x, 1)), across(matches("_p(24|16|8)$"), ~ round(.x, 3)),
+proj <- proj %>% mutate(across(matches("_pts3$"), ~ round(.x, 1)), across(matches("_p(18|12|6)$"), ~ round(.x, 3)),
                         value_gap_pts = round(pre_enet_pts3 - pick_only_pts3, 1),
-                        value_gap_p24 = round(pre_enet_p24 - pick_only_p24, 3)) %>%
+                        value_gap_p18 = round(pre_enet_p18 - pick_only_p18, 3)) %>%
   arrange(draft_season, desc(post_enet_pts3))
 write.csv(proj, "te_projections_2024_2026.csv", row.names = FALSE)
 cat("\n===== Projections (post-draft), by class =====\n")
-print(as.data.frame(proj %>% select(draft_season, pick, pfr_player_name, post_enet_pts3, post_enet_p24, post_enet_p16, post_enet_p8,
-                                    pick_only_p24, pre_enet_p24, value_gap_p24, finish_y1, finish_y2)), row.names = FALSE)
+print(as.data.frame(proj %>% select(draft_season, pick, pfr_player_name, post_enet_pts3, post_enet_p18, post_enet_p12, post_enet_p6,
+                                    pick_only_p18, pre_enet_p18, value_gap_p18, finish_y1, finish_y2)), row.names = FALSE)
 
 p <- fit_prep(train, c(pre_num, post_num)); X <- apply_prep(p, train)
-for (target in c("total_pts_3yr", "hit24_3yr")) {
+for (target in c("total_pts_3yr", "hit18_3yr")) {
   for (set in c("pre", "post")) {
     num <- c(pre_num, if (set == "post") post_num); pp <- fit_prep(train, num); XX <- apply_prep(pp, train)
     fit <- enet_fit(XX, train[[target]], targets[[target]], train$draft_season)

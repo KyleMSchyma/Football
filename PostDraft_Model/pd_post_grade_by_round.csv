@@ -16,14 +16,14 @@
 "RB","Rounds 4-7","B range",41,0.171,0.122
 "RB","Rounds 4-7","C range",87,0.092,0.057
 "RB","Rounds 4-7","D/F",74,0.095,0.068
-"TE","Round 1","A range",11,1,1
-"TE","Rounds 2-3","A range",17,0.588,0.471
-"TE","Rounds 2-3","B range",37,0.459,0.27
-"TE","Rounds 2-3","C range",8,0.25,0.25
-"TE","Rounds 4-7","A range",2,0,0
-"TE","Rounds 4-7","B range",24,0.292,0.208
-"TE","Rounds 4-7","C range",53,0.132,0.113
-"TE","Rounds 4-7","D/F",50,0.02,0
+"TE","Round 1","A range",11,1,0.818
+"TE","Rounds 2-3","A range",18,0.333,0.278
+"TE","Rounds 2-3","B range",35,0.4,0.286
+"TE","Rounds 2-3","C range",9,0.333,0.333
+"TE","Rounds 4-7","A range",1,0,0
+"TE","Rounds 4-7","B range",26,0.231,0.154
+"TE","Rounds 4-7","C range",52,0.115,0.077
+"TE","Rounds 4-7","D/F",50,0,0
 "WR","Round 1","A range",53,0.679,0.566
 "WR","Round 1","B range",2,0,0
 "WR","Rounds 2-3","A range",14,0.286,0.214
