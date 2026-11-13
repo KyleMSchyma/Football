@@ -54,6 +54,7 @@ QB_SD0 <- with(q1 %>% mutate(pr = cred_s(q1, KS[1], KS[2])), sqrt(weighted.mean(
 # ---------- apply the switches to one season's rows with fits from earlier seasons ----------
 rl_apply <- function(x, tr) {
   x$cppg_rep <- x$cppg   # replacement lines and the backtest targets stay on the live definition
+  if ("prior_base" %in% names(x)) { y <- x; y$prior_ppg <- coalesce(y$prior_base, y$prior_ppg); y <- apply_k(y); x$cppg_rep <- y$cppg[match(x$player_id, y$player_id)] }   # usage prior: line on the current prior
   if (ROLE_SNAP) { S <- sp_fit(tr); i <- x$pos %in% SP_POS; x$cppg[i] <- x$cppg[i] + sp_pred(x[i, ], S) }
   if (ROLE_AVAIL) { f <- ra_fit(tr, snap = ROLE_SNAP); x$cavail <- ra_pred(x, f) }
   if (QB_START && QB_FUT_ONLY) x$ppg_r <- qadj_fit(tr)$ppg_r   # A3F: starter layer for future seasons only

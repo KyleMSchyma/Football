@@ -45,6 +45,7 @@ if (!exists("RL_EVAL_LIB")) {
   a <- commandArgs(trailingOnly = TRUE); bt_ <- a[1]; vt_ <- a[2]; BT_MIN <- if ("WIDE" %in% a) 0 else if ("MIN1" %in% a) 1 else 3
   b10 <- readRDS(paste0("exp/dv10_", bt_, ".rds"))$bv %>% filter(n_cur >= BT_MIN); v10 <- readRDS(paste0("exp/dv10_", vt_, ".rds"))$bv %>% filter(n_cur >= BT_MIN)
   b11 <- readRDS(paste0("exp/dv11_", bt_, ".rds")); v11 <- readRDS(paste0("exp/dv11_", vt_, ".rds"))
+  if ("Y13" %in% a) { b10 <- b10 %>% filter(exp <= 2); v10 <- v10 %>% filter(exp <= 2); b11$BT <- b11$BT %>% filter(exp <= 2); v11$BT <- v11$BT %>% filter(exp <= 2) }   # players in NFL years 1-3
   R <- bind_rows(cmp_rows(b10, v10, "redraft wk10-18"), cmp_rows(b11$BT, v11$BT, "dynasty 5 seasons", "pred"))
   if ("LG" %in% a && file.exists(paste0("exp/lg_", vt_, ".rds"))) {
     LB <- readRDS(paste0("exp/lg_", bt_, ".rds")); LV <- readRDS(paste0("exp/lg_", vt_, ".rds"))

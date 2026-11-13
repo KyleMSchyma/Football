@@ -8,7 +8,7 @@ a <- commandArgs(trailingOnly = TRUE); EXP_TAG <- a[1]; NO_WRITE <- TRUE
 WIDE_POP <- "WIDE" %in% a; LENFIX <- "LF" %in% a
 BT_MIN <- if (WIDE_POP) 0 else if ("MIN1" %in% a) 1 else 3   # WIDE: also rostered players with 0 games so far   # MIN1: score every player with 1+ game by week 9 (live backtests: 3+)
 ROLE_AVAIL <- "A2" %in% a; QB_START <- any(c("A3", "A3F") %in% a); QB_FUT_ONLY <- "A3F" %in% a; ROLE_SNAP <- "A4" %in% a   # A3F: QB starter layer for future seasons only
-QB_DEPTH <- any(c("QD", "QDS") %in% a); QB_SS <- if ("QDA" %in% a) "avg" else "QDS" %in% a; if ("QDA" %in% a) QB_DEPTH <- TRUE; H_DIRECT <- "HD" %in% a; SIG_H <- "SH" %in% a; SURV4 <- "S4" %in% a
+USAGE_PRIOR <- "UP" %in% a; QB_DEPTH <- any(c("QD", "QDS") %in% a); QB_SS <- if ("QDA" %in% a) "avg" else "QDS" %in% a; if ("QDA" %in% a) QB_DEPTH <- TRUE; H_DIRECT <- "HD" %in% a; SIG_H <- "SH" %in% a; SURV4 <- "S4" %in% a
 AGE_MODE <- if (any(grepl("^AGE=", a))) sub("^AGE=", "", a[grepl("^AGE=", a)][1]) else "none"
 cat("run", EXP_TAG, ": A2", ROLE_AVAIL, " A3", QB_START, " A4", ROLE_SNAP, " HD", H_DIRECT, " SH", SIG_H, " S4", SURV4, " AGE", AGE_MODE, "\n")
 t0 <- Sys.time()

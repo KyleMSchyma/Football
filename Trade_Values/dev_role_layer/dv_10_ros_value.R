@@ -45,6 +45,7 @@ w <- w %>% filter(position %in% POSITIONS) %>% mutate(fantasy_points_ppr = coale
   (coalesce(rushing_first_downs, 0) + coalesce(receiving_first_downs, 0)) * unname(SC$fd[position]))
 w <- w %>% select(player_id, name = player_display_name, position, season, week, team, pts = fantasy_points_ppr, att = attempts)   # att: QB starts (role layer)
 w$pts[is.na(w$pts)] <- 0
+if (!exists("USAGE_PRIOR")) USAGE_PRIOR <- FALSE
 tw <- w %>% distinct(season, team, week)                                   # team schedule actually played
 team_n <- function(yr, wk_lo, wk_hi) tw %>% filter(season == yr, week >= wk_lo, week <= wk_hi) %>% count(team, name = "tg")
 seas <- w %>% group_by(player_id, season) %>% summarise(g = n_distinct(week), pts = sum(pts), team = last(team), .groups = "drop") %>%
@@ -53,6 +54,7 @@ p <- readRDS(file.path(SHARED, "players_raw.rds")) %>% transmute(player_id = gsi
                                                                   draft_pick, rookie_season, birth_date = as.Date(birth_date))
 seasP <- seas %>% inner_join(w %>% count(player_id, season, position) %>% group_by(player_id, season) %>%
                                slice_max(n, n = 1, with_ties = FALSE) %>% select(player_id, season, pos = position), by = c("player_id", "season"))
+if (USAGE_PRIOR) source("rl_usage.R")   # FABLE part 9: usage-model prior for players in years 2-3
 
 # ---------- one snapshot: everything known at week CUT of season yr ----------
 snapshot <- function(yr, cut = if (yr == CUR) CUT26 else CUT) {
@@ -72,6 +74,7 @@ snapshot <- function(yr, cut = if (yr == CUR) CUT26 else CUT) {
   # "potential" prior: expected PPG from draft slot and years in the league (fit on the 10 seasons before yr)
   d <- d %>% mutate(exp = pmax(0, yr - coalesce(rookie_season, yr)), lpick = log(coalesce(draft_pick, 262)))
   d$prior_ppg <- potential_ppg(yr, d)
+  if (isTRUE(USAGE_PRIOR)) { up <- usage_prior(d, yr); d$usage_prior <- up; d$prior_base <- d$prior_ppg; d$prior_ppg <- ifelse(is.na(up), d$prior_ppg, up) }   # FABLE part 9 (rl_usage.R); prior_base keeps the replacement line on the current prior
   pa <- seasP %>% filter(season >= yr - 3, season <= yr - 1) %>% group_by(pos) %>%
     summarise(pos_avail = sum(g) / sum(tg_season, na.rm = TRUE))
   d <- d %>% left_join(pa, by = "pos")
@@ -139,7 +142,7 @@ cat("backtest player-seasons:", nrow(bt), "\n")
 # ---------- fit k1..k4 per position ----------
 fitk <- list()
 for (ps in POSITIONS) {
-  d1 <- bt %>% filter(pos == ps, n_ros >= 3)
+  d1 <- (if ("prior_base" %in% names(bt)) bt %>% mutate(prior_ppg = coalesce(prior_base, prior_ppg)) else bt) %>% filter(pos == ps, n_ros >= 3)   # usage prior: constants fit on the current prior
   o1 <- optim(c(log(4), log(8)), function(q) { pr <- cred_ppg(d1, exp(q[1]), exp(q[2])); sum(d1$n_ros * (d1$ppg_ros - pr)^2) })
   d2 <- bt %>% filter(pos == ps, n_cur >= 2)
   o2 <- optim(c(log(8), log(16)), function(q) { pr <- cred_avail(d2, exp(q[1]), exp(q[2])); sum(d2$tg_left * (d2$rate_ros - pr)^2) })
@@ -213,7 +216,7 @@ m3 <- st %>% group_by(pos) %>% summarise(n = n(), spearman_model = cor(value, ac
   spearman_naive = cor(naive, actual, method = "spearman"), rmse_model = sqrt(mean((value - actual)^2)),
   rmse_naive = sqrt(mean((naive - actual)^2)), .groups = "drop")
 if (exists("EXP_TAG")) { dir.create("exp", showWarnings = FALSE)
-  saveRDS(list(bv = bv %>% select(season, player_id, name, pos, n_cur, value, actual, naive, cppg, ppg_ros, n_ros, cavail, rate_ros, tg_left, any_of(c("cat", "depth_rank")))), paste0("exp/dv10_", EXP_TAG, ".rds")) }
+  saveRDS(list(bv = bv %>% select(season, player_id, name, pos, n_cur, exp, value, actual, naive, cppg, ppg_ros, n_ros, cavail, rate_ros, tg_left, any_of(c("cat", "depth_rank")))), paste0("exp/dv10_", EXP_TAG, ".rds")) }
 cat("\nWhole value, predicted vs actual weeks 10-18 points over replacement (players with 3+ games by week 9):\n")
 print(m3 %>% mutate(across(where(is.numeric), ~ round(.x, 3))))
 
