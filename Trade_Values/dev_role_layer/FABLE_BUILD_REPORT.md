@@ -344,3 +344,58 @@ The 1-SE rule shrinks the pick too.
    for pick-only, the one place college data helps, matching the earlier likelihood-ratio result. Points are
    still best from pick-only.
 4. Don't use `lambda.1se` alone.
+
+## Parts 6-10 (2026-11-13, evening)
+
+**Part 6, post-draft regrade with log_pick unpenalized (Kyle's choice) — IN PROGRESS, not finished.**
+- `Football2_PostDraft_exp/pd_21_variant_ladders.R unpen` writes leave-one-class-out ladders (2010-2023) and
+  2024-2026 boards into `Football2_PostDraft_dev_unpen/`. QB and RB are done (mean predicted any-tier 0.270 vs
+  actual 0.276 for QB; 0.259 vs 0.262 for RB). WR and TE were still running when the usage limit hit.
+- `pd_21_patch_dev.R` has already patched the dev copies of pd_07 (reads the new ladders) and pd_09 (2027 mock with
+  the pick unpenalized).
+- To finish:
+  1. let pd_21 complete (or rerun `./run.sh pd_21_variant_ladders.R log.txt unpen ../Football2_PostDraft_dev_unpen`)
+  2. in `Football2_PostDraft_dev_unpen`, run pd_07, then pd_09
+  3. run `pd_25_regrade_compare.R ../Football2_PostDraft_dev_unpen` for the letter-grade changes, 25 biggest
+     movers, 2027 mock before/after, and the validation files and band hit rates before/after
+- The pick-only alternative was not needed (Kyle chose the unpenalized option).
+- **Switch to live (after approval):**
+  1. Re-run the position models' post ladders the same way, or copy the dev pd_07 / pd_09 together with the
+     pd_21 outputs into `Football2_PostDraft`.
+  2. Rerun pd_07, pd_09 and pd_10 (the post-draft page data line).
+  3. Rerun dv_13, which rebuilds the 2027 pick values and the board Value column from `pd_post_player_grades.csv`
+     and `pd_post_2027_mock_grades.csv`.
+  4. Rebuild the pages (the weekly refresh does steps 3-4).
+
+**Part 7, rolling-origin hit rates — done** (`PostDraft_Model/exp_rolling_hit_rates/`). Any-tier hit rate for the A
+range, all positions:
+
+| Board | Rolling 2016-2023 | LOCO 2016-2023 | LOCO 2010-2023 (published) |
+|---|---|---|---|
+| Pre-draft | 62% | 62% | 59% |
+| Post-draft | 75% | 70% | 66% |
+
+The published A-range numbers hold up. The post-draft low end separates less under rolling: D/F 9% vs C 9%.
+
+**Part 8, Track Record — done** (`Track_Record/`, site `track-record/`).
+- **Frozen 2026-11-13, with SHA-256:** 2024-2026 pre- and post-draft predictions plus a pick-only benchmark, and
+  the Market Check log (169 players, 69 gaps of 25+ ranks). Stored byte for byte in git.
+- **Results so far:**
+  - A grades: 60-62% any-tier hit so far, vs 61-66% expected over three seasons.
+  - Post-draft Brier beats pick-only for both the 2024 and 2025 classes.
+  - Pre-draft beats it for 2024 only.
+- `tr_02_score.R` reruns each January.
+
+**Part 9, usage prior — tested and DROPPED.** For years 1-3 it made QB and RB redraft error significantly worse;
+over all players, redraft Spearman −0.001 and error +0.05, both significant; dynasty was neutral. The Buy / Sell
+page is built (site `buy-sell/`).
+
+**Part 10, 2027 selection effect — done, dev only** (`PreDraft_Model/exp_selection_2027/`).
+- Players who stayed in school carry 47-51% of the pre-draft model's predicted hit mass. Predicted hits are about
+  2× actual on the eligible pool.
+- A refit P(declare) multiplier brings the totals close to actual.
+- Pick curve, default league:
+  - 1.01-1.04 unchanged (mocked players)
+  - 1.12: 20.3k → 16.8k
+  - 2.12: 15.1k → 8.3k
+  - 3.12: 12.6k → 6.5k
