@@ -243,3 +243,104 @@ the measured multi-year spread, QB depth and starts, the 1.13 pick multiplier wi
 
 **Commits.** Site worktree commit 18b20d2 on prospect-actuary branch `claude/project-thread-huep4j` (PR #8).
 The dev code and result CSVs are in Football `Trade_Values/dev_role_layer/`.
+
+## Part 3: weekly refresh (Weekly_Refresh_dev), end to end with NO_PUSH — passed
+The run: guarded pulls (stats, injury report, rosters, then depth charts / injuries / rosters / snaps / schedule
+into the role cache; a failed pull prints REUSED and the run goes on), then `dv_13`, `dv_12`, `dv_15`, the grade
+pages, the gates, the archive, a local site commit and a Football worktree commit. Nothing was pushed.
+
+Gates on 2026-11-13 (week 10, one game played):
+- latest week complete (2 of 2 teams)
+- no missing values
+- replacement lines QB 13.41 / RB 11.33 / WR 10.06 / TE 9.65, inside the 2016-2025 ranges ±2
+- pick multiplier 1.129
+- top-50 turnover: first archive
+- R math = models (1e-13)
+- built page vs R in headless Edge: players ≤ 10.1, picks ≤ 40.3 on the 100k scale
+
+Turnover limit 15: 2021-2025 weeks 8-17, the redraft top 50 never lost more than 8 players in a week (median
+3-4; weeks before 8 have no replacement pool yet). The movers file and the turnover gate were also exercised
+against a planted previous week.
+
+**Failure path, tested for real.** The first attempt stopped at the browser gate: Edge returns `--dump-dom`
+output only when started through PowerShell with redirected stdout, which is now fixed. It wrote
+`PROSPECT_ACTUARY_REFRESH_FAILED.txt` on the Desktop, raised the popup, and nothing was committed or pushed.
+
+The archive (`Trade_Values/archive/2026-11-13_week10_*.csv`) is committed to the Football branch.
+
+**Pre-draft regrade.** Skipped in dev (`SKIP_PREDRAFT=1`), because it edits the live `Football2_PreDraft`
+folder; its code is unchanged. `pd_10` (live PostDraft folder) still reads `../Football2_Dynasty/dv_rookie_board_values.csv`,
+so a dev run uses the live rookie Value file for the post-draft board. It reads the right file once the dynasty
+folder is switched over.
+
+## Part 4: switch-over — NOT DONE (waiting for Kyle)
+- **Backup made:** `Documents\R Studio\_backup_pre_fable_2026-11-13\` (Football2_Dynasty, Weekly_Refresh; verified identical).
+- **Blocked:** copying dev into the live folders was refused by this PC's Claude Code safety check, because those
+  folders run Tuesday's scheduled task. Live folders verified unchanged.
+- **To do on approval:**
+  - copy `dv_*.R`, `rl_*.R`, `tv_page_template.html`, `dv_15_check.js` and `cache_role/` into `Football2_Dynasty`
+  - copy `refresh.sh`, `rf_01`-`rf_04`, `rf_gate_limits.csv`, `README.md`, `run_dev.sh` and `archive/` into `Weekly_Refresh`
+  - run `NO_PUSH=1 SKIP_PREDRAFT=1 bash Weekly_Refresh/refresh.sh`
+  - `git reset --hard origin/main` in `ProspectActuary`
+- **Before Tuesday:** merge site PR #8, so the calculator, market check and board Value columns use the new
+  per-season sds too. The data change is additive, so they still work before the merge, with slightly different
+  dynasty numbers.
+
+## Part 5: finding 3 — penalizing the draft pick in the post-draft model
+`Football2_PostDraft_exp/pd_20_pick_penalty_experiment.R` (new folder; position folders read only). Strict rolling
+origin: test classes 2016-2023, train on classes up to Y−3, preprocessing in-fold. Pooled out-of-fold:
+
+| Pos | Model | Points RMSE | Points Spearman | Top-tier Brier | Top-2 Brier | Any-tier Brier | Any-tier AUC | Ladder RPS |
+|---|---|---|---|---|---|---|---|---|
+| QB (95) | pick only | **205.2** | **0.667** | 0.104 | 0.112 | 0.140 | 0.848 | 0.116 |
+| | current | 228.8 | 0.556 | **0.101** | 0.118 | **0.122** | **0.893** | 0.113 |
+| | (i) pick unpenalized | 223.7 | 0.588 | 0.103 | **0.106** | 0.133 | 0.881 | **0.112** |
+| | (ii) pick offset | 219.5 | 0.607 | 0.103 | 0.107 | 0.126 | 0.887 | – |
+| | (iii) lambda.1se | 218.4 | 0.612 | 0.124 | 0.125 | 0.133 | 0.873 | 0.122 |
+| | (iv) i + iii | 207.1 | 0.628 | 0.104 | 0.112 | 0.137 | 0.868 | 0.115 |
+| WR (256) | pick only | 181.3 | 0.624 | **0.083** | 0.111 | **0.132** | **0.850** | **0.108** |
+| | current | 183.8 | 0.613 | 0.089 | 0.117 | 0.140 | 0.798 | 0.114 |
+| | (i) | 181.6 | 0.625 | 0.085 | 0.113 | 0.135 | 0.823 | 0.109 |
+| | (ii) | **181.3** | 0.626 | 0.085 | 0.112 | 0.136 | 0.821 | – |
+| | (iii) | 189.9 | **0.630** | 0.089 | 0.116 | 0.139 | 0.828 | 0.117 |
+| | (iv) | 181.3 | 0.624 | 0.083 | **0.110** | 0.132 | 0.848 | 0.108 |
+| RB (171) | pick only | 191.8 | **0.679** | **0.081** | 0.128 | **0.133** | **0.842** | **0.113** |
+| | current | 196.8 | 0.640 | 0.085 | 0.135 | 0.147 | 0.795 | 0.121 |
+| | (i) | 191.6 | 0.673 | 0.081 | **0.127** | 0.134 | 0.827 | 0.114 |
+| | (ii) | **191.0** | 0.674 | 0.081 | 0.127 | 0.135 | 0.824 | – |
+| | (iii) | 226.7 | 0.651 | 0.102 | 0.154 | 0.176 | 0.771 | 0.152 |
+| | (iv) | 191.8 | 0.679 | 0.081 | 0.128 | 0.133 | 0.842 | 0.113 |
+| TE (113) | pick only | **108.8** | **0.667** | **0.055** | 0.100 | **0.111** | **0.861** | **0.087** |
+| | current | 114.2 | 0.558 | 0.064 | 0.115 | 0.120 | 0.822 | 0.096 |
+| | (i) | 111.9 | 0.599 | 0.058 | 0.102 | 0.114 | 0.851 | 0.091 |
+| | (ii) | 108.8 | 0.667 | 0.057 | **0.098** | 0.114 | 0.852 | – |
+| | (iii) | 125.1 | 0.590 | 0.066 | 0.140 | 0.123 | 0.846 | 0.124 |
+| | (iv) | 108.8 | 0.667 | 0.055 | 0.100 | 0.111 | 0.861 | 0.087 |
+
+**Paired bootstrap results** (`pd20_bootstrap.csv`, 2000 draws).
+
+(i) unpenalized pick vs current: never worse; significantly better for
+- WR top-tier Brier (−0.0047) and ladder RPS (−0.0047)
+- RB any-tier Brier (−0.013) and RPS (−0.007)
+- TE top-2 Brier (−0.014)
+
+(ii) behaves like (i). (iv) is better than current for QB points (−21.7 RMSE), RB any-tier and RPS, and TE
+top-tier. Against pick-only, no variant is significantly better anywhere.
+
+(iii) on its own is significantly worse than current:
+- RB on every metric (points RMSE +29.9)
+- TE points, top-2 Brier and RPS
+- WR points
+- QB top-tier
+
+The 1-SE rule shrinks the pick too.
+
+**Recommendation (no regrading done).**
+1. Leaving `log_pick` unpenalized is a safe fix that only helps. Adopt it everywhere the post-draft elastic net or
+   ladder is fit.
+2. Even with that fix, college inputs add nothing measurable after the pick for RB, WR and TE: (iv) is the
+   pick-only model. Price RB / WR / TE post-draft from pick-only (or pick + (i)), and say so on the site.
+3. For QBs, keep a college adjustment with the pick unpenalized. Current any-tier (top-24) AUC is 0.893 vs 0.848
+   for pick-only, the one place college data helps, matching the earlier likelihood-ratio result. Points are
+   still best from pick-only.
+4. Don't use `lambda.1se` alone.
