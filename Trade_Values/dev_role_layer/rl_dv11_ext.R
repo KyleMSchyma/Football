@@ -30,5 +30,6 @@ sig_h_fit <- function(f, ps, last_y) sapply(1:NFUT, function(h) {
   x <- SEH_[[h]] %>% filter(pos == ps, season + h <= last_y + 1, g_o >= 4)
   cp <- x$cppg; av <- x$avail
   for (t in 1:h) { nd <- data.frame(cppg = cp, age = x$age + t - 1, exp = x$exp + t - 1, lpick = x$lpick, avail = av)
+    if (isTRUE(QB_DEPTH)) { nd$depthf <- if (t == 1) x$depthf else factor(rep("unk", nrow(x)), levels = c("1", "2", "3", "unk")); nd$ss <- x$ss }
     pp <- predict(f$prod, nd); av <- predict(f$av, nd, type = "response"); cp <- pp }
   sqrt(sum(x$g_o * (x$ppg_o - cp)^2) / sum(x$g_o)) })

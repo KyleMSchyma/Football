@@ -20,7 +20,11 @@ pull <- function(name, f, yrs = YRS) {
   need <- if (is.null(old)) yrs else 2026
   got <- lapply(need, function(y) tryCatch({ x <- as.data.frame(f(y)); if (!"season" %in% names(x) || all(is.na(x$season))) x$season <- y; x },
                                            error = function(e) { cat(name, y, "failed:", conditionMessage(e), "\n"); NULL }))
-  got <- safe_bind(Filter(function(x) !is.null(x) && nrow(x), got))
+  got <- Filter(function(x) !is.null(x) && nrow(x), got)
+  if (!length(got)) {                                  # weekly refresh: a failed pull keeps last week's file
+    if (is.null(old)) stop(name, ": pull failed and no cached file")
+    cat(name, ": PULL FAILED, REUSED last cached file (seasons through ", max(old$season, na.rm = TRUE), ")\n", sep = ""); return(invisible(old)) }
+  got <- safe_bind(got)
   if (!is.null(old)) got <- safe_bind(list(old %>% filter(season != 2026), got))
   saveRDS(got, fn)
   cat(name, ": ", nrow(got), " rows; seasons ", paste(sort(unique(got$season)), collapse = " "), "\n", sep = "")

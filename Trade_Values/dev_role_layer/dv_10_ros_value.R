@@ -15,6 +15,12 @@
 # Scoring: nflverse full PPR, regular season.
 # =============================================================================
 source("dv_common.R")
+# ---- FABLE build defaults (Football2_Dynasty_dev, 2026-11-13). Set any of these to FALSE before sourcing for the old model.
+#   ROLE_AVAIL  expected games from current status (reserve / Out / Doubtful / Questionable / starter / backup), rl_common.R
+#   SIG_H       stop-loss sd from h-year-ahead residuals (dv_11)          LENFIX  real season length in the dynasty backtest
+#   QB_DEPTH, QB_SS  depth rank (and share of games started: QB_SS TRUE, or "avg" = mean of both models) in the QB still-playing and PPG models (dv_11)
+for (v_ in c("ROLE_AVAIL", "SIG_H", "LENFIX", "QB_DEPTH")) if (!exists(v_)) assign(v_, TRUE)
+if (!exists("QB_SS")) QB_SS <- "avg"   # average of the depth-only and depth + start-share QB models (closest backup-QB calibration)
 cat("== 2026 rest-of-season value ==\n")
 CUT <- 9                          # backtests: weeks 1-9 = "now", weeks 10-18 = what we predict
 CUT26 <- max(readRDS("nfl_weekly_2026.rds") %>% filter(season_type == "REG") %>% pull(week))   # 2026: latest completed week (weekly refresh)
@@ -174,7 +180,7 @@ cat("\nPredicting the share of weeks 10-18 games played, RMSE:\n"); print(m2 %>%
 # greedily by credible PPG; the last player started at each position is its replacement line. The page runs the same in JS.
 LG_DEFAULT <- list(teams = 12, qb = 1, rb = 2, wr = 3, te = 1, flex = 0, sf = 1)   # gives QB24 / RB24 / WR36 / TE12
 rep_lines <- function(d, lg = LG_DEFAULT) {
-  if (!is.null(d$cppg_rep)) d$cppg <- d$cppg_rep   # role layer: replacement lines stay on the live definition (credible PPG, all games)
+  if ("cppg_rep" %in% names(d)) d$cppg <- d$cppg_rep   # role layer: replacement lines stay on the live definition (credible PPG, all games)
   pool <- d %>% filter(n_cur >= MIN_G_REP, !is.na(cppg)) %>% arrange(desc(cppg))
   by <- split(pool$cppg, factor(pool$pos, POSITIONS))
   n <- pmin(c(QB = lg$qb, RB = lg$rb, WR = lg$wr, TE = lg$te) * lg$teams, lengths(by)[POSITIONS])
@@ -184,6 +190,10 @@ rep_lines <- function(d, lg = LG_DEFAULT) {
   take_mixed(c("RB", "WR", "TE"), lg$flex * lg$teams); take_mixed(POSITIONS, lg$sf * lg$teams)
   tibble(pos = POSITIONS, rep_ppg = sapply(POSITIONS, function(q) by[[q]][max(n[q], 1)]), n_started = as.integer(n[POSITIONS]))
 }
+# status tag for the pages: reserve list -> IR, Out, Doubtful, Questionable (Q), depth rank 2+ -> Backup, else ""
+# Backup: QBs at depth 2+ or not listed; RB / WR / TE only when listed at depth 3+ (ESPN slot charts make depth 2 and "not listed" noisy for them)
+status_tag <- function(cat, pos = rep("QB", length(cat)), depth = rep(NA_integer_, length(cat)), snap = rep(NA_real_, length(cat))) { s <- unname(c(reserve = "IR", out = "Out", doubtful = "Doubtful", questionable = "Q", backup2 = "Backup", backup3 = "Backup")[cat])
+  s[cat %in% c("backup2", "backup3") & pos != "QB" & !(coalesce(as.integer(depth), 0L) >= 3 & coalesce(snap, 0) < 0.5)] <- NA; coalesce(s, "") }   # and under half the offensive snaps
 # role layer (QB_START): QB appearances that are not starts, expected count x (relief PPG - replacement); 0 otherwise
 relief_v <- function(d) if ("relief_g" %in% names(d)) coalesce(d$relief_g, 0) * (coalesce(d$ppg_r, 0) - d$rep_ppg) else 0
 value_board <- function(d, lg = NULL) {
@@ -216,7 +226,8 @@ reps <- b26 %>% distinct(pos, rep_ppg, rep_raw); cat("\n2026 replacement PPG (cr
 out <- b26 %>% transmute(rank, rank_pos = paste0(pos, rank_pos), name, pos, team, age, games_2026 = n_cur, ppg_2026 = round(ppg_cur, 2),
   hist_games = g_h, hist_ppg = round(ppg_h, 2), Z_2026 = round(Z, 2), credible_ppg = round(cppg, 2), replacement_ppg = round(rep_ppg, 2),
   por_per_game = round(por_pg, 2), team_games_left = tg_left, avail_rate = round(cavail, 3), exp_games_left = round(exp_games, 2),
-  ros_value = round(value, 1), value_100k = round(100000 * pmax(value, 0) / max(max(value), 1e-9)), missed_last2 = missed_last2, player_id)
+  ros_value = round(value, 1), value_100k = round(100000 * pmax(value, 0) / max(max(value), 1e-9)), missed_last2 = missed_last2, player_id,
+  status = status_tag(if ("cat" %in% names(b26)) b26$cat else rep(NA, nrow(b26)), b26$pos, if ("depth_rank" %in% names(b26)) b26$depth_rank else NA, if ("snap_season" %in% names(b26)) b26$snap_season else NA))
 if (WRITE) if (max(b26$value) > 0) write.csv(out, "dv_ros_2026_board.csv", row.names = FALSE) else
   cat("\nregular season over (no games left): dv_ros_2026_board.csv kept from the last week with games left\n")
 if (WRITE) write.csv(K %>% as.data.frame() %>% tibble::rownames_to_column("pos"), "dv_ros_credibility_k.csv", row.names = FALSE)

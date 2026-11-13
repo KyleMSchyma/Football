@@ -55,6 +55,22 @@ season_end <- function(y) {
 SE <- bind_rows(lapply(2009:2025, season_end)) %>% filter(!is.na(age))
 source("rl_dv11_ext.R")                     # direct-horizon fits, h-ahead sd, monotone age (dev)
 if (QB_START) source("rl_dv11_qb.R")        # QB starter layer (dev)
+# QB_DEPTH (dev): depth rank at the end of season y (2012+, "unk" before) in the QB still-playing and PPG models.
+# Projection: the snapshot depth rank for the first future season, "unk" (no depth information) after that.
+if (!exists("QB_DEPTH")) QB_DEPTH <- FALSE
+if (!exists("QB_SS")) QB_SS <- FALSE   # QB_SS: also the share of team games started this season
+# average of two fitted models (QB_SS = "avg"): predictions averaged on the response scale
+avg_model <- function(m1, m2) structure(list(m1 = m1, m2 = m2, weights = m1$weights), class = "avgmod")
+predict.avgmod <- function(object, newdata, type = "response", ...) (predict(object$m1, newdata, type = type) + predict(object$m2, newdata, type = type)) / 2
+residuals.avgmod <- function(object, ...) residuals(object$m1) + (fitted(object$m1) - (fitted(object$m1) + fitted(object$m2)) / 2)
+dep_f <- function(known, d) factor(ifelse(known, as.character(pmin(coalesce(as.integer(d), 3L), 3L)), "unk"), levels = c("1", "2", "3", "unk"))
+if (QB_DEPTH) {
+  de_ <- RL_DEPTH %>% filter(week < 99, week <= 18) %>% group_by(season, team) %>% filter(week == max(week)) %>% ungroup() %>%
+    group_by(season, player_id) %>% summarise(depth_end = min(depth_rank), .groups = "drop")
+  SE <- SE %>% left_join(de_, by = c("season", "player_id")) %>% mutate(depthf = dep_f(season >= RL_FIRST, depth_end)) %>%
+    left_join(seasS %>% select(player_id, season, g_s), by = c("player_id", "season")) %>% mutate(ss = pmin(coalesce(g_s, 0L) / tg_season, 1))
+  SEH_ <- lapply(SEH_, function(z) z %>% left_join(SE %>% select(player_id, season, depthf, ss), by = c("player_id", "season")))
+}
 cat("season-end rows:", nrow(SE), "\n")
 
 fit_future <- function(last_y) {
@@ -70,6 +86,13 @@ fit_future <- function(last_y) {
 fit_future0 <- fit_future
 fit_future <- function(last_y) {
   F <- fit_future0(last_y)
+  if (QB_DEPTH) { x <- SE %>% filter(season <= last_y, pos == "QB")
+    fp <- function(ssf) lm(if (ssf) ppg_next ~ cppg + age_ns(age) + factor(pmin(exp, 3)) + lpick:I(exp <= 2) + depthf + ss else
+                             ppg_next ~ cppg + age_ns(age) + factor(pmin(exp, 3)) + lpick:I(exp <= 2) + depthf, data = x %>% filter(g_next >= 4), weights = g_next)
+    fa <- function(ssf) glm(if (ssf) played_next ~ cppg + age_ns(age) + factor(pmin(exp, 3)) + lpick + depthf + ss else
+                              played_next ~ cppg + age_ns(age) + factor(pmin(exp, 3)) + lpick + depthf, data = x, family = binomial)
+    if (identical(QB_SS, "avg")) { F$QB$prod <- avg_model(fp(FALSE), fp(TRUE)); F$QB$act <- avg_model(fa(FALSE), fa(TRUE)) }
+    else { F$QB$prod <- fp(isTRUE(QB_SS)); F$QB$act <- fa(isTRUE(QB_SS)) } }
   if (H_DIRECT) { D <- fit_direct(last_y); for (ps in POSITIONS) F[[ps]]$dir <- D[[ps]] }
   if (SIG_H) for (ps in POSITIONS) F[[ps]]$sig_h <- sig_h_fit(F[[ps]], ps, last_y)
   if (QB_START) F$QB$Q <- fit_qb(last_y)
@@ -93,6 +116,7 @@ project <- function(d, F, sd0) {
         sd_t <- if (SIG_H) D$sig else f$sig * sqrt(t)
       } else {
       nd <- data.frame(cppg = cp, age = x$age + t - 1, exp = x$exp + t - 1, lpick = x$lpick, avail = av)
+      if (QB_DEPTH) { nd$depthf <- dep_f(rep(t == 1, nrow(x)), x$depth3); nd$ss <- pmin(coalesce(x$n_s, 0L) / pmax(x$tg_cur, 1), 1) }   # share started this season, carried forward
       S <- S * act_p(f$act, nd)
       ppg_t <- predict(f$prod, nd); av_t <- predict(f$av, nd, type = "response")
       sd_t <- if (SIG_H) f$sig_h[t] else f$sig * sqrt(t)

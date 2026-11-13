@@ -1,0 +1,6 @@
+"setting","rd_live","dy_live","ratio_live","rd_new","dy_new","ratio_new"
+"12 teams, superflex, 2 RB 3 WR 1 TE, no flex (default)",0.669,0.698,1.201,0.685,0.699,0.986
+"12 teams, 1 QB, 2 RB 3 WR 1 TE, 1 flex",0.644,0.68,1.208,0.658,0.684,0.986
+"10 teams, 1 QB, 2 RB 2 WR 1 TE, 2 flex",0.63,0.661,1.226,0.647,0.664,0.972
+"14 teams, superflex, 2 RB 3 WR 1 TE, 1 flex",0.698,0.734,1.162,0.711,0.735,1.005
+"8 teams, 1 QB, 2 RB 2 WR 1 TE, 1 flex",0.612,0.61,1.279,0.636,0.614,0.954
