@@ -1,0 +1,4 @@
+# SHA-256 of every frozen Track Record file. Never edit a listed file; freeze again under a new date.
+ff83ab9b8872f73608e937bb26381260771e01c038d4ed06e636a7f546d77a90  frozen/2026-11-13_predraft_2024_2026.csv  frozen 2026-11-13
+3ef312767311d360b24d24cdebbad2936025e68b6a52aa8dabb144f20288c79c  frozen/2026-11-13_postdraft_2024_2026.csv  frozen 2026-11-13
+febb1ffc0ceb7bf5309ad51b95aeb434b0c49ac04c3d8d1aa5fce7cd350e1bda  market/2026-11-13_market_check.csv  frozen 2026-11-13
