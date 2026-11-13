@@ -3,6 +3,8 @@
 This guide explains what each model predicts, what the final model is, what drives it,
 and how to explain it to someone who doesn't do statistics. The full math, every number
 and every caveat are in [`MODELS_TECHNICAL_REFERENCE.md`](MODELS_TECHNICAL_REFERENCE.md).
+An end-to-end review of the whole process, with prioritized improvements, is in
+[`FABLE_REVIEW.md`](FABLE_REVIEW.md).
 
 ## The one-paragraph version
 
