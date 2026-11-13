@@ -1,0 +1,109 @@
+"version","slot","pick","name","pos","source","value_100k"
+"current",1,"1.01","Jeremiah Smith","WR","post-draft, mock pick 1.1",57873
+"current",2,"1.02","Charlie Becker","WR","post-draft, mock pick 1.8",34758
+"current",3,"1.03","CJ Carr","QB","post-draft, mock pick 1.4",31010
+"current",4,"1.04","Drew Mestemaker","QB","post-draft, mock pick 1.3",26360
+"current",5,"1.05","Brad Jackson","QB","pre-draft (drafted-recalibrated)",25984
+"current",6,"1.06","Julian Sayin","QB","pre-draft (drafted-recalibrated)",25588
+"current",7,"1.07","Devon Dampier","QB","pre-draft (drafted-recalibrated)",23308
+"current",8,"1.08","Cam Coleman","WR","post-draft, mock pick 1.22",23136
+"current",9,"1.09","Michael Hawkins Jr.","QB","pre-draft (drafted-recalibrated)",21879
+"current",10,"1.10","Arch Manning","QB","post-draft, mock pick 1.5",20808
+"current",11,"1.11","Ethan Grunkemeyer","QB","pre-draft (drafted-recalibrated)",20614
+"current",12,"1.12","Trinidad Chambliss","QB","post-draft, mock pick 1.9",20285
+"current",13,"2.01","Darian Mensah","QB","post-draft, mock pick 2.42",19585
+"current",14,"2.02","KJ Duff","WR","post-draft, mock pick 1.28",19263
+"current",15,"2.03","Jackson Harris","WR","post-draft, mock pick 1.15",18842
+"current",16,"2.04","Cole Tabb","RB","pre-draft (drafted-recalibrated)",18274
+"current",17,"2.05","Mike Matthews","WR","pre-draft (drafted-recalibrated)",17382
+"current",18,"2.06","Joseph Williams","WR","pre-draft (drafted-recalibrated)",17320
+"current",19,"2.07","Nick Marsh","WR","post-draft, mock pick 2.36",17281
+"current",20,"2.08","Sam Leavitt","QB","pre-draft (drafted-recalibrated)",17264
+"current",21,"2.09","Giovanni Lopez","QB","pre-draft (drafted-recalibrated)",16808
+"current",22,"2.10","Jadan Baugh","RB","post-draft, mock pick 2.39",16755
+"current",23,"2.11","Aidan Chiles","QB","pre-draft (drafted-recalibrated)",15135
+"current",24,"2.12","Jordan Shipp","WR","pre-draft (drafted-recalibrated)",15065
+"current",25,"3.01","Kwazi Gilmer","WR","pre-draft (drafted-recalibrated)",14565
+"current",26,"3.02","Collin Dixon","WR","pre-draft (drafted-recalibrated)",14534
+"current",27,"3.03","Chris Durr Jr.","WR","pre-draft (drafted-recalibrated)",14497
+"current",28,"3.04","Micah Ford","RB","pre-draft (drafted-recalibrated)",14120
+"current",29,"3.05","Ryan Wingo","WR","pre-draft (drafted-recalibrated)",14118
+"current",30,"3.06","Trey'Dez Green","TE","post-draft, mock pick 1.14",14096
+"current",31,"3.07","Jahiem White","RB","pre-draft (drafted-recalibrated)",13616
+"current",32,"3.08","J'Koby Williams","RB","pre-draft (drafted-recalibrated)",13416
+"current",33,"3.09","Wyatt Young","WR","pre-draft (drafted-recalibrated)",13090
+"current",34,"3.10","Wayshawn Parker","RB","post-draft, mock pick 3.82",13088
+"current",35,"3.11","Ryan Williams","WR","pre-draft (drafted-recalibrated)",12828
+"current",36,"3.12","Bryant Wesco Jr.","WR","pre-draft (drafted-recalibrated)",12612
+"A: x P(declare)",1,"1.01","Jeremiah Smith","WR","post-draft, mock pick 1.1",57873
+"A: x P(declare)",2,"1.02","Charlie Becker","WR","post-draft, mock pick 1.8",34758
+"A: x P(declare)",3,"1.03","CJ Carr","QB","post-draft, mock pick 1.4",31010
+"A: x P(declare)",4,"1.04","Drew Mestemaker","QB","post-draft, mock pick 1.3",26360
+"A: x P(declare)",5,"1.05","Cam Coleman","WR","post-draft, mock pick 1.22",23136
+"A: x P(declare)",6,"1.06","Arch Manning","QB","post-draft, mock pick 1.5",20808
+"A: x P(declare)",7,"1.07","Trinidad Chambliss","QB","post-draft, mock pick 1.9",20285
+"A: x P(declare)",8,"1.08","Darian Mensah","QB","post-draft, mock pick 2.42",19585
+"A: x P(declare)",9,"1.09","KJ Duff","WR","post-draft, mock pick 1.28",19263
+"A: x P(declare)",10,"1.10","Jackson Harris","WR","post-draft, mock pick 1.15",18842
+"A: x P(declare)",11,"1.11","Nick Marsh","WR","post-draft, mock pick 2.36",17281
+"A: x P(declare)",12,"1.12","Jadan Baugh","RB","post-draft, mock pick 2.39",16755
+"A: x P(declare)",13,"2.01","Trey'Dez Green","TE","post-draft, mock pick 1.14",14096
+"A: x P(declare)",14,"2.02","Wayshawn Parker","RB","post-draft, mock pick 3.82",13088
+"A: x P(declare)",15,"2.03","Dante Moore","QB","post-draft, mock pick 1.16",11721
+"A: x P(declare)",16,"2.04","Dylan Riley","RB","post-draft, mock pick 3.75",11656
+"A: x P(declare)",17,"2.05","Isaac Brown","RB","post-draft, mock pick 3.79",11451
+"A: x P(declare)",18,"2.06","Kewan Lacy","RB","post-draft, mock pick 2.59",11389
+"A: x P(declare)",19,"2.07","Devon Dampier","QB","pre-draft (drafted-recalibrated)",10309
+"A: x P(declare)",20,"2.08","Beau Brungard","QB","pre-draft (drafted-recalibrated)",9942
+"A: x P(declare)",21,"2.09","Julian Sayin","QB","pre-draft (drafted-recalibrated)",9821
+"A: x P(declare)",22,"2.10","Deuce Alexander","WR","post-draft, mock pick 2.44",8635
+"A: x P(declare)",23,"2.11","Junior Sherrill","WR","post-draft, mock pick 2.48",8635
+"A: x P(declare)",24,"2.12","Braden Pegan","WR","post-draft, mock pick 3.66",8339
+"A: x P(declare)",25,"3.01","Brad Jackson","QB","pre-draft (drafted-recalibrated)",8335
+"A: x P(declare)",26,"3.02","Sam Leavitt","QB","pre-draft (drafted-recalibrated)",8324
+"A: x P(declare)",27,"3.03","Ethan Grunkemeyer","QB","pre-draft (drafted-recalibrated)",8296
+"A: x P(declare)",28,"3.04","Collin Dixon","WR","pre-draft (drafted-recalibrated)",8072
+"A: x P(declare)",29,"3.05","Giovanni Lopez","QB","pre-draft (drafted-recalibrated)",7540
+"A: x P(declare)",30,"3.06","Michael Hawkins Jr.","QB","pre-draft (drafted-recalibrated)",7407
+"A: x P(declare)",31,"3.07","Aidan Chiles","QB","pre-draft (drafted-recalibrated)",7248
+"A: x P(declare)",32,"3.08","Jahiem White","RB","pre-draft (drafted-recalibrated)",7220
+"A: x P(declare)",33,"3.09","Wayne Knight","RB","pre-draft (drafted-recalibrated)",7187
+"A: x P(declare)",34,"3.10","Mike Matthews","WR","pre-draft (drafted-recalibrated)",6979
+"A: x P(declare)",35,"3.11","Cole Tabb","RB","pre-draft (drafted-recalibrated)",6840
+"A: x P(declare)",36,"3.12","Carlos Hernandez","WR","pre-draft (drafted-recalibrated)",6519
+"B: mocked + P(declare) >= 0.5",1,"1.01","Jeremiah Smith","WR","post-draft, mock pick 1.1",57873
+"B: mocked + P(declare) >= 0.5",2,"1.02","Charlie Becker","WR","post-draft, mock pick 1.8",34758
+"B: mocked + P(declare) >= 0.5",3,"1.03","CJ Carr","QB","post-draft, mock pick 1.4",31010
+"B: mocked + P(declare) >= 0.5",4,"1.04","Drew Mestemaker","QB","post-draft, mock pick 1.3",26360
+"B: mocked + P(declare) >= 0.5",5,"1.05","Cam Coleman","WR","post-draft, mock pick 1.22",23136
+"B: mocked + P(declare) >= 0.5",6,"1.06","Arch Manning","QB","post-draft, mock pick 1.5",20808
+"B: mocked + P(declare) >= 0.5",7,"1.07","Trinidad Chambliss","QB","post-draft, mock pick 1.9",20285
+"B: mocked + P(declare) >= 0.5",8,"1.08","Darian Mensah","QB","post-draft, mock pick 2.42",19585
+"B: mocked + P(declare) >= 0.5",9,"1.09","KJ Duff","WR","post-draft, mock pick 1.28",19263
+"B: mocked + P(declare) >= 0.5",10,"1.10","Jackson Harris","WR","post-draft, mock pick 1.15",18842
+"B: mocked + P(declare) >= 0.5",11,"1.11","Nick Marsh","WR","post-draft, mock pick 2.36",17281
+"B: mocked + P(declare) >= 0.5",12,"1.12","Jadan Baugh","RB","post-draft, mock pick 2.39",16755
+"B: mocked + P(declare) >= 0.5",13,"2.01","Collin Dixon","WR","pre-draft (drafted-recalibrated)",14534
+"B: mocked + P(declare) >= 0.5",14,"2.02","Trey'Dez Green","TE","post-draft, mock pick 1.14",14096
+"B: mocked + P(declare) >= 0.5",15,"2.03","Jahiem White","RB","pre-draft (drafted-recalibrated)",13616
+"B: mocked + P(declare) >= 0.5",16,"2.04","Wayshawn Parker","RB","post-draft, mock pick 3.82",13088
+"B: mocked + P(declare) >= 0.5",17,"2.05","Carlos Hernandez","WR","pre-draft (drafted-recalibrated)",12016
+"B: mocked + P(declare) >= 0.5",18,"2.06","Beau Brungard","QB","pre-draft (drafted-recalibrated)",11868
+"B: mocked + P(declare) >= 0.5",19,"2.07","Dante Moore","QB","post-draft, mock pick 1.16",11721
+"B: mocked + P(declare) >= 0.5",20,"2.08","Dylan Riley","RB","post-draft, mock pick 3.75",11656
+"B: mocked + P(declare) >= 0.5",21,"2.09","Isaac Brown","RB","post-draft, mock pick 3.79",11451
+"B: mocked + P(declare) >= 0.5",22,"2.10","Kewan Lacy","RB","post-draft, mock pick 2.59",11389
+"B: mocked + P(declare) >= 0.5",23,"2.11","Cayden Lee","WR","pre-draft (drafted-recalibrated)",11089
+"B: mocked + P(declare) >= 0.5",24,"2.12","Griffin Wilde","WR","pre-draft (drafted-recalibrated)",10411
+"B: mocked + P(declare) >= 0.5",25,"3.01","Anthony Evans III","WR","pre-draft (drafted-recalibrated)",10339
+"B: mocked + P(declare) >= 0.5",26,"3.02","Isaiah Myers","WR","pre-draft (drafted-recalibrated)",10315
+"B: mocked + P(declare) >= 0.5",27,"3.03","Deuce Alexander","WR","post-draft, mock pick 2.44",8635
+"B: mocked + P(declare) >= 0.5",28,"3.04","Junior Sherrill","WR","post-draft, mock pick 2.48",8635
+"B: mocked + P(declare) >= 0.5",29,"3.05","Wayne Knight","RB","pre-draft (drafted-recalibrated)",8442
+"B: mocked + P(declare) >= 0.5",30,"3.06","Braden Pegan","WR","post-draft, mock pick 3.66",8339
+"B: mocked + P(declare) >= 0.5",31,"3.07","Jelani Thurman","TE","pre-draft (drafted-recalibrated)",6386
+"B: mocked + P(declare) >= 0.5",32,"3.08","Eli Finley","TE","pre-draft (drafted-recalibrated)",6314
+"B: mocked + P(declare) >= 0.5",33,"3.09","Reed Harris","WR","post-draft, mock pick 3.80",5925
+"B: mocked + P(declare) >= 0.5",34,"3.10","Hunter Tipton","TE","pre-draft (drafted-recalibrated)",5096
+"B: mocked + P(declare) >= 0.5",35,"3.11","Jamari Johnson","TE","post-draft, mock pick 1.24",5023
+"B: mocked + P(declare) >= 0.5",36,"3.12","Chris Marshall","WR","post-draft, mock pick 3.92",4305
