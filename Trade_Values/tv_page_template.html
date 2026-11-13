@@ -96,9 +96,9 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-wid
 </section>
 
 <section id="dynasty">
-  <div class="eyebrow">Sheet 2 · rest of 2026 plus 2027-2030 · with 2027 rookie picks</div>
+  <div class="eyebrow">Sheet 2 · rest of 2026 plus 2027-2031 · with 2027 rookie picks</div>
   <h2>Dynasty Trade Values</h2>
-  <p>Value over the rest of 2026 and the next four seasons. It adds a young player's potential from his draft slot, how players at his position age, his chance of staying in the league, and a discount that makes later seasons count a little less.</p>
+  <p>Value over the rest of 2026 and the next five seasons (through 2031). 2027 rookie picks are valued over the same seasons: their first five NFL seasons. It adds a young player's potential from his draft slot, how players at his position age, his chance of staying in the league, and a discount that makes later seasons count a little less.</p>
   <p class="small muted"><b>2027 rookie picks</b> are priced before the 2027 class is drafted. Players in our 2027 mock draft (Renner) use the <a href="../post-draft/">post-draft model</a>, with the mock pick as their draft capital. Everyone else uses the <a href="../pre-draft/">pre-draft model</a>, which has no draft capital. Each prospect gets an expected value from his chances of each fantasy tier, with what past players in that tier scored, adjusted for his age. Then the prospects are ranked for your league: pick 1.01 is worth the best prospect's value, 1.02 the second best, and so on through round 3. It assumes every prospect on the board enters the draft.</p>
   <div class="tabs" id="dTabs" role="group" aria-label="Position"></div>
   <div class="ctl"><input id="dName" type="search" placeholder="Search player, team or pick" aria-label="Search dynasty values"><span class="small muted" id="dCount"></span></div>
@@ -192,16 +192,16 @@ function compute(){
   D.players.forEach(pl=>{
     const key = keyOf(pl.p), a = rdArr(pl);
     if (a) { const por = a[1]-RR.rep[pl.p], v = por*a[2]; if (v>0) red.push({n:pl.n, p:pl.p, tm:pl.tm, g:pl.g, ppg:a[0], cppg:a[1], por, eg:a[2], raw:v}); }
-    const x = pl.k[key]; if (!x || x.length<12) return;          // [2026 PPG, credible PPG, games left, (games, PPG) 2027..2030, P(playing 2030)]
+    const x = pl.k[key]; if (!x || x.length<4+2*(D.nf||4)) return;          // [2026 PPG, credible PPG, games left, (games, PPG) 2027..2031, P(playing 2030)]
     const sd = D.sd[key], r = RD.rep[pl.p];
     let v = x[2]*stoploss(x[1], r, sd[0]);
-    for (let t=1; t<=4; t++) v += Math.pow(V,t) * x[1+2*t] * stoploss(x[2+2*t], r, sd[1]*Math.sqrt(t));
-    dyn.push({n:pl.n, p:pl.p, tm:pl.tm, a:pl.a, dp:pl.dp, cppg:x[1], p27:x[4], p30:x[10], s30:x[11], raw:v});
+    for (let t=1; t<=(D.nf||4); t++) v += Math.pow(V,t) * x[1+2*t] * stoploss(x[2+2*t], r, sd[1]*Math.sqrt(t));
+    dyn.push({n:pl.n, p:pl.p, tm:pl.tm, a:pl.a, dp:pl.dp, cppg:x[1], p27:x[4], p30:x[10], s30:x[x.length-1], raw:v});
   });
   // 2027 rookie picks from the pre-draft model (no draft capital): each prospect's value = sum over tiers of
   // P(tier) x sum_k v^k x games(tier,k) x E[(PPG(tier,k) + age adj_k - replacement)+]; pick 1.01 = best value, 1.02 = second ...
   const pv = D.picks.pros.map(pr=>{ const key = keyOf(pr.p), c = D.picks.cal[key], d = pr.d[key], r = RD.rep[pr.p]; let v = 0;
-    for (let tr=0; tr<4; tr++) for (let k=0; k<4; k++){ const i = 4*tr+k; v += pr.P[tr] * Math.pow(V,k+1) * c.G[i] * stoploss(c.mu[i]+d[k], r, c.sd[i]); }
+    const NK = D.picks.nk||4; for (let tr=0; tr<4; tr++) for (let k=0; k<NK; k++){ const i = NK*tr+k; v += (D.picks.f||1) * pr.P[tr] * Math.pow(V,k+1) * c.G[i] * stoploss(c.mu[i]+d[k], r, c.sd[i]); }
     return v; }).sort((a,b)=>b-a);
   for (let s=0; s<3*S.teams && s<pv.length; s++){ const rd = Math.floor(s/S.teams)+1, pk = s%S.teams+1;
     dyn.push({n:`2027 Pick ${rd}.${String(pk).padStart(2,"0")}`, p:"PICK", pick:true, raw:pv[s]}); }

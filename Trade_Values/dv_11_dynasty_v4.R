@@ -3,7 +3,7 @@
 #
 #   Value = sum_{t=0..4} v^t x S(t) x G(t) x E[(PPG_t - replacement)+]        v = 1/1.15
 #     t = 0     rest of 2026 (team games left x credible availability), from dv_10
-#     t = 1..4  2027-2030, 17 games x projected availability
+#     t = 1..5  2027-2031, 17 games x projected availability (was 2027-2030 until 2026-11-13)
 #   PPG_t      projected by an aging model: next-season PPG ~ this season's credible PPG + age curve
 #              + years in league + draft slot for young players (fit by position)
 #   S(t)       chance he is still playing in the NFL in season t (logistic, by position)
@@ -16,7 +16,7 @@
 # =============================================================================
 source("dv_10_ros_value.R")
 cat("\n\n== Dynasty value v4 ==\n")
-v <- 1 / (1 + I_MAIN); NFUT <- 4
+v <- 1 / (1 + I_MAIN); NFUT <- 5   # Kyle 2026-11-13: value everyone (players and 2027 picks) through 2031
 age_ns <- function(a) ns(a, knots = c(25, 28, 31), Boundary.knots = c(21, 38))
 
 # ---------- season-end table: credible PPG at the end of season y, and what happened in y+1 ----------
