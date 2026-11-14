@@ -170,7 +170,7 @@ function showMode(){
   document.getElementById("redraft").hidden = MODE!=="r"; document.getElementById("dynasty").hidden = MODE!=="d";
 }
 const lgBox = document.getElementById("lg");
-const panel = L.panel(lgBox, ()=>S, (k,v)=>{ S[k] = v; save(); update(); });
+const panel = L.panel(lgBox, ()=>S, (k,v)=>{ S[k] = v; save(); update(); }, S2=>{ Object.assign(S, S2); save(); update(); });
 document.getElementById("lgReset").addEventListener("click", ()=>{ S = Object.assign({}, DEF); save(); update(); });
 document.getElementById("mode").addEventListener("click", e=>{ const b = e.target.closest("button"); if(!b) return; MODE = b.dataset.v; save(); showMode(); });
 showMode();
@@ -200,7 +200,7 @@ function board(key, cols, tabsList, why){
     document.getElementById(key+"Count").textContent = `${x.length} rows` + (x.length>shown?`, showing ${shown}`:"");
     document.getElementById(key+"Table").innerHTML = `<thead><tr>${cols.map(c=>`<th class="${c.r?"r":""}"${c.t?` title="${c.t}"`:""}>${c.h}</th>`).join("")}<th class="r">Trade value</th></tr></thead><tbody>` +
       x.slice(0,shown).map(r=>`<tr${r.pick?' class="pick"':""}>${cols.map(c=>`<td class="${c.r?"r num":""}">${r.pick&&c.skip?"":c.f(r)}</td>`).join("")}<td class="r num val"><span class="barcell">${fmt(r.v)}<span class="minibar" style="width:${Math.max(2,Math.round(60*r.v/max))}px"></span></span></td></tr>` +
-        (!r.pick && openId===r.n+"|"+r.p ? `<tr class="why"><td colspan="${cols.length+1}">${why(r)}</td></tr>` : "")).join("") + "</tbody>";
+        (!r.pick && openId===r.n+"|"+r.p ? `<tr class="why"><td colspan="${cols.length+1}">${why(r)}<p class="small" style="margin:8px 0 0"><a href="../player/?key=${encodeURIComponent("tv:"+r.n+"|"+r.p)}">Full player profile: grades, comparables, market →</a></p></td></tr>` : "")).join("") + "</tbody>";
     document.getElementById(key+"More").hidden = x.length<=shown;
   }
   return { set(r){ rows = r; max = Math.max(...r.map(z=>z.v)); draw(); } };
