@@ -41,17 +41,9 @@ src <- list(
 
 out <- list()
 for (POS in POSITIONS) {
-  s <- src[[POS]]
-  o <- read.csv(s$oof, stringsAsFactors = FALSE)
-  if (POS == "WR") {
-    o <- o %>% filter(scheme == "LOCO", model == "post_enet") %>%
-      transmute(class = draft_season, round, pick, name = pfr_player_name, q1 = p_wr1, q2 = p_wr2plus, q3 = p_wr3plus, post_tier = tier)
-  } else {
-    o <- o %>% filter(scheme == "LOCO") %>%
-      transmute(class = draft_season, round, pick, name = pfr_player_name, q1 = .data[[s$cols[1]]], q2 = .data[[s$cols[2]]], q3 = .data[[s$cols[3]]], post_tier = tier)
-  }
-  b <- read.csv(s$board, stringsAsFactors = FALSE) %>%
-    transmute(class = draft_season, round, pick, name = pfr_player_name, q1 = .data[[s$cols[1]]], q2 = .data[[s$cols[2]]], q3 = .data[[s$cols[3]]], post_tier = NA_integer_)
+  # FABLE dev (unpen): ladders from pd_21_variant_ladders.R in this folder
+  o <- read.csv(sprintf("pd21_oof_%s.csv", POS), stringsAsFactors = FALSE)
+  b <- read.csv(sprintf("pd21_board_%s.csv", POS), stringsAsFactors = FALSE) %>% mutate(post_tier = NA_integer_)
   d <- bind_rows(o %>% mutate(score_source = "out-of-class (LOCO)"), b %>% mutate(score_source = "final model (trained 2010-2023)")) %>%
     mutate(position = POS, q2 = pmax(q2, q1), q3 = pmax(q3, q2), post_score = q1 + q2 + q3)
   ref <- d %>% filter(class <= 2023) %>% pull(post_score)

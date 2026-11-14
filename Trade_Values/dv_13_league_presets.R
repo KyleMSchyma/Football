@@ -97,7 +97,7 @@ prospect_profiles <- function() {
     mutate(g = coalesce(g, 0L), pts = coalesce(pts, 0), tg = coalesce(tg_season, ifelse(season >= 2021, 17L, 16L)), g17 = pmin(g / tg, 1) * 17)
   cal <- tier_cal(hk)
   a_ref <- h %>% group_by(pos) %>% summarise(a = mean(age0, na.rm = TRUE))
-  agef <- function(ps, a) predict(F[[ps]]$prod, data.frame(cppg = 0, age = a, exp = 0, lpick = 0))   # only the age curve matters (differences)
+  agef <- function(ps, a) predict(F[[ps]]$prod, data.frame(cppg = 0, age = a, exp = 0, lpick = 0, ss = 0, depthf = factor("unk", levels = c("1", "2", "3", "unk"))))   # depthf, ss: QB_DEPTH models (constants cancel)   # only the age curve matters (differences)
   # Kyle 2026-11-12 (second change): the pre-draft probabilities include the chance of going undrafted, so among drafted
   # players they ran ~30-40% low. Rookie picks are drafted players, so use the drafted-recalibrated versions
   # (pd_11_drafted_calibration.R: logistic recalibration of logit(p) per position and tier on drafted 2010-2023).
@@ -124,6 +124,22 @@ prospect_profiles <- function() {
     cat(sprintf("\n2027 picks: %d mocked players priced post-draft (%d matched to the pre-draft board), %d priced pre-draft\n",
                 nrow(mk), sum(hit), sum(!hit)))
     pp <- bind_rows(mk, pp[!hit, ])
+  }
+  # FABLE 2026-11-13 (finding 5): 2027 prospects priced from the PRE-draft model are multiplied by their chance of declaring
+  # (Football2_PreDraft/pd_12_declare_2027.R); mocked prospects (post-draft, mock pick) are left as they are.
+  pp$p_declare <- 1
+  dfile <- file.path(PD_DIR, "pd_declare_2027.csv")
+  if (file.exists(dfile)) {
+    nk_ <- function(x) gsub("[^a-z]", "", tolower(sub(" (jr|sr|ii|iii|iv)\\.?$", "", x, ignore.case = TRUE)))
+    dd <- read.csv(dfile, stringsAsFactors = FALSE) %>% distinct(position, name, college, .keep_all = TRUE)
+    pre_ <- !grepl("^post-draft", pp$source)
+    m_ <- match(paste(nk_(pp$name), pp$pos, pp$college), paste(nk_(dd$name), dd$position, dd$college))
+    m2 <- match(paste(nk_(pp$name), pp$pos), paste(nk_(dd$name), dd$position)); m_[is.na(m_)] <- m2[is.na(m_)]
+    f_ <- ifelse(pre_ & !is.na(m_), dd$p_declare_refit[m_], 1); pp$p_declare <- f_
+    pp$P1 <- pp$P1 * f_; pp$P2 <- pp$P2 * f_; pp$P3 <- pp$P3 * f_; pp$P4 <- 1 - pp$P1 - pp$P2 - pp$P3
+    pp$source <- ifelse(pre_ & !is.na(m_), paste0(pp$source, " x P(declare)"), pp$source)
+    cat(sprintf("2027 picks: %d pre-draft-priced prospects multiplied by P(declare) (mean %.2f); %d not matched\n", sum(pre_ & !is.na(m_)),
+                mean(f_[pre_ & !is.na(m_)]), sum(pre_ & is.na(m_))))
   }
   D <- t(sapply(seq_len(nrow(pp)), function(i) { ps <- pp$pos[i]; a0 <- a_ref$a[a_ref$pos == ps]
     d <- sapply(2:NK_, function(k) agef(ps, pp$age[i] + k - 2) - agef(ps, a0 + k - 2)); c(0, cumsum(d)) }))
@@ -170,12 +186,49 @@ board_profiles <- function(rp) {
            age = round(coalesce(age_mk, age_bd, age_hs, rp$a_ref$a[match(position, rp$a_ref$pos)]), 1),   # 0.1 grid = the pages' age table
            P12 = pmax(P12, P1), P123 = pmax(P123, P12),
            P1_ = P1, P2_ = P12 - P1, P3_ = P123 - P12, P4_ = 1 - P123)
+  # FABLE 2026-11-13: same P(declare) multiplier for 2027 rows priced from the pre-draft model (the boards' Value column)
+  dfile <- file.path(PD_DIR, "pd_declare_2027.csv")
+  if (file.exists(dfile)) {
+    dd <- read.csv(dfile, stringsAsFactors = FALSE) %>% distinct(position, name, college, .keep_all = TRUE)
+    i_ <- which(b$class == 2027 & grepl("^pre-draft", b$src))
+    m_ <- match(paste(nm(b$name[i_]), b$position[i_], b$college[i_]), paste(nm(dd$name), dd$position, dd$college))
+    f_ <- coalesce(dd$p_declare_refit[m_], 1)
+    b$P1_[i_] <- b$P1_[i_] * f_; b$P2_[i_] <- b$P2_[i_] * f_; b$P3_[i_] <- b$P3_[i_] * f_; b$P4_[i_] <- 1 - b$P1_[i_] - b$P2_[i_] - b$P3_[i_]
+    b$P1[i_] <- b$P1[i_] * f_; b$P12[i_] <- b$P12[i_] * f_; b$P123[i_] <- b$P123[i_] * f_
+    b$src[i_] <- paste0(b$src[i_], " x P(declare)")
+  }
   D <- matrix(0, nrow(b), NK_)
   for (ps in POSITIONS) { i <- which(b$position == ps); if (!length(i)) next; a0 <- rp$a_ref$a[rp$a_ref$pos == ps]
     d <- sapply(2:NK_, function(k) rp$agef(ps, b$age[i] + k - 2) - rp$agef(ps, a0 + k - 2)); D[i, ] <- cbind(0, t(apply(matrix(d, ncol = NK_ - 1), 1, cumsum))) }
   list(b = b, D = D)
 }
 
+# FABLE build: the pick multiplier on the same definition of realized value as the players' dynasty backtest (each
+# season's own default-league replacement line at week 9, real season length when LENFIX), with a bootstrap interval
+# (resample classes, then players; 2000 draws, seed 2026). The old definition (2026 lines, 17 games) is kept as f_old.
+pick_factor0 <- pick_factor
+pick_factor <- function(rp) {
+  old <- pick_factor0(rp); B <- old$bt %>% mutate(class = as.integer(class))
+  rep_y <- bv %>% distinct(season, pos, rep_ppg)
+  same <- bind_rows(lapply(sort(unique(B$class)), function(Y) {
+    x <- B %>% filter(class == Y); cy <- tier_cal(rp$hk %>% filter(class != Y)); K <- min(NK_, LAST_FULL - Y + 1)
+    ry <- setNames(rep_y$rep_ppg[rep_y$season == Y], rep_y$pos[rep_y$season == Y])
+    val <- function(i) { cc <- cy %>% filter(pos == x$pos[i], k <= K); a0 <- rp$a_ref$a[rp$a_ref$pos == x$pos[i]]
+      d <- c(0, cumsum(sapply(2:NK_, function(k) rp$agef(x$pos[i], x$age[i] + k - 2) - rp$agef(x$pos[i], a0 + k - 2))))[cc$k]
+      P <- c(x$p_top[i], x$p_top2[i] - x$p_top[i], x$p_any[i] - x$p_top2[i], 1 - x$p_any[i])
+      len <- if (isTRUE(LENFIX)) ifelse(Y + cc$k - 1 >= 2021, 17, 16) / 17 else 1
+      sum(P[cc$tier] * v^cc$k * cc$G * len * stoploss(cc$mu + d, ry[x$pos[i]], cc$sd)) }
+    x$predK <- sapply(seq_len(nrow(x)), val)
+    rr <- rp$hk %>% filter(class == Y, k <= K) %>% mutate(por = pmax(ifelse(g > 0, pts / g, 0) - ry[pos], 0) * g) %>%
+      group_by(pos, pick) %>% summarise(realized = sum(v^k * por), .groups = "drop")
+    x %>% select(-realized) %>% left_join(rr, by = c("pos", "pick")) %>% mutate(realized = coalesce(realized, 0)) }))
+  f <- sum(same$realized) / sum(same$predK); set.seed(2026)
+  bs <- replicate(2000, { cl <- sample(unique(same$class), replace = TRUE)
+    s <- bind_rows(lapply(cl, function(k) { z <- same[same$class == k, ]; z[sample.int(nrow(z), replace = TRUE), ] })); sum(s$realized) / sum(s$predK) })
+  ci <- unname(quantile(bs, c(0.025, 0.975)))
+  cat(sprintf("pick multiplier, players' definition of realized value: %.3f (95%% bootstrap %.2f-%.2f); old definition %.3f\n", f, ci[1], ci[2], old$f))
+  list(f = f, ci = ci, f_old = old$f, bt = same)
+}
 for (I_ in seq_along(RUNS_)) {
   SC <- RUNS_[[I_]]$sc; NO_WRITE <- I_ > 1
   cat(sprintf("\n\n######## scoring run %d: %.1f per RB/WR catch, %.1f per TE catch, %d per passing TD, first-down bonus %s ########\n", I_, SC$ppr, SC$te, SC$ptd,
@@ -185,7 +238,8 @@ for (I_ in seq_along(RUNS_)) {
   # players: every 2026 player (the replacement pool needs them all); dynasty projection where age is known
   mi <- match(b26$player_id, d26$player_id)
   pl <- b26 %>% transmute(player_id, name, pos, team, age, games = n_cur, ppg = ppg_cur, pool = as.integer(n_cur >= MIN_G_REP),
-                          cppg, G0 = tg_left * cavail, dp = p$draft_pick[match(player_id, p$player_id)])
+                          cppg, G0 = tg_left * cavail, dp = p$draft_pick[match(player_id, p$player_id)],
+                          st = status_tag(if ("cat" %in% names(b26)) b26$cat else rep(NA, nrow(b26)), b26$pos, if ("depth_rank" %in% names(b26)) b26$depth_rank else NA, if ("snap_season" %in% names(b26)) b26$snap_season else NA))
   dy <- cbind(pr$G[mi, 2:(NFUT + 1), drop = FALSE], pr$ppg[mi, 2:(NFUT + 1), drop = FALSE])[, as.vector(rbind(1:NFUT, NFUT + 1:NFUT))]   # SG1, mu1, ..., SG_NFUT, mu_NFUT
   dy <- cbind(dy, S4 = pr$S[mi, 5])                                   # chance he is still playing in 2030
   dy[is.na(mi), ] <- NA
@@ -194,7 +248,8 @@ for (I_ in seq_along(RUNS_)) {
   for (ps in names(keys)) { a0 <- rp$a_ref$a[rp$a_ref$pos == ps]
     d <- sapply(2:NK_, function(k) rp$agef(ps, AGE_GRID_ + k - 2) - rp$agef(ps, a0 + k - 2))
     AGET_[[paste0(ps, "_", keys[[ps]])]] <- t(apply(matrix(d, ncol = NK_ - 1), 1, cumsum)) }
-  sdk <- lapply(setNames(POSITIONS, POSITIONS), function(ps) c(sd0 = unname(setNames(m1$rmse_credibility, m1$pos)[ps]), sig = F[[ps]]$sig))
+  sdk <- lapply(setNames(POSITIONS, POSITIONS), function(ps) c(sd0 = unname(setNames(m1$rmse_credibility, m1$pos)[ps]), sig = F[[ps]]$sig,
+                                                                 if (!is.null(F[[ps]]$sig_h)) setNames(F[[ps]]$sig_h, paste0("sd", 1:NFUT))))   # FABLE: [sd0, sig, sd1..sd5]; old pages read only [sd0, sig]
   OUT_[[I_]] <- list(keys = keys, pl = pl, dy = dy, rp = rp, sdk = sdk, chk = tibble(player_id = d26$player_id, dyn = pr$value),
                      chk_rd = tibble(player_id = b26$player_id, rd = b26$value))
   SCBT_[[I_]] <- bind_rows(
@@ -220,7 +275,7 @@ for (I_ in seq_along(RUNS_)) {
 
 # ---------- assemble: one row per player, values per scoring key ----------
 ids <- unique(unlist(lapply(OUT_, function(o) o$pl$player_id)))
-base <- OUT_[[1]]$pl %>% select(player_id, name, pos, team, age, games, ppg, pool, dp)
+base <- OUT_[[1]]$pl %>% select(player_id, name, pos, team, age, games, ppg, pool, dp, st)
 rd <- list(); dyl <- list(); sdk <- list(); pk <- list(); sdR <- list()
 for (o in OUT_) for (ps in names(o$keys)) { key <- paste0(ps, "_", o$keys[[ps]])   # e.g. RB_r1: RB and WR share a scoring but not a fit
   i <- which(o$pl$pos == ps)
@@ -236,7 +291,7 @@ rd_frozen <- NULL
 if (max(sapply(unlist(rd, recursive = FALSE), `[`, 3)) <= 0 && file.exists("dv_league_presets.rds")) { old <- readRDS("dv_league_presets.rds")
   rd_frozen <- if (!is.null(old$rd_frozen)) old$rd_frozen else old$rd
   cat("\nregular season over: the redraft sheet keeps the projections from the last week with games left\n") }
-presets <- list(base = base, rd = rd, rd_frozen = rd_frozen, dy = dyl, sdk = sdk, picks = list(pp = OUT_[[1]]$rp$pp, cal = pk, D = sdR, nk = NK_, f = PICKF_$f), nf = NFUT,
+presets <- list(base = base, rd = rd, rd_frozen = rd_frozen, dy = dyl, sdk = sdk, picks = list(pp = OUT_[[1]]$rp$pp, cal = pk, D = sdR, nk = NK_, f = PICKF_$f, f_ci = PICKF_$ci, f_live_def = PICKF_$f_old), nf = NFUT,
                 agetab = list(grid = AGE_GRID_, t = AGET_),
                 v = 1 / (1 + I_MAIN), week = CUT26, made = Sys.time())
 saveRDS(presets, "dv_league_presets.rds")
@@ -257,7 +312,7 @@ league_values <- function(P, lg, ppr = 1, tep = 0, ptd = 4, fd = c(QB = 0, RB = 
   rp <- rep_lines(b, lg); b$rep <- rp$rep_ppg[match(b$pos, rp$pos)]
   b$redraft <- (b$cppg - b$rep) * b$G0
   b$dynasty <- sapply(seq_len(nrow(b)), function(j) { x <- P$dy[[k[j]]][[b$player_id[j]]]; if (is.null(x) || anyNA(x)) return(NA)
-    s <- P$sdk[[k[j]]]; nf <- P$nf; sum(P$v^(0:nf) * c(b$G0[j], x[2 * (1:nf) - 1]) * stoploss(c(b$cppg[j], x[2 * (1:nf)]), b$rep[j], c(s[1], s[2] * sqrt(1:nf)))) })
+    s <- P$sdk[[k[j]]]; nf <- P$nf; sum(P$v^(0:nf) * c(b$G0[j], x[2 * (1:nf) - 1]) * stoploss(c(b$cppg[j], x[2 * (1:nf)]), b$rep[j], c(s[1], if (length(s) > 2) s[2 + 1:nf] else s[2] * sqrt(1:nf)))) })
   pp <- P$picks$pp; tk <- key[pp$pos]
   pp$val <- sapply(seq_len(nrow(pp)), function(j) { cc <- P$picks$cal[[tk[j]]]; d <- P$picks$D[[tk[j]]][[as.character(j)]]
     pr4 <- unlist(pp[j, c("P1", "P2", "P3", "P4")]); r <- rp$rep_ppg[match(pp$pos[j], rp$pos)]

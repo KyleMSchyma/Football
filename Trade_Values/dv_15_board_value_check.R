@@ -35,3 +35,21 @@ for (nm in names(LG)) { L <- LG[[nm]]
   out[[nm]] <- o %>% select(league, board, row, position, class, name, value_R, pick_value)
 }
 write.csv(bind_rows(out), "dv_board_value_check.csv", row.names = FALSE)
+
+# =============================================================================
+# FABLE build (2026-11-13): browser vs R reconciliation of the player and pick values for the five test leagues of
+# dv_13 (default scoring). Writes dv_15_expected.js (window.DV15 = R values per league); the check page
+# (dv_15_check.js, run inside the trade-values page) recomputes them with the page's own compute() and reports the
+# max absolute difference per league on the 100k scale.
+# =============================================================================
+grab("dv_13_league_presets.R", c("LG_TEST_"))
+exp15 <- lapply(names(LG_TEST_), function(nm) { lg <- LG_TEST_[[nm]]; L <- league_values(P, lg)
+  top_d <- max(L$players$dynasty, na.rm = TRUE); top_r <- max(L$players$redraft, na.rm = TRUE)
+  pl <- L$players %>% filter(!is.na(dynasty) | !is.na(redraft))
+  list(name = nm, S = list(teams = lg$teams, ppr = 1, tep = 0, ptd = 4, sf = lg$sf, rb = lg$rb, wr = lg$wr, te = lg$te, flex = lg$flex,
+                           fdQB = 0, fdRB = 0, fdWR = 0, fdTE = 0),
+       players = lapply(seq_len(nrow(pl)), function(i) list(n = pl$name[i], p = pl$pos[i], d = if (is.na(pl$dynasty[i])) NULL else 1e5 * pl$dynasty[i] / top_d,
+                                                             r = if (is.na(pl$redraft[i]) || pl$redraft[i] <= 0) NULL else 1e5 * pl$redraft[i] / top_r)),
+       picks = 1e5 * head(L$slots$val, 3 * lg$teams) / top_d) })
+writeLines(paste0("window.DV15 = ", jsonlite::toJSON(exp15, auto_unbox = TRUE, digits = NA, null = "null"), ";"), "dv_15_expected.js", useBytes = TRUE)
+cat("wrote dv_15_expected.js for", length(exp15), "leagues\n")

@@ -7,7 +7,10 @@
 suppressMessages(library(dplyr))
 SITE <- commandArgs(trailingOnly = TRUE)[1]
 L <- bind_rows(read.csv("../Football2_RB/rb_summary_lists.csv") %>% mutate(pos = "RB"), read.csv("../Football2/wr_summary_lists.csv") %>% mutate(pos = "WR"),
-               read.csv("../Football2_TE/te_summary_lists.csv") %>% mutate(pos = "TE")) %>% filter(grepl("^Year [23] (buy|sell)", list))
+               read.csv("../Football2_TE/te_summary_lists.csv") %>% mutate(pos = "TE")) %>% filter(grepl("^Year [23] (buy|sell)", list)) %>% mutate(yr = substr(list, 1, 6), side = sub("^Year [23] ", "", list))
+# players who meet both a buy and a sell rule in the same year are left off both lists ("Mixed signals")
+MIXED <- L %>% group_by(yr, pos, player) %>% filter(n_distinct(side) > 1) %>% ungroup() %>% distinct(yr, player)
+L <- L %>% anti_join(MIXED, by = c("yr", "player"))
 RULE <- c(
   "Year 2 buy"  = "His rookie usage (role, snaps, targets or touches) points to a better year 2-3 than his rookie fantasy points do.",
   "Year 2 sell" = "Decent rookie points, but the usage behind them was thin, fading late in the year, or leaned on touchdowns.",
@@ -16,6 +19,8 @@ RULE <- c(
 src <- readLines(file.path(SITE, "value-research", "index.html"), encoding = "UTF-8", warn = FALSE)
 head <- src[1:grep("</style></head>", src, fixed = TRUE)[1]]
 head <- sub("<title>[^<]*</title>", "<title>Buy / Sell | Prospect Actuary</title>", head)
+head <- sub("section{display:flex;flex-direction:column;gap:14px}", "section{display:flex;flex-direction:column;gap:14px;min-width:0}", head, fixed = TRUE)
+head <- sub(".tblwrap{overflow-x:auto;", ".tablebox{max-width:100%;overflow-x:auto;", head, fixed = TRUE)
 head <- sub('<meta name="description" content="[^"]*"', '<meta name="description" content="Year-2 and year-3 buys and sells from the Prospect Actuary usage models: young RBs, WRs and TEs whose usage says more than their fantasy points"', head)
 nav <- grep('nav class="pa-brand"', src, value = TRUE)[1]; foot <- grep("^<footer", src, value = TRUE)[1]
 esc <- function(x) gsub(">", "&gt;", gsub("<", "&lt;", gsub("&", "&amp;", as.character(x))))
@@ -23,7 +28,9 @@ sect <- function(ls) { x <- L %>% filter(list == ls); if (!nrow(x)) return("")
   rows <- x %>% arrange(pos, desc(key_prob)) %>% mutate(tr = sprintf('<tr><td>%s</td><td>%s</td><td class="r num">%d</td><td class="r num">%.0f%%</td><td class="small muted">%s</td></tr>',
     esc(pos), esc(player), pick, 100 * key_prob, esc(note)))
   paste0('<section><h2>', ls, 's</h2><p class="small" style="max-width:72ch">', RULE[[ls]], '</p><div class="tablebox"><table><thead><tr><th>Pos</th><th>Player</th><th class="r">Pick</th><th class="r">Chance of a starter season</th><th>Why (model inputs)</th></tr></thead><tbody>',
-         paste(rows$tr, collapse = ""), '</tbody></table></div></section>') }
+         paste(rows$tr, collapse = ""), '</tbody></table></div>',
+         { mx <- sort(MIXED$player[MIXED$yr == substr(ls, 1, 6)]); if (grepl("sell", ls) && length(mx)) paste0('<p class="small muted" style="max-width:72ch"><b>Mixed signals:</b> ',
+           paste(esc(mx), collapse = ", "), ' met both a buy rule and a sell rule, so they are left off both lists.</p>') else "" }, '</section>') }
 body <- paste0('
 <body><div class="wrap">
 <header style="display:flex;flex-direction:column;gap:14px">

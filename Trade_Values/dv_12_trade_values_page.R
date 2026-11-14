@@ -6,7 +6,7 @@
 # The page computes replacement lines, values and pick values in the browser for the league settings a visitor picks.
 # =============================================================================
 source("dv_common.R"); suppressMessages(library(jsonlite))
-site <- if (dir.exists("../ProspectActuary")) "../ProspectActuary" else "public_page"
+site <- if (exists("SITE_DIR")) SITE_DIR else if (nzchar(Sys.getenv("SITE_DIR"))) Sys.getenv("SITE_DIR") else if (dir.exists("../ProspectActuary")) "../ProspectActuary" else "public_page"   # SITE_DIR: R variable or environment (refresh.sh)
 out <- file.path(site, "trade-values"); dir.create(file.path(out, "data"), recursive = TRUE, showWarnings = FALSE)
 P <- readRDS("dv_league_presets.rds")
 r3 <- function(x) round(unname(x), 3)
@@ -15,7 +15,8 @@ pl <- lapply(seq_len(nrow(P$base)), function(i) { b <- P$base[i, ]
   k <- setNames(lapply(keys_of(b$pos), function(key) { x <- c(P$rd[[key]][[b$player_id]], P$dy[[key]][[b$player_id]])
     if (anyNA(x[-(1:3)])) r3(x[1:3]) else r3(x) }), keys_of(b$pos))   # [ppg, cppg, games left, (games, PPG) x nf seasons, P(playing 2030)]
   o <- list(n = b$name, p = b$pos, tm = b$team, a = if (is.na(b$age)) NULL else round(b$age, 1),
-            dp = if (is.na(b$dp) || b$dp >= 262) NULL else b$dp, g = b$games, pool = b$pool, k = k)
+            dp = if (is.na(b$dp) || b$dp >= 262) NULL else b$dp, g = b$games, pool = b$pool, k = k,
+            st = if (is.null(b$st) || is.na(b$st) || b$st == "") NULL else b$st)   # FABLE: status tag (IR / Out / Doubtful / Q / Backup), optional field
   if (!is.null(P$rd_frozen)) { o$r <- setNames(lapply(keys_of(b$pos), function(key) { x <- P$rd_frozen[[key]][[b$player_id]]
     if (is.null(x)) NULL else r3(x) }), keys_of(b$pos)) }
   o })
@@ -29,7 +30,7 @@ wk <- max(subset(readRDS("nfl_weekly_2026.rds"), season_type == "REG")$week)
 asof <- sprintf("2026 stats through week %d. Updated %s.%s", wk, format(Sys.Date(), "%B %d, %Y"),
                 if (wk >= 18) " The regular season is over, so redraft values are frozen at the last week with games left." else "")
 js <- toJSON(list(asof = asof, v = P$v, nf = P$nf, players = pl, sd = lapply(P$sdk, r3),
-                  picks = list(cal = cal, pros = pros, nk = P$picks$nk, f = round(P$picks$f, 4))),
+                  picks = list(cal = cal, pros = pros, nk = P$picks$nk, f = round(P$picks$f, 4), f_ci = if (!is.null(P$picks$f_ci)) round(P$picks$f_ci, 2))),
              auto_unbox = TRUE, digits = NA, na = "null", null = "null")
 js <- gsub("</", "<\\/", js, fixed = TRUE)
 html <- sub("/*DATA*/", js, paste(readLines("tv_page_template.html", encoding = "UTF-8"), collapse = "\n"), fixed = TRUE)
@@ -51,4 +52,4 @@ write.csv(d %>% select(rank, rank_pos, name, pos, team, age, draft_pick, credibl
 cat("wrote", file.path(out, "index.html"), " players:", length(pl), " 2027 prospects:", length(pros),
     " page size:", round(file.size(file.path(out, "index.html")) / 1024), "KB\n")
 # Value Research page: refresh the Dynasty Daddy snapshot it compares against (a failure keeps last week's copy)
-tryCatch(source("dv_14_value_research_data.R"), error = function(e) cat("Value Research: Dynasty Daddy pull failed:", conditionMessage(e), "\n"))
+if (!exists("SKIP_DD") || !SKIP_DD) tryCatch(source("dv_14_value_research_data.R"), error = function(e) cat("Value Research: Dynasty Daddy pull failed:", conditionMessage(e), "\n"))

@@ -6,7 +6,7 @@
 # Run from dv_12_trade_values_page.R. A failure here leaves the previous dd.js in place.
 # =============================================================================
 suppressMessages(library(jsonlite))
-site <- if (dir.exists("../ProspectActuary")) "../ProspectActuary" else "public_page"
+site <- if (exists("SITE_DIR")) SITE_DIR else if (nzchar(Sys.getenv("SITE_DIR"))) Sys.getenv("SITE_DIR") else if (dir.exists("../ProspectActuary")) "../ProspectActuary" else "public_page"
 out <- file.path(site, "value-research", "data"); dir.create(out, recursive = TRUE, showWarnings = FALSE)
 pull <- function(kind) {
   x <- fromJSON(sprintf("https://api.dynasty-daddy.com/api/v1/values/%s", kind))

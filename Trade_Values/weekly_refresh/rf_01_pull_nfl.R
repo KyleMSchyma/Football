@@ -1,7 +1,7 @@
 # Weekly refresh step 1: pull 2026 NFL weekly player stats and the injury report from nflverse (nflreadr)
 # writes ../Football2_Dynasty/nfl_weekly_2026.rds and ../Football2_Dynasty/nfl_injuries_2026.rds
 suppressMessages(library(dplyr))
-dyn <- "../Football2_Dynasty"
+dyn <- Sys.getenv("DYN_DIR", "../Football2_Dynasty")   # FABLE: dev runs point this at Football2_Dynasty_dev
 old_wk <- if (file.exists(file.path(dyn, "nfl_weekly_2026.rds"))) max(readRDS(file.path(dyn, "nfl_weekly_2026.rds"))$week) else 0
 w <- as.data.frame(nflreadr::load_player_stats(2026, summary_level = "week"))
 stopifnot(nrow(w) > 1000, max(w$week) >= old_wk)
