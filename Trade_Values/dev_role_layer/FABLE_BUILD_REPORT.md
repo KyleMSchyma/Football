@@ -399,3 +399,61 @@ page is built (site `buy-sell/`).
   - 1.12: 20.3k → 16.8k
   - 2.12: 15.1k → 8.3k
   - 3.12: 12.6k → 6.5k
+
+## Part 6 result: post-draft regrade with log_pick unpenalized (Kyle's choice) — done in dev
+Built in `Football2_PostDraft_dev_unpen`:
+- pd_21 ladders (leave-one-class-out 2010-2023; final model for 2024-2026)
+- the patched pd_07 and pd_09
+- the comparison: `pd_25_regrade_compare.R`
+
+Files are in `PostDraft_Model/exp_pick_penalty/regrade_unpen/`.
+
+**Calibration.** Mean predicted any-tier vs actual: QB 0.270 / 0.276, RB 0.259 / 0.262, WR 0.209 / 0.213, TE
+0.219 / 0.228.
+
+**Grade changes** (1,351 drafted players 2010-2026):
+
+| Pos | Players | Grade changed | Letter changed | Up | Down | Moved 2+ steps |
+|---|---|---|---|---|---|---|
+| QB | 198 | 87 | 45 | 37 | 50 | 15 |
+| RB | 354 | 177 | 95 | 86 | 91 | 30 |
+| TE | 252 | 156 | 108 | 79 | 77 | 66 |
+| WR | 547 | 212 | 108 | 114 | 98 | 30 |
+
+TE moves most: the old model shrank the pick hardest there. The biggest movers are mostly late-pick TEs falling
+from B to C/D, and mid-round players with good outcomes rising. Examples: Terry McLaurin D → B- (became a WR24
+hit), Hunter Long C+ → B+, Brock Purdy B- → C- (pick 262). Full list: `pd25_biggest_movers.csv`.
+
+**Validation** (LOCO 2010-2023, players with both grades; before → after):
+
+| Pos | Points Spearman | Any-tier AUC (pick-only) | Mean within-class Spearman | Grade + pick vs pick alone, LRT p (any tier) |
+|---|---|---|---|---|
+| QB | 0.666 → 0.687 | 0.905 → 0.899 (0.876) | 0.605 → 0.590 | 0.0004 → 0.001 |
+| RB | 0.635 → 0.655 | 0.790 → 0.809 (0.827) | 0.515 → 0.535 | 0.29 → 0.0005 |
+| WR | 0.612 → 0.635 | 0.833 → 0.848 (0.842) | 0.495 → 0.511 | 0.76 → 0.47 |
+| TE | 0.612 → 0.680 | 0.814 → 0.829 (0.850) | 0.477 → 0.517 | 0.46 → 0.00003 |
+
+- **Hit rate by grade band** (any tier, before → after; full table `pd25_hit_rate_by_band_before_after.csv`):
+  - QB A 0.79 → 0.83, C 0.06 → 0.12
+  - RB A 0.73 → 0.71, D/F 0.10 → 0.04
+  - TE A 0.57 → 0.63
+  - WR about unchanged
+- **2027 mock** (`pd25_mock_2027_before_after.csv`): probabilities rise for most mocked players and letters mostly
+  hold. Jamari Johnson TE A- → A+, Terrance Carter TE C+ → B+, Deuce Alexander and Junior Sherrill WR B → B+,
+  Luke Reynolds TE A- → B+, CJ Carr QB A → A-.
+- **Read:** with the pick unpenalized, the post-draft grade now ranks NFL points better than before at every
+  position. For RB and TE the grade adds to the pick in the likelihood-ratio test, where before it did not. Any-tier
+  AUC for RB and TE is still a little below pick-only on its own; WR's is now above.
+
+**Switch to live (waits for Kyle's approval; nothing has been copied):**
+1. Put `pd_21_variant_ladders.R` (run with `unpen`) in `Football2_PostDraft` and run it there. It reads the
+   position folders only and writes `pd21_oof_<POS>.csv` / `pd21_board_<POS>.csv`. The position folders
+   themselves need no change; their own phase 4 / phase 6 files stay as the research record of the old fit.
+2. Replace `Football2_PostDraft/pd_07_postdraft_grades.R` and `pd_09_mock_2027.R` with the dev versions (patched
+   to read the pd_21 ladders; pd_09 fits its 2027 ladder with log_pick unpenalized). Run pd_07, then pd_09. This
+   rewrites `pd_post_player_grades.csv`, the validation CSVs and `pd_post_2027_mock_grades.csv`.
+3. Run `pd_10_site_page.R <site>/post-draft/index.html`, which swaps the post-draft page's data line.
+4. Rerun `Football2_Dynasty/dv_13` (2027 pick values and the board Value column read both post-draft files), then
+   dv_12 and `rf_02` for the pre-draft page. The weekly refresh runs steps 3-4 automatically.
+5. Optional, for consistency: `pd_08` (predictor importance) refits its own ladder and would need the same
+   `penaltyFactors` change.
