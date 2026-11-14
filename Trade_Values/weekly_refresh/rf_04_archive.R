@@ -10,7 +10,7 @@
 # One snapshot per day: if the run date already has one, it is KEPT, not overwritten (ARCHIVE_OVERWRITE=1 replaces it on purpose).
 # refresh.sh copies the archive folder into the Football repo (Trade_Values/archive/).  env: DYN_DIR, ARCHIVE_DIR, SITE_DIR, ARCHIVE_DATE
 # =============================================================================
-suppressMessages(library(dplyr)); suppressMessages(library(jsonlite))
+suppressMessages(library(dplyr)); suppressMessages(library(jsonlite)); options(scipen = 99)   # write 100000, not 1e+05
 DYN <- Sys.getenv("DYN_DIR", "../Football2_Dynasty"); ARCH <- Sys.getenv("ARCHIVE_DIR", "archive"); dir.create(ARCH, showWarnings = FALSE, recursive = TRUE)
 SITE <- Sys.getenv("SITE_DIR", "../ProspectActuary")
 wk <- max(subset(readRDS(file.path(DYN, "nfl_weekly_2026.rds")), season_type == "REG")$week)
@@ -42,7 +42,7 @@ if (length(have) && Sys.getenv("ARCHIVE_OVERWRITE") != "1") {
   cat("snapshot for", day, "already exists (", paste(have, collapse = ", "), "): kept, not overwritten. Set ARCHIVE_OVERWRITE=1 to replace it.\n")
   write_index(); quit(save = "no", status = 0)
 }
-if (length(have)) { cat("ARCHIVE_OVERWRITE=1: replacing", paste(have, collapse = ", "), "\n"); file.remove(file.path(ARCH, have)) }
+if (length(have)) { cat("ARCHIVE_OVERWRITE=1: replacing", paste(have, collapse = ", "), "\n"); invisible(file.remove(file.path(ARCH, have))) }
 
 # ---------- versions, league string, player ids ----------
 h10 <- function(f) substr(unname(tools::md5sum(f)), 1, 10)
