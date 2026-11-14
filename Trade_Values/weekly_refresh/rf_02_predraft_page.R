@@ -5,7 +5,7 @@ suppressMessages({ library(dplyr); library(jsonlite) })
 pre <- "../Football2_PreDraft"
 f <- read.csv(file.path(pre, "pd_player_grades.csv"), stringsAsFactors = FALSE, na.strings = "")
 # Cross-position Value column (dv_13_league_presets.R, default league, 100k trade-value scale); joined by key, not row order.
-vf <- c("../Football2_Dynasty/dv_rookie_board_values.csv", "../Trade_Values/dv_rookie_board_values.csv"); vf <- vf[file.exists(vf)][1]
+vf <- c(file.path(Sys.getenv("DYN_DIR", "../Football2_Dynasty"), "dv_rookie_board_values.csv"), "../Trade_Values/dv_rookie_board_values.csv"); vf <- vf[file.exists(vf)][1]
 if (!is.na(vf)) {
   V <- read.csv(vf, stringsAsFactors = FALSE, na.strings = c("", "NA")) %>% filter(board == "pre") %>%
     distinct(position, class, name, college, .keep_all = TRUE) %>% select(position, class, name, college, v = value_100k, vsrc = source, vq1 = p_top, vq2 = p_top2, vq3 = p_any, vag = age)

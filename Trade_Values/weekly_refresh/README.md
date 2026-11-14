@@ -33,3 +33,15 @@ FOOTBALL_BRANCH=weekly-refresh bash refresh.sh   # Football repo to a branch + P
 Logs: `logs/<date_time>/refresh.txt` (plus one log per R step); `logs/last_status.txt` says OK or FAILED.
 The site repo must be on `main` with no uncommitted changes, or the run stops before changing anything.
 A run takes about 10 minutes; the PC has to be on (if it was off, Task Scheduler runs it at the next start-up).
+
+## FABLE build additions (2026-11-13)
+
+| Step | What |
+|---|---|
+| 1b | Role data for the trade values (`rl_00_pull_role_data.R`, `rl_01_role_build.R` in the dynasty folder): depth charts, injury report, weekly rosters, snap counts, schedule. A failed pull keeps last week's cached file and prints `REUSED` in the log; the run goes on. |
+| 3c | `dv_15_board_value_check.R` writes the R values the browser check compares against. |
+| G | **Output gates** (`rf_03_gates.R`), before anything is committed or pushed. They check: every team that finished a game in the latest week is in the stats; no missing values in the boards, page inputs or pick inputs; default replacement lines within the 2016-2025 week-9 range ±2 PPG (`rf_gate_limits.csv`); pick multiplier 0.7-1.6; at most 15 players leaving either top 50 since last week (2021-2025 weeks 8-17: never more than 8; skipped before week 8); R page math equal to the models; and the built Trade Values page, run in headless Edge, within 100 points of R on the 100,000 scale for five test leagues. Any failure stops the run. |
+| A | **Archive** (`rf_04_archive.R`): `archive/YYYY-MM-DD_weekNN_redraft.csv`, `_dynasty.csv`, `_picks.csv` and `_movers.csv` (biggest value changes since the previous archive), copied to `Trade_Values/archive/` in the Football repo. |
+| ! | **On any failure:** `PROSPECT_ACTUARY_REFRESH_FAILED.txt` on the Desktop, a Windows popup, and `logs/last_status.txt`. |
+
+Settings (environment): `DYN_DIR`, `SITE_DIR`, `SITE_BRANCH`, `FOOTBALL_BRANCH`, `SKIP_PREDRAFT=1`, `ARCHIVE_DIR`, `NO_PUSH=1`, `NO_NOTIFY=1`, and `FORCE_GATE_FAIL=1` to test the failure path. The defaults are the live folders, site `main` and Football `main`. `run_dev.sh` runs against `Football2_Dynasty_dev` and the site worktree on the review branch, with pushes off.

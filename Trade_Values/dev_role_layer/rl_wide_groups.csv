@@ -1,0 +1,65 @@
+"test","pos","games","method","n","pred","actual","ratio","spearman"
+"dynasty 5 seasons","QB","0-2 games","A2",211,6813.073,1659.486,4.106,0.305
+"dynasty 5 seasons","QB","0-2 games","A2+A3",211,1118.121,1659.486,0.674,0.21
+"dynasty 5 seasons","QB","0-2 games","A2+A3 future only",211,1153.855,1659.486,0.695,0.29
+"dynasty 5 seasons","QB","0-2 games","current",211,7087.828,1659.486,4.271,0.309
+"dynasty 5 seasons","QB","3+ games","A2",204,27932.221,21013.463,1.329,0.641
+"dynasty 5 seasons","QB","3+ games","A2+A3",204,27465.538,21013.463,1.307,0.656
+"dynasty 5 seasons","QB","3+ games","A2+A3 future only",204,28109.898,21013.463,1.338,0.663
+"dynasty 5 seasons","QB","3+ games","current",204,27685.071,21013.463,1.317,0.635
+"dynasty 5 seasons","RB","0-2 games","A2",196,2440.666,929.106,2.627,0.426
+"dynasty 5 seasons","RB","0-2 games","A2+A3",196,2440.666,929.106,2.627,0.426
+"dynasty 5 seasons","RB","0-2 games","A2+A3 future only",196,2440.666,929.106,2.627,0.426
+"dynasty 5 seasons","RB","0-2 games","current",196,2479.772,929.106,2.669,0.425
+"dynasty 5 seasons","RB","3+ games","A2",620,26872.496,23742.52,1.132,0.663
+"dynasty 5 seasons","RB","3+ games","A2+A3",620,26872.496,23742.52,1.132,0.663
+"dynasty 5 seasons","RB","3+ games","A2+A3 future only",620,26872.496,23742.52,1.132,0.663
+"dynasty 5 seasons","RB","3+ games","current",620,26596.413,23742.52,1.12,0.662
+"dynasty 5 seasons","TE","0-2 games","A2",187,1093.901,391.235,2.796,0.184
+"dynasty 5 seasons","TE","0-2 games","A2+A3",187,1093.901,391.235,2.796,0.184
+"dynasty 5 seasons","TE","0-2 games","A2+A3 future only",187,1093.901,391.235,2.796,0.184
+"dynasty 5 seasons","TE","0-2 games","current",187,1115.492,391.235,2.851,0.185
+"dynasty 5 seasons","TE","3+ games","A2",448,10084.195,8185.477,1.232,0.544
+"dynasty 5 seasons","TE","3+ games","A2+A3",448,10084.195,8185.477,1.232,0.544
+"dynasty 5 seasons","TE","3+ games","A2+A3 future only",448,10084.195,8185.477,1.232,0.544
+"dynasty 5 seasons","TE","3+ games","current",448,10004.108,8185.477,1.222,0.542
+"dynasty 5 seasons","WR","0-2 games","A2",262,3504.331,791.136,4.429,0.286
+"dynasty 5 seasons","WR","0-2 games","A2+A3",262,3504.331,791.136,4.429,0.286
+"dynasty 5 seasons","WR","0-2 games","A2+A3 future only",262,3504.331,791.136,4.429,0.286
+"dynasty 5 seasons","WR","0-2 games","current",262,3514.289,791.136,4.442,0.285
+"dynasty 5 seasons","WR","3+ games","A2",850,37397.563,31395.185,1.191,0.71
+"dynasty 5 seasons","WR","3+ games","A2+A3",850,37397.563,31395.185,1.191,0.71
+"dynasty 5 seasons","WR","3+ games","A2+A3 future only",850,37397.563,31395.185,1.191,0.71
+"dynasty 5 seasons","WR","3+ games","current",850,36963.82,31395.185,1.177,0.71
+"redraft wk10-18","QB","0-2 games","A2",427,-2127.667,-4650.733,0.457,0.278
+"redraft wk10-18","QB","0-2 games","A2+A3",427,-2042.22,-4650.733,0.439,0.078
+"redraft wk10-18","QB","0-2 games","A2+A3 future only",427,-2127.667,-4650.733,0.457,0.278
+"redraft wk10-18","QB","0-2 games","current",427,-3257.696,-4650.733,0.7,0.238
+"redraft wk10-18","QB","3+ games","A2",419,3935.49,3636.312,1.082,0.606
+"redraft wk10-18","QB","3+ games","A2+A3",419,3266.388,3636.312,0.898,0.584
+"redraft wk10-18","QB","3+ games","A2+A3 future only",419,3935.49,3636.312,1.082,0.606
+"redraft wk10-18","QB","3+ games","current",419,3535.1,3636.312,0.972,0.6
+"redraft wk10-18","RB","0-2 games","A2",407,-5140.922,-5860.086,0.877,0.358
+"redraft wk10-18","RB","0-2 games","A2+A3",407,-5140.922,-5860.086,0.877,0.358
+"redraft wk10-18","RB","0-2 games","A2+A3 future only",407,-5140.922,-5860.086,0.877,0.358
+"redraft wk10-18","RB","0-2 games","current",407,-5693.314,-5860.086,0.972,0.227
+"redraft wk10-18","RB","3+ games","A2",1208,-22351.952,-19833.879,1.127,0.681
+"redraft wk10-18","RB","3+ games","A2+A3",1208,-22351.952,-19833.879,1.127,0.681
+"redraft wk10-18","RB","3+ games","A2+A3 future only",1208,-22351.952,-19833.879,1.127,0.681
+"redraft wk10-18","RB","3+ games","current",1208,-22831.399,-19833.879,1.151,0.676
+"redraft wk10-18","TE","0-2 games","A2",362,-4444.637,-4353.466,1.021,0.474
+"redraft wk10-18","TE","0-2 games","A2+A3",362,-4444.637,-4353.466,1.021,0.474
+"redraft wk10-18","TE","0-2 games","A2+A3 future only",362,-4444.637,-4353.466,1.021,0.474
+"redraft wk10-18","TE","0-2 games","current",362,-5445.055,-4353.466,1.251,0.321
+"redraft wk10-18","TE","3+ games","A2",915,-17520.152,-16553.644,1.058,0.553
+"redraft wk10-18","TE","3+ games","A2+A3",915,-17520.152,-16553.644,1.058,0.553
+"redraft wk10-18","TE","3+ games","A2+A3 future only",915,-17520.152,-16553.644,1.058,0.553
+"redraft wk10-18","TE","3+ games","current",915,-17746.026,-16553.644,1.072,0.542
+"redraft wk10-18","WR","0-2 games","A2",532,-7395.856,-7477.58,0.989,0.412
+"redraft wk10-18","WR","0-2 games","A2+A3",532,-7395.856,-7477.58,0.989,0.412
+"redraft wk10-18","WR","0-2 games","A2+A3 future only",532,-7395.856,-7477.58,0.989,0.412
+"redraft wk10-18","WR","0-2 games","current",532,-8487.188,-7477.58,1.135,0.355
+"redraft wk10-18","WR","3+ games","A2",1735,-32528.13,-32391.572,1.004,0.682
+"redraft wk10-18","WR","3+ games","A2+A3",1735,-32528.13,-32391.572,1.004,0.682
+"redraft wk10-18","WR","3+ games","A2+A3 future only",1735,-32528.13,-32391.572,1.004,0.682
+"redraft wk10-18","WR","3+ games","current",1735,-33907.388,-32391.572,1.047,0.651

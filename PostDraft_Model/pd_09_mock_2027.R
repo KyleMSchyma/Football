@@ -132,23 +132,26 @@ load_pos <- function(POS) {
     prep <- function(d) e$apply_prep(pp, d)[, cols, drop = FALSE]
     all_num <- num
   }
-  list(tbl = tbl, train = train, X = X, ce = colMeans(X), sc = sc, nlam = nlam, prep = prep, all_num = all_num)
+  list(tbl = tbl, train = train, X = X, ce = colMeans(X), sc = sc, nlam = nlam, prep = prep, all_num = all_num, pos = POS)
 }
+VARIANT <- "unpen"   # FABLE dev: unpen = log_pick unpenalized; pick = pick-only ordinal logit for RB / WR / TE
 fit_ladder <- function(L) {
-  Xs <- scale(L$X, L$ce, L$sc)
+  if (VARIANT == "pick" && L$pos != "QB") return(list(polr = MASS::polr(factor(tier, levels = 1:4, ordered = TRUE) ~ log_pick, data = L$train, Hess = TRUE), best = NA, fit = list(lambdaVals = NA)))
+  Xs <- scale(L$X, L$ce, L$sc); PF <- as.numeric(colnames(L$X) != "log_pick")
   y <- factor(L$train$tier, levels = 1:4, ordered = TRUE)
   fit <- ordinalNet(Xs, y, family = "cumulative", link = "logit", alpha = 0.5, parallelTerms = TRUE,
-                    nonparallelTerms = FALSE, nLambda = L$nlam, standardize = FALSE)
+                    nonparallelTerms = FALSE, nLambda = L$nlam, standardize = FALSE, penaltyFactors = PF)
   folds <- split(seq_len(nrow(Xs)), L$train$draft_season)
   tune <- tryCatch(ordinalNetTune(Xs, y, lambdaVals = fit$lambdaVals, folds = folds, printProgress = FALSE, warn = FALSE,
                                   family = "cumulative", link = "logit", alpha = 0.5, parallelTerms = TRUE,
-                                  nonparallelTerms = FALSE, standardize = FALSE), error = function(e) NULL)
+                                  nonparallelTerms = FALSE, standardize = FALSE, penaltyFactors = PF), error = function(e) NULL)
   ll <- if (is.null(tune)) NULL else rowMeans(tune$loglik)
   best <- if (is.null(ll) || all(!is.finite(ll))) length(fit$lambdaVals) %/% 2 else which.max(ll)
   list(fit = fit, best = best)
 }
 score <- function(F, L, d) {   # tier probabilities -> q1..q3 (cumulative) and post score
-  pr <- matrix(predict(F$fit, scale(L$prep(d), L$ce, L$sc), whichLambda = F$best, type = "response"), ncol = 4)
+  pr <- if (!is.null(F$polr)) matrix(predict(F$polr, data.frame(log_pick = L$prep(d)[, "log_pick"]), type = "probs"), ncol = 4) else
+    matrix(predict(F$fit, scale(L$prep(d), L$ce, L$sc), whichLambda = F$best, type = "response"), ncol = 4)
   q1 <- pr[, 1]; q2 <- pr[, 1] + pr[, 2]; q3 <- q2 + pr[, 3]
   data.frame(q1 = q1, q2 = q2, q3 = q3, post_score = q1 + q2 + q3)
 }
