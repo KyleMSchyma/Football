@@ -113,11 +113,14 @@ grep "^\[" "$LOGDIR/08_gates.txt" | tee -a "$LOG"
 # ---------- A. dated archive + biggest movers ----------
 rr "$HERE" rf_04_archive.R 09_archive.txt
 grep -h "archived\|movers" "$LOGDIR/09_archive.txt" | tee -a "$LOG"
+# A2. publish the newest movers file for the Dashboard's risers and fallers (site data/movers.csv; header-only until two weeks exist)
+MV="$(ls -1 "$ARCH"/*_movers.csv 2>/dev/null | sort | tail -1)"
+if [ -n "$MV" ]; then mkdir -p "$SITE/data" && cp "$MV" "$SITE/data/movers.csv" && say "movers published: $(basename "$MV")"; fi
 
 # ---------- 5a. publish the site ----------
 cd "$SITE"
 [ -e dynasty ] && fail "a dynasty/ folder is on the site; it must stay unpublished. Nothing pushed."
-git add trade-values pre-draft post-draft value-research   # value-research/data/dd.js: Dynasty Daddy snapshot (dv_14, run by dv_12)
+git add trade-values pre-draft post-draft value-research data   # value-research/data/dd.js: Dynasty Daddy snapshot (dv_14, run by dv_12); data/movers.csv: Dashboard
 WK="$(grep -o 'through week [0-9]*' "$SITE/trade-values/index.html" | head -1)"
 WHAT=""; [ "$PRE_DONE" = 1 ] && WHAT=" and 2027 pre-draft grades"
 if git diff --cached --quiet; then say "site: no changes"
