@@ -16,7 +16,8 @@
 #   G. OUTPUT GATES (rf_03): every team in the latest week, no missing values, replacement lines and pick multiplier in
 #      range, top-50 turnover vs last week, R and browser reconciliation. A failed gate stops the run: nothing is
 #      committed or pushed.
-#   A. dated archive of the week's redraft, dynasty and pick values + biggest movers (rf_04), into Trade_Values/archive/
+#   A. dated archive of the week's redraft, dynasty and pick values + biggest movers (rf_04), into Trade_Values/archive/;
+#      one snapshot per day (a same-day rerun keeps the first; ARCHIVE_OVERWRITE=1 replaces it); snapshots.json lists them all
 #   5. push: the site (SITE_BRANCH, main for the live site) and the Football repo (FOOTBALL_BRANCH)
 #   On any failure: a FAILED text file on the Desktop and a Windows popup, plus logs/last_status.txt.
 #
@@ -112,10 +113,12 @@ grep "^\[" "$LOGDIR/08_gates.txt" | tee -a "$LOG"
 
 # ---------- A. dated archive + biggest movers ----------
 rr "$HERE" rf_04_archive.R 09_archive.txt
-grep -h "archived\|movers" "$LOGDIR/09_archive.txt" | tee -a "$LOG"
+grep -h "archived\|movers\|snapshot\|player ids\|WARNING" "$LOGDIR/09_archive.txt" | tee -a "$LOG"
 # A2. publish the newest movers file for the Dashboard's risers and fallers (site data/movers.csv; header-only until two weeks exist)
 MV="$(ls -1 "$ARCH"/*_movers.csv 2>/dev/null | sort | tail -1)"
 if [ -n "$MV" ]; then mkdir -p "$SITE/data" && cp "$MV" "$SITE/data/movers.csv" && say "movers published: $(basename "$MV")"; fi
+# A3. publish the snapshot list (Dashboard: first snapshot date, how many weeks are stored)
+[ -f "$ARCH/snapshots.json" ] && mkdir -p "$SITE/data" && cp "$ARCH/snapshots.json" "$SITE/data/snapshots.json"
 
 # ---------- 5a. publish the site ----------
 cd "$SITE"
@@ -146,7 +149,7 @@ cp "$DYN"/dv_common.R "$DYN"/dv_10_ros_value.R "$DYN"/dv_11_dynasty_v4.R "$DYN"/
    "$DYN"/dv_scoring_backtest.csv "$DYN"/dv_anchor_check.csv "$DYN"/dv_rookie_board_values.csv "$WT/Trade_Values/"
 cp "$DYN"/rl_00_pull_role_data.R "$DYN"/rl_01_role_build.R "$DYN"/rl_common.R "$DYN"/rl_dv10.R "$DYN"/rl_dv11_ext.R "$DYN"/rl_dv11_qb.R \
    "$DYN"/dv_15_board_value_check.R "$DYN"/dv_15_check.js "$WT/Trade_Values/" 2>/dev/null
-cp "$ARCH"/*.csv "$WT/Trade_Values/archive/" 2>/dev/null
+cp "$ARCH"/*.csv "$ARCH"/snapshots.json "$WT/Trade_Values/archive/" 2>/dev/null
 cp "$HERE"/refresh.sh "$HERE"/run_r.sh "$HERE"/rf_01_pull_nfl.R "$HERE"/rf_02_predraft_page.R "$HERE"/rf_03_gates.R "$HERE"/rf_04_archive.R \
    "$HERE"/rf_gate_limits.csv "$HERE"/run_weekly.cmd "$HERE"/README.md "$WT/Trade_Values/weekly_refresh/" 2>/dev/null
 if [ "$PRE_DONE" = 1 ]; then
