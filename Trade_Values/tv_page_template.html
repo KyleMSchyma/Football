@@ -48,7 +48,7 @@ summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
 table{border-collapse:collapse;width:100%;font-size:.88rem}
 th,td{padding:6px 10px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
-th{font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--panel);position:sticky;top:0}
+th{font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);background:var(--panel)}
 td.r,th.r{text-align:right}
 tr.pick td{background:var(--warn-soft)}
 .st{display:inline-block;margin-left:6px;padding:0 5px;border:1px solid var(--line);border-radius:3px;font-family:var(--f-mono);font-size:.68rem;line-height:1.5;color:var(--muted);vertical-align:1px;white-space:nowrap}
@@ -104,7 +104,7 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-wid
   <div class="tabs" id="rTabs" role="group" aria-label="Position"></div>
   <div class="ctl"><input id="rName" type="search" placeholder="Search player or team" aria-label="Search redraft values"><span class="small muted" id="rCount"></span></div>
   <p class="small muted st-legend">Status tags: <span class="st">IR</span> reserve list (injured reserve, PUP, suspended) · <span class="st">Out</span> / <span class="st">Doubtful</span> / <span class="st">Q</span> last game's injury report · <span class="st">Backup</span> not first on the team's depth chart. Expected games already account for the status.</p>
-  <div class="tablebox"><table id="rTable" class="stick1"></table></div>
+  <div class="tablebox"><table id="rTable"></table></div>
   <button type="button" class="more" id="rMore">Show more</button>
 </section>
 
@@ -116,7 +116,7 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-wid
   <div class="tabs" id="dTabs" role="group" aria-label="Position"></div>
   <div class="ctl"><input id="dName" type="search" placeholder="Search player, team or pick" aria-label="Search dynasty values"><span class="small muted" id="dCount"></span></div>
   <p class="small muted st-legend">Status tags: <span class="st">IR</span> reserve list (injured reserve, PUP, suspended) · <span class="st">Out</span> / <span class="st">Doubtful</span> / <span class="st">Q</span> last game's injury report · <span class="st">Backup</span> not first on the team's depth chart. Expected games already account for the status.</p>
-  <div class="tablebox"><table id="dTable" class="stick1"></table></div>
+  <div class="tablebox"><table id="dTable"></table></div>
   <button type="button" class="more" id="dMore">Show more</button>
 </section>
 
