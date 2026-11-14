@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Trade Values | Prospect Actuary</title>
-<meta name="description" content="Redraft and dynasty fantasy football trade values for every NFL QB, RB, WR and TE, set to your league's scoring and lineup, with 2027 rookie picks. In development.">
+<meta name="description" content="Redraft and dynasty fantasy football trade values for every NFL QB, RB, WR and TE, set to your league's scoring and lineup, with 2027 rookie picks.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 :root{
@@ -27,7 +27,7 @@ section{display:flex;flex-direction:column;gap:14px}
 .num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
 a{color:var(--accent)}
 .dev{background:var(--warn-soft);border:1px solid var(--warn);border-radius:8px;padding:12px 16px;display:flex;flex-direction:column;gap:4px}
-.dev b{font-family:var(--f-mono);letter-spacing:.12em;color:var(--warn);font-size:.95rem}
+.dev b{font-family:var(--f-mono);letter-spacing:.12em;color:var(--warn);font-size:.8rem}
 .explain{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
 .toc{display:flex;flex-wrap:wrap;gap:8px 16px;font-family:var(--f-mono);font-size:.8rem}
 .pos{font-family:var(--f-mono);font-size:.8rem;font-weight:600}
@@ -65,6 +65,17 @@ tr.pick td{background:var(--warn-soft)}
 .st{display:inline-block;margin-left:6px;padding:0 5px;border:1px solid var(--line);border-radius:3px;font-family:var(--f-mono);font-size:.68rem;line-height:1.5;color:var(--muted);vertical-align:1px;white-space:nowrap}
 
 .val{font-weight:600}
+.nmbtn{font:inherit;color:inherit;background:none;border:none;padding:0;cursor:pointer;text-align:left;text-decoration:underline dotted var(--muted);text-underline-offset:3px}
+.nmbtn:hover{text-decoration-color:var(--accent)}
+tr.why td{white-space:normal;background:var(--bg);padding:12px 14px}
+.whybox{display:flex;flex-direction:column;gap:10px;position:sticky;left:14px;width:min(640px,calc(100vw - 64px))}
+.whybox p{max-width:none;font-size:.88rem}
+.seas{display:grid;grid-template-columns:auto auto auto 1fr;gap:4px 14px;align-items:center;font-size:.82rem}
+.seas .h{font-size:.68rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:600}
+.seas .r{text-align:right}
+.seas .sb{display:flex;align-items:center;gap:8px;min-width:0}
+.seas .sb i{display:block;height:8px;border-radius:2px;background:var(--bar);flex:none}
+th[title]{cursor:help;text-decoration:underline dotted;text-underline-offset:3px}
 .barcell{display:flex;align-items:center;gap:8px;justify-content:flex-end}
 .minibar{display:inline-block;height:8px;border-radius:2px;background:var(--bar)}
 ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-width:72ch}
@@ -73,7 +84,7 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-wid
 <body><div class="wrap">
 <header style="display:flex;flex-direction:column;gap:14px">
   <nav class="pa-brand" data-root="../" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em"><a href="../" style="color:var(--ink);text-decoration:none;font-weight:600">Prospect Actuary</a><span style="display:flex;gap:14px;flex-wrap:wrap"><a href="../pre-draft/">Pre-draft</a><a href="../post-draft/">Post-draft</a><a href="../trade-values/">Trade values</a><a href="../trade-calculator/">Trade calculator</a><a href="../value-research/">Market check</a><a href="../guide/">Guide</a></span></nav><script src="../shared/nav.js"></script>
-  <div class="dev" role="note"><b>IN DEVELOPMENT</b><span>These trade values are still being built and tested. Expect the numbers and methods to change.</span></div>
+  <div class="dev" role="note"><b>KNOWN LIMITS</b><span>Values are estimates, shown to the nearest 100. Players within about 10% of each other are too close to call. Rookie pick values are rougher than player values. The model does not see scheme, coaching changes or contracts. Not valued yet: Jayden Higgins, Travis Hunter and Brandon Aiyuk. Tap a player to see how his value is built.</span></div>
   <div class="eyebrow">Fantasy trade values · your league's scoring and lineup · QB, RB, WR, TE, rookie picks</div>
   <h1>Trade Values</h1>
   <p class="small muted" id="asof"></p>
@@ -90,7 +101,7 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-wid
     <div class="lgbody">
       <div class="league" id="lg"></div>
       <div class="repl num" id="lgRep"></div>
-      <p class="small muted">The replacement line is the last starter at each position when every team fills its lineup: the position slots first, then FLEX (RB, WR or TE), then SUPERFLEX (any position, almost always a QB), each going to the best player left by credible points per game. Remembered in this browser and shared with the Trade Calculator and the grade boards. Copy the page address to share your settings.</p>
+      <p class="small muted">The replacement line is the last starter at each position when every team fills its lineup: the position slots first, then FLEX (RB, WR or TE), then SUPERFLEX (any position, almost always a QB), each going to the best player left by expected points per game. Remembered in this browser and shared with the Trade Calculator and the grade boards. Copy the page address to share your settings.</p>
       <button type="button" class="reset" id="lgReset">Back to the default league</button>
     </div>
   </details>
@@ -146,7 +157,7 @@ const esc = s => String(s==null?"":s).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&
 const ST_T = {IR:"Reserve list (injured reserve, PUP or suspended)", Out:"Out on the last injury report", Doubtful:"Doubtful on the last injury report", Q:"Questionable on the last injury report", Backup:"Not first on the team depth chart"};
 const stTag = r => r.st ? ` <span class="st" title="${ST_T[r.st]||""}">${esc(r.st)}</span>` : "";   // status tag (optional data field st)
 
-const fmt = x => Math.round(x).toLocaleString("en-US");
+const fmt = x => (Math.round(x/100)*100).toLocaleString("en-US");   // shown to the nearest 100: the values are estimates
 const f1 = x => x==null ? "" : Number(x).toFixed(1);
 const pchip = p => `<span class="pos" style="color:var(--${p})">${p==="PICK"?"Pick":p}</span>`;
 document.getElementById("asof").textContent = D.asof;
@@ -229,12 +240,14 @@ function compute(){
   const red = [], dyn = [];
   D.players.forEach(pl=>{
     const key = keyOf(pl.p), a = rdArr(pl);
-    if (a) { const por = a[1]-RR.rep[pl.p], v = por*a[2]; if (v>0) red.push({n:pl.n, st:pl.st, p:pl.p, tm:pl.tm, g:pl.g, ppg:a[0], cppg:a[1], por, eg:a[2], raw:v}); }
+    if (a) { const por = a[1]-RR.rep[pl.p], v = por*a[2]; if (v>0) red.push({n:pl.n, st:pl.st, p:pl.p, tm:pl.tm, g:pl.g, ppg:a[0], cppg:a[1], por, eg:a[2], rep:RR.rep[pl.p], raw:v}); }
     const x = pl.k[key]; if (!x || x.length<4+2*(D.nf||4)) return;          // [2026 PPG, credible PPG, games left, (games, PPG) 2027..2031, P(playing 2030)]
     const sd = D.sd[key], r = RD.rep[pl.p];
     let v = x[2]*stoploss(x[1], r, sd[0]);
-    for (let t=1; t<=(D.nf||4); t++) v += Math.pow(V,t) * x[1+2*t] * stoploss(x[2+2*t], r, sd.length>2 ? sd[1+t] : sd[1]*Math.sqrt(t));
-    dyn.push({n:pl.n, st:pl.st, p:pl.p, tm:pl.tm, a:pl.a, dp:pl.dp, cppg:x[1], p27:x[4], p30:x[10], s30:x[x.length-1], raw:v});
+    const parts = [{y:0, g:x[2], ppg:x[1], v}];                              // per-season pieces, shown in the "why this value" panel
+    for (let t=1; t<=(D.nf||4); t++){ const pv = Math.pow(V,t) * x[1+2*t] * stoploss(x[2+2*t], r, sd.length>2 ? sd[1+t] : sd[1]*Math.sqrt(t));
+      v += pv; parts.push({y:t, g:x[1+2*t], ppg:x[2+2*t], v:pv}); }
+    dyn.push({n:pl.n, st:pl.st, p:pl.p, tm:pl.tm, a:pl.a, dp:pl.dp, g:pl.g, ppg:x[0], cppg:x[1], rep:r, parts, p27:x[4], p30:x[10], s30:x[x.length-1], raw:v});
   });
   // 2027 rookie picks from the pre-draft model (no draft capital): each prospect's value = sum over tiers of
   // P(tier) x sum_k v^k x games(tier,k) x E[(PPG(tier,k) + age adj_k - replacement)+]; pick 1.01 = best value, 1.02 = second ...
@@ -250,19 +263,21 @@ function compute(){
 }
 
 // ---------- tables ----------
-function board(key, cols, tabsList){
-  let pos = "ALL", shown = 100, rows = [], max = 1;
+function board(key, cols, tabsList, why){
+  let pos = "ALL", shown = 100, rows = [], max = 1, openId = null;
   const tabs = document.getElementById(key+"Tabs"), name = document.getElementById(key+"Name");
   tabs.innerHTML = tabsList.map(([v,l])=>`<button type="button" data-v="${v}" aria-pressed="${v==="ALL"}">${l}</button>`).join("");
   tabs.addEventListener("click", e=>{const b=e.target.closest("button"); if(!b) return; tabs.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed", x===b)); pos=b.dataset.v; shown=100; draw();});
   name.addEventListener("input", ()=>{shown=100; draw();});
   document.getElementById(key+"More").addEventListener("click", ()=>{shown+=100; draw();});
+  document.getElementById(key+"Table").addEventListener("click", e=>{ const b = e.target.closest("button.nmbtn"); if(!b) return; openId = openId===b.dataset.id ? null : b.dataset.id; draw(); });
   function draw(){
     let x = rows.filter(r=>pos==="ALL"||r.p===pos);
     const q = name.value.trim().toLowerCase(); if(q) x = x.filter(r=>(r.n+" "+(r.tm||"")).toLowerCase().includes(q));
     document.getElementById(key+"Count").textContent = `${x.length} rows` + (x.length>shown?`, showing ${shown}`:"");
-    document.getElementById(key+"Table").innerHTML = `<thead><tr>${cols.map(c=>`<th class="${c.r?"r":""}">${c.h}</th>`).join("")}<th class="r">Trade value</th></tr></thead><tbody>` +
-      x.slice(0,shown).map(r=>`<tr${r.pick?' class="pick"':""}>${cols.map(c=>`<td class="${c.r?"r num":""}">${r.pick&&c.skip?"":c.f(r)}</td>`).join("")}<td class="r num val"><span class="barcell">${fmt(r.v)}<span class="minibar" style="width:${Math.max(2,Math.round(60*r.v/max))}px"></span></span></td></tr>`).join("") + "</tbody>";
+    document.getElementById(key+"Table").innerHTML = `<thead><tr>${cols.map(c=>`<th class="${c.r?"r":""}"${c.t?` title="${c.t}"`:""}>${c.h}</th>`).join("")}<th class="r">Trade value</th></tr></thead><tbody>` +
+      x.slice(0,shown).map(r=>`<tr${r.pick?' class="pick"':""}>${cols.map(c=>`<td class="${c.r?"r num":""}">${r.pick&&c.skip?"":c.f(r)}</td>`).join("")}<td class="r num val"><span class="barcell">${fmt(r.v)}<span class="minibar" style="width:${Math.max(2,Math.round(60*r.v/max))}px"></span></span></td></tr>` +
+        (!r.pick && openId===r.n+"|"+r.p ? `<tr class="why"><td colspan="${cols.length+1}">${why(r)}</td></tr>` : "")).join("") + "</tbody>";
     document.getElementById(key+"More").hidden = x.length<=shown;
   }
   return { set(r){ rows = r; max = Math.max(...r.map(z=>z.v)); draw(); } };
@@ -270,15 +285,22 @@ function board(key, cols, tabsList){
 const TABS = [["ALL","All"],...POS.map(p=>[p,p])];
 const tradeLink = (r, m) => { const id = r.pick ? "pick-"+r.n.slice(-4) : r.n+"|"+r.p;
   return `<a class="add" href="../trade-calculator/?mode=${m}&get=${encodeURIComponent(id)}${location.search.includes("league=") ? "&league="+encodeURIComponent(new URLSearchParams(location.search).get("league")) : ""}" title="Start a trade in the calculator with ${esc(r.n)} on the side you get">+ trade</a>`; };
+const EXP_T = "This season's points per game blended with his earlier seasons and draft slot. The fewer games he has played, the more the history counts.";
+const nameBtn = (r, open) => r.pick ? esc(r.n) : `<button type="button" class="nmbtn" data-id="${esc(r.n+"|"+r.p)}" title="Show how this value is built">${esc(r.n)}</button>`;
+const story = r => `${r.g ? `He has scored <b>${f1(r.ppg)}</b> points per game in ${r.g} game${r.g===1?"":"s"} this season.` : "He has not played this season."} Blended with his earlier seasons and draft slot, we expect <b>${f1(r.cppg)}</b> per game from here. The replacement ${r.p} in your league scores <b>${f1(r.rep)}</b>.`;
+function whyR(r){ return `<div class="whybox"><p>${story(r)}</p><p>That is <b>${f1(r.por)}</b> points per game over replacement, times <b>${f1(r.eg)}</b> games we expect him to play the rest of the way${r.st?` (status: ${esc(r.st)})`:""}. On the 100,000 scale that comes to about <b>${fmt(r.v)}</b>.</p></div>`; }
+function whyD(r){ const tot = r.parts.reduce((s,p)=>s+p.v, 0) || 1, mx = Math.max(...r.parts.map(p=>p.v)) || 1;
+  const cells = r.parts.map(p=>`<span>${p.y===0?"Rest of 2026":2026+p.y}</span><span class="r num">${f1(p.ppg)}</span><span class="r num">${f1(p.g)}</span><span class="sb"><i style="width:${Math.max(1,Math.round(60*p.v/mx))}px"></i><span class="num">${Math.round(100*p.v/tot)}%</span></span>`).join("");
+  return `<div class="whybox"><p>${story(r)}</p><div class="seas"><span class="h">Season</span><span class="h r">Proj. PPG</span><span class="h r">Exp. games</span><span class="h">Share of his value</span>${cells}</div><p class="muted">Each season adds value for the points we expect him to score above replacement, including the chance he does better than projected. Expected games fall with age, injury history and the chance he is out of the league. Later seasons are discounted 15% a year, so points sooner count more.</p></div>`; }
 const rB = board("r", [
-  {h:"Rank", r:1, f:r=>r.r}, {h:"Player", f:r=>esc(r.n)+stTag(r)+tradeLink(r,"redraft")}, {h:"Pos", f:r=>pchip(r.p)+` <span class="muted small num">${r.rp}</span>`}, {h:"Team", f:r=>esc(r.tm)},
-  {h:"Games", r:1, f:r=>r.g}, {h:"2026 PPG", r:1, f:r=>f1(r.ppg)}, {h:"Credible PPG", r:1, f:r=>f1(r.cppg)},
-  {h:"Over repl. / game", r:1, f:r=>f1(r.por)}, {h:"Exp. games left", r:1, f:r=>f1(r.eg)}], TABS);
+  {h:"Rank", r:1, f:r=>r.r}, {h:"Player", f:r=>nameBtn(r)+stTag(r)+tradeLink(r,"redraft")}, {h:"Pos", f:r=>pchip(r.p)+` <span class="muted small num">${r.rp}</span>`}, {h:"Team", f:r=>esc(r.tm)},
+  {h:"Games", r:1, f:r=>r.g}, {h:"2026 PPG", r:1, f:r=>f1(r.ppg)}, {h:"Expected PPG", t:EXP_T, r:1, f:r=>f1(r.cppg)},
+  {h:"Over repl. / game", r:1, f:r=>f1(r.por)}, {h:"Exp. games left", r:1, f:r=>f1(r.eg)}], TABS, whyR);
 const dB = board("d", [
-  {h:"Rank", r:1, f:r=>r.r}, {h:"Player", f:r=>esc(r.n)+stTag(r)+tradeLink(r,"dynasty")}, {h:"Pos", f:r=>pchip(r.p)+(r.pick?"":` <span class="muted small num">${r.rp}</span>`)}, {h:"Team", skip:1, f:r=>esc(r.tm)},
-  {h:"Age", r:1, skip:1, f:r=>f1(r.a)}, {h:"Draft pick", r:1, skip:1, f:r=>r.dp==null?"UDFA":r.dp}, {h:"Credible PPG", r:1, skip:1, f:r=>f1(r.cppg)},
+  {h:"Rank", r:1, f:r=>r.r}, {h:"Player", f:r=>nameBtn(r)+stTag(r)+tradeLink(r,"dynasty")}, {h:"Pos", f:r=>pchip(r.p)+(r.pick?"":` <span class="muted small num">${r.rp}</span>`)}, {h:"Team", skip:1, f:r=>esc(r.tm)},
+  {h:"Age", r:1, skip:1, f:r=>f1(r.a)}, {h:"Draft pick", r:1, skip:1, f:r=>r.dp==null?"UDFA":r.dp}, {h:"Expected PPG", t:EXP_T, r:1, skip:1, f:r=>f1(r.cppg)},
   {h:"Proj. PPG 2027", r:1, skip:1, f:r=>f1(r.p27)}, {h:"Proj. PPG 2030", r:1, skip:1, f:r=>f1(r.p30)}, {h:"Still playing 2030", r:1, skip:1, f:r=>Math.round(100*r.s30)+"%"}],
-  [...TABS, ["PICK","Picks"]]);
+  [...TABS, ["PICK","Picks"]], whyD);
 
 function update(){
   lgBox.querySelectorAll(".tabs").forEach(t=>t.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed", Number(b.dataset.v)===S[t.dataset.k])));
