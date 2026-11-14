@@ -38,8 +38,18 @@ details.fold summary h2{font-size:1.5rem}
 summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .lgbody,.foldbody{padding:0 16px 16px;display:flex;flex-direction:column;gap:12px}
 [hidden]{display:none!important}
-.add{font-size:.75rem;margin-left:8px;text-decoration:none;font-family:var(--f-mono);white-space:nowrap}
-.add:hover{text-decoration:underline}
+.tradebar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:0 0 8px}
+.tradebtn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:6px;background:var(--accent);color:#fff;font-weight:600;font-size:.88rem;text-decoration:none}
+.tradebtn:hover{background:var(--accent-2);color:#fff}
+/* first column (Rank) frozen; header row frozen; a divider before the advanced columns */
+table.vt th:first-child,table.vt td:first-child{position:sticky;left:0;z-index:1;background:var(--panel);box-shadow:1px 0 0 var(--line)}
+table.vt th:first-child{z-index:3}
+table.vt tr.pick td:first-child{background:var(--warn-soft)}
+table.vt td.pl{white-space:normal;min-width:9.5em}
+table.vt td.pl .pos{margin-left:6px;font-size:.72rem}
+table.vt .adv1{border-left:3px solid var(--line)}
+table.vt th.adv1{position:sticky}
+table.vt tr.why td{position:static}
 .setting{display:flex;flex-direction:column;gap:5px;min-width:0}
 .setting .lbl{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
 .setting .tabs button{padding:4px 10px;font-size:.85rem}
@@ -68,7 +78,7 @@ th[title]{cursor:help;text-decoration:underline dotted;text-underline-offset:3px
 .barcell{display:flex;align-items:center;gap:8px;justify-content:flex-end}
 .minibar{display:inline-block;height:8px;border-radius:2px;background:var(--bar)}
 ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-width:72ch}
-@media (max-width:520px){h1{font-size:2.1rem} .ctl input{width:100%} .league{grid-template-columns:1fr 1fr;gap:12px} .mode button{flex:1}}
+@media (max-width:520px){table.vt th,table.vt td{padding:6px 5px} table.vt th{white-space:normal;letter-spacing:.02em;vertical-align:bottom} table.vt .minibar{display:none} table.vt td.pl{min-width:8.5em} h1{font-size:2.1rem} .ctl input{width:100%} .league{grid-template-columns:1fr 1fr;gap:12px} .mode button{flex:1}}
 </style></head>
 <body><div class="wrap">
 <header style="display:flex;flex-direction:column;gap:14px">
@@ -104,7 +114,8 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-wid
   <div class="tabs" id="rTabs" role="group" aria-label="Position"></div>
   <div class="ctl"><input id="rName" type="search" placeholder="Search player or team" aria-label="Search redraft values"><span class="small muted" id="rCount"></span></div>
   <p class="small muted st-legend">Status tags: <span class="st">IR</span> reserve list (injured reserve, PUP, suspended) · <span class="st">Out</span> / <span class="st">Doubtful</span> / <span class="st">Q</span> last game's injury report · <span class="st">Backup</span> not first on the team's depth chart. Expected games already account for the status.</p>
-  <div class="tablebox"><table id="rTable"></table></div>
+  <div class="tradebar"><a class="tradebtn" id="rTrade" href="../trade-calculator/?mode=redraft">Start a trade →</a><span class="small muted">Opens the Trade Calculator with your league settings.</span></div>
+  <div class="tablebox"><table id="rTable" class="vt"></table></div>
   <button type="button" class="more" id="rMore">Show more</button>
 </section>
 
@@ -116,7 +127,8 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-wid
   <div class="tabs" id="dTabs" role="group" aria-label="Position"></div>
   <div class="ctl"><input id="dName" type="search" placeholder="Search player, team or pick" aria-label="Search dynasty values"><span class="small muted" id="dCount"></span></div>
   <p class="small muted st-legend">Status tags: <span class="st">IR</span> reserve list (injured reserve, PUP, suspended) · <span class="st">Out</span> / <span class="st">Doubtful</span> / <span class="st">Q</span> last game's injury report · <span class="st">Backup</span> not first on the team's depth chart. Expected games already account for the status.</p>
-  <div class="tablebox"><table id="dTable"></table></div>
+  <div class="tradebar"><a class="tradebtn" id="dTrade" href="../trade-calculator/?mode=dynasty">Start a trade →</a><span class="small muted">Opens the Trade Calculator with your league settings.</span></div>
+  <div class="tablebox"><table id="dTable" class="vt"></table></div>
   <button type="button" class="more" id="dMore">Show more</button>
 </section>
 
@@ -198,16 +210,20 @@ function board(key, cols, tabsList, why){
     let x = rows.filter(r=>pos==="ALL"||r.p===pos);
     const q = name.value.trim().toLowerCase(); if(q) x = x.filter(r=>(r.n+" "+(r.tm||"")).toLowerCase().includes(q));
     document.getElementById(key+"Count").textContent = `${x.length} rows` + (x.length>shown?`, showing ${shown}`:"");
-    document.getElementById(key+"Table").innerHTML = `<thead><tr>${cols.map(c=>`<th class="${c.r?"r":""}"${c.t?` title="${c.t}"`:""}>${c.h}</th>`).join("")}<th class="r">Trade value</th></tr></thead><tbody>` +
-      x.slice(0,shown).map(r=>`<tr${r.pick?' class="pick"':""}>${cols.map(c=>`<td class="${c.r?"r num":""}">${r.pick&&c.skip?"":c.f(r)}</td>`).join("")}<td class="r num val"><span class="barcell">${fmt(r.v)}<span class="minibar" style="width:${Math.max(2,Math.round(60*r.v/max))}px"></span></span></td></tr>` +
+    // Rank, Player, Age, Team, Trade value first (visible on a phone without sliding), then a divider and the advanced columns
+    const main = cols.slice(0, 4), adv = cols.slice(4);
+    const th = (c, i) => `<th class="${[c.r?"r":"", i===0&&c.adv?"adv1":""].join(" ").trim()}"${c.t?` title="${c.t}"`:""}>${c.h}</th>`;
+    const td = (c, r, i) => `<td class="${[c.r?"r num":"", c.cls||"", i===0&&c.adv?"adv1":""].join(" ").trim()}">${r.pick&&c.skip?"":c.f(r)}</td>`;
+    document.getElementById(key+"Table").innerHTML = `<thead><tr>${main.map(c=>th(c,1)).join("")}<th class="r">Trade value</th>${adv.map((c,i)=>th(Object.assign({adv:1},c),i)).join("")}</tr></thead><tbody>` +
+      x.slice(0,shown).map(r=>`<tr${r.pick?' class="pick"':""}>${main.map(c=>td(c,r,1)).join("")}<td class="r num val"><span class="barcell">${fmt(r.v)}<span class="minibar" style="width:${Math.max(2,Math.round(60*r.v/max))}px"></span></span></td>${adv.map((c,i)=>td(Object.assign({adv:1},c),r,i)).join("")}</tr>` +
         (!r.pick && openId===r.n+"|"+r.p ? `<tr class="why"><td colspan="${cols.length+1}">${why(r)}<p class="small" style="margin:8px 0 0"><a href="../player/?key=${encodeURIComponent("tv:"+r.n+"|"+r.p)}">Full player profile: grades, comparables, market →</a></p></td></tr>` : "")).join("") + "</tbody>";
     document.getElementById(key+"More").hidden = x.length<=shown;
   }
   return { set(r){ rows = r; max = Math.max(...r.map(z=>z.v)); draw(); } };
 }
 const TABS = [["ALL","All"],...POS.map(p=>[p,p])];
-const tradeLink = (r, m) => { const id = r.pick ? "pick-"+r.n.slice(-4) : r.n+"|"+r.p;
-  return `<a class="add" href="../trade-calculator/?mode=${m}&get=${encodeURIComponent(id)}${location.search.includes("league=") ? "&league="+encodeURIComponent(new URLSearchParams(location.search).get("league")) : ""}" title="Start a trade in the calculator with ${esc(r.n)} on the side you get">+ trade</a>`; };
+// one "Start a trade" button above each table; it carries the sheet and the league settings to the calculator
+function tradeHref(m){ return `../trade-calculator/?mode=${m}` + (L.isDefault(S) ? "" : "&league="+encodeURIComponent(L.serialize(S))); }
 const EXP_T = "This season's points per game blended with his earlier seasons and draft slot. The fewer games he has played, the more the history counts.";
 const nameBtn = (r, open) => r.pick ? esc(r.n) : `<button type="button" class="nmbtn" data-id="${esc(r.n+"|"+r.p)}" title="Show how this value is built">${esc(r.n)}</button>`;
 const story = r => `${r.g ? `He has scored <b>${f1(r.ppg)}</b> points per game in ${r.g} game${r.g===1?"":"s"} this season.` : "He has not played this season."} Blended with his earlier seasons and draft slot, we expect <b>${f1(r.cppg)}</b> per game from here. The replacement ${r.p} in your league scores <b>${f1(r.rep)}</b>.`;
@@ -216,12 +232,12 @@ function whyD(r){ const tot = r.parts.reduce((s,p)=>s+p.v, 0) || 1, mx = Math.ma
   const cells = r.parts.map(p=>`<span>${p.y===0?"Rest of 2026":2026+p.y}</span><span class="r num">${f1(p.ppg)}</span><span class="r num">${f1(p.g)}</span><span class="sb"><i style="width:${Math.max(1,Math.round(60*p.v/mx))}px"></i><span class="num">${Math.round(100*p.v/tot)}%</span></span>`).join("");
   return `<div class="whybox"><p>${story(r)}</p><div class="seas"><span class="h">Season</span><span class="h r">Proj. PPG</span><span class="h r">Exp. games</span><span class="h">Share of his value</span>${cells}</div><p class="muted">Each season adds value for the points we expect him to score above replacement, including the chance he does better than projected. Expected games fall with age, injury history and the chance he is out of the league. Later seasons are discounted 15% a year, so points sooner count more.</p></div>`; }
 const rB = board("r", [
-  {h:"Rank", r:1, f:r=>r.r}, {h:"Player", f:r=>nameBtn(r)+stTag(r)+tradeLink(r,"redraft")}, {h:"Pos", f:r=>pchip(r.p)+` <span class="muted small num">${r.rp}</span>`}, {h:"Team", f:r=>esc(r.tm)},
-  {h:"Games", r:1, f:r=>r.g}, {h:"2026 PPG", r:1, f:r=>f1(r.ppg)}, {h:"Expected PPG", t:EXP_T, r:1, f:r=>f1(r.cppg)},
+  {h:"Rank", r:1, f:r=>r.r}, {h:"Player", cls:"pl", f:r=>nameBtn(r)+pchip(r.p)+stTag(r)}, {h:"Age", r:1, f:r=>f1(r.a)}, {h:"Team", f:r=>esc(r.tm)},
+  {h:"Pos rank", f:r=>pchip(r.p)+` <span class="muted small num">${r.rp}</span>`}, {h:"Games", r:1, f:r=>r.g}, {h:"2026 PPG", r:1, f:r=>f1(r.ppg)}, {h:"Expected PPG", t:EXP_T, r:1, f:r=>f1(r.cppg)},
   {h:"Over repl. / game", r:1, f:r=>f1(r.por)}, {h:"Exp. games left", r:1, f:r=>f1(r.eg)}], TABS, whyR);
 const dB = board("d", [
-  {h:"Rank", r:1, f:r=>r.r}, {h:"Player", f:r=>nameBtn(r)+stTag(r)+tradeLink(r,"dynasty")}, {h:"Pos", f:r=>pchip(r.p)+(r.pick?"":` <span class="muted small num">${r.rp}</span>`)}, {h:"Team", skip:1, f:r=>esc(r.tm)},
-  {h:"Age", r:1, skip:1, f:r=>f1(r.a)}, {h:"Draft pick", r:1, skip:1, f:r=>r.dp==null?"UDFA":r.dp}, {h:"Expected PPG", t:EXP_T, r:1, skip:1, f:r=>f1(r.cppg)},
+  {h:"Rank", r:1, f:r=>r.r}, {h:"Player", cls:"pl", f:r=>nameBtn(r)+pchip(r.p)+stTag(r)}, {h:"Age", r:1, skip:1, f:r=>f1(r.a)}, {h:"Team", skip:1, f:r=>esc(r.tm)},
+  {h:"Pos rank", skip:1, f:r=>pchip(r.p)+` <span class="muted small num">${r.rp}</span>`}, {h:"Draft pick", r:1, skip:1, f:r=>r.dp==null?"UDFA":r.dp}, {h:"Expected PPG", t:EXP_T, r:1, skip:1, f:r=>f1(r.cppg)},
   {h:"Proj. PPG 2027", r:1, skip:1, f:r=>f1(r.p27)}, {h:"Proj. PPG 2030", r:1, skip:1, f:r=>f1(r.p30)}, {h:"Still playing 2030", r:1, skip:1, f:r=>Math.round(100*r.s30)+"%"}],
   [...TABS, ["PICK","Picks"]], whyD);
 
@@ -231,6 +247,7 @@ function update(){
   document.getElementById("lgSum").innerHTML = L.long(S);
   document.getElementById("lgRep").innerHTML = `<span class="muted">Replacement line:</span>` + POS.map(p=>`<span>${pchip(p)}${C.RD.n[p]} · ${f1(C.RD.rep[p])} PPG</span>`).join("");
   rB.set(C.red); dB.set(C.dyn);
+  document.getElementById("rTrade").href = tradeHref("redraft"); document.getElementById("dTrade").href = tradeHref("dynasty");
 }
 update();
 })();
