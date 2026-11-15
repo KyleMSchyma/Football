@@ -973,8 +973,9 @@ fit and 1.536 raw), so the two-parameter version is used.
 `dv_rookie_board_values.csv`).** For every row of the pre-draft board, the post-draft board and
 the 2027 mock: value = Σ_tier P(tier) · Σ_{k=1..4} v^k · G_tier,k · E[(PPG_tier,k + age_k − rep)+],
 the same formula and tier calibration as the 2027 rookie picks (v = 1/1.15, stop-loss E[(X − r)+]
-with the calibrated PPG spread), in the default league (12 teams, superflex, 2 RB / 3 WR / 1 TE,
-no flex, default full-PPR scoring) on the 100k trade-value scale. Probabilities: post-draft for
+with the calibrated PPG spread), in the model's reference league (12 teams, superflex, 2 RB / 3 WR / 1 TE,
+no flex, default full-PPR scoring) on the 100k trade-value scale. (On the site the board recomputes Value
+in the visitor's league; the site default since Nov 15, 2026 is the same league with 2 FLEX.) Probabilities: post-draft for
 drafted players (2010-2026) and 2027 mock players, drafted-recalibrated pre-draft for the other
 2027 prospects. Age: Sept 1 of the draft year from the birth date where known, else 18.6 + years
 out of high school (the mock's age estimate for mock players). Check: every 2027 board value
