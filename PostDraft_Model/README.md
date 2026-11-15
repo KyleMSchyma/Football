@@ -40,8 +40,12 @@ slightly for RB, WR and TE.
 Nobody in the 2027 class has been drafted yet, so a mock draft stands in for the draft. Each
 mocked QB, RB, WR and TE takes the mock's pick as his draft capital and the mock's team as his
 landing spot, then goes through the same post-draft model as every drafted player. The current
-run uses the **Renner 2027 mock (post-deadline)**, which has 30 fantasy-position picks in
-rounds 1-3. All 30 match the 2027 pre-draft board.
+run uses **Kyle's own 7-round 2027 mock** (made on the NFL Mock Draft Database simulator,
+2026-11-15; Kyle picked for Minnesota, the simulator for everyone else). It has 80
+fantasy-position picks out of 257. Three names differ from the board and are mapped to the
+board's names (Ryan Coleman-Williams = Ryan Williams, Hollywood Smothers = Daylan Smothers,
+Quintrevion Wisner = Tre Wisner); Brendan Sorsby is a 2026-class row on the board, so he is
+skipped. The earlier run used the Renner 2027 mock (30 picks, rounds 1-3).
 
 Inputs that don't exist yet are estimated:
 
@@ -68,7 +72,7 @@ uncalibrated.
 picks it used appear in `pd_post_2027_mock_grades.csv`.
 
 ```bash
-MOCK_FILE=mock_2027/mock_2027_fantasy_positions.csv MOCK_NAME="Renner 2027 mock (post-deadline)" ./run.sh pd_09_mock_2027.R phase9_log.txt
+MOCK_FILE=mock_2027/mock_2027_fantasy_positions.csv MOCK_NAME="Our 7-round 2027 mock (2026-11-15)" ./run.sh pd_09_mock_2027.R phase9_log.txt
 ```
 
 | File | What it holds |
