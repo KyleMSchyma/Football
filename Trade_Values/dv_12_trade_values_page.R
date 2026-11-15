@@ -42,7 +42,7 @@ writeLines(paste0("window.TV = ", js, ";"), file.path(out, "data", "tv.js"), use
 if (!is.null(P$agetab)) writeLines(paste0("window.TVAGE = ", toJSON(list(a0 = P$agetab$grid[1], step = 0.1, n = length(P$agetab$grid),
   t = lapply(P$agetab$t, function(m) unname(round(m, 3)))), auto_unbox = TRUE, digits = NA), ";"),
   file.path(out, "data", "agetab.js"), useBytes = TRUE)
-# downloads: the default league (12 teams, superflex, full PPR, QB24 / RB24 / WR36 / TE12 lines)
+# downloads: the reference league (12 teams, superflex, full PPR, no flex: QB24 / RB24 / WR36 / TE12 lines); the site default has 2 FLEX (shared/league.js)
 r <- read.csv("dv_ros_2026_board.csv") %>% filter(value_100k > 0)
 d <- read.csv("dv_v4_board.csv") %>% filter(value_100k >= 500)
 write.csv(r %>% select(rank, rank_pos, name, pos, team, games_2026, ppg_2026, credible_ppg, replacement_ppg, por_per_game,
