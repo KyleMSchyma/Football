@@ -60,6 +60,12 @@ as-of mode the 2026 week-10 board differs only through the depth chart / roster 
 
 ## Outputs
 
-* `history/snapshots/hv_S_wWW.rds`: the raw snapshots (not in git; rebuildable)
-* `history/values/values_S.csv`: every snapshot's redraft and dynasty values, one file per season
-* `history/track_record_by_snapshot.csv`, `history/track_record_summary.csv`: the scores
+* `snapshots/hv_S_wWW.rds`: the raw snapshots (the weekly refresh reads them from here and adds one each Tuesday)
+* `values/values_S.csv`: every snapshot's redraft and dynasty values, one file per season
+* `hv_track_record_by_snapshot.csv`, `hv_track_record_summary.csv`: the scores
+
+## Every Tuesday
+
+`weekly_refresh/refresh.sh` step H (after the archive) copies this folder from `origin/main` into `Weekly_Refresh/history`,
+builds the new week's as-of snapshot, rescores the track record, rebuilds the CSVs and the site's `data/history`, and pushes
+the new snapshot back here. It runs only once the site has `/value-history/`, and a failure there never stops the refresh.
