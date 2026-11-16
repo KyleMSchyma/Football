@@ -16,6 +16,8 @@
 #   G. OUTPUT GATES (rf_03): every team in the latest week, no missing values, replacement lines and pick multiplier in
 #      range, top-50 turnover vs last week, R and browser reconciliation. A failed gate stops the run: nothing is
 #      committed or pushed.
+#   H. point-in-time value history: this week added to the 2016-onward history (Trade_Values/history), track record
+#      rescored, site data/history rebuilt (only once the site has /value-history/; a failure here does not stop the run)
 #   A. dated archive of the week's redraft, dynasty and pick values + biggest movers (rf_04), into Trade_Values/archive/;
 #      one snapshot per day (a same-day rerun keeps the first; ARCHIVE_OVERWRITE=1 replaces it); snapshots.json lists them all
 #   5. push: the site (SITE_BRANCH, main for the live site) and the Football repo (FOOTBALL_BRANCH)
@@ -120,6 +122,34 @@ if [ -n "$MV" ]; then mkdir -p "$SITE/data" && cp "$MV" "$SITE/data/movers.csv" 
 # A3. publish the snapshot list (Dashboard: first snapshot date, how many weeks are stored)
 [ -f "$ARCH/snapshots.json" ] && mkdir -p "$SITE/data" && cp "$ARCH/snapshots.json" "$SITE/data/snapshots.json"
 
+# ---------- H. point-in-time value history (Kyle 2026-11-16): add this Tuesday to the 2016-onward history ----------
+# The Football repo (main) is the durable store: its Trade_Values/history holds the scripts and snapshots/ (one .rds per
+# Tuesday). They are copied into HIST (scripts replaced, snapshots only added), this week's snapshot is rebuilt as of today
+# with the same rules as the backfill, then the track record, the per-season CSVs and the site's data/history files are
+# rebuilt, and step 5b pushes the new snapshot back to the repo. Runs only once the site has the /value-history/ page.
+# A failure here keeps last week's history files and does not stop the refresh.
+HIST="${HIST_DIR:-$HERE/history}"; HIST_DONE=0
+if [ -d "$SITE/value-history" ]; then
+  mkdir -p "$HIST/snapshots" "$LOGDIR/hist_src"
+  if git -C "$REPO" fetch -q origin >> "$LOG" 2>&1 && git -C "$REPO" archive origin/main Trade_Values/history | tar -x -C "$LOGDIR/hist_src" 2>> "$LOG"; then
+    cp "$LOGDIR"/hist_src/Trade_Values/history/hv_*.R "$HIST/" 2>/dev/null
+    cp -n "$LOGDIR"/hist_src/Trade_Values/history/snapshots/hv_*.rds "$HIST/snapshots/" 2>/dev/null
+  else say "WARNING: could not read Trade_Values/history from the Football repo; using the local copy in $HIST"; fi
+fi
+if [ -d "$SITE/value-history" ] && [ -f "$HIST/hv_01_snapshot.R" ]; then
+  HWK="$(grep -o 'week[0-9]*' <<<"$(ls -1 "$ARCH"/*_dynasty.csv 2>/dev/null | sort | tail -1)" | tail -1 | tr -dc 0-9)"
+  HWK="$((10#${HWK:-0}))"
+  if [ "$HWK" -gt 0 ] && "$HERE/run_r.sh" "$DYN" "$HIST/hv_01_snapshot.R" "$LOGDIR/10_history_snapshot.txt" 2026 "$HWK" "$HIST/snapshots" \
+     && "$HERE/run_r.sh" "$DYN" "$HIST/hv_02_track_record.R" "$LOGDIR/10b_history_score.txt" "$HIST/snapshots" "$HIST/scored" \
+     && "$HERE/run_r.sh" "$DYN" "$HIST/hv_04_export_csv.R" "$LOGDIR/10c_history_csv.txt" "$HIST/snapshots" "$HIST/values" \
+     && "$HERE/run_r.sh" "$DYN" "$HIST/hv_03_site_data.R" "$LOGDIR/10d_history_site.txt" "$HIST/snapshots" "$HIST/scored" "$SITE"; then
+    HIST_DONE=1; say "value history: added 2026 week $HWK ($(ls -1 "$HIST/snapshots"/hv_*.rds | wc -l) snapshots)"
+  else
+    say "WARNING: value history step failed (see $LOGDIR/10*_history_*.txt); last week's history files kept"
+    git -C "$SITE" checkout -q -- data/history 2>/dev/null
+  fi
+else say "value history skipped (no value-history page on the site yet, or no $HIST/hv_01_snapshot.R)"; fi
+
 # ---------- 5a. publish the site ----------
 cd "$SITE"
 [ -e dynasty ] && fail "a dynasty/ folder is on the site; it must stay unpublished. Nothing pushed."
@@ -143,6 +173,9 @@ WT="$(mktemp -d)/football_wt"
 git worktree add -q --detach "$WT" "$BASE" >> "$LOG" 2>&1 || fail "worktree"
 cleanup_wt() { cd "$REPO"; git worktree remove --force "$WT" >/dev/null 2>&1; }
 mkdir -p "$WT/Trade_Values/weekly_refresh" "$WT/Trade_Values/archive"
+if [ "$HIST_DONE" = 1 ]; then mkdir -p "$WT/Trade_Values/history/values" "$WT/Trade_Values/history/snapshots"
+  cp "$HIST"/values/values_*.csv "$WT/Trade_Values/history/values/"; cp "$HIST"/snapshots/hv_*.rds "$WT/Trade_Values/history/snapshots/"
+  cp "$HIST"/scored/hv_track_record_by_snapshot.csv "$HIST"/scored/hv_track_record_summary.csv "$WT/Trade_Values/history/"; fi
 cp "$DYN"/dv_common.R "$DYN"/dv_10_ros_value.R "$DYN"/dv_11_dynasty_v4.R "$DYN"/dv_12_trade_values_page.R "$DYN"/dv_14_value_research_data.R "$DYN"/tv_page_template.html \
    "$DYN"/dv_ros_2026_board.csv "$DYN"/dv_v4_board.csv "$DYN"/dv_v4_backtest.csv "$DYN"/dv_ros_backtest_parts.csv \
    "$DYN"/dv_ros_backtest_value.csv "$DYN"/dv_ros_credibility_k.csv "$DYN"/dv_13_league_presets.R "$DYN"/dv_league_backtest.csv \
