@@ -27,3 +27,18 @@ Scoring: full PPR, 4-pt passing TD, regular season. Tuning 2017-2022, test 2023 
 
 Model codes in results.csv: league, std (team season-to-date), naive (off + def - league), credB (pure Bühlmann k),
 cred (tuned k), mixed, glm, gbm, blend (GLM/GBM average).
+
+## v2: betting lines, context and play-by-play efficiency (2026-11-17)
+
+Inputs from nflverse play-by-play (`play_by_play_{season}.parquet`, regular season): closing spread and over/under
+(implied team total = total/2 + team spread/2), home/away, roof, wind, temperature, and per-game offense/defense
+EPA per play, success rate, plays and pass rate (point-in-time averages, Bühlmann-shrunk with k per metric).
+
+8. `feats2.py <pbp folder>` -> feats2.pkl; `feats2_k.py` -> eff_k.json (Bühlmann k for efficiency metrics)
+9. `models2.py` – Poisson GLM rating plans refit before each season on prior seasons, plus LightGBM with everything
+10. `evaluate2.py` -> results_v2.csv, eval2_out.txt; coefficients and GBM SHAP in v2_extra.json
+
+Result (test R², Total): v1 credibility 9.1%; + home/wind/cold 10.8%; + efficiency 10.6%; lines only 17.2%;
+lines + credibility + context 17.3%; everything GLM 17.6%; everything GBM 16.1%. Lines set the level; credibility
+is needed for the position/category mix (lines alone: TE 0.6%, RB 5.9%). Efficiency adds nothing once fantasy
+history is in. Recommended: Poisson GLM of log(implied total) + log(credibility projection) + home/wind/cold.
