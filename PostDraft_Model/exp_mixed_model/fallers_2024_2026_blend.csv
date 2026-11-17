@@ -1,0 +1,16 @@
+class,position,name,pick,pre_grade,post_grade,blend_grade,p_any_now,p_any_blend,nfl_outcome
+2024,QB,Bo Nix,12,A+,B+,A-,0.666,0.809,"best QB7 (QB8 hit), 2 seasons so far"
+2025,QB,Jaxson Dart,25,A-,B+,A-,0.643,0.794,"best QB13 (QB16 hit), 1 season so far"
+2025,RB,RJ Harvey,60,A,B+,A-,0.433,0.654,"best RB20 (RB24 hit), 1 season so far"
+2025,RB,Kaleb Johnson,83,A+,B,A-,0.276,0.483,"best RB108 (no tier season), 1 season so far"
+2025,RB,Cam Skattebo,105,A+,B,B+,0.23,0.421,"best RB37 (no tier season), 1 season so far"
+2024,RB,Bucky Irving,125,A,B,B+,0.208,0.391,"best RB13 (RB16 hit), 2 seasons so far"
+2025,RB,Dylan Sampson,126,A,B-,B+,0.169,0.331,"best RB55 (no tier season), 1 season so far"
+2026,RB,Emmett Johnson,161,A-,C+,B+,0.158,0.312,rookie season in progress
+2024,RB,Audric Estime,147,A-,C+,B+,0.148,0.296,"best RB67 (no tier season), 2 seasons so far"
+2025,RB,Devin Neal,184,A-,C-,B,0.132,0.268,"best RB64 (no tier season), 1 season so far"
+2025,RB,LeQuint Allen,236,A,C-,B,0.129,0.264,"best RB86 (no tier season), 1 season so far"
+2026,TE,Eli Stowers,54,A,B+,A,0.431,0.658,rookie season in progress
+2025,TE,Harold Fannin,67,A+,B+,A-,0.306,0.524,"best TE6 (TE6 hit), 1 season so far"
+2026,TE,Tanner Koziol,164,A-,C-,B+,0.106,0.222,rookie season in progress
+2024,WR,Troy Franklin,102,A+,B-,B+,0.145,0.293,"best WR31 (WR36 hit), 2 seasons so far"
