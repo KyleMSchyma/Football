@@ -1,29 +1,29 @@
 "position","round_band","band","n","any_rate","top2_rate"
-"QB","Round 1","A range",23,0.826,0.739
-"QB","Round 1","B range",20,0.5,0.3
-"QB","Rounds 2-3","A range",1,1,1
-"QB","Rounds 2-3","B range",18,0.444,0.222
+"QB","Round 1","A range",29,0.793,0.69
+"QB","Round 1","B range",14,0.429,0.214
+"QB","Rounds 2-3","A range",2,1,1
+"QB","Rounds 2-3","B range",17,0.412,0.176
 "QB","Rounds 2-3","C range",11,0.273,0.091
 "QB","Rounds 2-3","D/F",2,0,0
-"QB","Rounds 4-7","B range",11,0.091,0.091
-"QB","Rounds 4-7","C range",38,0.079,0.053
+"QB","Rounds 4-7","B range",13,0.154,0.154
+"QB","Rounds 4-7","C range",36,0.056,0.028
 "QB","Rounds 4-7","D/F",39,0,0
 "RB","Round 1","A range",21,0.81,0.714
-"RB","Rounds 2-3","A range",24,0.625,0.417
-"RB","Rounds 2-3","B range",51,0.471,0.314
-"RB","Rounds 4-7","B range",38,0.158,0.105
-"RB","Rounds 4-7","C range",90,0.144,0.089
-"RB","Rounds 4-7","D/F",74,0.041,0.041
+"RB","Rounds 2-3","A range",32,0.594,0.375
+"RB","Rounds 2-3","B range",43,0.465,0.326
+"RB","Rounds 4-7","B range",46,0.217,0.152
+"RB","Rounds 4-7","C range",84,0.107,0.06
+"RB","Rounds 4-7","D/F",72,0.042,0.042
 "TE","Round 1","A range",11,1,0.818
-"TE","Rounds 2-3","A range",19,0.421,0.368
-"TE","Rounds 2-3","B range",43,0.349,0.256
-"TE","Rounds 4-7","B range",18,0.167,0.056
-"TE","Rounds 4-7","C range",61,0.115,0.098
-"TE","Rounds 4-7","D/F",50,0.04,0.02
+"TE","Rounds 2-3","A range",22,0.409,0.364
+"TE","Rounds 2-3","B range",40,0.35,0.25
+"TE","Rounds 4-7","B range",22,0.227,0.091
+"TE","Rounds 4-7","C range",60,0.083,0.083
+"TE","Rounds 4-7","D/F",47,0.043,0.021
 "WR","Round 1","A range",55,0.655,0.545
-"WR","Rounds 2-3","A range",12,0.25,0.167
-"WR","Rounds 2-3","B range",108,0.361,0.25
-"WR","Rounds 2-3","C range",11,0.182,0.091
-"WR","Rounds 4-7","B range",25,0.16,0.08
-"WR","Rounds 4-7","C range",123,0.065,0.024
-"WR","Rounds 4-7","D/F",111,0.027,0.027
+"WR","Rounds 2-3","A range",27,0.407,0.259
+"WR","Rounds 2-3","B range",94,0.33,0.234
+"WR","Rounds 2-3","C range",10,0.2,0.1
+"WR","Rounds 4-7","B range",32,0.125,0.062
+"WR","Rounds 4-7","C range",120,0.067,0.025
+"WR","Rounds 4-7","D/F",107,0.028,0.028

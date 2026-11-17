@@ -1,0 +1,4 @@
+"step","prob_col","n","fallers","faller_actual","faller_model","coef","odds_mult","odds_lo","odds_hi"
+"top tier","p_top",1108,75,0.1867,0.0786,1.1587,3.1857,1.6445,6.1713
+"top two tiers","p_top2",1108,75,0.2667,0.1606,0.7256,2.0659,1.1585,3.6841
+"any tier","p_any",1108,75,0.4,0.2516,0.8402,2.3168,1.3613,3.9429

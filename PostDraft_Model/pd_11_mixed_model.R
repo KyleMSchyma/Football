@@ -89,8 +89,11 @@ REF <- lapply(setNames(POSITIONS, POSITIONS), function(POS) f %>% filter(positio
 pctf <- function(pos, v) mapply(function(P, x) if (is.na(x)) NA else mean(REF[[P]] < x) + 0.5 * mean(REF[[P]] == x), pos, v)
 regrade <- function(d) {
   if (is.null(d)) return(d)
-  d$post_pctile <- round(pctf(d$position, d$post_score), 3)
-  d$post_grade <- grade_from_pct(d$post_pctile)
+  # non-fallers keep their original percentile/grade exactly (the CSV's scores are rounded to
+  # 3 dp, so recomputing them can flip players sitting on a grade boundary)
+  fl <- !is.na(d$mixed_faller) & d$mixed_faller == 1
+  d$post_pctile <- ifelse(fl, round(pctf(d$position, d$post_score), 3), d$post_pctile_draft)
+  d$post_grade <- ifelse(fl, grade_from_pct(d$post_pctile), d$post_grade_draft)
   d$grade_move <- gidx(d$post_grade) - gidx(d$pre_grade)
   d$post_score <- round(d$post_score, 3)
   for (cc in PC) d[[cc]] <- round(d[[cc]], 3)
