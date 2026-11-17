@@ -1,0 +1,33 @@
+position,model,features,loco_rmse,loco_logloss,loco_auc
+QB,lin,grade only,4.7555,,
+QB,lin,grade + team offense,4.5177,,
+QB,lin,grade + position offense,4.5309,,
+QB,gbm,grade only,4.906,,
+QB,gbm,grade + team offense,4.6514,,
+QB,gbm,grade + position offense,4.917,,
+QB,logit hit_any,grade only,,0.4738,0.7482
+QB,logit hit_any,grade + team offense,,0.4553,0.8054
+RB,lin,grade only,4.4577,,
+RB,lin,grade + team offense,4.4364,,
+RB,lin,grade + position offense,4.4596,,
+RB,gbm,grade only,4.5573,,
+RB,gbm,grade + team offense,4.5621,,
+RB,gbm,grade + position offense,4.6584,,
+RB,logit hit_any,grade only,,0.5187,0.6959
+RB,logit hit_any,grade + team offense,,0.5225,0.6857
+WR,lin,grade only,3.9275,,
+WR,lin,grade + team offense,3.9355,,
+WR,lin,grade + position offense,3.9314,,
+WR,gbm,grade only,3.9709,,
+WR,gbm,grade + team offense,3.9997,,
+WR,gbm,grade + position offense,3.9666,,
+WR,logit hit_any,grade only,,0.4765,0.6962
+WR,logit hit_any,grade + team offense,,0.4793,0.6914
+TE,lin,grade only,2.5817,,
+TE,lin,grade + team offense,2.5867,,
+TE,lin,grade + position offense,2.5909,,
+TE,gbm,grade only,2.54,,
+TE,gbm,grade + team offense,2.5454,,
+TE,gbm,grade + position offense,2.5405,,
+TE,logit hit_any,grade only,,0.5341,0.6637
+TE,logit hit_any,grade + team offense,,0.5395,0.6164
