@@ -1,7 +1,7 @@
 {
   "note": "Weekly value snapshots of the default league, oldest first. Rebuilt from the archive files on every refresh.",
-  "built": "2026-11-15T10:49:55-0600",
-  "n": 2,
+  "built": "2026-11-17T10:11:51-0600",
+  "n": 3,
   "snapshots": [
     {
       "date": "2026-11-13",
@@ -28,6 +28,19 @@
       "model_version": "4e8f4f01f4",
       "data_version": "nflverse 2026 week 10 (d370aa55b9)",
       "compared_with": "2026-11-13_week10"
+    },
+    {
+      "date": "2026-11-17",
+      "week": 10,
+      "tag": "2026-11-17_week10",
+      "files": ["dynasty", "redraft", "picks", "movers"],
+      "players_dynasty": 581,
+      "players_redraft": 581,
+      "has_player_ids": true,
+      "league": "12_1_0_4_1_2_3_1_0_0_0_0_0",
+      "model_version": "4e8f4f01f4",
+      "data_version": "nflverse 2026 week 10 (fcbe3a6114)",
+      "compared_with": "2026-11-15_week10"
     }
   ]
 }
