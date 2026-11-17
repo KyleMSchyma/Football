@@ -1,0 +1,13 @@
+position,off_third,n,rookie_ppg,avg_pick,post_pctile,hit_any
+QB,Bottom third,78,6.397,84.141,0.634,0.453
+QB,Middle third,63,3.456,116.968,0.479,0.19
+QB,Top third,47,0.85,157.596,0.349,0.122
+RB,Bottom third,116,5.156,120.983,0.572,0.299
+RB,Middle third,116,3.659,148.888,0.459,0.206
+RB,Top third,110,3.202,145.155,0.472,0.283
+TE,Bottom third,76,2.687,125.105,0.544,0.197
+TE,Middle third,87,2.26,129.874,0.511,0.278
+TE,Top third,67,1.98,146.91,0.439,0.203
+WR,Bottom third,171,4.3,116.637,0.542,0.232
+WR,Middle third,192,3.263,126.87,0.489,0.208
+WR,Top third,148,2.964,132.318,0.456,0.198

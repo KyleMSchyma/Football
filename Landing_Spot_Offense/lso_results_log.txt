@@ -1,0 +1,121 @@
+Rookie-season sample: 1271 players, classes 2010-2025
+
+1. Raw: rookie points per team game by prior-year team offense third
+position    off_third   n  rookie_ppg  avg_pick  post_pctile  hit_any
+      QB Bottom third  78       6.397    84.141        0.634    0.453
+      QB Middle third  63       3.456   116.968        0.479    0.190
+      QB    Top third  47       0.850   157.596        0.349    0.122
+      RB Bottom third 116       5.156   120.983        0.572    0.299
+      RB Middle third 116       3.659   148.888        0.459    0.206
+      RB    Top third 110       3.202   145.155        0.472    0.283
+      TE Bottom third  76       2.687   125.105        0.544    0.197
+      TE Middle third  87       2.260   129.874        0.511    0.278
+      TE    Top third  67       1.980   146.910        0.439    0.203
+      WR Bottom third 171       4.300   116.637        0.542    0.232
+      WR Middle third 192       3.263   126.870        0.489    0.208
+      WR    Top third 148       2.964   132.318        0.456    0.198
+
+2. All positions, grade band x offense third
+                           n  rookie_ppg  hit_any
+grade_band off_third                             
+A          Bottom third   94        9.61     0.68
+           Middle third   60        8.41     0.67
+           Top third      40        6.71     0.61
+B          Bottom third  151        5.04     0.31
+           Middle third  136        4.43     0.32
+           Top third      94        4.23     0.36
+C          Bottom third  116        2.29     0.08
+           Middle third  143        1.91     0.10
+           Top third     121        1.72     0.14
+D/F        Bottom third   80        1.33     0.06
+           Middle third  119        0.71     0.02
+           Top third     117        0.77     0.02
+
+2b. By position, grade band x offense third (rookie PPG)
+off_third            Bottom third  Middle third  Top third
+position grade_band                                       
+QB       A                  11.56         14.16       0.00
+         B                   7.02          4.96       1.28
+         C                   1.26          1.05       1.64
+         D/F                 0.75          0.74       0.02
+RB       A                  10.80         10.78       6.12
+         B                   4.80          5.22       5.00
+         C                   3.57          2.71       2.06
+         D/F                 1.60          0.46       1.41
+TE       A                   5.87          5.01       7.72
+         B                   3.15          2.72       2.27
+         C                   1.50          1.54       1.61
+         D/F                 0.36          0.66       0.36
+WR       A                   9.05          8.08       7.17
+         B                   5.05          4.53       5.12
+         C                   2.04          1.84       1.53
+         D/F                 1.74          0.90       0.82
+
+3. OLS (robust SE): effect of +1 SD team offense, raw and holding post-draft score fixed
+   outcome position   offense   n  raw_coef  raw_p  adj_coef  adj_lo  adj_hi  adj_p  r2_grade_only  r2_with_off  inter_coef  inter_p
+rookie_ppg       QB     off_z 188   -2.5816 0.0000   -0.8914 -1.6077 -0.1752 0.0147         0.5348       0.5518      0.1543   0.8518
+rookie_ppg       QB pos_off_z 188   -2.3339 0.0000   -0.6793 -1.3743  0.0157 0.0554         0.5348       0.5450      0.2391   0.7509
+rookie_ppg       RB     off_z 342   -0.6060 0.0311   -0.3654 -0.8313  0.1005 0.1243         0.3689       0.3743     -0.0964   0.8070
+rookie_ppg       RB pos_off_z 342   -0.4510 0.0621   -0.2419 -0.6054  0.1217 0.1923         0.3689       0.3713      0.1320   0.6678
+rookie_ppg       WR     off_z 511   -0.3212 0.1120   -0.1137 -0.4236  0.1963 0.4722         0.3863       0.3870     -0.4653   0.3307
+rookie_ppg       WR pos_off_z 511   -0.2584 0.1396    0.0669 -0.1876  0.3214 0.6062         0.3863       0.3865      0.1833   0.6129
+rookie_ppg       TE     off_z 230   -0.0760 0.7108    0.0735 -0.2357  0.3826 0.6414         0.4115       0.4120      0.1045   0.8598
+rookie_ppg       TE pos_off_z 230   -0.3306 0.1316    0.0633 -0.2554  0.3821 0.6969         0.4115       0.4118     -0.5547   0.3499
+ppg_played       QB     off_z  72   -1.6849 0.0288   -0.7248 -2.3182  0.8686 0.3726         0.2180       0.2291      1.4641   0.0644
+ppg_played       QB pos_off_z  72   -0.8573 0.2414    0.1093 -1.3573  1.5758 0.8839         0.2180       0.2182      0.7745   0.3421
+ppg_played       RB     off_z 211   -0.4282 0.2135   -0.3524 -0.9138  0.2090 0.2185         0.3464       0.3517     -0.2951   0.4574
+ppg_played       RB pos_off_z 211   -0.8243 0.0119   -0.5565 -1.0532 -0.0597 0.0281         0.3464       0.3580      0.2703   0.3609
+ppg_played       WR     off_z 303   -0.2000 0.4526   -0.0693 -0.5017  0.3631 0.7535         0.2708       0.2710     -0.1885   0.7223
+ppg_played       WR pos_off_z 303   -0.1118 0.6359    0.2480 -0.1280  0.6241 0.1961         0.2708       0.2739      0.4995   0.1043
+ppg_played       TE     off_z 123    0.1044 0.7129    0.2320 -0.2585  0.7226 0.3539         0.2195       0.2248     -0.0139   0.9820
+ppg_played       TE pos_off_z 123   -0.2472 0.4416    0.1246 -0.4247  0.6739 0.6566         0.2195       0.2208     -0.6972   0.2679
+   y13_ppg       QB     off_z 163   -2.4060 0.0000   -0.5192 -1.1842  0.1459 0.1260         0.5875       0.5935     -0.4367   0.5343
+   y13_ppg       QB pos_off_z 163   -2.5602 0.0000   -0.5526 -1.2195  0.1143 0.1044         0.5875       0.5941     -0.6342   0.2679
+   y13_ppg       RB     off_z 298   -0.0775 0.7945    0.1262 -0.3601  0.6125 0.6110         0.4187       0.4194     -0.4303   0.3094
+   y13_ppg       RB pos_off_z 298   -0.1404 0.6154    0.0388 -0.3916  0.4691 0.8599         0.4187       0.4188      0.3461   0.4463
+   y13_ppg       WR     off_z 445   -0.0311 0.8831    0.1189 -0.2066  0.4443 0.4740         0.3690       0.3697      0.2758   0.5604
+   y13_ppg       WR pos_off_z 445    0.0028 0.9885    0.2992  0.0126  0.5859 0.0407         0.3690       0.3738      0.8504   0.0147
+   y13_ppg       TE     off_z 202    0.2084 0.3580    0.3309 -0.0452  0.7070 0.0846         0.3546       0.3672      0.4777   0.2466
+   y13_ppg       TE pos_off_z 202   -0.2110 0.3163    0.0871 -0.2312  0.4055 0.5917         0.3546       0.3553     -0.6677   0.1080
+
+3b. Logistic: odds of ever hitting a tier per +1 SD team offense, holding the model's P(any tier)
+position   n  hits  odds_ratio_per_sd  or_lo  or_hi     p
+      QB 163    45              0.689  0.378  1.256 0.224
+      RB 298    78              1.144  0.833  1.571 0.406
+      WR 445    95              1.077  0.821  1.413 0.593
+      TE 202    46              1.387  0.907  2.122 0.131
+
+4. Leave-one-class-out comparison (lower RMSE / log-loss, higher AUC = better)
+position         model                 features  loco_rmse  loco_logloss  loco_auc
+      QB           lin               grade only     3.9581           NaN       NaN
+      QB           lin     grade + team offense     3.9067           NaN       NaN
+      QB           lin grade + position offense     3.9362           NaN       NaN
+      QB           gbm               grade only     4.1183           NaN       NaN
+      QB           gbm     grade + team offense     4.1070           NaN       NaN
+      QB           gbm grade + position offense     4.2620           NaN       NaN
+      QB logit hit_any               grade only        NaN        0.3730    0.8868
+      QB logit hit_any     grade + team offense        NaN        0.3727    0.8797
+      RB           lin               grade only     3.7945           NaN       NaN
+      RB           lin     grade + team offense     3.7907           NaN       NaN
+      RB           lin grade + position offense     3.7918           NaN       NaN
+      RB           gbm               grade only     3.8655           NaN       NaN
+      RB           gbm     grade + team offense     3.9074           NaN       NaN
+      RB           gbm grade + position offense     3.9127           NaN       NaN
+      RB logit hit_any               grade only        NaN        0.4435    0.8014
+      RB logit hit_any     grade + team offense        NaN        0.4475    0.8001
+      WR           lin               grade only     3.3517           NaN       NaN
+      WR           lin     grade + team offense     3.3565           NaN       NaN
+      WR           lin grade + position offense     3.3557           NaN       NaN
+      WR           gbm               grade only     3.3742           NaN       NaN
+      WR           gbm     grade + team offense     3.3866           NaN       NaN
+      WR           gbm grade + position offense     3.3792           NaN       NaN
+      WR logit hit_any               grade only        NaN        0.3943    0.8358
+      WR logit hit_any     grade + team offense        NaN        0.3963    0.8318
+      TE           lin               grade only     2.2620           NaN       NaN
+      TE           lin     grade + team offense     2.2718           NaN       NaN
+      TE           lin grade + position offense     2.2733           NaN       NaN
+      TE           gbm               grade only     2.2989           NaN       NaN
+      TE           gbm     grade + team offense     2.2803           NaN       NaN
+      TE           gbm grade + position offense     2.3198           NaN       NaN
+      TE logit hit_any               grade only        NaN        0.4095    0.8133
+      TE logit hit_any     grade + team offense        NaN        0.4138    0.8006
