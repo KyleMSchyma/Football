@@ -102,8 +102,8 @@ How: for each tier step k (top, top two, any), fit on 2010-2023
 `logit P(hit_k) = a_k + qlogis(p_k) + b_k * faller` with the post-draft probability as an
 offset. Fallers' odds are multiplied by `exp(b_k)` (about 3.2, 2.0 and 2.3 when first fit);
 nobody else's probabilities change. The score moves by the change in expected tier points,
-and grades are re-cut against the mixed 2010-2023 score distribution, so a handful of
-non-fallers can shift one step at a grade boundary. The 2027 mock grades get the same rule.
+and grades are cut on the same fixed scale as before (percentiles of the original
+2010-2023 post-draft scores), so only fallers' grades change. The 2027 mock grades get the same rule.
 
 `pd_11` rewrites `pd_post_player_grades.csv` and `pd_post_2027_mock_grades.csv` in place
 (draft-only values kept in `*_draft` columns, plus `mixed_faller`), recomputes the

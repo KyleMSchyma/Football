@@ -83,8 +83,9 @@ apply_mix <- function(d) {
 }
 f <- apply_mix(f); mk <- apply_mix(mk)
 
-# grades: percentile against the 2010-2023 MIXED score distribution at the position
-REF <- lapply(setNames(POSITIONS, POSITIONS), function(POS) f %>% filter(position == POS, class <= 2023) %>% pull(post_score))
+# grades: percentile against the ORIGINAL (draft-only) 2010-2023 score distribution at the
+# position, so the fixed grade scale is unchanged and only fallers' grades move
+REF <- lapply(setNames(POSITIONS, POSITIONS), function(POS) f %>% filter(position == POS, class <= 2023) %>% pull(post_score_draft))
 pctf <- function(pos, v) mapply(function(P, x) if (is.na(x)) NA else mean(REF[[P]] < x) + 0.5 * mean(REF[[P]] == x), pos, v)
 regrade <- function(d) {
   if (is.null(d)) return(d)
@@ -109,7 +110,7 @@ ch <- f %>% filter(post_grade != post_grade_draft) %>% arrange(position, class)
 cat(nrow(ch), "of", nrow(f), "drafted players changed grade (all are pre-draft A-range fallers)\n")
 print(ch %>% filter(class >= 2024) %>% select(position, class, name, pick, pre_grade, post_grade_draft, post_grade), row.names = FALSE)
 if (!is.null(mk)) { cat("-- 2027 mock --\n"); print(mk %>% filter(post_grade != post_grade_draft) %>% select(position, pick, name, pre_grade, post_grade_draft, post_grade), row.names = FALSE) }
-cat("\nnon-fallers whose grade moved (percentile reference shift only):", sum(f$post_grade != f$post_grade_draft & f$mixed_faller == 0), "\n")
+cat("\nnon-fallers whose grade moved (should be 0):", sum(f$post_grade != f$post_grade_draft & f$mixed_faller == 0), "\n")
 
 # --- validation tables, now on the mixed grade (same definitions as pd_07) ------------------
 H <- f %>% filter(class <= 2023, !is.na(nfl_tier)) %>%
