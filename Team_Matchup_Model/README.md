@@ -42,3 +42,7 @@ Result (test R², Total): v1 credibility 9.1%; + home/wind/cold 10.8%; + efficie
 lines + credibility + context 17.3%; everything GLM 17.6%; everything GBM 16.1%. Lines set the level; credibility
 is needed for the position/category mix (lines alone: TE 0.6%, RB 5.9%). Efficiency adds nothing once fantasy
 history is in. Recommended: Poisson GLM of log(implied total) + log(credibility projection) + home/wind/cold.
+
+## Weekly projections
+
+`project_week.py <season> <week> <nflverse schedules games.csv>` applies the recommended GLM to an upcoming week using the current lines (schedule file from nflverse-data release `schedules/games.csv`). Splits are scaled so positions and categories each add up to the projected Total. Output: `projections_<season>_wk<week>.csv`.
