@@ -1,0 +1,17 @@
+outcome,position,held_fixed,n,off_coef,lo,hi,p
+rookie_ppg,QB,pre score,181,-1.734,-2.412,-1.055,0.0
+rookie_ppg,QB,pre score + log(pick),181,-0.707,-1.397,-0.018,0.044
+rookie_ppg,RB,pre score,330,-0.542,-1.074,-0.01,0.046
+rookie_ppg,RB,pre score + log(pick),330,-0.267,-0.727,0.192,0.254
+rookie_ppg,WR,pre score,483,-0.11,-0.487,0.267,0.568
+rookie_ppg,WR,pre score + log(pick),483,-0.085,-0.404,0.233,0.599
+rookie_ppg,TE,pre score,217,0.128,-0.244,0.501,0.5
+rookie_ppg,TE,pre score + log(pick),217,0.134,-0.186,0.454,0.412
+y13_ppg,QB,pre score,156,-1.469,-2.252,-0.686,0.0
+y13_ppg,QB,pre score + log(pick),156,-0.265,-0.942,0.411,0.442
+y13_ppg,RB,pre score,287,-0.074,-0.615,0.468,0.789
+y13_ppg,RB,pre score + log(pick),287,0.213,-0.256,0.682,0.374
+y13_ppg,WR,pre score,417,0.136,-0.258,0.531,0.498
+y13_ppg,WR,pre score + log(pick),417,0.112,-0.23,0.454,0.519
+y13_ppg,TE,pre score,189,0.306,-0.148,0.76,0.186
+y13_ppg,TE,pre score + log(pick),189,0.313,-0.073,0.698,0.112

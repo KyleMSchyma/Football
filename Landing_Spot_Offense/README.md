@@ -106,6 +106,49 @@ A gradient-boosted model gave the same picture (`lso_model_comparison.csv`). The
 dependence plots (`plot_lso_pdp_ice.png`) are bumpy with no consistent upward slope, which is
 what noise looks like.
 
+## Follow-up: the same test with the PRE-draft grade
+
+Kyle asked (2026-11-17): what about the pre-draft grade? It only knows the college profile:
+no draft pick and no landing spot, so team offense has more room to add something.
+`GRADE=pre python3 lso_02_analyze.py` writes every table and plot again with a `_pre` suffix
+(1,289 players have both grades; 1,211 with a complete rookie season).
+
+**Within each pre-draft grade, rookies on good offenses still score less, not more:**
+
+| Pre-draft grade | Bottom-third offense | Middle | Top-third offense |
+|---|---|---|---|
+| A | 8.9 | 6.4 | 6.1 |
+| B | 4.6 | 3.8 | 3.1 |
+| C | 2.8 | 2.4 | 1.9 |
+| D/F | 3.4 | 2.1 | 1.5 |
+
+(rookie PPR points per team game, all positions)
+
+**Effect of +1 SD team offense, holding the pre-draft score fixed** (`lso_regressions_pre.csv`,
+`lso_logit_hit_pre.csv`, `lso_model_comparison_pre.csv`):
+
+| Position | Rookie pts/team game | Years 1-3 pts/game | Odds of ever hitting a tier | Out-of-sample help |
+|---|---|---|---|---|
+| QB | **-1.7** (reliable) | **-1.5** (reliable) | **0.50x** (reliable) | yes: RMSE -5%, AUC 0.75 to 0.81 |
+| RB | -0.5 (borderline) | -0.1 | 1.01x | none |
+| WR | -0.1 | +0.1 | 1.06x | none |
+| TE | +0.1 | +0.3 | 1.25x (not reliable) | none (AUC drops) |
+
+So for QBs, team offense does carry information the pre-draft grade lacks, but it points
+**down**: a QB going to a team that already scores a lot is a worse bet. For RB, WR and TE
+it adds nothing even here.
+
+**Is that QB effect really about the offense, or about draft capital?** Good offenses rarely
+spend high picks on QBs, so "good offense" partly means "late pick". Holding both the
+pre-draft score and log(pick) fixed (`lso_03_pre_plus_pick.py`, `lso_pre_plus_pick.csv`), the
+QB effect shrinks from -1.7 to -0.7 in the rookie year (sitting behind the starter) and from
+-1.5 to -0.3 (not reliable) over years 1-3. So most of it is draft capital, which the
+post-draft grade already has. That is why the post-draft test above found almost nothing.
+
+**Bottom line for pre-draft:** prior-year team offense isn't a useful pre-draft input anyway,
+because the drafting team isn't known before the draft. Once the team is known, the post-draft
+grade is the right tool, and it already captures this.
+
 ## How to explain it to a non-technical audience
 
 "Good offenses don't make rookies better, they make rookies wait. Teams that scored a lot
@@ -118,7 +161,8 @@ already includes, last year's team scoring tells you nothing more."
 | File | What it is |
 |---|---|
 | `lso_01_build.py` | Builds `lso_players.csv` and `lso_team_offense.csv` (set `NFLVERSE_DIR`) |
-| `lso_02_analyze.py` | Splits, regressions, logistic, LOCO comparison, PDP/ICE; writes the CSVs, plots and `lso_results_log.txt` |
+| `lso_02_analyze.py` | Splits, regressions, logistic, LOCO comparison, PDP/ICE; writes the CSVs, plots and `lso_results_log.txt`. `GRADE=pre` reruns everything on the pre-draft grade (`_pre` files) |
+| `lso_03_pre_plus_pick.py` | Pre-draft QB check: team-offense effect holding pre-draft score and log(pick) fixed |
 | `lso_players.csv` | One row per player: grade, team, prior-year offense, outcomes |
 | `lso_team_offense.csv` | Team fantasy points per game by season 2009-2026, total and by position |
 
