@@ -1,0 +1,76 @@
+position,class,name,round,pick,pre_grade,post_grade,grade_V0,grade_V1_all,grade_V2_all,grade_V1_r13,nfl_outcome,ppg
+QB,2010,Colt McCoy,3,85,A,B+,B+,B+,B+,B+,best QB20 (QB24 hit),10.859166666666667
+QB,2010,Dan LeFevour,6,181,A-,B,B,B+,B+,B,best QB50 (no tier season),
+QB,2012,Russell Wilson,3,75,A,B,B,B+,B+,B+,best QB3 (QB8 hit),18.21666666666667
+QB,2014,Johnny Manziel,1,22,A+,B+,B+,A-,A-,A-,best QB33 (no tier season),8.223076923076924
+QB,2015,Brett Hundley,5,147,A-,B,B,B+,B+,B,best QB31 (no tier season),8.194666666666668
+QB,2017,Deshaun Watson,1,12,A-,B+,B+,A-,B+,A-,best QB4 (QB8 hit),21.619473684210526
+QB,2018,Lamar Jackson,1,32,A,B+,B+,B+,B+,B+,best QB1 (QB8 hit),19.695652173913043
+QB,2019,Dwayne Haskins,1,15,A,B+,B+,B+,B+,A-,best QB35 (no tier season),9.05375
+QB,2020,Jalen Hurts,2,53,A+,B+,B+,A-,A-,A-,best QB3 (QB8 hit),18.166818181818183
+QB,2021,Justin Fields,1,11,A+,B+,A-,A,A-,A,best QB6 (QB8 hit),16.324
+QB,2021,Mac Jones,1,15,A,B+,B+,B+,B+,B+,best QB18 (QB24 hit),11.938571428571429
+QB,2022,Sam Howell,5,144,A-,C+,C-,B,B,D,best QB13 (QB16 hit),14.471578947368423
+QB,2023,Max Duggan,7,239,A-,C+,C+,B,B,C+,best QB50 (no tier season),
+RB,2011,DeMarco Murray,3,71,A+,B+,B+,A-,A-,A-,best RB6 (RB8 hit),14.878378378378379
+RB,2013,Johnathan Franklin,4,125,A,B-,B-,B+,B+,C+,best RB60 (no tier season),3.1000000000000005
+RB,2013,Kerwynn Williams,7,230,A,D,D,B,B,D,best RB60 (no tier season),4.5
+RB,2014,Jeremy Hill,2,55,A-,B+,B+,A,B+,A,best RB11 (RB16 hit),11.861702127659575
+RB,2014,Tre Mason,3,75,A,B+,B+,A-,A-,A-,best RB30 (no tier season),7.472
+RB,2014,Ka'Deem Carey,4,117,A+,B-,B-,B+,B+,B-,best RB60 (no tier season),2.7870967741935484
+RB,2014,Marion Grice,6,201,A,C,C,B,B+,C,best RB60 (no tier season),3.3333333333333335
+RB,2015,Tevin Coleman,3,73,A-,B+,B+,A-,B,A-,best RB19 (RB24 hit),10.035
+RB,2015,Jay Ajayi,5,149,A,C+,C,B,B,C,best RB11 (RB16 hit),10.344736842105263
+RB,2016,Alex Collins,5,171,A-,C-,C-,B,B,C-,best RB21 (RB24 hit),9.279411764705882
+RB,2017,Tarik Cohen,4,119,A-,C+,C,B,B,C,best RB11 (RB16 hit),11.457916666666668
+RB,2017,Jeremy McNichols,5,162,A,C-,F,B,B,F,best RB60 (no tier season),0.2
+RB,2018,Royce Freeman,3,71,A,B+,B+,A-,A-,A-,best RB36 (no tier season),6.843902439024389
+RB,2019,Darrell Henderson,3,70,A-,B+,B+,A-,B,A-,best RB27 (no tier season),8.780555555555557
+RB,2020,J.K. Dobbins,2,55,A-,B+,B+,A-,B+,A-,best RB24 (RB24 hit),10.856521739130434
+RB,2020,Zack Moss,3,86,A,B+,B+,A-,A-,A-,best RB46 (no tier season),6.956410256410257
+RB,2020,Eno Benjamin,7,222,A,C,C,B,B,C,best RB50 (no tier season),5.6000000000000005
+RB,2022,Rachaad White,3,91,A,B,B,B+,B+,B+,best RB4 (RB8 hit),12.420408163265304
+RB,2022,Kyren Williams,5,164,A-,C,D,B,B,D,best RB7 (RB8 hit),15.488888888888889
+RB,2022,Tyler Badie,6,196,A-,D,F,B,B-,F,best RB60 (no tier season),4.7
+RB,2023,Israel Abanikanda,5,143,A,C+,C+,B+,B+,C+,best RB60 (no tier season),3.0500000000000003
+TE,2010,Aaron Hernandez,4,113,A+,C+,C,B+,B,C,best TE3 (TE6 hit),12.797368421052632
+TE,2012,Orson Charles,4,116,A-,B-,B-,B+,B+,B-,best TE59 (no tier season),1.0473684210526317
+TE,2015,Maxx Williams,2,55,A+,B+,B+,A,A,A,best TE40 (no tier season),3.576923076923077
+TE,2015,Clive Walford,3,68,A,B+,B+,A-,A-,A,best TE32 (no tier season),5.077777777777778
+TE,2015,Nick O'Leary,6,194,A-,C-,C,B+,B+,C,best TE33 (no tier season),3.148275862068966
+TE,2016,Thomas Duarte,7,231,A+,D,D,B,B,D,best TE60 (no tier season),
+TE,2017,Bucky Hodges,6,201,A-,D,D,B,B,D,best TE60 (no tier season),
+TE,2018,Mark Andrews,3,86,A,B,B,B+,B+,B+,best TE5 (TE6 hit),10.766666666666667
+TE,2019,Kaden Smith,6,176,A-,C-,C,B+,B+,C,best TE36 (no tier season),4.280769230769231
+TE,2019,Caleb Wilson,7,254,A+,F,D,B,B,D,best TE60 (no tier season),0.0
+TE,2020,Harrison Bryant,4,115,A+,B-,B-,B+,B+,B-,best TE39 (no tier season),4.531707317073171
+TE,2022,Trey McBride,2,55,A,B,B,B+,B+,B+,best TE2 (TE6 hit),10.817777777777778
+TE,2022,Isaiah Likely,4,139,A,C-,D,B,B,C-,best TE16 (TE18 hit),7.351162790697675
+WR,2010,Golden Tate,2,60,A+,B+,B+,A-,A-,A-,best WR40 (no tier season),7.302926829268293
+WR,2010,Dezmon Briscoe,6,191,A,C+,C+,B+,B+,C+,best WR66 (no tier season),6.765000000000001
+WR,2012,Rueben Randle,2,63,A+,B+,B+,A-,A-,A-,best WR30 (WR36 hit),8.615555555555556
+WR,2013,Stedman Bailey,3,92,A+,B,B,B+,B+,B+,best WR85 (no tier season),5.371875
+WR,2013,Terrance Williams,3,74,A,B,B,B+,B+,B+,best WR43 (no tier season),9.76304347826087
+WR,2013,Kenny Stills,5,144,A-,C+,C+,B+,B+,C+,best WR37 (no tier season),8.478260869565217
+WR,2014,Paul Richardson,2,45,A,B+,B+,A-,A-,A,best WR98 (no tier season),4.746153846153846
+WR,2014,Jarvis Landry,2,63,A+,B+,B+,A-,A-,A-,best WR8 (WR12 hit),14.542916666666668
+WR,2014,Allen Robinson,2,61,A,B+,B+,A-,A-,A-,best WR6 (WR12 hit),14.764285714285714
+WR,2014,T.J. Jones,6,189,A-,D,D,B+,B+,D,best WR100 (no tier season),3.3230769230769233
+WR,2015,Vince Mayle,4,123,A,B,B,B+,B+,B,best WR100 (no tier season),0.34444444444444444
+WR,2016,Tyler Boyd,2,55,A-,B+,B+,A-,B+,A,best WR17 (WR24 hit),10.0425
+WR,2016,Sterling Shepard,2,40,A-,B+,B+,A-,B+,A-,best WR30 (WR36 hit),11.893023255813953
+WR,2016,Aaron Burbridge,6,213,A,D,D,B,B,D,best WR100 (no tier season),1.0533333333333335
+WR,2017,Dede Westbrook,4,110,A+,B-,C+,B+,B+,C+,best WR32 (WR36 hit),10.660526315789474
+WR,2017,Josh Malone,4,128,A,C+,C+,B+,B+,C+,best WR100 (no tier season),1.7249999999999999
+WR,2018,Christian Kirk,2,47,A-,B+,B+,A-,B+,A,best WR38 (no tier season),11.233333333333334
+WR,2019,A.J. Brown,2,51,A+,B+,B+,A-,A-,A-,best WR12 (WR12 hit),15.011627906976743
+WR,2019,Dillon Mitchell,7,239,A,D,F,B,B,F,best WR100 (no tier season),
+WR,2020,Michael Pittman Jr.,2,34,A,B+,B+,A-,A-,A,best WR17 (WR24 hit),12.043478260869565
+WR,2020,Devin Duvernay,3,92,A,C+,C+,B+,B+,B+,best WR59 (no tier season),5.475555555555555
+WR,2020,Isaiah Hodgins,6,207,A,C,C-,B+,B,C-,best WR74 (no tier season),11.133333333333333
+WR,2022,John Metchie,2,44,A-,B+,B+,A-,B+,A,best WR100 (no tier season),3.65
+WR,2022,David Bell,3,99,A+,B,B,B+,B+,B+,best WR100 (no tier season),3.992
+WR,2023,Marvin Mims,2,63,A-,B,B,B+,B+,A-,best WR57 (no tier season),6.233333333333333
+WR,2023,Josh Downs,3,79,A,B,B,B+,B+,B+,best WR35 (WR36 hit),10.191489361702128
+WR,2023,Jalin Hyatt,3,73,A+,B,B,B+,B+,B+,best WR100 (no tier season),2.8620689655172415
+WR,2023,Trey Palmer,6,191,A-,D,F,B,B,F,best WR72 (no tier season),4.090625

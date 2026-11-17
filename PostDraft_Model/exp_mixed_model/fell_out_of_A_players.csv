@@ -1,0 +1,91 @@
+position,class,name,college,round,pick,pre_grade,post_grade,nfl_outcome,best_tier_yrs1_3,ppg_yrs1_3,points_yrs1_3,status
+QB,2010,Colt McCoy,Texas,3,85,A,B+,best QB20 (QB24 hit),third tier,10.9,261.0,complete
+QB,2010,Dan LeFevour,Central Michigan,6,181,A-,B,best QB50 (no tier season),no tier season,,0.0,complete
+QB,2012,Russell Wilson,Wisconsin,3,75,A,B,best QB3 (QB8 hit),top tier,18.2,874.0,complete
+QB,2014,Johnny Manziel,Texas A&M,1,22,A+,B+,best QB33 (no tier season),no tier season,8.2,107.0,complete
+QB,2015,Brett Hundley,UCLA,5,147,A-,B,best QB31 (no tier season),no tier season,8.2,123.0,complete
+QB,2017,Deshaun Watson,Clemson,1,12,A-,B+,best QB4 (QB8 hit),top tier,21.6,822.0,complete
+QB,2018,Lamar Jackson,Louisville,1,32,A,B+,best QB1 (QB8 hit),top tier,19.7,906.0,complete
+QB,2019,Dwayne Haskins,Ohio State,1,15,A,B+,best QB35 (no tier season),no tier season,9.1,145.0,complete
+QB,2020,Jalen Hurts,Oklahoma,2,53,A+,B+,best QB3 (QB8 hit),top tier,18.2,799.0,complete
+QB,2021,Justin Fields,Ohio State,1,11,A+,B+,best QB6 (QB8 hit),top tier,16.3,653.0,complete
+QB,2021,Mac Jones,Alabama,1,15,A,B+,best QB18 (QB24 hit),third tier,11.9,501.0,complete
+QB,2022,Sam Howell,North Carolina,5,144,A-,C+,best QB13 (QB16 hit),second tier,14.5,275.0,complete
+QB,2023,Max Duggan,TCU,7,239,A-,C+,best QB50 (no tier season),no tier season,,0.0,complete
+QB,2024,Bo Nix,Oregon,1,12,A+,B+,"best QB7 (QB8 hit), 2 seasons so far",top tier,,,in progress
+QB,2025,Jaxson Dart,Ole Miss,1,25,A-,B+,"best QB13 (QB16 hit), 1 season so far",second tier,,,in progress
+RB,2011,DeMarco Murray,Oklahoma,3,71,A+,B+,best RB6 (RB8 hit),top tier,14.9,550.0,complete
+RB,2013,Johnathan Franklin,UCLA,4,125,A,B-,best RB60 (no tier season),no tier season,3.1,22.0,complete
+RB,2013,Kerwynn Williams,Utah State,7,230,A,D,best RB60 (no tier season),no tier season,4.5,50.0,complete
+RB,2014,Jeremy Hill,LSU,2,55,A-,B+,best RB11 (RB16 hit),second tier,11.9,558.0,complete
+RB,2014,Tre Mason,Auburn,3,75,A,B+,best RB30 (no tier season),no tier season,7.5,187.0,complete
+RB,2014,Ka'Deem Carey,Arizona,4,117,A+,B-,best RB60 (no tier season),no tier season,2.8,86.0,complete
+RB,2014,Marion Grice,Arizona State,6,201,A,C,best RB60 (no tier season),no tier season,3.3,20.0,complete
+RB,2015,Tevin Coleman,Indiana,3,73,A-,B+,best RB19 (RB24 hit),third tier,10.0,401.0,complete
+RB,2015,Jay Ajayi,Boise State,5,149,A,C+,best RB11 (RB16 hit),second tier,10.3,393.0,complete
+RB,2016,Alex Collins,Arkansas,5,171,A-,C-,best RB21 (RB24 hit),third tier,9.3,316.0,complete
+RB,2017,Tarik Cohen,North Carolina A&T,4,119,A-,C+,best RB11 (RB16 hit),second tier,11.5,550.0,complete
+RB,2017,Jeremy McNichols,Boise State,5,162,A,C-,best RB60 (no tier season),no tier season,0.2,0.0,complete
+RB,2018,Royce Freeman,Oregon,3,71,A,B+,best RB36 (no tier season),no tier season,6.8,281.0,complete
+RB,2019,Darrell Henderson,Memphis,3,70,A-,B+,best RB27 (no tier season),no tier season,8.8,316.0,complete
+RB,2020,J.K. Dobbins,Ohio State,2,55,A-,B+,best RB24 (RB24 hit),third tier,10.9,250.0,complete
+RB,2020,Zack Moss,Utah,3,86,A,B+,best RB46 (no tier season),no tier season,7.0,271.0,complete
+RB,2020,Eno Benjamin,Arizona State,7,222,A,C,best RB50 (no tier season),no tier season,5.6,118.0,complete
+RB,2022,Rachaad White,Arizona State,3,91,A,B,best RB4 (RB8 hit),top tier,12.4,609.0,complete
+RB,2022,Kyren Williams,Notre Dame,5,164,A-,C,best RB7 (RB8 hit),top tier,15.5,558.0,complete
+RB,2022,Tyler Badie,Missouri,6,196,A-,D,best RB60 (no tier season),no tier season,4.7,19.0,complete
+RB,2023,Israel Abanikanda,Pittsburgh,5,143,A,C+,best RB60 (no tier season),no tier season,3.1,18.0,complete
+RB,2024,Bucky Irving,Oregon,4,125,A,B,"best RB13 (RB16 hit), 2 seasons so far",second tier,,,in progress
+RB,2024,Audric Estime,Notre Dame,5,147,A-,C+,"best RB67 (no tier season), 2 seasons so far",no tier season,,,in progress
+RB,2025,RJ Harvey,UCF,2,60,A,B+,"best RB20 (RB24 hit), 1 season so far",third tier,,,in progress
+RB,2025,Kaleb Johnson,Iowa,3,83,A+,B,"best RB108 (no tier season), 1 season so far",no tier season,,,in progress
+RB,2025,Cam Skattebo,Arizona State,4,105,A+,B,"best RB37 (no tier season), 1 season so far",no tier season,,,in progress
+RB,2025,Dylan Sampson,Tennessee,4,126,A,B-,"best RB55 (no tier season), 1 season so far",no tier season,,,in progress
+RB,2025,Devin Neal,Kansas,6,184,A-,C-,"best RB64 (no tier season), 1 season so far",no tier season,,,in progress
+RB,2025,LeQuint Allen,Syracuse,7,236,A,C-,"best RB86 (no tier season), 1 season so far",no tier season,,,in progress
+RB,2026,Emmett Johnson,Nebraska,5,161,A-,C+,rookie season in progress,,,,in progress
+TE,2010,Aaron Hernandez,Florida,4,113,A+,C+,best TE3 (TE6 hit),top tier,12.8,486.0,complete
+TE,2012,Orson Charles,Georgia,4,116,A-,B-,best TE59 (no tier season),no tier season,1.0,20.0,complete
+TE,2015,Maxx Williams,Minnesota,2,55,A+,B+,best TE40 (no tier season),no tier season,3.6,93.0,complete
+TE,2015,Clive Walford,Miami,3,68,A,B+,best TE32 (no tier season),no tier season,5.1,183.0,complete
+TE,2015,Nick O'Leary,Florida State,6,194,A-,C-,best TE33 (no tier season),no tier season,3.1,91.0,complete
+TE,2016,Thomas Duarte,UCLA,7,231,A+,D,best TE60 (no tier season),no tier season,,0.0,complete
+TE,2017,Bucky Hodges,Virginia Tech,6,201,A-,D,best TE60 (no tier season),no tier season,,0.0,complete
+TE,2018,Mark Andrews,Oklahoma,3,86,A,B,best TE5 (TE6 hit),top tier,10.8,485.0,complete
+TE,2019,Kaden Smith,Stanford,6,176,A-,C-,best TE36 (no tier season),no tier season,4.3,111.0,complete
+TE,2019,Caleb Wilson,UCLA,7,254,A+,F,best TE60 (no tier season),no tier season,0.0,0.0,complete
+TE,2020,Harrison Bryant,Florida Atlantic,4,115,A+,B-,best TE39 (no tier season),no tier season,4.5,186.0,complete
+TE,2022,Trey McBride,Colorado State,2,55,A,B,best TE2 (TE6 hit),top tier,10.8,487.0,complete
+TE,2022,Isaiah Likely,Coastal Carolina,4,139,A,C-,best TE16 (TE18 hit),third tier,7.4,316.0,complete
+TE,2025,Harold Fannin,Bowling Green,3,67,A+,B+,"best TE6 (TE6 hit), 1 season so far",top tier,,,in progress
+TE,2026,Eli Stowers,Vanderbilt,2,54,A,B+,rookie season in progress,,,,in progress
+TE,2026,Tanner Koziol,Houston,5,164,A-,C-,rookie season in progress,,,,in progress
+WR,2010,Golden Tate,Notre Dame,2,60,A+,B+,best WR40 (no tier season),no tier season,7.3,299.0,complete
+WR,2010,Dezmon Briscoe,Kansas,6,191,A,C+,best WR66 (no tier season),no tier season,6.8,135.0,complete
+WR,2012,Rueben Randle,LSU,2,63,A+,B+,best WR30 (WR36 hit),third tier,8.6,388.0,complete
+WR,2013,Terrance Williams,Baylor,3,74,A,B,best WR43 (no tier season),no tier season,9.8,449.0,complete
+WR,2013,Stedman Bailey,West Virginia,3,92,A+,B,best WR85 (no tier season),no tier season,5.4,172.0,complete
+WR,2013,Kenny Stills,Oklahoma,5,144,A-,C+,best WR37 (no tier season),no tier season,8.5,390.0,complete
+WR,2014,Paul Richardson,Colorado,2,45,A,B+,best WR98 (no tier season),no tier season,4.7,123.0,complete
+WR,2014,Allen Robinson,Penn State,2,61,A,B+,best WR6 (WR12 hit),top tier,14.8,620.0,complete
+WR,2014,Jarvis Landry,LSU,2,63,A+,B+,best WR8 (WR12 hit),top tier,14.5,698.0,complete
+WR,2014,T.J. Jones,Notre Dame,6,189,A-,D,best WR100 (no tier season),no tier season,3.3,43.0,complete
+WR,2015,Vince Mayle,Washington State,4,123,A,B,best WR100 (no tier season),no tier season,0.3,6.0,complete
+WR,2016,Sterling Shepard,Oklahoma,2,40,A-,B+,best WR30 (WR36 hit),third tier,11.9,511.0,complete
+WR,2016,Tyler Boyd,Pittsburgh,2,55,A-,B+,best WR17 (WR24 hit),second tier,10.0,402.0,complete
+WR,2016,Aaron Burbridge,Michigan State,6,213,A,D,best WR100 (no tier season),no tier season,1.1,16.0,complete
+WR,2017,Dede Westbrook,Oklahoma,4,110,A+,B-,best WR32 (WR36 hit),third tier,10.7,405.0,complete
+WR,2017,Josh Malone,Tennessee,4,128,A,C+,best WR100 (no tier season),no tier season,1.7,21.0,complete
+WR,2018,Christian Kirk,Texas A&M,2,47,A-,B+,best WR38 (no tier season),no tier season,11.2,438.0,complete
+WR,2019,A.J. Brown,Ole Miss,2,51,A+,B+,best WR12 (WR12 hit),top tier,15.0,646.0,complete
+WR,2019,Dillon Mitchell,Oregon,7,239,A,D,best WR100 (no tier season),no tier season,,0.0,complete
+WR,2020,Michael Pittman Jr.,USC,2,34,A,B+,best WR17 (WR24 hit),second tier,12.0,554.0,complete
+WR,2020,Devin Duvernay,Texas,3,92,A,C+,best WR59 (no tier season),no tier season,5.5,246.0,complete
+WR,2020,Isaiah Hodgins,Oregon State,6,207,A,C,best WR74 (no tier season),no tier season,11.1,100.0,complete
+WR,2022,John Metchie,Alabama,2,44,A-,B+,best WR100 (no tier season),no tier season,3.6,88.0,complete
+WR,2022,David Bell,Purdue,3,99,A+,B,best WR100 (no tier season),no tier season,4.0,100.0,complete
+WR,2023,Marvin Mims,Oklahoma,2,63,A-,B,best WR57 (no tier season),no tier season,6.2,299.0,complete
+WR,2023,Jalin Hyatt,Tennessee,3,73,A+,B,best WR100 (no tier season),no tier season,2.9,83.0,complete
+WR,2023,Josh Downs,North Carolina,3,79,A,B,best WR35 (WR36 hit),third tier,10.2,479.0,complete
+WR,2023,Trey Palmer,Nebraska,6,191,A-,D,best WR72 (no tier season),no tier season,4.1,131.0,complete
+WR,2024,Troy Franklin,Oregon,4,102,A+,B-,"best WR31 (WR36 hit), 2 seasons so far",third tier,,,in progress

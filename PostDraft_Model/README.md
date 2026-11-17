@@ -83,6 +83,34 @@ MOCK_FILE=mock_2027/mock_2027_fantasy_positions.csv MOCK_NAME="Our 7-round 2027 
 | `pd_post_2027_mock_inputs.csv` | Every model input for every mocked player (long format) |
 | `phase9_log.txt` | Console log of the last run |
 
+## Mixed draft model (`pd_11_mixed_model.R`, live since 2026-11-17)
+
+The grades on the site come from the **mixed draft model**: the post-draft model above, plus
+one correction. Players whose **pre-draft grade was in the A range (A+, A, A-) but whose
+post-draft grade fell below A-** get a bump on their odds of reaching each tier.
+
+Why: from 2010-2023, those 75 "fallers" reached a tier 40% of the time, but the post-draft
+model gave them about 25%. The NFL dropped them, but their college profile still carried
+signal the draft-slot-heavy model threw away. In a leave-one-class-out backtest the bump
+brought their predicted rate to 41% (actual 40%), improved log loss in 10 of 14 classes, and
+held for every position and both halves of the period. Variants tried and rejected: a bump
+only for drops of 2+ grade steps (weaker; one-step fallers also beat their grade), a bump for
+every pre-draft A player (smaller, could be noise), and a bump that grows with the size of the
+drop (worse: it lifted late-round players who fell to D, and all of them missed).
+
+How: for each tier step k (top, top two, any), fit on 2010-2023
+`logit P(hit_k) = a_k + qlogis(p_k) + b_k * faller` with the post-draft probability as an
+offset. Fallers' odds are multiplied by `exp(b_k)` (about 3.2, 2.0 and 2.3 when first fit);
+nobody else's probabilities change. The score moves by the change in expected tier points,
+and grades are re-cut against the mixed 2010-2023 score distribution, so a handful of
+non-fallers can shift one step at a grade boundary. The 2027 mock grades get the same rule.
+
+`pd_11` rewrites `pd_post_player_grades.csv` and `pd_post_2027_mock_grades.csv` in place
+(draft-only values kept in `*_draft` columns, plus `mixed_faller`), recomputes the
+validation, by-round, vs-pick and scale tables, and writes the fit to
+`pd_mixed_model_fit.csv`. It is safe to rerun. **Run it after every `pd_07` or `pd_09` run**,
+before the page and trade values (`dv_13`) are rebuilt.
+
 ## Running it
 
 Needs the four position models' outputs (`../QB_Model`, `../RB_Model`, `../WR_Model`,
@@ -92,6 +120,7 @@ Needs the four position models' outputs (`../QB_Model`, `../RB_Model`, `../WR_Mo
 ```bash
 ./run.sh pd_07_postdraft_grades.R phase7_log.txt
 ./run.sh pd_08_post_predictors.R phase8_log.txt
+./run.sh pd_11_mixed_model.R phase11_mixed_log.txt   # mixed draft model, always last
 ```
 
 `pd_10_site_page.R page.html` rebuilds the two data lines of the public post-draft page
@@ -114,6 +143,8 @@ from when it was Phase 7 of the pre-draft model, so older links and logs still m
 | File | What it holds |
 |---|---|
 | `pd_07_postdraft_grades.R` | The script |
+| `pd_11_mixed_model.R` | Mixed draft model: faller bump on top of pd_07/pd_09 outputs |
+| `pd_mixed_model_fit.csv` | The fitted faller bump (odds multiplier and 95% interval) per tier step |
 | `pd_post_player_grades.csv` | Every graded player, with the pre-draft grade and `grade_move` |
 | `pd_post_grade_scale.csv` | Grade cut points and score thresholds by position |
 | `pd_post_grade_validation.csv` | Hit rates by post-draft grade, 2010-2023 |
