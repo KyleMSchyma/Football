@@ -45,4 +45,4 @@ history is in. Recommended: Poisson GLM of log(implied total) + log(credibility 
 
 ## Weekly projections
 
-`project_week.py <season> <week> <nflverse schedules games.csv>` applies the recommended GLM to an upcoming week using the current lines (schedule file from nflverse-data release `schedules/games.csv`). Splits are scaled so positions and categories each add up to the projected Total. Output: `projections_<season>_wk<week>.csv`.
+`project_week.py <season> <week> <nflverse schedules games.csv>` applies the recommended GLM to an upcoming week using the current lines (schedule file from nflverse-data release `schedules/games.csv`). Splits are scaled so positions and categories each add up to the projected Total. Output: `projections_<season>_wk<week>.csv`. With no lines in the schedule (or with `--no-lines`) it uses the fallback, credibility + home/wind/cold, and writes `..._nolines.csv`.
