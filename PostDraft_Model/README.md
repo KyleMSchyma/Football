@@ -105,6 +105,10 @@ nobody else's probabilities change. The score moves by the change in expected ti
 and grades are cut on the same fixed scale as before (percentiles of the original
 2010-2023 post-draft scores), so only fallers' grades change. The 2027 mock grades get the same rule.
 
+On the site, the post-draft page has a three-way switch: Pre-draft | Post-draft (`?model=post`, the
+plain post-draft model) | Mixed (`?model=mixed`, the default). `pd_10_site_page.R` writes each
+boosted row's plain post-draft values as `dr` so the page can show either view.
+
 `pd_11` rewrites `pd_post_player_grades.csv` and `pd_post_2027_mock_grades.csv` in place
 (draft-only values kept in `*_draft` columns, plus `mixed_faller`), recomputes the
 validation, by-round, vs-pick and scale tables, and writes the fit to
