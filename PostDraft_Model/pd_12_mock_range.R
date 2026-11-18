@@ -25,6 +25,9 @@
 #   best_pick, best_team_abbr, best_grade, best_p_top, best_p_top2, best_p_any
 #   worst_case ("pick" / "undrafted"), worst_pick, worst_team_abbr, worst_grade ("UDFA" when undrafted),
 #   worst_p_top, worst_p_top2, worst_p_any   (undrafted base rates when undrafted)
+# Plain post-draft model (Kyle 2026-11-18: whatever feeds the mixed model also feeds the post model):
+#   p_*_value_draft, best_grade_draft, best_p_*_draft, worst_grade_draft, worst_p_*_draft from the *_draft columns
+#   pd_11 keeps (the site's Post-draft view). The pre-draft model never sees draft slot, so the range does not apply to it.
 # Also writes pd_mock_range_udfa_rates.csv. Safe to rerun (drops its own columns first).
 # =============================================================================
 suppressMessages({ library(dplyr) })
@@ -36,7 +39,9 @@ nkey <- function(x) gsub("[^a-z]", "", tolower(gsub("\\b(jr|sr|ii|iii|iv)\\.?$",
 check <- function(label, ok, detail = "") { cat(sprintf("[%s] %s %s\n", ifelse(ok, "PASS", "FAIL"), label, detail)); invisible(ok) }
 MY_COLS <- c("n_mocks", "n_drafted", "share_drafted", "avg_pick_exact", "picks_in_mocks", "p_top_value", "p_top2_value", "p_any_value",
              "best_pick", "best_team_abbr", "best_grade", "best_p_top", "best_p_top2", "best_p_any",
-             "worst_case", "worst_pick", "worst_team_abbr", "worst_grade", "worst_p_top", "worst_p_top2", "worst_p_any")
+             "worst_case", "worst_pick", "worst_team_abbr", "worst_grade", "worst_p_top", "worst_p_top2", "worst_p_any",
+             "p_top_value_draft", "p_top2_value_draft", "p_any_value_draft", "best_grade_draft", "best_p_top_draft", "best_p_top2_draft",
+             "best_p_any_draft", "worst_grade_draft", "worst_p_top_draft", "worst_p_top2_draft", "worst_p_any_draft")
 
 # --- undrafted base rates -------------------------------------------------------------------
 pool <- readRDS(file.path(PRE_DIR, "pd_pool.rds"))
@@ -53,30 +58,42 @@ pk_cols <- grep("^pick_", names(R), value = TRUE)
 R$picks_in_mocks <- apply(R[, pk_cols, drop = FALSE], 1, function(v) paste(ifelse(is.na(v), "UD", trimws(v)), collapse = "/"))
 rd <- function(f) { d <- read.csv(f, stringsAsFactors = FALSE, na.strings = ""); d$k <- paste(nkey(d$name), d$position); d }
 mk <- rd("pd_post_2027_mock_grades.csv"); mk <- mk[, setdiff(names(mk), MY_COLS)]
-best <- rd("pd_post_2027_mock_grades_best.csv")
-worst <- if (file.exists("pd_post_2027_mock_grades_worst.csv")) rd("pd_post_2027_mock_grades_worst.csv") else best[0, ]
+# files not yet through pd_11 have no *_draft columns: the plain post-draft values are then the values themselves
+add_draft <- function(d) { for (cc in c("p_top", "p_top2", "p_any", "post_grade")) if (!paste0(cc, "_draft") %in% names(d)) d[[paste0(cc, "_draft")]] <- d[[cc]]; d }
+best <- add_draft(rd("pd_post_2027_mock_grades_best.csv")); mk <- add_draft(mk)
+worst <- add_draft(if (file.exists("pd_post_2027_mock_grades_worst.csv")) rd("pd_post_2027_mock_grades_worst.csv") else best[0, ])
 
 mk <- mk %>%
   left_join(R %>% select(k, n_mocks, n_drafted, share_drafted, avg_pick_exact, picks_in_mocks, worst_case), by = "k") %>%
   left_join(U %>% select(position, udfa_top, udfa_top2, udfa_any), by = "position") %>%
   left_join(best %>% select(k, best_pick = pick, best_team_abbr = team_abbr, best_grade = post_grade,
-                            best_p_top = p_top, best_p_top2 = p_top2, best_p_any = p_any), by = "k") %>%
-  left_join(worst %>% select(k, w_pick = pick, w_team = team_abbr, w_grade = post_grade, w1 = p_top, w2 = p_top2, w3 = p_any), by = "k") %>%
+                            best_p_top = p_top, best_p_top2 = p_top2, best_p_any = p_any, best_grade_draft = post_grade_draft,
+                            best_p_top_draft = p_top_draft, best_p_top2_draft = p_top2_draft, best_p_any_draft = p_any_draft), by = "k") %>%
+  left_join(worst %>% select(k, w_pick = pick, w_team = team_abbr, w_grade = post_grade, w1 = p_top, w2 = p_top2, w3 = p_any,
+                             w_grade_d = post_grade_draft, w1d = p_top_draft, w2d = p_top2_draft, w3d = p_any_draft), by = "k") %>%
   mutate(share_drafted = coalesce(share_drafted, 1),
          p_top_value = round(share_drafted * p_top + (1 - share_drafted) * udfa_top, 4),
          p_top2_value = round(share_drafted * p_top2 + (1 - share_drafted) * udfa_top2, 4),
          p_any_value = round(share_drafted * p_any + (1 - share_drafted) * udfa_any, 4),
+         p_top_value_draft = round(share_drafted * p_top_draft + (1 - share_drafted) * udfa_top, 4),
+         p_top2_value_draft = round(share_drafted * p_top2_draft + (1 - share_drafted) * udfa_top2, 4),
+         p_any_value_draft = round(share_drafted * p_any_draft + (1 - share_drafted) * udfa_any, 4),
          und = coalesce(worst_case, "pick") == "undrafted",
          worst_pick = ifelse(und, NA, w_pick), worst_team_abbr = ifelse(und, NA, w_team), worst_grade = ifelse(und, "UDFA", w_grade),
          worst_p_top = ifelse(und, round(udfa_top, 4), w1), worst_p_top2 = ifelse(und, round(udfa_top2, 4), w2),
-         worst_p_any = ifelse(und, round(udfa_any, 4), w3)) %>%
-  select(-k, -udfa_top, -udfa_top2, -udfa_any, -w_pick, -w_team, -w_grade, -w1, -w2, -w3, -und)
+         worst_p_any = ifelse(und, round(udfa_any, 4), w3),
+         worst_grade_draft = ifelse(und, "UDFA", w_grade_d), worst_p_top_draft = ifelse(und, round(udfa_top, 4), w1d),
+         worst_p_top2_draft = ifelse(und, round(udfa_top2, 4), w2d), worst_p_any_draft = ifelse(und, round(udfa_any, 4), w3d)) %>%
+  select(-k, -udfa_top, -udfa_top2, -udfa_any, -w_pick, -w_team, -w_grade, -w1, -w2, -w3, -w_grade_d, -w1d, -w2d, -w3d, -und)
 write.csv(mk, "pd_post_2027_mock_grades.csv", row.names = FALSE, na = "")
 
 cat("\n===== 2027 mock range =====\n")
 print(as.data.frame(mk %>% arrange(pick) %>% transmute(position, name, picks = picks_in_mocks, avg = pick, grade = post_grade,
   best = paste(best_pick, best_grade), worst = ifelse(worst_case == "undrafted", "UDFA", paste(worst_pick, worst_grade)),
-  share = share_drafted, p_any, p_any_value)), row.names = FALSE)
+  post_only = paste(best_grade_draft, post_grade_draft, worst_grade_draft, sep = "/"),
+  share = share_drafted, p_any, p_any_value, p_any_value_draft)), row.names = FALSE)
+check("plain post-draft range present", all(!is.na(mk$best_grade_draft) & !is.na(mk$p_any_value_draft)))
+check("non-fallers: post-draft range equals mixed range", with(mk, all(mixed_faller == 1 | is.na(mixed_faller) | abs(p_any_value - p_any_value_draft) < 1e-3)))
 check("every mocked player has a range row", all(!is.na(mk$n_drafted)), sprintf("(%d missing)", sum(is.na(mk$n_drafted))))
 check("every mocked player has a best case", all(!is.na(mk$best_grade)))
 check("worst case for every player drafted in all mocks", all(!is.na(mk$worst_grade)))
