@@ -1,0 +1,17 @@
+2026 through week 10 
+# A tibble: 25 x 13
+   player_id  name            pos     exp draft_pick n_cur   g_h ppg_cur prior_pick cppg_pick prior_mixed cppg_mixed  diff
+   <chr>      <chr>           <chr> <dbl>      <int> <int> <dbl>   <dbl>      <dbl>     <dbl>       <dbl>      <dbl> <dbl>
+ 1 00-0040691 Jaxson Dart     QB        1         25     2    14   13.7       15.5      15.6        18.4       16.8   1.16
+ 2 00-0041483 Eli Stowers     TE        0         54     3     0    2.77       6.28      4.86        8.21       6.01  1.14
+ 3 00-0040715 Cam Skattebo    RB        1        105     7     8   13.9        8.72     12.7        12.0       13.6   0.87
+ 4 00-0040730 RJ Harvey       RB        1         60     6    17   11.2       11.0      11.3        14.4       12.1   0.77
+ 5 00-0039373 Audric Estime   RB        2        147     3    18    8.23       7.45      7.31        9.65       8.01  0.7 
+ 6 00-0041084 Tanner Koziol   TE        0        164     3     0    2.37       3.68      3.15        4.85       3.85  0.7 
+ 7 00-0041550 Brenen Thompson WR        0        105     1     0    2.3        5.85      5.11        4.99       4.42 -0.69
+ 8 00-0040142 Kaleb Johnson   RB        1         83     8    10    3.43       9.7       4.64       12.8        5.33  0.68
+ 9 00-0041013 Emmett Johnson  RB        0        161     9     0   10.7        5.55      9.14        7.81       9.81  0.67
+10 00-0040743 Tyler Shough    QB        1         40     9    11   17.3       14.6      16.2        11.8       15.5  -0.65
+# i 15 more rows
+
+years 1-3 with a prospect prior: 173   mean |change| in credible PPG: 0.19   share moving 0.5+ PPG: 0.092 
