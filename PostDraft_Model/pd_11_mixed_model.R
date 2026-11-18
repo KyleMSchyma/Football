@@ -19,7 +19,8 @@
 #   pd_post_player_grades.csv     p_top/p_top2/p_any, post_score/pctile/grade, ranks,
 #                                 grade_move are the MIXED values; the draft-only values are
 #                                 kept in *_draft columns, plus mixed_faller (0/1).
-#   pd_post_2027_mock_grades.csv  same treatment for the mocked 2027 picks
+#   pd_post_2027_mock_grades.csv  same treatment for the mocked 2027 picks (and the _best / _worst
+#                                 mock-range files when present; run pd_12_mock_range.R after this)
 #   pd_post_grade_validation.csv, pd_post_grade_by_round.csv, pd_post_grade_vs_pick.csv,
 #   pd_post_grade_scale.csv       recomputed on the mixed grade
 #   pd_mixed_model_fit.csv        the fitted bumps (odds multipliers) per tier step
@@ -37,6 +38,10 @@ clip <- function(p) pmin(pmax(p, 1e-4), 1 - 1e-4)
 f <- read.csv("pd_post_player_grades.csv", stringsAsFactors = FALSE, na.strings = "")
 mk_file <- "pd_post_2027_mock_grades.csv"
 mk <- if (file.exists(mk_file)) read.csv(mk_file, stringsAsFactors = FALSE, na.strings = "") else NULL
+# mock pick range (Kyle 2026-11-18): the best-case / worst-case grades from pd_09 (OUT_TAG _best / _worst) get the same treatment
+RANGE_FILES <- c("pd_post_2027_mock_grades_best.csv", "pd_post_2027_mock_grades_worst.csv")
+RANGE_FILES <- RANGE_FILES[file.exists(RANGE_FILES)]
+mkr <- lapply(setNames(RANGE_FILES, RANGE_FILES), function(x) read.csv(x, stringsAsFactors = FALSE, na.strings = ""))
 
 # --- start from the draft-only values (makes the script safe to rerun) ---------------------
 DRAFT_COLS <- c("p_top", "p_top2", "p_any", "post_score", "post_pctile", "post_grade", "grade_move")
@@ -50,7 +55,7 @@ to_draft <- function(d) {
   d$mixed_faller <- as.integer(!is.na(d$pre_grade) & d$pre_grade %in% A_RANGE & !is.na(d$post_grade) & !(d$post_grade %in% A_RANGE))
   d
 }
-f <- to_draft(f); mk <- to_draft(mk)
+f <- to_draft(f); mk <- to_draft(mk); mkr <- lapply(mkr, to_draft)
 
 # --- fit the faller bump on 2010-2023 outcomes ---------------------------------------------
 H <- f %>% filter(class <= 2023, !is.na(nfl_tier), !is.na(p_any)) %>%
@@ -81,7 +86,7 @@ apply_mix <- function(d) {
   d$post_score <- d$post_score_draft + ifelse(is.na(delta), 0, delta)
   d
 }
-f <- apply_mix(f); mk <- apply_mix(mk)
+f <- apply_mix(f); mk <- apply_mix(mk); mkr <- lapply(mkr, apply_mix)
 
 # grades: percentile against the ORIGINAL (draft-only) 2010-2023 score distribution at the
 # position, so the fixed grade scale is unchanged and only fallers' grades move
@@ -106,6 +111,10 @@ write.csv(f, "pd_post_player_grades.csv", row.names = FALSE, na = "")
 if (!is.null(mk)) {
   mk <- regrade(mk) %>% group_by(position) %>% mutate(post_rank_class = rank(-post_score, ties.method = "first")) %>% ungroup() %>% as.data.frame()
   write.csv(mk, mk_file, row.names = FALSE, na = "")
+}
+for (x in names(mkr)) {
+  r <- regrade(mkr[[x]]) %>% group_by(position) %>% mutate(post_rank_class = rank(-post_score, ties.method = "first")) %>% ungroup() %>% as.data.frame()
+  write.csv(r, x, row.names = FALSE, na = ""); cat(x, ":", sum(r$post_grade != r$post_grade_draft), "grade changes (fallers)\n")
 }
 
 cat("\n===== Players whose grade changed =====\n")

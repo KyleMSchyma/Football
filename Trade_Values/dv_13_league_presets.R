@@ -83,6 +83,11 @@ pick_factor <- function(rp) {
               mean(out$predK), mean(out$realized), f))
   list(f = f, bt = out)
 }
+# Kyle 2026-11-18 (mock pick range, PostDraft_Model/pd_12_mock_range.R): a mocked 2027 prospect is PRICED from
+# p_*_value = share of Kyle's mocks that draft him x odds at his average pick + the rest x undrafted base rates.
+# The grade (and p_top / p_top2 / p_any) stays the average-pick one.
+mk_value_probs <- function(d) { if ("p_any_value" %in% names(d)) d %>% mutate(p_top = coalesce(p_top_value, p_top),
+  p_top2 = coalesce(p_top2_value, p_top2), p_any = coalesce(p_any_value, p_any)) else d }
 prospect_profiles <- function() {
   gr <- read.csv(file.path(PD_DIR, "pd_player_grades.csv"), stringsAsFactors = FALSE)
   pr_ <- readRDS(file.path(SHARED, "players_raw.rds")) %>%
@@ -117,7 +122,7 @@ prospect_profiles <- function() {
   mk_file <- file.path(MOCK_DIR, "pd_post_2027_mock_grades.csv")
   if (file.exists(mk_file)) {
     nm <- function(x) gsub("[^a-z]", "", tolower(sub(" (jr|sr|ii|iii|iv)\\.?$", "", x, ignore.case = TRUE)))
-    mk <- read.csv(mk_file, stringsAsFactors = FALSE) %>%
+    mk <- read.csv(mk_file, stringsAsFactors = FALSE) %>% mk_value_probs() %>%
       transmute(name = board_name, pos = position, college = board_school, age = age_est, score = post_score, grade = post_grade,
                 P1 = p_top, P2 = p_top2 - p_top, P3 = p_any - p_top2, P4 = 1 - p_any, source = paste0("post-draft, mock pick ", round, ".", pick))
     hit <- paste(nm(pp$name), pp$pos) %in% paste(nm(mk$name), mk$pos)
@@ -159,7 +164,7 @@ board_profiles <- function(rp) {
   gr <- read.csv(file.path(PD_DIR, "pd_player_grades.csv"), stringsAsFactors = FALSE, na.strings = "")
   dp <- read.csv(file.path(PD_DIR, "pd_player_probs_drafted.csv"), stringsAsFactors = FALSE, na.strings = "")
   po <- read.csv(file.path(MOCK_DIR, "pd_post_player_grades.csv"), stringsAsFactors = FALSE, na.strings = "")
-  mk <- read.csv(file.path(MOCK_DIR, "pd_post_2027_mock_grades.csv"), stringsAsFactors = FALSE, na.strings = "")
+  mk <- read.csv(file.path(MOCK_DIR, "pd_post_2027_mock_grades.csv"), stringsAsFactors = FALSE, na.strings = "") %>% mk_value_probs()
   postp <- po %>% filter(!is.na(pick)) %>% distinct(position, class, pick, .keep_all = TRUE) %>%
     transmute(position, class, pick, q1 = p_top, q2 = p_top2, q3 = p_any)
   pre <- gr %>% mutate(row = row_number()) %>%
