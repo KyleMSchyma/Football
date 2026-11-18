@@ -13,7 +13,12 @@ rd <- function(x) read.csv(file.path(dd, x), stringsAsFactors = FALSE, na.string
 f <- rd("pd_post_player_grades.csv")
 # Mixed draft model (pd_11_mixed_model.R): mixed_faller = pre-draft A range that fell below A- after the draft
 mixcols <- function(d) { if (!"mixed_faller" %in% names(d)) d$mixed_faller <- 0L
-  if (!"post_grade_draft" %in% names(d)) d$post_grade_draft <- d$post_grade; d }
+  if (!"post_grade_draft" %in% names(d)) d$post_grade_draft <- d$post_grade
+  for (cc in c("post_score", "post_pctile", "p_top", "p_top2", "p_any")) if (!paste0(cc, "_draft") %in% names(d)) d[[paste0(cc, "_draft")]] <- d[[cc]]
+  d }
+# dr = the plain post-draft model's values for boosted (mixed) rows, for the page's Post-draft / Mixed toggle
+drf <- function(mx, g, sc, pc, q1, q2, q3) I(lapply(seq_along(mx), function(i) if (is.na(mx[i]) || mx[i] != 1) NULL else
+  list(g = g[i], sc = sc[i], pct = pc[i], q = c(q1[i], q2[i], q3[i]))))
 f <- mixcols(f)
 # Cross-position Value column (dv_13_league_presets.R, default league, 100k trade-value scale); joined by key, not row order.
 vf <- c("../Football2_Dynasty/dv_rookie_board_values.csv", "../Trade_Values/dv_rookie_board_values.csv"); vf <- vf[file.exists(vf)][1]
@@ -25,7 +30,8 @@ f <- f %>% left_join(V %>% filter(board == "post") %>% distinct(position, class,
 P <- f %>% transmute(pos = position, rk = post_rank_all, cls = class, rkc = post_rank_class, st = 0L,
   name, col = college, rd = round, pk = pick, sc = post_score, pct = post_pctile, g = post_grade,
   pt = p_top, p2 = p_top2, pa = p_any, out = nfl_outcome, tier = nfl_tier, pts = nfl_ppr_pts,
-  fl = as.integer(!is.na(data_flag)), mx = as.integer(coalesce(mixed_faller, 0L)), gd = post_grade_draft, v = v,
+  fl = as.integer(!is.na(data_flag)), mx = as.integer(coalesce(mixed_faller, 0L)), gd = post_grade_draft,
+  dr = drf(mixed_faller, post_grade_draft, post_score_draft, post_pctile_draft, p_top_draft, p_top2_draft, p_any_draft), v = v,
   vq = I(lapply(seq_along(vq1), function(i) if (is.na(vq1[i])) NULL else c(vq1[i], vq2[i], vq3[i]))), ag = ag)
 band <- function(g) ifelse(g %in% c("A+","A","A-"), "A", ifelse(g %in% c("B+","B","B-"), "B", ifelse(g %in% c("C+","C","C-"), "C", "DF")))
 BS <- f %>% filter(class <= 2023, !is.na(nfl_tier)) %>% mutate(b = band(post_grade)) %>% group_by(position, b) %>%
@@ -36,7 +42,8 @@ pd_line <- paste0("window.PD=", toJSON(list(players = P, val = rd("pd_post_grade
 mk <- mixcols(rd("pd_post_2027_mock_grades.csv")) %>% arrange(pick) %>%
   left_join(V %>% filter(board == "mock") %>% distinct(pick, name, .keep_all = TRUE) %>% select(pick, name, v = value_100k, vq1 = p_top, vq2 = p_top2, vq3 = p_any, ag = age), by = c("pick", "name")) %>%
   transmute(pick, rd = round, team, name, pos = position, school, post = post_grade, pre = pre_grade, move = grade_move,
-            ptop = p_top, pany = p_any, sc = post_score, pct = post_pctile, p2 = p_top2, mx = as.integer(coalesce(mixed_faller, 0L)), gd = post_grade_draft, v = v,
+            ptop = p_top, pany = p_any, sc = post_score, pct = post_pctile, p2 = p_top2, mx = as.integer(coalesce(mixed_faller, 0L)), gd = post_grade_draft,
+            dr = drf(mixed_faller, post_grade_draft, post_score_draft, post_pctile_draft, p_top_draft, p_top2_draft, p_any_draft), v = v,
             vq = I(lapply(seq_along(vq1), function(i) if (is.na(vq1[i])) NULL else c(vq1[i], vq2[i], vq3[i]))), ag = ag)
 mk_line <- paste0("window.MOCK27=", toJSON(mk, dataframe = "rows", na = "null", auto_unbox = TRUE, digits = 4), ";")
 fix <- function(x) gsub("</", "<\\/", x, fixed = TRUE)
