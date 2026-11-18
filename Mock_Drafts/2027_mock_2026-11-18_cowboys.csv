@@ -1,0 +1,258 @@
+pick,team_slug,team,player,pos,school,kyle_pick
+1,tennessee-titans,Tennessee Titans,Colin Simmons,EDGE,Texas,0
+2,los-angeles-chargers,Los Angeles Chargers,Jeremiah Smith,WR,Ohio State,0
+3,miami-dolphins,Miami Dolphins,Leonard Moore,CB,Notre Dame,0
+4,new-york-jets,New York Jets,Drew Mestemaker,QB,Oklahoma State,0
+5,philadelphia-eagles,Philadelphia Eagles,Jordan Seaton,OT,LSU,0
+6,new-york-jets,New York Jets,Will Echoles,DL,Mississippi,0
+7,arizona-cardinals,Arizona Cardinals,CJ Carr,QB,Notre Dame,0
+8,atlanta-falcons,Atlanta Falcons,Charlie Becker,WR,Indiana,0
+9,houston-texans,Houston Texans,Zereoue Williams,OT,Utah,0
+10,tampa-bay-buccaneers,Tampa Bay Buccaneers,Chris Cole,LB,Georgia,0
+11,new-orleans-saints,New Orleans Saints,Dylan Stewart,EDGE,South Carolina,0
+12,washington-commanders,Washington Commanders,Cam Coleman,WR,Texas,0
+13,new-york-jets,New York Jets,Ellis Robinson IV,CB,Georgia,0
+14,baltimore-ravens,Baltimore Ravens,Ashton Hampton,CB,Clemson,0
+15,las-vegas-raiders,Las Vegas Raiders,Xavier Gilliam,DL,Tennessee,0
+16,new-england-patriots,New England Patriots,Nick Marsh,WR,Indiana,0
+17,seattle-seahawks,Seattle Seahawks,Kelley Jones,CB,Mississippi State,0
+18,cleveland-browns,Cleveland Browns,Darian Mensah,QB,Miami (FL),0
+19,carolina-panthers,Carolina Panthers,Trey'Dez Green,TE,LSU,0
+20,cleveland-browns,Cleveland Browns,Greg Johnson,IOL,Minnesota,0
+21,dallas-cowboys,Dallas Cowboys,Trevor Goosby,OT,Texas,1
+22,new-york-giants,New York Giants,Trevor Lauck,OT,Iowa,0
+23,pittsburgh-steelers,Pittsburgh Steelers,LaNorris Sellers,QB,South Carolina,0
+24,denver-broncos,Denver Broncos,David Stone,DL,Oklahoma,0
+25,cincinnati-bengals,Cincinnati Bengals,Jamari Johnson,TE,Oregon,0
+26,philadelphia-eagles,Philadelphia Eagles,Yhonzae Pierre,EDGE,Alabama,0
+27,minnesota-vikings,Minnesota Vikings,Trinidad Chambliss,QB,Mississippi,0
+28,tennessee-titans,Tennessee Titans,Lance Heard,OT,Kentucky,0
+29,kansas-city-chiefs,Kansas City Chiefs,KJ Bolden,S,Georgia,0
+30,detroit-lions,Detroit Lions,Kade Pieper,IOL,Iowa,0
+31,san-francisco-49ers,San Francisco 49ers,Ryan Coleman-Williams,WR,Alabama,0
+32,buffalo-bills,Buffalo Bills,KJ Duff,WR,Rutgers,0
+33,los-angeles-chargers,Los Angeles Chargers,Devan Thompkins,DL,Alabama,0
+34,miami-dolphins,Miami Dolphins,Arch Manning,QB,Texas,0
+35,tennessee-titans,Tennessee Titans,Zabien Brown,CB,Alabama,0
+36,new-york-jets,New York Jets,Kyngstonn Viliamu-Asa,LB,Notre Dame,0
+37,philadelphia-eagles,Philadelphia Eagles,Reed Harris,WR,Arizona State,0
+38,arizona-cardinals,Arizona Cardinals,Jackson Harris,WR,LSU,0
+39,atlanta-falcons,Atlanta Falcons,Elijah Paige,OT,USC,0
+40,indianapolis-colts,Indianapolis Colts,A'Mauri Washington,DL,Oregon,0
+41,tampa-bay-buccaneers,Tampa Bay Buccaneers,Will Heldt,EDGE,Clemson,0
+42,new-orleans-saints,New Orleans Saints,Justin Scott,DL,Miami (FL),0
+43,arizona-cardinals,Arizona Cardinals,Cayden Green,OT,Missouri,0
+44,washington-commanders,Washington Commanders,Dante Moore,QB,Oregon,0
+45,baltimore-ravens,Baltimore Ravens,Luke Reynolds,TE,Virginia Tech,0
+46,las-vegas-raiders,Las Vegas Raiders,Anthonie Knapp,IOL,Notre Dame,0
+47,dallas-cowboys,Dallas Cowboys,Boubacar Traore,EDGE,Notre Dame,1
+48,new-england-patriots,New England Patriots,Jadan Baugh,RB,Florida,0
+49,los-angeles-rams,Los Angeles Rams,Jayden Maiava,QB,USC,0
+50,seattle-seahawks,Seattle Seahawks,Ahmad Moten Sr.,DL,Miami (FL),0
+51,carolina-panthers,Carolina Panthers,Samson Okunlola,OT,Miami (FL),0
+52,green-bay-packers,Green Bay Packers,Quincy Rhodes Jr.,EDGE,Arkansas,0
+53,cleveland-browns,Cleveland Browns,Matayo Uiagalelei,EDGE,Oregon,0
+54,new-york-giants,New York Giants,Deuce Alexander,WR,Mississippi,0
+55,pittsburgh-steelers,Pittsburgh Steelers,Kingston Lopa,S,California,0
+56,denver-broncos,Denver Broncos,Carter Smith,OT,Indiana,0
+57,atlanta-falcons,Atlanta Falcons,Vicari Swain,CB,South Carolina,0
+58,minnesota-vikings,Minnesota Vikings,Ty Benefield,S,LSU,0
+59,chicago-bears,Chicago Bears,Jordan Ross,EDGE,LSU,0
+60,cincinnati-bengals,Cincinnati Bengals,Brauntae Johnson,S,Notre Dame,0
+61,detroit-lions,Detroit Lions,Clev Lubin,EDGE,Louisville,0
+62,kansas-city-chiefs,Kansas City Chiefs,Melvin Siani,OT,Texas,0
+63,san-francisco-49ers,San Francisco 49ers,Austin Siereveld,IOL,Ohio State,0
+64,tennessee-titans,Tennessee Titans,A.J. Holmes Jr,DL,Texas Tech,0
+65,miami-dolphins,Miami Dolphins,Junior Sherrill,WR,Vanderbilt,0
+66,tennessee-titans,Tennessee Titans,Kewan Lacy,RB,Mississippi,0
+67,los-angeles-chargers,Los Angeles Chargers,Audavion Collins,CB,Penn State,0
+68,new-york-jets,New York Jets,Princewill Umanmielen,EDGE,LSU,0
+69,minnesota-vikings,Minnesota Vikings,Anthony Boswell,IOL,Houston,0
+70,atlanta-falcons,Atlanta Falcons,Tony Rojas,LB,Penn State,0
+71,indianapolis-colts,Indianapolis Colts,Ryan Wingo,WR,Texas,0
+72,arizona-cardinals,Arizona Cardinals,Kenyatta Jackson,EDGE,Ohio State,0
+73,new-orleans-saints,New Orleans Saints,Sammy Brown,LB,Clemson,0
+74,houston-texans,Houston Texans,Bear Alexander,DL,Oregon,0
+75,tampa-bay-buccaneers,Tampa Bay Buccaneers,Bryant Wesco,WR,Clemson,0
+76,washington-commanders,Washington Commanders,Jalen Mayo,CB,Houston,0
+77,las-vegas-raiders,Las Vegas Raiders,Jyaire Hill,CB,Michigan,0
+78,pittsburgh-steelers,Pittsburgh Steelers,Mario Craver,WR,Texas A&M,0
+79,baltimore-ravens,Baltimore Ravens,Jelani McDonald,S,Texas,0
+80,new-england-patriots,New England Patriots,Jaylen McClain,S,Ohio State,0
+81,indianapolis-colts,Indianapolis Colts,Brendan Sorsby,QB,Texas Tech,0
+82,kansas-city-chiefs,Kansas City Chiefs,Wyatt Young,WR,Oklahoma State,0
+83,carolina-panthers,Carolina Panthers,DJ McKinney,CB,Notre Dame,0
+84,cleveland-browns,Cleveland Browns,Tavion Gadson,DL,Kentucky,0
+85,green-bay-packers,Green Bay Packers,John Nestor,CB,Minnesota,0
+86,new-york-giants,New York Giants,Luke Montgomery,IOL,Ohio State,0
+87,pittsburgh-steelers,Pittsburgh Steelers,Rasheem Biles,LB,Texas,0
+88,denver-broncos,Denver Broncos,DJ Vonnahme,TE,Iowa,0
+89,las-vegas-raiders,Las Vegas Raiders,Justin Bowick,WR,Oklahoma State,0
+90,chicago-bears,Chicago Bears,OJ Frederique Jr.,CB,Miami (FL),0
+91,cincinnati-bengals,Cincinnati Bengals,Jamari Sharpe,CB,Indiana,0
+92,jacksonville-jaguars,Jacksonville Jaguars,Koi Perich,S,Oregon,0
+93,kansas-city-chiefs,Kansas City Chiefs,Terrance Carter,TE,Texas Tech,0
+94,detroit-lions,Detroit Lions,Ahmad Hardy,RB,Missouri,0
+95,san-francisco-49ers,San Francisco 49ers,Jacarrius Peak,OT,South Carolina,0
+96,buffalo-bills,Buffalo Bills,Samuel Omosigho,LB,UCLA,0
+97,philadelphia-eagles,Philadelphia Eagles,Conner Weigman,QB,Houston,0
+98,cincinnati-bengals,Cincinnati Bengals,Fred Johnson,LB,South Carolina,0
+99,los-angeles-chargers,Los Angeles Chargers,John Henry Daley,EDGE,Michigan,0
+100,seattle-seahawks,Seattle Seahawks,Omarion Miller,WR,Arizona State,0
+101,seattle-seahawks,Seattle Seahawks,Damon Wilson Jr.,EDGE,Miami (FL),0
+102,tennessee-titans,Tennessee Titans,Sebastian Cheeks,EDGE,Wisconsin,0
+103,los-angeles-chargers,Los Angeles Chargers,Isaac Brown,RB,Louisville,0
+104,miami-dolphins,Miami Dolphins,Tyler Thompson,EDGE,Louisville,0
+105,new-york-jets,New York Jets,Evan Tengesdahl,IOL,Cincinnati,0
+106,philadelphia-eagles,Philadelphia Eagles,Lawson Luckie,TE,Georgia,0
+107,indianapolis-colts,Indianapolis Colts,Evan Link,IOL,Michigan,0
+108,arizona-cardinals,Arizona Cardinals,Zach Lutmer,S,Iowa,0
+109,atlanta-falcons,Atlanta Falcons,Horace Lockett,DL,UCF,0
+110,houston-texans,Houston Texans,LJ Martin,RB,BYU,0
+111,tampa-bay-buccaneers,Tampa Bay Buccaneers,Brice Pollock,CB,Texas Tech,0
+112,new-orleans-saints,New Orleans Saints,Chris Peal,CB,Syracuse,0
+113,washington-commanders,Washington Commanders,Koron Hayward,EDGE,TCU,0
+114,green-bay-packers,Green Bay Packers,Jayden Jackson,DL,Oklahoma,0
+115,arizona-cardinals,Arizona Cardinals,Bray Hubbard,S,Alabama,0
+116,las-vegas-raiders,Las Vegas Raiders,Niki Prongos,OT,Stanford,0
+117,new-england-patriots,New England Patriots,Peter Clarke,TE,Temple,0
+118,los-angeles-rams,Los Angeles Rams,Mike Matthews,WR,Tennessee,0
+119,cleveland-browns,Cleveland Browns,Dylan Riley,RB,Boise State,0
+120,carolina-panthers,Carolina Panthers,Iapani Laloulu,IOL,Oregon,0
+121,green-bay-packers,Green Bay Packers,Wayshawn Parker,RB,Utah,0
+122,cleveland-browns,Cleveland Browns,Teitum Tuioti,EDGE,Oregon,0
+123,cleveland-browns,Cleveland Browns,Earnest Greene,OT,Georgia,0
+124,dallas-cowboys,Dallas Cowboys,Corey Myrick,S,Clemson,1
+125,denver-broncos,Denver Broncos,Cade Uluave,LB,BYU,0
+126,tennessee-titans,Tennessee Titans,Dom Nichols,EDGE,Michigan,0
+127,cincinnati-bengals,Cincinnati Bengals,Mark Fletcher,RB,Miami (FL),0
+128,jacksonville-jaguars,Jacksonville Jaguars,Drew Azzopardi,OT,Washington,0
+129,carolina-panthers,Carolina Panthers,Anto Saka,EDGE,Texas A&M,0
+130,detroit-lions,Detroit Lions,Jermaine Mathews Jr.,CB,Ohio State,0
+131,indianapolis-colts,Indianapolis Colts,Sahir West,EDGE,UCLA,0
+132,indianapolis-colts,Indianapolis Colts,Desmeal Leigh,OT,Youngstown State,0
+133,buffalo-bills,Buffalo Bills,Alex McLaughlin,S,Washington,0
+134,green-bay-packers,Green Bay Packers,Ian Strong,WR,California,0
+135,seattle-seahawks,Seattle Seahawks,DeSean Bishop,RB,Tennessee,0
+136,denver-broncos,Denver Broncos,Nate Frazier,RB,Georgia,0
+137,buffalo-bills,Buffalo Bills,Ryan Baer,OT,Pittsburgh,0
+138,new-york-giants,New York Giants,Bryce Hawthorne,DL,Iowa,0
+139,los-angeles-chargers,Los Angeles Chargers,Jordan Faison,WR,Notre Dame,0
+140,miami-dolphins,Miami Dolphins,Earl Little II,S,Ohio State,0
+141,buffalo-bills,Buffalo Bills,Braelin Moore,IOL,LSU,0
+142,new-york-jets,New York Jets,Amare Thomas,WR,Houston,0
+143,philadelphia-eagles,Philadelphia Eagles,Mateen Ibirogba,DL,Texas Tech,0
+144,baltimore-ravens,Baltimore Ravens,Emmanuel Oyebadejo,DL,Florida,0
+145,chicago-bears,Chicago Bears,Tyrique Tucker,DL,Indiana,0
+146,indianapolis-colts,Indianapolis Colts,Chris Marshall,WR,Arkansas,0
+147,tampa-bay-buccaneers,Tampa Bay Buccaneers,Braden Pegan,WR,Utah,0
+148,new-orleans-saints,New Orleans Saints,Amare Ferrell,S,Indiana,0
+149,cleveland-browns,Cleveland Browns,Jackson Bennee,S,Utah,0
+150,washington-commanders,Washington Commanders,Hollywood Smothers,RB,Texas,0
+151,philadelphia-eagles,Philadelphia Eagles,Leroy Harris III,EDGE,Kansas,0
+152,las-vegas-raiders,Las Vegas Raiders,Tobi Osunsanmi,EDGE,Indiana,0
+153,pittsburgh-steelers,Pittsburgh Steelers,Daniel Harris,CB,California,0
+154,philadelphia-eagles,Philadelphia Eagles,Jide Abasiri,DL,USC,0
+155,seattle-seahawks,Seattle Seahawks,Sam Leavitt,QB,LSU,0
+156,los-angeles-rams,Los Angeles Rams,Suntarine Perkins,LB,Mississippi,0
+157,minnesota-vikings,Minnesota Vikings,Antwan Raymond,RB,Rutgers,0
+158,cleveland-browns,Cleveland Browns,Andrew Marshall,CB,Nebraska,0
+159,green-bay-packers,Green Bay Packers,Brandon Baker,IOL,Texas,0
+160,minnesota-vikings,Minnesota Vikings,Duce Robinson,WR,Florida State,0
+161,miami-dolphins,Miami Dolphins,Nick James,DL,Pittsburgh,0
+162,denver-broncos,Denver Broncos,Anthony Smith,EDGE,Minnesota,0
+163,cincinnati-bengals,Cincinnati Bengals,Peyton Bowen,S,Oklahoma,0
+164,jacksonville-jaguars,Jacksonville Jaguars,C.J. Fite,DL,Arizona State,0
+165,minnesota-vikings,Minnesota Vikings,Jordan Hall,DL,Georgia,0
+166,new-england-patriots,New England Patriots,Arion Carter,LB,Tennessee,0
+167,indianapolis-colts,Indianapolis Colts,Andrew Rappleyea,TE,Penn State,0
+168,detroit-lions,Detroit Lions,Xavier Scott,S,Illinois,0
+169,san-francisco-49ers,San Francisco 49ers,Wendell Gregory,EDGE,Kansas State,0
+170,buffalo-bills,Buffalo Bills,Cooper Barkate,WR,Miami (FL),0
+171,jacksonville-jaguars,Jacksonville Jaguars,Quintrevion Wisner,RB,Florida State,0
+172,green-bay-packers,Green Bay Packers,Mi'Quise Humphrey-Grace,EDGE,Kentucky,0
+173,indianapolis-colts,Indianapolis Colts,Dejuan Lane,S,Tennessee,0
+174,green-bay-packers,Green Bay Packers,Drake Lindsey,QB,Minnesota,0
+175,kansas-city-chiefs,Kansas City Chiefs,PJ Williams,OT,SMU,0
+176,seattle-seahawks,Seattle Seahawks,Kayin Lee,CB,Tennessee,0
+177,baltimore-ravens,Baltimore Ravens,Justin Evans,IOL,Nebraska,0
+178,seattle-seahawks,Seattle Seahawks,Wilkin Formby,OT,Texas A&M,0
+179,baltimore-ravens,Baltimore Ravens,Drayk Bowen,LB,Notre Dame,0
+180,miami-dolphins,Miami Dolphins,Coleton Price,IOL,Kentucky,0
+181,tennessee-titans,Tennessee Titans,Griffin Wilde,WR,Northwestern,0
+182,new-orleans-saints,New Orleans Saints,Nyck Harbor,WR,South Carolina,0
+183,minnesota-vikings,Minnesota Vikings,Eli Finley,TE,Louisiana Tech,0
+184,new-york-jets,New York Jets,Elijah Pritchett,OT,Nebraska,0
+185,kansas-city-chiefs,Kansas City Chiefs,Eli Bowen,CB,Oklahoma,0
+186,buffalo-bills,Buffalo Bills,Jayden Bellamy,CB,UCF,0
+187,houston-texans,Houston Texans,Kameryn Crawford,EDGE,USC,0
+188,new-england-patriots,New England Patriots,Maraad Watson,DL,Texas,0
+189,new-england-patriots,New England Patriots,Ben Roberts,LB,Texas Tech,0
+190,tampa-bay-buccaneers,Tampa Bay Buccaneers,Kemari Copeland,DL,Virginia Tech,0
+191,washington-commanders,Washington Commanders,Rod Moore,S,Michigan,0
+192,las-vegas-raiders,Las Vegas Raiders,Faletau Satuala,S,BYU,0
+193,pittsburgh-steelers,Pittsburgh Steelers,Marquise Lightfoot,EDGE,Miami (FL),0
+194,indianapolis-colts,Indianapolis Colts,Justice Haynes,RB,Georgia Tech,0
+195,new-england-patriots,New England Patriots,A.J. Harris,CB,Indiana,0
+196,los-angeles-rams,Los Angeles Rams,Xavier Chaplin,OT,Florida State,0
+197,los-angeles-chargers,Los Angeles Chargers,TJ Moore,WR,Clemson,0
+198,carolina-panthers,Carolina Panthers,Cam Cook,RB,West Virginia,0
+199,green-bay-packers,Green Bay Packers,Jesse Perry,OT,Tennessee,0
+200,houston-texans,Houston Texans,Zeke Berry,CB,Michigan,0
+201,new-york-giants,New York Giants,Wayne Knight,RB,UCLA,0
+202,pittsburgh-steelers,Pittsburgh Steelers,Evan Stewart,WR,Oregon,0
+203,denver-broncos,Denver Broncos,Kenny Johnson,WR,Texas Tech,0
+204,new-york-giants,New York Giants,Dashawn Spears,S,LSU,0
+205,new-england-patriots,New England Patriots,Adam Trick,EDGE,Texas Tech,0
+206,chicago-bears,Chicago Bears,Stanton Ramil,OT,Auburn,0
+207,cincinnati-bengals,Cincinnati Bengals,Whit Weeks,LB,LSU,0
+208,detroit-lions,Detroit Lions,Evan Johnson,CB,BYU,0
+209,new-york-jets,New York Jets,Turbo Richard,RB,Indiana,0
+210,kansas-city-chiefs,Kansas City Chiefs,Caleb Woodson,LB,Alabama,0
+211,buffalo-bills,Buffalo Bills,Cody Sigler,DL,Auburn,0
+212,minnesota-vikings,Minnesota Vikings,E'Marion Harris,OT,Oklahoma,0
+213,seattle-seahawks,Seattle Seahawks,Raylen Wilson,LB,Georgia,0
+214,jacksonville-jaguars,Jacksonville Jaguars,Austin Romaine,LB,Texas Tech,0
+215,green-bay-packers,Green Bay Packers,Tao Johnson,S,UCLA,0
+216,jacksonville-jaguars,Jacksonville Jaguars,Francis Brewu,DL,Notre Dame,0
+217,detroit-lions,Detroit Lions,Trey Pierce,DL,Michigan,0
+218,atlanta-falcons,Atlanta Falcons,Josh Hoover,QB,Indiana,0
+219,baltimore-ravens,Baltimore Ravens,Khalil Barnes,S,Georgia,0
+220,indianapolis-colts,Indianapolis Colts,Devon Jackson,LB,Oregon,0
+221,atlanta-falcons,Atlanta Falcons,Elijah Green,CB,Tulsa,0
+222,tennessee-titans,Tennessee Titans,DJ Lagway,QB,Baylor,0
+223,detroit-lions,Detroit Lions,Keon Sabb,S,Alabama,0
+224,pittsburgh-steelers,Pittsburgh Steelers,Christian Gray,CB,Notre Dame,0
+225,carolina-panthers,Carolina Panthers,King Mack,S,NC State,0
+226,new-england-patriots,New England Patriots,Drew Bobo,IOL,Georgia,0
+227,indianapolis-colts,Indianapolis Colts,Devin McCuin,WR,Ohio State,0
+228,arizona-cardinals,Arizona Cardinals,Taylor Wein,EDGE,Oklahoma,0
+229,atlanta-falcons,Atlanta Falcons,Isaac Smith,S,Mississippi State,0
+230,cleveland-browns,Cleveland Browns,Isaiah Sategna,WR,Oklahoma,0
+231,tampa-bay-buccaneers,Tampa Bay Buccaneers,Eric Singleton Jr.,WR,Florida,0
+232,denver-broncos,Denver Broncos,Adon Shuler,S,Notre Dame,0
+233,washington-commanders,Washington Commanders,Ezra Christensen,DL,Colorado,0
+234,philadelphia-eagles,Philadelphia Eagles,Benjamin Brahmer,TE,Penn State,0
+235,baltimore-ravens,Baltimore Ravens,Chris Johnson Jr.,RB,Clemson,0
+236,buffalo-bills,Buffalo Bills,Christian Alliegro,LB,Ohio State,0
+237,houston-texans,Houston Texans,Owen Chambliss,LB,Nebraska,0
+238,seattle-seahawks,Seattle Seahawks,Chris Corbo,TE,Georgia Tech,0
+239,los-angeles-chargers,Los Angeles Chargers,Ian Moore,OT,Ohio State,0
+240,carolina-panthers,Carolina Panthers,Myles Graham,LB,Florida,0
+241,cleveland-browns,Cleveland Browns,Derion Gullette,LB,Mississippi State,0
+242,green-bay-packers,Green Bay Packers,Amare Campbell,LB,Tennessee,0
+243,miami-dolphins,Miami Dolphins,Anthony Donkoh,OT,Penn State,0
+244,pittsburgh-steelers,Pittsburgh Steelers,Dallas Afalava,DL,Wake Forest,0
+245,denver-broncos,Denver Broncos,Gunner Stockton,QB,Georgia,0
+246,minnesota-vikings,Minnesota Vikings,Ja'Bril Rawls,CB,Florida State,0
+247,chicago-bears,Chicago Bears,Blake Frazier,OT,Michigan,0
+248,cincinnati-bengals,Cincinnati Bengals,Jordan Norman,EDGE,Tennessee,0
+249,jacksonville-jaguars,Jacksonville Jaguars,Patrick Overmyer,TE,Houston,0
+250,san-francisco-49ers,San Francisco 49ers,Marcus Neal Jr.,S,Penn State,0
+251,detroit-lions,Detroit Lions,Kevin Jennings,QB,SMU,0
+252,arizona-cardinals,Arizona Cardinals,Caleb Odom,TE,Mississippi,0
+253,kansas-city-chiefs,Kansas City Chiefs,Jahiem Lawson,EDGE,Clemson,0
+254,detroit-lions,Detroit Lions,Willie Rodriguez,TE,Kentucky,0
+255,kansas-city-chiefs,Kansas City Chiefs,CJ Mims,DL,Texas A&M,0
+256,miami-dolphins,Miami Dolphins,James Smith,DL,Ohio State,0
+257,new-england-patriots,New England Patriots,Lincoln Kienholz,QB,Louisville,0
