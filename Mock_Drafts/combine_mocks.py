@@ -3,18 +3,19 @@
 Kyle's rule (2026-11-18):
   * best case  = his earliest pick across the mocks
   * worst case = his latest pick, or UNDRAFTED if any mock leaves him out
-  * value      = share of mocks that draft him x value at his AVERAGE pick
+  * value      = share of mocks that draft him x value at his MEDIAN pick
                  + share that leave him undrafted x undrafted value
-  * average pick = mean over the mocks that draft him, rounded to the nearest whole pick (1.2 -> 1, 1.6 -> 2; .5 rounds up)
+  * median pick = median over the mocks that draft him (Kyle 2026-11-18, was the average), rounded to the nearest
+                  whole pick (.5 rounds up; only happens with an even number of mocks drafting him)
 
 Inputs : every Mock_Drafts/2027_mock_*.csv (Kyle's own mocks only; listed in Mock_Drafts/README.md)
          a previous pd_09 mock file for board-name aliases and height/weight (optional, --aliases)
 Outputs (Mock_Drafts/range/):
   mock_2027_range_players.csv   one row per prospect: picks in each mock, share drafted, best / worst / average pick
-  mock_2027_avg.csv             pd_09 MOCK_FILE format, pick = rounded average pick
+  mock_2027_avg.csv             pd_09 MOCK_FILE format, pick = rounded MEDIAN pick (file name kept for the pipeline)
   mock_2027_best.csv            pd_09 MOCK_FILE format, pick = best pick
   mock_2027_worst.csv           pd_09 MOCK_FILE format, pick = worst pick (players drafted in every mock only)
-The landing team for the average pick is the team from the mock whose pick is closest to the average
+The landing team for the median pick is the team from the mock whose pick is closest to the median
 (the earlier pick on a tie). Rounds are approximate (comp picks move the round boundaries); only the pick feeds the model.
 
 Run: python3 Mock_Drafts/combine_mocks.py [--aliases <pd_09 mock csv with mddb_name column>]
@@ -79,7 +80,8 @@ def main():
     for k, p in players.items():
         pk = p["picks"]
         vals = sorted(v[0] for v in pk.values())
-        mean = sum(vals) / len(vals)
+        mid = len(vals) // 2
+        mean = vals[mid] if len(vals) % 2 else (vals[mid - 1] + vals[mid]) / 2   # the MEDIAN (name kept below)
         apick = round_half_up(mean)
         near = min(pk.values(), key=lambda v: (abs(v[0] - mean), v[0]))
         b = min(pk.values(), key=lambda v: v[0])
@@ -88,7 +90,7 @@ def main():
         h, wt = hw.get(k[0], ("", ""))
         row = OrderedDict(player=p["player"], mddb_name=p["mddb_name"], pos=p["pos"], school=p["school"],
                           n_mocks=n, n_drafted=len(pk), share_drafted=round(len(pk) / n, 4),
-                          avg_pick_exact=round(mean, 2), avg_pick=apick, avg_team_abbr=ABBR[near[1]],
+                          avg_pick_exact=round(mean, 2), avg_pick=apick, mean_pick=round(sum(vals) / len(vals), 2), avg_team_abbr=ABBR[near[1]],
                           best_pick=b[0], best_team_abbr=ABBR[b[1]],
                           worst_pick=w[0] if all_in else "", worst_team_abbr=ABBR[w[1]] if all_in else "",
                           worst_case="pick" if all_in else "undrafted")
