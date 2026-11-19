@@ -45,13 +45,21 @@ pd_line <- paste0("window.PD=", toJSON(list(players = P, val = rd("pd_post_grade
   dataframe = "rows", na = "null", auto_unbox = TRUE, digits = 4), ";")
 mk <- mixcols(rd("pd_post_2027_mock_grades.csv"))
 for (cc in c("p_top", "p_top2", "p_any")) if (!paste0(cc, "_value_draft") %in% names(mk)) mk[[paste0(cc, "_value_draft")]] <- NA_real_
+# rg = the pick range across our saved mocks (pd_12_mock_range.R): best / worst pick and their tier odds, mixed and plain
+# post-draft (bd / wd), for the mock table's "average pick (best-worst)" and "value (best-worst)" (Kyle 2026-11-18)
+if (!"best_pick" %in% names(mk)) mk$best_pick <- NA_integer_
+rgf <- function(d) I(lapply(seq_len(nrow(d)), function(i) { x <- d[i, ]; if (is.na(x$best_pick)) return(NULL)
+  q <- function(pre, suf = "") { v <- c(x[[paste0(pre, "p_top", suf)]], x[[paste0(pre, "p_top2", suf)]], x[[paste0(pre, "p_any", suf)]]); if (any(is.na(v))) NULL else v }
+  list(pb = x$best_pick, pw = if (is.na(x$worst_pick)) NULL else x$worst_pick, ud = identical(x$worst_case, "undrafted"),
+       nd = x$n_drafted, nm = x$n_mocks, b = q("best_"), w = q("worst_"), bd = q("best_", "_draft"), wd = q("worst_", "_draft")) }))
+mk$rg <- rgf(mk)
 mk <- mk %>% arrange(pick) %>%
   left_join(V %>% filter(board == "mock") %>% distinct(pick, name, .keep_all = TRUE) %>% select(pick, name, v = value_100k, vq1 = p_top, vq2 = p_top2, vq3 = p_any, ag = age), by = c("pick", "name")) %>%
   transmute(pick, rd = round, team, name, pos = position, school, post = post_grade, pre = pre_grade, move = grade_move,
             ptop = p_top, pany = p_any, sc = post_score, pct = post_pctile, p2 = p_top2, mx = as.integer(coalesce(mixed_faller, 0L)), gd = post_grade_draft,
             dr = drf(mixed_faller, post_grade_draft, post_score_draft, post_pctile_draft, p_top_draft, p_top2_draft, p_any_draft,
                      p_top_value_draft, p_top2_value_draft, p_any_value_draft), v = v,
-            vq = I(lapply(seq_along(vq1), function(i) if (is.na(vq1[i])) NULL else c(vq1[i], vq2[i], vq3[i]))), ag = ag)
+            vq = I(lapply(seq_along(vq1), function(i) if (is.na(vq1[i])) NULL else c(vq1[i], vq2[i], vq3[i]))), ag = ag, rg = rg)
 mk_line <- paste0("window.MOCK27=", toJSON(mk, dataframe = "rows", na = "null", auto_unbox = TRUE, digits = 4), ";")
 fix <- function(x) gsub("</", "<\\/", x, fixed = TRUE)
 for (pg in commandArgs(trailingOnly = TRUE)) {
