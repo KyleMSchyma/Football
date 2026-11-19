@@ -50,7 +50,7 @@ for (cc in c("p_top", "p_top2", "p_any")) if (!paste0(cc, "_value_draft") %in% n
 if (!"best_pick" %in% names(mk)) mk$best_pick <- NA_integer_
 rgf <- function(d) I(lapply(seq_len(nrow(d)), function(i) { x <- d[i, ]; if (is.na(x$best_pick)) return(NULL)
   q <- function(pre, suf = "") { v <- c(x[[paste0(pre, "p_top", suf)]], x[[paste0(pre, "p_top2", suf)]], x[[paste0(pre, "p_any", suf)]]); if (any(is.na(v))) NULL else v }
-  list(pb = x$best_pick, pw = if (is.na(x$worst_pick)) NULL else x$worst_pick, ud = identical(x$worst_case, "undrafted"),
+  list(pb = x$best_pick, pw = if (is.na(x$worst_pick)) NA_integer_ else x$worst_pick, ud = identical(x$worst_case, "undrafted"),
        nd = x$n_drafted, nm = x$n_mocks, b = q("best_"), w = q("worst_"), bd = q("best_", "_draft"), wd = q("worst_", "_draft")) }))
 mk$rg <- rgf(mk)
 mk <- mk %>% arrange(pick) %>%
