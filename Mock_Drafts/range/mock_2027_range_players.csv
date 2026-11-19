@@ -1,93 +1,95 @@
-player,mddb_name,pos,school,n_mocks,n_drafted,share_drafted,avg_pick_exact,avg_pick,mean_pick,avg_team_abbr,best_pick,best_team_abbr,worst_pick,worst_team_abbr,worst_case,pick_2027_mock_2026-11-15_original_vikings,pick_2027_mock_2026-11-17_cowboys,pick_2027_mock_2026-11-18_cowboys
-Jeremiah Smith,Jeremiah Smith,WR,Ohio State,3,3,1.0,1,1,1.33,LAC,1,LAC,2,LAC,pick,1,1,2
-Drew Mestemaker,Drew Mestemaker,QB,Oklahoma State,3,3,1.0,3,3,3.33,MIA,3,MIA,4,NYJ,pick,3,3,4
-CJ Carr,CJ Carr,QB,Notre Dame,3,3,1.0,4,4,5.0,NYJ,4,NYJ,7,ARI,pick,4,4,7
-Charlie Becker,Charlie Becker,WR,Indiana,3,3,1.0,8,8,8.33,ATL,7,TB,10,TB,pick,7,10,8
-Cam Coleman,Cam Coleman,WR,Texas,3,3,1.0,12,12,12.0,WAS,12,WAS,12,WAS,pick,12,12,12
-Nick Marsh,Nick Marsh,WR,Indiana,3,3,1.0,16,16,17.33,NE,15,LV,21,DAL,pick,15,21,16
-Darian Mensah,Darian Mensah,QB,Miami (FL),3,3,1.0,18,18,14.67,CLE,8,ARI,18,CLE,pick,8,18,18
-LaNorris Sellers,LaNorris Sellers,QB,South Carolina,3,3,1.0,26,26,29.67,PHI,23,PIT,40,ATL,pick,40,26,23
-Arch Manning,Arch Manning,QB,Texas,3,3,1.0,27,27,29.0,MIN,26,PIT,34,MIA,pick,26,27,34
-Jamari Johnson,Jamari Johnson,TE,Oregon,3,3,1.0,27,27,32.67,DET,25,CIN,46,DAL,pick,27,46,25
-Trinidad Chambliss,Trinidad Chambliss,QB,Mississippi,3,3,1.0,27,27,27.33,MIN,16,CLE,39,ATL,pick,16,39,27
-Dante Moore,Dante Moore,QB,Oregon,3,3,1.0,28,28,31.67,MIN,23,PIT,44,WAS,pick,28,23,44
-Trey'Dez Green,Trey'Dez Green,TE,LSU,3,3,1.0,29,29,31.33,KC,19,CAR,46,LV,pick,46,29,19
-KJ Duff,KJ Duff,WR,Rutgers,3,3,1.0,31,31,29.33,SF,25,PHI,32,BUF,pick,25,31,32
-Jackson Harris,Jackson Harris,WR,LSU,3,3,1.0,34,34,34.67,MIA,32,BUF,38,ARI,pick,34,32,38
-Ryan Williams,Ryan Coleman-Williams,WR,Alabama,3,3,1.0,37,37,35.33,PHI,31,SF,38,IND,pick,38,37,31
-Reed Harris,Reed Harris,WR,Arizona State,3,3,1.0,38,38,39.33,ARI,37,PHI,43,ARI,pick,43,38,37
-Deuce Alexander,Deuce Alexander,WR,Mississippi,3,3,1.0,48,48,49.0,SEA,45,LV,54,NYG,pick,48,45,54
-Jadan Baugh,Jadan Baugh,RB,Florida,3,3,1.0,48,48,47.0,NE,45,BAL,48,NE,pick,45,48,48
-Luke Reynolds,Luke Reynolds,TE,Virginia Tech,3,3,1.0,51,51,50.67,CAR,45,BAL,56,DEN,pick,51,56,45
-Kewan Lacy,Kewan Lacy,RB,Mississippi,3,3,1.0,54,54,54.67,GB,44,WAS,66,TEN,pick,54,44,66
-Mario Craver,Mario Craver,WR,Texas A&M,3,3,1.0,71,71,72.0,ATL,67,MIA,78,PIT,pick,71,67,78
-Ryan Wingo,Ryan Wingo,WR,Texas,3,3,1.0,71,71,75.33,IND,71,IND,84,NE,pick,84,71,71
-Jayden Maiava,Jayden Maiava,QB,USC,3,3,1.0,72,72,66.33,ARI,49,LA,78,PIT,pick,78,72,49
-Junior Sherrill,Junior Sherrill,WR,Vanderbilt,3,3,1.0,80,80,79.33,KC,65,MIA,93,KC,pick,80,93,65
-Brendan Sorsby,Brendan Sorsby,QB,Texas Tech,3,3,1.0,81,81,86.33,IND,81,IND,97,PHI,pick,97,81,81
-Wyatt Young,Wyatt Young,WR,Oklahoma State,3,3,1.0,82,82,85.0,KC,70,ATL,103,TEN,pick,103,70,82
-Bryant Wesco,Bryant Wesco,WR,Clemson,3,3,1.0,87,87,84.67,PIT,75,TB,92,PIT,pick,92,87,75
-DJ Vonnahme,DJ Vonnahme,TE,Iowa,3,3,1.0,88,88,85.0,KC,79,BAL,88,KC,pick,88,79,88
-Ahmad Hardy,Ahmad Hardy,RB,Missouri,3,3,1.0,94,94,95.0,DET,91,CIN,100,SEA,pick,100,91,94
-Lawson Luckie,Lawson Luckie,TE,Georgia,3,3,1.0,98,98,99.0,CIN,93,DEN,106,PHI,pick,93,98,106
-Omarion Miller,Omarion Miller,WR,Arizona State,3,3,1.0,100,100,107.33,SEA,96,BUF,126,CIN,pick,96,126,100
-Isaac Brown,Isaac Brown,RB,Louisville,3,3,1.0,103,103,95.67,TEN,81,CLE,103,TEN,pick,81,103,103
-Terrance Carter,Terrance Carter,TE,Texas Tech,3,3,1.0,105,105,104.67,PHI,93,KC,116,NE,pick,105,116,93
-Amare Thomas,Amare Thomas,WR,Houston,3,3,1.0,106,106,115.67,NYJ,99,SEA,142,NYJ,pick,106,99,142
-Dylan Riley,Dylan Riley,RB,Boise State,3,3,1.0,119,119,120.33,CLE,92,JAX,150,WAS,pick,150,92,119
-Peter Clarke,Peter Clarke,TE,Temple,3,3,1.0,119,119,132.33,CAR,117,NE,161,CIN,pick,161,119,117
-Nate Frazier,Nate Frazier,RB,Georgia,3,3,1.0,120,120,121.67,NE,109,HOU,136,DEN,pick,120,109,136
-Justin Bowick,Justin Bowick,WR,Oklahoma State,3,3,1.0,121,121,110.67,CLE,89,LV,122,GB,pick,122,121,89
-Wayshawn Parker,Wayshawn Parker,RB,Utah,3,3,1.0,121,121,113.67,GB,98,CIN,122,CLE,pick,98,122,121
-Mike Matthews,Mike Matthews,WR,Tennessee,3,3,1.0,125,125,130.67,TEN,118,LA,149,NO,pick,149,125,118
-LJ Martin,LJ Martin,RB,BYU,3,3,1.0,126,126,127.67,JAX,110,HOU,147,TB,pick,126,147,110
-Chris Marshall,Chris Marshall,WR,Arkansas,3,3,1.0,127,127,128.0,DAL,111,NO,146,IND,pick,127,111,146
-Conner Weigman,Conner Weigman,QB,Houston,3,3,1.0,133,133,124.0,LAC,97,PHI,142,PHI,pick,142,133,97
-Mark Fletcher,Mark Fletcher,RB,Miami (FL),3,3,1.0,134,134,139.33,GB,127,CIN,157,MIN,pick,157,134,127
-DeSean Bishop,DeSean Bishop,RB,Tennessee,3,3,1.0,135,135,152.0,SEA,129,TEN,192,LV,pick,129,192,135
-Braden Pegan,Braden Pegan,WR,Utah,3,3,1.0,137,137,140.33,NYG,137,NYG,147,TB,pick,137,137,147
-Jordan Faison,Jordan Faison,WR,Notre Dame,3,3,1.0,139,139,134.33,LAC,117,LA,147,TB,pick,147,117,139
-Duce Robinson,Duce Robinson,WR,Florida State,3,3,1.0,142,142,141.0,NYJ,121,CLE,160,MIN,pick,121,142,160
-Drake Lindsey,Drake Lindsey,QB,Minnesota,3,3,1.0,146,146,141.33,IND,104,IND,174,GB,pick,104,146,174
-Daylan Smothers,Hollywood Smothers,RB,Texas,3,3,1.0,157,157,157.0,MIN,150,WAS,164,MIA,pick,164,157,150
-TJ Moore,TJ Moore,WR,Clemson,3,3,1.0,166,166,176.33,MIN,166,MIN,197,LAC,pick,166,166,197
-Andrew Rappleyea,Andrew Rappleyea,TE,Penn State,3,3,1.0,167,167,161.67,IND,143,PHI,175,SEA,pick,175,143,167
-Sam Leavitt,Sam Leavitt,QB,LSU,3,3,1.0,167,167,163.0,DEN,155,SEA,167,DEN,pick,167,167,155
-Cooper Barkate,Cooper Barkate,WR,Miami (FL),3,3,1.0,170,170,176.33,BUF,169,SF,190,TB,pick,169,190,170
-Ian Strong,Ian Strong,WR,California,3,3,1.0,179,179,169.0,BAL,134,GB,194,IND,pick,194,179,134
-Eli Finley,Eli Finley,TE,Louisiana Tech,3,1,0.3333,183,183,183.0,MIN,183,MIN,,,undrafted,,,183
-Patrick Overmyer,Patrick Overmyer,TE,Houston,3,3,1.0,183,183,203.0,MIN,177,BAL,249,JAX,pick,177,183,249
-Tre Wisner,Quintrevion Wisner,RB,Florida State,3,3,1.0,188,188,195.33,HOU,171,JAX,227,IND,pick,188,227,171
-Griffin Wilde,Griffin Wilde,WR,Northwestern,3,3,1.0,195,195,194.67,LA,181,TEN,208,DET,pick,195,208,181
-Lincoln Kienholz,Lincoln Kienholz,QB,Louisville,3,3,1.0,196,196,216.33,HOU,196,HOU,257,NE,pick,196,196,257
-Wayne Knight,Wayne Knight,RB,UCLA,3,3,1.0,201,201,204.0,NYG,184,NYJ,227,CAR,pick,227,184,201
-Evan Stewart,Evan Stewart,WR,Oregon,3,3,1.0,202,202,206.0,PIT,202,PIT,214,JAX,pick,214,202,202
-Kenny Johnson,Kenny Johnson,WR,Texas Tech,3,1,0.3333,203,203,203.0,DEN,203,DEN,,,undrafted,,,203
-Benjamin Brahmer,Benjamin Brahmer,TE,Penn State,3,3,1.0,204,204,212.33,NYG,199,NE,234,PHI,pick,199,204,234
-Dylan Raiola,Dylan Raiola,QB,Oregon,3,1,0.3333,205,205,205.0,DET,205,DET,,,undrafted,205,,
-Antwan Raymond,Antwan Raymond,RB,Rutgers,3,3,1.0,207,207,194.0,NYG,157,MIN,218,ATL,pick,207,218,157
-Makhi Hughes,Makhi Hughes,RB,Houston,3,2,0.6667,212.5,213,212.5,NO,180,NO,,,undrafted,180,245,
-Gunner Stockton,Gunner Stockton,QB,Georgia,3,2,0.6667,213.5,214,213.5,TEN,182,TEN,,,undrafted,182,,245
-Josh Hoover,Josh Hoover,QB,Indiana,3,3,1.0,218,218,215.0,ATL,175,SEA,252,ARI,pick,252,175,218
-Caleb Odom,Caleb Odom,TE,Mississippi,3,2,0.6667,219.5,220,219.5,TB,187,TB,,,undrafted,187,,252
-Decker DeGraaf,Decker DeGraaf,TE,Washington,3,1,0.3333,220,220,220.0,IND,220,IND,,,undrafted,,220,
-Willie Rodriguez,Willie Rodriguez,TE,Kentucky,3,3,1.0,220,220,223.67,IND,197,LAC,254,DET,pick,220,197,254
-Devin McCuin,Devin McCuin,WR,Ohio State,3,3,1.0,221,221,219.67,ATL,211,BUF,227,IND,pick,211,221,227
-Justice Haynes,Justice Haynes,RB,Georgia Tech,3,3,1.0,221,221,213.0,ATL,194,IND,224,PIT,pick,221,224,194
-DJ Lagway,DJ Lagway,QB,Baylor,3,3,1.0,222,222,206.33,TEN,174,GB,223,TEN,pick,174,223,222
-Nyck Harbor,Nyck Harbor,WR,South Carolina,3,3,1.0,222,222,212.0,DET,182,NO,232,DEN,pick,232,222,182
-Turbo Richard,Turbo Richard,RB,Indiana,3,2,0.6667,224.5,225,224.5,NYJ,209,NYJ,,,undrafted,,240,209
-Isaiah Sategna,Isaiah Sategna,WR,Oklahoma,3,3,1.0,226,226,224.0,NE,216,JAX,230,CLE,pick,216,226,230
-Cam Cook,Cam Cook,RB,West Virginia,3,2,0.6667,227.5,228,227.5,CAR,198,CAR,,,undrafted,257,,198
-Chris Corbo,Chris Corbo,TE,Georgia Tech,3,2,0.6667,227.5,228,227.5,DET,217,DET,,,undrafted,,217,238
-Eric Singleton Jr.,Eric Singleton Jr.,WR,Florida,3,3,1.0,231,231,227.33,TB,219,BAL,232,DEN,pick,219,232,231
-John Mateer,John Mateer,QB,Oklahoma,3,1,0.3333,231,231,231.0,TB,231,TB,,,undrafted,,231,
-Michael Masunas,Michael Masunas,TE,Texas,3,2,0.6667,232.5,233,232.5,ARI,228,ARI,,,undrafted,237,228,
-Alex Honig,Alex Honig,TE,Northwestern,3,2,0.6667,233.5,234,233.5,ARI,229,ARI,,,undrafted,229,238,
-Kamari Moulton,Kamari Moulton,RB,Iowa,3,1,0.3333,234,234,234.0,PHI,234,PHI,,,undrafted,,234,
-Carlos Hernandez,Carlos Hernandez,WR,Wake Forest,3,2,0.6667,235.0,235,235.0,JAX,216,JAX,,,undrafted,254,216,
-Chris Johnson Jr.,Chris Johnson Jr.,RB,Clemson,3,1,0.3333,235,235,235.0,BAL,235,BAL,,,undrafted,,,235
-C.J. Baxter,C.J. Baxter,RB,Kentucky,3,1,0.3333,236,236,236.0,BAL,236,BAL,,,undrafted,,236,
-Rocky Beers,Rocky Beers,TE,Oklahoma,3,1,0.3333,241,241,241.0,CLE,241,CLE,,,undrafted,,241,
-Walker Eget,Walker Eget,QB,Duke,3,1,0.3333,242,242,242.0,GB,242,GB,,,undrafted,,242,
-Kevin Jennings,Kevin Jennings,QB,SMU,3,1,0.3333,251,251,251.0,DET,251,DET,,,undrafted,,,251
+player,mddb_name,pos,school,n_mocks,n_drafted,share_drafted,avg_pick_exact,avg_pick,mean_pick,avg_team_abbr,best_pick,best_team_abbr,worst_pick,worst_team_abbr,worst_case,pick_2027_mock_2026-11-15_original_vikings,pick_2027_mock_2026-11-17_cowboys,pick_2027_mock_2026-11-18_cowboys,pick_2027_mock_2026-11-19_cowboys
+Jeremiah Smith,Jeremiah Smith,WR,Ohio State,4,4,1.0,1.5,2,1.5,LAC,1,LAC,2,LAC,pick,1,1,2,2
+Drew Mestemaker,Drew Mestemaker,QB,Oklahoma State,4,4,1.0,3.0,3,3.25,MIA,3,MIA,4,NYJ,pick,3,3,4,3
+CJ Carr,CJ Carr,QB,Notre Dame,4,4,1.0,4.0,4,4.75,NYJ,4,NYJ,7,ARI,pick,4,4,7,4
+Charlie Becker,Charlie Becker,WR,Indiana,4,4,1.0,9.0,9,8.75,ATL,7,TB,10,TB,pick,7,10,8,10
+Cam Coleman,Cam Coleman,WR,Texas,4,4,1.0,12.0,12,12.75,WAS,12,WAS,15,LV,pick,12,12,12,15
+Darian Mensah,Darian Mensah,QB,Miami (FL),4,4,1.0,13.0,13,12.75,ARI,7,ARI,18,CLE,pick,8,18,18,7
+Nick Marsh,Nick Marsh,WR,Indiana,4,4,1.0,16.0,16,17.0,NE,15,LV,21,DAL,pick,15,21,16,16
+Trinidad Chambliss,Trinidad Chambliss,QB,Mississippi,4,4,1.0,25.0,25,26.25,PIT,16,CLE,39,ATL,pick,16,39,27,23
+Dante Moore,Dante Moore,QB,Oregon,4,4,1.0,25.5,26,28.25,PIT,18,CLE,44,WAS,pick,28,23,44,18
+Jamari Johnson,Jamari Johnson,TE,Oregon,4,4,1.0,26.0,26,30.75,CIN,25,CIN,46,DAL,pick,27,46,25,25
+LaNorris Sellers,LaNorris Sellers,QB,South Carolina,4,4,1.0,26.5,27,29.0,PHI,23,PIT,40,ATL,pick,40,26,23,27
+Trey'Dez Green,Trey'Dez Green,TE,LSU,4,4,1.0,29.0,29,30.75,KC,19,CAR,46,LV,pick,46,29,19,29
+Arch Manning,Arch Manning,QB,Texas,4,4,1.0,30.5,31,30.75,MIN,26,PIT,36,NYJ,pick,26,27,34,36
+KJ Duff,KJ Duff,WR,Rutgers,4,4,1.0,31.5,32,32.0,SF,25,PHI,40,IND,pick,25,31,32,40
+Jackson Harris,Jackson Harris,WR,LSU,4,4,1.0,33.0,33,33.75,BUF,31,SF,38,ARI,pick,34,32,38,31
+Ryan Williams,Ryan Coleman-Williams,WR,Alabama,4,4,1.0,34.0,34,33.0,SF,26,PHI,38,IND,pick,38,37,31,26
+Reed Harris,Reed Harris,WR,Arizona State,4,4,1.0,38.0,38,39.0,ARI,37,PHI,43,ARI,pick,43,38,37,38
+Jadan Baugh,Jadan Baugh,RB,Florida,4,4,1.0,48.0,48,47.25,NE,45,BAL,48,NE,pick,45,48,48,48
+Deuce Alexander,Deuce Alexander,WR,Mississippi,4,4,1.0,48.5,49,49.0,SEA,45,LV,54,NYG,pick,48,45,54,49
+Kewan Lacy,Kewan Lacy,RB,Mississippi,4,4,1.0,49.0,49,52.0,WAS,44,WAS,66,TEN,pick,54,44,66,44
+Luke Reynolds,Luke Reynolds,TE,Virginia Tech,4,4,1.0,51.0,51,50.75,CAR,45,BAL,56,DEN,pick,51,56,45,51
+Mario Craver,Mario Craver,WR,Texas A&M,4,4,1.0,70.5,71,71.5,ATL,67,MIA,78,PIT,pick,71,67,78,70
+Ryan Wingo,Ryan Wingo,WR,Texas,4,4,1.0,71.0,71,72.75,IND,65,MIA,84,NE,pick,84,71,71,65
+Jayden Maiava,Jayden Maiava,QB,USC,4,4,1.0,71.5,72,67.5,IND,49,LA,78,PIT,pick,78,72,49,71
+Wyatt Young,Wyatt Young,WR,Oklahoma State,4,4,1.0,80.0,80,83.25,PIT,70,ATL,103,TEN,pick,103,70,82,78
+Bryant Wesco,Bryant Wesco,WR,Clemson,4,4,1.0,86.5,87,85.0,NYG,75,TB,92,PIT,pick,92,87,75,86
+Junior Sherrill,Junior Sherrill,WR,Vanderbilt,4,4,1.0,86.5,87,85.0,KC,65,MIA,102,TEN,pick,80,93,65,102
+DJ Vonnahme,DJ Vonnahme,TE,Iowa,4,4,1.0,88.0,88,85.75,KC,79,BAL,88,KC,pick,88,79,88,88
+Brendan Sorsby,Brendan Sorsby,QB,Texas Tech,4,4,1.0,89.0,89,89.0,IND,81,IND,97,PHI,pick,97,81,81,97
+Ahmad Hardy,Ahmad Hardy,RB,Missouri,4,4,1.0,93.0,93,94.25,JAX,91,CIN,100,SEA,pick,100,91,94,92
+Omarion Miller,Omarion Miller,WR,Arizona State,4,4,1.0,98.0,98,103.75,BUF,93,KC,126,CIN,pick,96,126,100,93
+Isaac Brown,Isaac Brown,RB,Louisville,4,4,1.0,102.0,102,97.0,SEA,81,CLE,103,TEN,pick,81,103,103,101
+Lawson Luckie,Lawson Luckie,TE,Georgia,4,4,1.0,102.0,102,109.25,CIN,93,DEN,140,MIA,pick,93,98,106,140
+Terrance Carter,Terrance Carter,TE,Texas Tech,4,4,1.0,110.5,111,107.75,PHI,93,KC,117,NE,pick,105,116,93,117
+Amare Thomas,Amare Thomas,WR,Houston,4,4,1.0,115.0,115,117.75,NYJ,99,SEA,142,NYJ,pick,106,99,142,124
+Dylan Riley,Dylan Riley,RB,Boise State,4,4,1.0,115.5,116,118.25,NO,92,JAX,150,WAS,pick,150,92,119,112
+Peter Clarke,Peter Clarke,TE,Temple,4,4,1.0,118.0,118,128.0,NE,115,ARI,161,CIN,pick,161,119,117,115
+Chris Marshall,Chris Marshall,WR,Arkansas,4,4,1.0,120.0,120,124.25,WAS,111,NO,146,IND,pick,127,111,146,113
+Justin Bowick,Justin Bowick,WR,Oklahoma State,4,4,1.0,121.5,122,118.75,CLE,89,LV,143,PHI,pick,122,121,89,143
+Wayshawn Parker,Wayshawn Parker,RB,Utah,4,4,1.0,121.5,122,116.0,GB,98,CIN,123,CLE,pick,98,122,121,123
+Jordan Faison,Jordan Faison,WR,Notre Dame,4,4,1.0,128.0,128,125.75,LA,100,SEA,147,TB,pick,147,117,139,100
+Nate Frazier,Nate Frazier,RB,Georgia,4,4,1.0,128.0,128,128.0,NE,109,HOU,147,TB,pick,120,109,136,147
+LJ Martin,LJ Martin,RB,BYU,4,4,1.0,128.5,129,128.5,JAX,110,HOU,147,TB,pick,126,147,110,131
+Mark Fletcher,Mark Fletcher,RB,Miami (FL),4,4,1.0,130.5,131,135.0,CIN,122,CLE,157,MIN,pick,157,134,127,122
+Mike Matthews,Mike Matthews,WR,Tennessee,4,4,1.0,133.0,133,133.25,TEN,118,LA,149,NO,pick,149,125,118,141
+Conner Weigman,Conner Weigman,QB,Houston,4,4,1.0,133.5,134,126.5,LAC,97,PHI,142,PHI,pick,142,133,97,134
+Braden Pegan,Braden Pegan,WR,Utah,4,4,1.0,142.0,142,143.75,NYG,137,NYG,154,PHI,pick,137,137,147,154
+DeSean Bishop,DeSean Bishop,RB,Tennessee,4,4,1.0,146.0,146,153.25,SEA,129,TEN,192,LV,pick,129,192,135,157
+Duce Robinson,Duce Robinson,WR,Florida State,4,4,1.0,147.5,148,144.0,NYJ,121,CLE,160,MIN,pick,121,142,160,153
+Daylan Smothers,Hollywood Smothers,RB,Texas,4,4,1.0,153.5,154,149.25,WAS,126,TEN,164,MIA,pick,164,157,150,126
+Andrew Rappleyea,Andrew Rappleyea,TE,Penn State,4,4,1.0,155.5,156,157.25,BAL,143,PHI,175,SEA,pick,175,143,167,144
+Drake Lindsey,Drake Lindsey,QB,Minnesota,4,4,1.0,160.0,160,150.5,IND,104,IND,178,SEA,pick,104,146,174,178
+Sam Leavitt,Sam Leavitt,QB,LSU,4,4,1.0,161.0,161,157.0,SEA,139,LAC,167,DEN,pick,167,167,155,139
+Eli Finley,Eli Finley,TE,Louisiana Tech,4,2,0.5,169.0,169,169.0,SEA,155,SEA,,,undrafted,,,183,155
+Cooper Barkate,Cooper Barkate,WR,Miami (FL),4,4,1.0,169.5,170,165.5,SF,133,BUF,190,TB,pick,169,190,170,133
+TJ Moore,TJ Moore,WR,Clemson,4,4,1.0,170.0,170,175.75,MIN,166,MIN,197,LAC,pick,166,166,197,174
+Ian Strong,Ian Strong,WR,California,4,4,1.0,185.5,186,174.75,BAL,134,GB,194,IND,pick,194,179,134,192
+Tre Wisner,Quintrevion Wisner,RB,Florida State,4,4,1.0,187.5,188,193.25,HOU,171,JAX,227,IND,pick,188,227,171,187
+Griffin Wilde,Griffin Wilde,WR,Northwestern,4,4,1.0,188.0,188,181.5,TEN,142,NYJ,208,DET,pick,195,208,181,142
+Dylan Raiola,Dylan Raiola,QB,Oregon,4,2,0.5,197.5,198,197.5,TB,190,TB,,,undrafted,205,,,190
+DJ Lagway,DJ Lagway,QB,Baylor,4,4,1.0,199.5,200,199.0,BAL,174,GB,223,TEN,pick,174,223,222,177
+Wayne Knight,Wayne Knight,RB,UCLA,4,3,0.75,201,201,204.0,NYG,184,NYJ,,,undrafted,227,184,201,
+Antwan Raymond,Antwan Raymond,RB,Rutgers,4,4,1.0,203.0,203,195.25,GB,157,MIN,218,ATL,pick,207,218,157,199
+Kenny Johnson,Kenny Johnson,WR,Texas Tech,4,1,0.25,203,203,203.0,DEN,203,DEN,,,undrafted,,,203,
+Evan Stewart,Evan Stewart,WR,Oregon,4,4,1.0,204.5,205,206.25,PIT,202,PIT,214,JAX,pick,214,202,202,207
+Benjamin Brahmer,Benjamin Brahmer,TE,Penn State,4,4,1.0,208.0,208,212.25,NYG,199,NE,234,PHI,pick,199,204,234,212
+Lincoln Kienholz,Lincoln Kienholz,QB,Louisville,4,4,1.0,209.0,209,217.75,HOU,196,HOU,257,NE,pick,196,196,257,222
+Gunner Stockton,Gunner Stockton,QB,Georgia,4,2,0.5,213.5,214,213.5,TEN,182,TEN,,,undrafted,182,,245,
+John Mateer,John Mateer,QB,Oklahoma,4,2,0.5,213.5,214,213.5,LA,196,LA,,,undrafted,,231,,196
+Yannick Smith,Yannick Smith,WR,SMU,4,1,0.25,214,214,214.0,JAX,214,JAX,,,undrafted,,,,214
+Devin McCuin,Devin McCuin,WR,Ohio State,4,4,1.0,216.0,216,215.5,BUF,203,DEN,227,IND,pick,211,221,227,203
+Patrick Overmyer,Patrick Overmyer,TE,Houston,4,4,1.0,216.0,216,215.0,MIN,177,BAL,251,DET,pick,177,183,249,251
+Chris Corbo,Chris Corbo,TE,Georgia Tech,4,3,0.75,217,217,216.33,DET,194,IND,,,undrafted,,217,238,194
+Josh Hoover,Josh Hoover,QB,Indiana,4,4,1.0,218.0,218,215.75,ATL,175,SEA,252,ARI,pick,252,175,218,218
+Caleb Odom,Caleb Odom,TE,Mississippi,4,2,0.5,219.5,220,219.5,TB,187,TB,,,undrafted,187,,252,
+Decker DeGraaf,Decker DeGraaf,TE,Washington,4,1,0.25,220,220,220.0,IND,220,IND,,,undrafted,,220,,
+Justice Haynes,Justice Haynes,RB,Georgia Tech,4,4,1.0,222.5,223,216.0,ATL,194,IND,225,CAR,pick,221,224,194,225
+Turbo Richard,Turbo Richard,RB,Indiana,4,2,0.5,224.5,225,224.5,NYJ,209,NYJ,,,undrafted,,240,209,
+Nyck Harbor,Nyck Harbor,WR,South Carolina,4,4,1.0,226.0,226,216.5,DET,182,NO,232,DEN,pick,232,222,182,230
+Isaiah Sategna,Isaiah Sategna,WR,Oklahoma,4,4,1.0,228.0,228,231.5,NE,216,JAX,254,DET,pick,216,226,230,254
+Eric Singleton Jr.,Eric Singleton Jr.,WR,Florida,4,4,1.0,231.0,231,228.25,TB,219,BAL,232,DEN,pick,219,232,231,231
+Michael Masunas,Michael Masunas,TE,Texas,4,2,0.5,232.5,233,232.5,ARI,228,ARI,,,undrafted,237,228,,
+Alex Honig,Alex Honig,TE,Northwestern,4,2,0.5,233.5,234,233.5,ARI,229,ARI,,,undrafted,229,238,,
+Kamari Moulton,Kamari Moulton,RB,Iowa,4,1,0.25,234,234,234.0,PHI,234,PHI,,,undrafted,,234,,
+Willie Rodriguez,Willie Rodriguez,TE,Kentucky,4,4,1.0,234.5,235,230.0,IND,197,LAC,254,DET,pick,220,197,254,249
+Carlos Hernandez,Carlos Hernandez,WR,Wake Forest,4,2,0.5,235.0,235,235.0,JAX,216,JAX,,,undrafted,254,216,,
+Chris Johnson Jr.,Chris Johnson Jr.,RB,Clemson,4,2,0.5,235.0,235,235.0,BAL,235,BAL,,,undrafted,,,235,235
+C.J. Baxter,C.J. Baxter,RB,Kentucky,4,1,0.25,236,236,236.0,BAL,236,BAL,,,undrafted,,236,,
+Rocky Beers,Rocky Beers,TE,Oklahoma,4,1,0.25,241,241,241.0,CLE,241,CLE,,,undrafted,,241,,
+Walker Eget,Walker Eget,QB,Duke,4,1,0.25,242,242,242.0,GB,242,GB,,,undrafted,,242,,
+Makhi Hughes,Makhi Hughes,RB,Houston,4,3,0.75,245,245,223.33,DEN,180,NO,,,undrafted,180,245,,245
+Cam Cook,Cam Cook,RB,West Virginia,4,3,0.75,247,247,234.0,CHI,198,CAR,,,undrafted,257,,198,247
+Anthony Evans III,Anthony Evans III,WR,Mississippi State,4,1,0.25,248,248,248.0,CIN,248,CIN,,,undrafted,,,,248
+Kevin Jennings,Kevin Jennings,QB,SMU,4,1,0.25,251,251,251.0,DET,251,DET,,,undrafted,,,251,

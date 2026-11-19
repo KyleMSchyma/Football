@@ -1,93 +1,95 @@
 round,pick,team,team_abbr,player,pos,school,height_in,weight_lb,mddb_name
-1,1,Los Angeles Chargers,LAC,Jeremiah Smith,WR,Ohio State,76,222,Jeremiah Smith
+1,2,Los Angeles Chargers,LAC,Jeremiah Smith,WR,Ohio State,76,222,Jeremiah Smith
 1,3,Miami Dolphins,MIA,Drew Mestemaker,QB,Oklahoma State,75,215,Drew Mestemaker
 1,4,New York Jets,NYJ,CJ Carr,QB,Notre Dame,74,215,CJ Carr
-1,8,Atlanta Falcons,ATL,Charlie Becker,WR,Indiana,76,208,Charlie Becker
+1,9,Atlanta Falcons,ATL,Charlie Becker,WR,Indiana,76,208,Charlie Becker
 1,12,Washington Commanders,WAS,Cam Coleman,WR,Texas,75,204,Cam Coleman
+1,13,Arizona Cardinals,ARI,Darian Mensah,QB,Miami (FL),,,Darian Mensah
 1,16,New England Patriots,NE,Nick Marsh,WR,Indiana,,,Nick Marsh
-1,18,Cleveland Browns,CLE,Darian Mensah,QB,Miami (FL),,,Darian Mensah
-1,26,Philadelphia Eagles,PHI,LaNorris Sellers,QB,South Carolina,,,LaNorris Sellers
-1,27,Minnesota Vikings,MIN,Arch Manning,QB,Texas,76,222,Arch Manning
-1,27,Detroit Lions,DET,Jamari Johnson,TE,Oregon,77,255,Jamari Johnson
-1,27,Minnesota Vikings,MIN,Trinidad Chambliss,QB,Mississippi,72,210,Trinidad Chambliss
-1,28,Minnesota Vikings,MIN,Dante Moore,QB,Oregon,75,220,Dante Moore
+1,25,Pittsburgh Steelers,PIT,Trinidad Chambliss,QB,Mississippi,72,210,Trinidad Chambliss
+1,26,Pittsburgh Steelers,PIT,Dante Moore,QB,Oregon,75,220,Dante Moore
+1,26,Cincinnati Bengals,CIN,Jamari Johnson,TE,Oregon,77,255,Jamari Johnson
+1,27,Philadelphia Eagles,PHI,LaNorris Sellers,QB,South Carolina,,,LaNorris Sellers
 1,29,Kansas City Chiefs,KC,Trey'Dez Green,TE,LSU,79,242,Trey'Dez Green
-1,31,San Francisco 49ers,SF,KJ Duff,WR,Rutgers,78,225,KJ Duff
-2,34,Miami Dolphins,MIA,Jackson Harris,WR,LSU,74,205,Jackson Harris
-2,37,Philadelphia Eagles,PHI,Ryan Williams,WR,Alabama,,,Ryan Coleman-Williams
+1,31,Minnesota Vikings,MIN,Arch Manning,QB,Texas,76,222,Arch Manning
+1,32,San Francisco 49ers,SF,KJ Duff,WR,Rutgers,78,225,KJ Duff
+2,33,Buffalo Bills,BUF,Jackson Harris,WR,LSU,74,205,Jackson Harris
+2,34,San Francisco 49ers,SF,Ryan Williams,WR,Alabama,,,Ryan Coleman-Williams
 2,38,Arizona Cardinals,ARI,Reed Harris,WR,Arizona State,,,Reed Harris
-2,48,Seattle Seahawks,SEA,Deuce Alexander,WR,Mississippi,,,Deuce Alexander
 2,48,New England Patriots,NE,Jadan Baugh,RB,Florida,,,Jadan Baugh
+2,49,Seattle Seahawks,SEA,Deuce Alexander,WR,Mississippi,,,Deuce Alexander
+2,49,Washington Commanders,WAS,Kewan Lacy,RB,Mississippi,,,Kewan Lacy
 2,51,Carolina Panthers,CAR,Luke Reynolds,TE,Virginia Tech,,,Luke Reynolds
-2,54,Green Bay Packers,GB,Kewan Lacy,RB,Mississippi,,,Kewan Lacy
 3,71,Atlanta Falcons,ATL,Mario Craver,WR,Texas A&M,,,Mario Craver
 3,71,Indianapolis Colts,IND,Ryan Wingo,WR,Texas,,,Ryan Wingo
-3,72,Arizona Cardinals,ARI,Jayden Maiava,QB,USC,,,Jayden Maiava
-3,80,Kansas City Chiefs,KC,Junior Sherrill,WR,Vanderbilt,,,Junior Sherrill
-3,81,Indianapolis Colts,IND,Brendan Sorsby,QB,Texas Tech,,,Brendan Sorsby
-3,82,Kansas City Chiefs,KC,Wyatt Young,WR,Oklahoma State,,,Wyatt Young
-3,87,Pittsburgh Steelers,PIT,Bryant Wesco,WR,Clemson,,,Bryant Wesco
+3,72,Indianapolis Colts,IND,Jayden Maiava,QB,USC,,,Jayden Maiava
+3,80,Pittsburgh Steelers,PIT,Wyatt Young,WR,Oklahoma State,,,Wyatt Young
+3,87,New York Giants,NYG,Bryant Wesco,WR,Clemson,,,Bryant Wesco
+3,87,Kansas City Chiefs,KC,Junior Sherrill,WR,Vanderbilt,,,Junior Sherrill
 3,88,Kansas City Chiefs,KC,DJ Vonnahme,TE,Iowa,,,DJ Vonnahme
-3,94,Detroit Lions,DET,Ahmad Hardy,RB,Missouri,,,Ahmad Hardy
-3,98,Cincinnati Bengals,CIN,Lawson Luckie,TE,Georgia,,,Lawson Luckie
-3,100,Seattle Seahawks,SEA,Omarion Miller,WR,Arizona State,,,Omarion Miller
-4,103,Tennessee Titans,TEN,Isaac Brown,RB,Louisville,,,Isaac Brown
-4,105,Philadelphia Eagles,PHI,Terrance Carter,TE,Texas Tech,,,Terrance Carter
-4,106,New York Jets,NYJ,Amare Thomas,WR,Houston,,,Amare Thomas
-4,119,Cleveland Browns,CLE,Dylan Riley,RB,Boise State,,,Dylan Riley
-4,119,Carolina Panthers,CAR,Peter Clarke,TE,Temple,,,Peter Clarke
-4,120,New England Patriots,NE,Nate Frazier,RB,Georgia,,,Nate Frazier
-4,121,Cleveland Browns,CLE,Justin Bowick,WR,Oklahoma State,,,Justin Bowick
-4,121,Green Bay Packers,GB,Wayshawn Parker,RB,Utah,,,Wayshawn Parker
-4,125,Tennessee Titans,TEN,Mike Matthews,WR,Tennessee,,,Mike Matthews
-4,126,Jacksonville Jaguars,JAX,LJ Martin,RB,BYU,,,LJ Martin
-4,127,Dallas Cowboys,DAL,Chris Marshall,WR,Arkansas,,,Chris Marshall
-4,133,Los Angeles Chargers,LAC,Conner Weigman,QB,Houston,,,Conner Weigman
-4,134,Green Bay Packers,GB,Mark Fletcher,RB,Miami (FL),,,Mark Fletcher
-4,135,Seattle Seahawks,SEA,DeSean Bishop,RB,Tennessee,,,DeSean Bishop
-4,137,New York Giants,NYG,Braden Pegan,WR,Utah,,,Braden Pegan
-4,139,Los Angeles Chargers,LAC,Jordan Faison,WR,Notre Dame,,,Jordan Faison
-5,142,New York Jets,NYJ,Duce Robinson,WR,Florida State,,,Duce Robinson
-5,146,Indianapolis Colts,IND,Drake Lindsey,QB,Minnesota,,,Drake Lindsey
-5,157,Minnesota Vikings,MIN,Daylan Smothers,RB,Texas,,,Hollywood Smothers
-5,166,Minnesota Vikings,MIN,TJ Moore,WR,Clemson,,,TJ Moore
-5,167,Indianapolis Colts,IND,Andrew Rappleyea,TE,Penn State,,,Andrew Rappleyea
-5,167,Denver Broncos,DEN,Sam Leavitt,QB,LSU,,,Sam Leavitt
-5,170,Buffalo Bills,BUF,Cooper Barkate,WR,Miami (FL),,,Cooper Barkate
-6,179,Baltimore Ravens,BAL,Ian Strong,WR,California,,,Ian Strong
-6,183,Minnesota Vikings,MIN,Eli Finley,TE,Louisiana Tech,,,Eli Finley
-6,183,Minnesota Vikings,MIN,Patrick Overmyer,TE,Houston,,,Patrick Overmyer
+3,89,Indianapolis Colts,IND,Brendan Sorsby,QB,Texas Tech,,,Brendan Sorsby
+3,93,Jacksonville Jaguars,JAX,Ahmad Hardy,RB,Missouri,,,Ahmad Hardy
+3,98,Buffalo Bills,BUF,Omarion Miller,WR,Arizona State,,,Omarion Miller
+4,102,Seattle Seahawks,SEA,Isaac Brown,RB,Louisville,,,Isaac Brown
+4,102,Cincinnati Bengals,CIN,Lawson Luckie,TE,Georgia,,,Lawson Luckie
+4,111,Philadelphia Eagles,PHI,Terrance Carter,TE,Texas Tech,,,Terrance Carter
+4,115,New York Jets,NYJ,Amare Thomas,WR,Houston,,,Amare Thomas
+4,116,New Orleans Saints,NO,Dylan Riley,RB,Boise State,,,Dylan Riley
+4,118,New England Patriots,NE,Peter Clarke,TE,Temple,,,Peter Clarke
+4,120,Washington Commanders,WAS,Chris Marshall,WR,Arkansas,,,Chris Marshall
+4,122,Cleveland Browns,CLE,Justin Bowick,WR,Oklahoma State,,,Justin Bowick
+4,122,Green Bay Packers,GB,Wayshawn Parker,RB,Utah,,,Wayshawn Parker
+4,128,Los Angeles Rams,LA,Jordan Faison,WR,Notre Dame,,,Jordan Faison
+4,128,New England Patriots,NE,Nate Frazier,RB,Georgia,,,Nate Frazier
+4,129,Jacksonville Jaguars,JAX,LJ Martin,RB,BYU,,,LJ Martin
+4,131,Cincinnati Bengals,CIN,Mark Fletcher,RB,Miami (FL),,,Mark Fletcher
+4,133,Tennessee Titans,TEN,Mike Matthews,WR,Tennessee,,,Mike Matthews
+4,134,Los Angeles Chargers,LAC,Conner Weigman,QB,Houston,,,Conner Weigman
+5,142,New York Giants,NYG,Braden Pegan,WR,Utah,,,Braden Pegan
+5,146,Seattle Seahawks,SEA,DeSean Bishop,RB,Tennessee,,,DeSean Bishop
+5,148,New York Jets,NYJ,Duce Robinson,WR,Florida State,,,Duce Robinson
+5,154,Washington Commanders,WAS,Daylan Smothers,RB,Texas,,,Hollywood Smothers
+5,156,Baltimore Ravens,BAL,Andrew Rappleyea,TE,Penn State,,,Andrew Rappleyea
+5,160,Indianapolis Colts,IND,Drake Lindsey,QB,Minnesota,,,Drake Lindsey
+5,161,Seattle Seahawks,SEA,Sam Leavitt,QB,LSU,,,Sam Leavitt
+5,169,Seattle Seahawks,SEA,Eli Finley,TE,Louisiana Tech,,,Eli Finley
+5,170,San Francisco 49ers,SF,Cooper Barkate,WR,Miami (FL),,,Cooper Barkate
+5,170,Minnesota Vikings,MIN,TJ Moore,WR,Clemson,,,TJ Moore
+6,186,Baltimore Ravens,BAL,Ian Strong,WR,California,,,Ian Strong
+6,188,Tennessee Titans,TEN,Griffin Wilde,WR,Northwestern,,,Griffin Wilde
 6,188,Houston Texans,HOU,Tre Wisner,RB,Florida State,,,Quintrevion Wisner
-6,195,Los Angeles Rams,LA,Griffin Wilde,WR,Northwestern,,,Griffin Wilde
-6,196,Houston Texans,HOU,Lincoln Kienholz,QB,Louisville,,,Lincoln Kienholz
+6,198,Tampa Bay Buccaneers,TB,Dylan Raiola,QB,Oregon,,,Dylan Raiola
+6,200,Baltimore Ravens,BAL,DJ Lagway,QB,Baylor,,,DJ Lagway
 6,201,New York Giants,NYG,Wayne Knight,RB,UCLA,,,Wayne Knight
-6,202,Pittsburgh Steelers,PIT,Evan Stewart,WR,Oregon,,,Evan Stewart
+6,203,Green Bay Packers,GB,Antwan Raymond,RB,Rutgers,,,Antwan Raymond
 6,203,Denver Broncos,DEN,Kenny Johnson,WR,Texas Tech,,,Kenny Johnson
-6,204,New York Giants,NYG,Benjamin Brahmer,TE,Penn State,,,Benjamin Brahmer
-6,205,Detroit Lions,DET,Dylan Raiola,QB,Oregon,,,Dylan Raiola
-6,207,New York Giants,NYG,Antwan Raymond,RB,Rutgers,,,Antwan Raymond
-6,213,New Orleans Saints,NO,Makhi Hughes,RB,Houston,,,Makhi Hughes
+6,205,Pittsburgh Steelers,PIT,Evan Stewart,WR,Oregon,,,Evan Stewart
+6,208,New York Giants,NYG,Benjamin Brahmer,TE,Penn State,,,Benjamin Brahmer
+6,209,Houston Texans,HOU,Lincoln Kienholz,QB,Louisville,,,Lincoln Kienholz
 6,214,Tennessee Titans,TEN,Gunner Stockton,QB,Georgia,,,Gunner Stockton
+6,214,Los Angeles Rams,LA,John Mateer,QB,Oklahoma,,,John Mateer
+6,214,Jacksonville Jaguars,JAX,Yannick Smith,WR,SMU,,,Yannick Smith
+6,216,Buffalo Bills,BUF,Devin McCuin,WR,Ohio State,,,Devin McCuin
+6,216,Minnesota Vikings,MIN,Patrick Overmyer,TE,Houston,,,Patrick Overmyer
+6,217,Detroit Lions,DET,Chris Corbo,TE,Georgia Tech,,,Chris Corbo
 7,218,Atlanta Falcons,ATL,Josh Hoover,QB,Indiana,,,Josh Hoover
 7,220,Tampa Bay Buccaneers,TB,Caleb Odom,TE,Mississippi,,,Caleb Odom
 7,220,Indianapolis Colts,IND,Decker DeGraaf,TE,Washington,,,Decker DeGraaf
-7,220,Indianapolis Colts,IND,Willie Rodriguez,TE,Kentucky,,,Willie Rodriguez
-7,221,Atlanta Falcons,ATL,Devin McCuin,WR,Ohio State,,,Devin McCuin
-7,221,Atlanta Falcons,ATL,Justice Haynes,RB,Georgia Tech,,,Justice Haynes
-7,222,Tennessee Titans,TEN,DJ Lagway,QB,Baylor,,,DJ Lagway
-7,222,Detroit Lions,DET,Nyck Harbor,WR,South Carolina,,,Nyck Harbor
+7,223,Atlanta Falcons,ATL,Justice Haynes,RB,Georgia Tech,,,Justice Haynes
 7,225,New York Jets,NYJ,Turbo Richard,RB,Indiana,,,Turbo Richard
-7,226,New England Patriots,NE,Isaiah Sategna,WR,Oklahoma,,,Isaiah Sategna
-7,228,Carolina Panthers,CAR,Cam Cook,RB,West Virginia,,,Cam Cook
-7,228,Detroit Lions,DET,Chris Corbo,TE,Georgia Tech,,,Chris Corbo
+7,226,Detroit Lions,DET,Nyck Harbor,WR,South Carolina,,,Nyck Harbor
+7,228,New England Patriots,NE,Isaiah Sategna,WR,Oklahoma,,,Isaiah Sategna
 7,231,Tampa Bay Buccaneers,TB,Eric Singleton Jr.,WR,Florida,,,Eric Singleton Jr.
-7,231,Tampa Bay Buccaneers,TB,John Mateer,QB,Oklahoma,,,John Mateer
 7,233,Arizona Cardinals,ARI,Michael Masunas,TE,Texas,,,Michael Masunas
 7,234,Arizona Cardinals,ARI,Alex Honig,TE,Northwestern,,,Alex Honig
 7,234,Philadelphia Eagles,PHI,Kamari Moulton,RB,Iowa,,,Kamari Moulton
 7,235,Jacksonville Jaguars,JAX,Carlos Hernandez,WR,Wake Forest,,,Carlos Hernandez
 7,235,Baltimore Ravens,BAL,Chris Johnson Jr.,RB,Clemson,,,Chris Johnson Jr.
+7,235,Indianapolis Colts,IND,Willie Rodriguez,TE,Kentucky,,,Willie Rodriguez
 7,236,Baltimore Ravens,BAL,C.J. Baxter,RB,Kentucky,,,C.J. Baxter
 7,241,Cleveland Browns,CLE,Rocky Beers,TE,Oklahoma,,,Rocky Beers
 7,242,Green Bay Packers,GB,Walker Eget,QB,Duke,,,Walker Eget
+7,245,Denver Broncos,DEN,Makhi Hughes,RB,Houston,,,Makhi Hughes
+7,247,Chicago Bears,CHI,Cam Cook,RB,West Virginia,,,Cam Cook
+7,248,Cincinnati Bengals,CIN,Anthony Evans III,WR,Mississippi State,,,Anthony Evans III
 7,251,Detroit Lions,DET,Kevin Jennings,QB,SMU,,,Kevin Jennings
