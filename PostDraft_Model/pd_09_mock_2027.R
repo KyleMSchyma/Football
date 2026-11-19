@@ -43,6 +43,10 @@ POS_DIR <- if (REPO) c(QB = "../QB_Model", RB = "../RB_Model", WR = "../WR_Model
 PRE_DIR <- if (REPO) "../PreDraft_Model" else "../Football2_PreDraft"
 MOCK_FILE <- Sys.getenv("MOCK_FILE", "mock_2027/mock_2027_fantasy_positions.csv")
 MOCK_NAME <- Sys.getenv("MOCK_NAME", "mock draft")
+# Kyle 2026-11-18 (mock pick range): OUT_TAG writes pd_post_2027_mock_grades<OUT_TAG>.csv etc., so the best-case and
+# worst-case mocks (Mock_Drafts/range/) can be graded beside the live average-pick file. Empty = the live files.
+OUT_TAG <- Sys.getenv("OUT_TAG", "")
+out_name <- function(f) sub("[.]csv$", paste0(OUT_TAG, ".csv"), f)
 TIERS <- list(QB = c(8, 16, 24), RB = c(8, 16, 24), WR = c(12, 24, 36), TE = c(6, 12, 18))
 GRADE_CUTS <- c(0, .10, .25, .35, .45, .55, .65, .75, .85, .90, .95, 1.0001)
 GRADES     <- c("F", "D", "C-", "C", "C+", "B-", "B", "B+", "A-", "A", "A+")
@@ -228,9 +232,10 @@ for (POS in c("QB", "RB", "WR", "TE")) {
   m <- mock %>% filter(pos == POS)
   b27 <- board %>% filter(class == 2027) %>% select(-pick, -round)
   mm <- m %>% left_join(b27, by = "key", suffix = c("", ".board"))
-  dup <- mm %>% count(pick) %>% filter(n > 1)
+  # one board row per mocked player (an average-pick mock can put two players on the same pick, so key on pick + player)
+  dup <- mm %>% count(pick, player) %>% filter(n > 1)
   if (nrow(dup)) { cat("name matches more than one board row at picks", paste(dup$pick, collapse = ","), "-- keeping the same-school row\n")
-    mm <- mm %>% group_by(pick) %>% arrange(desc(nkey(school) == nkey(p_team)), .by_group = TRUE) %>% slice(1) %>% ungroup() }
+    mm <- mm %>% group_by(pick, player) %>% arrange(desc(nkey(school) == nkey(p_team)), .by_group = TRUE) %>% slice(1) %>% ungroup() }
   um <- mm %>% filter(is.na(athlete_id)); if (nrow(um)) unmatched[[POS]] <- um %>% select(pick, player, pos, school)
   mm <- mm %>% filter(!is.na(athlete_id)) %>% mutate(class = 2027L)
   cat("mock", POS, ":", nrow(m), " matched to the 2027 board:", nrow(mm), "\n")
@@ -276,10 +281,10 @@ out <- bind_rows(res) %>% mutate(pre_grade = ifelse(is.na(pre_grade), pre_from_s
             age_est = round(age_at_draft, 1), incumbent_pts_2026 = round(coalesce(incumbent_pts, NA_real_), 1),
             team_targets_2026 = round(team_targets_prev), height_in, weight_lb,
             source = MOCK_NAME, score_source = "final post model (trained 2010-2023), mock pick as draft capital") %>%
-  arrange(pick)
-write.csv(out, "pd_post_2027_mock_grades.csv", row.names = FALSE, na = "")
-write.csv(bind_rows(chk), "pd_post_2027_mock_check.csv", row.names = FALSE, na = "")
-write.csv(bind_rows(inputs), "pd_post_2027_mock_inputs.csv", row.names = FALSE, na = "")
+  arrange(pick, name)
+write.csv(out, out_name("pd_post_2027_mock_grades.csv"), row.names = FALSE, na = "")
+write.csv(bind_rows(chk), out_name("pd_post_2027_mock_check.csv"), row.names = FALSE, na = "")
+write.csv(bind_rows(inputs), out_name("pd_post_2027_mock_inputs.csv"), row.names = FALSE, na = "")
 
 cat("\n===== 2027 post-draft grades from the mock (", MOCK_NAME, ") =====\n")
 print(as.data.frame(out %>% select(pick, name, position, team_abbr, pre_grade, post_grade_raw, post_grade, grade_move, p_top, p_any, incumbent_pts_2026)), row.names = FALSE)

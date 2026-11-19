@@ -22,3 +22,13 @@ Rounds are left out because compensatory picks make the round boundaries uneven 
 Names are kept exactly as the mock shows them. A few differ from our board, for example Ryan Coleman-Williams (Ryan Williams), Hollywood Smothers (Daylan Smothers) and Quintrevion Wisner (Tre Wisner).
 
 Mocks from other people or sites are not stored here, because their terms do not allow it.
+
+## Pick range (built 2026-11-18, not live yet)
+
+`combine_mocks.py` turns every `2027_mock_*.csv` here into one pick range per QB/RB/WR/TE prospect, written to `range/`:
+
+- **Average pick**: the mean of his picks in the mocks that draft him, rounded to a whole pick (1.2 goes to 1, 1.6 goes to 2). This drives his post-draft grade.
+- **Best case**: his earliest pick. **Worst case**: his latest pick, or undrafted if any mock leaves him out.
+- **Value**: share of mocks that draft him x value at his average pick, plus the share that leave him out x the value of an undrafted player (based on how often past undrafted players hit a fantasy tier).
+
+The files feed `PostDraft_Model/pd_09_mock_2027.R` (once per case), `pd_11_mixed_model.R` and `pd_12_mock_range.R`; see the top of `pd_12_mock_range.R` for the run order. To add a mock, save it here as `2027_mock_<date>_<team>.csv`, add it to the table above and rerun the pipeline.
