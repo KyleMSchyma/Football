@@ -12,7 +12,7 @@
 "pre",11,"QB",2020,"Joe Burrow","LSU",1,"post-draft",0.783,0.891,0.951,23.7,32930
 "pre",12,"QB",2021,"Mac Jones","Alabama",15,"post-draft",0.349,0.468,0.69,23,19202
 "pre",13,"QB",2019,"Dwayne Haskins","Ohio State",15,"post-draft",0.393,0.494,0.683,22.3,24672
-"pre",14,"QB",2027,"Darian Mensah","Miami",NA,"post-draft (mock pick)",0.473,0.676,0.829,22.4,30109
+"pre",14,"QB",2027,"Darian Mensah","Miami",NA,"post-draft (mock pick)",0.479,0.58,0.782,22.4,28577
 "pre",15,"QB",2021,"Zach Wilson","BYU",2,"post-draft",0.579,0.777,0.887,22.1,37954
 "pre",16,"QB",2010,"Tim Tebow","Florida",25,"post-draft",0.313,0.501,0.678,23,18514
 "pre",17,"QB",2012,"Russell Wilson","Wisconsin",75,"post-draft",0.235,0.326,0.584,23.8,11285
@@ -51,7 +51,7 @@
 "pre",50,"QB",2025,"Shedeur Sanders","Colorado",144,"post-draft",0.041,0.091,0.188,23.6,3111
 "pre",51,"QB",2014,"Teddy Bridgewater","Louisville",32,"post-draft",0.084,0.167,0.307,21.8,9054
 "pre",52,"QB",2025,"Cam Ward","Miami",1,"post-draft",0.688,0.836,0.922,23.3,32429
-"pre",53,"QB",2027,"Trinidad Chambliss","Ole Miss",NA,"post-draft (mock pick)",0.083,0.173,0.327,21.6,9818
+"pre",53,"QB",2027,"Trinidad Chambliss","Ole Miss",NA,"post-draft (mock pick)",0.083,0.174,0.328,21.6,9845
 "pre",54,"QB",2020,"Jake Fromm","Georgia",167,"post-draft",0.012,0.027,0.062,22.1,2323
 "pre",55,"QB",2024,"J.J. McCarthy","Michigan",10,"post-draft",0.306,0.505,0.703,21.6,26560
 "pre",56,"QB",2011,"Tyrod Taylor","Virginia Tech",180,"post-draft",0.034,0.074,0.157,22.1,4304
@@ -107,7 +107,7 @@
 "pre",106,"QB",2016,"Cody Kessler","USC",93,"post-draft",0.018,0.043,0.095,23.3,1940
 "pre",107,"QB",2014,"Zach Mettenberger","LSU",178,"post-draft",0.014,0.029,0.063,23.1,1691
 "pre",108,"QB",2017,"Brad Kaaya","Miami",215,"post-draft",0.004,0.009,0.022,22,1631
-"pre",109,"QB",2027,"Arch Manning","Texas",NA,"post-draft (mock pick)",0.093,0.192,0.356,22.4,8426
+"pre",109,"QB",2027,"Arch Manning","Texas",NA,"post-draft (mock pick)",0.09,0.187,0.348,22.4,8220
 "pre",110,"QB",2015,"Bryce Petty","Baylor",103,"post-draft",0.019,0.038,0.084,24.3,1427
 "pre",111,"QB",2027,"Dante Moore","Oregon",NA,"post-draft (mock pick)",0.11,0.222,0.399,22.4,9614
 "pre",112,"QB",2014,"Keith Wenning","Ball State",194,"post-draft",0.017,0.037,0.078,23.5,1689
@@ -242,10 +242,10 @@
 "pre",241,"RB",2024,"Bucky Irving","Oregon",125,"post-draft",0.203,0.263,0.427,22,10765
 "pre",242,"RB",2025,"RJ Harvey","UCF",60,"post-draft",0.429,0.513,0.687,24.6,14804
 "pre",243,"RB",2018,"Royce Freeman","Oregon",71,"post-draft",0.372,0.455,0.638,22.5,16993
-"pre",244,"RB",2027,"Dylan Riley","Boise State",NA,"post-draft (mock pick)",0.112,0.151,0.269,21.4,7115
+"pre",244,"RB",2027,"Dylan Riley","Boise State",NA,"post-draft (mock pick)",0.166,0.218,0.367,21.4,9942
 "pre",245,"RB",2013,"Kerwynn Williams","Utah State",230,"post-draft",0.055,0.074,0.139,22.2,3309
 "pre",246,"RB",2023,"Zach Charbonnet","UCLA",52,"post-draft",0.231,0.405,0.557,22.6,12167
-"pre",247,"RB",2027,"Wayshawn Parker","Utah",NA,"post-draft (mock pick)",0.259,0.329,0.504,21.4,14539
+"pre",247,"RB",2027,"Wayshawn Parker","Utah",NA,"post-draft (mock pick)",0.189,0.245,0.402,21.4,11083
 "pre",248,"RB",2014,"Jeremy Hill","LSU",55,"post-draft",0.467,0.55,0.708,21.9,22293
 "pre",249,"RB",2017,"Christian McCaffrey","Stanford",8,"post-draft",0.925,0.965,0.982,21.2,43475
 "pre",250,"RB",2025,"Devin Neal","Kansas",184,"post-draft",0.078,0.107,0.199,22.1,4617
@@ -289,11 +289,11 @@
 "pre",288,"RB",2020,"AJ Dillon","Boston College",62,"post-draft",0.143,0.26,0.383,22.3,8339
 "pre",289,"RB",2014,"Andre Williams","Boston College",113,"post-draft",0.054,0.109,0.177,22,3899
 "pre",290,"RB",2025,"Brashard Smith","SMU",228,"post-draft",0.02,0.042,0.075,22.4,1647
-"pre",291,"RB",2027,"Jadan Baugh","Florida",NA,"post-draft (mock pick)",0.274,0.449,0.601,21.4,16654
+"pre",291,"RB",2027,"Jadan Baugh","Florida",NA,"post-draft (mock pick)",0.249,0.418,0.571,21.4,15459
 "pre",292,"RB",2022,"Ty Chandler","North Carolina",169,"post-draft",0.026,0.055,0.099,24.3,1391
 "pre",293,"RB",2024,"Blake Corum","Michigan",83,"post-draft",0.104,0.201,0.318,23.8,5066
 "pre",294,"RB",2016,"DeAndre Washington","Texas Tech",143,"post-draft",0.056,0.106,0.182,23.5,3000
-"pre",295,"RB",2027,"Isaac Brown","Louisville",NA,"post-draft (mock pick)",0.115,0.218,0.341,21.4,8272
+"pre",295,"RB",2027,"Isaac Brown","Louisville",NA,"post-draft (mock pick)",0.075,0.149,0.244,21.4,5842
 "pre",296,"RB",2014,"Charles Sims","West Virginia",69,"post-draft",0.197,0.345,0.481,24,8511
 "pre",297,"RB",2020,"D'Andre Swift","Georgia",35,"post-draft",0.436,0.619,0.742,21.6,23090
 "pre",298,"RB",2022,"Pierre Strong","South Dakota State",127,"post-draft",0.045,0.094,0.164,23.7,2489
@@ -340,7 +340,7 @@
 "pre",339,"RB",2023,"Kenny McIntosh","Georgia",237,"post-draft",0.015,0.034,0.061,23.5,1052
 "pre",340,"RB",2015,"Cameron Artis-Payne","Auburn",174,"post-draft",0.028,0.057,0.1,25.2,1270
 "pre",341,"RB",2024,"Will Shipley","Clemson",127,"post-draft",0.056,0.113,0.191,22,4072
-"pre",342,"RB",2027,"Wayne Knight","UCLA",NA,"post-draft (mock pick)",0.018,0.037,0.067,23.3,1223
+"pre",342,"RB",2027,"Wayne Knight","UCLA",NA,"post-draft (mock pick)",0.022,0.047,0.083,23.3,1453
 "pre",343,"RB",2026,"Nicholas Singleton","Penn State",165,"post-draft",0.033,0.068,0.119,22.7,2274
 "pre",344,"RB",2025,"Woody Marks","USC",116,"post-draft",0.081,0.16,0.262,24.7,3571
 "pre",345,"RB",2022,"Isaiah Spiller","Texas A&M",123,"post-draft",0.048,0.1,0.173,21.1,4424
@@ -366,7 +366,7 @@
 "pre",365,"RB",2017,"Aaron Jones","UTEP",182,"post-draft",0.019,0.041,0.078,22.7,1515
 "pre",366,"RB",2025,"Quinshon Judkins","Ohio State",36,"post-draft",0.371,0.56,0.702,21.8,19897
 "pre",367,"RB",2012,"Vick Ballard","Mississippi State",170,"post-draft",0.027,0.058,0.107,22.1,2281
-"pre",368,"RB",2027,"Cam Cook","West Virginia",NA,"post-draft (mock pick)",0.013,0.028,0.05,22.3,1256
+"pre",368,"RB",2027,"Cam Cook","West Virginia",NA,"post-draft (mock pick)",0.0127,0.0295,0.0496,22.3,1255
 "pre",369,"RB",2010,"Montario Hardesty","Tennessee",59,"post-draft",0.207,0.364,0.51,23.6,9472
 "pre",370,"RB",2023,"Eric Gray","Oklahoma",172,"post-draft",0.028,0.061,0.108,23.8,1634
 "pre",371,"RB",2017,"Elijah Hood","North Carolina",242,"post-draft",0.011,0.024,0.046,21.4,1520
@@ -374,7 +374,7 @@
 "pre",373,"RB",2021,"Khalil Herbert","Virginia Tech",217,"post-draft",0.018,0.04,0.071,23.4,1229
 "pre",374,"RB",2014,"Lache Seastrunk","Baylor",186,"post-draft",0.022,0.045,0.077,23.1,1476
 "pre",375,"RB",2015,"Jeremy Langford","Michigan State",106,"post-draft",0.072,0.139,0.229,23.7,3662
-"pre",376,"RB",2027,"Ahmad Hardy","Missouri",NA,"post-draft (mock pick)",0.068,0.135,0.224,21.4,5379
+"pre",376,"RB",2027,"Ahmad Hardy","Missouri",NA,"post-draft (mock pick)",0.076,0.15,0.246,21.4,5894
 "pre",377,"RB",2010,"Ryan Mathews","Fresno State",12,"post-draft",0.849,0.925,0.957,22.9,33152
 "pre",378,"RB",2019,"Miles Sanders","Penn State",53,"post-draft",0.227,0.379,0.532,22.3,12324
 "pre",379,"RB",2027,"Kendrick Raphael","SMU",NA,"pre-draft (drafted-recalibrated) x P(declare)",0.0472,0.0775,0.1491,22.6,2934
@@ -389,14 +389,14 @@
 "pre",388,"RB",2025,"Jarquez Hunter","Auburn",117,"post-draft",0.06,0.121,0.203,22.7,3769
 "pre",389,"RB",2024,"Jaylen Wright","Tennessee",120,"post-draft",0.058,0.117,0.197,21.4,4745
 "pre",390,"RB",2021,"Larry Rountree","Missouri",198,"post-draft",0.022,0.049,0.086,22.5,1767
-"pre",391,"RB",2027,"DeSean Bishop","Tennessee",NA,"post-draft (mock pick)",0.046,0.094,0.161,22.3,3257
+"pre",391,"RB",2027,"DeSean Bishop","Tennessee",NA,"post-draft (mock pick)",0.042,0.087,0.15,22.3,3035
 "pre",392,"RB",2018,"John Kelly","Tennessee",176,"post-draft",0.028,0.058,0.104,21.9,2402
 "pre",393,"RB",2015,"David Johnson","Northern Iowa",86,"post-draft",0.105,0.197,0.311,23.7,5121
 "pre",394,"RB",2019,"David Montgomery","Iowa State",73,"post-draft",0.134,0.244,0.376,22.2,8081
 "pre",395,"RB",2024,"Jawhar Jordan","Louisville",205,"post-draft",0.021,0.045,0.08,25,1035
 "pre",396,"RB",2019,"Myles Gaskin","Washington",234,"post-draft",0.018,0.037,0.066,22.5,1471
 "pre",397,"RB",2025,"Jaydon Blue","Texas",149,"post-draft",0.044,0.091,0.156,21.6,3662
-"pre",398,"RB",2027,"Turbo Richard","Indiana",NA,"pre-draft (drafted-recalibrated) x P(declare)",0.0158,0.0427,0.073,21.6,1898
+"pre",398,"RB",2027,"Turbo Richard","Indiana",NA,"post-draft (mock pick)",0.0121,0.0268,0.0462,21.4,1576
 "pre",399,"RB",2014,"Tyler Gaffney","Stanford",204,"post-draft",0.021,0.045,0.076,23.4,1355
 "pre",400,"RB",2023,"De'Von Achane","Texas A&M",84,"post-draft",0.105,0.21,0.33,21.9,7145
 "pre",401,"RB",2027,"Justice Haynes","Georgia Tech",NA,"post-draft (mock pick)",0.018,0.038,0.067,22.3,1560
@@ -516,7 +516,7 @@
 "pre",515,"RB",2011,"Baron Batch","Texas Tech",232,"post-draft",0.017,0.037,0.066,23.7,1094
 "pre",516,"RB",2013,"Rex Burkhead","Nebraska",190,"post-draft",0.022,0.046,0.079,23.2,1460
 "pre",517,"RB",2011,"Anthony Sherman","UConn",136,"post-draft",0.049,0.1,0.168,22.7,3159
-"pre",518,"RB",2027,"Daylan Smothers","Texas",NA,"post-draft (mock pick)",0.03,0.063,0.111,22.3,2316
+"pre",518,"RB",2027,"Daylan Smothers","Texas",NA,"post-draft (mock pick)",0.033,0.068,0.12,22.3,2485
 "pre",519,"RB",2019,"Cullen Gillaspia","Texas A&M",220,"post-draft",0.021,0.042,0.075,24.3,1126
 "pre",520,"RB",2015,"Kenny Hilliard","LSU",235,"post-draft",0.016,0.032,0.058,23.9,971
 "pre",521,"RB",2012,"Alfred Morris","Florida Atlantic",173,"post-draft",0.025,0.054,0.1,23.7,1522
@@ -586,7 +586,7 @@
 "pre",585,"TE",2026,"Eli Stowers","Vanderbilt",54,"post-draft",0.28,0.487,0.636,23.4,8717
 "pre",586,"TE",2017,"Evan Engram","Ole Miss",23,"post-draft",0.362,0.704,0.795,23,11467
 "pre",587,"TE",2013,"Zach Ertz","Stanford",35,"post-draft",0.216,0.492,0.614,22.8,7392
-"pre",588,"TE",2027,"Patrick Overmyer","Houston",NA,"post-draft (mock pick)",0.043,0.102,0.173,22.7,1611
+"pre",588,"TE",2027,"Patrick Overmyer","Houston",NA,"post-draft (mock pick)",0.043,0.098,0.166,22.7,1582
 "pre",589,"TE",2014,"Eric Ebron","North Carolina",10,"post-draft",0.784,0.934,0.957,21.4,20919
 "pre",590,"TE",2022,"Trey McBride","Colorado State",55,"post-draft",0.144,0.311,0.449,22.8,4959
 "pre",591,"TE",2022,"Isaiah Likely","Coastal Carolina",139,"post-draft",0.046,0.113,0.188,22.4,1738
@@ -595,12 +595,12 @@
 "pre",594,"TE",2027,"Jelani Thurman","North Carolina",NA,"pre-draft (drafted-recalibrated) x P(declare)",0.0987,0.1758,0.2403,22.6,3132
 "pre",595,"TE",2018,"Mark Andrews","Oklahoma",86,"post-draft",0.146,0.27,0.408,23,4773
 "pre",596,"TE",2015,"Clive Walford","Miami",68,"post-draft",0.217,0.405,0.547,23.9,6957
-"pre",597,"TE",2027,"Eli Finley","Louisiana Tech",NA,"pre-draft (drafted-recalibrated) x P(declare)",0.0918,0.162,0.2224,22.6,2907
+"pre",597,"TE",2027,"Eli Finley","Louisiana Tech",NA,"post-draft (mock pick)",0.0143,0.0327,0.0661,22.7,566
 "pre",598,"TE",2015,"Nick O'Leary","Florida State",194,"post-draft",0.043,0.102,0.166,23,1598
 "pre",599,"TE",2014,"Austin Seferian-Jenkins","Washington",38,"post-draft",0.213,0.514,0.624,21.9,7379
 "pre",600,"TE",2026,"Tanner Koziol","Houston",164,"post-draft",0.049,0.117,0.194,22.6,1827
 "pre",601,"TE",2017,"Gerald Everett","South Alabama",44,"post-draft",0.146,0.418,0.539,23.2,5568
-"pre",602,"TE",2027,"Luke Reynolds","Virginia Tech",NA,"post-draft (mock pick)",0.119,0.338,0.455,22,4534
+"pre",602,"TE",2027,"Luke Reynolds","Virginia Tech",NA,"post-draft (mock pick)",0.301,0.513,0.659,22,9228
 "pre",603,"TE",2017,"Bucky Hodges","Virginia Tech",201,"post-draft",0.031,0.083,0.141,22.1,1229
 "pre",604,"TE",2019,"Kaden Smith","Stanford",176,"post-draft",0.049,0.107,0.186,22.4,1773
 "pre",605,"TE",2017,"David Njoku","Miami",29,"post-draft",0.27,0.608,0.717,21.1,8953
@@ -624,7 +624,7 @@
 "pre",623,"TE",2024,"Ben Sinnott","Kansas State",53,"post-draft",0.112,0.323,0.438,22.2,4315
 "pre",624,"TE",2023,"Zack Kuntz","Old Dominion",220,"post-draft",0.01,0.037,0.061,24.2,481
 "pre",625,"TE",2012,"Dwayne Allen","Clemson",64,"post-draft",0.088,0.259,0.367,22.5,3469
-"pre",626,"TE",2027,"Trey'Dez Green","LSU",NA,"post-draft (mock pick)",0.14,0.38,0.501,22,5197
+"pre",626,"TE",2027,"Trey'Dez Green","LSU",NA,"post-draft (mock pick)",0.27,0.583,0.696,22,8923
 "pre",627,"TE",2022,"Charlie Kolar","Iowa State",128,"post-draft",0.015,0.061,0.094,23.6,737
 "pre",628,"TE",2020,"Brycen Hopkins","Purdue",136,"post-draft",0.026,0.087,0.136,23.4,1139
 "pre",629,"TE",2025,"Oronde Gadsden II","Syracuse",165,"post-draft",0.016,0.059,0.093,22.2,745
@@ -642,10 +642,10 @@
 "pre",641,"TE",2025,"Terrance Ferguson","Oregon",46,"post-draft",0.14,0.38,0.501,22.5,5221
 "pre",642,"TE",2017,"Jonnu Smith","Florida International",100,"post-draft",0.036,0.136,0.204,22,1643
 "pre",643,"TE",2017,"Mason Schreck","Buffalo",251,"post-draft",0.007,0.028,0.045,23.8,357
-"pre",644,"TE",2027,"Caleb Odom","Ole Miss",NA,"post-draft (mock pick)",0.013,0.048,0.076,22,609
+"pre",644,"TE",2027,"Caleb Odom","Ole Miss",NA,"post-draft (mock pick)",0.0067,0.024,0.044,22,333
 "pre",645,"TE",2017,"O.J. Howard","Alabama",19,"post-draft",0.446,0.772,0.847,22.8,13503
 "pre",646,"TE",2024,"Cade Stover","Ohio State",123,"post-draft",0.027,0.096,0.148,24.2,1209
-"pre",647,"TE",2027,"Rocky Beers","Oklahoma",NA,"pre-draft (drafted-recalibrated) x P(declare)",0.0815,0.1896,0.2537,23.6,2864
+"pre",647,"TE",2027,"Rocky Beers","Oklahoma",NA,"post-draft (mock pick)",0.0027,0.0103,0.0274,23.3,172
 "pre",648,"TE",2012,"Ladarius Green","Louisiana",110,"post-draft",0.036,0.12,0.185,22.3,1553
 "pre",649,"TE",2011,"Rob Housler","Florida Atlantic",69,"post-draft",0.061,0.212,0.322,23.5,2673
 "pre",650,"TE",2027,"Walker Lyons","BYU",NA,"pre-draft (drafted-recalibrated) x P(declare)",0.0221,0.1056,0.1677,22.6,1190
@@ -870,7 +870,7 @@
 "pre",869,"WR",2012,"A.J. Jenkins","Illinois",30,"post-draft",0.157,0.299,0.411,23,11618
 "pre",870,"WR",2017,"Josh Malone","Tennessee",128,"post-draft",0.112,0.166,0.272,21.4,9906
 "pre",871,"WR",2014,"Allen Robinson","Penn State",61,"post-draft",0.235,0.308,0.473,21,19061
-"pre",872,"WR",2027,"Charlie Becker","Indiana",NA,"post-draft (mock pick)",0.615,0.781,0.862,22,38012
+"pre",872,"WR",2027,"Charlie Becker","Indiana",NA,"post-draft (mock pick)",0.575,0.751,0.841,22,36233
 "pre",873,"WR",2013,"Terrance Williams","Baylor",74,"post-draft",0.176,0.239,0.381,24,9637
 "pre",874,"WR",2020,"Michael Pittman Jr.","USC",34,"post-draft",0.326,0.386,0.556,22.9,18567
 "pre",875,"WR",2023,"Josh Downs","North Carolina",79,"post-draft",0.184,0.256,0.39,22.1,13247
@@ -879,7 +879,7 @@
 "pre",878,"WR",2022,"Jahan Dotson","Penn State",16,"post-draft",0.317,0.502,0.629,22.4,21936
 "pre",879,"WR",2027,"Joseph Williams","Colorado",NA,"pre-draft (drafted-recalibrated) x P(declare)",0.0521,0.1029,0.1365,21.6,5452
 "pre",880,"WR",2014,"Kelvin Benjamin","Florida State",28,"post-draft",0.217,0.383,0.528,23.6,13946
-"pre",881,"WR",2027,"KJ Duff","Rutgers",NA,"post-draft (mock pick)",0.246,0.422,0.562,22,19345
+"pre",881,"WR",2027,"KJ Duff","Rutgers",NA,"post-draft (mock pick)",0.199,0.357,0.494,22,16394
 "pre",882,"WR",2022,"Drake London","USC",8,"post-draft",0.593,0.76,0.842,21.1,41176
 "pre",883,"WR",2019,"Marquise Brown","Oklahoma",25,"post-draft",0.215,0.39,0.543,22.2,17272
 "pre",884,"WR",2018,"Calvin Ridley","Alabama",26,"post-draft",0.261,0.422,0.569,23.7,15615
@@ -888,7 +888,7 @@
 "pre",887,"WR",2020,"Jerry Jeudy","Alabama",15,"post-draft",0.403,0.574,0.707,21.4,29721
 "pre",888,"WR",2013,"Tavon Austin","West Virginia",8,"post-draft",0.519,0.707,0.809,23.5,27914
 "pre",889,"WR",2020,"Brandon Aiyuk","Arizona State",25,"post-draft",0.247,0.396,0.539,22.5,17442
-"pre",890,"WR",2027,"Mike Matthews","Tennessee",NA,"post-draft (mock pick)",0.095,0.133,0.231,22,7587
+"pre",890,"WR",2027,"Mike Matthews","Tennessee",NA,"post-draft (mock pick)",0.117,0.161,0.274,22,9032
 "pre",891,"WR",2010,"Demaryius Thomas","Georgia Tech",22,"post-draft",0.255,0.436,0.583,22.7,18069
 "pre",892,"WR",2016,"Corey Coleman","Baylor",15,"post-draft",0.359,0.562,0.696,22.2,25212
 "pre",893,"WR",2023,"Marvin Mims","Oklahoma",63,"post-draft",0.21,0.288,0.429,21.5,16197
@@ -904,8 +904,8 @@
 "pre",903,"WR",2017,"Isaiah Ford","Virginia Tech",237,"post-draft",0.02,0.048,0.077,21.6,3038
 "pre",904,"WR",2019,"Kelvin Harmon","NC State",206,"post-draft",0.025,0.056,0.099,22.7,2756
 "pre",905,"WR",2027,"Collin Dixon","Illinois",NA,"pre-draft (drafted-recalibrated) x P(declare)",0.0764,0.1469,0.191,22.6,6247
-"pre",906,"WR",2027,"Nick Marsh","Indiana",NA,"post-draft (mock pick)",0.391,0.589,0.715,22,27405
-"pre",907,"WR",2027,"Reed Harris","Arizona State",NA,"post-draft (mock pick)",0.266,0.343,0.506,22.5,16917
+"pre",906,"WR",2027,"Nick Marsh","Indiana",NA,"post-draft (mock pick)",0.371,0.569,0.698,22,26378
+"pre",907,"WR",2027,"Reed Harris","Arizona State",NA,"post-draft (mock pick)",0.117,0.228,0.342,22.5,9850
 "pre",908,"WR",2026,"Carnell Tate","Ohio State",4,"post-draft",0.78,0.888,0.933,21.6,47076
 "pre",909,"WR",2012,"Justin Blackmon","Oklahoma State",5,"post-draft",0.73,0.861,0.91,22.6,39990
 "pre",910,"WR",2014,"Jordan Matthews","Vanderbilt",42,"post-draft",0.107,0.21,0.324,22.6,9017
@@ -919,16 +919,16 @@
 "pre",918,"WR",2013,"Quinton Patton","Louisiana Tech",128,"post-draft",0.049,0.103,0.167,23.1,4267
 "pre",919,"WR",2017,"Chris Godwin","Penn State",84,"post-draft",0.06,0.136,0.207,21.5,7073
 "pre",920,"WR",2017,"John Ross","Washington",9,"post-draft",0.485,0.7,0.795,21.8,33348
-"pre",921,"WR",2027,"Carlos Hernandez","Wake Forest",NA,"post-draft (mock pick)",0.011,0.025,0.044,22.5,1605
+"pre",921,"WR",2027,"Carlos Hernandez","Wake Forest",NA,"post-draft (mock pick)",0.0087,0.0201,0.0375,22.5,1418
 "pre",922,"WR",2018,"Deon Cain","Clemson",185,"post-draft",0.029,0.058,0.1,22.1,3299
 "pre",923,"WR",2012,"Rishard Matthews","Nevada",227,"post-draft",0.02,0.045,0.071,22.9,2158
 "pre",924,"WR",2017,"Mike Williams","Clemson",7,"post-draft",0.589,0.78,0.855,22.9,33294
 "pre",925,"WR",2015,"Stefon Diggs","Maryland",146,"post-draft",0.037,0.075,0.128,21.8,4296
 "pre",926,"WR",2023,"Zay Flowers","Boston College",22,"post-draft",0.182,0.343,0.463,23,13252
 "pre",927,"WR",2012,"Chris Givens","Wake Forest",96,"post-draft",0.054,0.116,0.177,22.7,4987
-"pre",928,"WR",2027,"Ryan Wingo","Texas",NA,"post-draft (mock pick)",0.066,0.136,0.216,22,6685
+"pre",928,"WR",2027,"Ryan Wingo","Texas",NA,"post-draft (mock pick)",0.08,0.163,0.254,22,7845
 "pre",929,"WR",2017,"Zay Jones","East Carolina",37,"post-draft",0.114,0.241,0.345,22.4,10149
-"pre",930,"WR",2027,"Bryant Wesco Jr.","Clemson",NA,"post-draft (mock pick)",0.059,0.123,0.197,22,6113
+"pre",930,"WR",2027,"Bryant Wesco Jr.","Clemson",NA,"post-draft (mock pick)",0.063,0.131,0.209,22,6459
 "pre",931,"WR",2020,"KJ Hamler","Penn State",46,"post-draft",0.151,0.263,0.389,21.2,14354
 "pre",932,"WR",2015,"Devin Funchess","Michigan",41,"post-draft",0.209,0.357,0.5,21.3,18604
 "pre",933,"WR",2012,"Jarius Wright","Arkansas",118,"post-draft",0.032,0.07,0.109,22.8,3159
@@ -958,7 +958,7 @@
 "pre",957,"WR",2023,"Xavier Hutchinson","Iowa State",205,"post-draft",0.024,0.056,0.089,23.2,2395
 "pre",958,"WR",2021,"Seth Williams","Auburn",219,"post-draft",0.022,0.052,0.089,21.4,3447
 "pre",959,"WR",2025,"Travis Hunter","Colorado",2,"post-draft",0.887,0.946,0.968,22.6,45954
-"pre",960,"WR",2027,"Ryan Williams","Alabama",NA,"post-draft (mock pick)",0.165,0.306,0.436,22,14117
+"pre",960,"WR",2027,"Ryan Williams","Alabama",NA,"post-draft (mock pick)",0.17,0.313,0.444,22,14439
 "pre",961,"WR",2016,"Leonte Carroo","Rutgers",86,"post-draft",0.063,0.133,0.214,22.6,5854
 "pre",962,"WR",2026,"CJ Williams","Stanford",203,"post-draft",0.015,0.032,0.056,23.9,1395
 "pre",963,"WR",2027,"Jackson Harris","LSU",NA,"post-draft (mock pick)",0.132,0.254,0.374,22.5,10896
@@ -988,7 +988,7 @@
 "pre",987,"WR",2027,"Micah Gilbert","Notre Dame",NA,"pre-draft (drafted-recalibrated) x P(declare)",0.0356,0.0604,0.081,21.6,3723
 "pre",988,"WR",2011,"Jonathan Baldwin","Pittsburgh",26,"post-draft",0.212,0.367,0.504,22.1,16751
 "pre",989,"WR",2027,"Cayden Lee","Missouri",NA,"pre-draft (drafted-recalibrated) x P(declare)",0.057,0.103,0.1428,22.6,4711
-"pre",990,"WR",2027,"Wyatt Young","Oklahoma State",NA,"post-draft (mock pick)",0.052,0.108,0.176,22,5491
+"pre",990,"WR",2027,"Wyatt Young","Oklahoma State",NA,"post-draft (mock pick)",0.068,0.139,0.221,22,6834
 "pre",991,"WR",2021,"Anthony Schwartz","Auburn",91,"post-draft",0.056,0.124,0.202,21,7404
 "pre",992,"WR",2014,"Jeremy Gallon","Michigan",244,"post-draft",0.013,0.029,0.051,23.6,1365
 "pre",993,"WR",2027,"Lawayne McCoy","Louisville",NA,"pre-draft (drafted-recalibrated) x P(declare)",0.0354,0.0592,0.0789,21.6,3677
@@ -1065,323 +1065,324 @@
 "pre",1064,"WR",2020,"Antonio Gandy-Golden","Liberty",142,"post-draft",0.027,0.053,0.091,22.4,2888
 "pre",1065,"WR",2013,"Marquess Wilson","Washington State",236,"post-draft",0.02,0.043,0.074,21,3410
 "pre",1066,"WR",2015,"Jamison Crowder","Duke",105,"post-draft",0.041,0.082,0.138,22.2,4254
-"pre",1067,"WR",2025,"Dont'e Thornton","Tennessee",108,"post-draft",0.029,0.063,0.105,22.8,2949
-"pre",1068,"WR",2026,"Kevin Coleman","Missouri",177,"post-draft",0.019,0.04,0.069,23,2001
-"pre",1069,"WR",2021,"Jaylen Waddle","Alabama",6,"post-draft",0.611,0.79,0.87,22.8,34548
-"pre",1070,"WR",2017,"Chad Hansen","California",141,"post-draft",0.031,0.073,0.115,22.6,3351
-"pre",1071,"WR",2026,"Omar Cooper","Indiana",30,"post-draft",0.142,0.27,0.393,22.7,11198
-"pre",1072,"WR",2017,"DeAngelo Yancey","Purdue",175,"post-draft",0.018,0.043,0.069,22.8,2109
-"pre",1073,"WR",2023,"Jonathan Mingo","Ole Miss",39,"post-draft",0.087,0.183,0.27,22.4,7932
-"pre",1074,"WR",2016,"Demarcus Robinson","Florida",126,"post-draft",0.043,0.092,0.154,21.9,4887
-"pre",1075,"WR",2017,"Josh Reynolds","Texas A&M",117,"post-draft",0.04,0.093,0.145,22.5,4198
-"pre",1076,"WR",2014,"Martavis Bryant","Clemson",118,"post-draft",0.036,0.076,0.129,22.7,3565
-"pre",1077,"WR",2013,"Justin Brown","Oklahoma",186,"post-draft",0.019,0.042,0.071,22.5,2287
-"pre",1078,"WR",2018,"Auden Tate","Florida State",253,"post-draft",0.024,0.049,0.085,21.6,3250
-"pre",1079,"WR",2024,"Brenden Rice","USC",225,"post-draft",0.015,0.033,0.056,22.5,1927
-"pre",1080,"WR",2020,"Quintez Cephus","Wisconsin",166,"post-draft",0.037,0.072,0.121,22.4,3690
-"pre",1081,"WR",2025,"KeAndre Lambert-Smith","Auburn",158,"post-draft",0.018,0.04,0.068,23.9,1633
-"pre",1082,"WR",2020,"Tyler Johnson","Minnesota",161,"post-draft",0.023,0.046,0.079,22,2826
-"pre",1083,"WR",2011,"Tandon Doss","Indiana",123,"post-draft",0.048,0.097,0.159,21.9,5153
-"pre",1084,"WR",2011,"Randall Cobb","Kentucky",64,"post-draft",0.105,0.202,0.308,21,11454
-"pre",1085,"WR",2012,"Stephen Hill","Georgia Tech",43,"post-draft",0.124,0.245,0.346,21.4,12359
-"pre",1086,"WR",2016,"Daniel Braverman","Western Michigan",230,"post-draft",0.017,0.039,0.068,22.9,1971
-"pre",1087,"WR",2018,"Equanimeous St. Brown","Notre Dame",207,"post-draft",0.024,0.047,0.083,21.9,2976
-"pre",1088,"WR",2015,"Devin Smith","Ohio State",37,"post-draft",0.122,0.226,0.345,23.5,8534
-"pre",1089,"WR",2024,"Roman Wilson","Michigan",84,"post-draft",0.043,0.092,0.151,23.2,3782
-"pre",1090,"WR",2012,"Ryan Broyles","Oklahoma",54,"post-draft",0.09,0.184,0.27,24.4,5880
-"pre",1091,"WR",2019,"Riley Ridley","Georgia",126,"post-draft",0.035,0.078,0.136,23.1,3346
-"pre",1092,"WR",2015,"Kaelin Clay","Utah",184,"post-draft",0.044,0.088,0.148,23.7,3422
-"pre",1093,"WR",2018,"Javon Wims","Georgia",224,"post-draft",0.024,0.049,0.085,24,1951
-"pre",1094,"WR",2015,"Bud Sasser","Missouri",201,"post-draft",0.016,0.032,0.057,23.6,1515
-"pre",1095,"WR",2019,"Gary Jennings Jr","West Virginia",120,"post-draft",0.021,0.048,0.086,22.5,2548
-"pre",1096,"WR",2014,"Jared Abbrederis","Wisconsin",176,"post-draft",0.022,0.047,0.082,23.7,1968
-"pre",1097,"WR",2018,"Marcell Ateman","Oklahoma State",228,"post-draft",0.018,0.036,0.064,24,1533
-"pre",1098,"WR",2026,"Denzel Boston","Washington",39,"post-draft",0.115,0.225,0.338,22.7,9408
-"pre",1099,"WR",2021,"Rashod Bateman","Minnesota",27,"post-draft",0.223,0.408,0.551,21.8,18945
-"pre",1100,"WR",2026,"Ted Hurst","Georgia State",84,"post-draft",0.061,0.127,0.204,22.2,6064
-"pre",1101,"WR",2026,"Germie Bernard","Alabama",47,"post-draft",0.093,0.185,0.285,22.7,7841
-"pre",1102,"WR",2021,"Nico Collins","Michigan",89,"post-draft",0.053,0.119,0.194,22.5,5323
-"pre",1103,"WR",2013,"Tavarres King","Georgia",161,"post-draft",0.021,0.045,0.077,23.1,2133
-"pre",1104,"WR",2026,"Jordyn Tyson","Arizona State",8,"post-draft",0.595,0.766,0.852,22.1,36671
-"pre",1105,"WR",2023,"Parker Washington","Penn State",185,"post-draft",0.025,0.057,0.091,21.4,3637
-"pre",1106,"WR",2012,"Jeremy Ebert","Northwestern",235,"post-draft",0.013,0.03,0.049,23.4,1428
-"pre",1107,"WR",2023,"Elijah Higgins","Stanford",197,"post-draft",0.014,0.033,0.053,22.6,1830
-"pre",1108,"WR",2026,"Caleb Douglas","Texas Tech",75,"post-draft",0.051,0.107,0.173,23,4494
-"pre",1109,"WR",2018,"Jaleel Scott","New Mexico State",132,"post-draft",0.042,0.084,0.142,23.5,3402
-"pre",1110,"WR",2027,"Deuce Alexander","Ole Miss",NA,"post-draft (mock pick)",0.088,0.177,0.273,22.5,7759
-"pre",1111,"WR",2017,"ArDarius Stewart","Alabama",79,"post-draft",0.059,0.135,0.206,23.7,4732
-"pre",1112,"WR",2026,"Antonio Williams","Clemson",71,"post-draft",0.054,0.112,0.181,22.1,5548
-"pre",1113,"WR",2015,"Sammie Coates","Auburn",87,"post-draft",0.061,0.119,0.196,22.4,5660
-"pre",1114,"WR",2027,"Mario Craver","Texas A&M",NA,"post-draft (mock pick)",0.08,0.163,0.254,22,7845
-"pre",1115,"WR",2015,"DeVante Parker","Louisville",14,"post-draft",0.374,0.556,0.693,22.6,24169
-"pre",1116,"WR",2013,"Keenan Allen","California",76,"post-draft",0.079,0.161,0.251,21.3,8807
-"pre",1117,"WR",2014,"Quincy Enunwa","Nebraska",209,"post-draft",0.014,0.03,0.053,22.3,1928
-"pre",1118,"WR",2012,"Mohamed Sanu","Rutgers",83,"post-draft",0.069,0.145,0.218,23,5810
-"pre",1119,"WR",2010,"Dez Bryant","Oklahoma State",24,"post-draft",0.266,0.451,0.597,21.8,21288
-"pre",1120,"WR",2017,"Curtis Samuel","Ohio State",40,"post-draft",0.126,0.263,0.371,21.1,13647
-"pre",1121,"WR",2016,"Jakeem Grant","Texas Tech",186,"post-draft",0.017,0.038,0.065,23.8,1598
-"pre",1122,"WR",2021,"Dax Milne","BYU",258,"post-draft",0.02,0.047,0.081,22.2,2646
-"pre",1123,"WR",2018,"Dante Pettis","Washington",44,"post-draft",0.108,0.2,0.311,22.9,8380
-"pre",1124,"WR",2010,"Damian Williams","USC",77,"post-draft",0.085,0.173,0.274,22.3,7895
-"pre",1125,"WR",2014,"Josh Huff","Oregon",86,"post-draft",0.048,0.102,0.169,22.9,4396
-"pre",1126,"WR",2022,"Jalen Tolbert","South Alabama",88,"post-draft",0.051,0.105,0.165,23.5,4047
-"pre",1127,"WR",2016,"Devin Lucien","Arizona State",225,"post-draft",0.014,0.031,0.053,23.2,1560
-"pre",1128,"WR",2017,"Amara Darboh","Michigan",106,"post-draft",0.044,0.102,0.158,23.6,3721
-"pre",1129,"WR",2026,"Skyler Bell","UConn",125,"post-draft",0.024,0.052,0.088,24.2,1934
-"pre",1130,"WR",2024,"Xavier Legette","South Carolina",32,"post-draft",0.107,0.212,0.32,23.6,7697
-"pre",1131,"WR",2013,"Josh Boyce","TCU",102,"post-draft",0.049,0.103,0.168,22.3,4958
-"pre",1132,"WR",2013,"Robert Woods","USC",41,"post-draft",0.161,0.3,0.429,21.4,15233
-"pre",1133,"WR",2011,"Aldrick Robinson","SMU",178,"post-draft",0.019,0.04,0.068,22.9,2039
-"pre",1134,"WR",2010,"Mardy Gilyard","Cincinnati",99,"post-draft",0.056,0.119,0.196,23.7,4393
-"pre",1135,"WR",2023,"Andrei Iosivas","Princeton",206,"post-draft",0.027,0.062,0.098,23.9,2294
-"pre",1136,"WR",2011,"Vincent Brown","San Diego State",82,"post-draft",0.068,0.136,0.216,22.6,6049
-"pre",1137,"WR",2017,"JuJu Smith-Schuster","USC",62,"post-draft",0.097,0.21,0.306,20.8,11733
-"pre",1138,"WR",2018,"Braxton Berrios","Miami",210,"post-draft",0.018,0.036,0.063,22.9,1921
-"pre",1139,"WR",2023,"Charlie Jones","Purdue",131,"post-draft",0.023,0.053,0.085,24.8,1727
-"pre",1140,"WR",2012,"Jordan White","Western Michigan",244,"post-draft",0.014,0.032,0.051,24.6,1177
-"pre",1141,"WR",2012,"Joe Adams","Arkansas",104,"post-draft",0.04,0.087,0.134,22.6,3945
-"pre",1142,"WR",2025,"Tre Harris","Ole Miss",55,"post-draft",0.077,0.157,0.246,23.5,5879
-"pre",1143,"WR",2013,"Chris Harper","Kansas State",123,"post-draft",0.044,0.093,0.153,24,3344
-"pre",1144,"WR",2020,"John Hightower","Boise State",168,"post-draft",0.03,0.058,0.099,24.3,2172
-"pre",1145,"WR",2023,"Jordan Addison","USC",23,"post-draft",0.276,0.473,0.598,21.6,22569
-"pre",1146,"WR",2012,"Travis Benjamin","Miami",100,"post-draft",0.038,0.083,0.129,22.7,3721
-"pre",1147,"WR",2024,"Johnny Wilson","Florida State",185,"post-draft",0.016,0.035,0.06,23.4,1639
-"pre",1148,"WR",2012,"Toney Clemons","Colorado",231,"post-draft",0.014,0.031,0.05,23.9,1326
-"pre",1149,"WR",2015,"Justin Hardy","East Carolina",107,"post-draft",0.042,0.085,0.144,23.7,3310
-"pre",1150,"WR",2025,"Ricky White","UNLV",238,"post-draft",0.015,0.033,0.056,23.6,1497
-"pre",1151,"WR",2015,"Chris Conley","Georgia",76,"post-draft",0.037,0.075,0.128,22.9,3434
-"pre",1152,"WR",2018,"J'Mon Moore","Missouri",133,"post-draft",0.033,0.065,0.112,23.3,2846
-"pre",1153,"WR",2011,"Denarius Moore","Tennessee",148,"post-draft",0.027,0.057,0.096,22.7,2803
-"pre",1154,"WR",2010,"Kerry Meier","Kansas",165,"post-draft",0.021,0.046,0.08,23.8,1882
-"pre",1155,"WR",2022,"Romeo Doubs","Nevada",132,"post-draft",0.031,0.065,0.104,22.4,3283
-"pre",1156,"WR",2011,"Kealoha Pilares","Hawai'i",132,"post-draft",0.03,0.062,0.104,23.5,2580
-"pre",1157,"WR",2025,"Kaden Prather","Maryland",240,"post-draft",0.015,0.032,0.055,22.6,1858
-"pre",1158,"WR",2019,"Parris Campbell","Ohio State",59,"post-draft",0.059,0.128,0.214,22.1,6227
-"pre",1159,"WR",2012,"Juron Criner","Arizona",168,"post-draft",0.022,0.05,0.079,22.7,2441
-"pre",1160,"WR",2018,"Tre'Quan Smith","UCF",91,"post-draft",0.059,0.115,0.19,22.7,5204
-"pre",1161,"WR",2016,"Kenny Lawler","California",243,"post-draft",0.021,0.048,0.082,22.2,2698
-"pre",1162,"WR",2014,"Michael Campanaro","Wake Forest",218,"post-draft",0.014,0.031,0.055,23.6,1439
-"pre",1163,"WR",2015,"Ty Montgomery","Stanford",94,"post-draft",0.045,0.09,0.152,22.6,4262
-"pre",1164,"WR",2024,"Ricky Pearsall","Florida",31,"post-draft",0.12,0.233,0.347,24,7980
-"pre",1165,"WR",2014,"Tevin Reese","Baylor",240,"post-draft",0.012,0.027,0.047,23.7,1262
-"pre",1166,"WR",2020,"Freddie Swain","Florida",214,"post-draft",0.015,0.029,0.051,22.1,2027
-"pre",1167,"WR",2019,"Scotty Miller","Bowling Green",208,"post-draft",0.016,0.036,0.065,22.1,2287
-"pre",1168,"WR",2021,"Dez Fitzpatrick","Louisville",109,"post-draft",0.029,0.067,0.114,23.7,2580
-"pre",1169,"WR",2021,"Simi Fehoko","Stanford",179,"post-draft",0.023,0.053,0.09,23.8,2075
-"pre",1170,"WR",2017,"Ryan Switzer","North Carolina",133,"post-draft",0.027,0.065,0.104,22.8,2917
-"pre",1171,"WR",2023,"Grant Dubose","Charlotte",256,"post-draft",0.021,0.049,0.079,22.2,2687
-"pre",1172,"WR",2019,"Mecole Hardman","Georgia",56,"post-draft",0.078,0.166,0.27,21.5,8747
-"pre",1173,"WR",2014,"Jalen Saunders","Oklahoma",104,"post-draft",0.04,0.084,0.142,21.9,4564
-"pre",1174,"WR",2020,"Joe Reed","Virginia",151,"post-draft",0.022,0.044,0.076,22.7,2331
-"pre",1175,"WR",2023,"A.T. Perry","Wake Forest",195,"post-draft",0.014,0.031,0.051,23.8,1359
-"pre",1176,"WR",2010,"Antonio Brown","Central Michigan",195,"post-draft",0.032,0.07,0.12,22.1,3745
-"pre",1177,"WR",2025,"Jalen Royals","Utah State",133,"post-draft",0.038,0.082,0.135,22.5,3902
-"pre",1178,"WR",2021,"Kadarius Toney","Florida",20,"post-draft",0.162,0.316,0.452,22.6,13043
-"pre",1179,"WR",2026,"Lewis Bond","Boston College",204,"post-draft",0.015,0.032,0.055,23.3,1577
-"pre",1180,"WR",2026,"Barion Brown","LSU",190,"post-draft",0.018,0.039,0.066,22.7,2077
-"pre",1181,"WR",2024,"Devontez Walker","North Carolina",113,"post-draft",0.036,0.078,0.129,23.2,3266
-"pre",1182,"WR",2016,"Rashard Higgins","Colorado State",172,"post-draft",0.033,0.072,0.122,21.9,3990
-"pre",1183,"WR",2021,"Tutu Atwell","Louisville",57,"post-draft",0.123,0.252,0.375,21.9,11736
-"pre",1184,"WR",2011,"Niles Paul","Nebraska",155,"post-draft",0.025,0.053,0.09,22.6,2704
-"pre",1185,"WR",2025,"Dominic Lovett","Georgia",244,"post-draft",0.013,0.029,0.05,22.8,1637
-"pre",1186,"WR",2024,"Jalen McMillan","Washington",92,"post-draft",0.04,0.085,0.141,22.7,3893
-"pre",1187,"WR",2018,"Damion Ratley","Texas A&M",175,"post-draft",0.029,0.058,0.1,23.4,2524
-"pre",1188,"WR",2025,"Tez Johnson","Oregon",235,"post-draft",0.013,0.029,0.05,23.3,1453
-"pre",1189,"WR",2022,"Bo Melton","Rutgers",229,"post-draft",0.014,0.03,0.049,23.3,1487
-"pre",1190,"WR",2022,"Danny Gray","SMU",105,"post-draft",0.052,0.107,0.168,23.4,4187
-"pre",1191,"WR",2021,"Cornell Powell","Clemson",181,"post-draft",0.013,0.031,0.054,23.8,1349
-"pre",1192,"WR",2022,"Jalen Nailor","Michigan State",191,"post-draft",0.019,0.041,0.067,23.5,1802
-"pre",1193,"WR",2019,"Deebo Samuel","South Carolina",36,"post-draft",0.084,0.177,0.286,23.6,6453
-"pre",1194,"WR",2024,"Tahj Washington","USC",241,"post-draft",0.012,0.027,0.047,23.3,1381
-"pre",1195,"WR",2025,"Kyle Williams","Washington State",69,"post-draft",0.058,0.121,0.194,22.8,5199
-"pre",1196,"WR",2023,"Tyler Scott","Cincinnati",133,"post-draft",0.033,0.075,0.118,21.9,3999
-"pre",1197,"WR",2025,"Isaac TeSlaa","Arkansas",70,"post-draft",0.07,0.143,0.227,23.5,5402
-"pre",1198,"WR",2019,"Darius Slayton","Auburn",171,"post-draft",0.019,0.043,0.077,22.6,2295
-"pre",1199,"WR",2026,"Josh Cameron","Baylor",191,"post-draft",0.017,0.036,0.062,23.5,1655
-"pre",1200,"WR",2025,"LaJohntay Wester","Colorado",203,"post-draft",0.017,0.038,0.065,23.4,1735
-"pre",1201,"WR",2024,"Anthony Gould","Oregon State",142,"post-draft",0.021,0.045,0.076,23.4,1999
-"pre",1202,"WR",2016,"Charone Peake","Clemson",241,"post-draft",0.012,0.026,0.046,23.9,1191
-"pre",1203,"WR",2020,"James Proche","SMU",201,"post-draft",0.018,0.035,0.06,23.9,1529
-"pre",1204,"WR",2020,"Dezmon Patmon","Washington State",212,"post-draft",0.014,0.027,0.048,22.1,1942
-"pre",1205,"WR",2014,"Devin Street","Pittsburgh",146,"post-draft",0.025,0.054,0.094,23.4,2331
-"pre",1206,"WR",2022,"Khalil Shakir","Boise State",148,"post-draft",0.026,0.056,0.09,22.6,2775
-"pre",1207,"WR",2014,"Bruce Ellington","South Carolina",106,"post-draft",0.044,0.093,0.156,23,3996
-"pre",1208,"WR",2012,"Nick Toon","Wisconsin",122,"post-draft",0.03,0.067,0.105,23.8,2513
-"pre",1209,"WR",2013,"Ryan Swope","Texas A&M",174,"post-draft",0.019,0.041,0.07,23.6,1783
-"pre",1210,"WR",2024,"Jamari Thrash","Louisville",156,"post-draft",0.022,0.047,0.08,23.7,1957
-"pre",1211,"WR",2022,"Calvin Austin III","Memphis",138,"post-draft",0.025,0.054,0.087,23.4,2289
-"pre",1212,"WR",2010,"Marcus Easley","UConn",107,"post-draft",0.039,0.085,0.144,22.8,3813
-"pre",1213,"WR",2018,"DaeSean Hamilton","Penn State",113,"post-draft",0.039,0.076,0.13,23.5,3149
-"pre",1214,"WR",2018,"Dylan Cantrell","Texas Tech",191,"post-draft",0.019,0.038,0.067,24.2,1540
-"pre",1215,"WR",2014,"Marqise Lee","USC",39,"post-draft",0.145,0.274,0.405,22.8,11248
-"pre",1216,"WR",2023,"Justin Shorter","Florida",150,"post-draft",0.017,0.038,0.061,23.6,1642
-"pre",1217,"WR",2026,"Zavion Thomas","LSU",89,"post-draft",0.037,0.079,0.131,22.5,3798
-"pre",1218,"WR",2020,"Collin Johnson","Texas",165,"post-draft",0.021,0.042,0.072,22.9,2149
-"pre",1219,"WR",2023,"Antoine Green","North Carolina",219,"post-draft",0.011,0.025,0.04,23.8,1147
-"pre",1220,"WR",2011,"Titus Young","Boise State",44,"post-draft",0.117,0.223,0.335,22,10557
-"pre",1221,"WR",2010,"Brandon LaFell","LSU",78,"post-draft",0.051,0.109,0.181,23.8,3987
-"pre",1222,"WR",2016,"Michael Thomas","Ohio State",47,"post-draft",0.123,0.244,0.365,23.5,8914
-"pre",1223,"WR",2021,"Shi Smith","South Carolina",204,"post-draft",0.014,0.034,0.059,22.9,1757
-"pre",1224,"WR",2014,"Kevin Norwood","Alabama",123,"post-draft",0.031,0.066,0.113,24.9,2145
-"pre",1225,"WR",2012,"Junior Hemingway","Michigan",238,"post-draft",0.012,0.027,0.044,23.7,1246
-"pre",1226,"WR",2019,"Travis Fulgham","Old Dominion",184,"post-draft",0.015,0.035,0.063,24,1439
-"pre",1227,"WR",2010,"Riley Cooper","Florida",159,"post-draft",0.023,0.05,0.086,23,2362
-"pre",1228,"WR",2010,"Eric Decker","Minnesota",87,"post-draft",0.041,0.087,0.147,23.5,3444
-"pre",1229,"WR",2020,"Quez Watkins","Southern Miss",200,"post-draft",0.024,0.047,0.081,22.2,2757
-"pre",1230,"WR",2020,"K.J. Hill","Ohio State",220,"post-draft",0.017,0.033,0.057,23,1769
-"pre",1231,"WR",2021,"Josh Palmer","Tennessee",77,"post-draft",0.048,0.108,0.178,21.9,5506
-"pre",1232,"WR",2022,"Alec Pierce","Cincinnati",53,"post-draft",0.08,0.16,0.243,22.3,7302
-"pre",1233,"WR",2015,"Breshad Perriman","UCF",26,"post-draft",0.278,0.447,0.593,22,20913
-"pre",1234,"WR",2020,"Van Jefferson","Florida",57,"post-draft",0.068,0.127,0.206,24.1,4569
-"pre",1235,"WR",2014,"Robert Herron","Wyoming",185,"post-draft",0.018,0.04,0.069,22.2,2381
-"pre",1236,"WR",2021,"Rondale Moore","Purdue",49,"post-draft",0.105,0.219,0.334,21.2,11652
-"pre",1237,"WR",2020,"Tyrie Cleveland","Florida",252,"post-draft",0.012,0.024,0.042,22.9,1444
-"pre",1238,"WR",2024,"Tejhaun Palmer","UAB",191,"post-draft",0.022,0.049,0.083,24.3,1792
-"pre",1239,"WR",2026,"Cyrus Allen","Cincinnati",176,"post-draft",0.019,0.041,0.07,23.6,1783
-"pre",1240,"WR",2023,"Dontayvion Wicks","Virginia",159,"post-draft",0.03,0.069,0.109,22.2,3501
-"pre",1241,"WR",2025,"Konata Mumpfield","Pittsburgh",242,"post-draft",0.015,0.032,0.056,22.9,1735
-"pre",1242,"WR",2024,"Bub Means","Pittsburgh",170,"post-draft",0.024,0.052,0.087,23.6,2152
-"pre",1243,"WR",2015,"Kenny Bell","Nebraska",162,"post-draft",0.017,0.035,0.062,23.5,1642
-"pre",1244,"WR",2015,"Da'Ron Brown","Northern Illinois",233,"post-draft",0.013,0.027,0.048,23.9,1240
-"pre",1245,"WR",2019,"KeeSean Johnson","Fresno State",174,"post-draft",0.023,0.052,0.093,22.9,2490
-"pre",1246,"WR",2011,"Austin Pettis","Boise State",78,"post-draft",0.062,0.126,0.202,23.6,4746
-"pre",1247,"WR",2018,"Russell Gage","LSU",194,"post-draft",0.026,0.052,0.09,22.6,2716
-"pre",1248,"WR",2024,"Ryan Flournoy","Southeast Missouri State",216,"post-draft",0.018,0.04,0.068,24.8,1391
-"pre",1249,"WR",2011,"Dwayne Harris","East Carolina",176,"post-draft",0.025,0.051,0.087,24,2011
-"pre",1250,"WR",2016,"Kolby Listenbee","TCU",192,"post-draft",0.02,0.044,0.076,22.6,2329
-"pre",1251,"WR",2011,"Greg Little","North Carolina",59,"post-draft",0.093,0.182,0.28,22.3,8303
-"pre",1252,"WR",2025,"Chimere Dike","Florida",103,"post-draft",0.028,0.061,0.103,23.7,2417
-"pre",1253,"WR",2010,"Jacoby Ford","Clemson",108,"post-draft",0.03,0.065,0.112,23.1,2877
-"pre",1254,"WR",2012,"T.Y. Hilton","Florida International",92,"post-draft",0.042,0.092,0.142,22.8,3980
-"pre",1255,"WR",2018,"Courtland Sutton","SMU",40,"post-draft",0.122,0.223,0.341,22.9,9290
-"pre",1256,"WR",2026,"Malik Benson","Oregon",195,"post-draft",0.022,0.047,0.079,23.9,1880
-"pre",1257,"WR",2012,"Keshawn Martin","Michigan State",121,"post-draft",0.03,0.067,0.105,22.5,3225
-"pre",1258,"WR",2022,"Erik Ezukanma","Texas Tech",125,"post-draft",0.032,0.067,0.108,22.6,3237
-"pre",1259,"WR",2017,"Rodney Adams","South Florida",170,"post-draft",0.02,0.048,0.076,23,2187
-"pre",1260,"WR",2012,"Danny Coale","Virginia Tech",152,"post-draft",0.024,0.053,0.084,24.2,1928
-"pre",1261,"WR",2025,"Savion Williams","TCU",87,"post-draft",0.038,0.081,0.134,23.8,3049
-"pre",1262,"WR",2014,"Ryan Grant","Tulane",142,"post-draft",0.029,0.062,0.106,23.7,2472
-"pre",1263,"WR",2024,"Cornelius Johnson","Michigan",253,"post-draft",0.01,0.023,0.039,23.8,1091
-"pre",1264,"WR",2019,"Terry McLaurin","Ohio State",76,"post-draft",0.037,0.083,0.145,24,3002
-"pre",1265,"WR",2011,"Scotty McKnight","Colorado",227,"post-draft",0.016,0.034,0.058,23.6,1547
-"pre",1266,"WR",2013,"Ace Sanders","South Carolina",101,"post-draft",0.063,0.13,0.208,21.8,6681
-"pre",1267,"WR",2026,"Elijah Sarratt","Indiana",115,"post-draft",0.033,0.07,0.117,23.3,2945
-"pre",1268,"WR",2023,"Ronnie Bell","Michigan",253,"post-draft",0.009,0.021,0.034,23.6,1061
-"pre",1269,"WR",2023,"DeMario Douglas","Liberty",210,"post-draft",0.012,0.027,0.044,22.7,1578
-"pre",1270,"WR",2016,"Braxton Miller","Ohio State",85,"post-draft",0.046,0.099,0.164,23.8,3642
-"pre",1271,"WR",2023,"Puka Nacua","BYU",177,"post-draft",0.016,0.037,0.06,22.3,2148
-"pre",1272,"WR",2021,"Frank Darby","Arizona State",187,"post-draft",0.017,0.041,0.07,24,1600
-"pre",1273,"WR",2017,"Robert Davis","Georgia State",209,"post-draft",0.012,0.029,0.047,22.4,1761
-"pre",1274,"WR",2018,"Ray-Ray McCloud","Clemson",187,"post-draft",0.031,0.063,0.108,21.9,3660
-"pre",1275,"WR",2024,"Malachi Corley","Western Kentucky",65,"post-draft",0.063,0.131,0.21,22.5,5900
-"pre",1276,"WR",2011,"Kris Durham","Georgia",107,"post-draft",0.041,0.084,0.138,23.5,3353
-"pre",1277,"WR",2026,"Bryce Lance","North Dakota State",136,"post-draft",0.027,0.058,0.098,24,2204
-"pre",1278,"WR",2010,"Terrence Austin","UCLA",219,"post-draft",0.015,0.034,0.059,22,2232
-"pre",1279,"WR",2015,"Andre Debose","Florida",221,"post-draft",0.014,0.029,0.051,25,1064
-"pre",1280,"WR",2017,"Noah Brown","Ohio State",239,"post-draft",0.016,0.038,0.061,21.7,2530
-"pre",1281,"WR",2015,"Darren Waller","Georgia Tech",204,"post-draft",0.022,0.046,0.08,22.6,2444
-"pre",1282,"WR",2026,"Reggie Virgil","Texas Tech",143,"post-draft",0.026,0.057,0.096,22.3,3027
-"pre",1283,"WR",2016,"Tyreek Hill","Oklahoma State",165,"post-draft",0.027,0.059,0.101,22.5,2993
-"pre",1284,"WR",2024,"Casey Washington","Illinois",187,"post-draft",0.015,0.033,0.056,23.5,1529
-"pre",1285,"WR",2024,"Ladd McConkey","Georgia",34,"post-draft",0.166,0.308,0.438,22.8,12538
-"pre",1286,"WR",2024,"Devaughn Vele","Utah",235,"post-draft",0.01,0.023,0.039,26.7,650
-"pre",1287,"WR",2022,"Michael Woods II","Oklahoma",202,"post-draft",0.019,0.04,0.066,22.5,2219
-"pre",1288,"WR",2023,"Jalen Brooks","South Carolina",244,"post-draft",0.019,0.044,0.071,23.3,1943
-"pre",1289,"WR",2022,"Velus Jones Jr.","Tennessee",71,"post-draft",0.058,0.119,0.185,24.6,3824
-"pre",1290,"WR",2025,"Jimmy Horn","Colorado",208,"post-draft",0.015,0.033,0.057,23,1716
-"pre",1291,"WR",2020,"Lynn Bowden Jr.","Kentucky",80,"post-draft",0.074,0.138,0.222,22.9,5972
-"pre",1292,"WR",2017,"Kenny Golladay","Northern Illinois",96,"post-draft",0.046,0.106,0.164,23.8,3732
-"pre",1293,"WR",2016,"Malcolm Mitchell","Georgia",112,"post-draft",0.03,0.066,0.112,24.1,2408
-"pre",1294,"WR",2015,"Evan Spencer","Ohio State",187,"post-draft",0.016,0.033,0.058,22.3,2070
-"pre",1295,"WR",2016,"Cody Core","Ole Miss",199,"post-draft",0.018,0.04,0.069,22.4,2268
-"pre",1296,"WR",2021,"Jacob Harris","UCF",141,"post-draft",0.02,0.046,0.08,24.4,1663
-"pre",1297,"WR",2021,"Dazz Newsome","North Carolina",221,"post-draft",0.016,0.039,0.067,22.3,2236
-"pre",1298,"WR",2022,"Samori Toure","Nebraska",258,"post-draft",0.018,0.038,0.062,24.4,1439
-"pre",1299,"WR",2010,"Emmanuel Sanders","SMU",82,"post-draft",0.037,0.081,0.137,23.5,3203
-"pre",1300,"WR",2023,"Michael Wilson","Stanford",94,"post-draft",0.03,0.069,0.109,23.5,2701
-"pre",1301,"WR",2026,"Deion Burks","Oklahoma",254,"post-draft",0.009,0.019,0.033,23.6,1030
-"pre",1302,"WR",2019,"Jalen Hurd","Baylor",67,"post-draft",0.044,0.096,0.166,23.6,3686
-"pre",1303,"WR",2023,"Jayden Reed","Michigan State",50,"post-draft",0.078,0.166,0.247,23.3,6226
-"pre",1304,"WR",2014,"James Wright","LSU",239,"post-draft",0.017,0.037,0.064,22.7,2006
-"pre",1305,"WR",2026,"Kendrick Law","Kentucky",168,"post-draft",0.017,0.037,0.063,22.2,2255
-"pre",1306,"WR",2013,"Kevin Dorsey","Maryland",224,"post-draft",0.015,0.033,0.057,23.5,1535
-"pre",1307,"WR",2010,"Kyle Williams","Arizona State",206,"post-draft",0.016,0.034,0.061,22.1,2221
-"pre",1308,"WR",2024,"Jacob Cowing","Arizona",135,"post-draft",0.026,0.057,0.095,23.6,2313
-"pre",1309,"WR",2019,"Olabisi Johnson","Colorado State",247,"post-draft",0.009,0.021,0.038,22.5,1444
-"pre",1310,"WR",2020,"Darnell Mooney","Tulane",173,"post-draft",0.021,0.041,0.07,22.8,2168
-"pre",1311,"WR",2021,"Ihmir Smith-Marsette","Iowa",157,"post-draft",0.021,0.049,0.084,22,2863
-"pre",1312,"WR",2023,"Tre Tucker","Cincinnati",100,"post-draft",0.03,0.067,0.106,22.5,3233
-"pre",1313,"WR",2021,"Ben Skowronek","Notre Dame",249,"post-draft",0.01,0.024,0.042,24.2,1027
-"pre",1314,"WR",2024,"Luke McCaffrey","Rice",100,"post-draft",0.035,0.074,0.123,23.4,3032
-"pre",1315,"WR",2010,"Taylor Price","Ohio",90,"post-draft",0.043,0.092,0.155,22.9,4023
-"pre",1316,"WR",2016,"Chris Moore","Cincinnati",107,"post-draft",0.035,0.076,0.128,23.2,3205
-"pre",1317,"WR",2010,"Carlton Mitchell","South Florida",177,"post-draft",0.024,0.054,0.093,22.4,2837
-"pre",1318,"WR",2024,"Ainias Smith","Texas A&M",152,"post-draft",0.022,0.047,0.08,23.3,2117
-"pre",1319,"WR",2017,"Mack Hollins","North Carolina",118,"post-draft",0.036,0.085,0.133,24,2943
-"pre",1320,"WR",2025,"Jordan Watkins","Ole Miss",138,"post-draft",0.021,0.046,0.079,23.5,1989
-"pre",1321,"WR",2012,"LaVon Brazill","Ohio",206,"post-draft",0.015,0.034,0.055,23.5,1536
-"pre",1322,"WR",2026,"De'Zhaun Stribling","Ole Miss",33,"post-draft",0.111,0.218,0.328,23.7,7806
-"pre",1323,"WR",2017,"Jehu Chesson","Michigan",139,"post-draft",0.021,0.051,0.082,23.7,1994
-"pre",1324,"WR",2025,"Arian Smith","Georgia",110,"post-draft",0.026,0.056,0.095,23.9,2177
-"pre",1325,"WR",2021,"Kawaan Baker","South Alabama",255,"post-draft",0.009,0.022,0.039,23,1280
-"pre",1326,"WR",2011,"DeMarco Sampson","San Diego State",249,"post-draft",0.013,0.028,0.048,25.7,908
-"pre",1327,"WR",2013,"Aaron Dobson","Marshall",59,"post-draft",0.072,0.148,0.234,22.1,7075
-"pre",1328,"WR",2010,"Mike Williams","Syracuse",101,"post-draft",0.055,0.116,0.191,23.3,4600
-"pre",1329,"WR",2021,"Racey McMath","LSU",205,"post-draft",0.017,0.04,0.069,22.2,2353
-"pre",1330,"WR",2011,"Jerrel Jernigan","Troy",83,"post-draft",0.056,0.113,0.183,22.2,5531
-"pre",1331,"WR",2021,"D'Wayne Eskridge","Western Michigan",56,"post-draft",0.058,0.129,0.209,24.4,4162
-"pre",1332,"WR",2011,"Ronald Johnson","USC",182,"post-draft",0.021,0.043,0.074,23.1,2085
-"pre",1333,"WR",2025,"Jaylin Lane","Virginia Tech",128,"post-draft",0.021,0.046,0.078,23.3,2065
-"pre",1334,"WR",2016,"Trevor Davis","California",163,"post-draft",0.019,0.043,0.074,23.2,1989
-"pre",1335,"WR",2021,"Tre Nixon","UCF",242,"post-draft",0.011,0.025,0.044,23.6,1221
-"pre",1336,"WR",2010,"Dexter McCluster","Ole Miss",36,"post-draft",0.137,0.265,0.394,22,12310
-"pre",1337,"WR",2012,"Greg Childs","Arkansas",134,"post-draft",0.027,0.06,0.095,22.5,2961
-"pre",1338,"WR",2019,"Marcus Green","UL Monroe",203,"post-draft",0.016,0.036,0.065,23,1838
-"pre",1339,"WR",2026,"Anthony Smith","East Carolina",218,"post-draft",0.012,0.026,0.045,24.5,1052
-"pre",1340,"WR",2026,"Malachi Fields","Notre Dame",74,"post-draft",0.053,0.112,0.181,23,4671
-"pre",1341,"WR",2018,"Marquez Valdes-Scantling","South Florida",174,"post-draft",0.021,0.043,0.075,23.9,1783
-"pre",1342,"WR",2013,"Brice Butler","San Diego State",209,"post-draft",0.017,0.036,0.062,23.6,1621
-"pre",1343,"WR",2015,"JJ Nelson","UAB",159,"post-draft",0.016,0.034,0.059,23.4,1619
-"pre",1344,"WR",2021,"Jalen Camp","Georgia Tech",209,"post-draft",0.011,0.027,0.047,23.1,1422
-"pre",1345,"WR",2015,"Keith Mumphery","Michigan State",175,"post-draft",0.02,0.04,0.07,23.2,1949
-"pre",1346,"WR",2020,"K.J. Osborn","Miami",176,"post-draft",0.019,0.038,0.065,23.2,1864
-"pre",1347,"WR",2026,"Kaden Wetjen","Iowa",121,"post-draft",0.039,0.083,0.138,24.5,2787
-"pre",1348,"WR",2011,"Jeremy Kerley","TCU",153,"post-draft",0.027,0.057,0.097,22.8,2752
-"pre",1349,"WR",2018,"Austin Proehl","North Carolina",255,"post-draft",0.014,0.028,0.05,22.9,1610
-"pre",1350,"WR",2019,"Diontae Johnson","Toledo",66,"post-draft",0.078,0.166,0.269,23.2,6466
-"pre",1351,"WR",2015,"Geremy Davis","UConn",186,"post-draft",0.018,0.037,0.064,23.6,1671
-"pre",1352,"WR",2023,"Cedric Tillman","Tennessee",74,"post-draft",0.039,0.088,0.138,23.4,3414
-"pre",1353,"WR",2011,"David Ausberry","USC",241,"post-draft",0.013,0.028,0.048,23.6,1335
-"pre",1354,"WR",2026,"Colbie Young","Georgia",140,"post-draft",0.025,0.053,0.09,24.1,2015
-"pre",1355,"WR",2019,"Hunter Renfrow","Clemson",149,"post-draft",0.018,0.041,0.074,23.7,1744
-"pre",1356,"WR",2013,"Marquise Goodwin","Texas",78,"post-draft",0.049,0.103,0.168,22.8,4512
-"pre",1357,"WR",2010,"Dorin Dickerson","Pittsburgh",227,"post-draft",0.013,0.03,0.052,23.6,1383
-"pre",1358,"WR",2012,"Devon Wylie","Fresno State",107,"post-draft",0.032,0.071,0.111,24,2558
-"pre",1359,"WR",2018,"Richie James","Middle Tennessee",240,"post-draft",0.021,0.042,0.074,23,2116
-"pre",1360,"WR",2019,"Terry Godwin","Georgia",237,"post-draft",0.013,0.029,0.053,22.9,1618
-"pre",1361,"WR",2020,"Isaiah Coulter","Rhode Island",171,"post-draft",0.032,0.063,0.106,22,3590
-"pre",1362,"WR",2026,"CJ Daniels","Miami",197,"post-draft",0.014,0.032,0.054,24.7,1168
-"pre",1363,"WR",2024,"Jordan Whittington","Texas",213,"post-draft",0.013,0.028,0.048,23.9,1252
-"pre",1364,"WR",2014,"Matt Hazel","Coastal Carolina",190,"post-draft",0.024,0.051,0.089,22.6,2640
-"pre",1365,"WR",2021,"Marquez Stevenson","Houston",203,"post-draft",0.017,0.039,0.067,23.4,1760
-"pre",1366,"WR",2023,"Derius Davis","TCU",125,"post-draft",0.019,0.044,0.071,23,2071
-"pre",1367,"WR",2014,"Walt Powell","Murray State",196,"post-draft",0.022,0.047,0.082,22.8,2366
-"pre",1368,"WR",2011,"Ryan Whalen","Stanford",167,"post-draft",0.024,0.051,0.086,22.1,2928
-"pre",1369,"WR",2010,"Joe Webb","UAB",199,"post-draft",0.014,0.03,0.053,23.6,1415
-"pre",1370,"WR",2018,"Daurice Fountain","Northern Iowa",159,"post-draft",0.033,0.065,0.112,22.7,3199
-"pre",1371,"WR",2023,"Colton Dowell","UT Martin",228,"post-draft",0.013,0.031,0.05,24.4,1179
-"pre",1372,"WR",2025,"Junior Bergen","Montana",252,"post-draft",0.012,0.026,0.045,22.9,1493
-"pre",1373,"WR",2014,"Dri Archer","Kent State",97,"post-draft",0.035,0.075,0.127,24.6,2507
-"pre",1374,"WR",2013,"Denard Robinson","Michigan",135,"post-draft",0.028,0.06,0.101,23.6,2438
-"pre",1375,"WR",2010,"Trindon Holliday","LSU",197,"post-draft",0.011,0.025,0.044,24.3,1052
-"pre",1376,"WR",2019,"Juwann Winfree","Colorado",187,"post-draft",0.017,0.038,0.069,23,1920
-"pre",1377,"WR",2024,"Jha'Quan Jackson","Tulane",182,"post-draft",0.018,0.04,0.068,24.3,1516
-"pre",1378,"WR",2022,"Montrell Washington","Samford",162,"post-draft",0.032,0.066,0.107,23.5,2702
-"pre",1379,"WR",2017,"Cooper Kupp","Eastern Washington",69,"post-draft",0.068,0.153,0.23,24.2,4933
-"pre",1380,"WR",2015,"Dezmin Lewis","Central Arkansas",234,"post-draft",0.014,0.029,0.052,22.7,1720
-"pre",1381,"WR",2017,"Chad Williams","Grambling",98,"post-draft",0.035,0.082,0.129,22.9,3487
-"pre",1382,"WR",2015,"Tre McBride","William & Mary",245,"post-draft",0.013,0.026,0.046,22.7,1605
-"pre",1383,"WR",2025,"Tory Horton","Colorado State",166,"post-draft",0.018,0.039,0.067,22.8,2037
+"pre",1067,"WR",2027,"Wayne Harris","Kent State",NA,"pre-draft (drafted-recalibrated) x P(declare)",0.0256,0.0433,0.0588,21.6,2933
+"pre",1068,"WR",2025,"Dont'e Thornton","Tennessee",108,"post-draft",0.029,0.063,0.105,22.8,2949
+"pre",1069,"WR",2026,"Kevin Coleman","Missouri",177,"post-draft",0.019,0.04,0.069,23,2001
+"pre",1070,"WR",2021,"Jaylen Waddle","Alabama",6,"post-draft",0.611,0.79,0.87,22.8,34548
+"pre",1071,"WR",2017,"Chad Hansen","California",141,"post-draft",0.031,0.073,0.115,22.6,3351
+"pre",1072,"WR",2026,"Omar Cooper","Indiana",30,"post-draft",0.142,0.27,0.393,22.7,11198
+"pre",1073,"WR",2017,"DeAngelo Yancey","Purdue",175,"post-draft",0.018,0.043,0.069,22.8,2109
+"pre",1074,"WR",2023,"Jonathan Mingo","Ole Miss",39,"post-draft",0.087,0.183,0.27,22.4,7932
+"pre",1075,"WR",2016,"Demarcus Robinson","Florida",126,"post-draft",0.043,0.092,0.154,21.9,4887
+"pre",1076,"WR",2017,"Josh Reynolds","Texas A&M",117,"post-draft",0.04,0.093,0.145,22.5,4198
+"pre",1077,"WR",2014,"Martavis Bryant","Clemson",118,"post-draft",0.036,0.076,0.129,22.7,3565
+"pre",1078,"WR",2013,"Justin Brown","Oklahoma",186,"post-draft",0.019,0.042,0.071,22.5,2287
+"pre",1079,"WR",2018,"Auden Tate","Florida State",253,"post-draft",0.024,0.049,0.085,21.6,3250
+"pre",1080,"WR",2024,"Brenden Rice","USC",225,"post-draft",0.015,0.033,0.056,22.5,1927
+"pre",1081,"WR",2020,"Quintez Cephus","Wisconsin",166,"post-draft",0.037,0.072,0.121,22.4,3690
+"pre",1082,"WR",2025,"KeAndre Lambert-Smith","Auburn",158,"post-draft",0.018,0.04,0.068,23.9,1633
+"pre",1083,"WR",2020,"Tyler Johnson","Minnesota",161,"post-draft",0.023,0.046,0.079,22,2826
+"pre",1084,"WR",2011,"Tandon Doss","Indiana",123,"post-draft",0.048,0.097,0.159,21.9,5153
+"pre",1085,"WR",2011,"Randall Cobb","Kentucky",64,"post-draft",0.105,0.202,0.308,21,11454
+"pre",1086,"WR",2012,"Stephen Hill","Georgia Tech",43,"post-draft",0.124,0.245,0.346,21.4,12359
+"pre",1087,"WR",2016,"Daniel Braverman","Western Michigan",230,"post-draft",0.017,0.039,0.068,22.9,1971
+"pre",1088,"WR",2018,"Equanimeous St. Brown","Notre Dame",207,"post-draft",0.024,0.047,0.083,21.9,2976
+"pre",1089,"WR",2015,"Devin Smith","Ohio State",37,"post-draft",0.122,0.226,0.345,23.5,8534
+"pre",1090,"WR",2024,"Roman Wilson","Michigan",84,"post-draft",0.043,0.092,0.151,23.2,3782
+"pre",1091,"WR",2012,"Ryan Broyles","Oklahoma",54,"post-draft",0.09,0.184,0.27,24.4,5880
+"pre",1092,"WR",2019,"Riley Ridley","Georgia",126,"post-draft",0.035,0.078,0.136,23.1,3346
+"pre",1093,"WR",2015,"Kaelin Clay","Utah",184,"post-draft",0.044,0.088,0.148,23.7,3422
+"pre",1094,"WR",2018,"Javon Wims","Georgia",224,"post-draft",0.024,0.049,0.085,24,1951
+"pre",1095,"WR",2015,"Bud Sasser","Missouri",201,"post-draft",0.016,0.032,0.057,23.6,1515
+"pre",1096,"WR",2019,"Gary Jennings Jr","West Virginia",120,"post-draft",0.021,0.048,0.086,22.5,2548
+"pre",1097,"WR",2014,"Jared Abbrederis","Wisconsin",176,"post-draft",0.022,0.047,0.082,23.7,1968
+"pre",1098,"WR",2018,"Marcell Ateman","Oklahoma State",228,"post-draft",0.018,0.036,0.064,24,1533
+"pre",1099,"WR",2026,"Denzel Boston","Washington",39,"post-draft",0.115,0.225,0.338,22.7,9408
+"pre",1100,"WR",2021,"Rashod Bateman","Minnesota",27,"post-draft",0.223,0.408,0.551,21.8,18945
+"pre",1101,"WR",2026,"Ted Hurst","Georgia State",84,"post-draft",0.061,0.127,0.204,22.2,6064
+"pre",1102,"WR",2026,"Germie Bernard","Alabama",47,"post-draft",0.093,0.185,0.285,22.7,7841
+"pre",1103,"WR",2021,"Nico Collins","Michigan",89,"post-draft",0.053,0.119,0.194,22.5,5323
+"pre",1104,"WR",2013,"Tavarres King","Georgia",161,"post-draft",0.021,0.045,0.077,23.1,2133
+"pre",1105,"WR",2026,"Jordyn Tyson","Arizona State",8,"post-draft",0.595,0.766,0.852,22.1,36671
+"pre",1106,"WR",2023,"Parker Washington","Penn State",185,"post-draft",0.025,0.057,0.091,21.4,3637
+"pre",1107,"WR",2012,"Jeremy Ebert","Northwestern",235,"post-draft",0.013,0.03,0.049,23.4,1428
+"pre",1108,"WR",2023,"Elijah Higgins","Stanford",197,"post-draft",0.014,0.033,0.053,22.6,1830
+"pre",1109,"WR",2026,"Caleb Douglas","Texas Tech",75,"post-draft",0.051,0.107,0.173,23,4494
+"pre",1110,"WR",2018,"Jaleel Scott","New Mexico State",132,"post-draft",0.042,0.084,0.142,23.5,3402
+"pre",1111,"WR",2027,"Deuce Alexander","Ole Miss",NA,"post-draft (mock pick)",0.088,0.177,0.273,22.5,7759
+"pre",1112,"WR",2017,"ArDarius Stewart","Alabama",79,"post-draft",0.059,0.135,0.206,23.7,4732
+"pre",1113,"WR",2026,"Antonio Williams","Clemson",71,"post-draft",0.054,0.112,0.181,22.1,5548
+"pre",1114,"WR",2015,"Sammie Coates","Auburn",87,"post-draft",0.061,0.119,0.196,22.4,5660
+"pre",1115,"WR",2027,"Mario Craver","Texas A&M",NA,"post-draft (mock pick)",0.08,0.163,0.254,22,7845
+"pre",1116,"WR",2015,"DeVante Parker","Louisville",14,"post-draft",0.374,0.556,0.693,22.6,24169
+"pre",1117,"WR",2013,"Keenan Allen","California",76,"post-draft",0.079,0.161,0.251,21.3,8807
+"pre",1118,"WR",2014,"Quincy Enunwa","Nebraska",209,"post-draft",0.014,0.03,0.053,22.3,1928
+"pre",1119,"WR",2012,"Mohamed Sanu","Rutgers",83,"post-draft",0.069,0.145,0.218,23,5810
+"pre",1120,"WR",2010,"Dez Bryant","Oklahoma State",24,"post-draft",0.266,0.451,0.597,21.8,21288
+"pre",1121,"WR",2017,"Curtis Samuel","Ohio State",40,"post-draft",0.126,0.263,0.371,21.1,13647
+"pre",1122,"WR",2016,"Jakeem Grant","Texas Tech",186,"post-draft",0.017,0.038,0.065,23.8,1598
+"pre",1123,"WR",2021,"Dax Milne","BYU",258,"post-draft",0.02,0.047,0.081,22.2,2646
+"pre",1124,"WR",2018,"Dante Pettis","Washington",44,"post-draft",0.108,0.2,0.311,22.9,8380
+"pre",1125,"WR",2010,"Damian Williams","USC",77,"post-draft",0.085,0.173,0.274,22.3,7895
+"pre",1126,"WR",2014,"Josh Huff","Oregon",86,"post-draft",0.048,0.102,0.169,22.9,4396
+"pre",1127,"WR",2022,"Jalen Tolbert","South Alabama",88,"post-draft",0.051,0.105,0.165,23.5,4047
+"pre",1128,"WR",2016,"Devin Lucien","Arizona State",225,"post-draft",0.014,0.031,0.053,23.2,1560
+"pre",1129,"WR",2017,"Amara Darboh","Michigan",106,"post-draft",0.044,0.102,0.158,23.6,3721
+"pre",1130,"WR",2026,"Skyler Bell","UConn",125,"post-draft",0.024,0.052,0.088,24.2,1934
+"pre",1131,"WR",2024,"Xavier Legette","South Carolina",32,"post-draft",0.107,0.212,0.32,23.6,7697
+"pre",1132,"WR",2013,"Josh Boyce","TCU",102,"post-draft",0.049,0.103,0.168,22.3,4958
+"pre",1133,"WR",2013,"Robert Woods","USC",41,"post-draft",0.161,0.3,0.429,21.4,15233
+"pre",1134,"WR",2011,"Aldrick Robinson","SMU",178,"post-draft",0.019,0.04,0.068,22.9,2039
+"pre",1135,"WR",2010,"Mardy Gilyard","Cincinnati",99,"post-draft",0.056,0.119,0.196,23.7,4393
+"pre",1136,"WR",2023,"Andrei Iosivas","Princeton",206,"post-draft",0.027,0.062,0.098,23.9,2294
+"pre",1137,"WR",2011,"Vincent Brown","San Diego State",82,"post-draft",0.068,0.136,0.216,22.6,6049
+"pre",1138,"WR",2017,"JuJu Smith-Schuster","USC",62,"post-draft",0.097,0.21,0.306,20.8,11733
+"pre",1139,"WR",2018,"Braxton Berrios","Miami",210,"post-draft",0.018,0.036,0.063,22.9,1921
+"pre",1140,"WR",2023,"Charlie Jones","Purdue",131,"post-draft",0.023,0.053,0.085,24.8,1727
+"pre",1141,"WR",2012,"Jordan White","Western Michigan",244,"post-draft",0.014,0.032,0.051,24.6,1177
+"pre",1142,"WR",2012,"Joe Adams","Arkansas",104,"post-draft",0.04,0.087,0.134,22.6,3945
+"pre",1143,"WR",2025,"Tre Harris","Ole Miss",55,"post-draft",0.077,0.157,0.246,23.5,5879
+"pre",1144,"WR",2013,"Chris Harper","Kansas State",123,"post-draft",0.044,0.093,0.153,24,3344
+"pre",1145,"WR",2020,"John Hightower","Boise State",168,"post-draft",0.03,0.058,0.099,24.3,2172
+"pre",1146,"WR",2023,"Jordan Addison","USC",23,"post-draft",0.276,0.473,0.598,21.6,22569
+"pre",1147,"WR",2012,"Travis Benjamin","Miami",100,"post-draft",0.038,0.083,0.129,22.7,3721
+"pre",1148,"WR",2024,"Johnny Wilson","Florida State",185,"post-draft",0.016,0.035,0.06,23.4,1639
+"pre",1149,"WR",2012,"Toney Clemons","Colorado",231,"post-draft",0.014,0.031,0.05,23.9,1326
+"pre",1150,"WR",2015,"Justin Hardy","East Carolina",107,"post-draft",0.042,0.085,0.144,23.7,3310
+"pre",1151,"WR",2025,"Ricky White","UNLV",238,"post-draft",0.015,0.033,0.056,23.6,1497
+"pre",1152,"WR",2015,"Chris Conley","Georgia",76,"post-draft",0.037,0.075,0.128,22.9,3434
+"pre",1153,"WR",2018,"J'Mon Moore","Missouri",133,"post-draft",0.033,0.065,0.112,23.3,2846
+"pre",1154,"WR",2011,"Denarius Moore","Tennessee",148,"post-draft",0.027,0.057,0.096,22.7,2803
+"pre",1155,"WR",2010,"Kerry Meier","Kansas",165,"post-draft",0.021,0.046,0.08,23.8,1882
+"pre",1156,"WR",2022,"Romeo Doubs","Nevada",132,"post-draft",0.031,0.065,0.104,22.4,3283
+"pre",1157,"WR",2011,"Kealoha Pilares","Hawai'i",132,"post-draft",0.03,0.062,0.104,23.5,2580
+"pre",1158,"WR",2025,"Kaden Prather","Maryland",240,"post-draft",0.015,0.032,0.055,22.6,1858
+"pre",1159,"WR",2019,"Parris Campbell","Ohio State",59,"post-draft",0.059,0.128,0.214,22.1,6227
+"pre",1160,"WR",2012,"Juron Criner","Arizona",168,"post-draft",0.022,0.05,0.079,22.7,2441
+"pre",1161,"WR",2018,"Tre'Quan Smith","UCF",91,"post-draft",0.059,0.115,0.19,22.7,5204
+"pre",1162,"WR",2016,"Kenny Lawler","California",243,"post-draft",0.021,0.048,0.082,22.2,2698
+"pre",1163,"WR",2014,"Michael Campanaro","Wake Forest",218,"post-draft",0.014,0.031,0.055,23.6,1439
+"pre",1164,"WR",2015,"Ty Montgomery","Stanford",94,"post-draft",0.045,0.09,0.152,22.6,4262
+"pre",1165,"WR",2024,"Ricky Pearsall","Florida",31,"post-draft",0.12,0.233,0.347,24,7980
+"pre",1166,"WR",2014,"Tevin Reese","Baylor",240,"post-draft",0.012,0.027,0.047,23.7,1262
+"pre",1167,"WR",2020,"Freddie Swain","Florida",214,"post-draft",0.015,0.029,0.051,22.1,2027
+"pre",1168,"WR",2019,"Scotty Miller","Bowling Green",208,"post-draft",0.016,0.036,0.065,22.1,2287
+"pre",1169,"WR",2021,"Dez Fitzpatrick","Louisville",109,"post-draft",0.029,0.067,0.114,23.7,2580
+"pre",1170,"WR",2021,"Simi Fehoko","Stanford",179,"post-draft",0.023,0.053,0.09,23.8,2075
+"pre",1171,"WR",2017,"Ryan Switzer","North Carolina",133,"post-draft",0.027,0.065,0.104,22.8,2917
+"pre",1172,"WR",2023,"Grant Dubose","Charlotte",256,"post-draft",0.021,0.049,0.079,22.2,2687
+"pre",1173,"WR",2019,"Mecole Hardman","Georgia",56,"post-draft",0.078,0.166,0.27,21.5,8747
+"pre",1174,"WR",2014,"Jalen Saunders","Oklahoma",104,"post-draft",0.04,0.084,0.142,21.9,4564
+"pre",1175,"WR",2020,"Joe Reed","Virginia",151,"post-draft",0.022,0.044,0.076,22.7,2331
+"pre",1176,"WR",2023,"A.T. Perry","Wake Forest",195,"post-draft",0.014,0.031,0.051,23.8,1359
+"pre",1177,"WR",2010,"Antonio Brown","Central Michigan",195,"post-draft",0.032,0.07,0.12,22.1,3745
+"pre",1178,"WR",2025,"Jalen Royals","Utah State",133,"post-draft",0.038,0.082,0.135,22.5,3902
+"pre",1179,"WR",2021,"Kadarius Toney","Florida",20,"post-draft",0.162,0.316,0.452,22.6,13043
+"pre",1180,"WR",2026,"Lewis Bond","Boston College",204,"post-draft",0.015,0.032,0.055,23.3,1577
+"pre",1181,"WR",2026,"Barion Brown","LSU",190,"post-draft",0.018,0.039,0.066,22.7,2077
+"pre",1182,"WR",2024,"Devontez Walker","North Carolina",113,"post-draft",0.036,0.078,0.129,23.2,3266
+"pre",1183,"WR",2016,"Rashard Higgins","Colorado State",172,"post-draft",0.033,0.072,0.122,21.9,3990
+"pre",1184,"WR",2021,"Tutu Atwell","Louisville",57,"post-draft",0.123,0.252,0.375,21.9,11736
+"pre",1185,"WR",2011,"Niles Paul","Nebraska",155,"post-draft",0.025,0.053,0.09,22.6,2704
+"pre",1186,"WR",2025,"Dominic Lovett","Georgia",244,"post-draft",0.013,0.029,0.05,22.8,1637
+"pre",1187,"WR",2024,"Jalen McMillan","Washington",92,"post-draft",0.04,0.085,0.141,22.7,3893
+"pre",1188,"WR",2018,"Damion Ratley","Texas A&M",175,"post-draft",0.029,0.058,0.1,23.4,2524
+"pre",1189,"WR",2025,"Tez Johnson","Oregon",235,"post-draft",0.013,0.029,0.05,23.3,1453
+"pre",1190,"WR",2022,"Bo Melton","Rutgers",229,"post-draft",0.014,0.03,0.049,23.3,1487
+"pre",1191,"WR",2022,"Danny Gray","SMU",105,"post-draft",0.052,0.107,0.168,23.4,4187
+"pre",1192,"WR",2021,"Cornell Powell","Clemson",181,"post-draft",0.013,0.031,0.054,23.8,1349
+"pre",1193,"WR",2022,"Jalen Nailor","Michigan State",191,"post-draft",0.019,0.041,0.067,23.5,1802
+"pre",1194,"WR",2019,"Deebo Samuel","South Carolina",36,"post-draft",0.084,0.177,0.286,23.6,6453
+"pre",1195,"WR",2024,"Tahj Washington","USC",241,"post-draft",0.012,0.027,0.047,23.3,1381
+"pre",1196,"WR",2025,"Kyle Williams","Washington State",69,"post-draft",0.058,0.121,0.194,22.8,5199
+"pre",1197,"WR",2023,"Tyler Scott","Cincinnati",133,"post-draft",0.033,0.075,0.118,21.9,3999
+"pre",1198,"WR",2025,"Isaac TeSlaa","Arkansas",70,"post-draft",0.07,0.143,0.227,23.5,5402
+"pre",1199,"WR",2019,"Darius Slayton","Auburn",171,"post-draft",0.019,0.043,0.077,22.6,2295
+"pre",1200,"WR",2026,"Josh Cameron","Baylor",191,"post-draft",0.017,0.036,0.062,23.5,1655
+"pre",1201,"WR",2025,"LaJohntay Wester","Colorado",203,"post-draft",0.017,0.038,0.065,23.4,1735
+"pre",1202,"WR",2024,"Anthony Gould","Oregon State",142,"post-draft",0.021,0.045,0.076,23.4,1999
+"pre",1203,"WR",2016,"Charone Peake","Clemson",241,"post-draft",0.012,0.026,0.046,23.9,1191
+"pre",1204,"WR",2020,"James Proche","SMU",201,"post-draft",0.018,0.035,0.06,23.9,1529
+"pre",1205,"WR",2020,"Dezmon Patmon","Washington State",212,"post-draft",0.014,0.027,0.048,22.1,1942
+"pre",1206,"WR",2014,"Devin Street","Pittsburgh",146,"post-draft",0.025,0.054,0.094,23.4,2331
+"pre",1207,"WR",2022,"Khalil Shakir","Boise State",148,"post-draft",0.026,0.056,0.09,22.6,2775
+"pre",1208,"WR",2014,"Bruce Ellington","South Carolina",106,"post-draft",0.044,0.093,0.156,23,3996
+"pre",1209,"WR",2012,"Nick Toon","Wisconsin",122,"post-draft",0.03,0.067,0.105,23.8,2513
+"pre",1210,"WR",2013,"Ryan Swope","Texas A&M",174,"post-draft",0.019,0.041,0.07,23.6,1783
+"pre",1211,"WR",2024,"Jamari Thrash","Louisville",156,"post-draft",0.022,0.047,0.08,23.7,1957
+"pre",1212,"WR",2022,"Calvin Austin III","Memphis",138,"post-draft",0.025,0.054,0.087,23.4,2289
+"pre",1213,"WR",2010,"Marcus Easley","UConn",107,"post-draft",0.039,0.085,0.144,22.8,3813
+"pre",1214,"WR",2018,"DaeSean Hamilton","Penn State",113,"post-draft",0.039,0.076,0.13,23.5,3149
+"pre",1215,"WR",2018,"Dylan Cantrell","Texas Tech",191,"post-draft",0.019,0.038,0.067,24.2,1540
+"pre",1216,"WR",2014,"Marqise Lee","USC",39,"post-draft",0.145,0.274,0.405,22.8,11248
+"pre",1217,"WR",2023,"Justin Shorter","Florida",150,"post-draft",0.017,0.038,0.061,23.6,1642
+"pre",1218,"WR",2026,"Zavion Thomas","LSU",89,"post-draft",0.037,0.079,0.131,22.5,3798
+"pre",1219,"WR",2020,"Collin Johnson","Texas",165,"post-draft",0.021,0.042,0.072,22.9,2149
+"pre",1220,"WR",2023,"Antoine Green","North Carolina",219,"post-draft",0.011,0.025,0.04,23.8,1147
+"pre",1221,"WR",2011,"Titus Young","Boise State",44,"post-draft",0.117,0.223,0.335,22,10557
+"pre",1222,"WR",2010,"Brandon LaFell","LSU",78,"post-draft",0.051,0.109,0.181,23.8,3987
+"pre",1223,"WR",2016,"Michael Thomas","Ohio State",47,"post-draft",0.123,0.244,0.365,23.5,8914
+"pre",1224,"WR",2021,"Shi Smith","South Carolina",204,"post-draft",0.014,0.034,0.059,22.9,1757
+"pre",1225,"WR",2014,"Kevin Norwood","Alabama",123,"post-draft",0.031,0.066,0.113,24.9,2145
+"pre",1226,"WR",2012,"Junior Hemingway","Michigan",238,"post-draft",0.012,0.027,0.044,23.7,1246
+"pre",1227,"WR",2019,"Travis Fulgham","Old Dominion",184,"post-draft",0.015,0.035,0.063,24,1439
+"pre",1228,"WR",2010,"Riley Cooper","Florida",159,"post-draft",0.023,0.05,0.086,23,2362
+"pre",1229,"WR",2010,"Eric Decker","Minnesota",87,"post-draft",0.041,0.087,0.147,23.5,3444
+"pre",1230,"WR",2020,"Quez Watkins","Southern Miss",200,"post-draft",0.024,0.047,0.081,22.2,2757
+"pre",1231,"WR",2020,"K.J. Hill","Ohio State",220,"post-draft",0.017,0.033,0.057,23,1769
+"pre",1232,"WR",2021,"Josh Palmer","Tennessee",77,"post-draft",0.048,0.108,0.178,21.9,5506
+"pre",1233,"WR",2022,"Alec Pierce","Cincinnati",53,"post-draft",0.08,0.16,0.243,22.3,7302
+"pre",1234,"WR",2015,"Breshad Perriman","UCF",26,"post-draft",0.278,0.447,0.593,22,20913
+"pre",1235,"WR",2020,"Van Jefferson","Florida",57,"post-draft",0.068,0.127,0.206,24.1,4569
+"pre",1236,"WR",2014,"Robert Herron","Wyoming",185,"post-draft",0.018,0.04,0.069,22.2,2381
+"pre",1237,"WR",2021,"Rondale Moore","Purdue",49,"post-draft",0.105,0.219,0.334,21.2,11652
+"pre",1238,"WR",2020,"Tyrie Cleveland","Florida",252,"post-draft",0.012,0.024,0.042,22.9,1444
+"pre",1239,"WR",2024,"Tejhaun Palmer","UAB",191,"post-draft",0.022,0.049,0.083,24.3,1792
+"pre",1240,"WR",2026,"Cyrus Allen","Cincinnati",176,"post-draft",0.019,0.041,0.07,23.6,1783
+"pre",1241,"WR",2023,"Dontayvion Wicks","Virginia",159,"post-draft",0.03,0.069,0.109,22.2,3501
+"pre",1242,"WR",2025,"Konata Mumpfield","Pittsburgh",242,"post-draft",0.015,0.032,0.056,22.9,1735
+"pre",1243,"WR",2024,"Bub Means","Pittsburgh",170,"post-draft",0.024,0.052,0.087,23.6,2152
+"pre",1244,"WR",2015,"Kenny Bell","Nebraska",162,"post-draft",0.017,0.035,0.062,23.5,1642
+"pre",1245,"WR",2015,"Da'Ron Brown","Northern Illinois",233,"post-draft",0.013,0.027,0.048,23.9,1240
+"pre",1246,"WR",2019,"KeeSean Johnson","Fresno State",174,"post-draft",0.023,0.052,0.093,22.9,2490
+"pre",1247,"WR",2011,"Austin Pettis","Boise State",78,"post-draft",0.062,0.126,0.202,23.6,4746
+"pre",1248,"WR",2018,"Russell Gage","LSU",194,"post-draft",0.026,0.052,0.09,22.6,2716
+"pre",1249,"WR",2024,"Ryan Flournoy","Southeast Missouri State",216,"post-draft",0.018,0.04,0.068,24.8,1391
+"pre",1250,"WR",2011,"Dwayne Harris","East Carolina",176,"post-draft",0.025,0.051,0.087,24,2011
+"pre",1251,"WR",2016,"Kolby Listenbee","TCU",192,"post-draft",0.02,0.044,0.076,22.6,2329
+"pre",1252,"WR",2011,"Greg Little","North Carolina",59,"post-draft",0.093,0.182,0.28,22.3,8303
+"pre",1253,"WR",2025,"Chimere Dike","Florida",103,"post-draft",0.028,0.061,0.103,23.7,2417
+"pre",1254,"WR",2010,"Jacoby Ford","Clemson",108,"post-draft",0.03,0.065,0.112,23.1,2877
+"pre",1255,"WR",2012,"T.Y. Hilton","Florida International",92,"post-draft",0.042,0.092,0.142,22.8,3980
+"pre",1256,"WR",2018,"Courtland Sutton","SMU",40,"post-draft",0.122,0.223,0.341,22.9,9290
+"pre",1257,"WR",2026,"Malik Benson","Oregon",195,"post-draft",0.022,0.047,0.079,23.9,1880
+"pre",1258,"WR",2012,"Keshawn Martin","Michigan State",121,"post-draft",0.03,0.067,0.105,22.5,3225
+"pre",1259,"WR",2022,"Erik Ezukanma","Texas Tech",125,"post-draft",0.032,0.067,0.108,22.6,3237
+"pre",1260,"WR",2017,"Rodney Adams","South Florida",170,"post-draft",0.02,0.048,0.076,23,2187
+"pre",1261,"WR",2012,"Danny Coale","Virginia Tech",152,"post-draft",0.024,0.053,0.084,24.2,1928
+"pre",1262,"WR",2025,"Savion Williams","TCU",87,"post-draft",0.038,0.081,0.134,23.8,3049
+"pre",1263,"WR",2014,"Ryan Grant","Tulane",142,"post-draft",0.029,0.062,0.106,23.7,2472
+"pre",1264,"WR",2024,"Cornelius Johnson","Michigan",253,"post-draft",0.01,0.023,0.039,23.8,1091
+"pre",1265,"WR",2019,"Terry McLaurin","Ohio State",76,"post-draft",0.037,0.083,0.145,24,3002
+"pre",1266,"WR",2011,"Scotty McKnight","Colorado",227,"post-draft",0.016,0.034,0.058,23.6,1547
+"pre",1267,"WR",2013,"Ace Sanders","South Carolina",101,"post-draft",0.063,0.13,0.208,21.8,6681
+"pre",1268,"WR",2026,"Elijah Sarratt","Indiana",115,"post-draft",0.033,0.07,0.117,23.3,2945
+"pre",1269,"WR",2023,"Ronnie Bell","Michigan",253,"post-draft",0.009,0.021,0.034,23.6,1061
+"pre",1270,"WR",2023,"DeMario Douglas","Liberty",210,"post-draft",0.012,0.027,0.044,22.7,1578
+"pre",1271,"WR",2016,"Braxton Miller","Ohio State",85,"post-draft",0.046,0.099,0.164,23.8,3642
+"pre",1272,"WR",2023,"Puka Nacua","BYU",177,"post-draft",0.016,0.037,0.06,22.3,2148
+"pre",1273,"WR",2021,"Frank Darby","Arizona State",187,"post-draft",0.017,0.041,0.07,24,1600
+"pre",1274,"WR",2017,"Robert Davis","Georgia State",209,"post-draft",0.012,0.029,0.047,22.4,1761
+"pre",1275,"WR",2018,"Ray-Ray McCloud","Clemson",187,"post-draft",0.031,0.063,0.108,21.9,3660
+"pre",1276,"WR",2024,"Malachi Corley","Western Kentucky",65,"post-draft",0.063,0.131,0.21,22.5,5900
+"pre",1277,"WR",2011,"Kris Durham","Georgia",107,"post-draft",0.041,0.084,0.138,23.5,3353
+"pre",1278,"WR",2026,"Bryce Lance","North Dakota State",136,"post-draft",0.027,0.058,0.098,24,2204
+"pre",1279,"WR",2010,"Terrence Austin","UCLA",219,"post-draft",0.015,0.034,0.059,22,2232
+"pre",1280,"WR",2015,"Andre Debose","Florida",221,"post-draft",0.014,0.029,0.051,25,1064
+"pre",1281,"WR",2017,"Noah Brown","Ohio State",239,"post-draft",0.016,0.038,0.061,21.7,2530
+"pre",1282,"WR",2015,"Darren Waller","Georgia Tech",204,"post-draft",0.022,0.046,0.08,22.6,2444
+"pre",1283,"WR",2026,"Reggie Virgil","Texas Tech",143,"post-draft",0.026,0.057,0.096,22.3,3027
+"pre",1284,"WR",2016,"Tyreek Hill","Oklahoma State",165,"post-draft",0.027,0.059,0.101,22.5,2993
+"pre",1285,"WR",2024,"Casey Washington","Illinois",187,"post-draft",0.015,0.033,0.056,23.5,1529
+"pre",1286,"WR",2024,"Ladd McConkey","Georgia",34,"post-draft",0.166,0.308,0.438,22.8,12538
+"pre",1287,"WR",2024,"Devaughn Vele","Utah",235,"post-draft",0.01,0.023,0.039,26.7,650
+"pre",1288,"WR",2022,"Michael Woods II","Oklahoma",202,"post-draft",0.019,0.04,0.066,22.5,2219
+"pre",1289,"WR",2023,"Jalen Brooks","South Carolina",244,"post-draft",0.019,0.044,0.071,23.3,1943
+"pre",1290,"WR",2022,"Velus Jones Jr.","Tennessee",71,"post-draft",0.058,0.119,0.185,24.6,3824
+"pre",1291,"WR",2025,"Jimmy Horn","Colorado",208,"post-draft",0.015,0.033,0.057,23,1716
+"pre",1292,"WR",2020,"Lynn Bowden Jr.","Kentucky",80,"post-draft",0.074,0.138,0.222,22.9,5972
+"pre",1293,"WR",2017,"Kenny Golladay","Northern Illinois",96,"post-draft",0.046,0.106,0.164,23.8,3732
+"pre",1294,"WR",2016,"Malcolm Mitchell","Georgia",112,"post-draft",0.03,0.066,0.112,24.1,2408
+"pre",1295,"WR",2015,"Evan Spencer","Ohio State",187,"post-draft",0.016,0.033,0.058,22.3,2070
+"pre",1296,"WR",2016,"Cody Core","Ole Miss",199,"post-draft",0.018,0.04,0.069,22.4,2268
+"pre",1297,"WR",2021,"Jacob Harris","UCF",141,"post-draft",0.02,0.046,0.08,24.4,1663
+"pre",1298,"WR",2021,"Dazz Newsome","North Carolina",221,"post-draft",0.016,0.039,0.067,22.3,2236
+"pre",1299,"WR",2022,"Samori Toure","Nebraska",258,"post-draft",0.018,0.038,0.062,24.4,1439
+"pre",1300,"WR",2010,"Emmanuel Sanders","SMU",82,"post-draft",0.037,0.081,0.137,23.5,3203
+"pre",1301,"WR",2023,"Michael Wilson","Stanford",94,"post-draft",0.03,0.069,0.109,23.5,2701
+"pre",1302,"WR",2026,"Deion Burks","Oklahoma",254,"post-draft",0.009,0.019,0.033,23.6,1030
+"pre",1303,"WR",2019,"Jalen Hurd","Baylor",67,"post-draft",0.044,0.096,0.166,23.6,3686
+"pre",1304,"WR",2023,"Jayden Reed","Michigan State",50,"post-draft",0.078,0.166,0.247,23.3,6226
+"pre",1305,"WR",2014,"James Wright","LSU",239,"post-draft",0.017,0.037,0.064,22.7,2006
+"pre",1306,"WR",2026,"Kendrick Law","Kentucky",168,"post-draft",0.017,0.037,0.063,22.2,2255
+"pre",1307,"WR",2013,"Kevin Dorsey","Maryland",224,"post-draft",0.015,0.033,0.057,23.5,1535
+"pre",1308,"WR",2010,"Kyle Williams","Arizona State",206,"post-draft",0.016,0.034,0.061,22.1,2221
+"pre",1309,"WR",2024,"Jacob Cowing","Arizona",135,"post-draft",0.026,0.057,0.095,23.6,2313
+"pre",1310,"WR",2019,"Olabisi Johnson","Colorado State",247,"post-draft",0.009,0.021,0.038,22.5,1444
+"pre",1311,"WR",2020,"Darnell Mooney","Tulane",173,"post-draft",0.021,0.041,0.07,22.8,2168
+"pre",1312,"WR",2021,"Ihmir Smith-Marsette","Iowa",157,"post-draft",0.021,0.049,0.084,22,2863
+"pre",1313,"WR",2023,"Tre Tucker","Cincinnati",100,"post-draft",0.03,0.067,0.106,22.5,3233
+"pre",1314,"WR",2021,"Ben Skowronek","Notre Dame",249,"post-draft",0.01,0.024,0.042,24.2,1027
+"pre",1315,"WR",2024,"Luke McCaffrey","Rice",100,"post-draft",0.035,0.074,0.123,23.4,3032
+"pre",1316,"WR",2010,"Taylor Price","Ohio",90,"post-draft",0.043,0.092,0.155,22.9,4023
+"pre",1317,"WR",2016,"Chris Moore","Cincinnati",107,"post-draft",0.035,0.076,0.128,23.2,3205
+"pre",1318,"WR",2010,"Carlton Mitchell","South Florida",177,"post-draft",0.024,0.054,0.093,22.4,2837
+"pre",1319,"WR",2024,"Ainias Smith","Texas A&M",152,"post-draft",0.022,0.047,0.08,23.3,2117
+"pre",1320,"WR",2017,"Mack Hollins","North Carolina",118,"post-draft",0.036,0.085,0.133,24,2943
+"pre",1321,"WR",2025,"Jordan Watkins","Ole Miss",138,"post-draft",0.021,0.046,0.079,23.5,1989
+"pre",1322,"WR",2012,"LaVon Brazill","Ohio",206,"post-draft",0.015,0.034,0.055,23.5,1536
+"pre",1323,"WR",2026,"De'Zhaun Stribling","Ole Miss",33,"post-draft",0.111,0.218,0.328,23.7,7806
+"pre",1324,"WR",2017,"Jehu Chesson","Michigan",139,"post-draft",0.021,0.051,0.082,23.7,1994
+"pre",1325,"WR",2025,"Arian Smith","Georgia",110,"post-draft",0.026,0.056,0.095,23.9,2177
+"pre",1326,"WR",2021,"Kawaan Baker","South Alabama",255,"post-draft",0.009,0.022,0.039,23,1280
+"pre",1327,"WR",2011,"DeMarco Sampson","San Diego State",249,"post-draft",0.013,0.028,0.048,25.7,908
+"pre",1328,"WR",2013,"Aaron Dobson","Marshall",59,"post-draft",0.072,0.148,0.234,22.1,7075
+"pre",1329,"WR",2010,"Mike Williams","Syracuse",101,"post-draft",0.055,0.116,0.191,23.3,4600
+"pre",1330,"WR",2021,"Racey McMath","LSU",205,"post-draft",0.017,0.04,0.069,22.2,2353
+"pre",1331,"WR",2011,"Jerrel Jernigan","Troy",83,"post-draft",0.056,0.113,0.183,22.2,5531
+"pre",1332,"WR",2021,"D'Wayne Eskridge","Western Michigan",56,"post-draft",0.058,0.129,0.209,24.4,4162
+"pre",1333,"WR",2011,"Ronald Johnson","USC",182,"post-draft",0.021,0.043,0.074,23.1,2085
+"pre",1334,"WR",2025,"Jaylin Lane","Virginia Tech",128,"post-draft",0.021,0.046,0.078,23.3,2065
+"pre",1335,"WR",2016,"Trevor Davis","California",163,"post-draft",0.019,0.043,0.074,23.2,1989
+"pre",1336,"WR",2021,"Tre Nixon","UCF",242,"post-draft",0.011,0.025,0.044,23.6,1221
+"pre",1337,"WR",2010,"Dexter McCluster","Ole Miss",36,"post-draft",0.137,0.265,0.394,22,12310
+"pre",1338,"WR",2012,"Greg Childs","Arkansas",134,"post-draft",0.027,0.06,0.095,22.5,2961
+"pre",1339,"WR",2019,"Marcus Green","UL Monroe",203,"post-draft",0.016,0.036,0.065,23,1838
+"pre",1340,"WR",2026,"Anthony Smith","East Carolina",218,"post-draft",0.012,0.026,0.045,24.5,1052
+"pre",1341,"WR",2026,"Malachi Fields","Notre Dame",74,"post-draft",0.053,0.112,0.181,23,4671
+"pre",1342,"WR",2018,"Marquez Valdes-Scantling","South Florida",174,"post-draft",0.021,0.043,0.075,23.9,1783
+"pre",1343,"WR",2013,"Brice Butler","San Diego State",209,"post-draft",0.017,0.036,0.062,23.6,1621
+"pre",1344,"WR",2015,"JJ Nelson","UAB",159,"post-draft",0.016,0.034,0.059,23.4,1619
+"pre",1345,"WR",2021,"Jalen Camp","Georgia Tech",209,"post-draft",0.011,0.027,0.047,23.1,1422
+"pre",1346,"WR",2015,"Keith Mumphery","Michigan State",175,"post-draft",0.02,0.04,0.07,23.2,1949
+"pre",1347,"WR",2020,"K.J. Osborn","Miami",176,"post-draft",0.019,0.038,0.065,23.2,1864
+"pre",1348,"WR",2026,"Kaden Wetjen","Iowa",121,"post-draft",0.039,0.083,0.138,24.5,2787
+"pre",1349,"WR",2011,"Jeremy Kerley","TCU",153,"post-draft",0.027,0.057,0.097,22.8,2752
+"pre",1350,"WR",2018,"Austin Proehl","North Carolina",255,"post-draft",0.014,0.028,0.05,22.9,1610
+"pre",1351,"WR",2019,"Diontae Johnson","Toledo",66,"post-draft",0.078,0.166,0.269,23.2,6466
+"pre",1352,"WR",2015,"Geremy Davis","UConn",186,"post-draft",0.018,0.037,0.064,23.6,1671
+"pre",1353,"WR",2023,"Cedric Tillman","Tennessee",74,"post-draft",0.039,0.088,0.138,23.4,3414
+"pre",1354,"WR",2011,"David Ausberry","USC",241,"post-draft",0.013,0.028,0.048,23.6,1335
+"pre",1355,"WR",2026,"Colbie Young","Georgia",140,"post-draft",0.025,0.053,0.09,24.1,2015
+"pre",1356,"WR",2019,"Hunter Renfrow","Clemson",149,"post-draft",0.018,0.041,0.074,23.7,1744
+"pre",1357,"WR",2013,"Marquise Goodwin","Texas",78,"post-draft",0.049,0.103,0.168,22.8,4512
+"pre",1358,"WR",2010,"Dorin Dickerson","Pittsburgh",227,"post-draft",0.013,0.03,0.052,23.6,1383
+"pre",1359,"WR",2012,"Devon Wylie","Fresno State",107,"post-draft",0.032,0.071,0.111,24,2558
+"pre",1360,"WR",2018,"Richie James","Middle Tennessee",240,"post-draft",0.021,0.042,0.074,23,2116
+"pre",1361,"WR",2019,"Terry Godwin","Georgia",237,"post-draft",0.013,0.029,0.053,22.9,1618
+"pre",1362,"WR",2020,"Isaiah Coulter","Rhode Island",171,"post-draft",0.032,0.063,0.106,22,3590
+"pre",1363,"WR",2026,"CJ Daniels","Miami",197,"post-draft",0.014,0.032,0.054,24.7,1168
+"pre",1364,"WR",2024,"Jordan Whittington","Texas",213,"post-draft",0.013,0.028,0.048,23.9,1252
+"pre",1365,"WR",2014,"Matt Hazel","Coastal Carolina",190,"post-draft",0.024,0.051,0.089,22.6,2640
+"pre",1366,"WR",2021,"Marquez Stevenson","Houston",203,"post-draft",0.017,0.039,0.067,23.4,1760
+"pre",1367,"WR",2023,"Derius Davis","TCU",125,"post-draft",0.019,0.044,0.071,23,2071
+"pre",1368,"WR",2014,"Walt Powell","Murray State",196,"post-draft",0.022,0.047,0.082,22.8,2366
+"pre",1369,"WR",2011,"Ryan Whalen","Stanford",167,"post-draft",0.024,0.051,0.086,22.1,2928
+"pre",1370,"WR",2010,"Joe Webb","UAB",199,"post-draft",0.014,0.03,0.053,23.6,1415
+"pre",1371,"WR",2018,"Daurice Fountain","Northern Iowa",159,"post-draft",0.033,0.065,0.112,22.7,3199
+"pre",1372,"WR",2023,"Colton Dowell","UT Martin",228,"post-draft",0.013,0.031,0.05,24.4,1179
+"pre",1373,"WR",2025,"Junior Bergen","Montana",252,"post-draft",0.012,0.026,0.045,22.9,1493
+"pre",1374,"WR",2014,"Dri Archer","Kent State",97,"post-draft",0.035,0.075,0.127,24.6,2507
+"pre",1375,"WR",2013,"Denard Robinson","Michigan",135,"post-draft",0.028,0.06,0.101,23.6,2438
+"pre",1376,"WR",2010,"Trindon Holliday","LSU",197,"post-draft",0.011,0.025,0.044,24.3,1052
+"pre",1377,"WR",2019,"Juwann Winfree","Colorado",187,"post-draft",0.017,0.038,0.069,23,1920
+"pre",1378,"WR",2024,"Jha'Quan Jackson","Tulane",182,"post-draft",0.018,0.04,0.068,24.3,1516
+"pre",1379,"WR",2022,"Montrell Washington","Samford",162,"post-draft",0.032,0.066,0.107,23.5,2702
+"pre",1380,"WR",2017,"Cooper Kupp","Eastern Washington",69,"post-draft",0.068,0.153,0.23,24.2,4933
+"pre",1381,"WR",2015,"Dezmin Lewis","Central Arkansas",234,"post-draft",0.014,0.029,0.052,22.7,1720
+"pre",1382,"WR",2017,"Chad Williams","Grambling",98,"post-draft",0.035,0.082,0.129,22.9,3487
+"pre",1383,"WR",2015,"Tre McBride","William & Mary",245,"post-draft",0.013,0.026,0.046,22.7,1605
+"pre",1384,"WR",2025,"Tory Horton","Colorado State",166,"post-draft",0.018,0.039,0.067,22.8,2037
 "post",1,"QB",2018,"Baker Mayfield","Oklahoma",1,"post-draft",0.982,0.993,0.997,23.4,41995
 "post",2,"QB",2024,"Jayden Daniels","LSU",2,"post-draft",0.919,0.963,0.984,23.7,37438
 "post",3,"QB",2012,"Robert Griffin III","Baylor",2,"post-draft",0.811,0.912,0.964,22.6,43189
@@ -2736,79 +2737,91 @@
 "mock",1,"WR",2027,"Jeremiah Smith","Ohio State",1,"post-draft (mock pick)",0.952,0.978,0.987,22,51659
 "mock",2,"QB",2027,"Drew Mestemaker","Oklahoma State",3,"post-draft (mock pick)",0.441,0.646,0.809,22.4,28532
 "mock",3,"QB",2027,"CJ Carr","Notre Dame",4,"post-draft (mock pick)",0.341,0.546,0.736,21.6,28807
-"mock",4,"WR",2027,"Charlie Becker","Indiana",7,"post-draft (mock pick)",0.615,0.781,0.862,22,38012
-"mock",5,"QB",2027,"Darian Mensah","Miami (FL)",8,"post-draft (mock pick)",0.473,0.676,0.829,22.4,30109
-"mock",6,"WR",2027,"Cam Coleman","Texas",12,"post-draft (mock pick)",0.46,0.655,0.769,22,30859
-"mock",7,"WR",2027,"Nick Marsh","Indiana",15,"post-draft (mock pick)",0.391,0.589,0.715,22,27405
-"mock",8,"QB",2027,"Trinidad Chambliss","Mississippi",16,"post-draft (mock pick)",0.083,0.173,0.327,21.6,9818
-"mock",9,"WR",2027,"KJ Duff","Rutgers",25,"post-draft (mock pick)",0.246,0.422,0.562,22,19345
-"mock",10,"QB",2027,"Arch Manning","Texas",26,"post-draft (mock pick)",0.093,0.192,0.356,22.4,8426
-"mock",11,"TE",2027,"Jamari Johnson","Oregon",27,"post-draft (mock pick)",0.296,0.614,0.722,22.7,9656
+"mock",4,"WR",2027,"Charlie Becker","Indiana",8,"post-draft (mock pick)",0.575,0.751,0.841,22,36233
+"mock",5,"WR",2027,"Cam Coleman","Texas",12,"post-draft (mock pick)",0.46,0.655,0.769,22,30859
+"mock",6,"WR",2027,"Nick Marsh","Indiana",16,"post-draft (mock pick)",0.371,0.569,0.698,22,26378
+"mock",7,"QB",2027,"Darian Mensah","Miami (FL)",18,"post-draft (mock pick)",0.479,0.58,0.782,22.4,28577
+"mock",8,"QB",2027,"LaNorris Sellers","South Carolina",26,"post-draft (mock pick)",0.184,0.344,0.549,22.4,14503
+"mock",9,"QB",2027,"Arch Manning","Texas",27,"post-draft (mock pick)",0.09,0.187,0.348,22.4,8220
+"mock",10,"TE",2027,"Jamari Johnson","Oregon",27,"post-draft (mock pick)",0.296,0.614,0.722,22.7,9656
+"mock",11,"QB",2027,"Trinidad Chambliss","Mississippi",27,"post-draft (mock pick)",0.083,0.174,0.328,21.6,9845
 "mock",12,"QB",2027,"Dante Moore","Oregon",28,"post-draft (mock pick)",0.11,0.222,0.399,22.4,9614
-"mock",13,"WR",2027,"Jackson Harris","LSU",34,"post-draft (mock pick)",0.132,0.254,0.374,22.5,10896
-"mock",14,"WR",2027,"Ryan Williams","Alabama",38,"post-draft (mock pick)",0.165,0.306,0.436,22,14117
-"mock",15,"QB",2027,"LaNorris Sellers","South Carolina",40,"post-draft (mock pick)",0.091,0.188,0.35,22.4,8275
-"mock",16,"WR",2027,"Reed Harris","Arizona State",43,"post-draft (mock pick)",0.266,0.343,0.506,22.5,16917
-"mock",17,"RB",2027,"Jadan Baugh","Florida",45,"post-draft (mock pick)",0.274,0.449,0.601,21.4,16654
-"mock",18,"TE",2027,"Trey'Dez Green","LSU",46,"post-draft (mock pick)",0.14,0.38,0.501,22,5197
-"mock",19,"WR",2027,"Deuce Alexander","Mississippi",48,"post-draft (mock pick)",0.088,0.177,0.273,22.5,7759
-"mock",20,"TE",2027,"Luke Reynolds","Virginia Tech",51,"post-draft (mock pick)",0.119,0.338,0.455,22,4534
+"mock",13,"TE",2027,"Trey'Dez Green","LSU",29,"post-draft (mock pick)",0.27,0.583,0.696,22,8923
+"mock",14,"WR",2027,"KJ Duff","Rutgers",31,"post-draft (mock pick)",0.199,0.357,0.494,22,16394
+"mock",15,"WR",2027,"Jackson Harris","LSU",34,"post-draft (mock pick)",0.132,0.254,0.374,22.5,10896
+"mock",16,"WR",2027,"Ryan Williams","Alabama",37,"post-draft (mock pick)",0.17,0.313,0.444,22,14439
+"mock",17,"WR",2027,"Reed Harris","Arizona State",38,"post-draft (mock pick)",0.117,0.228,0.342,22.5,9850
+"mock",18,"WR",2027,"Deuce Alexander","Mississippi",48,"post-draft (mock pick)",0.088,0.177,0.273,22.5,7759
+"mock",19,"RB",2027,"Jadan Baugh","Florida",48,"post-draft (mock pick)",0.249,0.418,0.571,21.4,15459
+"mock",20,"TE",2027,"Luke Reynolds","Virginia Tech",51,"post-draft (mock pick)",0.301,0.513,0.659,22,9228
 "mock",21,"RB",2027,"Kewan Lacy","Mississippi",54,"post-draft (mock pick)",0.209,0.363,0.513,21.4,13431
 "mock",22,"WR",2027,"Mario Craver","Texas A&M",71,"post-draft (mock pick)",0.08,0.163,0.254,22,7845
-"mock",23,"QB",2027,"Jayden Maiava","USC",78,"post-draft (mock pick)",0.04,0.089,0.185,23.2,3433
-"mock",24,"WR",2027,"Junior Sherrill","Vanderbilt",80,"post-draft (mock pick)",0.049,0.103,0.168,22.5,4772
-"mock",25,"RB",2027,"Isaac Brown","Louisville",81,"post-draft (mock pick)",0.115,0.218,0.341,21.4,8272
-"mock",26,"WR",2027,"Ryan Wingo","Texas",84,"post-draft (mock pick)",0.066,0.136,0.216,22,6685
-"mock",27,"TE",2027,"DJ Vonnahme","Iowa",88,"post-draft (mock pick)",0.048,0.161,0.24,22,2045
-"mock",28,"WR",2027,"Bryant Wesco","Clemson",92,"post-draft (mock pick)",0.059,0.123,0.197,22,6113
-"mock",29,"TE",2027,"Lawson Luckie","Georgia",93,"post-draft (mock pick)",0.044,0.149,0.222,22.7,1898
-"mock",30,"WR",2027,"Omarion Miller","Arizona State",96,"post-draft (mock pick)",0.039,0.084,0.138,22.5,3982
-"mock",31,"RB",2027,"Wayshawn Parker","Utah",98,"post-draft (mock pick)",0.259,0.329,0.504,21.4,14539
-"mock",32,"RB",2027,"Ahmad Hardy","Missouri",100,"post-draft (mock pick)",0.068,0.135,0.224,21.4,5379
-"mock",33,"WR",2027,"Wyatt Young","Oklahoma State",103,"post-draft (mock pick)",0.052,0.108,0.176,22,5491
-"mock",34,"QB",2027,"Drake Lindsey","Minnesota",104,"post-draft (mock pick)",0.014,0.032,0.071,21.6,3041
-"mock",35,"TE",2027,"Terrance Carter","Texas Tech",105,"post-draft (mock pick)",0.036,0.123,0.187,23.3,1574
-"mock",36,"WR",2027,"Amare Thomas","Houston",106,"post-draft (mock pick)",0.036,0.076,0.127,22.5,3695
+"mock",23,"WR",2027,"Ryan Wingo","Texas",71,"post-draft (mock pick)",0.08,0.163,0.254,22,7845
+"mock",24,"QB",2027,"Jayden Maiava","USC",72,"post-draft (mock pick)",0.043,0.095,0.195,23.2,3618
+"mock",25,"WR",2027,"Junior Sherrill","Vanderbilt",80,"post-draft (mock pick)",0.049,0.103,0.168,22.5,4772
+"mock",26,"WR",2027,"Wyatt Young","Oklahoma State",82,"post-draft (mock pick)",0.068,0.139,0.221,22,6834
+"mock",27,"WR",2027,"Bryant Wesco","Clemson",87,"post-draft (mock pick)",0.063,0.131,0.209,22,6459
+"mock",28,"TE",2027,"DJ Vonnahme","Iowa",88,"post-draft (mock pick)",0.048,0.161,0.24,22,2045
+"mock",29,"RB",2027,"Ahmad Hardy","Missouri",94,"post-draft (mock pick)",0.076,0.15,0.246,21.4,5894
+"mock",30,"TE",2027,"Lawson Luckie","Georgia",98,"post-draft (mock pick)",0.04,0.137,0.207,22.7,1744
+"mock",31,"WR",2027,"Omarion Miller","Arizona State",100,"post-draft (mock pick)",0.037,0.08,0.132,22.5,3821
+"mock",32,"RB",2027,"Isaac Brown","Louisville",103,"post-draft (mock pick)",0.075,0.149,0.244,21.4,5842
+"mock",33,"TE",2027,"Terrance Carter","Texas Tech",105,"post-draft (mock pick)",0.036,0.123,0.187,23.3,1574
+"mock",34,"WR",2027,"Amare Thomas","Houston",106,"post-draft (mock pick)",0.036,0.076,0.127,22.5,3695
+"mock",35,"RB",2027,"Dylan Riley","Boise State",119,"post-draft (mock pick)",0.166,0.218,0.367,21.4,9942
+"mock",36,"TE",2027,"Peter Clarke","Temple",119,"post-draft (mock pick)",0.029,0.101,0.155,22.7,1287
 "mock",37,"RB",2027,"Nate Frazier","Georgia",120,"post-draft (mock pick)",0.05,0.101,0.173,21.4,4207
-"mock",38,"WR",2027,"Duce Robinson","Florida State",121,"post-draft (mock pick)",0.03,0.064,0.107,22.5,3196
-"mock",39,"WR",2027,"Justin Bowick","Oklahoma State",122,"post-draft (mock pick)",0.026,0.057,0.095,23,2601
-"mock",40,"RB",2027,"LJ Martin","BYU",126,"post-draft (mock pick)",0.046,0.093,0.16,22.3,3244
-"mock",41,"WR",2027,"Chris Marshall","Arkansas",127,"post-draft (mock pick)",0.027,0.058,0.097,23,2655
-"mock",42,"RB",2027,"DeSean Bishop","Tennessee",129,"post-draft (mock pick)",0.046,0.094,0.161,22.3,3257
-"mock",43,"WR",2027,"Braden Pegan","Utah",137,"post-draft (mock pick)",0.036,0.076,0.126,23,3343
-"mock",44,"QB",2027,"Conner Weigman","Houston",142,"post-draft (mock pick)",0.036,0.081,0.169,24,2540
-"mock",45,"WR",2027,"Jordan Faison","Notre Dame",147,"post-draft (mock pick)",0.022,0.049,0.082,23,2295
-"mock",46,"WR",2027,"Mike Matthews","Tennessee",149,"post-draft (mock pick)",0.095,0.133,0.231,22,7587
-"mock",47,"RB",2027,"Dylan Riley","Boise State",150,"post-draft (mock pick)",0.112,0.151,0.269,21.4,7115
-"mock",48,"RB",2027,"Mark Fletcher","Miami (FL)",157,"post-draft (mock pick)",0.032,0.066,0.115,22.3,2414
-"mock",49,"TE",2027,"Peter Clarke","Temple",161,"post-draft (mock pick)",0.017,0.061,0.097,22.7,784
-"mock",50,"RB",2027,"Daylan Smothers","Texas",164,"post-draft (mock pick)",0.03,0.063,0.111,22.3,2316
+"mock",38,"WR",2027,"Justin Bowick","Oklahoma State",121,"post-draft (mock pick)",0.027,0.057,0.096,23,2635
+"mock",39,"RB",2027,"Wayshawn Parker","Utah",121,"post-draft (mock pick)",0.189,0.245,0.402,21.4,11083
+"mock",40,"WR",2027,"Mike Matthews","Tennessee",125,"post-draft (mock pick)",0.117,0.161,0.274,22,9032
+"mock",41,"RB",2027,"LJ Martin","BYU",126,"post-draft (mock pick)",0.046,0.093,0.16,22.3,3244
+"mock",42,"WR",2027,"Chris Marshall","Arkansas",127,"post-draft (mock pick)",0.027,0.058,0.097,23,2655
+"mock",43,"QB",2027,"Conner Weigman","Houston",133,"post-draft (mock pick)",0.039,0.085,0.177,24,2671
+"mock",44,"RB",2027,"Mark Fletcher","Miami (FL)",134,"post-draft (mock pick)",0.042,0.087,0.151,22.3,3041
+"mock",45,"RB",2027,"DeSean Bishop","Tennessee",135,"post-draft (mock pick)",0.042,0.087,0.15,22.3,3035
+"mock",46,"WR",2027,"Braden Pegan","Utah",137,"post-draft (mock pick)",0.036,0.076,0.126,23,3343
+"mock",47,"WR",2027,"Jordan Faison","Notre Dame",139,"post-draft (mock pick)",0.024,0.052,0.088,23,2431
+"mock",48,"WR",2027,"Duce Robinson","Florida State",142,"post-draft (mock pick)",0.024,0.053,0.089,22.5,2728
+"mock",49,"QB",2027,"Drake Lindsey","Minnesota",146,"post-draft (mock pick)",0.011,0.024,0.054,21.6,2674
+"mock",50,"RB",2027,"Daylan Smothers","Texas",157,"post-draft (mock pick)",0.033,0.068,0.12,22.3,2485
 "mock",51,"WR",2027,"TJ Moore","Clemson",166,"post-draft (mock pick)",0.029,0.062,0.104,22,3472
-"mock",52,"QB",2027,"Sam Leavitt","LSU",167,"post-draft (mock pick)",0.061,0.132,0.26,22.4,6076
-"mock",53,"WR",2027,"Cooper Barkate","Miami (FL)",169,"post-draft (mock pick)",0.018,0.04,0.068,23.6,1733
-"mock",54,"QB",2027,"DJ Lagway","Baylor",174,"post-draft (mock pick)",0.009,0.02,0.046,21.6,2476
-"mock",55,"TE",2027,"Andrew Rappleyea","Penn State",175,"post-draft (mock pick)",0.015,0.053,0.085,22.7,690
-"mock",56,"TE",2027,"Patrick Overmyer","Houston",177,"post-draft (mock pick)",0.043,0.102,0.173,22.7,1611
-"mock",57,"RB",2027,"Makhi Hughes","Houston",180,"post-draft (mock pick)",0.024,0.051,0.091,23.3,1563
-"mock",58,"QB",2027,"Gunner Stockton","Georgia",182,"post-draft (mock pick)",0.033,0.072,0.153,23.2,2941
-"mock",59,"TE",2027,"Caleb Odom","Mississippi",187,"post-draft (mock pick)",0.013,0.048,0.076,22,609
-"mock",60,"RB",2027,"Tre Wisner","Florida State",188,"post-draft (mock pick)",0.025,0.053,0.095,22.3,2017
-"mock",61,"WR",2027,"Ian Strong","California",194,"post-draft (mock pick)",0.017,0.037,0.062,23,1859
-"mock",62,"WR",2027,"Griffin Wilde","Northwestern",195,"post-draft (mock pick)",0.017,0.037,0.063,22.5,2096
-"mock",63,"QB",2027,"Lincoln Kienholz","Louisville",196,"post-draft (mock pick)",0.029,0.064,0.138,22.4,3498
-"mock",64,"TE",2027,"Benjamin Brahmer","Penn State",199,"post-draft (mock pick)",0.012,0.043,0.068,22.7,559
-"mock",65,"QB",2027,"Dylan Raiola","Oregon",205,"post-draft (mock pick)",0.015,0.034,0.076,21.6,3146
+"mock",52,"TE",2027,"Andrew Rappleyea","Penn State",167,"post-draft (mock pick)",0.016,0.058,0.091,22.7,740
+"mock",53,"QB",2027,"Sam Leavitt","LSU",167,"post-draft (mock pick)",0.061,0.132,0.26,22.4,6076
+"mock",54,"WR",2027,"Cooper Barkate","Miami (FL)",170,"post-draft (mock pick)",0.018,0.039,0.067,23.6,1714
+"mock",55,"WR",2027,"Ian Strong","California",179,"post-draft (mock pick)",0.018,0.04,0.069,23,1974
+"mock",56,"TE",2027,"Eli Finley","Louisiana Tech",183,"post-draft (mock pick)",0.0143,0.0327,0.0661,22.7,566
+"mock",57,"TE",2027,"Patrick Overmyer","Houston",183,"post-draft (mock pick)",0.043,0.098,0.166,22.7,1582
+"mock",58,"RB",2027,"Tre Wisner","Florida State",188,"post-draft (mock pick)",0.025,0.053,0.095,22.3,2017
+"mock",59,"WR",2027,"Griffin Wilde","Northwestern",195,"post-draft (mock pick)",0.017,0.037,0.063,22.5,2096
+"mock",60,"QB",2027,"Lincoln Kienholz","Louisville",196,"post-draft (mock pick)",0.029,0.064,0.138,22.4,3498
+"mock",61,"RB",2027,"Wayne Knight","UCLA",201,"post-draft (mock pick)",0.022,0.047,0.083,23.3,1453
+"mock",62,"WR",2027,"Evan Stewart","Oregon",202,"post-draft (mock pick)",0.015,0.032,0.055,23,1688
+"mock",63,"WR",2027,"Kenny Johnson","Texas Tech",203,"post-draft (mock pick)",0.005,0.0138,0.0297,23,996
+"mock",64,"TE",2027,"Benjamin Brahmer","Penn State",204,"post-draft (mock pick)",0.011,0.041,0.066,22.7,528
+"mock",65,"QB",2027,"Dylan Raiola","Oregon",205,"post-draft (mock pick)",0.005,0.0113,0.0253,21.6,2039
 "mock",66,"RB",2027,"Antwan Raymond","Rutgers",207,"post-draft (mock pick)",0.02,0.042,0.076,21.4,2147
-"mock",67,"WR",2027,"Devin McCuin","Ohio State",211,"post-draft (mock pick)",0.015,0.033,0.056,22.5,1927
-"mock",68,"WR",2027,"Evan Stewart","Oregon",214,"post-draft (mock pick)",0.014,0.03,0.051,23,1607
-"mock",69,"WR",2027,"Isaiah Sategna","Oklahoma",216,"post-draft (mock pick)",0.013,0.029,0.05,23,1559
-"mock",70,"WR",2027,"Eric Singleton Jr.","Florida",219,"post-draft (mock pick)",0.015,0.032,0.055,23,1688
-"mock",71,"TE",2027,"Willie Rodriguez","Kentucky",220,"post-draft (mock pick)",0.01,0.036,0.058,22,470
-"mock",72,"RB",2027,"Justice Haynes","Georgia Tech",221,"post-draft (mock pick)",0.018,0.038,0.067,22.3,1560
-"mock",73,"RB",2027,"Wayne Knight","UCLA",227,"post-draft (mock pick)",0.018,0.037,0.067,23.3,1223
-"mock",74,"TE",2027,"Alex Honig","Northwestern",229,"post-draft (mock pick)",0.009,0.034,0.054,23.3,439
-"mock",75,"WR",2027,"Nyck Harbor","South Carolina",232,"post-draft (mock pick)",0.013,0.029,0.05,22.5,1766
-"mock",76,"TE",2027,"Michael Masunas","Texas",237,"post-draft (mock pick)",0.009,0.032,0.051,23.3,425
-"mock",77,"QB",2027,"Josh Hoover","Indiana",252,"post-draft (mock pick)",0.009,0.02,0.045,24,1034
-"mock",78,"WR",2027,"Carlos Hernandez","Wake Forest",254,"post-draft (mock pick)",0.011,0.025,0.044,22.5,1605
-"mock",79,"RB",2027,"Cam Cook","West Virginia",257,"post-draft (mock pick)",0.013,0.028,0.05,22.3,1256
+"mock",67,"RB",2027,"Makhi Hughes","Houston",213,"post-draft (mock pick)",0.0141,0.0308,0.0529,23.3,1023
+"mock",68,"QB",2027,"Gunner Stockton","Georgia",214,"post-draft (mock pick)",0.0187,0.0427,0.0907,23.2,2009
+"mock",69,"QB",2027,"Josh Hoover","Indiana",218,"post-draft (mock pick)",0.006,0.014,0.033,24,878
+"mock",70,"TE",2027,"Caleb Odom","Mississippi",220,"post-draft (mock pick)",0.0067,0.024,0.044,22,333
+"mock",71,"TE",2027,"Decker DeGraaf","Washington",220,"post-draft (mock pick)",0.0033,0.012,0.0301,22,194
+"mock",72,"TE",2027,"Willie Rodriguez","Kentucky",220,"post-draft (mock pick)",0.01,0.036,0.058,22,470
+"mock",73,"WR",2027,"Devin McCuin","Ohio State",221,"post-draft (mock pick)",0.014,0.031,0.053,22.5,1846
+"mock",74,"RB",2027,"Justice Haynes","Georgia Tech",221,"post-draft (mock pick)",0.018,0.038,0.067,22.3,1560
+"mock",75,"QB",2027,"DJ Lagway","Baylor",222,"post-draft (mock pick)",0.007,0.017,0.038,21.6,2299
+"mock",76,"WR",2027,"Nyck Harbor","South Carolina",222,"post-draft (mock pick)",0.014,0.031,0.052,22.5,1839
+"mock",77,"RB",2027,"Turbo Richard","Indiana",225,"post-draft (mock pick)",0.0121,0.0268,0.0462,21.4,1576
+"mock",78,"WR",2027,"Isaiah Sategna","Oklahoma",226,"post-draft (mock pick)",0.013,0.028,0.047,23,1525
+"mock",79,"RB",2027,"Cam Cook","West Virginia",228,"post-draft (mock pick)",0.0127,0.0295,0.0496,22.3,1255
+"mock",80,"TE",2027,"Chris Corbo","Georgia Tech",228,"post-draft (mock pick)",0.006,0.0227,0.0414,23.3,312
+"mock",81,"WR",2027,"Eric Singleton Jr.","Florida",231,"post-draft (mock pick)",0.014,0.03,0.052,23,1613
+"mock",82,"QB",2027,"John Mateer","Oklahoma",231,"post-draft (mock pick)",0.0083,0.0187,0.04,24,994
+"mock",83,"TE",2027,"Michael Masunas","Texas",233,"post-draft (mock pick)",0.006,0.022,0.0407,23.3,308
+"mock",84,"TE",2027,"Alex Honig","Northwestern",234,"post-draft (mock pick)",0.006,0.0213,0.04,23.3,304
+"mock",85,"RB",2027,"Kamari Moulton","Iowa",234,"post-draft (mock pick)",0.0091,0.0227,0.0351,22.3,1025
+"mock",86,"WR",2027,"Carlos Hernandez","Wake Forest",235,"post-draft (mock pick)",0.0087,0.0201,0.0375,22.5,1418
+"mock",87,"RB",2027,"Chris Johnson Jr.","Clemson",235,"post-draft (mock pick)",0.0088,0.022,0.0341,22.3,1006
+"mock",88,"RB",2027,"C.J. Baxter","Kentucky",236,"post-draft (mock pick)",0.0091,0.023,0.0361,22.3,1033
+"mock",89,"TE",2027,"Rocky Beers","Oklahoma",241,"post-draft (mock pick)",0.0027,0.0103,0.0274,23.3,172
+"mock",90,"QB",2027,"Walker Eget","Duke",242,"post-draft (mock pick)",0.003,0.0067,0.015,24.9,551
+"mock",91,"QB",2027,"Kevin Jennings","SMU",251,"post-draft (mock pick)",0.0103,0.023,0.049,24,1103
