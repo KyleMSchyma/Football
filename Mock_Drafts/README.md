@@ -7,6 +7,7 @@ Kyle's own 2027 mock drafts, built in the NFL Mock Draft Database simulator unde
 | `2027_mock_2026-11-15_original_vikings.csv` | [#1 Mock Draft (user-mock-13881512)](https://www.nflmockdraftdatabase.com/user-mock-drafts/2027/user-mock-13881512) | 2026-11-15 | Minnesota Vikings (9 picks) | 257 |
 | `2027_mock_2026-11-17_cowboys.csv` | [Mock 2 (user-mock-13882246)](https://www.nflmockdraftdatabase.com/user-mock-drafts/2027/user-mock-13882246) | 2026-11-17 | Dallas Cowboys (3 picks) | 257 |
 | `2027_mock_2026-11-18_cowboys.csv` | [#3 (user-mock-13882672)](https://www.nflmockdraftdatabase.com/user-mock-drafts/2027/user-mock-13882672) | 2026-11-18 | Dallas Cowboys (3 picks) | 257 |
+| `2027_mock_2026-11-19_cowboys.csv` | #4 (pasted in chat; no link saved) | 2026-11-19 | Dallas Cowboys (3 picks) | 224 of 257: picks 97-101, 134-138, 171-179, 212-221 and 254-257 were missing from the paste. Schools for picks 96, 133, 170, 211 and 253 were cut off and filled from the other mocks. |
 
 The original mock is the one the site and the 2027 rookie pick values currently use (its 80 QB/RB/WR/TE picks).
 
