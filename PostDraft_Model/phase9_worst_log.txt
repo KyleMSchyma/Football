@@ -1,0 +1,200 @@
+2026 weeks in the data: 1-10 
+teams with 2026 data: 32  games played range: 9-10 
+mock rows (QB/RB/WR/TE): 72  from mock_2027/range/mock_2027_worst.csv 
+
+===== QB =====
+training rows: 163  lambda index 7 of 20 
+age fit: n=35 R2=0.50 resid SD 0.71 yrs | starter_age_filled fit R2=0.26 resid SD 1.30
+check 2024-2026 (n=35): Spearman real vs estimated post score 0.973, mean abs diff 0.090, mean diff -0.073, same grade 60%, within one grade 83%
+mock QB : 15  matched to the 2027 board: 14 
+[PASS] QB landing spot found for every mocked team 
+
+===== RB =====
+training rows: 298  lambda index 3 of 20 
+age fit: n=53 R2=0.64 resid SD 0.75 yrs | breakout_age_filled fit R2=0.83 resid SD 0.72
+check 2024-2026 (n=53): Spearman real vs estimated post score 0.948, mean abs diff 0.066, mean diff -0.066, same grade 79%, within one grade 89%
+mock RB : 15  matched to the 2027 board: 15 
+[PASS] RB landing spot found for every mocked team 
+
+===== WR =====
+training rows: 445  lambda index 5 of 25 
+age fit: n=102 R2=0.33 resid SD 0.71 yrs | breakout_age_filled fit R2=0.75 resid SD 0.76
+check 2024-2026 (n=102): Spearman real vs estimated post score 0.992, mean abs diff 0.030, mean diff +0.017, same grade 76%, within one grade 98%
+mock WR : 31  matched to the 2027 board: 31 
+[PASS] WR landing spot found for every mocked team 
+
+===== TE =====
+training rows: 202  lambda index 1 of 20 
+age fit: n=50 R2=0.33 resid SD 0.89 yrs | breakout_age_filled fit R2=0.68 resid SD 1.05
+check 2024-2026 (n=50): Spearman real vs estimated post score 0.991, mean abs diff 0.025, mean diff -0.025, same grade 94%, within one grade 94%
+mock TE : 11  matched to the 2027 board: 11 
+[PASS] TE landing spot found for every mocked team 
+
+calibration (real = a + b * estimated, 2024-2026 drafted players):
+  QB a=+0.046 b=1.041 | same grade raw 60% -> calibrated 40%, within one grade 83% -> 86%
+  RB a=+0.068 b=0.995 | same grade raw 79% -> calibrated 34%, within one grade 89% -> 83%
+  TE a=+0.019 b=1.011 | same grade raw 94% -> calibrated 62%, within one grade 94% -> 94%
+  WR a=-0.011 b=0.988 | same grade raw 76% -> calibrated 67%, within one grade 98% -> 99%
+
+===== 2027 post-draft grades from the mock ( Our 2027 mocks, worst case ) =====
+ pick               name position team_abbr pre_grade post_grade_raw post_grade
+    2     Jeremiah Smith       WR       LAC        A+             A+         A+
+    4    Drew Mestemaker       QB       NYJ        B+             A-          A
+    7            CJ Carr       QB       ARI        A-             B+         B+
+   10     Charlie Becker       WR        TB         A             A+         A+
+   12        Cam Coleman       WR       WAS         B             A+         A+
+   18      Darian Mensah       QB       CLE         A             B+         B+
+   21         Nick Marsh       WR       DAL        B+              A          A
+   32            KJ Duff       WR       BUF        A-             A-         A-
+   34       Arch Manning       QB       MIA        C+              B          B
+   38     Jackson Harris       WR       ARI        B+             B+         B+
+   38      Ryan Williams       WR       IND        B+             B+         B+
+   39 Trinidad Chambliss       QB       ATL        B+             B-         B-
+   40   LaNorris Sellers       QB       ATL        B-              B          B
+   43        Reed Harris       WR       ARI        B+             B+         B+
+   44        Dante Moore       QB       WAS        C+              B          B
+   46     Jamari Johnson       TE       DAL        B-             A-         A-
+   46     Trey'Dez Green       TE        LV        B+             A-         A-
+   48        Jadan Baugh       RB        NE        B+             B+         A-
+   54    Deuce Alexander       WR       NYG        C+              B          B
+   56      Luke Reynolds       TE       DEN        A-             B+         B+
+   66         Kewan Lacy       RB       TEN         C             B+         B+
+   78      Jayden Maiava       QB       PIT        B-             B-         B-
+   78       Mario Craver       WR       PIT        C+              B          B
+   84         Ryan Wingo       WR        NE        B+              B          B
+   88        DJ Vonnahme       TE        KC        B-              B          B
+   92       Bryant Wesco       WR       PIT        B+              B         B-
+   93    Junior Sherrill       WR        KC         B             C+         C+
+  100        Ahmad Hardy       RB       SEA        B-             B-          B
+  103        Isaac Brown       RB       TEN        B+             B-          B
+  103        Wyatt Young       WR       TEN         B             B-         B-
+  106      Lawson Luckie       TE       PHI        C-             B-         B-
+  116    Terrance Carter       TE        NE        C+             C+         B-
+  122      Justin Bowick       WR        GB        C+              C         C-
+  122    Wayshawn Parker       RB       CLE        A-             B-          B
+  126     Omarion Miller       WR       CIN         C              C          C
+  136       Nate Frazier       RB       DEN        C+              C         C+
+  142       Amare Thomas       WR       NYJ        B-              C         C-
+  142     Conner Weigman       QB       PHI        B-             B-         B-
+  146     Chris Marshall       WR       IND        B-             C-         C-
+  147       Braden Pegan       WR        TB         C             C+          C
+  147      Jordan Faison       WR        TB        C-             C-         C-
+  147          LJ Martin       RB        TB        C-              C         C+
+  149      Mike Matthews       WR        NO        A-             C+          C
+  150        Dylan Riley       RB       WAS         A              C         C+
+  157      Mark Fletcher       RB       MIN        C-              C         C+
+  160      Duce Robinson       WR       MIN        B-             C-          D
+  161       Peter Clarke       TE       CIN        C-             C-          C
+  164    Daylan Smothers       RB       MIA         D              C          C
+  167        Sam Leavitt       QB       DEN        B+              B          B
+  174      Drake Lindsey       QB        GB         D              F          D
+  175   Andrew Rappleyea       TE       SEA        C+             C-         C-
+  190     Cooper Barkate       WR        TB         F              D          F
+  192      DeSean Bishop       RB        LV        C+              D          C
+  194         Ian Strong       WR       IND         D              D          D
+  197           TJ Moore       WR       LAC         B             C-         C-
+  208      Griffin Wilde       WR       DET         B              D          F
+  214       Evan Stewart       WR       JAX         C              F          F
+  218     Antwan Raymond       RB       ATL        B-              D         C-
+  223          DJ Lagway       QB       TEN        B-              F          D
+  224     Justice Haynes       RB       PIT        C+              D         C-
+  227       Devin McCuin       WR       IND         D              F          F
+  227         Tre Wisner       RB       IND         D              D         C-
+  227       Wayne Knight       RB       CAR         B              D         C-
+  230     Isaiah Sategna       WR       CLE        C+              F          F
+  232 Eric Singleton Jr.       WR       DEN         F              F          F
+  232        Nyck Harbor       WR       DEN        C+              F          F
+  234   Benjamin Brahmer       TE       PHI        C+              F          D
+  249   Patrick Overmyer       TE       JAX         A              F          D
+  252        Josh Hoover       QB       ARI         C              F          D
+  254   Willie Rodriguez       TE       DET        B+              F          D
+  257   Lincoln Kienholz       QB        NE        B-              D          C
+ grade_move p_top p_any incumbent_pts_2026
+          0 0.892 0.970                 NA
+          2 0.382 0.769              231.9
+         -1 0.244 0.634              189.0
+          1 0.504 0.799                 NA
+          4 0.460 0.769                 NA
+         -2 0.224 0.608                 NA
+          2 0.295 0.621                 NA
+          0 0.193 0.484                 NA
+          2 0.076 0.305              198.4
+          0 0.117 0.342                 NA
+          0 0.165 0.436                 NA
+         -2 0.041 0.186                 NA
+          1 0.091 0.350                 NA
+          0 0.102 0.307                 NA
+          2 0.078 0.311              256.8
+          3 0.140 0.501                 NA
+          1 0.140 0.501              254.7
+          1 0.249 0.571                 NA
+          2 0.076 0.245                 NA
+         -1 0.102 0.414               75.4
+          4 0.151 0.416              265.2
+          0 0.040 0.185              250.8
+          2 0.072 0.232                 NA
+         -1 0.066 0.216                 NA
+          1 0.048 0.240              197.0
+         -2 0.059 0.197                 NA
+         -2 0.041 0.143                 NA
+          1 0.068 0.224                 NA
+         -1 0.075 0.244              265.2
+         -1 0.052 0.176                 NA
+          3 0.035 0.185              139.8
+          1 0.030 0.161                 NA
+         -2 0.026 0.095                 NA
+         -2 0.067 0.222                 NA
+          0 0.028 0.102                 NA
+          0 0.039 0.141              127.3
+         -3 0.025 0.091                 NA
+          0 0.036 0.169              151.1
+         -3 0.023 0.083                 NA
+          0 0.033 0.117                 NA
+          0 0.022 0.082                 NA
+          2 0.034 0.124              300.5
+         -5 0.032 0.115                 NA
+         -5 0.038 0.137              147.1
+          2 0.032 0.115              180.2
+         -4 0.021 0.077                 NA
+          1 0.017 0.097              155.1
+          2 0.030 0.111              179.6
+         -1 0.061 0.260              247.1
+          0 0.009 0.047              332.9
+         -2 0.015 0.085                 NA
+          0 0.016 0.059                 NA
+         -1 0.022 0.081              254.5
+          0 0.017 0.062                 NA
+         -4 0.023 0.086                 NA
+         -6 0.016 0.058                 NA
+         -3 0.014 0.051                 NA
+         -3 0.018 0.069                 NA
+         -4 0.007 0.037              226.0
+         -2 0.017 0.066              283.1
+         -1 0.014 0.051                 NA
+          1 0.018 0.067              282.0
+         -4 0.018 0.067                 NA
+         -4 0.012 0.046                 NA
+          0 0.014 0.052                 NA
+         -4 0.013 0.050                 NA
+         -3 0.009 0.052              139.8
+         -8 0.008 0.047                 NA
+         -2 0.009 0.045              189.0
+         -6 0.008 0.045              180.8
+         -2 0.015 0.075                 NA
+
+school differs between mock and board:
+ pick               name      school board_school
+   18      Darian Mensah  Miami (FL)        Miami
+   39 Trinidad Chambliss Mississippi     Ole Miss
+   54    Deuce Alexander Mississippi     Ole Miss
+   66         Kewan Lacy Mississippi     Ole Miss
+  157      Mark Fletcher  Miami (FL)        Miami
+  190     Cooper Barkate  Miami (FL)        Miami
+
+not matched to the 2027 pre-draft board:
+ pick         player pos     school
+   97 Brendan Sorsby  QB Texas Tech
+[FAIL] every mocked QB/RB/WR/TE graded (71 of 72)
+[PASS] probabilities ordered 
+
+done

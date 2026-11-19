@@ -7,6 +7,8 @@
   3.185727 1.644515 6.171336
   2.065895 1.158457 3.684145
   2.316751 1.361260 3.942916
+pd_post_2027_mock_grades_best.csv : 5 grade changes (fallers)
+pd_post_2027_mock_grades_worst.csv : 7 grade changes (fallers)
 
 ===== Players whose grade changed =====
 89 of 1351 drafted players changed grade (all are pre-draft A-range fallers)
@@ -28,11 +30,13 @@
        WR  2024  Troy Franklin  102        A+               B-         B+
 -- 2027 mock --
  position pick             name pre_grade post_grade_draft post_grade
-       WR   43      Reed Harris        A-               B+         A-
-       RB   98  Wayshawn Parker         A                B         B+
-       WR  149    Mike Matthews        A-                C          B
-       RB  150      Dylan Riley         A               C+          B
-       TE  177 Patrick Overmyer        A-               C-         B-
+       QB   18    Darian Mensah         A               B+          A
+       TE   51    Luke Reynolds        A-               B+          A
+       RB  119      Dylan Riley         A               B-         B+
+       RB  121  Wayshawn Parker        A-                B         B+
+       WR  125    Mike Matthews        A-               C+         B+
+       TE  183       Eli Finley        A-               C-         B-
+       TE  183 Patrick Overmyer         A               C-         B-
 
 non-fallers whose grade moved (should be 0): 0 
 
