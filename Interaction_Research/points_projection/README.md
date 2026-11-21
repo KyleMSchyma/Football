@@ -57,3 +57,17 @@ len x games x stoploss(PPG_k - replacement, sd_k), the same pieces dv_13 uses pe
 With the same underlying model family the PPG method and the tier method rank about equally (.519 vs .522); the live method's edge
 comes mostly from the live (ordinal, mixed) model. PPG model accuracy (`ppg_model_accuracy.csv`): rookie PPG Spearman .42-.55,
 seasons 1-3 PPG .54-.63.
+
+## Follow-up: top-24 boards per class, three post-draft methods (`pp_07_top24_boards.R`, `rookie_top24.html`)
+
+Kyle asked: top 24 rookies of every class under the current tier method (post-draft draft-only odds, not mixed), rookie-year PPG
+and 3-year PPG, default scoring. Classes 2010-2022, out-of-class (2010-2015 use the 2016 replacement lines).
+Board page: https://claude.ai/artifact/6UXRNYjU8YddKV9ajiXGej (`top24_boards.csv` has every player).
+
+| Method | Top-24 realized value per class | Share of best 24 | Real top-24 caught | Classes beating current |
+| --- | --- | --- | --- | --- |
+| Current (tier odds) | 1,546 | 76% | 14.9 | - |
+| Rookie-year PPG | 1,453 | 72% | 14.6 | 3 of 13 |
+| 3-year PPG | 1,501 | 74% | 14.8 | 6 of 13 |
+
+The three boards share about 21-22 of their 24 players in every class.
