@@ -39,3 +39,21 @@ big season, which the tier odds measure directly. **Recommendation: keep the tie
 **Board numbers** (`proj_points_*.csv`, `proj_points_calibration.csv`): expected 3-year PPR points, a quasi-Poisson spline of
 actual points on the log projection (out of class). Post-draft mean projected vs actual: QB 224/212, RB 220/215, WR 206/200,
 TE 137/137. Pre-draft includes the chance of going undrafted, so it runs low among drafted players.
+
+## Follow-up: PPG model for rookie values (`pp_06_ppg_value.R`, charts 07-10)
+
+Kyle's actual idea: project each rookie's PPG, then value = games x PPG over replacement. Stage 1: elastic net on the post-draft
+inputs, target (A) rookie-year PPG or (B) seasons 1-3 PPG, weighted by games, out of class. Stage 2 (other classes): per season k,
+PPG_k = a + b x projected PPG + c x age (residual sd = stop-loss spread), games_k from a spline of projected PPG. Value = sum v^k x
+len x games x stoploss(PPG_k - replacement, sd_k), the same pieces dv_13 uses per tier.
+
+| Method | Spearman vs realized value | 12-pick draft realized | Classes beating live (rank / draft) |
+| --- | --- | --- | --- |
+| Live tier method (dv_13, ordinal mixed model) | 0.540 | 1,300 | - |
+| Tier method, research hit model | 0.522 | 1,309 | 2 / 2 of 7 |
+| PPG model, rookie-year PPG | 0.519 (gap -0.021, CI -0.057 to 0.018) | 1,231 | 1 / 1 |
+| PPG model, seasons 1-3 PPG | 0.516 (gap -0.024, CI -0.062 to 0.013) | 1,236 | 3 / 2 |
+
+With the same underlying model family the PPG method and the tier method rank about equally (.519 vs .522); the live method's edge
+comes mostly from the live (ordinal, mixed) model. PPG model accuracy (`ppg_model_accuracy.csv`): rookie PPG Spearman .42-.55,
+seasons 1-3 PPG .54-.63.
