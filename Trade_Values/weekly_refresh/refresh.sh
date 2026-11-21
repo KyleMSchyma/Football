@@ -9,6 +9,8 @@
 #   3. rebuild the Prospect Actuary "Trade values" page                 (dv_12)
 #      and the Dynasty Daddy snapshot for the "Value research" page     (dv_14, called by dv_12)
 #   3c. browser vs R reconciliation data (dv_15)
+#   3d. ESPN % rostered / % started (rf_05): weekly archive + trade-values/data/own.js for the "Market adjusted" toggle.
+#       Guarded: a failure keeps last week's own.js and the run goes on.
 #   4. while the college regular season is on: re-pull CFBD 2026 stats and re-grade the 2027 pre-draft
 #      prospects (pd_01 pro-rated + as-is, pd_06, pd_11 drafted recalibration)
 #   4b. after dv_13, every week: swap the data lines of the pre-draft and post-draft grade pages (rf_02, pd_10),
@@ -100,6 +102,10 @@ cp "$LOGDIR/02_values.txt" "$DYN/dv_13_log.txt"      # read by the reconciliatio
 rr "$DYN" dv_12_trade_values_page.R 03_page.txt
 cat "$LOGDIR/03_page.txt" >> "$LOG"
 rr "$DYN" dv_15_board_value_check.R 03c_dv15.txt     # board values + browser reconciliation data (dv_15_expected.js)
+# 3d. ESPN ownership (Kyle 2026-11-20): one request; archive + own.js. Guarded: a failure keeps last week's own.js
+if "$HERE/run_r.sh" "$HERE" rf_05_espn_ownership.R "$LOGDIR/03d_espn.txt" "$SITE"; then
+  grep -h "ESPN rows\|matched\|lines:\|own.js written" "$LOGDIR/03d_espn.txt" | sed 's/^/  espn: /' | tee -a "$LOG"
+else say "WARNING: ESPN ownership pull failed, last week's own.js kept (see 03d_espn.txt)"; fi
 
 # ---------- 3b. grade pages: swap only their data lines (window.PD, window.MOCK27) ----------
 # Runs every week, after dv_13: the boards' cross-position Value column (dv_rookie_board_values.csv) moves with the
@@ -183,7 +189,8 @@ cp "$DYN"/dv_common.R "$DYN"/dv_10_ros_value.R "$DYN"/dv_11_dynasty_v4.R "$DYN"/
 cp "$DYN"/rl_00_pull_role_data.R "$DYN"/rl_01_role_build.R "$DYN"/rl_common.R "$DYN"/rl_dv10.R "$DYN"/rl_dv11_ext.R "$DYN"/rl_dv11_qb.R \
    "$DYN"/dv_15_board_value_check.R "$DYN"/dv_15_check.js "$WT/Trade_Values/" 2>/dev/null
 cp "$ARCH"/*.csv "$ARCH"/snapshots.json "$WT/Trade_Values/archive/" 2>/dev/null
-cp "$HERE"/refresh.sh "$HERE"/run_r.sh "$HERE"/rf_01_pull_nfl.R "$HERE"/rf_02_predraft_page.R "$HERE"/rf_03_gates.R "$HERE"/rf_04_archive.R \
+if [ -d "$HERE/espn_archive" ]; then mkdir -p "$WT/Trade_Values/espn_archive" && cp "$HERE"/espn_archive/*.csv "$WT/Trade_Values/espn_archive/" 2>/dev/null; fi
+cp "$HERE"/refresh.sh "$HERE"/run_r.sh "$HERE"/rf_01_pull_nfl.R "$HERE"/rf_02_predraft_page.R "$HERE"/rf_03_gates.R "$HERE"/rf_04_archive.R "$HERE"/rf_05_espn_ownership.R \
    "$HERE"/rf_gate_limits.csv "$HERE"/run_weekly.cmd "$HERE"/README.md "$WT/Trade_Values/weekly_refresh/" 2>/dev/null
 if [ "$PRE_DONE" = 1 ]; then
   cp "$PRE"/pd_player_grades.csv "$PRE"/pd_grade_validation.csv "$PRE"/pd_grade_vs_pick.csv "$PRE"/pd_grade_by_round.csv \
