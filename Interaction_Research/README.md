@@ -70,3 +70,18 @@ elastic net on 3-year points, on log(1 + points), each with and without all pair
   little or nothing.
 - **Post-draft: no clear difference** (draft pick dominates both).
 - Model parity: a points-based pre-draft score would need a post-draft and mixed counterpart before going live.
+
+## Follow-up 3: rookie year only (`ix_rookie_targets.R`, `ix_rookie.R`, `ix_rookie_eval.R`)
+
+Kyle asked for the same comparison on the rookie season alone. Targets: year-1 regular-season PPR points and
+year-1 positional finish (built from the nflverse weekly cache; tier-level finishes match the model tables exactly).
+Same rows, inputs and holdouts. `rookie_year_points_vs_hits.csv`, charts `14_rookie_year_points_vs_hits.png`,
+`15_rookie_year_rho_all.png`.
+
+- **A rookie-year hit model is the weakest ranker almost everywhere.** Year-1 tier hits are rare (3 to 12 top-tier
+  rookie seasons per position in 2010-2023), so there is little to learn. Post-draft TE rolling Spearman is 0.13.
+- **Rookie-year points models beat it**, most clearly pre-draft WR (+0.03 to +0.05), TE (+0.07 to +0.17), RB
+  (+0.02 to +0.04) and post-draft TE; intervals above 0.
+- **The 3-year log-points model ranks the rookie year as well as a dedicated rookie-year model** (e.g. pre-draft WR
+  .465 / .476 vs .461 / .471), so a separate rookie-year model isn't needed.
+- Interactions again add nothing consistent.
