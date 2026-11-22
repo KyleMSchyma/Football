@@ -171,6 +171,19 @@ change (the refresh hardcodes them).
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
 
+### 2026-11-22: Dynasty Daddy historical values (research)
+- What: Kyle asked whether Dynasty Daddy has time-stamped historical values. Checked the documented API, DD's front-end
+  code and the history endpoints it calls, from Kyle's PC (cloud is blocked).
+- Result: yes, via UNDOCUMENTED endpoints: `/api/v1/player/{name_id}?isAllTime=true` (one row per day per player) and
+  `/api/v1/player/all/prev/{days}` (top-500 board N days ago). DD's own values (`daddy_*`, = public API today) start
+  2024-08-01 (~2.3 seasons); DD v2 from 2026-08-26; FantasyCalc and DynastyProcess from 2023-05; the 2021+ unprefixed
+  fields are KeepTradeCut (never use). 1QB and SF for every market; redraft 0 in the offseason. DD weekly noise
+  ~2% median with one-day spikes. No ToS page found; the docs only ask to cache and keep load low.
+- Status: RESEARCH ONLY (nothing pulled by the refresh, nothing on site). Files: `Trade_Values/research/dd_history/`
+  (README, weekly sample for 4 players, chart). PR: this one.
+- Assumptions: A71 added; A51 unchanged.
+- Recommendations: R21 (ask DD permission, then one paced history pull and a market backtest).
+
 ### 2026-11-22: Research handoff and update tracker (this file)
 - What: Kyle asked for one exhaustive, always-updated handoff of all research, with an update log, an assumptions
   register (with alternative directions) and future recommendations at each update.
@@ -435,6 +448,9 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
 
 - **Market Check** (`/value-research/`): ranks vs Dynasty Daddy (default; dynasty + redraft, cached weekly by dv_14) and
   DynastyProcess (dynasty, live with fallback). 12-team SF 0.5 PPR. Ranks and gaps only. Never KTC.
+- **Dynasty Daddy history** (research 11-22, `Trade_Values/research/dd_history/`): daily DD values exist from
+  2024-08-01 via undocumented endpoints (player history, whole-board `prev/{days}`); also FantasyCalc/DynastyProcess
+  from 2023-05. Not pulled; permission to be asked first (R21). Use: backtest our values vs the market over time.
 - **Track Record** (`Track_Record/`, `/track-record/`): 2024-2026 grades frozen 2026-11-13 with hashes; scored as
   outcomes arrive.
 - **Value History** (`Trade_Values/history/`, `/value-history/`): weekly point-in-time values 2016+, scored against what
@@ -509,6 +525,7 @@ data; render.js makes a 2400x3000 navy/orange top-24 image with an OVR column; g
 | Release 3 of the redesign | 11-14 | Not approved (parts arrived via Value History) | Kyle asks |
 | 3-level site split | 11-14 | Superseded by the unified platform spec | - |
 | Handcuffs section (backup RB/QB starter potential) | 11-12 | IDEA ONLY, do not build until Kyle says. Spec: raw small-sample spot-start PPG over replacement, discounted by expected starts; backups on the main board stay; separate Handcuffs section | Kyle says build |
+| Dynasty Daddy value history (bulk pull, market backtest) | 11-22 | PARKED: exists from 2024-08 via undocumented endpoints; ask DD first, Kyle decides (R21) | DD says OK and Kyle asks |
 | Paywall (custom leagues, handcuffs, deep dives, exports) | 11-12 | Advice only; keep default boards and Market Check free | Kyle asks |
 | 2-for-1 consolidation moves; check incoming player starts | 11-16 | Not built | Kyle asks |
 | Fable optional items: 2028 picks, contend/rebuild toggle, live home lead, renv | 11-14 | Not built | Kyle asks |
@@ -614,6 +631,7 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A68 | Research uses Python in the cloud when R is unavailable, matching R outputs (e.g. realized value r = .99 with pp_03) | research folders | Always R on PC | Container lacks some packages; checked against R | ACTIVE |
 | A69 | Year-2/3 usage models are research and buy/sell only, not in values | position models | Feed dynasty values | Tested as prior 11-13, hurt redraft | ACTIVE |
 | A70 | 2027 board names: alias list maps mock names to board names (Ryan Coleman-Williams = Ryan Williams, Hollywood Smothers = Daylan Smothers, Quintrevion Wisner = Tre Wisner) | combine_mocks.py aliases | Fuzzy matching | Exact and auditable | ACTIVE |
+| A71 | Market history, if used, = Dynasty Daddy's own `daddy_*` fields from DD's history endpoints, only after DD permission; never the unprefixed/KTC fields | research/dd_history | Use documented current API only and build our own weekly archive of it; use FantasyCalc history | DD history is the only dated market source found that we may use; own archive starts from zero | ACTIVE |
 
 ---
 
@@ -625,6 +643,7 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | CollegeFootballData.com via cfbfastR | College stats, team stats, recruiting, usage/PPA | API key private (`.Renviron`); credit on site. FCS only vs FBS before 2022 |
 | Pro Football Reference | Credited on site | - |
 | Dynasty Daddy public API | Market Check snapshot | Allowed (Kyle confirmed); cache, low request rate; blocked from cloud (fetch via Kyle's PC) |
+| Dynasty Daddy history endpoints (`/player/{id}?isAllTime=true`, `/player/all/prev/{days}`) | Research sample only (11-22) | Undocumented; no ToS page; ask DD before bulk use; rows also carry KTC fields, which stay unused |
 | DynastyProcess open data | Market Check, Sleeper id map | Open data on GitHub |
 | Sleeper public API | League import in the visitor's browser | Read-only; blocked from the cloud container |
 | ESPN `kona_player_info` | Research only (rostered %) | Works from Kyle's PC only; current week only |
@@ -660,6 +679,7 @@ fine (already in Rookie_Pick_Strategy/README.md).
     findings are recorded here; code lives only on the branches.
 13. Sleeper settings the site cannot model (e.g. Lampoons' TE +0.25 and yardage bonuses).
 14. The refresh only runs if the PC is on (Task Scheduler runs it at the next start-up otherwise).
+15. Market Check is a single snapshot; dd.js keeps no history (each refresh overwrites it). DD history would fix this (R21).
 
 ---
 
@@ -707,6 +727,13 @@ approved to build unless Kyle says so (see section 10).
 - **R18. Fix doc drift** in Mock_Drafts/README.md and the root README. (issues 1, 3)
 - **R19. renv lockfile** for the R environment (Fable, not built).
 - **R20. Pick-slot history on the Picks tab** (from Rookie_Pick_Strategy) only if Kyle asks.
+
+**Market data**
+
+- **R21. Dynasty Daddy history:** ask DD (Discord/X) whether pulling history from its undocumented endpoints is OK; if
+  yes, one paced pull from Kyle's PC (~120 weekly `prev/{days}` calls, cached, never re-pulled) and a backtest of our
+  point-in-time values vs DD against next-season PPG, by position. Meanwhile, cheap fallback: keep each week's dd.js
+  in the archive so our own market history starts now. (11-22, A71)
 
 ---
 
