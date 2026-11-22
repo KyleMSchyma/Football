@@ -175,7 +175,7 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
 - What: Kyle asked for one exhaustive, always-updated handoff of all research, with an update log, an assumptions
   register (with alternative directions) and future recommendations at each update.
 - Result: this file, a root `CLAUDE.md` with the standing update rule, README link, project memory rule.
-- Status: PR open for Kyle's merge.
+- Status: Football PR #35, open for Kyle's merge.
 - Assumptions: register A1-A70 created from the full history.
 - Recommendations: see section 9; first priorities are the offseason plan (R1-R5).
 
