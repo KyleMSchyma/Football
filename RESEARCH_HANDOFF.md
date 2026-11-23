@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-23
+- Last updated: 2026-11-23 (Trade market source, S#34)
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -170,6 +170,17 @@ change (the refresh hardcodes them).
 ## 3. Update log
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
+
+### 2026-11-23: Trade market source on Market Check (S#34)
+- What: Kyle chose to show the curve-matched trade-market values on the Market Check page as a third source (dynasty
+  only), with the situations where the market doesn't add up listed beside them.
+- How: `Trade_Market/tm_07_site_data.py` writes `value-research/data/tm.js` (log 1:1 value per player at the page's
+  league: 12 teams, 0.5 PPR, SF, 8 starters; from the 4-shape run). The page fits one power in the browser so the
+  market's top-150 curve matches ours (2.03 at this league), shows Our value / Market value next to the ranks, and a
+  note box: 1-for-2 ~+20% for the single player, 2-for-3 ~+5%, bigger packages not used, close swaps, settings the
+  market barely prices, recency, rare players. Rank correlation top 150: .86.
+- Status: site PR S#34 OPEN (awaiting Kyle's merge). tm.js is a static snapshot (not in the weekly refresh).
+- Assumptions: A83 now LIVE once S#34 merges. Recommendation R28 added.
 
 ### 2026-11-23: Trade market values on our additive scale (research)
 - What: Kyle asked to translate the market values to be additive so they compare directly with ours. Kyle's framing
@@ -868,6 +879,8 @@ approved to build unless Kyle says so (see section 10).
 
 **Trade Market (research 11-23)**
 
+- **R28. Refresh the Trade market source:** tm.js is a one-off snapshot of trades to 11-23; add a periodic re-pull and
+  refit (paced, from the PC, DD permission) if Kyle wants it kept current. (A83, S#34)
 - **R26. Two-number market summary:** report the market as straight-up values (s = 1) plus a measured consolidation
   premium by trade shape, rather than one stretched scale; optionally compare with our own 2-for-1 premium idea (R14).
   Only if Kyle asks. (A80-A82)
