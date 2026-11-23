@@ -171,6 +171,18 @@ change (the refresh hardcodes them).
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
 
+### 2026-11-23: Mock range capped at the median
+- What: 8 of 94 mocked prospects had a worst case worth more than the median, or a best case worth less. Cause: the
+  mixed model's faller bump, not landing spot (landing spot barely matters: WR zero, RB vacated touches x1.08/SD, TE
+  vacated targets x1.17/SD). A later pick drops the plain grade below A-, he becomes a "faller", and the bump (odds about
+  x2) lifts him above his median (CJ Carr, Mensah, KJ Duff, Leavitt, Hoover); Luke Reynolds is the reverse (boosted at
+  the median, not at his best pick); Chambliss and Dante Moore are small landing-spot differences.
+- Fix (Kyle: "fix it where it gets the boost, but it maxed out at the median"): `pd_12_mock_range.R` keeps each case's
+  boost but caps worst-case odds and grade at the median's and floors the best case at the median's, tier by tier, for
+  both the mixed and plain post-draft ranges. Rejected: faller status fixed at the median pick; best/worst from the plain
+  model only.
+- Status: built; goes LIVE with the next PC rerun of pd_12, dv_13, pd_10. A74.
+
 ### 2026-11-23: Proj. PPG column on the draft boards (F#33, S#33)
 - What: Kyle approved both PRs and asked for projected 3-YEAR PPG (not total points) next to the grade, on the pre-draft,
   post-draft and mixed boards, wired so the weekly refresh keeps it.
@@ -652,6 +664,7 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A70 | 2027 board names: alias list maps mock names to board names (Ryan Coleman-Williams = Ryan Williams, Hollywood Smothers = Daylan Smothers, Quintrevion Wisner = Tre Wisner) | combine_mocks.py aliases | Fuzzy matching | Exact and auditable | ACTIVE |
 | A72 | Board "Proj. PPG" = projected PPR points per game over NFL seasons 1-3 in games played, elastic net on the grade's own inputs, trained on players with 1+ game weighted by games; past classes out-of-class; mixed = post + faller bump in PPG | pd_13, pd_14 | Projected total 3-yr points (S#33 first preview); rookie-year PPG; expected PPG including zero-game risk | Kyle chose 3-yr PPG 11-23; per-game separates "how good when he plays" from the grade's "will he make it"; 3-yr PPG beat rookie-year PPG in the value tests | ACTIVE |
 | A73 | Rookie values and pick prices stay on the tier odds; Proj. PPG is display only | dv_13 | PPG-model values; hybrid (PPG top 24, tiers outside) | Tier method best in every 11-21 backtest (.540 vs .516-.519; hybrid .491) | ACTIVE |
+| A74 | Mock range: best/worst cases keep their own faller boost, but worst <= median <= best on each tier's odds and the grade (capped / floored at the median-pick case) | pd_12_mock_range | Per-case boost with no cap (worst > median for 5 players); faller status fixed at the median; best/worst from the plain post-draft model only | Kyle's call 2026-11-23: keep the boost, max it at the median | ACTIVE 2026-11-23 |
 | A71 | Market history, if used, = Dynasty Daddy's own `daddy_*` fields from DD's history endpoints, only after DD permission; never the unprefixed/KTC fields | research/dd_history | Use documented current API only and build our own weekly archive of it; use FantasyCalc history | DD history is the only dated market source found that we may use; own archive starts from zero | ACTIVE |
 
 ---
