@@ -179,6 +179,12 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   market's top-150 curve matches ours (2.03 at this league), shows Our value / Market value next to the ranks, and a
   note box: 1-for-2 ~+20% for the single player, 2-for-3 ~+5%, bigger packages not used, close swaps, settings the
   market barely prices, recency, rare players. Rank correlation top 150: .86.
+- Best market moves (Kyle: "publish the 1:1, 2:1 versions. 1:1 is pivot section, 2:1 is uptier/downtier"): with the
+  Trade market source selected the page lists Pivots (1-for-1: market 1:1 prices within 10%, our dynasty value gain
+  > 10% and >= 1,000; best target per player given) and Uptier / Downtier (2-for-1: market 2:1 package prices, i.e. the
+  1:1 values to the power 2.546 at which held-out 1-for-2 trades balance, two pieces within 10% of the single player;
+  same gain rule), top 200 players, plus a "moves for one player" search. Our values don't credit the roster spot an
+  uptier frees.
 - Status: site PR S#34 OPEN (awaiting Kyle's merge). tm.js is a static snapshot (not in the weekly refresh).
 - Assumptions: A83 now LIVE once S#34 merges. Recommendation R28 added.
 
@@ -759,6 +765,7 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A81 | Dynasty market comparison uses only 1-for-1, 1-for-2, 2-for-2, 2-for-3 trades (75% of trades) | tm_04 TM_SHAPES | All shapes | Kyle 11-23: bigger trades are large steps | RESEARCH 11-23 |
 | A82 | Market comparison is descriptive: differences are "market above / below our method", never errors on either side | Trade_Market write-ups | Treat the market as truth or as noise | Kyle 11-23 | ACTIVE 11-23 |
 | A83 | Market values shown on our curve: 1:1 market values raised to one power fitted so the top-150 curve matches ours; package exceptions listed beside them | tm_06 | Package-fair scale (s 2.44); raw 1:1 (flatter) | Kyle 11-23: "keep the 1:1" with our site values; differences become pure player placement | RESEARCH 11-23 |
+| A84 | Market moves: fair = market prices within 10% (1:1 prices for pivots, 2:1 package prices for uptier/downtier); listed when our dynasty value gains > 10% and >= 1,000 | value-research page (S#34) | Fair on our values (as /moves/); fair on the curve-matched scale; 2-for-3 calibration (power 2.09) | Kyle 11-23; matches the site's 10% too-close-to-call rule; 2:1 power from 1-for-2 holdout trades only | RESEARCH 11-23, LIVE when S#34 merges |
 | A79 | Assets with fewer than 25 trades pooled per position; reference asset 2027 mid 1st (redraft: most-traded player) | tm_02 | Separate tiny-sample values; another reference | Stable fit; values are rescaled to 100k per league anyway | RESEARCH 11-23 |
 | A71 | Market history, if used, = Dynasty Daddy's own `daddy_*` fields from DD's history endpoints, only after DD permission; never the unprefixed/KTC fields | research/dd_history | Use documented current API only and build our own weekly archive of it; use FantasyCalc history | DD history is the only dated market source found that we may use; own archive starts from zero | ACTIVE |
 

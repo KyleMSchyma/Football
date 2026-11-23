@@ -23,7 +23,10 @@ A["nm"] = A.asset.map(lambda a: sl.get(a, "|").split("|")[0] or None)
 A["nm"] = A["nm"].fillna(A["name"])
 A = A[A["nm"].notna()].sort_values("lv", ascending=False)
 rows = [[r.nm, r.grp, round(float(r.lv), 4), int(r.n_trades)] for r in A.itertuples()]
-data = {"asof": "2026-11-23", "trades": int(meta.trades_used), "first": "2026-05-01",
+# 2:1 scale: power on the 1:1 values at which held-out 1-for-2 trades balance (log gap interpolated to 0)
+h = pd.read_csv(os.path.join(OUT, "dynasty_add4_holdout_by_shape.csv")); h = h[h["shape"] == "1-for-2"].sort_values("stretch")
+s_pkg = float(np.interp(0, h.mean_log_gap_few_minus_many.values, h.stretch.values))
+data = {"asof": "2026-11-23", "s_pkg": round(s_pkg, 3), "trades": int(meta.trades_used), "first": "2026-05-01",
         "note": "Dynasty Daddy Trade Database, 1-for-1, 1-for-2, 2-for-2 and 2-for-3 dynasty trades", "rows": rows}
 dst = os.path.join(PA, "value-research", "data", "tm.js")
 open(dst, "w").write("window.TM = " + json.dumps(data, separators=(",", ":")) + ";\n")
