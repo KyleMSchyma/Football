@@ -31,7 +31,7 @@ say  <- function(...) message(format(Sys.time(), "%H:%M:%S "), sprintf(...))
 
 HOLD_DAYS <- 14; MIN_APPEAR <- 25; DELTA <- 0.7; LAMBDA0 <- 2
 H_GRID <- c(3, 7, 14, 30, 60, 120); K_GRID <- c(2, 10, 50)
-REF <- "2027mid1stpi"
+REF <- Sys.getenv("TM_REF", "2027mid1stpi")   # redraft has almost no picks: falls back below
 
 # ---------------- data ----------------
 files <- list.files(RAW, sprintf("^%s_.*\\.rds$", TYPE), full.names = TRUE)
@@ -82,7 +82,10 @@ long <- merge(long, A[, .(asset, model_asset, grp)], by = "asset")
 long <- long[, .(n = .N), by = .(transaction_id, model_asset, grp, side)]   # same pooled asset twice -> count
 M <- unique(long[, .(model_asset, grp)])[order(model_asset)]
 M[, ai := .I]
-if (!REF %in% M$model_asset) stop("reference asset ", REF, " not found")
+if (!REF %in% M$model_asset) {   # fallback: pin the most-traded individually modelled asset
+  REF <- A[n_trades >= MIN_APPEAR][order(-n_trades), asset][1]
+  say("reference asset not found; pinning the most-traded asset instead: %s", REF)
+}
 GROUPS <- c("QB", "RB", "WR", "TE", "PICK", "OTH"); M[, gi := match(grp, GROUPS)]
 long <- merge(long, M[, .(model_asset, ai, gi)], by = "model_asset")
 
