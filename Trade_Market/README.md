@@ -18,7 +18,7 @@ Status: RESEARCH ONLY. Nothing here feeds the site.
 - The market pays a consolidation premium (fewer-asset side +35% in 1-for-2, +67% in 1-for-4), so these additive trade
   values are flatter than ours: compare ranks, not levels, until a consolidation-aware fit exists.
 - Traders barely adjust for PPR, TE premium or team count; superflex is the one setting priced strongly.
-- Charts and tables: `compare/`. Full report: https://claude.ai/artifact/KxjqETAkoyxDSxtq8uhaaM
+- Charts and tables: `compare/`. Full report: https://claude.ai/artifact/D57WtFX8mNemAZ647ujpz5
 
 ## Market on our additive scale (2026-11-23, tm_04 / tm_05)
 

@@ -215,7 +215,7 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   TEs 16% (ours 116%); PPR and team count move prices 2% or less. Market pays more for Jefferson, C. Williams, L. Jackson,
   J. Allen, Bijan; less for Jeanty, Nacua, CMC, Stroud, Tate. 2027 mid 1st 27.7k (ours 24.0k), mid 2nd 15.6k (9.8k).
 - Status: RESEARCH ONLY (nothing on the site). Files: `Trade_Market/` (tm_01 pull, tm_02 fit, tm_03 charts,
-  `out/` aggregates without league ids, `compare/` charts). Report: https://claude.ai/artifact/KxjqETAkoyxDSxtq8uhaaM
+  `out/` aggregates without league ids, `compare/` charts). Report: https://claude.ai/artifact/D57WtFX8mNemAZ647ujpz5
 - Assumptions: A75-A79 added. Recommendations: R23-R25.
 
 ### 2026-11-23: Mock range capped at the median
@@ -912,7 +912,7 @@ approved to build unless Kyle says so (see section 10).
 | Interactions / squared terms | https://claude.ai/artifact/NsvDr1nxQ78NeP47kMdmcw |
 | Top-24 boards (points vs tiers) | https://claude.ai/artifact/6UXRNYjU8YddKV9ajiXGej |
 | Rookie pick strategy | https://claude.ai/artifact/WKN1QzTfvdzKTgKzg6rR6T |
-| Trade Market values (Trade_Market; includes the 11-23 additive-scale section) | https://claude.ai/artifact/KxjqETAkoyxDSxtq8uhaaM |
+| Trade Market values (Trade_Market; includes the 11-23 additive-scale section) | https://claude.ai/artifact/D57WtFX8mNemAZ647ujpz5 |
 
 **Reports in this repo:** FABLE_REVIEW.md; `Trade_Values/dev_role_layer/FABLE_BUILD_REPORT.md` and
 `ROLE_AND_CALIBRATION_REPORT.md`; `Trade_Values/history/README.md`; `Landing_Spot_Offense/README.md`;
