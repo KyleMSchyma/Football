@@ -192,6 +192,14 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   .47 at s = 2.44, so no single additive scale fits both. Player-level differences are the same in every view: market
   above our method on J. Allen, Bijan, C. Williams, Jefferson, L. Jackson, Mendoza; below on Jeanty, McCaffrey, Stroud,
   Nacua, 2026 rookies (Tate, O. Cooper Jr., J. Love) and 2027 picks (mid 1st ~40% of ours). Spearman top 150 .889.
+- Curve match (Kyle: "match an exponential function like our values so it is 1:1 with our site values";
+  `tm_06_curve_match.py`): market 1:1 values raised to one power p = 1.81 so the top-150 value-by-rank curve matches
+  ours (log RMSE .06; rank 24: 36k vs our 39k). Kyle chose to KEEP this curve-matched scale. Position level: QB +2%,
+  RB -2%, WR -8%, TE +22%. Market above our method: C. Williams 56k vs 33k, Jefferson 48k vs 25k, Allen 88k vs 66k,
+  Bijan 78k vs 56k, L. Jackson, Mendoza, Achane, McBride; below: Jeanty 32k vs 54k, O. Cooper Jr., Stroud, McCaffrey,
+  Nacua, Gibbs, Tate, Goff, J. Love; 2027 mid 1st 18k vs 24k. On held-out trades at this scale: 1-for-2 lone player
+  still +20% over the sum, 2-for-3 +6%, 1-for-1 typical miss 34% (19% at raw 1:1). Kyle asked for these exceptions to
+  be listed on the site; where it goes on the site is pending his choice (Market Check source recommended).
 - Redraft: run paused by Kyle at the final fit (holdout chose s = 2.12; reference fell back to a player because
   redraft has almost no 2027 1st trades). Kyle: focus on dynasty.
 - Status: RESEARCH ONLY. Files: `Trade_Market/tm_04_additive_calibrated.R` (TM_SHAPES, TM_TAG options),
@@ -739,6 +747,7 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A80 | Market values on our additive scale: light shrinkage (LAMBDA0 0.05) and one stretch v' = v^s chosen so holdout trades show no consolidation gap | tm_04 | tm_02 as is (flat); roster cost; depth discount; stretch by MAE (always s = 1) | Only option that recovers known values in synthetic tests and puts package prices on an additive scale; the s = 1 (straight-up) view is reported next to it | RESEARCH 11-23 |
 | A81 | Dynasty market comparison uses only 1-for-1, 1-for-2, 2-for-2, 2-for-3 trades (75% of trades) | tm_04 TM_SHAPES | All shapes | Kyle 11-23: bigger trades are large steps | RESEARCH 11-23 |
 | A82 | Market comparison is descriptive: differences are "market above / below our method", never errors on either side | Trade_Market write-ups | Treat the market as truth or as noise | Kyle 11-23 | ACTIVE 11-23 |
+| A83 | Market values shown on our curve: 1:1 market values raised to one power fitted so the top-150 curve matches ours; package exceptions listed beside them | tm_06 | Package-fair scale (s 2.44); raw 1:1 (flatter) | Kyle 11-23: "keep the 1:1" with our site values; differences become pure player placement | RESEARCH 11-23 |
 | A79 | Assets with fewer than 25 trades pooled per position; reference asset 2027 mid 1st (redraft: most-traded player) | tm_02 | Separate tiny-sample values; another reference | Stable fit; values are rescaled to 100k per league anyway | RESEARCH 11-23 |
 | A71 | Market history, if used, = Dynasty Daddy's own `daddy_*` fields from DD's history endpoints, only after DD permission; never the unprefixed/KTC fields | research/dd_history | Use documented current API only and build our own weekly archive of it; use FantasyCalc history | DD history is the only dated market source found that we may use; own archive starts from zero | ACTIVE |
 
