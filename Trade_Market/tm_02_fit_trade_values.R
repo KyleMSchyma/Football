@@ -30,7 +30,7 @@ out  <- function(x, name) fwrite(x, file.path(OUTD, sprintf("%s_%s.csv", TYPE, n
 say  <- function(...) message(format(Sys.time(), "%H:%M:%S "), sprintf(...))
 
 HOLD_DAYS <- 14; MIN_APPEAR <- 25; DELTA <- 0.7; LAMBDA0 <- 2
-H_GRID <- c(7, 14, 30, 60, 120); K_GRID <- c(2, 10, 50)
+H_GRID <- c(3, 7, 14, 30, 60, 120); K_GRID <- c(2, 10, 50)
 REF <- "2027mid1stpi"
 
 # ---------------- data ----------------
@@ -64,11 +64,16 @@ ids <- tryCatch({
 
 pk <- regmatches(unique(long$asset), regexec("^(\\d{4})(early|mid|late)?(\\d)(st|nd|rd|th)pi$", unique(long$asset)))
 picks <- rbindlist(lapply(pk, function(m) if (length(m)) data.table(asset = m[1], pick_year = as.integer(m[2]), pick_tier = ifelse(m[3] == "", "unk", m[3]), pick_round = as.integer(m[4]))))
+# picks whose slot is known appear as "2026.1.1.pi" (year.round.slot): tier from slot (1-4 early, 5-8 mid, 9+ late)
+pk2 <- regmatches(unique(long$asset), regexec("^(\\d{4})\\.(\\d+)\\.(\\d+)\\.pi$", unique(long$asset)))
+picks <- rbind(picks, rbindlist(lapply(pk2, function(m) if (length(m)) data.table(asset = m[1], pick_year = as.integer(m[2]),
+  pick_tier = c("early", "mid", "late")[pmin(3, (as.integer(m[4]) - 1) %/% 4 + 1)], pick_round = as.integer(m[3])))), fill = TRUE)
 A <- long[, .(n_trades = uniqueN(transaction_id)), by = asset]
 A <- merge(A, ids, by = "asset", all.x = TRUE)
 if (nrow(picks)) A <- merge(A, picks, by = "asset", all.x = TRUE) else A[, `:=`(pick_year = NA_integer_, pick_tier = NA_character_, pick_round = NA_integer_)]
 A[, grp := fifelse(!is.na(pick_year), "PICK", fifelse(pos %in% c("QB", "RB", "WR", "TE"), pos, "OTH"))]
-A[grp == "PICK", name := sprintf("%d %s %s", pick_year, pick_tier, c("1st","2nd","3rd","4th","5th","6th","7th")[pmin(pick_round, 7)])]
+A[grp == "PICK", name := fifelse(grepl("^\\d{4}\\.", asset), sprintf("%d pick %s", pick_year, sub("^\\d{4}\\.(\\d+)\\.(\\d+)\\.pi$", "\\1.\\2", asset)),
+                                 sprintf("%d %s %s", pick_year, pick_tier, c("1st","2nd","3rd","4th","5th","6th","7th")[pmin(pick_round, 7)]))]
 # rare assets are pooled per group so their trades still count
 A[, model_asset := fifelse(n_trades >= MIN_APPEAR, asset, paste0("RARE_", grp))]
 say("%d distinct assets, %d modelled individually", nrow(A), sum(A$n_trades >= MIN_APPEAR))
@@ -199,7 +204,7 @@ fwrite(data.table(r = round(rB, 4), shape = sz$shape)[sample(.N, min(.N, 50000))
 
 # ---------------- final fit on all trades ----------------
 all <- d$ti
-oF_L <- fit(make_obj(all, rep(1, length(all))), start_long, maxit = 400)
+oF_L <- fit(make_obj(all, rep(1, length(all))), c(thL, as.numeric(BL), rep(0, nG)), maxit = 800)
 thFL <- oF_L$par[1:nA]; BFL <- matrix(oF_L$par[nA + 1:(NK * nG)], NK, nG)
 wF <- 0.5^(d$age / H_BEST)
 oF <- fit(make_obj(all, wF, prior_theta = thFL, prior_beta = BFL, k = K_BEST), c(thFL, as.numeric(BFL)), maxit = 400)
