@@ -27,7 +27,8 @@ TYPE <- if (length(args)) tolower(args[1]) else "dynasty"
 ROOT <- Sys.getenv("TM_ROOT", file.path(Sys.getenv("USERPROFILE"), "Documents", "R Studio", "Football2", "research", "dd_trades"))
 RAW  <- file.path(ROOT, "raw"); OUTD <- file.path(ROOT, "out")
 dir.create(OUTD, showWarnings = FALSE, recursive = TRUE)
-out  <- function(x, name) fwrite(x, file.path(OUTD, sprintf("%s_add_%s.csv", TYPE, name)))
+TAG  <- Sys.getenv("TM_TAG", "add")   # output tag, e.g. "add4" for the 4-shape run
+out  <- function(x, name) fwrite(x, file.path(OUTD, sprintf("%s_%s_%s.csv", TYPE, TAG, name)))
 say  <- function(...) message(format(Sys.time(), "%H:%M:%S "), sprintf(...))
 
 HOLD_DAYS <- 14; MIN_APPEAR <- 25; DELTA <- 0.7
@@ -56,6 +57,15 @@ d[, league_id := NULL]   # never needed again; never written
 long <- rbind(d[, .(asset = unlist(strsplit(sidea, "|", fixed = TRUE)), side = 1L), by = transaction_id],
               d[, .(asset = unlist(strsplit(sideb, "|", fixed = TRUE)), side = -1L), by = transaction_id])
 long <- long[asset != ""]
+# optional: keep only some trade shapes, e.g. TM_SHAPES="1-1,1-2,2-2,2-3" (Kyle 2026-11-23: big-step trades distort)
+SHAPES <- Sys.getenv("TM_SHAPES", "")
+if (nzchar(SHAPES)) {
+  keep <- trimws(strsplit(SHAPES, ",")[[1]])
+  sz0 <- long[, .(a = sum(side > 0), b = sum(side < 0)), by = transaction_id][, shape := paste0(pmin(a, b), "-", pmax(a, b))]
+  ids_keep <- sz0[shape %in% keep, transaction_id]
+  long <- long[transaction_id %in% ids_keep]; d <- d[transaction_id %in% ids_keep]
+  say("trade shapes kept (%s): %d trades", SHAPES, nrow(d))
+}
 
 ids <- tryCatch({
   x <- as.data.table(nflreadr::load_ff_playerids())

@@ -18,8 +18,9 @@ import matplotlib.pyplot as plt
 from scipy.stats import spearmanr
 
 REPO, OURS, SLID = sys.argv[1:4]
+TAG = sys.argv[4] if len(sys.argv) > 4 else "add"   # tm_04 output tag (add, add4 ...)
 OUT = os.path.join(REPO, "Trade_Market", "out")
-CMP = os.path.join(REPO, "Trade_Market", "compare_additive"); os.makedirs(CMP, exist_ok=True)
+CMP = os.path.join(REPO, "Trade_Market", "compare_additive" if TAG == "add" else f"compare_{TAG}"); os.makedirs(CMP, exist_ok=True)
 COL = {"QB": "#d1495b", "RB": "#2e86ab", "WR": "#3b9c5a", "TE": "#e09f3e", "PICK": "#7b5ea7", "OTH": "#888888"}
 plt.rcParams.update({"figure.dpi": 130, "font.size": 9, "axes.spines.top": False, "axes.spines.right": False})
 COVS = ["sf", "ppr1", "tep", "teams", "start"]
@@ -47,13 +48,13 @@ def save(fig, name):
 
 
 for TYPE, MODE in [("dynasty", "d"), ("redraft", "r")]:
-    f = os.path.join(OUT, f"{TYPE}_add_assets.csv")
+    f = os.path.join(OUT, f"{TYPE}_{TAG}_assets.csv")
     if not os.path.exists(f):
         continue
-    A = pd.read_csv(f, dtype={"asset": str}); beta = pd.read_csv(os.path.join(OUT, f"{TYPE}_add_beta.csv"))
-    hold = pd.read_csv(os.path.join(OUT, f"{TYPE}_add_holdout.csv"))
-    shp = pd.read_csv(os.path.join(OUT, f"{TYPE}_add_holdout_by_shape.csv"))
-    meta = pd.read_csv(os.path.join(OUT, f"{TYPE}_add_meta.csv")).iloc[0]
+    A = pd.read_csv(f, dtype={"asset": str}); beta = pd.read_csv(os.path.join(OUT, f"{TYPE}_{TAG}_beta.csv"))
+    hold = pd.read_csv(os.path.join(OUT, f"{TYPE}_{TAG}_holdout.csv"))
+    shp = pd.read_csv(os.path.join(OUT, f"{TYPE}_{TAG}_holdout_by_shape.csv"))
+    meta = pd.read_csv(os.path.join(OUT, f"{TYPE}_{TAG}_meta.csv")).iloc[0]
     A0 = pd.read_csv(os.path.join(OUT, f"{TYPE}_assets.csv"), dtype={"asset": str}); beta0 = pd.read_csv(os.path.join(OUT, f"{TYPE}_beta.csv"))
     for X in (A, A0):
         X["our_name"] = X["asset"].map(lambda s: sl.get(s, "|").split("|")[0] or None)
@@ -100,6 +101,16 @@ for TYPE, MODE in [("dynasty", "d"), ("redraft", "r")]:
     save(fig, f"{TYPE}_a2_shape.png")
     S["shape"] = [dict(shape=r["shape"], trades=int(r.trades), before=round(float(np.exp(-r.mean_log_gap_few_minus_many) - 1), 3),
                        after=round(float(np.exp(-a.loc[r["shape"]].mean_log_gap_few_minus_many) - 1), 3)) for _, r in b.iterrows()]
+
+    # 2b. accuracy by trade shape across stretches: does one additive scale fit straight-up AND package trades?
+    fig, ax = plt.subplots(figsize=(6.4, 3.2))
+    for sh_, c in [("1-for-1", "#555555"), ("2-for-2", "#999999"), ("1-for-2", "#e09f3e"), ("1-for-3", "#d1495b"), ("2-for-3", "#2e86ab"), ("2-for-4", "#3b9c5a")]:
+        q = shp[shp["shape"] == sh_].sort_values("stretch")
+        if len(q): ax.plot(q.stretch, q.mae, label=sh_, color=c)
+    ax.axvline(S["stretch"], color="grey", ls="--", lw=.8); ax.set_xlabel("stretch s"); ax.set_ylabel("holdout mean |log gap|")
+    ax.set_title(f"{TYPE.title()}: holdout error by trade shape"); ax.legend(fontsize=7, ncol=2)
+    save(fig, f"{TYPE}_a7_mae_by_shape.png")
+    S["mae_by_shape"] = shp[shp.stretch.isin([1.0, s_near])][["stretch", "shape", "trades", "mae"]].round(3).to_dict("records")
 
     # 3. direct comparison: additive market vs ours (and the old fit for reference)
     rho = spearmanr(top.market_add, top.our_value).correlation
