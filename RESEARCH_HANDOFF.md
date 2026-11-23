@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-22
+- Last updated: 2026-11-23
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -170,6 +170,23 @@ change (the refresh hardcodes them).
 ## 3. Update log
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
+
+### 2026-11-23: Proj. PPG column on the draft boards (F#33, S#33)
+- What: Kyle approved both PRs and asked for projected 3-YEAR PPG (not total points) next to the grade, on the pre-draft,
+  post-draft and mixed boards, wired so the weekly refresh keeps it.
+- Result: new `PreDraft_Model/pd_14_proj_ppg.R` and `PostDraft_Model/pd_13_proj_ppg.R` (elastic net on the grade's own
+  inputs, target = PPR points per game over seasons 1-3 for players who played, weighted by games; past classes
+  out-of-class, 2024+ and the 2027 mock from a final 2010-2023 fit). Out-of-class Spearman with actual 3-yr PPG:
+  post-draft QB .61, RB .59, WR .59, TE .59; pre-draft QB .25, RB .43, WR .35, TE .31. Mixed view adds a faller bump in
+  PPG (QB +3.9, RB +1.5, TE +1.7, WR +0.9; 11-27 fallers each, noisy). `rf_02_predraft_page.R` and `pd_10_site_page.R`
+  write `pp` (mixed / pre) and `ppd` (plain post-draft) into the data lines; `refresh.sh` runs pd_14 (with the pre-draft
+  regrade) and pd_13 (before pd_10), both guarded (a failure keeps last week's CSV). Site: "Proj. PPG" column after Grade,
+  note above each board; the Post-draft switch shows `ppd`.
+- Status: LIVE once F#33 and S#33 are merged AND the four scripts are copied to the PC (pd_13 + pd_10 to
+  Football2_PostDraft, pd_14 to Football2_PreDraft, rf_02 + refresh.sh to Weekly_Refresh). Until the PC has them, the
+  refresh rewrites the data lines without `pp` and the column shows blank (no error).
+- Display only: grades, Value and pick prices do not use it (A73).
+- Assumptions: A72, A73 added. Recommendations: R22.
 
 ### 2026-11-22: Dynasty Daddy historical values (research)
 - What: Kyle asked whether Dynasty Daddy has time-stamped historical values. Checked the documented API, DD's front-end
@@ -408,7 +425,9 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   (rolling version: A 75% post, D/F 9%).
 - **Mixed (default on site):** pd_11_mixed_model.R boosts pre-draft A-range players who fell out of A after the draft.
   Rewrites post-draft and 2027 mock CSVs in place, keeps `*_draft` columns (plain post-draft) for the model switch.
-- **Run order:** pd_07 -> pd_09 (x3: median, best, worst) -> pd_11 -> pd_12 -> dv_13 -> pd_10.
+- **Run order:** pd_07 -> pd_09 (x3: median, best, worst) -> pd_11 -> pd_12 -> pd_13 (Proj. PPG) -> dv_13 -> pd_10.
+- **Proj. PPG (2026-11-23):** pd_13_proj_ppg.R writes projected 3-year PPG (plain and mixed) for the board and the 2027
+  mock; pd_14_proj_ppg.R does the same for the pre-draft board. Display column only (A72, A73).
 
 ### 4.4 The 2027 class: mocks and pick range
 
@@ -631,6 +650,8 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A68 | Research uses Python in the cloud when R is unavailable, matching R outputs (e.g. realized value r = .99 with pp_03) | research folders | Always R on PC | Container lacks some packages; checked against R | ACTIVE |
 | A69 | Year-2/3 usage models are research and buy/sell only, not in values | position models | Feed dynasty values | Tested as prior 11-13, hurt redraft | ACTIVE |
 | A70 | 2027 board names: alias list maps mock names to board names (Ryan Coleman-Williams = Ryan Williams, Hollywood Smothers = Daylan Smothers, Quintrevion Wisner = Tre Wisner) | combine_mocks.py aliases | Fuzzy matching | Exact and auditable | ACTIVE |
+| A72 | Board "Proj. PPG" = projected PPR points per game over NFL seasons 1-3 in games played, elastic net on the grade's own inputs, trained on players with 1+ game weighted by games; past classes out-of-class; mixed = post + faller bump in PPG | pd_13, pd_14 | Projected total 3-yr points (S#33 first preview); rookie-year PPG; expected PPG including zero-game risk | Kyle chose 3-yr PPG 11-23; per-game separates "how good when he plays" from the grade's "will he make it"; 3-yr PPG beat rookie-year PPG in the value tests | ACTIVE |
+| A73 | Rookie values and pick prices stay on the tier odds; Proj. PPG is display only | dv_13 | PPG-model values; hybrid (PPG top 24, tiers outside) | Tier method best in every 11-21 backtest (.540 vs .516-.519; hybrid .491) | ACTIVE |
 | A71 | Market history, if used, = Dynasty Daddy's own `daddy_*` fields from DD's history endpoints, only after DD permission; never the unprefixed/KTC fields | research/dd_history | Use documented current API only and build our own weekly archive of it; use FantasyCalc history | DD history is the only dated market source found that we may use; own archive starts from zero | ACTIVE |
 
 ---
@@ -675,8 +696,10 @@ fine (already in Rookie_Pick_Strategy/README.md).
 10. Template trap: `refresh.sh` rebuilds the Trade Values page from the PC's `tv_page_template.html` and copies it back
     to the repo. Any template edit must be copied to the PC before Tuesday (it broke the footer once, 2026-11-17).
 11. Wednesday rookie X posts barely change week to week because mock grades are not rerun weekly.
-12. Open research PRs never merged: F#19 (team matchup), F#25 (prospect prior), F#33 (interactions/points). Their
-    findings are recorded here; code lives only on the branches.
+12. Open research PRs never merged: F#19 (team matchup), F#25 (prospect prior). Their findings are recorded here; code
+    lives only on the branches. (F#33 now carries the Proj. PPG build as well as the interaction/points research.)
+16. Proj. PPG needs pd_13, pd_14, pd_10, rf_02 and refresh.sh on the PC; otherwise the column is blank after a refresh.
+    The pre-draft PPG model is weak for QBs (Spearman .25) and the mixed QB faller bump (+3.9 PPG) rests on 11 players.
 13. Sleeper settings the site cannot model (e.g. Lampoons' TE +0.25 and yardage bonuses).
 14. The refresh only runs if the PC is on (Task Scheduler runs it at the next start-up otherwise).
 15. Market Check is a single snapshot; dd.js keeps no history (each refresh overwrites it). DD history would fix this (R21).
@@ -713,6 +736,9 @@ approved to build unless Kyle says so (see section 10).
 - **R10. Current-season credibility weight check:** test whether k1 should vary by week or by prior sample size, since
   9 hot games carry ~60% weight. (A31, A63)
 - **R11. Investigate the missing players** (Higgins, Hunter, Aiyuk, Beck), Sorsby and Dante Moore. (issues 4-6)
+
+- **R22. Copy the Proj. PPG scripts to the PC** (pd_13 + pd_10 -> Football2_PostDraft, pd_14 -> Football2_PreDraft,
+  rf_02 + refresh.sh -> Weekly_Refresh) before the next Tuesday refresh after F#33/S#33 merge. (A72, issue 16)
 
 **Product (only when Kyle asks)**
 

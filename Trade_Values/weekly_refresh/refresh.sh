@@ -87,6 +87,8 @@ if [ -z "${SKIP_PREDRAFT:-}" ] && [[ "$(date +%Y-%m-%d)" < "$PREDRAFT_UNTIL" || 
   rr "$PRE" pd_06_player_grades.R 05_pd06.txt
   rr "$PRE" pd_11_drafted_calibration.R 05b_pd11.txt   # pre-draft probabilities conditional on being drafted (2027 picks + Value column)
   rr "$PRE" pd_12_declare_2027.R 05c_pd12.txt          # FABLE: P(declare) for 2027 prospects, applied to pre-draft-priced picks in dv_13
+  # projected 3-year PPG (display column, Kyle 2026-11-23): guarded, a failure keeps last week's pd_proj_ppg.csv
+  "$HERE/run_r.sh" "$PRE" pd_14_proj_ppg.R "$LOGDIR/05d_pd14.txt" || say "WARNING: pd_14 projected PPG failed, keeping last week's file (see 05d_pd14.txt)"
   cp "$PRE"/pd_player_grades.csv "$PRE"/pd_grade_validation.csv "$PRE"/pd_grade_vs_pick.csv \
      "$PRE"/pd_grade_by_round.csv "$PRE"/pd_grade_scale.csv "$SITE/pre-draft/data/"
   PRE_DONE=1; say "pre-draft 2027 board refreshed"
@@ -105,6 +107,8 @@ rr "$DYN" dv_15_board_value_check.R 03c_dv15.txt     # board values + browser re
 # Runs every week, after dv_13: the boards' cross-position Value column (dv_rookie_board_values.csv) moves with the
 # NFL replacement lines even after the college season. The post-draft grades themselves are not re-run.
 rr "$HERE" rf_02_predraft_page.R 06_predraft_page.txt "$SITE/pre-draft/index.html"
+# projected 3-year PPG for the post-draft board and 2027 mock (display column, Kyle 2026-11-23): guarded
+"$HERE/run_r.sh" "$ROOT/Football2_PostDraft" pd_13_proj_ppg.R "$LOGDIR/06a_pd13.txt" || say "WARNING: pd_13 projected PPG failed, keeping last week's files (see 06a_pd13.txt)"
 "$HERE/run_r.sh" "$ROOT/Football2_PostDraft" pd_10_site_page.R "$LOGDIR/06b_postdraft_page.txt" "$SITE/post-draft/index.html" || fail "post-draft page (see 06b_postdraft_page.txt)"
 cp "$DYN"/dv_rookie_board_values.csv "$SITE/pre-draft/data/rookie_board_values.csv"
 

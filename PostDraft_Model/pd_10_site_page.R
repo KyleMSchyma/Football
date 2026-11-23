@@ -31,12 +31,17 @@ V <- if (!is.na(vf)) read.csv(vf, stringsAsFactors = FALSE, na.strings = c("", "
              p_top = numeric(0), p_top2 = numeric(0), p_any = numeric(0), age = numeric(0))
 f <- f %>% left_join(V %>% filter(board == "post") %>% distinct(position, class, pick, .keep_all = TRUE) %>%
                        select(position, class, pick, v = value_100k, vq1 = p_top, vq2 = p_top2, vq3 = p_any, ag = age), by = c("position", "class", "pick"))
+# Projected 3-year PPG (Kyle 2026-11-23, display only; pd_13_proj_ppg.R): pp = mixed view, ppd = plain post-draft view
+ppf <- file.path(dd, "pd_post_proj_ppg.csv")
+PPG <- if (file.exists(ppf)) rd("pd_post_proj_ppg.csv") %>% distinct(position, class, pick, .keep_all = TRUE) else
+  data.frame(position = character(0), class = integer(0), pick = integer(0), proj_ppg3_post = numeric(0), proj_ppg3_mixed = numeric(0))
+f <- f %>% left_join(PPG %>% select(position, class, pick, pp = proj_ppg3_mixed, ppd = proj_ppg3_post), by = c("position", "class", "pick"))
 P <- f %>% transmute(pos = position, rk = post_rank_all, cls = class, rkc = post_rank_class, st = 0L,
   name, col = college, rd = round, pk = pick, sc = post_score, pct = post_pctile, g = post_grade,
   pt = p_top, p2 = p_top2, pa = p_any, out = nfl_outcome, tier = nfl_tier, pts = nfl_ppr_pts,
   fl = as.integer(!is.na(data_flag)), mx = as.integer(coalesce(mixed_faller, 0L)), gd = post_grade_draft,
   dr = drf(mixed_faller, post_grade_draft, post_score_draft, post_pctile_draft, p_top_draft, p_top2_draft, p_any_draft), v = v,
-  vq = I(lapply(seq_along(vq1), function(i) if (is.na(vq1[i])) NULL else c(vq1[i], vq2[i], vq3[i]))), ag = ag)
+  vq = I(lapply(seq_along(vq1), function(i) if (is.na(vq1[i])) NULL else c(vq1[i], vq2[i], vq3[i]))), ag = ag, pp = pp, ppd = ppd)
 band <- function(g) ifelse(g %in% c("A+","A","A-"), "A", ifelse(g %in% c("B+","B","B-"), "B", ifelse(g %in% c("C+","C","C-"), "C", "DF")))
 BS <- f %>% filter(class <= 2023, !is.na(nfl_tier)) %>% mutate(b = band(post_grade)) %>% group_by(position, b) %>%
   summarize(n = n(), any = round(mean(nfl_tier <= 3), 3), top = round(mean(nfl_tier == 1), 3), .groups = "drop")
@@ -53,13 +58,17 @@ rgf <- function(d) I(lapply(seq_len(nrow(d)), function(i) { x <- d[i, ]; if (is.
   list(pb = x$best_pick, pw = if (is.na(x$worst_pick)) NA_integer_ else x$worst_pick, ud = identical(x$worst_case, "undrafted"),
        nd = x$n_drafted, nm = x$n_mocks, b = q("best_"), w = q("worst_"), bd = q("best_", "_draft"), wd = q("worst_", "_draft")) }))
 mk$rg <- rgf(mk)
+mpf <- file.path(dd, "pd_post_2027_mock_proj_ppg.csv")
+MPP <- if (file.exists(mpf)) rd("pd_post_2027_mock_proj_ppg.csv") %>% distinct(position, pick, name, .keep_all = TRUE) else
+  data.frame(position = character(0), pick = integer(0), name = character(0), proj_ppg3_post = numeric(0), proj_ppg3_mixed = numeric(0))
+mk <- mk %>% left_join(MPP %>% select(position, pick, name, pp = proj_ppg3_mixed, ppd = proj_ppg3_post), by = c("position", "pick", "name"))
 mk <- mk %>% arrange(pick) %>%
   left_join(V %>% filter(board == "mock") %>% distinct(pick, name, .keep_all = TRUE) %>% select(pick, name, v = value_100k, vq1 = p_top, vq2 = p_top2, vq3 = p_any, ag = age), by = c("pick", "name")) %>%
   transmute(pick, rd = round, team, name, pos = position, school, post = post_grade, pre = pre_grade, move = grade_move,
             ptop = p_top, pany = p_any, sc = post_score, pct = post_pctile, p2 = p_top2, mx = as.integer(coalesce(mixed_faller, 0L)), gd = post_grade_draft,
             dr = drf(mixed_faller, post_grade_draft, post_score_draft, post_pctile_draft, p_top_draft, p_top2_draft, p_any_draft,
                      p_top_value_draft, p_top2_value_draft, p_any_value_draft), v = v,
-            vq = I(lapply(seq_along(vq1), function(i) if (is.na(vq1[i])) NULL else c(vq1[i], vq2[i], vq3[i]))), ag = ag, rg = rg)
+            vq = I(lapply(seq_along(vq1), function(i) if (is.na(vq1[i])) NULL else c(vq1[i], vq2[i], vq3[i]))), ag = ag, rg = rg, pp = pp, ppd = ppd)
 mk_line <- paste0("window.MOCK27=", toJSON(mk, dataframe = "rows", na = "null", auto_unbox = TRUE, digits = 4), ";")
 fix <- function(x) gsub("</", "<\\/", x, fixed = TRUE)
 for (pg in commandArgs(trailingOnly = TRUE)) {
