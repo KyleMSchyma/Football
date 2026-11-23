@@ -85,6 +85,22 @@ mk <- mk %>%
          worst_grade_draft = ifelse(und, "UDFA", w_grade_d), worst_p_top_draft = ifelse(und, round(udfa_top, 4), w1d),
          worst_p_top2_draft = ifelse(und, round(udfa_top2, 4), w2d), worst_p_any_draft = ifelse(und, round(udfa_any, 4), w3d)) %>%
   select(-k, -udfa_top, -udfa_top2, -udfa_any, -w_pick, -w_team, -w_grade, -w1, -w2, -w3, -w_grade_d, -w1d, -w2d, -w3d, -und)
+# Kyle 2026-11-23: a best / worst case keeps any mixed faller boost, but a worst case is capped at the median-pick odds
+# and grade, and a best case is floored at them, so every range reads best >= median >= worst (tier by tier on the
+# odds; value is increasing in each tier's odds, so the value range is in order too). Same for the plain post-draft range.
+GR <- c("A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F", "UDFA")
+gr_cap <- function(case, med, worst) { rc <- match(case, GR); rm <- match(med, GR)
+  ifelse(is.na(rc) | is.na(rm), case, if (worst) ifelse(rc < rm, med, case) else ifelse(rc > rm, med, case)) }
+for (sfx in c("", "_draft")) {
+  for (t in c("p_top", "p_top2", "p_any")) {
+    med <- mk[[paste0(t, sfx)]]
+    mk[[paste0("worst_", t, sfx)]] <- ifelse(is.na(med), mk[[paste0("worst_", t, sfx)]], pmin(mk[[paste0("worst_", t, sfx)]], med))
+    mk[[paste0("best_", t, sfx)]] <- ifelse(is.na(med), mk[[paste0("best_", t, sfx)]], pmax(mk[[paste0("best_", t, sfx)]], med))
+  }
+  g <- mk[[if (sfx == "") "post_grade" else "post_grade_draft"]]
+  mk[[paste0("worst_grade", sfx)]] <- gr_cap(mk[[paste0("worst_grade", sfx)]], g, TRUE)
+  mk[[paste0("best_grade", sfx)]] <- gr_cap(mk[[paste0("best_grade", sfx)]], g, FALSE)
+}
 write.csv(mk, "pd_post_2027_mock_grades.csv", row.names = FALSE, na = "")
 
 cat("\n===== 2027 mock range =====\n")
@@ -98,7 +114,7 @@ check("every mocked player has a range row", all(!is.na(mk$n_drafted)), sprintf(
 check("every mocked player has a best case", all(!is.na(mk$best_grade)))
 check("worst case for every player drafted in all mocks", all(!is.na(mk$worst_grade)))
 check("best >= average >= worst on any-tier odds", all(mk$best_p_any + 1e-6 >= mk$p_any & mk$p_any + 1e-6 >= mk$worst_p_any | is.na(mk$worst_p_any)),
-      "(can fail when the landing team differs; listed below)")
+      "(capped at the median, so this should pass)")
 print(as.data.frame(mk %>% filter(!(best_p_any + 1e-6 >= p_any & p_any + 1e-6 >= worst_p_any)) %>%
   select(name, position, best_pick, best_team_abbr, best_p_any, pick, team_abbr, p_any, worst_pick, worst_team_abbr, worst_p_any)), row.names = FALSE)
 cat("\ndone\n")
