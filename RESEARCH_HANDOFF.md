@@ -171,6 +171,12 @@ change (the refresh hardcodes them).
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
 
+### 2026-11-23: Uptier / downtier shape rule (site S#35)
+- Kyle (example he likes: A.J. Brown + Tucker Kraft -> Carnell Tate): the two-piece side must be led by a player at the
+  single player's position, a tier or so lower (below the single player on market value), holding more than half of
+  that side's market value; the other piece makes up the difference (any position). Applies to uptiers and downtiers.
+- Status: site PR S#35. Assumption A85 updated.
+
 ### 2026-11-23: Market moves for every source; weekly trade-market update
 - Kyle: "I want the trade data updated weekly. If our values aren't directly comparable (dynasty daddy/process) we will
   have to base it off of similar positional/overall ranking values. When it comes to a downtier, we need the same
@@ -781,7 +787,7 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A82 | Market comparison is descriptive: differences are "market above / below our method", never errors on either side | Trade_Market write-ups | Treat the market as truth or as noise | Kyle 11-23 | ACTIVE 11-23 |
 | A83 | Market values shown on our curve: 1:1 market values raised to one power fitted so the top-150 curve matches ours; package exceptions listed beside them | tm_06 | Package-fair scale (s 2.44); raw 1:1 (flatter) | Kyle 11-23: "keep the 1:1" with our site values; differences become pure player placement | RESEARCH 11-23 |
 | A84 | Market moves: fair = market prices within 10% (1:1 prices for pivots, 2:1 package prices for uptier/downtier); listed when our dynasty value gains > 10% and >= 1,000 | value-research page (S#34) | Fair on our values (as /moves/); fair on the curve-matched scale; 2-for-3 calibration (power 2.09) | Kyle 11-23; matches the site's 10% too-close-to-call rule; 2:1 power from 1-for-2 holdout trades only | RESEARCH 11-23, LIVE when S#34 merges |
-| A85 | DD / DynastyProcess moves use rank-matched values (our value at the same overall rank); downtier and uptier: one of the two pieces matches the single player's position, the other any; pivots any position | value-research page (S#34) | Positional-rank matching; no moves for DD/DP | Kyle 11-23 | LIVE when S#34 merges |
+| A85 | DD / DynastyProcess moves use rank-matched values (our value at the same overall rank); downtier and uptier: the two-piece side is led by a same-position player below the single player with > 50% of that side's market value (11-23, S#35), the other piece any position; pivots any position | value-research page (S#34) | Positional-rank matching; no moves for DD/DP | Kyle 11-23 | LIVE when S#34 merges |
 | A79 | Assets with fewer than 25 trades pooled per position; reference asset 2027 mid 1st (redraft: most-traded player) | tm_02 | Separate tiny-sample values; another reference | Stable fit; values are rescaled to 100k per league anyway | RESEARCH 11-23 |
 | A71 | Market history, if used, = Dynasty Daddy's own `daddy_*` fields from DD's history endpoints, only after DD permission; never the unprefixed/KTC fields | research/dd_history | Use documented current API only and build our own weekly archive of it; use FantasyCalc history | DD history is the only dated market source found that we may use; own archive starts from zero | ACTIVE |
 
