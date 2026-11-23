@@ -198,7 +198,7 @@ cp "$DYN"/rl_00_pull_role_data.R "$DYN"/rl_01_role_build.R "$DYN"/rl_common.R "$
 cp "$ARCH"/*.csv "$ARCH"/snapshots.json "$WT/Trade_Values/archive/" 2>/dev/null
 if [ "$TM_DONE" = 1 ]; then mkdir -p "$WT/Trade_Market/out"   # aggregates only (no league ids); raw trades never leave the PC
   cp "$DDT"/out/dynasty_add4_*.csv "$WT/Trade_Market/out/" 2>/dev/null
-  cp "$DDT"/tm_weekly.sh "$DDT"/tm_weekly.cmd "$DDT"/tm_01_pull_dd_trades.R "$DDT"/tm_04_additive_calibrated.R "$DDT"/tm_07_site_data.py "$WT/Trade_Market/" 2>/dev/null; fi
+  cp "$DDT"/tm_weekly.sh "$DDT"/tm_weekly.cmd "$DDT"/tm_01_pull_dd_trades.R "$DDT"/tm_04_additive_calibrated.R "$DDT"/tm_07_site_data.R "$WT/Trade_Market/" 2>/dev/null; fi
 cp "$HERE"/refresh.sh "$HERE"/run_r.sh "$HERE"/rf_01_pull_nfl.R "$HERE"/rf_02_predraft_page.R "$HERE"/rf_03_gates.R "$HERE"/rf_04_archive.R \
    "$HERE"/rf_gate_limits.csv "$HERE"/run_weekly.cmd "$HERE"/README.md "$WT/Trade_Values/weekly_refresh/" 2>/dev/null
 if [ "$PRE_DONE" = 1 ]; then

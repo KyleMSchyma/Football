@@ -177,11 +177,12 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   position back and then any position after that. Pivot can be any position. Actuarial values are included in ours."
 - Page (S#34): Best market moves now show for all three sources. Dynasty Daddy / DynastyProcess use rank-matched values
   (each player gets our value at the same overall rank in that source's list; packages add on that scale). Downtier
-  requires one returned piece at the same position as the player given. Roster-spot caveats removed (our values
+  requires one returned piece at the same position as the player given; uptiers the same (one of the two given matches
+  the received player's position; Kyle 11-23). Roster-spot caveats removed (our values
   already carry the actuarial parts).
 - Weekly: `Trade_Market/tm_weekly.sh` (+ `tm_weekly.cmd`, Task Scheduler Tuesday 5:00 AM on the PC, from
   `Football2/research/dd_trades`): tm_01 dynasty pull of new weeks (TM_TYPES=Dynasty), tm_04 4-shape refit (~1.5 h),
-  tm_07 -> `out/tm.js`. refresh.sh step 4c copies tm.js to the site and the aggregate CSVs + scripts to
+  tm_07 -> `out/tm.js` (`tm_07_site_data.R`, an R port, because the PC has no Python; the .py stays for the cloud). refresh.sh step 4c copies tm.js to the site and the aggregate CSVs + scripts to
   `Trade_Market/` when it changed; a failed 5 AM run keeps last week's file. tm_04 meta now carries first/last trade dates.
 - Status: S#34 OPEN; PC scheduling via Remote Control. Assumption A85; R28 DONE (weekly), R27 open (redraft).
 
@@ -780,7 +781,7 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A82 | Market comparison is descriptive: differences are "market above / below our method", never errors on either side | Trade_Market write-ups | Treat the market as truth or as noise | Kyle 11-23 | ACTIVE 11-23 |
 | A83 | Market values shown on our curve: 1:1 market values raised to one power fitted so the top-150 curve matches ours; package exceptions listed beside them | tm_06 | Package-fair scale (s 2.44); raw 1:1 (flatter) | Kyle 11-23: "keep the 1:1" with our site values; differences become pure player placement | RESEARCH 11-23 |
 | A84 | Market moves: fair = market prices within 10% (1:1 prices for pivots, 2:1 package prices for uptier/downtier); listed when our dynasty value gains > 10% and >= 1,000 | value-research page (S#34) | Fair on our values (as /moves/); fair on the curve-matched scale; 2-for-3 calibration (power 2.09) | Kyle 11-23; matches the site's 10% too-close-to-call rule; 2:1 power from 1-for-2 holdout trades only | RESEARCH 11-23, LIVE when S#34 merges |
-| A85 | DD / DynastyProcess moves use rank-matched values (our value at the same overall rank); downtier returns the same position first, then any; pivots and uptiers any position | value-research page (S#34) | Positional-rank matching; no moves for DD/DP | Kyle 11-23 | LIVE when S#34 merges |
+| A85 | DD / DynastyProcess moves use rank-matched values (our value at the same overall rank); downtier and uptier: one of the two pieces matches the single player's position, the other any; pivots any position | value-research page (S#34) | Positional-rank matching; no moves for DD/DP | Kyle 11-23 | LIVE when S#34 merges |
 | A79 | Assets with fewer than 25 trades pooled per position; reference asset 2027 mid 1st (redraft: most-traded player) | tm_02 | Separate tiny-sample values; another reference | Stable fit; values are rescaled to 100k per league anyway | RESEARCH 11-23 |
 | A71 | Market history, if used, = Dynasty Daddy's own `daddy_*` fields from DD's history endpoints, only after DD permission; never the unprefixed/KTC fields | research/dd_history | Use documented current API only and build our own weekly archive of it; use FantasyCalc history | DD history is the only dated market source found that we may use; own archive starts from zero | ACTIVE |
 
