@@ -187,9 +187,9 @@ for TYPE, MODE in [("dynasty", "d"), ("redraft", "r")]:
     # 9. consolidation check
     fig, ax = plt.subplots(figsize=(5.4, 2.8))
     sh = shape[shape.mean_log_gap_few_minus_many.notna()].head(6)
-    ax.bar(sh["shape"], np.exp(sh.mean_log_gap_few_minus_many) - 1, color="#e09f3e"); ax.axhline(0, color="black", lw=.6)
+    ax.bar(sh["shape"], np.exp(-sh.mean_log_gap_few_minus_many) - 1, color="#e09f3e"); ax.axhline(0, color="black", lw=.6)
     ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
-    ax.set_title(f"{TYPE.title()}: holdout, side with fewer assets priced vs additive model\n(+ = consolidation premium)")
+    ax.set_title(f"{TYPE.title()} holdout: premium the fewer-asset side\nfetched over the additive model")
     save(fig, f"{TYPE}_09_consolidation.png")
     S["shape"] = shape.round(4).to_dict("records")
 
@@ -204,7 +204,7 @@ for TYPE, MODE in [("dynasty", "d"), ("redraft", "r")]:
         fig, ax = plt.subplots(figsize=(7, 3.6))
         for a in pick:
             d = T[T["asset"] == a].sort_values("asof")
-            nm = sl.get(a, "|").split("|")[0] or d.name.iloc[0]
+            nm = sl.get(a, "|").split("|")[0] or (d["name"].iloc[0] if isinstance(d["name"].iloc[0], str) else ("2026 pick " + ".".join(a.split(".")[1:3]) if a[:4].isdigit() and "." in a else a))
             ax.plot(pd.to_datetime(d["asof"]), np.exp(d["theta"]), marker=".", label=nm, color=COL.get(d.grp.iloc[0]))
         ax.set_yscale("log"); ax.set_ylabel(f"value relative to a 2027 mid 1st (log)")
         ax.set_title(f"{TYPE.title()}: trade-implied value over time (default league)"); ax.legend(fontsize=6, ncol=2)

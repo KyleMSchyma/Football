@@ -1,0 +1,25 @@
+change,pos,trade_ratio,our_ratio
+Superflex off,QB,0.76,0.183
+Superflex off,RB,1.0,1.0
+Superflex off,WR,0.999,1.0
+Superflex off,TE,0.995,1.0
+Half PPR,QB,0.967,1.048
+Half PPR,RB,1.0,1.103
+Half PPR,WR,0.969,0.846
+Half PPR,TE,0.95,0.711
+TE premium +0.5,QB,1.015,1.045
+TE premium +0.5,RB,1.0,0.888
+TE premium +0.5,WR,1.013,0.976
+TE premium +0.5,TE,1.07,2.053
+TE premium +1.0,QB,1.03,1.05
+TE premium +1.0,RB,1.0,0.875
+TE premium +1.0,WR,1.026,0.915
+TE premium +1.0,TE,1.146,2.703
+10 teams,QB,1.026,0.662
+10 teams,RB,1.0,0.875
+10 teams,WR,1.009,0.915
+10 teams,TE,1.015,0.669
+14 teams,QB,0.975,1.374
+14 teams,RB,1.0,1.119
+14 teams,WR,0.992,1.071
+14 teams,TE,0.986,1.364
