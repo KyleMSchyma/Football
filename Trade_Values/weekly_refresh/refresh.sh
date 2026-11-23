@@ -154,10 +154,19 @@ if [ -d "$SITE/value-history" ] && [ -f "$HIST/hv_01_snapshot.R" ]; then
   fi
 else say "value history skipped (no value-history page on the site yet, or no $HIST/hv_01_snapshot.R)"; fi
 
+# ---------- 4c. Market Check "Trade market" source (tm_weekly.sh in Football2/research/dd_trades runs at 5 AM) ----------
+DDT="$ROOT/Football2/research/dd_trades"; TM_DONE=0
+if [ -f "$DDT/out/tm.js" ] && [ -d "$SITE/value-research/data" ]; then
+  if ! cmp -s "$DDT/out/tm.js" "$SITE/value-research/data/tm.js"; then cp "$DDT/out/tm.js" "$SITE/value-research/data/tm.js"; TM_DONE=1
+    say "trade market: new tm.js ($(grep -o '"asof":"[0-9-]*"' "$DDT/out/tm.js"))"
+  else say "trade market: tm.js unchanged (weekly fit not newer)"; fi
+  grep -q '^OK' "$DDT/logs/tm_last_status.txt" 2>/dev/null || say "WARNING: last trade-market run did not finish OK (see $DDT/logs); last good tm.js kept"
+else say "trade market skipped (no $DDT/out/tm.js)"; fi
+
 # ---------- 5a. publish the site ----------
 cd "$SITE"
 [ -e dynasty ] && fail "a dynasty/ folder is on the site; it must stay unpublished. Nothing pushed."
-git add trade-values pre-draft post-draft value-research data   # value-research/data/dd.js: Dynasty Daddy snapshot (dv_14, run by dv_12); data/movers.csv: Dashboard
+git add trade-values pre-draft post-draft value-research data   # value-research/data/tm.js: Trade market (step 4c); value-research/data/dd.js: Dynasty Daddy snapshot (dv_14, run by dv_12); data/movers.csv: Dashboard
 WK="$(grep -o 'through week [0-9]*' "$SITE/trade-values/index.html" | head -1)"
 WHAT=""; [ "$PRE_DONE" = 1 ] && WHAT=" and 2027 pre-draft grades"
 if git diff --cached --quiet; then say "site: no changes"
@@ -187,6 +196,9 @@ cp "$DYN"/dv_common.R "$DYN"/dv_10_ros_value.R "$DYN"/dv_11_dynasty_v4.R "$DYN"/
 cp "$DYN"/rl_00_pull_role_data.R "$DYN"/rl_01_role_build.R "$DYN"/rl_common.R "$DYN"/rl_dv10.R "$DYN"/rl_dv11_ext.R "$DYN"/rl_dv11_qb.R \
    "$DYN"/dv_15_board_value_check.R "$DYN"/dv_15_check.js "$WT/Trade_Values/" 2>/dev/null
 cp "$ARCH"/*.csv "$ARCH"/snapshots.json "$WT/Trade_Values/archive/" 2>/dev/null
+if [ "$TM_DONE" = 1 ]; then mkdir -p "$WT/Trade_Market/out"   # aggregates only (no league ids); raw trades never leave the PC
+  cp "$DDT"/out/dynasty_add4_*.csv "$WT/Trade_Market/out/" 2>/dev/null
+  cp "$DDT"/tm_weekly.sh "$DDT"/tm_weekly.cmd "$DDT"/tm_01_pull_dd_trades.R "$DDT"/tm_04_additive_calibrated.R "$DDT"/tm_07_site_data.py "$WT/Trade_Market/" 2>/dev/null; fi
 cp "$HERE"/refresh.sh "$HERE"/run_r.sh "$HERE"/rf_01_pull_nfl.R "$HERE"/rf_02_predraft_page.R "$HERE"/rf_03_gates.R "$HERE"/rf_04_archive.R \
    "$HERE"/rf_gate_limits.csv "$HERE"/run_weekly.cmd "$HERE"/README.md "$WT/Trade_Values/weekly_refresh/" 2>/dev/null
 if [ "$PRE_DONE" = 1 ]; then
@@ -198,6 +210,7 @@ fi
 cd "$WT"
 KEY="$(sed -n 's/^CFBD_API_KEY=//p' C:/Users/kylem/Documents/.Renviron | tr -d '\r\n"')"
 if [ -n "$KEY" ] && git grep -q -I -F "$KEY" -- . ; then cleanup_wt; fail "CFBD key found in repo files; nothing pushed"; fi
+[ "$TM_DONE" = 1 ] && git add -A Trade_Market
 git add -A Trade_Values PreDraft_Model
 if git diff --cached --quiet; then say "Football repo: no changes"
 else

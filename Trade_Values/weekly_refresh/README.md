@@ -13,6 +13,7 @@ from November 17, 2026 through **January 5, 2027**, the Tuesday after Week 18. A
 | 3 | Rebuild the Trade Values page (`dv_12`) | `ProspectActuary/trade-values/` |
 | 4 | Until Dec 16 (college regular season): re-pull CFBD 2026 stats, rebuild the 2027 pool (pro-rated and as-is), re-grade (`pd_01`, `pd_06`), drafted recalibration (`pd_11`) | `Football2_PreDraft/` |
 | 4b | Every week, after the trade values: swap the data lines of the pre-draft and post-draft grade pages (`rf_02_predraft_page.R`, `Football2_PostDraft/pd_10_site_page.R`). They carry the cross-position Value column (`Football2_Dynasty/dv_rookie_board_values.csv`, written by `dv_13`) | `ProspectActuary/pre-draft/`, `ProspectActuary/post-draft/` |
+| 4c | Market Check "Trade market" source: copy `Football2/research/dd_trades/out/tm.js` (written by the separate 5 AM task `tm_weekly.cmd`: pull the newest dynasty trades from the Dynasty Daddy Trade Database, refit `tm_04` on 1-for-1/1-for-2/2-for-2/2-for-3 trades, `tm_07`) to the site if it changed, and its aggregate CSVs to `Trade_Market/out/`. If the 5 AM run failed, last week's file stays. Raw trades never leave the PC. | `ProspectActuary/value-research/data/tm.js`, `Trade_Market/` |
 | 5 | Push the site to `prospect-actuary` main; push code + outputs to Football main | `Trade_Values/`, `PreDraft_Model/` |
 
 Not re-run, on purpose: post-draft grades (they use draft capital and college data only), the position

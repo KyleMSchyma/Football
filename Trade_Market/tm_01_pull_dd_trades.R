@@ -31,6 +31,8 @@ JOBS <- list(
   list(type = "Dynasty", start = as.Date("2026-05-01")),   # from rookie drafts on
   list(type = "Redraft", start = as.Date("2026-09-01"))    # 2026 season
 )
+TYPES <- strsplit(Sys.getenv("TM_TYPES", "Dynasty,Redraft"), ",")[[1]]   # weekly job: TM_TYPES=Dynasty
+JOBS <- Filter(function(j) j$type %in% TYPES, JOBS)
 end_all <- Sys.Date() + 1
 
 post <- function(body, tries = 5) {

@@ -226,7 +226,7 @@ assets <- merge(A, M[, .(model_asset, theta, theta_unstretched)], by = "model_as
 out(assets[order(-theta), .(asset, name, pos, grp, pick_year, pick_tier, pick_round, n_trades,
                             theta = round(theta, 4), theta_unstretched = round(theta_unstretched, 4))], "assets")
 out(data.table(group = rep(GROUPS, each = NK), covariate = rep(colnames(X), nG), beta = round(as.numeric(pc$beta), 4)), "beta")
-out(data.table(type = TYPE, trades_used = nrow(d), H = H_FIX, k = K_FIX, ref = REF, lambda0 = LAMBDA0, stretch = S_BEST,
+out(data.table(type = TYPE, first_trade = format(min(d$when), "%Y-%m-%d"), last_trade = format(max(d$when), "%Y-%m-%d"), trades_used = nrow(d), H = H_FIX, k = K_FIX, ref = REF, lambda0 = LAMBDA0, stretch = S_BEST,
                converged_long = fp$conv[1], converged = fp$conv[2]), "meta")
 say("done")
 }
