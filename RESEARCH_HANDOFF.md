@@ -254,6 +254,14 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   toggle (multiplier 0.85 at rel <= 0.5 to 1.0 at rel >= 0.9) was built (F#32 + S#32).
 - Status: CLOSED unmerged the same day. Kyle: "I don't want anything published yet. Just research." Code kept on branch
   `claude/project-thread-m614pm`. Rostered/start % is only ever for trade value, never for predicting production.
+- Follow-up (11-20, research): % started with week-11 byes (ATL, CLE, GB, LA, NE, SEA) and injured players removed
+  (n=108). At equal value and rostered %, the start/rostered ratio predicted a higher Dynasty Daddy price (+0.77 log,
+  95% +0.43 to +1.18) but nothing on DynastyProcess (-0.01, -0.50 to +0.53). One week is too thin. The model already
+  has a season-level "theoretical start %" (redraft: hard cut at the replacement line; dynasty: E[(PPG - rep)+]), but
+  not weekly start/sit. Kyle (11-20): start % is a crowd-trust signal to compare with our model ("who should be
+  trusted"). Proposed test: when our model's start chance and the crowd's start % disagree, who is right over the next
+  4 weeks (redraft) and next season (dynasty value)? If we win, the gap is a buy-low / sell-high signal. Needs 4-6
+  weeks of archived ESPN start % first (not set up; nothing published).
 
 ### 2026-11-20: CJ Stroud QB3 explanation
 - What: why Stroud ranked QB3 on the dynasty board.
@@ -537,6 +545,7 @@ data; render.js makes a 2400x3000 navy/orange top-24 image with an OVR column; g
 | Prior-year team offense in rookie models | 11-17 | No gain beyond grade | - |
 | Fantasy start rate in PPG | 11-20 | No gain | Archived real start % exists |
 | Market adjusted toggle (ESPN % rostered) | 11-20 | Built then closed: Kyle wants research only | Kyle asks again |
+| Crowd start % vs model start chance ("who was right", buy/sell signal) | 11-20 | Idea; one-week test mixed | 4-6 weeks of archived ESPN start % |
 | Squared / interaction terms | 11-20 | No gain (rookies); trade-value gain too small, QB worse | - |
 | Points or PPG models for rookie values | 11-21 | Tier method better | - |
 | Rushing per-carry bonus | 11-12 | Kyle passed | Kyle asks |
@@ -731,6 +740,7 @@ approved to build unless Kyle says so (see section 10).
   new modeling, so future tests have a clean check.
 - **R7. Backup QB discount research** using archived ESPN rostered % (archive 4-6 weeks first, no publishing), test a
   QB-only adjustment. (A43, issue 7)
+  The same archive enables the crowd-vs-model start % test (section 3, 2026-11-20 follow-up).
 - **R8. Old QB survival:** a new angle is needed (the 11-13 fixes failed), e.g. contract or depth-chart-based exits.
 - **R9. Write the trade-values section of MODELS_TECHNICAL_REFERENCE.md** (formulas, k table, backtests). Documentation only.
 - **R10. Current-season credibility weight check:** test whether k1 should vary by week or by prior sample size, since
