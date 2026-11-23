@@ -11,12 +11,20 @@ if (!is.na(vf)) {
     distinct(position, class, name, college, .keep_all = TRUE) %>% select(position, class, name, college, v = value_100k, vsrc = source, vq1 = p_top, vq2 = p_top2, vq3 = p_any, vag = age)
   f <- f %>% left_join(V, by = c("position", "class", "name", "college"))
 } else f <- f %>% mutate(v = NA_real_, vsrc = NA_character_, vq1 = NA_real_, vq2 = NA_real_, vq3 = NA_real_, vag = NA_real_)
+# Projected 3-year PPG if he plays (Kyle 2026-11-23, display only): PreDraft_Model/pd_14_proj_ppg.R -> pd_proj_ppg.csv
+pf <- file.path(pre, "pd_proj_ppg.csv")
+f$pp <- NA_real_
+if (file.exists(pf)) {
+  PP <- read.csv(pf, stringsAsFactors = FALSE, na.strings = "") %>% distinct(position, class, name, college, .keep_all = TRUE)
+  f$pp <- PP$proj_ppg3[match(paste(f$position, f$class, f$name, f$college), paste(PP$position, PP$class, PP$name, PP$college))]
+  cat("projected PPG matched for", sum(!is.na(f$pp)), "of", nrow(f), "board rows\n")
+}
 P <- f %>% transmute(pos = position, rk = pos_rank_all, cls = class, rkc = pos_rank_class, st = as.integer(status != "drafted"),
   name, col = college, lvl = level, yrs = yrs_out_of_hs, rd = round, pk = pick, sc = score, pct = pctile, g = grade,
   pt = p_top, p2 = p_top2, pa = p_any, sca = score_asis, ga = grade_asis, pdec = p_declare, out = nfl_outcome,
   tier = nfl_tier, pts = nfl_ppr_pts, done = as.integer(outcome_complete), fl = as.integer(!is.na(data_flag)),
   cl = as.integer(!is.na(community_list)), v = v, vq = I(lapply(seq_along(vq1), function(i) if (is.na(vq1[i])) NULL else c(vq1[i], vq2[i], vq3[i]))), ag = vag,
-  vs = ifelse(is.na(vsrc), NA, ifelse(grepl("mock", vsrc), "mock", ifelse(grepl("^post", vsrc), "post", "pre"))))
+  vs = ifelse(is.na(vsrc), NA, ifelse(grepl("mock", vsrc), "mock", ifelse(grepl("^post", vsrc), "post", "pre"))), pp = pp)
 rd <- function(x) read.csv(file.path(pre, x))
 band <- function(g) ifelse(g %in% c("A+","A","A-"), "A", ifelse(g %in% c("B+","B","B-"), "B", ifelse(g %in% c("C+","C","C-"), "C", "DF")))
 BS <- f %>% filter(status == "drafted", class <= 2023) %>% mutate(b = band(grade)) %>% group_by(position, b) %>%
