@@ -20,5 +20,21 @@ Status: RESEARCH ONLY. Nothing here feeds the site.
 - Traders barely adjust for PPR, TE premium or team count; superflex is the one setting priced strongly.
 - Charts and tables: `compare/`. Full report: https://claude.ai/artifact/KxjqETAkoyxDSxtq8uhaaM
 
+## Market on our additive scale (2026-11-23, tm_04 / tm_05)
+
+Purpose (Kyle): show where the market's prices sit relative to our methodology, on our terms; neither side is "right".
+
+- Synthetic tests showed tm_02 compresses values even when trades are truly additive (shrinkage + every trade being
+  fair). `tm_04_additive_calibrated.R` uses light shrinkage and one stretch v' = v^s chosen so holdout trades show no
+  consolidation gap; it recovers known values on synthetic data. A per-asset roster cost and a fitted depth discount
+  were tried and rejected (not identifiable).
+- Dynasty, 1-for-1/1-for-2/2-for-2/2-for-3 trades only (Kyle's choice; 1.18M trades): s = 2.44. At straight-up prices
+  the single player in a 1-for-2 fetches +48% over the two pieces (2-for-3: +24%). Package-fair market curve is steeper
+  than ours (rank 24: 25k vs 39k), straight-up prices flatter (47k). Market above our method: J. Allen, Bijan,
+  C. Williams, Jefferson, L. Jackson; below: Jeanty, McCaffrey, Stroud, Nacua, 2026 rookies, 2027 picks.
+- Run: `TM_SHAPES=1-1,1-2,2-2,2-3 TM_TAG=add4 Rscript tm_04_additive_calibrated.R dynasty` (PC), then
+  `python3 tm_05_compare_additive.py <Football> our_values.csv <sleeper_ids.json> add4` -> `compare_add4/`.
+  All-shape run: tag `add` -> `compare_additive/`. Redraft run paused.
+
 Rerun: `Rscript tm_01_pull_dd_trades.R` (PC), `Rscript tm_02_fit_trade_values.R dynasty|redraft` (PC), then
 `node tm_03_our_values.js <prospect-actuary>` and `python3 tm_03_compare.py <Football> our_values.csv <prospect-actuary>/data/sleeper_ids.json`.
