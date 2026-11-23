@@ -1,0 +1,62 @@
+== test
+target           tot   pas   rus   rec    QB    RB    WR    TE
+model                                                         
+league          -1.3  -1.2  -0.8  -1.2  -1.0  -0.7  -0.1  -0.7
+v1_cred          9.1   6.1   8.9   7.1   8.8   8.1  11.4   9.9
+cred+ctx        10.8   7.3   9.0   8.5  10.0   8.3  12.7  10.0
+cred+ctx+eff    10.6   7.0   8.9   8.0   9.4   8.7  12.3   9.6
+lines_only      17.2  12.0   6.2   9.5  11.4   5.9   7.0   0.6
+lines+ctx       17.3  11.9   6.1   9.6  11.5   5.8   7.7   0.3
+lines+cred+ctx  17.3  12.0  10.2  11.8  12.8   9.9  14.2  10.0
+all_glm         17.6  12.3  10.0  12.9  12.9  10.4  14.7  10.6
+gbm_all         16.1  11.6   9.7  11.3  12.1   9.0  14.0  10.0
+== test_wk1_4
+target           tot   pas  rus   rec    QB   RB    WR   TE
+model                                                      
+league          -3.8  -2.9 -2.7  -3.2  -2.8 -1.7  -1.9  0.4
+v1_cred          6.8   4.8  8.4   3.4   6.5  5.2   8.3  4.6
+cred+ctx         9.0   7.0  8.1   5.6   8.7  5.5   9.5  4.4
+cred+ctx+eff     9.2   7.3  7.2   5.7   8.9  5.5   9.5  4.4
+lines_only      14.9   9.3  5.1   8.3  10.9  4.6   6.5  1.4
+lines+ctx       15.0   9.5  4.9   8.2  11.0  4.5   7.5  0.7
+lines+cred+ctx  15.1  10.1  8.9   9.8  11.5  7.4  11.3  4.9
+all_glm         15.6  10.2  8.5  10.4  11.1  7.9  12.7  4.3
+gbm_all         11.7   8.6  8.2   6.9   9.1  5.8  10.5  3.9
+== test_wk5plus
+target           tot   pas   rus   rec    QB    RB    WR    TE
+model                                                         
+league          -0.6  -0.8  -0.1  -0.7  -0.4  -0.3   0.4  -2.0
+v1_cred          9.8   6.3   9.1   8.3   9.5   9.1  12.4  10.7
+cred+ctx        11.4   7.2   9.3   9.4  10.4   9.3  13.7  10.9
+cred+ctx+eff    11.0   6.8   9.5   8.6   9.5   9.9  13.2  10.3
+lines_only      17.9  12.7   6.7   9.9  11.6   6.4   7.2  -0.6
+lines+ctx       18.0  12.5   6.6  10.0  11.7   6.2   7.6  -0.7
+lines+cred+ctx  18.0  12.5  10.6  12.4  13.1  10.8  15.1  10.7
+all_glm         18.2  12.8  10.6  13.6  13.4  11.4  15.4  11.6
+gbm_all         17.5  12.5  10.3  12.7  13.0  10.2  15.1  11.0
+target            tot   pas   rus    rec    QB    RB     WR    TE
+model                                                            
+league          23.90  7.03  9.33  16.23  7.86  9.87  13.63  8.25
+v1_cred         22.63  6.77  8.87  15.54  7.46  9.44  12.81  7.81
+cred+ctx        22.42  6.73  8.87  15.43  7.42  9.43  12.72  7.80
+cred+ctx+eff    22.44  6.74  8.87  15.47  7.44  9.40  12.75  7.82
+lines_only      21.60  6.55  9.00  15.34  7.36  9.55  13.13  8.20
+lines+ctx       21.59  6.55  9.00  15.33  7.35  9.55  13.08  8.21
+lines+cred+ctx  21.59  6.55  8.81  15.15  7.30  9.34  12.61  7.80
+all_glm         21.55  6.54  8.81  15.05  7.30  9.31  12.57  7.78
+gbm_all         21.75  6.57  8.83  15.19  7.33  9.39  12.62  7.80
+target            tot   pas   rus    rec    QB    RB     WR    TE
+model                                                            
+league          18.99  5.62  7.44  12.91  6.30  7.67  10.80  6.46
+v1_cred         17.95  5.41  7.03  12.37  5.97  7.34  10.16  6.06
+cred+ctx        17.85  5.39  7.04  12.27  5.93  7.32  10.06  6.06
+cred+ctx+eff    17.86  5.39  7.06  12.32  5.95  7.35  10.10  6.08
+lines_only      17.19  5.28  7.09  12.29  5.89  7.54  10.39  6.40
+lines+ctx       17.22  5.28  7.08  12.27  5.89  7.55  10.40  6.41
+lines+cred+ctx  17.22  5.26  6.97  12.08  5.84  7.28   9.95  6.04
+all_glm         17.20  5.24  7.00  11.97  5.84  7.29   9.97  6.06
+gbm_all         17.38  5.27  7.05  12.13  5.87  7.37  10.01  6.08
+2023 {'v1_cred': np.float64(9.1), 'cred+ctx+eff': np.float64(11.9), 'lines_only': np.float64(17.0), 'all_glm': np.float64(17.5), 'gbm_all': np.float64(16.4)}
+2024 {'v1_cred': np.float64(5.6), 'cred+ctx+eff': np.float64(7.5), 'lines_only': np.float64(15.3), 'all_glm': np.float64(14.2), 'gbm_all': np.float64(13.4)}
+2025 {'v1_cred': np.float64(10.1), 'cred+ctx+eff': np.float64(10.7), 'lines_only': np.float64(17.6), 'all_glm': np.float64(19.1), 'gbm_all': np.float64(16.5)}
+2026 {'v1_cred': np.float64(12.5), 'cred+ctx+eff': np.float64(12.7), 'lines_only': np.float64(19.2), 'all_glm': np.float64(20.1), 'gbm_all': np.float64(18.5)}
