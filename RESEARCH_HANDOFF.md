@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-23 (Trade market source, S#34)
+- Last updated: 2026-11-23 (Market Check Contending / Rebuild moves toggle, S#36)
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -170,6 +170,22 @@ change (the refresh hardcodes them).
 ## 3. Update log
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
+
+### 2026-11-23: Contending / Rebuild toggle for Market Check moves (site S#36)
+- Kyle: add a contending/rebuild toggle to Best market moves; trades stay equal in value and follow the same rules, but
+  prioritize (> 50%) the team's need: contend = redraft/now value, rebuild = future value; a contender gives a future
+  piece for a contending piece and vice versa. "If the market check page doesn't have that data, then use the ratios
+  from our own values to give them 'pseudo' values."
+- Built (page only, `value-research/index.html`): toggle Best value (default, unchanged) | Contending | Rebuild,
+  remembered per browser (`pa-vr-goal`). Dynasty only. Each player's market value is split with OUR ratio: future share
+  = (our dynasty value minus its rest-of-2026 part) / our dynasty value (same split as /moves/); now share = 1 minus it.
+  Contending (Rebuild) move: market-fair as before (1:1 prices for pivots, 2:1 prices for uptier/downtier), same shape
+  rules (same-position lead piece > 50%), our dynasty values within 10% of each other, the side you get carries over
+  half of the trade's pseudo now (future) value and more than 10% and >= 1,000 more than you give, and you give up more
+  pseudo future (now) value. Ranked by pseudo need value gained. Works for all three sources (DD/DP on rank-matched values).
+- Examples (trade market, 11-23 data): contending pivot Jeremiyah Love -> Christian McCaffrey; rebuild the reverse;
+  rebuild downtier Gibbs -> Kenneth Walker + Brock Bowers.
+- Assumption A86. Status: site PR S#36.
 
 ### 2026-11-23: Uptier / downtier shape rule (site S#35)
 - Kyle (example he likes: A.J. Brown + Tucker Kraft -> Carnell Tate): the two-piece side must be led by a player at the
@@ -587,7 +603,8 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   redraft real trades (Dynasty Daddy Trade Database, with permission). Values solved so trades balance, with setting
   terms by position and recency credibility (H = 7 days, k = 2 by holdout). Ranks agree with ours (dynasty .90,
   redraft .84 Spearman); the market pays a large consolidation premium and barely adjusts for PPR, TE premium or team
-  count. Not on the site. See the 11-23 log entry. On our additive scale (tm_04, 11-23): the market pays a large
+  count. Not on the site. See the 11-23 log entry. Market Check moves have a Best value | Contending | Rebuild toggle
+  (S#36, A86): contending/rebuild moves split market values with our now/future ratio. On our additive scale (tm_04, 11-23): the market pays a large
   consolidation premium (+48% for the single player in 1-for-2 trades at straight-up prices), so one additive market
   scale is either flatter (straight-up prices) or much steeper (package-fair) than ours; player-level differences
   (Allen, Bijan, young QBs above ours; Jeanty, CMC, Stroud, rookies, picks below) hold in both views.
@@ -787,6 +804,7 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A82 | Market comparison is descriptive: differences are "market above / below our method", never errors on either side | Trade_Market write-ups | Treat the market as truth or as noise | Kyle 11-23 | ACTIVE 11-23 |
 | A83 | Market values shown on our curve: 1:1 market values raised to one power fitted so the top-150 curve matches ours; package exceptions listed beside them | tm_06 | Package-fair scale (s 2.44); raw 1:1 (flatter) | Kyle 11-23: "keep the 1:1" with our site values; differences become pure player placement | RESEARCH 11-23 |
 | A84 | Market moves: fair = market prices within 10% (1:1 prices for pivots, 2:1 package prices for uptier/downtier); listed when our dynasty value gains > 10% and >= 1,000 | value-research page (S#34) | Fair on our values (as /moves/); fair on the curve-matched scale; 2-for-3 calibration (power 2.09) | Kyle 11-23; matches the site's 10% too-close-to-call rule; 2:1 power from 1-for-2 holdout trades only | RESEARCH 11-23, LIVE when S#34 merges |
+| A86 | Market moves Contending / Rebuild: market values split into now / future with our own per-player ratio (pseudo values); need side > 50% of the trade's need value and > 10% / >= 1,000 above the other side; give up more of the other kind; our dynasty values within 10%; ranked by pseudo need gain | value-research page (S#36) | Our redraft / future values directly (no market side); need share threshold on the whole package; our dynasty gain still required | Kyle 11-23 ("use the ratios from our own values to give them pseudo values"); keeps both sides "value equal" and judges the need on market terms | LIVE when S#36 merges |
 | A85 | DD / DynastyProcess moves use rank-matched values (our value at the same overall rank); downtier and uptier: the two-piece side is led by a same-position player below the single player with > 50% of that side's market value (11-23, S#35), the other piece any position; pivots any position | value-research page (S#34) | Positional-rank matching; no moves for DD/DP | Kyle 11-23 | LIVE when S#34 merges |
 | A79 | Assets with fewer than 25 trades pooled per position; reference asset 2027 mid 1st (redraft: most-traded player) | tm_02 | Separate tiny-sample values; another reference | Stable fit; values are rescaled to 100k per league anyway | RESEARCH 11-23 |
 | A71 | Market history, if used, = Dynasty Daddy's own `daddy_*` fields from DD's history endpoints, only after DD permission; never the unprefixed/KTC fields | research/dd_history | Use documented current API only and build our own weekly archive of it; use FantasyCalc history | DD history is the only dated market source found that we may use; own archive starts from zero | ACTIVE |
