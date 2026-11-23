@@ -1,31 +1,31 @@
 "get_rank","give_rank_1","give_rank_2","setting","sheet","get_value","give_value","ratio"
-1,8,20,"12 teams, superflex, 2 RB 3 WR 1 TE, no flex (default)","redraft",103.394744986934,96.5673844711659,0.93
-8,20,40,"12 teams, superflex, 2 RB 3 WR 1 TE, no flex (default)","redraft",60.2664758291321,64.9449238377282,1.08
-20,45,80,"12 teams, superflex, 2 RB 3 WR 1 TE, no flex (default)","redraft",36.3009086420338,34.356797105749,0.95
-1,8,20,"12 teams, superflex, 2 RB 3 WR 1 TE, no flex (default)","dynasty",537.490094011271,546.23350405233,1.02
-8,20,40,"12 teams, superflex, 2 RB 3 WR 1 TE, no flex (default)","dynasty",319.380530802359,374.082410798618,1.17
-20,45,80,"12 teams, superflex, 2 RB 3 WR 1 TE, no flex (default)","dynasty",226.852973249971,198.382038123808,0.87
-1,8,20,"12 teams, 1 QB, 2 RB 3 WR 1 TE, 1 flex","redraft",114.051840247735,101.888582299231,0.89
-8,20,40,"12 teams, 1 QB, 2 RB 3 WR 1 TE, 1 flex","redraft",62.1014968637895,67.1384900129814,1.08
-20,45,80,"12 teams, 1 QB, 2 RB 3 WR 1 TE, 1 flex","redraft",39.7870854354411,31.8915969376181,0.8
-1,8,20,"12 teams, 1 QB, 2 RB 3 WR 1 TE, 1 flex","dynasty",555.790287447698,516.454582698481,0.93
-8,20,40,"12 teams, 1 QB, 2 RB 3 WR 1 TE, 1 flex","dynasty",316.100168407335,335.278446538346,1.06
-20,45,80,"12 teams, 1 QB, 2 RB 3 WR 1 TE, 1 flex","dynasty",200.354414291146,183.412957077994,0.92
-1,8,20,"10 teams, 1 QB, 2 RB 2 WR 1 TE, 2 flex","redraft",110.893859737967,95.4683662719608,0.86
-8,20,40,"10 teams, 1 QB, 2 RB 2 WR 1 TE, 2 flex","redraft",59.2983565825764,59.6033099006998,1.01
-20,45,80,"10 teams, 1 QB, 2 RB 2 WR 1 TE, 2 flex","redraft",36.1700096893844,23.7847000140416,0.66
-1,8,20,"10 teams, 1 QB, 2 RB 2 WR 1 TE, 2 flex","dynasty",533.494050741027,458.910890951574,0.86
-8,20,40,"10 teams, 1 QB, 2 RB 2 WR 1 TE, 2 flex","dynasty",284.018128346095,292.889082038845,1.03
-20,45,80,"10 teams, 1 QB, 2 RB 2 WR 1 TE, 2 flex","dynasty",174.892762605479,154.727991386155,0.88
-1,8,20,"14 teams, superflex, 2 RB 3 WR 1 TE, 1 flex","redraft",120.861248132813,120.116421986363,0.99
-8,20,40,"14 teams, superflex, 2 RB 3 WR 1 TE, 1 flex","redraft",72.9788944577733,83.5368767735495,1.14
-20,45,80,"14 teams, superflex, 2 RB 3 WR 1 TE, 1 flex","redraft",47.1375275285899,50.316839392085,1.07
-1,8,20,"14 teams, superflex, 2 RB 3 WR 1 TE, 1 flex","dynasty",604.346290960188,630.722750719453,1.04
-8,20,40,"14 teams, superflex, 2 RB 3 WR 1 TE, 1 flex","dynasty",355.594913373978,468.687346816695,1.32
-20,45,80,"14 teams, superflex, 2 RB 3 WR 1 TE, 1 flex","dynasty",275.127837345475,274.697915862769,1
-1,8,20,"8 teams, 1 QB, 2 RB 2 WR 1 TE, 1 flex","redraft",87.6494359527293,57.5280464472244,0.66
-8,20,40,"8 teams, 1 QB, 2 RB 2 WR 1 TE, 1 flex","redraft",38.6657464621345,24.3433163060597,0.63
-20,45,80,"8 teams, 1 QB, 2 RB 2 WR 1 TE, 1 flex","redraft",18.8622999850899,-2.18182021232202,-0.12
-1,8,20,"8 teams, 1 QB, 2 RB 2 WR 1 TE, 1 flex","dynasty",375.865161434833,269.206263285549,0.72
-8,20,40,"8 teams, 1 QB, 2 RB 2 WR 1 TE, 1 flex","dynasty",175.595525395537,156.110919620052,0.89
-20,45,80,"8 teams, 1 QB, 2 RB 2 WR 1 TE, 1 flex","dynasty",93.6107378900127,79.0963170752498,0.84
+1,8,20,"12 teams, superflex, 2 RB 3 WR 1 TE, no flex (default)","redraft",89.658075961736,88.1471606459091,0.98
+8,20,40,"12 teams, superflex, 2 RB 3 WR 1 TE, no flex (default)","redraft",53.7956588180866,59.5435051095151,1.11
+20,45,80,"12 teams, superflex, 2 RB 3 WR 1 TE, no flex (default)","redraft",34.3515018278225,27.766355728199,0.81
+1,8,20,"12 teams, superflex, 2 RB 3 WR 1 TE, no flex (default)","dynasty",535.614668691943,512.755956097698,0.96
+8,20,40,"12 teams, superflex, 2 RB 3 WR 1 TE, no flex (default)","dynasty",306.77506265075,343.641587703642,1.12
+20,45,80,"12 teams, superflex, 2 RB 3 WR 1 TE, no flex (default)","dynasty",205.980893446948,185.41077100268,0.9
+1,8,20,"12 teams, 1 QB, 2 RB 3 WR 1 TE, 1 flex","redraft",100.889417032062,90.0387183442063,0.89
+8,20,40,"12 teams, 1 QB, 2 RB 3 WR 1 TE, 1 flex","redraft",54.3969609487685,60.3895983376378,1.11
+20,45,80,"12 teams, 1 QB, 2 RB 3 WR 1 TE, 1 flex","redraft",35.6417573954378,24.8168296859479,0.7
+1,8,20,"12 teams, 1 QB, 2 RB 3 WR 1 TE, 1 flex","dynasty",547.461606184604,492.293757797198,0.9
+8,20,40,"12 teams, 1 QB, 2 RB 3 WR 1 TE, 1 flex","dynasty",300.579011862858,316.414333176597,1.05
+20,45,80,"12 teams, 1 QB, 2 RB 3 WR 1 TE, 1 flex","dynasty",191.71474593434,174.654765479296,0.91
+1,8,20,"10 teams, 1 QB, 2 RB 2 WR 1 TE, 2 flex","redraft",96.8229435068052,82.8967407424229,0.86
+8,20,40,"10 teams, 1 QB, 2 RB 2 WR 1 TE, 2 flex","redraft",51.2639193300443,52.6837995457665,1.03
+20,45,80,"10 teams, 1 QB, 2 RB 2 WR 1 TE, 2 flex","redraft",31.6328214123786,18.2047765696923,0.58
+1,8,20,"10 teams, 1 QB, 2 RB 2 WR 1 TE, 2 flex","dynasty",515.227910439377,442.594221728144,0.86
+8,20,40,"10 teams, 1 QB, 2 RB 2 WR 1 TE, 2 flex","dynasty",273.924566999306,273.309997484964,1
+20,45,80,"10 teams, 1 QB, 2 RB 2 WR 1 TE, 2 flex","dynasty",168.669654728838,142.822112942989,0.85
+1,8,20,"14 teams, superflex, 2 RB 3 WR 1 TE, 1 flex","redraft",107.110366062803,105.829194960881,0.99
+8,20,40,"14 teams, superflex, 2 RB 3 WR 1 TE, 1 flex","redraft",65.2183173440225,73.1708678912916,1.12
+20,45,80,"14 teams, superflex, 2 RB 3 WR 1 TE, 1 flex","redraft",40.6108776168585,42.0952180472655,1.04
+1,8,20,"14 teams, superflex, 2 RB 3 WR 1 TE, 1 flex","dynasty",597.363772579048,615.765744125192,1.03
+8,20,40,"14 teams, superflex, 2 RB 3 WR 1 TE, 1 flex","dynasty",358.539526432732,437.691489895676,1.22
+20,45,80,"14 teams, superflex, 2 RB 3 WR 1 TE, 1 flex","dynasty",257.22621769246,261.967324454236,1.02
+1,8,20,"8 teams, 1 QB, 2 RB 2 WR 1 TE, 1 flex","redraft",78.0080430970616,52.9074797720923,0.68
+8,20,40,"8 teams, 1 QB, 2 RB 2 WR 1 TE, 1 flex","redraft",36.7678539629012,22.0833142380864,0.6
+20,45,80,"8 teams, 1 QB, 2 RB 2 WR 1 TE, 1 flex","redraft",16.1396258091911,-1.58079568090724,-0.1
+1,8,20,"8 teams, 1 QB, 2 RB 2 WR 1 TE, 1 flex","dynasty",372.009605707821,261.661802773217,0.7
+8,20,40,"8 teams, 1 QB, 2 RB 2 WR 1 TE, 1 flex","dynasty",167.368137394007,156.092896637948,0.93
+20,45,80,"8 teams, 1 QB, 2 RB 2 WR 1 TE, 1 flex","dynasty",94.29366537921,78.523029237359,0.83

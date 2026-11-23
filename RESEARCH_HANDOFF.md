@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-22
+- Last updated: 2026-11-23
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -171,6 +171,48 @@ change (the refresh hardcodes them).
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
 
+### 2026-11-23: Mock range capped at the median
+- What: 8 of 94 mocked prospects had a worst case worth more than the median, or a best case worth less. Cause: the
+  mixed model's faller bump, not landing spot (landing spot barely matters: WR zero, RB vacated touches x1.08/SD, TE
+  vacated targets x1.17/SD). A later pick drops the plain grade below A-, he becomes a "faller", and the bump (odds about
+  x2) lifts him above his median (CJ Carr, Mensah, KJ Duff, Leavitt, Hoover); Luke Reynolds is the reverse (boosted at
+  the median, not at his best pick); Chambliss and Dante Moore are small landing-spot differences.
+- Fix (Kyle: "fix it where it gets the boost, but it maxed out at the median"): `pd_12_mock_range.R` keeps each case's
+  boost but caps worst-case odds and grade at the median's and floors the best case at the median's, tier by tier, for
+  both the mixed and plain post-draft ranges. Rejected: faller status fixed at the median pick; best/worst from the plain
+  model only.
+- Status: built; goes LIVE with the next PC rerun of pd_12, dv_13, pd_10. A74.
+
+### 2026-11-23: Proj. PPG column on the draft boards (F#33, S#33)
+- What: Kyle approved both PRs and asked for projected 3-YEAR PPG (not total points) next to the grade, on the pre-draft,
+  post-draft and mixed boards, wired so the weekly refresh keeps it.
+- Result: new `PreDraft_Model/pd_14_proj_ppg.R` and `PostDraft_Model/pd_13_proj_ppg.R` (elastic net on the grade's own
+  inputs, target = PPR points per game over seasons 1-3 for players who played, weighted by games; past classes
+  out-of-class, 2024+ and the 2027 mock from a final 2010-2023 fit). Out-of-class Spearman with actual 3-yr PPG:
+  post-draft QB .61, RB .59, WR .59, TE .59; pre-draft QB .25, RB .43, WR .35, TE .31. Mixed view adds a faller bump in
+  PPG (QB +3.9, RB +1.5, TE +1.7, WR +0.9; 11-27 fallers each, noisy). `rf_02_predraft_page.R` and `pd_10_site_page.R`
+  write `pp` (mixed / pre) and `ppd` (plain post-draft) into the data lines; `refresh.sh` runs pd_14 (with the pre-draft
+  regrade) and pd_13 (before pd_10), both guarded (a failure keeps last week's CSV). Site: "Proj. PPG" column after Grade,
+  note above each board; the Post-draft switch shows `ppd`.
+- Status: LIVE once F#33 and S#33 are merged AND the four scripts are copied to the PC (pd_13 + pd_10 to
+  Football2_PostDraft, pd_14 to Football2_PreDraft, rf_02 + refresh.sh to Weekly_Refresh). Until the PC has them, the
+  refresh rewrites the data lines without `pp` and the column shows blank (no error).
+- Display only: grades, Value and pick prices do not use it (A73).
+- Assumptions: A72, A73 added. Recommendations: R22.
+
+### 2026-11-22: Dynasty Daddy historical values (research)
+- What: Kyle asked whether Dynasty Daddy has time-stamped historical values. Checked the documented API, DD's front-end
+  code and the history endpoints it calls, from Kyle's PC (cloud is blocked).
+- Result: yes, via UNDOCUMENTED endpoints: `/api/v1/player/{name_id}?isAllTime=true` (one row per day per player) and
+  `/api/v1/player/all/prev/{days}` (top-500 board N days ago). DD's own values (`daddy_*`, = public API today) start
+  2024-08-01 (~2.3 seasons); DD v2 from 2026-08-26; FantasyCalc and DynastyProcess from 2023-05; the 2021+ unprefixed
+  fields are KeepTradeCut (never use). 1QB and SF for every market; redraft 0 in the offseason. DD weekly noise
+  ~2% median with one-day spikes. No ToS page found; the docs only ask to cache and keep load low.
+- Status: RESEARCH ONLY (nothing pulled by the refresh, nothing on site). Files: `Trade_Values/research/dd_history/`
+  (README, weekly sample for 4 players, chart). PR: this one.
+- Assumptions: A71 added; A51 unchanged.
+- Recommendations: R21 (ask DD permission, then one paced history pull and a market backtest).
+
 ### 2026-11-22: Research handoff and update tracker (this file)
 - What: Kyle asked for one exhaustive, always-updated handoff of all research, with an update log, an assumptions
   register (with alternative directions) and future recommendations at each update.
@@ -224,6 +266,14 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   toggle (multiplier 0.85 at rel <= 0.5 to 1.0 at rel >= 0.9) was built (F#32 + S#32).
 - Status: CLOSED unmerged the same day. Kyle: "I don't want anything published yet. Just research." Code kept on branch
   `claude/project-thread-m614pm`. Rostered/start % is only ever for trade value, never for predicting production.
+- Follow-up (11-20, research): % started with week-11 byes (ATL, CLE, GB, LA, NE, SEA) and injured players removed
+  (n=108). At equal value and rostered %, the start/rostered ratio predicted a higher Dynasty Daddy price (+0.77 log,
+  95% +0.43 to +1.18) but nothing on DynastyProcess (-0.01, -0.50 to +0.53). One week is too thin. The model already
+  has a season-level "theoretical start %" (redraft: hard cut at the replacement line; dynasty: E[(PPG - rep)+]), but
+  not weekly start/sit. Kyle (11-20): start % is a crowd-trust signal to compare with our model ("who should be
+  trusted"). Proposed test: when our model's start chance and the crowd's start % disagree, who is right over the next
+  4 weeks (redraft) and next season (dynasty value)? If we win, the gap is a buy-low / sell-high signal. Needs 4-6
+  weeks of archived ESPN start % first (not set up; nothing published).
 
 ### 2026-11-20: CJ Stroud QB3 explanation
 - What: why Stroud ranked QB3 on the dynasty board.
@@ -395,7 +445,9 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   (rolling version: A 75% post, D/F 9%).
 - **Mixed (default on site):** pd_11_mixed_model.R boosts pre-draft A-range players who fell out of A after the draft.
   Rewrites post-draft and 2027 mock CSVs in place, keeps `*_draft` columns (plain post-draft) for the model switch.
-- **Run order:** pd_07 -> pd_09 (x3: median, best, worst) -> pd_11 -> pd_12 -> dv_13 -> pd_10.
+- **Run order:** pd_07 -> pd_09 (x3: median, best, worst) -> pd_11 -> pd_12 -> pd_13 (Proj. PPG) -> dv_13 -> pd_10.
+- **Proj. PPG (2026-11-23):** pd_13_proj_ppg.R writes projected 3-year PPG (plain and mixed) for the board and the 2027
+  mock; pd_14_proj_ppg.R does the same for the pre-draft board. Display column only (A72, A73).
 
 ### 4.4 The 2027 class: mocks and pick range
 
@@ -435,6 +487,9 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
 
 - **Market Check** (`/value-research/`): ranks vs Dynasty Daddy (default; dynasty + redraft, cached weekly by dv_14) and
   DynastyProcess (dynasty, live with fallback). 12-team SF 0.5 PPR. Ranks and gaps only. Never KTC.
+- **Dynasty Daddy history** (research 11-22, `Trade_Values/research/dd_history/`): daily DD values exist from
+  2024-08-01 via undocumented endpoints (player history, whole-board `prev/{days}`); also FantasyCalc/DynastyProcess
+  from 2023-05. Not pulled; permission to be asked first (R21). Use: backtest our values vs the market over time.
 - **Track Record** (`Track_Record/`, `/track-record/`): 2024-2026 grades frozen 2026-11-13 with hashes; scored as
   outcomes arrive.
 - **Value History** (`Trade_Values/history/`, `/value-history/`): weekly point-in-time values 2016+, scored against what
@@ -502,6 +557,7 @@ data; render.js makes a 2400x3000 navy/orange top-24 image with an OVR column; g
 | Prior-year team offense in rookie models | 11-17 | No gain beyond grade | - |
 | Fantasy start rate in PPG | 11-20 | No gain | Archived real start % exists |
 | Market adjusted toggle (ESPN % rostered) | 11-20 | Built then closed: Kyle wants research only | Kyle asks again |
+| Crowd start % vs model start chance ("who was right", buy/sell signal) | 11-20 | Idea; one-week test mixed | 4-6 weeks of archived ESPN start % |
 | Squared / interaction terms | 11-20 | No gain (rookies); trade-value gain too small, QB worse | - |
 | Points or PPG models for rookie values | 11-21 | Tier method better | - |
 | Rushing per-carry bonus | 11-12 | Kyle passed | Kyle asks |
@@ -509,6 +565,7 @@ data; render.js makes a 2400x3000 navy/orange top-24 image with an OVR column; g
 | Release 3 of the redesign | 11-14 | Not approved (parts arrived via Value History) | Kyle asks |
 | 3-level site split | 11-14 | Superseded by the unified platform spec | - |
 | Handcuffs section (backup RB/QB starter potential) | 11-12 | IDEA ONLY, do not build until Kyle says. Spec: raw small-sample spot-start PPG over replacement, discounted by expected starts; backups on the main board stay; separate Handcuffs section | Kyle says build |
+| Dynasty Daddy value history (bulk pull, market backtest) | 11-22 | PARKED: exists from 2024-08 via undocumented endpoints; ask DD first, Kyle decides (R21) | DD says OK and Kyle asks |
 | Paywall (custom leagues, handcuffs, deep dives, exports) | 11-12 | Advice only; keep default boards and Market Check free | Kyle asks |
 | 2-for-1 consolidation moves; check incoming player starts | 11-16 | Not built | Kyle asks |
 | Fable optional items: 2028 picks, contend/rebuild toggle, live home lead, renv | 11-14 | Not built | Kyle asks |
@@ -614,6 +671,10 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A68 | Research uses Python in the cloud when R is unavailable, matching R outputs (e.g. realized value r = .99 with pp_03) | research folders | Always R on PC | Container lacks some packages; checked against R | ACTIVE |
 | A69 | Year-2/3 usage models are research and buy/sell only, not in values | position models | Feed dynasty values | Tested as prior 11-13, hurt redraft | ACTIVE |
 | A70 | 2027 board names: alias list maps mock names to board names (Ryan Coleman-Williams = Ryan Williams, Hollywood Smothers = Daylan Smothers, Quintrevion Wisner = Tre Wisner) | combine_mocks.py aliases | Fuzzy matching | Exact and auditable | ACTIVE |
+| A72 | Board "Proj. PPG" = projected PPR points per game over NFL seasons 1-3 in games played, elastic net on the grade's own inputs, trained on players with 1+ game weighted by games; past classes out-of-class; mixed = post + faller bump in PPG | pd_13, pd_14 | Projected total 3-yr points (S#33 first preview); rookie-year PPG; expected PPG including zero-game risk | Kyle chose 3-yr PPG 11-23; per-game separates "how good when he plays" from the grade's "will he make it"; 3-yr PPG beat rookie-year PPG in the value tests | ACTIVE |
+| A73 | Rookie values and pick prices stay on the tier odds; Proj. PPG is display only | dv_13 | PPG-model values; hybrid (PPG top 24, tiers outside) | Tier method best in every 11-21 backtest (.540 vs .516-.519; hybrid .491) | ACTIVE |
+| A74 | Mock range: best/worst cases keep their own faller boost, but worst <= median <= best on each tier's odds and the grade (capped / floored at the median-pick case) | pd_12_mock_range | Per-case boost with no cap (worst > median for 5 players); faller status fixed at the median; best/worst from the plain post-draft model only | Kyle's call 2026-11-23: keep the boost, max it at the median | ACTIVE 2026-11-23 |
+| A71 | Market history, if used, = Dynasty Daddy's own `daddy_*` fields from DD's history endpoints, only after DD permission; never the unprefixed/KTC fields | research/dd_history | Use documented current API only and build our own weekly archive of it; use FantasyCalc history | DD history is the only dated market source found that we may use; own archive starts from zero | ACTIVE |
 
 ---
 
@@ -625,6 +686,7 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | CollegeFootballData.com via cfbfastR | College stats, team stats, recruiting, usage/PPA | API key private (`.Renviron`); credit on site. FCS only vs FBS before 2022 |
 | Pro Football Reference | Credited on site | - |
 | Dynasty Daddy public API | Market Check snapshot | Allowed (Kyle confirmed); cache, low request rate; blocked from cloud (fetch via Kyle's PC) |
+| Dynasty Daddy history endpoints (`/player/{id}?isAllTime=true`, `/player/all/prev/{days}`) | Research sample only (11-22) | Undocumented; no ToS page; ask DD before bulk use; rows also carry KTC fields, which stay unused |
 | DynastyProcess open data | Market Check, Sleeper id map | Open data on GitHub |
 | Sleeper public API | League import in the visitor's browser | Read-only; blocked from the cloud container |
 | ESPN `kona_player_info` | Research only (rostered %) | Works from Kyle's PC only; current week only |
@@ -656,10 +718,13 @@ fine (already in Rookie_Pick_Strategy/README.md).
 10. Template trap: `refresh.sh` rebuilds the Trade Values page from the PC's `tv_page_template.html` and copies it back
     to the repo. Any template edit must be copied to the PC before Tuesday (it broke the footer once, 2026-11-17).
 11. Wednesday rookie X posts barely change week to week because mock grades are not rerun weekly.
-12. Open research PRs never merged: F#19 (team matchup), F#25 (prospect prior), F#33 (interactions/points). Their
-    findings are recorded here; code lives only on the branches.
+12. Open research PRs never merged: F#19 (team matchup), F#25 (prospect prior). Their findings are recorded here; code
+    lives only on the branches. (F#33 now carries the Proj. PPG build as well as the interaction/points research.)
+16. Proj. PPG needs pd_13, pd_14, pd_10, rf_02 and refresh.sh on the PC; otherwise the column is blank after a refresh.
+    The pre-draft PPG model is weak for QBs (Spearman .25) and the mixed QB faller bump (+3.9 PPG) rests on 11 players.
 13. Sleeper settings the site cannot model (e.g. Lampoons' TE +0.25 and yardage bonuses).
 14. The refresh only runs if the PC is on (Task Scheduler runs it at the next start-up otherwise).
+15. Market Check is a single snapshot; dd.js keeps no history (each refresh overwrites it). DD history would fix this (R21).
 
 ---
 
@@ -688,11 +753,15 @@ approved to build unless Kyle says so (see section 10).
   new modeling, so future tests have a clean check.
 - **R7. Backup QB discount research** using archived ESPN rostered % (archive 4-6 weeks first, no publishing), test a
   QB-only adjustment. (A43, issue 7)
+  The same archive enables the crowd-vs-model start % test (section 3, 2026-11-20 follow-up).
 - **R8. Old QB survival:** a new angle is needed (the 11-13 fixes failed), e.g. contract or depth-chart-based exits.
 - **R9. Write the trade-values section of MODELS_TECHNICAL_REFERENCE.md** (formulas, k table, backtests). Documentation only.
 - **R10. Current-season credibility weight check:** test whether k1 should vary by week or by prior sample size, since
   9 hot games carry ~60% weight. (A31, A63)
 - **R11. Investigate the missing players** (Higgins, Hunter, Aiyuk, Beck), Sorsby and Dante Moore. (issues 4-6)
+
+- **R22. Copy the Proj. PPG scripts to the PC** (pd_13 + pd_10 -> Football2_PostDraft, pd_14 -> Football2_PreDraft,
+  rf_02 + refresh.sh -> Weekly_Refresh) before the next Tuesday refresh after F#33/S#33 merge. (A72, issue 16)
 
 **Product (only when Kyle asks)**
 
@@ -707,6 +776,13 @@ approved to build unless Kyle says so (see section 10).
 - **R18. Fix doc drift** in Mock_Drafts/README.md and the root README. (issues 1, 3)
 - **R19. renv lockfile** for the R environment (Fable, not built).
 - **R20. Pick-slot history on the Picks tab** (from Rookie_Pick_Strategy) only if Kyle asks.
+
+**Market data**
+
+- **R21. Dynasty Daddy history:** ask DD (Discord/X) whether pulling history from its undocumented endpoints is OK; if
+  yes, one paced pull from Kyle's PC (~120 weekly `prev/{days}` calls, cached, never re-pulled) and a backtest of our
+  point-in-time values vs DD against next-season PPG, by position. Meanwhile, cheap fallback: keep each week's dd.js
+  in the archive so our own market history starts now. (11-22, A71)
 
 ---
 

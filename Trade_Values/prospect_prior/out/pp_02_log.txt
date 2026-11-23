@@ -1,0 +1,141 @@
+
+COVERAGE (share of in-season rows with a prospect-model prior):
+# A tibble: 4 x 3
+  grp            rows with_prospect_prior
+  <fct>         <int>               <dbl>
+1 rookie (yr 1)   803               0.729
+2 yrs 2-3        1581               0.669
+3 yrs 4-5        1251               0.667
+4 yr 6+          1649               0.612
+
+CONSTANTS k1 (2026 games), k2 (history games), fit on all 2016-2025 seasons:
+# A tibble: 9 x 9
+  variant       k1_QB k1_RB k1_WR k1_TE k2_QB k2_RB k2_WR k2_TE
+  <chr>         <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+1 pick_h3         5.9   3.8   3.8   4.4  15.4  25.3   9     6.9
+2 post_h3         6.1   3.8   3.7   4.3  14.3  27.4   7.7   5.6
+3 mixed_h3        6.1   3.8   3.7   4.4  14    24.5   7.4   6.4
+4 pick_mixed_h3   6     3.7   3.6   4.3  18.7  23.9   7.6   5.9
+5 pick_pre_h3     5.8   3.8   3.7   4.3  15.1  25.2   7.1   6  
+6 rolling_h3      5.6   3.7   3.7   4.4  11.6  27.3   8.5   5.8
+7 pick_h5         5.9   3.6   3.5   4.1  13.9  31.3  11     8.3
+8 mixed_h5        6.1   3.6   3.5   4.1  13.1  29.3   9     7.6
+9 pick_mixed_h5   6.1   3.6   3.4   4    17.4  28.6   9.2   6.8
+
+A. IN-SEASON weeks 10-18 PPG RMSE, ALL positions:
+# A tibble: 9 x 16
+  variant       `rmse_rookie (yr 1)` `rmse_yr 6+` `rmse_yrs 2-3` `rmse_yrs 4-5` rmse_all `pct_rookie (yr 1)` `pct_yr 6+` `pct_yrs 2-3` `pct_yrs 4-5` pct_all `n_rookie (yr 1)` `n_yr 6+` `n_yrs 2-3`
+  <chr>                        <dbl>        <dbl>          <dbl>          <dbl>    <dbl>               <dbl>       <dbl>         <dbl>         <dbl>   <dbl>             <int>     <int>       <int>
+1 mixed_h3                      3.60         3.47           3.34           3.49     3.46               0.251       0.163        -0.324         0.504   0.125               598      1245        1169
+2 mixed_h5                      3.60         3.50           3.35           3.48     3.47               0.166       0.822        -0.149         0.43    0.351               598      1245        1169
+3 pick_h3                       3.59         3.47           3.35           3.47     3.45               0           0             0             0       0                   598      1245        1169
+4 pick_h5                       3.59         3.49           3.36           3.47     3.46              -0.103       0.773         0.218        -0.006   0.288               598      1245        1169
+5 pick_mixed_h3                 3.63         3.47           3.35           3.48     3.46               1.05        0.094        -0.177         0.311   0.227               598      1245        1169
+6 pick_mixed_h5                 3.63         3.49           3.35           3.48     3.47               0.943       0.75          0.007         0.248   0.452               598      1245        1169
+7 pick_pre_h3                   3.62         3.47           3.35           3.47     3.46               0.829       0.107         0.008         0.115   0.198               598      1245        1169
+8 post_h3                       3.61         3.47           3.34           3.48     3.46               0.375       0.065        -0.265         0.385   0.102               598      1245        1169
+9 rolling_h3                    3.63         3.47           3.35           3.47     3.46               0.92       -0.023        -0.064         0.083   0.145               598      1245        1169
+# i 2 more variables: `n_yrs 4-5` <int>, n_all <int>
+
+A. bootstrap (RMSE diff vs pick_h3; negative = better):
+# A tibble: 24 x 6
+   variant       grp             diff     lo    hi seasons_better
+   <chr>         <chr>          <dbl>  <dbl> <dbl>          <int>
+ 1 post_h3       all            0.004 -0.005 0.012              5
+ 2 post_h3       yrs 2-3       -0.009 -0.022 0.004              6
+ 3 post_h3       rookie (yr 1)  0.013 -0.027 0.057              4
+ 4 mixed_h3      all            0.004 -0.006 0.014              5
+ 5 mixed_h3      yrs 2-3       -0.011 -0.028 0.005              6
+ 6 mixed_h3      rookie (yr 1)  0.009 -0.037 0.055              4
+ 7 pick_mixed_h3 all            0.008 -0.003 0.019              4
+ 8 pick_mixed_h3 yrs 2-3       -0.006 -0.023 0.011              7
+ 9 pick_mixed_h3 rookie (yr 1)  0.038 -0.004 0.08               3
+10 pick_pre_h3   all            0.007 -0.002 0.016              4
+# i 14 more rows
+
+A. yrs 2-3 by position (% RMSE change):
+# A tibble: 9 x 5
+  variant          QB    RB    TE    WR
+  <chr>         <dbl> <dbl> <dbl> <dbl>
+1 mixed_h3      -1.71 -0.31 -0.05 -0.07
+2 mixed_h5      -1.22 -0.18 -0.01  0.11
+3 pick_h3        0     0     0     0   
+4 pick_h5        0.57  0.17  0.04  0.21
+5 pick_mixed_h3 -0.55 -0.24  0.15 -0.11
+6 pick_mixed_h5 -0.02 -0.11  0.18  0.07
+7 pick_pre_h3    2.28 -0.69  0.12  0.01
+8 post_h3       -0.86 -0.5   0.21 -0.04
+9 rolling_h3     2.52 -1.01  0.4  -0.02
+
+B. NEXT-SEASON PPG RMSE (dv_11 aging model, rolling), ALL positions:
+# A tibble: 9 x 16
+  variant       `rmse_rookie (yr 1)` `rmse_yr 6+` `rmse_yrs 2-3` `rmse_yrs 4-5` rmse_all `pct_rookie (yr 1)` `pct_yr 6+` `pct_yrs 2-3` `pct_yrs 4-5` pct_all `n_rookie (yr 1)` `n_yr 6+` `n_yrs 2-3`
+  <chr>                        <dbl>        <dbl>          <dbl>          <dbl>    <dbl>               <dbl>       <dbl>         <dbl>         <dbl>   <dbl>             <int>     <int>       <int>
+1 mixed_h3                      3.51         3.23           3.30           3.30     3.32              -0.813       0.068         0.384        -0.132  -0.047               659      1070        1230
+2 mixed_h5                      3.50         3.24           3.3            3.31     3.32              -0.84        0.278         0.455         0.218   0.105               659      1070        1230
+3 pick_h3                       3.54         3.23           3.28           3.3      3.32               0           0             0             0       0                   659      1070        1230
+4 pick_h5                       3.53         3.24           3.29           3.31     3.32              -0.039       0.277         0.092         0.398   0.185               659      1070        1230
+5 pick_mixed_h3                 3.52         3.23           3.29           3.29     3.32              -0.482      -0.051         0.236        -0.203  -0.078               659      1070        1230
+6 pick_mixed_h5                 3.52         3.24           3.30           3.30     3.32              -0.509       0.176         0.317         0.18    0.089               659      1070        1230
+7 pick_pre_h3                   3.54         3.23           3.29           3.29     3.32               0.224      -0.021         0.27         -0.221   0.073               659      1070        1230
+8 post_h3                       3.53         3.23           3.30           3.30     3.32              -0.068       0.016         0.337        -0.133   0.067               659      1070        1230
+9 rolling_h3                    3.56         3.23           3.30           3.30     3.33               0.761      -0.079         0.518        -0.058   0.278               659      1070        1230
+# i 2 more variables: `n_yrs 4-5` <int>, n_all <int>
+
+B. bootstrap:
+# A tibble: 24 x 6
+   variant       grp             diff     lo     hi seasons_better
+   <chr>         <chr>          <dbl>  <dbl>  <dbl>          <int>
+ 1 post_h3       all            0.002 -0.004  0.009              4
+ 2 post_h3       yrs 2-3        0.011  0.002  0.022              2
+ 3 post_h3       rookie (yr 1) -0.002 -0.029  0.024              6
+ 4 mixed_h3      all           -0.002 -0.008  0.006              6
+ 5 mixed_h3      yrs 2-3        0.013  0.003  0.023              4
+ 6 mixed_h3      rookie (yr 1) -0.029 -0.054 -0.002              9
+ 7 pick_mixed_h3 all           -0.003 -0.011  0.006              6
+ 8 pick_mixed_h3 yrs 2-3        0.008 -0.002  0.018              4
+ 9 pick_mixed_h3 rookie (yr 1) -0.017 -0.051  0.029              9
+10 pick_pre_h3   all            0.002 -0.006  0.012              5
+# i 14 more rows
+
+B. yrs 2-3 by position (% RMSE change):
+# A tibble: 9 x 5
+  variant          QB    RB    TE    WR
+  <chr>         <dbl> <dbl> <dbl> <dbl>
+1 mixed_h3       0.16  0.69  0.27  0.21
+2 mixed_h5       0.05  0.8   0.16  0.36
+3 pick_h3        0     0     0     0   
+4 pick_h5       -0.05  0.11 -0.09  0.18
+5 pick_mixed_h3 -0.55  0.78 -0.3   0.15
+6 pick_mixed_h5 -0.64  0.89 -0.39  0.3 
+7 pick_pre_h3    0.11  0.57  0.14  0.1 
+8 post_h3        0     0.51  0.46  0.23
+9 rolling_h3     0.9   0.98 -0.04  0.21
+
+B. rookies (yr 1 -> yr 2) by position (% RMSE change):
+# A tibble: 9 x 5
+  variant          QB    RB    TE    WR
+  <chr>         <dbl> <dbl> <dbl> <dbl>
+1 mixed_h3      -3.56 -0.82  0.7   0.12
+2 mixed_h5      -3.56 -0.79  0.74  0   
+3 pick_h3        0     0     0     0   
+4 pick_h5       -0.04  0     0.07 -0.11
+5 pick_mixed_h3 -0.38 -0.75 -1.6   0.11
+6 pick_mixed_h5 -0.39 -0.73 -1.52 -0.02
+7 pick_pre_h3    3.42 -0.61 -0.26 -0.18
+8 post_h3       -1.96 -0.07  0.77  0.64
+9 rolling_h3     0.91  0.49  1.93  0.72
+
+C. rest-of-season value Spearman:
+# A tibble: 9 x 9
+  variant          QB    RB    TE    WR `QB yrs 2-3` `RB yrs 2-3` `TE yrs 2-3` `WR yrs 2-3`
+  <chr>         <dbl> <dbl> <dbl> <dbl>        <dbl>        <dbl>        <dbl>        <dbl>
+1 mixed_h3      0.594 0.677 0.544 0.649        0.648        0.681        0.505        0.62 
+2 mixed_h5      0.604 0.675 0.541 0.65         0.649        0.683        0.505        0.618
+3 pick_h3       0.595 0.677 0.543 0.651        0.632        0.681        0.504        0.621
+4 pick_h5       0.607 0.676 0.541 0.653        0.66         0.685        0.508        0.62 
+5 pick_mixed_h3 0.596 0.677 0.539 0.648        0.645        0.681        0.504        0.619
+6 pick_mixed_h5 0.599 0.675 0.538 0.65         0.643        0.68         0.506        0.618
+7 pick_pre_h3   0.592 0.681 0.54  0.649        0.628        0.687        0.503        0.619
+8 post_h3       0.601 0.678 0.542 0.65         0.64         0.684        0.502        0.621
+9 rolling_h3    0.599 0.676 0.543 0.651        0.623        0.682        0.499        0.62 
