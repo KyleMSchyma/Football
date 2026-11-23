@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-23
+- Last updated: 2026-11-23 (Trade market source, S#34)
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -170,6 +170,93 @@ change (the refresh hardcodes them).
 ## 3. Update log
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
+
+### 2026-11-23: Market moves for every source; weekly trade-market update
+- Kyle: "I want the trade data updated weekly. If our values aren't directly comparable (dynasty daddy/process) we will
+  have to base it off of similar positional/overall ranking values. When it comes to a downtier, we need the same
+  position back and then any position after that. Pivot can be any position. Actuarial values are included in ours."
+- Page (S#34): Best market moves now show for all three sources. Dynasty Daddy / DynastyProcess use rank-matched values
+  (each player gets our value at the same overall rank in that source's list; packages add on that scale). Downtier
+  requires one returned piece at the same position as the player given; uptiers the same (one of the two given matches
+  the received player's position; Kyle 11-23). Roster-spot caveats removed (our values
+  already carry the actuarial parts).
+- Weekly: `Trade_Market/tm_weekly.sh` (+ `tm_weekly.cmd`, Task Scheduler Tuesday 5:00 AM on the PC, from
+  `Football2/research/dd_trades`): tm_01 dynasty pull of new weeks (TM_TYPES=Dynasty), tm_04 4-shape refit (~1.5 h),
+  tm_07 -> `out/tm.js` (`tm_07_site_data.R`, an R port, because the PC has no Python; the .py stays for the cloud). refresh.sh step 4c copies tm.js to the site and the aggregate CSVs + scripts to
+  `Trade_Market/` when it changed; a failed 5 AM run keeps last week's file. tm_04 meta now carries first/last trade dates.
+- Status: S#34 OPEN; PC scheduling via Remote Control. Assumption A85; R28 DONE (weekly), R27 open (redraft).
+
+### 2026-11-23: Trade market source on Market Check (S#34)
+- What: Kyle chose to show the curve-matched trade-market values on the Market Check page as a third source (dynasty
+  only), with the situations where the market doesn't add up listed beside them.
+- How: `Trade_Market/tm_07_site_data.py` writes `value-research/data/tm.js` (log 1:1 value per player at the page's
+  league: 12 teams, 0.5 PPR, SF, 8 starters; from the 4-shape run). The page fits one power in the browser so the
+  market's top-150 curve matches ours (2.03 at this league), shows Our value / Market value next to the ranks, and a
+  note box: 1-for-2 ~+20% for the single player, 2-for-3 ~+5%, bigger packages not used, close swaps, settings the
+  market barely prices, recency, rare players. Rank correlation top 150: .86.
+- Best market moves (Kyle: "publish the 1:1, 2:1 versions. 1:1 is pivot section, 2:1 is uptier/downtier"): with the
+  Trade market source selected the page lists Pivots (1-for-1: market 1:1 prices within 10%, our dynasty value gain
+  > 10% and >= 1,000; best target per player given) and Uptier / Downtier (2-for-1: market 2:1 package prices, i.e. the
+  1:1 values to the power 2.546 at which held-out 1-for-2 trades balance, two pieces within 10% of the single player;
+  same gain rule), top 200 players, plus a "moves for one player" search. Our values don't credit the roster spot an
+  uptier frees.
+- Status: site PR S#34 OPEN (awaiting Kyle's merge). tm.js is a static snapshot (not in the weekly refresh).
+- Assumptions: A83 now LIVE once S#34 merges. Recommendation R28 added.
+
+### 2026-11-23: Trade market values on our additive scale (research)
+- What: Kyle asked to translate the market values to be additive so they compare directly with ours. Kyle's framing
+  (11-23): the point is to show where the market (people's preferences) sits relative to our methodology, measured on
+  our method's terms; neither is "right", only the differences are reported.
+- Synthetic tests (made-up trades with known values): tm_02's settings compress values even when the true market is
+  perfectly additive (fitted log-value spread 1/1.24 of the truth; a fake 1-for-2 "premium" of ~19%). Two causes:
+  shrinkage toward position means (LAMBDA0 = 2) and the fact that every observed trade is roughly fair, so squeezing
+  values together always looks "fairer". Rejected along the way: a per-asset roster cost (package = sum of (v - c)) is
+  the same additive model, so c cannot be estimated (fit gave c .80 vs true .15 with a lower loss); a depth discount
+  (k-th asset counts lambda^(k-1)) cannot be fitted because lambda = 0 with equal values makes every trade fair.
+- Method (`tm_04_additive_calibrated.R`): tm_02 with light shrinkage (LAMBDA0 = 0.05), then one stretch s on the
+  fitted log values (v' = v^s), s chosen so the 14-day holdout shows no consolidation gap. Synthetic: recovers the true
+  spread (slope .97). `tm_05_compare_additive.py` charts the result against our values (site default league).
+- Result, dynasty all trades (1.56M): s = 1.71. Kyle then asked to use only 1-for-1, 1-for-2, 2-for-2 and 2-for-3 trades
+  (bigger trades are large steps): 1.18M trades, s = 2.44. Measured with straight-up prices (s = 1), the single player
+  in a 1-for-2 fetches +48% over the two pieces, the smaller side of a 2-for-3 +24% (all-trade run: +34% 1-for-2).
+  Making those trades fair on one additive scale needs a curve much steeper than ours (rank 24: market 25k, ours 39k;
+  rank 50: 14k vs 27k), while straight-up prices give a flatter one (47k, 34k); 1-for-1 holdout error .19 at s = 1 vs
+  .47 at s = 2.44, so no single additive scale fits both. Player-level differences are the same in every view: market
+  above our method on J. Allen, Bijan, C. Williams, Jefferson, L. Jackson, Mendoza; below on Jeanty, McCaffrey, Stroud,
+  Nacua, 2026 rookies (Tate, O. Cooper Jr., J. Love) and 2027 picks (mid 1st ~40% of ours). Spearman top 150 .889.
+- Curve match (Kyle: "match an exponential function like our values so it is 1:1 with our site values";
+  `tm_06_curve_match.py`): market 1:1 values raised to one power p = 1.81 so the top-150 value-by-rank curve matches
+  ours (log RMSE .06; rank 24: 36k vs our 39k). Kyle chose to KEEP this curve-matched scale. Position level: QB +2%,
+  RB -2%, WR -8%, TE +22%. Market above our method: C. Williams 56k vs 33k, Jefferson 48k vs 25k, Allen 88k vs 66k,
+  Bijan 78k vs 56k, L. Jackson, Mendoza, Achane, McBride; below: Jeanty 32k vs 54k, O. Cooper Jr., Stroud, McCaffrey,
+  Nacua, Gibbs, Tate, Goff, J. Love; 2027 mid 1st 18k vs 24k. On held-out trades at this scale: 1-for-2 lone player
+  still +20% over the sum, 2-for-3 +6%, 1-for-1 typical miss 34% (19% at raw 1:1). Kyle asked for these exceptions to
+  be listed on the site; where it goes on the site is pending his choice (Market Check source recommended).
+- Redraft: run paused by Kyle at the final fit (holdout chose s = 2.12; reference fell back to a player because
+  redraft has almost no 2027 1st trades). Kyle: focus on dynasty.
+- Status: RESEARCH ONLY. Files: `Trade_Market/tm_04_additive_calibrated.R` (TM_SHAPES, TM_TAG options),
+  `tm_05_compare_additive.py`, `out/dynasty_add_*.csv`, `out/dynasty_add4_*.csv`, `compare_additive/`, `compare_add4/`.
+- Assumptions: A80-A82 added; A75 kept and annotated. Issue 18 updated, 19 added. R23 done; R26-R27 added.
+
+### 2026-11-23: "Trade" value method from real trades (research)
+- What: Kyle asked for a separate value method built from real trades, recent trades more credible, only leagues our
+  settings can describe, comparable to any scoring setting, NOT built into the current values. Sleeper's Terms of Use
+  ban crawling other leagues without approval, so the data comes from the Dynasty Daddy Trade Database instead (DD's
+  owner told Kyle he may use it, 11-22). Pulled 1.80M dynasty trades (since 05-01) and 710k redraft trades (since 09-01)
+  on Kyle's PC; fit on 1,562,946 / 686,944 usable trades from 180k / 190k leagues.
+- Method: each trade treated as fair; log value of each asset = theta + position-specific setting terms (SF, full PPR,
+  TE premium, team count, starters); robust (Huber) fit of log(sum side A) - log(sum side B) = 0. Long-run fit plus a
+  credibility fit: weight 0.5^(age/H), shrink to long-run with k, Z = I/(I+k). H, k chosen on a 14-day time holdout.
+- Result: best H = 7 days, k = 2 in both formats (edge of grid). Holdout mean |log gap| dynasty .296 vs .341 all trades
+  equal and .305 last 30 days; redraft .285 vs .301 / .293. Rank agreement with our values, top 150 at the site default:
+  dynasty Spearman .897, redraft .837 (48 settings: dynasty .82-.90, redraft .71-.89). The market is NOT additive: the
+  fewer-asset side fetched +35% (1-for-2), +54% (1-for-3), +67% (1-for-4) over the additive fit, so trade values are
+  much flatter than ours. The market barely prices settings: SF off cuts top QBs 35% (ours 66%); TE premium +1 lifts top
+  TEs 16% (ours 116%); PPR and team count move prices 2% or less. Market pays more for Jefferson, C. Williams, L. Jackson,
+  J. Allen, Bijan; less for Jeanty, Nacua, CMC, Stroud, Tate. 2027 mid 1st 27.7k (ours 24.0k), mid 2nd 15.6k (9.8k).
+- Status: RESEARCH ONLY (nothing on the site). Files: `Trade_Market/` (tm_01 pull, tm_02 fit, tm_03 charts,
+  `out/` aggregates without league ids, `compare/` charts). Report: https://claude.ai/artifact/D57WtFX8mNemAZ647ujpz5
+- Assumptions: A75-A79 added. Recommendations: R23-R25.
 
 ### 2026-11-23: Mock range capped at the median
 - What: 8 of 94 mocked prospects had a worst case worth more than the median, or a best case worth less. Cause: the
@@ -490,6 +577,14 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
 - **Dynasty Daddy history** (research 11-22, `Trade_Values/research/dd_history/`): daily DD values exist from
   2024-08-01 via undocumented endpoints (player history, whole-board `prev/{days}`); also FantasyCalc/DynastyProcess
   from 2023-05. Not pulled; permission to be asked first (R21). Use: backtest our values vs the market over time.
+- **Trade Market values** (research 11-23, `Trade_Market/`): a separate "trade" method from 1.56M dynasty and 687k
+  redraft real trades (Dynasty Daddy Trade Database, with permission). Values solved so trades balance, with setting
+  terms by position and recency credibility (H = 7 days, k = 2 by holdout). Ranks agree with ours (dynasty .90,
+  redraft .84 Spearman); the market pays a large consolidation premium and barely adjusts for PPR, TE premium or team
+  count. Not on the site. See the 11-23 log entry. On our additive scale (tm_04, 11-23): the market pays a large
+  consolidation premium (+48% for the single player in 1-for-2 trades at straight-up prices), so one additive market
+  scale is either flatter (straight-up prices) or much steeper (package-fair) than ours; player-level differences
+  (Allen, Bijan, young QBs above ours; Jeanty, CMC, Stroud, rookies, picks below) hold in both views.
 - **Track Record** (`Track_Record/`, `/track-record/`): 2024-2026 grades frozen 2026-11-13 with hashes; scored as
   outcomes arrive.
 - **Value History** (`Trade_Values/history/`, `/value-history/`): weekly point-in-time values 2016+, scored against what
@@ -540,9 +635,12 @@ data; render.js makes a 2400x3000 navy/orange top-24 image with an OVR column; g
 | Idea | Date | Outcome and reason | Revisit if |
 |---|---|---|---|
 | KeepTradeCut values | 11-12 | Never use: terms ban scraping and reuse on another site | KTC grants written permission |
+| Crawl Sleeper leagues for trades | 11-22 | Sleeper Terms of Use 11.1/11.3 ban crawling and automated collection without written approval; used the Dynasty Daddy Trade Database (permission given) instead | Sleeper approves in writing |
 | MDDB published mocks / consensus | 11-15 | Not usable: only R1 free, ToS bans using content to train/evaluate ML | Written permission or paid API |
 | StickToTheModel mock in values | 11-11 | Personal non-commercial terms; kept private, not used | Never on the public site |
 | Anchor-trade exponential trade curve (dv_08) | 11-10/11 | Reverted; replaced by additive per-game values (no consolidation premium) | Kyle wants a 2-for-1 premium (see R14) |
+| Trade market: per-asset roster cost (package = sum of (v - c)) | 11-23 | Mathematically the same additive model; c not identifiable (synthetic fit c .80 vs true .15) | Never |
+| Trade market: depth discount (k-th asset counts lambda^(k-1)) fitted jointly | 11-23 | lambda = 0 with equal values makes every trade fair, so the fit collapses | lambda fixed from outside data |
 | Old `/dynasty/` page | 11-11 | Kept down; refresh stops if the folder reappears | Never |
 | Conference indicators / random conference intercept | 11-10 | No variant improved Brier | New level data |
 | College usage / PPA features | 11-10 | Hurt WR hit Brier; data only 2014+ | Longer history |
@@ -674,6 +772,17 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A72 | Board "Proj. PPG" = projected PPR points per game over NFL seasons 1-3 in games played, elastic net on the grade's own inputs, trained on players with 1+ game weighted by games; past classes out-of-class; mixed = post + faller bump in PPG | pd_13, pd_14 | Projected total 3-yr points (S#33 first preview); rookie-year PPG; expected PPG including zero-game risk | Kyle chose 3-yr PPG 11-23; per-game separates "how good when he plays" from the grade's "will he make it"; 3-yr PPG beat rookie-year PPG in the value tests | ACTIVE |
 | A73 | Rookie values and pick prices stay on the tier odds; Proj. PPG is display only | dv_13 | PPG-model values; hybrid (PPG top 24, tiers outside) | Tier method best in every 11-21 backtest (.540 vs .516-.519; hybrid .491) | ACTIVE |
 | A74 | Mock range: best/worst cases keep their own faller boost, but worst <= median <= best on each tier's odds and the grade (capped / floored at the median-pick case) | pd_12_mock_range | Per-case boost with no cap (worst > median for 5 players); faller status fixed at the median; best/worst from the plain post-draft model only | Kyle's call 2026-11-23: keep the boost, max it at the median | ACTIVE 2026-11-23 |
+| A75 | "Trade" values: every trade is roughly fair and package values add (sum of asset values per side) | Trade_Market tm_02 | Consolidation exponent (sum of v^alpha); per-shape term; pairwise 1-for-1 only | Additive matches our 100k scale; holdout shows a large stud premium, so this is the first thing to revisit (R23) | RESEARCH 11-23; 11-23 tm_04 keeps additivity but recalibrates the spread (A80); the gap is partly a fit artifact and partly a real market premium |
+| A76 | Trade recency: weight 0.5^(age/H), credibility shrink to the long-run fit with k; H = 7 days, k = 2 | tm_02 | All trades equal; last 30 days only; H 14-120; k 10/50 | Best on a 14-day time holdout in dynasty and redraft; both at the edge of the grid (3 days added for the next run) | RESEARCH 11-23 |
+| A77 | Trade leagues kept only if our settings describe them: 8-14 teams, 0.5/1 PPR, TE premium <= 1, no best ball; settings enter as SF, full PPR, TEP, (teams-12)/2, starters-10 per position group | tm_01, tm_02 | Exact-setting subsets (too thin); all leagues pooled with no terms | Lets one model give values for any of our settings; pass TD and first-down bonus are not in the data, so trade values ignore them | RESEARCH 11-23 |
+| A78 | Trade source = Dynasty Daddy Trade Database (`api.dynasty-daddy.com/api/v1/trade/search`), pulled once from Kyle's PC at ~2.5 s per call; raw trades and league ids stay private on the PC | tm_01 | Crawl Sleeper ourselves | DD owner gave Kyle permission 11-22; Sleeper ToS bans crawling | ACTIVE 11-23 |
+| A80 | Market values on our additive scale: light shrinkage (LAMBDA0 0.05) and one stretch v' = v^s chosen so holdout trades show no consolidation gap | tm_04 | tm_02 as is (flat); roster cost; depth discount; stretch by MAE (always s = 1) | Only option that recovers known values in synthetic tests and puts package prices on an additive scale; the s = 1 (straight-up) view is reported next to it | RESEARCH 11-23 |
+| A81 | Dynasty market comparison uses only 1-for-1, 1-for-2, 2-for-2, 2-for-3 trades (75% of trades) | tm_04 TM_SHAPES | All shapes | Kyle 11-23: bigger trades are large steps | RESEARCH 11-23 |
+| A82 | Market comparison is descriptive: differences are "market above / below our method", never errors on either side | Trade_Market write-ups | Treat the market as truth or as noise | Kyle 11-23 | ACTIVE 11-23 |
+| A83 | Market values shown on our curve: 1:1 market values raised to one power fitted so the top-150 curve matches ours; package exceptions listed beside them | tm_06 | Package-fair scale (s 2.44); raw 1:1 (flatter) | Kyle 11-23: "keep the 1:1" with our site values; differences become pure player placement | RESEARCH 11-23 |
+| A84 | Market moves: fair = market prices within 10% (1:1 prices for pivots, 2:1 package prices for uptier/downtier); listed when our dynasty value gains > 10% and >= 1,000 | value-research page (S#34) | Fair on our values (as /moves/); fair on the curve-matched scale; 2-for-3 calibration (power 2.09) | Kyle 11-23; matches the site's 10% too-close-to-call rule; 2:1 power from 1-for-2 holdout trades only | RESEARCH 11-23, LIVE when S#34 merges |
+| A85 | DD / DynastyProcess moves use rank-matched values (our value at the same overall rank); downtier and uptier: one of the two pieces matches the single player's position, the other any; pivots any position | value-research page (S#34) | Positional-rank matching; no moves for DD/DP | Kyle 11-23 | LIVE when S#34 merges |
+| A79 | Assets with fewer than 25 trades pooled per position; reference asset 2027 mid 1st (redraft: most-traded player) | tm_02 | Separate tiny-sample values; another reference | Stable fit; values are rescaled to 100k per league anyway | RESEARCH 11-23 |
 | A71 | Market history, if used, = Dynasty Daddy's own `daddy_*` fields from DD's history endpoints, only after DD permission; never the unprefixed/KTC fields | research/dd_history | Use documented current API only and build our own weekly archive of it; use FantasyCalc history | DD history is the only dated market source found that we may use; own archive starts from zero | ACTIVE |
 
 ---
@@ -688,7 +797,8 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | Dynasty Daddy public API | Market Check snapshot | Allowed (Kyle confirmed); cache, low request rate; blocked from cloud (fetch via Kyle's PC) |
 | Dynasty Daddy history endpoints (`/player/{id}?isAllTime=true`, `/player/all/prev/{days}`) | Research sample only (11-22) | Undocumented; no ToS page; ask DD before bulk use; rows also carry KTC fields, which stay unused |
 | DynastyProcess open data | Market Check, Sleeper id map | Open data on GitHub |
-| Sleeper public API | League import in the visitor's browser | Read-only; blocked from the cloud container |
+| Dynasty Daddy Trade Database (`/api/v1/trade/search`) | Trade Market research (11-23) | DD's owner gave Kyle permission 11-22; one paced pull from the PC; raw trades contain league ids and stay private, only aggregates in the repo |
+| Sleeper public API | League import in the visitor's browser | Read-only; blocked from the cloud container. API docs: non-commercial use; Terms of Use ban crawling other leagues without written approval (checked 11-22) |
 | ESPN `kona_player_info` | Research only (rostered %) | Works from Kyle's PC only; current week only |
 | KeepTradeCut | NOT USED | Terms ban scraping and reuse |
 | NFL Mock Draft Database | Only Kyle's own simulator mocks | Their mocks: ToS bans ML use; R2-7 paywalled; never bypass |
@@ -725,6 +835,12 @@ fine (already in Rookie_Pick_Strategy/README.md).
 13. Sleeper settings the site cannot model (e.g. Lampoons' TE +0.25 and yardage bonuses).
 14. The refresh only runs if the PC is on (Task Scheduler runs it at the next start-up otherwise).
 15. Market Check is a single snapshot; dd.js keeps no history (each refresh overwrites it). DD history would fix this (R21).
+17. Trade Market run 11-23: already-drafted 2026 picks (`2026.1.1.pi`) were labelled OTH and the final long-run fit hit its
+    iteration cap (the credibility fit converged). Both fixed in tm_02 for the next run; outputs not yet rerun.
+18. Trade Market values are additive but the market is not. 11-23 (tm_04): part of tm_02's premium was a fit artifact
+    (shrinkage + compression), but a real premium remains (+48% 1-for-2 at straight-up prices), so any single additive
+    market scale misprices either straight-up or package trades. Compare levels with both views side by side.
+19. tm_04's long-run fit stops at its 800-iteration cap (the credibility fit converges); redraft run paused 11-23.
 
 ---
 
@@ -784,6 +900,22 @@ approved to build unless Kyle says so (see section 10).
   point-in-time values vs DD against next-season PPG, by position. Meanwhile, cheap fallback: keep each week's dd.js
   in the archive so our own market history starts now. (11-22, A71)
 
+**Trade Market (research 11-23)**
+
+- **R28. DONE 11-23 (weekly tm_weekly.sh + refresh step 4c).** Refresh the Trade market source: tm.js is a one-off snapshot of trades to 11-23; add a periodic re-pull and
+  refit (paced, from the PC, DD permission) if Kyle wants it kept current. (A83, S#34)
+- **R26. Two-number market summary:** report the market as straight-up values (s = 1) plus a measured consolidation
+  premium by trade shape, rather than one stretched scale; optionally compare with our own 2-for-1 premium idea (R14).
+  Only if Kyle asks. (A80-A82)
+- **R27. Finish or drop the paused redraft tm_04 run** when Kyle says; raise the long-fit iteration cap. (issue 19)
+- **R23. DONE 11-23 (see log; tm_04).** Consolidation-aware trade values: fit an exponent (package value = (sum v^alpha)^(1/alpha)) or a per-shape term,
+  compare on the same 14-day holdout (1-for-3 trades now miss by 57%), and re-express values on the 100k additive scale.
+  Needed before comparing value levels with ours. (A75, issue 18)
+- **R24. Rerun tm_02 with the fixes** (pick labels, 3-day half-life, smaller k such as 0.5) and pull the two unfinished
+  weeks after 11-27. (A76, issue 17)
+- **R25. Use the trade market as a check on our setting effects:** traders price TE premium and SF far less than our
+  model does; test which one predicts realised points better before changing anything. Only if Kyle asks. (A77)
+
 ---
 
 ## 10. Working rules and Kyle's preferences
@@ -825,6 +957,7 @@ approved to build unless Kyle says so (see section 10).
 | Interactions / squared terms | https://claude.ai/artifact/NsvDr1nxQ78NeP47kMdmcw |
 | Top-24 boards (points vs tiers) | https://claude.ai/artifact/6UXRNYjU8YddKV9ajiXGej |
 | Rookie pick strategy | https://claude.ai/artifact/WKN1QzTfvdzKTgKzg6rR6T |
+| Trade Market values (Trade_Market; includes the 11-23 additive-scale section) | https://claude.ai/artifact/D57WtFX8mNemAZ647ujpz5 |
 
 **Reports in this repo:** FABLE_REVIEW.md; `Trade_Values/dev_role_layer/FABLE_BUILD_REPORT.md` and
 `ROLE_AND_CALIBRATION_REPORT.md`; `Trade_Values/history/README.md`; `Landing_Spot_Offense/README.md`;

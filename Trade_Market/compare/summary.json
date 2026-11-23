@@ -1,0 +1,1081 @@
+{
+ "dynasty": {
+  "trades": 1562946,
+  "first": "2026-05-01",
+  "last": "2026-11-23",
+  "H": "7",
+  "k": "2",
+  "holdout": [
+   {
+    "model": "long-run (all trades equal)",
+    "H": Infinity,
+    "k": NaN,
+    "holdout_huber": 0.0917,
+    "holdout_mae": 0.341,
+    "holdout_pct_within_10pct": 0.1882
+   },
+   {
+    "model": "last 30 days only",
+    "H": 30.0,
+    "k": NaN,
+    "holdout_huber": 0.0759,
+    "holdout_mae": 0.3049,
+    "holdout_pct_within_10pct": 0.2206
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 7.0,
+    "k": 2.0,
+    "holdout_huber": 0.0721,
+    "holdout_mae": 0.2963,
+    "holdout_pct_within_10pct": 0.2272
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 7.0,
+    "k": 10.0,
+    "holdout_huber": 0.0733,
+    "holdout_mae": 0.2991,
+    "holdout_pct_within_10pct": 0.2237
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 7.0,
+    "k": 50.0,
+    "holdout_huber": 0.0767,
+    "holdout_mae": 0.3072,
+    "holdout_pct_within_10pct": 0.2161
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 14.0,
+    "k": 2.0,
+    "holdout_huber": 0.0741,
+    "holdout_mae": 0.3014,
+    "holdout_pct_within_10pct": 0.2193
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 14.0,
+    "k": 10.0,
+    "holdout_huber": 0.0751,
+    "holdout_mae": 0.3036,
+    "holdout_pct_within_10pct": 0.22
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 14.0,
+    "k": 50.0,
+    "holdout_huber": 0.0773,
+    "holdout_mae": 0.3085,
+    "holdout_pct_within_10pct": 0.2156
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 30.0,
+    "k": 2.0,
+    "holdout_huber": 0.0775,
+    "holdout_mae": 0.3099,
+    "holdout_pct_within_10pct": 0.2128
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 30.0,
+    "k": 10.0,
+    "holdout_huber": 0.0786,
+    "holdout_mae": 0.312,
+    "holdout_pct_within_10pct": 0.2119
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 30.0,
+    "k": 50.0,
+    "holdout_huber": 0.0801,
+    "holdout_mae": 0.3152,
+    "holdout_pct_within_10pct": 0.2102
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 60.0,
+    "k": 2.0,
+    "holdout_huber": 0.0812,
+    "holdout_mae": 0.3187,
+    "holdout_pct_within_10pct": 0.205
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 60.0,
+    "k": 10.0,
+    "holdout_huber": 0.0824,
+    "holdout_mae": 0.3209,
+    "holdout_pct_within_10pct": 0.2053
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 60.0,
+    "k": 50.0,
+    "holdout_huber": 0.0836,
+    "holdout_mae": 0.3233,
+    "holdout_pct_within_10pct": 0.2041
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 120.0,
+    "k": 2.0,
+    "holdout_huber": 0.0847,
+    "holdout_mae": 0.3266,
+    "holdout_pct_within_10pct": 0.1982
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 120.0,
+    "k": 10.0,
+    "holdout_huber": 0.0856,
+    "holdout_mae": 0.3281,
+    "holdout_pct_within_10pct": 0.1994
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 120.0,
+    "k": 50.0,
+    "holdout_huber": 0.0867,
+    "holdout_mae": 0.3302,
+    "holdout_pct_within_10pct": 0.1986
+   }
+  ],
+  "default_spearman_top150": 0.897,
+  "missing_from_ours_top100": [
+   "13275"
+  ],
+  "trade_higher": [
+   {
+    "our_name": "Justin Jefferson",
+    "grp": "WR",
+    "trade_value": 59108.0,
+    "our_value": 25359.0
+   },
+   {
+    "our_name": "Caleb Williams",
+    "grp": "QB",
+    "trade_value": 65652.0,
+    "our_value": 32544.0
+   },
+   {
+    "our_name": "Bijan Robinson",
+    "grp": "RB",
+    "trade_value": 87845.0,
+    "our_value": 56156.0
+   },
+   {
+    "our_name": "Lamar Jackson",
+    "grp": "QB",
+    "trade_value": 47331.0,
+    "our_value": 16182.0
+   },
+   {
+    "our_name": "Josh Allen",
+    "grp": "QB",
+    "trade_value": 95304.0,
+    "our_value": 66296.0
+   },
+   {
+    "our_name": "Fernando Mendoza",
+    "grp": "QB",
+    "trade_value": 37069.0,
+    "our_value": 10363.0
+   },
+   {
+    "our_name": "De'Von Achane",
+    "grp": "RB",
+    "trade_value": 37017.0,
+    "our_value": 12754.0
+   },
+   {
+    "our_name": "Jaxson Dart",
+    "grp": "QB",
+    "trade_value": 35099.0,
+    "our_value": 12507.0
+   },
+   {
+    "our_name": "Trey McBride",
+    "grp": "TE",
+    "trade_value": 59446.0,
+    "our_value": 37726.0
+   },
+   {
+    "our_name": "Tucker Kraft",
+    "grp": "TE",
+    "trade_value": 25304.0,
+    "our_value": 5549.0
+   },
+   {
+    "our_name": "Drake London",
+    "grp": "WR",
+    "trade_value": 48758.0,
+    "our_value": 29514.0
+   },
+   {
+    "our_name": "Jonathan Taylor",
+    "grp": "RB",
+    "trade_value": 45194.0,
+    "our_value": 28022.0
+   }
+  ],
+  "trade_lower": [
+   {
+    "our_name": "Ashton Jeanty",
+    "grp": "RB",
+    "trade_value": 43055.0,
+    "our_value": 54080.0
+   },
+   {
+    "our_name": "Omar Cooper Jr.",
+    "grp": "WR",
+    "trade_value": 22300.0,
+    "our_value": 32946.0
+   },
+   {
+    "our_name": "Puka Nacua",
+    "grp": "WR",
+    "trade_value": 65018.0,
+    "our_value": 74827.0
+   },
+   {
+    "our_name": "Christian McCaffrey",
+    "grp": "RB",
+    "trade_value": 46024.0,
+    "our_value": 54133.0
+   },
+   {
+    "our_name": "C.J. Stroud",
+    "grp": "QB",
+    "trade_value": 40951.0,
+    "our_value": 48029.0
+   },
+   {
+    "our_name": "Carnell Tate",
+    "grp": "WR",
+    "trade_value": 33548.0,
+    "our_value": 40309.0
+   },
+   {
+    "our_name": "Jared Goff",
+    "grp": "QB",
+    "trade_value": 33649.0,
+    "our_value": 36692.0
+   },
+   {
+    "our_name": "Chuba Hubbard",
+    "grp": "RB",
+    "trade_value": 32294.0,
+    "our_value": 34447.0
+   },
+   {
+    "our_name": "Jahmyr Gibbs",
+    "grp": "RB",
+    "trade_value": 98354.0,
+    "our_value": 100000.0
+   },
+   {
+    "our_name": "Jordyn Tyson",
+    "grp": "WR",
+    "trade_value": 31591.0,
+    "our_value": 33130.0
+   },
+   {
+    "our_name": "Jeremiyah Love",
+    "grp": "RB",
+    "trade_value": 46006.0,
+    "our_value": 47503.0
+   },
+   {
+    "our_name": "Deshaun Watson",
+    "grp": "QB",
+    "trade_value": 15541.0,
+    "our_value": 16894.0
+   }
+  ],
+  "position_gap": {
+   "QB": 0.582,
+   "RB": 0.814,
+   "TE": 1.959,
+   "WR": 0.976
+  },
+  "setting_effects": [
+   {
+    "change": "Superflex off",
+    "pos": "QB",
+    "trade_ratio": 0.652,
+    "our_ratio": 0.341
+   },
+   {
+    "change": "Superflex off",
+    "pos": "RB",
+    "trade_ratio": 1.017,
+    "our_ratio": 1.0
+   },
+   {
+    "change": "Superflex off",
+    "pos": "WR",
+    "trade_ratio": 0.986,
+    "our_ratio": 1.0
+   },
+   {
+    "change": "Superflex off",
+    "pos": "TE",
+    "trade_ratio": 0.98,
+    "our_ratio": 1.0
+   },
+   {
+    "change": "Half PPR",
+    "pos": "QB",
+    "trade_ratio": 1.015,
+    "our_ratio": 1.023
+   },
+   {
+    "change": "Half PPR",
+    "pos": "RB",
+    "trade_ratio": 1.01,
+    "our_ratio": 1.05
+   },
+   {
+    "change": "Half PPR",
+    "pos": "WR",
+    "trade_ratio": 1.0,
+    "our_ratio": 0.807
+   },
+   {
+    "change": "Half PPR",
+    "pos": "TE",
+    "trade_ratio": 0.989,
+    "our_ratio": 0.743
+   },
+   {
+    "change": "TE premium +0.5",
+    "pos": "QB",
+    "trade_ratio": 1.011,
+    "our_ratio": 1.045
+   },
+   {
+    "change": "TE premium +0.5",
+    "pos": "RB",
+    "trade_ratio": 0.996,
+    "our_ratio": 0.909
+   },
+   {
+    "change": "TE premium +0.5",
+    "pos": "WR",
+    "trade_ratio": 1.0,
+    "our_ratio": 0.973
+   },
+   {
+    "change": "TE premium +0.5",
+    "pos": "TE",
+    "trade_ratio": 1.078,
+    "our_ratio": 1.678
+   },
+   {
+    "change": "TE premium +1.0",
+    "pos": "QB",
+    "trade_ratio": 1.023,
+    "our_ratio": 1.047
+   },
+   {
+    "change": "TE premium +1.0",
+    "pos": "RB",
+    "trade_ratio": 0.992,
+    "our_ratio": 0.898
+   },
+   {
+    "change": "TE premium +1.0",
+    "pos": "WR",
+    "trade_ratio": 1.0,
+    "our_ratio": 0.91
+   },
+   {
+    "change": "TE premium +1.0",
+    "pos": "TE",
+    "trade_ratio": 1.163,
+    "our_ratio": 2.162
+   },
+   {
+    "change": "10 teams",
+    "pos": "QB",
+    "trade_ratio": 0.98,
+    "our_ratio": 0.818
+   },
+   {
+    "change": "10 teams",
+    "pos": "RB",
+    "trade_ratio": 1.017,
+    "our_ratio": 0.92
+   },
+   {
+    "change": "10 teams",
+    "pos": "WR",
+    "trade_ratio": 0.998,
+    "our_ratio": 0.932
+   },
+   {
+    "change": "10 teams",
+    "pos": "TE",
+    "trade_ratio": 0.992,
+    "our_ratio": 0.767
+   },
+   {
+    "change": "14 teams",
+    "pos": "QB",
+    "trade_ratio": 1.019,
+    "our_ratio": 1.167
+   },
+   {
+    "change": "14 teams",
+    "pos": "RB",
+    "trade_ratio": 0.982,
+    "our_ratio": 1.072
+   },
+   {
+    "change": "14 teams",
+    "pos": "WR",
+    "trade_ratio": 1.0,
+    "our_ratio": 1.061
+   },
+   {
+    "change": "14 teams",
+    "pos": "TE",
+    "trade_ratio": 1.006,
+    "our_ratio": 1.142
+   }
+  ],
+  "agreement_range": [
+   0.824,
+   0.903
+  ],
+  "shape": [
+   {
+    "shape": "1-for-1",
+    "trades": 42533,
+    "mean_log_gap_few_minus_many": NaN,
+    "mae": 0.2594
+   },
+   {
+    "shape": "1-for-2",
+    "trades": 41619,
+    "mean_log_gap_few_minus_many": -0.3038,
+    "mae": 0.3573
+   },
+   {
+    "shape": "2-for-2",
+    "trades": 16157,
+    "mean_log_gap_few_minus_many": NaN,
+    "mae": 0.1791
+   },
+   {
+    "shape": "2-for-3",
+    "trades": 14218,
+    "mean_log_gap_few_minus_many": -0.145,
+    "mae": 0.2155
+   },
+   {
+    "shape": "1-for-3",
+    "trades": 14097,
+    "mean_log_gap_few_minus_many": -0.4333,
+    "mae": 0.452
+   },
+   {
+    "shape": "2-for-4",
+    "trades": 5303,
+    "mean_log_gap_few_minus_many": -0.2281,
+    "mae": 0.2639
+   },
+   {
+    "shape": "3-for-3",
+    "trades": 5091,
+    "mean_log_gap_few_minus_many": NaN,
+    "mae": 0.1566
+   },
+   {
+    "shape": "3-for-4",
+    "trades": 4084,
+    "mean_log_gap_few_minus_many": -0.09,
+    "mae": 0.1703
+   },
+   {
+    "shape": "1-for-4",
+    "trades": 3989,
+    "mean_log_gap_few_minus_many": -0.5172,
+    "mae": 0.5256
+   },
+   {
+    "shape": "2-for-5",
+    "trades": 1797,
+    "mean_log_gap_few_minus_many": -0.3143,
+    "mae": 0.3325
+   },
+   {
+    "shape": "3-for-5",
+    "trades": 1518,
+    "mean_log_gap_few_minus_many": -0.1546,
+    "mae": 0.2092
+   },
+   {
+    "shape": "4-for-4",
+    "trades": 1248,
+    "mean_log_gap_few_minus_many": NaN,
+    "mae": 0.1457
+   }
+  ],
+  "picks": [
+   {
+    "name": "2027 mid 1st",
+    "n_trades": 296337,
+    "trade_value": 27745.0,
+    "our_value": 23973.0
+   },
+   {
+    "name": "2027 mid 2nd",
+    "n_trades": 349145,
+    "trade_value": 15552.0,
+    "our_value": 9760.0
+   },
+   {
+    "name": "2027 mid 3rd",
+    "n_trades": 285835,
+    "trade_value": 10491.0,
+    "our_value": 7421.0
+   }
+  ]
+ },
+ "redraft": {
+  "trades": 686944,
+  "first": "2026-09-01",
+  "last": "2026-11-23",
+  "H": "7",
+  "k": "2",
+  "holdout": [
+   {
+    "model": "long-run (all trades equal)",
+    "H": Infinity,
+    "k": NaN,
+    "holdout_huber": 0.0754,
+    "holdout_mae": 0.3011,
+    "holdout_pct_within_10pct": 0.2394
+   },
+   {
+    "model": "last 30 days only",
+    "H": 30.0,
+    "k": NaN,
+    "holdout_huber": 0.0726,
+    "holdout_mae": 0.2934,
+    "holdout_pct_within_10pct": 0.2469
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 7.0,
+    "k": 2.0,
+    "holdout_huber": 0.069,
+    "holdout_mae": 0.2853,
+    "holdout_pct_within_10pct": 0.2521
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 7.0,
+    "k": 10.0,
+    "holdout_huber": 0.069,
+    "holdout_mae": 0.2854,
+    "holdout_pct_within_10pct": 0.253
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 7.0,
+    "k": 50.0,
+    "holdout_huber": 0.0695,
+    "holdout_mae": 0.2866,
+    "holdout_pct_within_10pct": 0.2523
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 14.0,
+    "k": 2.0,
+    "holdout_huber": 0.0708,
+    "holdout_mae": 0.2898,
+    "holdout_pct_within_10pct": 0.2499
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 14.0,
+    "k": 10.0,
+    "holdout_huber": 0.0709,
+    "holdout_mae": 0.2901,
+    "holdout_pct_within_10pct": 0.2495
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 14.0,
+    "k": 50.0,
+    "holdout_huber": 0.0713,
+    "holdout_mae": 0.2909,
+    "holdout_pct_within_10pct": 0.2495
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 30.0,
+    "k": 2.0,
+    "holdout_huber": 0.0728,
+    "holdout_mae": 0.2947,
+    "holdout_pct_within_10pct": 0.246
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 30.0,
+    "k": 10.0,
+    "holdout_huber": 0.0729,
+    "holdout_mae": 0.2949,
+    "holdout_pct_within_10pct": 0.2456
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 30.0,
+    "k": 50.0,
+    "holdout_huber": 0.0731,
+    "holdout_mae": 0.2953,
+    "holdout_pct_within_10pct": 0.2458
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 60.0,
+    "k": 2.0,
+    "holdout_huber": 0.074,
+    "holdout_mae": 0.2976,
+    "holdout_pct_within_10pct": 0.2434
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 60.0,
+    "k": 10.0,
+    "holdout_huber": 0.074,
+    "holdout_mae": 0.2976,
+    "holdout_pct_within_10pct": 0.2441
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 60.0,
+    "k": 50.0,
+    "holdout_huber": 0.0741,
+    "holdout_mae": 0.2979,
+    "holdout_pct_within_10pct": 0.2434
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 120.0,
+    "k": 2.0,
+    "holdout_huber": 0.0746,
+    "holdout_mae": 0.2992,
+    "holdout_pct_within_10pct": 0.2405
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 120.0,
+    "k": 10.0,
+    "holdout_huber": 0.0747,
+    "holdout_mae": 0.2992,
+    "holdout_pct_within_10pct": 0.2407
+   },
+   {
+    "model": "credibility (recency-weighted, shrunk to long-run)",
+    "H": 120.0,
+    "k": 50.0,
+    "holdout_huber": 0.0747,
+    "holdout_mae": 0.2993,
+    "holdout_pct_within_10pct": 0.2409
+   }
+  ],
+  "default_spearman_top150": 0.837,
+  "missing_from_ours_top100": [
+   "167",
+   "515",
+   "Cam Ward",
+   "Justin Herbert",
+   "J.J. McCarthy",
+   "Fernando Mendoza"
+  ],
+  "trade_higher": [
+   {
+    "our_name": "Jaxson Dart",
+    "grp": "QB",
+    "trade_value": 42465.0,
+    "our_value": 3008.0
+   },
+   {
+    "our_name": "Lamar Jackson",
+    "grp": "QB",
+    "trade_value": 41703.0,
+    "our_value": 6098.0
+   },
+   {
+    "our_name": "De'Von Achane",
+    "grp": "RB",
+    "trade_value": 41008.0,
+    "our_value": 5518.0
+   },
+   {
+    "our_name": "Colston Loveland",
+    "grp": "TE",
+    "trade_value": 38270.0,
+    "our_value": 2928.0
+   },
+   {
+    "our_name": "Jonah Coleman",
+    "grp": "RB",
+    "trade_value": 40975.0,
+    "our_value": 7178.0
+   },
+   {
+    "our_name": "Jalen Hurts",
+    "grp": "QB",
+    "trade_value": 37999.0,
+    "our_value": 6324.0
+   },
+   {
+    "our_name": "Justin Jefferson",
+    "grp": "WR",
+    "trade_value": 63629.0,
+    "our_value": 32146.0
+   },
+   {
+    "our_name": "Sam Darnold",
+    "grp": "QB",
+    "trade_value": 31740.0,
+    "our_value": 504.0
+   },
+   {
+    "our_name": "Ollie Gordon II",
+    "grp": "RB",
+    "trade_value": 33946.0,
+    "our_value": 3991.0
+   },
+   {
+    "our_name": "Kyler Murray",
+    "grp": "QB",
+    "trade_value": 32697.0,
+    "our_value": 3463.0
+   },
+   {
+    "our_name": "Emmett Johnson",
+    "grp": "RB",
+    "trade_value": 29399.0,
+    "our_value": 682.0
+   },
+   {
+    "our_name": "Tucker Kraft",
+    "grp": "TE",
+    "trade_value": 28774.0,
+    "our_value": 1182.0
+   }
+  ],
+  "trade_lower": [
+   {
+    "our_name": "Jahmyr Gibbs",
+    "grp": "RB",
+    "trade_value": 100000.0,
+    "our_value": 100000.0
+   },
+   {
+    "our_name": "Christian McCaffrey",
+    "grp": "RB",
+    "trade_value": 78647.0,
+    "our_value": 77003.0
+   },
+   {
+    "our_name": "DeVonta Smith",
+    "grp": "WR",
+    "trade_value": 32540.0,
+    "our_value": 30378.0
+   },
+   {
+    "our_name": "Deebo Samuel Sr.",
+    "grp": "WR",
+    "trade_value": 27324.0,
+    "our_value": 24805.0
+   },
+   {
+    "our_name": "Stefon Diggs",
+    "grp": "WR",
+    "trade_value": 30752.0,
+    "our_value": 26632.0
+   },
+   {
+    "our_name": "Ashton Jeanty",
+    "grp": "RB",
+    "trade_value": 38612.0,
+    "our_value": 33225.0
+   },
+   {
+    "our_name": "Chuba Hubbard",
+    "grp": "RB",
+    "trade_value": 54739.0,
+    "our_value": 49198.0
+   },
+   {
+    "our_name": "Mike Evans",
+    "grp": "WR",
+    "trade_value": 35508.0,
+    "our_value": 28163.0
+   },
+   {
+    "our_name": "Tony Pollard",
+    "grp": "RB",
+    "trade_value": 39000.0,
+    "our_value": 31241.0
+   },
+   {
+    "our_name": "Nico Collins",
+    "grp": "WR",
+    "trade_value": 49007.0,
+    "our_value": 40826.0
+   },
+   {
+    "our_name": "D'Andre Swift",
+    "grp": "RB",
+    "trade_value": 50470.0,
+    "our_value": 41824.0
+   },
+   {
+    "our_name": "Alvin Kamara",
+    "grp": "RB",
+    "trade_value": 24596.0,
+    "our_value": 15945.0
+   }
+  ],
+  "position_gap": {
+   "QB": 2.607,
+   "RB": 1.533,
+   "TE": 3.52,
+   "WR": 2.114
+  },
+  "setting_effects": [
+   {
+    "change": "Superflex off",
+    "pos": "QB",
+    "trade_ratio": 0.76,
+    "our_ratio": 0.183
+   },
+   {
+    "change": "Superflex off",
+    "pos": "RB",
+    "trade_ratio": 1.0,
+    "our_ratio": 1.0
+   },
+   {
+    "change": "Superflex off",
+    "pos": "WR",
+    "trade_ratio": 0.999,
+    "our_ratio": 1.0
+   },
+   {
+    "change": "Superflex off",
+    "pos": "TE",
+    "trade_ratio": 0.995,
+    "our_ratio": 1.0
+   },
+   {
+    "change": "Half PPR",
+    "pos": "QB",
+    "trade_ratio": 0.967,
+    "our_ratio": 1.048
+   },
+   {
+    "change": "Half PPR",
+    "pos": "RB",
+    "trade_ratio": 1.0,
+    "our_ratio": 1.103
+   },
+   {
+    "change": "Half PPR",
+    "pos": "WR",
+    "trade_ratio": 0.969,
+    "our_ratio": 0.846
+   },
+   {
+    "change": "Half PPR",
+    "pos": "TE",
+    "trade_ratio": 0.95,
+    "our_ratio": 0.711
+   },
+   {
+    "change": "TE premium +0.5",
+    "pos": "QB",
+    "trade_ratio": 1.015,
+    "our_ratio": 1.045
+   },
+   {
+    "change": "TE premium +0.5",
+    "pos": "RB",
+    "trade_ratio": 1.0,
+    "our_ratio": 0.888
+   },
+   {
+    "change": "TE premium +0.5",
+    "pos": "WR",
+    "trade_ratio": 1.013,
+    "our_ratio": 0.976
+   },
+   {
+    "change": "TE premium +0.5",
+    "pos": "TE",
+    "trade_ratio": 1.07,
+    "our_ratio": 2.053
+   },
+   {
+    "change": "TE premium +1.0",
+    "pos": "QB",
+    "trade_ratio": 1.03,
+    "our_ratio": 1.05
+   },
+   {
+    "change": "TE premium +1.0",
+    "pos": "RB",
+    "trade_ratio": 1.0,
+    "our_ratio": 0.875
+   },
+   {
+    "change": "TE premium +1.0",
+    "pos": "WR",
+    "trade_ratio": 1.026,
+    "our_ratio": 0.915
+   },
+   {
+    "change": "TE premium +1.0",
+    "pos": "TE",
+    "trade_ratio": 1.146,
+    "our_ratio": 2.703
+   },
+   {
+    "change": "10 teams",
+    "pos": "QB",
+    "trade_ratio": 1.026,
+    "our_ratio": 0.662
+   },
+   {
+    "change": "10 teams",
+    "pos": "RB",
+    "trade_ratio": 1.0,
+    "our_ratio": 0.875
+   },
+   {
+    "change": "10 teams",
+    "pos": "WR",
+    "trade_ratio": 1.009,
+    "our_ratio": 0.915
+   },
+   {
+    "change": "10 teams",
+    "pos": "TE",
+    "trade_ratio": 1.015,
+    "our_ratio": 0.669
+   },
+   {
+    "change": "14 teams",
+    "pos": "QB",
+    "trade_ratio": 0.975,
+    "our_ratio": 1.374
+   },
+   {
+    "change": "14 teams",
+    "pos": "RB",
+    "trade_ratio": 1.0,
+    "our_ratio": 1.119
+   },
+   {
+    "change": "14 teams",
+    "pos": "WR",
+    "trade_ratio": 0.992,
+    "our_ratio": 1.071
+   },
+   {
+    "change": "14 teams",
+    "pos": "TE",
+    "trade_ratio": 0.986,
+    "our_ratio": 1.364
+   }
+  ],
+  "agreement_range": [
+   0.709,
+   0.885
+  ],
+  "shape": [
+   {
+    "shape": "1-for-1",
+    "trades": 45803,
+    "mean_log_gap_few_minus_many": NaN,
+    "mae": 0.2325
+   },
+   {
+    "shape": "1-for-2",
+    "trades": 37840,
+    "mean_log_gap_few_minus_many": -0.3706,
+    "mae": 0.4046
+   },
+   {
+    "shape": "2-for-2",
+    "trades": 21338,
+    "mean_log_gap_few_minus_many": NaN,
+    "mae": 0.1791
+   },
+   {
+    "shape": "2-for-3",
+    "trades": 13979,
+    "mean_log_gap_few_minus_many": -0.1834,
+    "mae": 0.2278
+   },
+   {
+    "shape": "3-for-3",
+    "trades": 6894,
+    "mean_log_gap_few_minus_many": NaN,
+    "mae": 0.1566
+   },
+   {
+    "shape": "1-for-3",
+    "trades": 6634,
+    "mean_log_gap_few_minus_many": -0.5496,
+    "mae": 0.5528
+   },
+   {
+    "shape": "3-for-4",
+    "trades": 2890,
+    "mean_log_gap_few_minus_many": -0.118,
+    "mae": 0.1758
+   },
+   {
+    "shape": "2-for-4",
+    "trades": 2161,
+    "mean_log_gap_few_minus_many": -0.3272,
+    "mae": 0.34
+   },
+   {
+    "shape": "4-for-4",
+    "trades": 1405,
+    "mean_log_gap_few_minus_many": NaN,
+    "mae": 0.1542
+   },
+   {
+    "shape": "1-for-4",
+    "trades": 696,
+    "mean_log_gap_few_minus_many": -0.763,
+    "mae": 0.763
+   },
+   {
+    "shape": "3-for-5",
+    "trades": 421,
+    "mean_log_gap_few_minus_many": -0.2237,
+    "mae": 0.245
+   },
+   {
+    "shape": "2-for-5",
+    "trades": 228,
+    "mean_log_gap_few_minus_many": -0.4742,
+    "mae": 0.4755
+   }
+  ]
+ }
+}
