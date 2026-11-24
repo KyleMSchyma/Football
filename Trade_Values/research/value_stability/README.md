@@ -141,6 +141,7 @@ once per season so #1 averages about 100k (about 95k-110k week to week); a plain
 | `vs_03_combos.py` | k x EWMA x anchor grid (`vs_grid.csv`) |
 | `vs_04_report.py` | Drop causes, by-season robustness, 2026 board compare (`vs_2026_board_compare.csv`), charts |
 | `vs_05_star_calibration.py`, `vs_06_star_eval.py`, `vs_07_tier_recal.py` | Kyle's follow-up: top-tier calibration, knot shrink, tier recalibration (`vs_star_*.csv`, `vs_tier_recal_*.csv`) |
-| `charts/` | 01 frontier, 02 change distribution, 03 drop reasons, 04 2026 examples, 05 fitted k, 06 single levers, 07 Bijan vs Gibbs |
+| `vs_08_anchor_rank.py`, `vs_09_value_systems.py`, `vs_10_systems_chart.py` | Anchor rank test; value systems with no anchor (`vs_anchor_rank.csv`, `vs_value_systems.csv`) |
+| `charts/` | 01 frontier, 02 change distribution, 03 drop reasons, 04 2026 examples, 05 fitted k, 06 single levers, 07 Bijan vs Gibbs, 08 value systems |
 
 Run in order with Python 3 (pandas, numpy, scipy, matplotlib, rdata). Intermediate `*.pkl` files are not committed.

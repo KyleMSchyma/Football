@@ -189,6 +189,10 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   made next-season top-24 RMSE worse (3.76 -> 3.83): rejected for now.
   Kyle follow-up 2 (anchor the 2nd/3rd/5th player at 100k, let the top float): no steadier (10%+ drops 25.6% at #2,
   23.6% at #3, 24.4% at #5 vs 21.6% for the top-10 average) and #1 reaches 142k-216k; averaging is what steadies.
+  Kyle follow-up 3 (best system with no anchor, still exponential; vs_09): points with one fixed unit 26.3% drops
+  (no better); points^1.25-2 jumpier (32-42%) and stars over-priced in realized terms (top-3 star / equal-value pair
+  realized 0.65-0.73, live 0.86); rank-exponential 100k x e^(-0.024 (rank-1)) 18.1% drops and 1.01 fair (candidate
+  model 12.8%, 0.93). Market pays the opposite (+48% for the lone player). Research only; A30 unchanged.
 - Status: RESEARCH ONLY (Football PR for this branch). Nothing live changed. Dynasty measured with a surrogate (slope of
   the live model's value on credible PPG within each player-season), not an R rerun.
 - Files: `Trade_Values/research/value_stability/` (vs_00-vs_04, results CSVs, charts, README).
@@ -703,6 +707,8 @@ data; render.js makes a 2400x3000 navy/orange top-24 image with an OVR column; g
 | Bühlmann-Straub prospect-model prior | 11-18 | No gain | - |
 | Textbook Bühlmann-Straub k (EPV/VHM vs position mean) for the in-season blend | 11-24 | Rejected: k 1.2-2.0, values jumpier and less accurate (next top-50 RMSE 3.62 -> 3.84) | - |
 | Trim extreme games (limited fluctuation) for steadier values | 11-24 | Rejected: steadier but ROS RMSE 3.462 -> 3.564 | - |
+| Steeper (power > 1) or no-anchor fixed-unit value scale | 11-24 | Rejected: jumpier, stars over-priced vs realized pairs | - |
+| Rank-exponential value curve (100k x e^(-0.024 (rank-1))) | 11-24 | PARKED: steadier (18.1% vs 25.6% big drops) and realized-fair (1.01), but ignores gap sizes and replaces A30 | Kyle chooses it |
 | Shrink top-tier next-season projections toward each other (Bijan vs Gibbs) | 11-24 | Rejected: in-hindsight slope 0.52 for the top 12, but rolling fixes worsen top-24 next-season RMSE 3.76 -> 3.83 | More seasons, or a market-informed prior |
 | Steadier values: k x 1.25 + EWMA 0.7 + top-10 anchor | 11-24 | PARKED, research only: 10%+ drops 25.6% -> 15.4% at ~no accuracy cost (R29, R30) | Kyle approves a Saturday build |
 | Prior-year team offense in rookie models | 11-17 | No gain beyond grade | - |
