@@ -110,7 +110,15 @@ Bijan Robinson so low that Gibbs is worth more than a first."
   With the recalibration Gibbs 82,800 vs Bijan 43,900: the gap barely moves. REJECTED for now.
 * The steadiness candidate lifts Bijan to 49,000 vs Gibbs 88,100 (top-10 anchored scale).
 
-## Method notes and limits
+## Kyle's follow-up: anchor the 2nd / 3rd / 5th player at 100k (`vs_08_anchor_rank.py`, `vs_anchor_rank.csv`)
+
+Values are unchanged; only the display scale moves. Top-24 dynasty weeks with a 10%+ drop (live model / candidate model):
+#1 = 100k 25.6% / 18.4%; #2 = 100k 25.6% / 18.9%; #3 23.6% / 17.8%; #5 24.4% / 17.9%; #10 22.9% / 16.4%;
+top-10 average 21.6% / 15.4%. A single anchor player of any rank barely helps, because that player's value jumps too;
+averaging ten players is what steadies the scale. Letting the top float also lets it run: with #2 = 100k the #1 player
+reaches 142k in 1 week in 10 and 176k at most (#5 = 100k: 172k / 216k). The top-10 anchor tested above is rescaled
+once per season so #1 averages about 100k (about 95k-110k week to week); a plain top-10 = 100k would put #1 near 137k.
+
 
 * **Dynasty is a surrogate, not a rerun.** Within each player-season the live dynasty model's next-season PPG is an exact
   linear function of credible PPG (R^2 1.00, slope 0.76-0.88) and its future value is close to linear (R^2 0.70-0.89),

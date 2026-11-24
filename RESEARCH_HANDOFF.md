@@ -187,6 +187,8 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   10 games, projected 2027 PPG 23.0 vs 17.7, doubled by subtracting replacement. Top-12 projections ARE over-separated
   in hindsight (calibration slope 0.52, 90% 0.23-0.77), but two rolling fixes (knot shrink, top-tier recalibration)
   made next-season top-24 RMSE worse (3.76 -> 3.83): rejected for now.
+  Kyle follow-up 2 (anchor the 2nd/3rd/5th player at 100k, let the top float): no steadier (10%+ drops 25.6% at #2,
+  23.6% at #3, 24.4% at #5 vs 21.6% for the top-10 average) and #1 reaches 142k-216k; averaging is what steadies.
 - Status: RESEARCH ONLY (Football PR for this branch). Nothing live changed. Dynasty measured with a surrogate (slope of
   the live model's value on credible PPG within each player-season), not an R rerun.
 - Files: `Trade_Values/research/value_stability/` (vs_00-vs_04, results CSVs, charts, README).
