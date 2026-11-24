@@ -1,784 +1,787 @@
 asset,name,pos,grp,pick_year,pick_tier,pick_round,n_trades,theta,theta_unstretched
-9488,Jaxon Smith-Njigba,WR,WR,,,,2757,2.3319,0.9541
-4984,Josh Allen,QB,QB,,,,2818,2.1671,0.8867
-9221,Jahmyr Gibbs,RB,RB,,,,2201,2.0605,0.8431
-7564,Ja'Marr Chase,WR,WR,,,,3549,2.043,0.8359
-9509,Bijan Robinson,RB,RB,,,,2337,1.9998,0.8182
-6786,CeeDee Lamb,WR,WR,,,,7151,1.7329,0.709
-7547,Amon-Ra St. Brown,WR,WR,,,,5319,1.7295,0.7077
-2026.1.1.pi,2026 pick 1.1,,PICK,2026,early,1,5393,1.7117,0.7004
-6770,Joe Burrow,QB,QB,,,,5696,1.7112,0.7002
-9493,Puka Nacua,WR,WR,,,,6952,1.5647,0.6402
-11604,Brock Bowers,TE,TE,,,,3786,1.5628,0.6394
-11560,Caleb Williams,QB,QB,,,,4149,1.5545,0.6361
-8151,Kenneth Walker III,RB,RB,,,,9419,1.5376,0.6291
-11632,Malik Nabers,WR,WR,,,,8511,1.5106,0.6181
-8130,Trey McBride,TE,TE,,,,4615,1.3746,0.5624
-6794,Justin Jefferson,WR,WR,,,,9111,1.3524,0.5534
-11564,Drake Maye,QB,QB,,,,5485,1.3112,0.5365
-8183,Brock Purdy,QB,QB,,,,5834,1.2891,0.5275
-8138,James Cook,RB,RB,,,,7910,1.2174,0.4981
-7523,Trevor Lawrence,QB,QB,,,,6767,1.2062,0.4936
-2026.1.2.pi,2026 pick 1.2,,PICK,2026,early,1,9158,1.1644,0.4764
-11566,Jayden Daniels,QB,QB,,,,6330,1.0979,0.4492
-8112,Drake London,WR,WR,,,,9057,1.073,0.439
-4046,Patrick Mahomes,QB,QB,,,,6000,1.0712,0.4383
-12501,Matthew Golden,WR,WR,,,,12202,0.9836,0.4025
-6804,Jordan Love,QB,QB,,,,7653,0.9361,0.383
-4881,Lamar Jackson,QB,QB,,,,7714,0.934,0.3822
-4034,Christian McCaffrey,RB,RB,,,,10638,0.9306,0.3808
-2026.1.3.pi,2026 pick 1.3,,PICK,2026,early,1,10464,0.9086,0.3718
-6813,Jonathan Taylor,RB,RB,,,,8300,0.8979,0.3674
-13287,Jeremiyah Love,RB,RB,,,,5151,0.8977,0.3673
-12519,Luther Burden,WR,WR,,,,11690,0.8768,0.3588
-8144,Chris Olave,WR,WR,,,,10255,0.8718,0.3567
-11584,Bucky Irving,RB,RB,,,,13280,0.8487,0.3473
-6801,Tee Higgins,WR,WR,,,,12359,0.8306,0.3399
-12527,Ashton Jeanty,RB,RB,,,,7505,0.7955,0.3255
-8167,Christian Watson,WR,WR,,,,13640,0.7856,0.3214
-9997,Zay Flowers,WR,WR,,,,11251,0.7829,0.3203
-9487,Parker Washington,WR,WR,,,,15787,0.7693,0.3148
-12526,Tetairoa McMillan,WR,WR,,,,8899,0.7548,0.3088
-7569,Nico Collins,WR,WR,,,,11523,0.753,0.3081
-2026.1.4.pi,2026 pick 1.4,,PICK,2026,early,1,11329,0.6972,0.2853
-9758,C.J. Stroud,QB,QB,,,,8520,0.6664,0.2727
-8146,Garrett Wilson,WR,WR,,,,12492,0.6533,0.2673
-8137,George Pickens,WR,WR,,,,12312,0.611,0.25
-12490,Bhayshul Tuten,RB,RB,,,,16057,0.5913,0.2419
-12517,Colston Loveland,TE,TE,,,,7207,0.5831,0.2386
-9226,De'Von Achane,RB,RB,,,,13454,0.5545,0.2269
-2026.1.5.pi,2026 pick 1.5,,PICK,2026,mid,1,12434,0.5336,0.2183
-7588,Javonte Williams,RB,RB,,,,12330,0.5154,0.2109
-3294,Dak Prescott,QB,QB,,,,7429,0.5148,0.2107
-2026mid1stpi,2026 mid 1st,,PICK,2026,mid,1,256,0.4834,0.1978
-13269,Fernando Mendoza,QB,QB,,,,4460,0.4764,0.1949
-8150,Kyren Williams,RB,RB,,,,11498,0.4375,0.179
-12508,Jaxson Dart,QB,QB,,,,9085,0.3685,0.1508
-2026.1.6.pi,2026 pick 1.6,,PICK,2026,mid,1,13124,0.3613,0.1478
-13279,Carnell Tate,WR,WR,,,,6734,0.3552,0.1453
-3163,Jared Goff,QB,QB,,,,7228,0.3497,0.1431
-8155,Breece Hall,RB,RB,,,,13198,0.3341,0.1367
-8131,Isaiah Likely,TE,TE,,,,11267,0.3273,0.1339
-9228,Bryce Young,QB,QB,,,,9582,0.3266,0.1336
-11563,Bo Nix,QB,QB,,,,7013,0.3193,0.1307
-6790,D'Andre Swift,RB,RB,,,,14535,0.3121,0.1277
-13281,Jordyn Tyson,WR,WR,,,,7375,0.294,0.1203
-12545,Tyler Shough,QB,QB,,,,11174,0.2937,0.1202
-7594,Chuba Hubbard,RB,RB,,,,15366,0.2937,0.1202
-9224,Chase Brown,RB,RB,,,,12846,0.2529,0.1035
-13345,Jonah Coleman,RB,RB,,,,7211,0.1947,0.0796
-12518,Tyler Warren,TE,TE,,,,6609,0.1937,0.0792
-12506,Harold Fannin,TE,TE,,,,8353,0.175,0.0716
-2026.1.7.pi,2026 pick 1.7,,PICK,2026,mid,1,12990,0.1559,0.0638
-6797,Justin Herbert,QB,QB,,,,7997,0.1425,0.0583
-8228,Jaylen Warren,RB,RB,,,,12754,0.1088,0.0445
-12514,Emeka Egbuka,WR,WR,,,,12388,0.0846,0.0346
-10229,Rashee Rice,WR,WR,,,,14475,0.068,0.0278
-12507,Omarion Hampton,RB,RB,,,,12340,0.0651,0.0266
-2026.1.8.pi,2026 pick 1.8,,PICK,2026,mid,1,13205,0.0329,0.0135
-7525,DeVonta Smith,WR,WR,,,,11802,0.0039,0.0016
-2027mid1stpi,2027 mid 1st,,PICK,2027,mid,1,169571,0,0
-6904,Jalen Hurts,QB,QB,,,,7717,-0.0168,-0.0069
-3198,Derrick Henry,RB,RB,,,,12843,-0.0389,-0.0159
-12481,Cam Skattebo,RB,RB,,,,13127,-0.0423,-0.0173
-10859,Sam LaPorta,TE,TE,,,,7613,-0.0608,-0.0249
-8148,Jameson Williams,WR,WR,,,,12785,-0.0633,-0.0259
-12512,Quinshon Judkins,RB,RB,,,,12785,-0.0894,-0.0366
-9484,Tucker Kraft,TE,TE,,,,8704,-0.0985,-0.0403
-12522,Cam Ward,QB,QB,,,,8877,-0.1309,-0.0536
-4217,George Kittle,TE,TE,,,,9761,-0.1324,-0.0542
-2026.1.9.pi,2026 pick 1.9,,PICK,2026,late,1,12621,-0.1335,-0.0546
-13298,KC Concepcion,WR,WR,,,,7207,-0.1457,-0.0596
-13363,,,OTH,,,,128,-0.1783,-0.073
-4866,Saquon Barkley,RB,RB,,,,13647,-0.1891,-0.0774
-11620,Rome Odunze,WR,WR,,,,14240,-0.2037,-0.0833
-2026.1.10.pi,2026 pick 1.10,,PICK,2026,late,1,12825,-0.2232,-0.0913
-13286,Jadarian Price,RB,RB,,,,8382,-0.2601,-0.1064
-10892,Will Anderson,DE,OTH,,,,168,-0.2825,-0.1156
-2026.1.11.pi,2026 pick 1.11,,PICK,2026,late,1,7959,-0.2894,-0.1184
-11635,Ladd McConkey,WR,WR,,,,14096,-0.2963,-0.1212
-13377,Arvell Reese,LB,OTH,,,,186,-0.297,-0.1215
-2028mid1stpi,2028 mid 1st,,PICK,2028,mid,1,66103,-0.3023,-0.1237
-13346,Denzel Boston,WR,WR,,,,7213,-0.3187,-0.1304
-5850,Josh Jacobs,RB,RB,,,,14301,-0.3523,-0.1442
-13276,Omar Cooper Jr.,WR,WR,,,,5151,-0.3622,-0.1482
-13294,Makai Lemon,WR,WR,,,,7631,-0.3699,-0.1514
-2026.1.13.pi,2026 pick 1.13,,PICK,2026,late,1,478,-0.3845,-0.1573
-2026.1.12.pi,2026 pick 1.12,,PICK,2026,late,1,8244,-0.3938,-0.1611
-4983,D.J. Moore,WR,WR,,,,15372,-0.4045,-0.1655
-10232,Michael Wilson,WR,WR,,,,14268,-0.4054,-0.1659
-11586,Blake Corum,RB,RB,,,,10875,-0.4076,-0.1668
-5859,A.J. Brown,WR,WR,,,,15503,-0.4358,-0.1783
-13337,Emmett Johnson,RB,RB,,,,5179,-0.4474,-0.1831
-421,Matthew Stafford,QB,QB,,,,9678,-0.4744,-0.1941
-3973,Myles Garrett,DE,OTH,,,,321,-0.4757,-0.1946
-2029mid1stpi,2029 mid 1st,,PICK,2029,mid,1,20410,-0.4998,-0.2045
-2026.2.1.pi,2026 pick 2.1,,PICK,2026,early,2,12041,-0.5186,-0.2122
-9500,Josh Downs,WR,WR,,,,16440,-0.5273,-0.2158
-4943,Sam Darnold,QB,QB,,,,7962,-0.5305,-0.2171
-13375,Sonny Styles,LB,OTH,,,,147,-0.5334,-0.2182
-4892,Baker Mayfield,QB,QB,,,,7441,-0.5443,-0.2227
-2026.1.14.pi,2026 pick 1.14,,PICK,2026,late,1,425,-0.5445,-0.2228
-12578,Carson Schwesinger,LB,OTH,,,,180,-0.5471,-0.2238
-2133,Davante Adams,WR,WR,,,,13018,-0.5635,-0.2306
-7648,Nick Bolton,LB,OTH,,,,157,-0.5973,-0.2444
-2026.2.2.pi,2026 pick 2.2,,PICK,2026,early,2,11617,-0.5992,-0.2452
-11646,Jalen Coker,WR,WR,,,,12446,-0.6052,-0.2476
-11559,Michael Penix Jr.,QB,QB,,,,7018,-0.6069,-0.2483
-7526,Jaylen Waddle,WR,WR,,,,13961,-0.6176,-0.2527
-5967,Tony Pollard,RB,RB,,,,15433,-0.6242,-0.2554
-8289,Aidan Hutchinson,DE,OTH,,,,187,-0.6313,-0.2583
-13275,Ty Simpson,QB,QB,,,,3067,-0.6564,-0.2686
-12495,Ollie Gordon II,RB,RB,,,,11723,-0.6679,-0.2733
-9753,Zach Charbonnet,RB,RB,,,,9368,-0.6694,-0.2739
-8267,Nakobe Dean,LB,OTH,,,,183,-0.6713,-0.2747
-13453,Jacob Rodriguez,LB,OTH,,,,134,-0.6806,-0.2785
-13330,Kenyon Sadiq,TE,TE,,,,4807,-0.6818,-0.279
-10236,Dalton Kincaid,TE,TE,,,,7795,-0.6843,-0.28
-11667,Dallas Turner,DE,OTH,,,,163,-0.6865,-0.2809
-12529,TreVeyon Henderson,RB,RB,,,,12122,-0.6877,-0.2814
-1166,Kirk Cousins,QB,QB,,,,16026,-0.6928,-0.2834
-2026.2.3.pi,2026 pick 2.3,,PICK,2026,early,2,11673,-0.694,-0.2839
-7543,Travis Etienne,RB,RB,,,,11895,-0.7047,-0.2884
-12574,Abdul Carter,DE,OTH,,,,170,-0.7172,-0.2934
-13365,Anthony Hill Jr.,LB,OTH,,,,98,-0.7226,-0.2956
-11565,J.J. McCarthy,QB,QB,,,,7648,-0.7238,-0.2962
-12534,Kyle Monangai,RB,RB,,,,12038,-0.7303,-0.2988
-2216,Mike Evans,WR,WR,,,,13362,-0.7387,-0.3022
-13296,Caleb Douglas,WR,WR,,,,6778,-0.7715,-0.3157
-2026.2.4.pi,2026 pick 2.4,,PICK,2026,early,2,11402,-0.7737,-0.3166
-11576,Braelon Allen,RB,RB,,,,8534,-0.7818,-0.3199
-7627,Gregory Rousseau,DE,OTH,,,,143,-0.7918,-0.324
-13376,,,OTH,,,,138,-0.8083,-0.3307
-13388,CJ Allen,LB,OTH,,,,77,-0.82,-0.3355
-11628,Marvin Harrison Jr.,WR,WR,,,,19547,-0.8242,-0.3372
-6125,Jeffery Simmons,DT,OTH,,,,172,-0.8484,-0.3471
-13274,Germie Bernard,WR,WR,,,,4457,-0.8528,-0.3489
-7640,Micah Parsons,DE,OTH,,,,244,-0.8558,-0.3502
-7611,Rhamondre Stevenson,RB,RB,,,,12533,-0.8575,-0.3509
-5991,Maxx Crosby,DE,OTH,,,,285,-0.8578,-0.351
-2026mid2ndpi,2026 mid 2nd,,PICK,2026,mid,2,214,-0.8579,-0.351
-13417,De'Zhaun Stribling,WR,WR,,,,7516,-0.8667,-0.3546
-13371,,,OTH,,,,77,-0.8769,-0.3588
-2026.2.5.pi,2026 pick 2.5,,PICK,2026,mid,2,11550,-0.8774,-0.359
-9756,Jordan Addison,WR,WR,,,,11350,-0.8925,-0.3652
-5041,Fred Warner,LB,OTH,,,,218,-0.9057,-0.3706
-8161,Malik Willis,QB,QB,,,,11657,-0.9155,-0.3746
-7553,Kyle Pitts,TE,TE,,,,8936,-0.9372,-0.3835
-13301,Antonio Williams,WR,WR,,,,5730,-0.9377,-0.3837
-8142,Alec Pierce,WR,WR,,,,9459,-0.9421,-0.3855
-2026.2.6.pi,2026 pick 2.6,,PICK,2026,mid,2,11561,-0.9476,-0.3877
-5846,DK Metcalf,WR,WR,,,,12704,-0.9617,-0.3935
-11631,Brian Thomas Jr.,WR,WR,,,,16876,-0.9724,-0.3979
-4017,Deshaun Watson,QB,QB,,,,9805,-0.9893,-0.4048
-2026.2.7.pi,2026 pick 2.7,,PICK,2026,mid,2,11337,-1.0005,-0.4094
-8339,Kyle Hamilton,S,OTH,,,,134,-1.0145,-0.4151
-4960,Roquan Smith,LB,OTH,,,,192,-1.0194,-0.4171
-2027mid2ndpi,2027 mid 2nd,,PICK,2027,mid,2,227542,-1.0216,-0.418
-MIN,,,OTH,,,,530,-1.0233,-0.4187
-8329,Devin Lloyd,LB,OTH,,,,144,-1.0267,-0.4201
-5849,Kyler Murray,QB,QB,,,,9501,-1.0367,-0.4242
-13414,Kaelon Black,RB,RB,,,,5618,-1.0386,-0.425
-5892,David Montgomery,RB,RB,,,,13377,-1.0678,-0.4369
-2449,Stefon Diggs,WR,WR,,,,12070,-1.0693,-0.4375
-8280,Nik Bonitto,DE,OTH,,,,138,-1.0781,-0.4411
-10888,Jalen Carter,DT,OTH,,,,83,-1.0805,-0.4421
-13379,Josiah Trotter,LB,OTH,,,,97,-1.0814,-0.4425
-5862,Brian Burns,DE,OTH,,,,136,-1.0875,-0.445
-2026.2.8.pi,2026 pick 2.8,,PICK,2026,mid,2,11210,-1.0913,-0.4465
-5844,T.J. Hockenson,TE,TE,,,,6718,-1.0914,-0.4466
-4070,T.J. Watt,DE,OTH,,,,248,-1.0992,-0.4498
-12489,RJ Harvey,RB,RB,,,,10644,-1.1018,-0.4508
-13272,Carson Beck,QB,QB,,,,3187,-1.108,-0.4533
-10880,Jack Campbell,LB,OTH,,,,174,-1.1091,-0.4538
-9480,Brenton Strange,TE,TE,,,,7147,-1.1281,-0.4616
-2026.2.9.pi,2026 pick 2.9,,PICK,2026,late,2,10773,-1.1371,-0.4653
-6217,Blake Cashman,LB,OTH,,,,139,-1.1413,-0.467
-8392,Nick Cross,S,OTH,,,,85,-1.1616,-0.4753
-6949,Jordyn Brooks,LB,OTH,,,,177,-1.168,-0.4779
-12487,Terrance Ferguson,TE,TE,,,,5191,-1.1689,-0.4783
-1466,Travis Kelce,TE,TE,,,,9625,-1.172,-0.4795
-10905,Brian Branch,S,OTH,,,,110,-1.1808,-0.4831
-11678,Cooper DeJean,CB,OTH,,,,106,-1.1873,-0.4858
-2026.2.10.pi,2026 pick 2.10,,PICK,2026,late,2,11186,-1.2044,-0.4928
-JAX,,,OTH,,,,312,-1.2082,-0.4943
-6183,Andrew Van Ginkel,DE,OTH,,,,121,-1.2118,-0.4958
-8385,George Karlaftis,DE,OTH,,,,78,-1.2134,-0.4965
-12474,Woody Marks,RB,RB,,,,10326,-1.2316,-0.5039
-12646,Barrett Carter,LB,OTH,,,,118,-1.2324,-0.5043
-5843,Devin Bush,LB,OTH,,,,112,-1.242,-0.5082
-13385,,,OTH,,,,25,-1.2435,-0.5088
-2028mid2ndpi,2028 mid 2nd,,PICK,2028,mid,2,88584,-1.2447,-0.5093
-13482,Kendal Daniels,LB,OTH,,,,39,-1.2493,-0.5112
-2617,Alex Singleton,LB,OTH,,,,152,-1.2508,-0.5118
-11739,Evan Williams,S,OTH,,,,67,-1.2518,-0.5122
-2026.2.11.pi,2026 pick 2.11,,PICK,2026,late,2,6923,-1.2542,-0.5132
-13305,Mike Washington Jr.,RB,RB,,,,5579,-1.2668,-0.5183
-5872,Deebo Samuel,WR,WR,,,,8069,-1.2746,-0.5215
-13340,,,OTH,,,,95,-1.2776,-0.5227
-12492,Pat Bryant,WR,WR,,,,5213,-1.2828,-0.5249
-11665,Jared Verse,DE,OTH,,,,180,-1.2845,-0.5256
-1373,Geno Smith,QB,QB,,,,8860,-1.286,-0.5262
-10917,Byron Young,DE,OTH,,,,99,-1.2868,-0.5265
-5346,Zaire Franklin,LB,OTH,,,,95,-1.2888,-0.5273
-9502,Tank Dell,WR,WR,,,,5454,-1.2934,-0.5292
-11687,Edgerrin Cooper,LB,OTH,,,,146,-1.2951,-0.5299
-10898,Tuli Tuipulotu,DE,OTH,,,,93,-1.2964,-0.5304
-8126,Wan'Dale Robinson,WR,WR,,,,8639,-1.2983,-0.5312
-2026.3.1.pi,2026 pick 3.1,,PICK,2026,early,3,10259,-1.302,-0.5327
-2026.2.14.pi,2026 pick 2.14,,PICK,2026,late,2,425,-1.3052,-0.534
-13293,Ja'Kobi Lane,WR,WR,,,,5076,-1.3089,-0.5355
-2029mid2ndpi,2029 mid 2nd,,PICK,2029,mid,2,25949,-1.3128,-0.5372
-2026.2.13.pi,2026 pick 2.13,,PICK,2026,late,2,420,-1.3169,-0.5388
-12568,Jalon Walker,DE,OTH,,,,44,-1.317,-0.5389
-13285,Malachi Fields,WR,WR,,,,4074,-1.3184,-0.5395
-2026.2.12.pi,2026 pick 2.12,,PICK,2026,late,2,7152,-1.3231,-0.5414
-12524,Shedeur Sanders,QB,QB,,,,3532,-1.3256,-0.5424
-5870,Daniel Jones,QB,QB,,,,7919,-1.327,-0.5429
-13348,J'Mari Taylor,RB,RB,,,,192,-1.327,-0.5429
-9229,Anthony Richardson,QB,QB,,,,2858,-1.3292,-0.5439
-8132,Tyler Allgeier,RB,RB,,,,9717,-1.3301,-0.5442
-7672,Ernest Jones,LB,OTH,,,,106,-1.332,-0.545
-12617,Demetrius Knight,LB,OTH,,,,96,-1.3335,-0.5456
-11727,Payton Wilson,LB,OTH,,,,99,-1.3357,-0.5465
-2027mid7pi,,,OTH,,,,25,-1.3403,-0.5484
-10213,Tre Tucker,WR,WR,,,,6220,-1.3413,-0.5488
-11669,Laiatu Latu,DE,OTH,,,,80,-1.3502,-0.5524
-8134,Khalil Shakir,WR,WR,,,,7180,-1.3514,-0.553
-11625,Adonai Mitchell,WR,WR,,,,5804,-1.355,-0.5544
-96,Aaron Rodgers,QB,QB,,,,12550,-1.3563,-0.5549
-2026.3.2.pi,2026 pick 3.2,,PICK,2026,early,3,9847,-1.3569,-0.5552
-11792,Will Reichard,PK,OTH,,,,284,-1.3602,-0.5566
-LAR,,,OTH,,,,595,-1.3683,-0.5599
-12484,Jayden Higgins,WR,WR,,,,6315,-1.3702,-0.5606
-7136,Kamren Curl,S,OTH,,,,47,-1.3756,-0.5629
-13349,Eli Stowers,TE,TE,,,,3389,-1.377,-0.5634
-5840,Josh Hines-Allen,DE,OTH,,,,103,-1.3808,-0.565
-11583,Jonathon Brooks,RB,RB,,,,10630,-1.3858,-0.567
-11533,Brandon Aubrey,PK,OTH,,,,505,-1.3884,-0.5681
-167,Tom Brady,QB,QB,,,,137,-1.3915,-0.5694
-3257,Jacoby Brissett,QB,QB,,,,11092,-1.3917,-0.5694
-7021,Rico Dowdle,RB,RB,,,,9188,-1.3933,-0.5701
-3451,Ka'imi Fairbairn,PK,OTH,,,,239,-1.4043,-0.5746
-5816,Nick Bosa,DE,OTH,,,,174,-1.4072,-0.5758
-12533,Jacory Croskey-Merritt,RB,RB,,,,11503,-1.414,-0.5786
-12530,Travis Hunter,WR,WR,,,,5795,-1.415,-0.579
-2393,Danielle Hunter,DE,OTH,,,,114,-1.4168,-0.5797
-PIT,,,OTH,,,,311,-1.4187,-0.5805
-6807,Patrick Queen,LB,OTH,,,,102,-1.4204,-0.5812
-9482,Michael Mayer,TE,TE,,,,3918,-1.4267,-0.5837
-11786,Cam Little,PK,OTH,,,,376,-1.4422,-0.5901
-5927,Terry McLaurin,WR,WR,,,,9975,-1.4438,-0.5908
-2026.3.3.pi,2026 pick 3.3,,PICK,2026,early,3,9666,-1.4444,-0.591
-7839,Evan McPherson,PK,OTH,,,,157,-1.4552,-0.5954
-8917,KaVontae Turpin,WR,WR,,,,113,-1.456,-0.5957
-12185,Spencer Shrader,PK,OTH,,,,218,-1.4566,-0.596
-7016,Jeremy Chinn,S,OTH,,,,72,-1.4615,-0.598
-13421,Eli Raridon,TE,TE,,,,3058,-1.4624,-0.5984
-8210,Chigoziem Okonkwo,TE,TE,,,,6108,-1.4635,-0.5988
-DEN,,,OTH,,,,428,-1.4638,-0.5989
-8408,Jordan Mason,RB,RB,,,,10264,-1.4687,-0.6009
-11624,Xavier Worthy,WR,WR,,,,9712,-1.4731,-0.6027
-8121,Romeo Doubs,WR,WR,,,,7319,-1.4758,-0.6038
-11783,Ryan Flournoy,WR,WR,,,,3069,-1.4868,-0.6083
-5022,Dallas Goedert,TE,TE,,,,6144,-1.4884,-0.609
-12597,Nick Emmanwori,S,OTH,,,,115,-1.4956,-0.6119
-SEA,,,OTH,,,,396,-1.5003,-0.6139
-8136,Rachaad White,RB,RB,,,,8737,-1.501,-0.6142
-2026.3.4.pi,2026 pick 3.4,,PICK,2026,early,3,9808,-1.5034,-0.6151
-12566,Jihaad Campbell,LB,OTH,,,,117,-1.5077,-0.6169
-5012,Mark Andrews,TE,TE,,,,7031,-1.5084,-0.6172
-2026mid3rdpi,2026 mid 3rd,,PICK,2026,mid,3,152,-1.5106,-0.6181
-SF,,,OTH,,,,223,-1.5139,-0.6194
-8259,Cameron Dicker,PK,OTH,,,,209,-1.5141,-0.6195
-11705,Tykee Smith,S,OTH,,,,71,-1.515,-0.6199
-11638,Ricky Pearsall,WR,WR,,,,7318,-1.5176,-0.6209
-12469,Dylan Sampson,RB,RB,,,,4873,-1.5313,-0.6265
-5947,Jakobi Meyers,WR,WR,,,,7323,-1.5314,-0.6266
-7527,Mac Jones,QB,QB,,,,2335,-1.5332,-0.6273
-7841,Jamien Sherwood,LB,OTH,,,,156,-1.5375,-0.6291
-13289,Drew Allar,QB,QB,,,,1923,-1.544,-0.6318
-11685,Kamari Lassiter,CB,OTH,,,,61,-1.5519,-0.635
-8330,Quentin Lake,S,OTH,,,,70,-1.5522,-0.6351
-289,Drew Brees,QB,QB,,,,26,-1.5549,-0.6362
-13311,Chris Bell,WR,WR,,,,3717,-1.558,-0.6375
-13424,Seth McGowan,RB,RB,,,,2808,-1.5642,-0.64
-11742,Cedric Gray,LB,OTH,,,,152,-1.57,-0.6424
-2026.3.5.pi,2026 pick 3.5,,PICK,2026,mid,3,9746,-1.5736,-0.6439
-6782,Chase Young,DE,OTH,,,,83,-1.5768,-0.6452
-4199,Aaron Jones,RB,RB,,,,11183,-1.5779,-0.6456
-10222,Jayden Reed,WR,WR,,,,7151,-1.5789,-0.646
-11637,Keon Coleman,WR,WR,,,,6088,-1.5824,-0.6475
-6302,Kaden Elliss,LB,OTH,,,,63,-1.5871,-0.6494
-6819,Michael Pittman,WR,WR,,,,7952,-1.5905,-0.6508
-7600,Pat Freiermuth,TE,TE,,,,3270,-1.5953,-0.6527
-11557,Joe Milton,QB,QB,,,,3548,-1.5981,-0.6539
-7811,Talanoa Hufanga,S,OTH,,,,77,-1.602,-0.6555
-8266,Quay Walker,LB,OTH,,,,121,-1.6086,-0.6582
-11610,Malik Washington,WR,WR,,,,6053,-1.6131,-0.66
-2311,Leonard Williams,DT,OTH,,,,29,-1.6153,-0.6609
-6118,Quinnen Williams,DT,OTH,,,,66,-1.6166,-0.6614
-6815,Zack Baun,LB,OTH,,,,152,-1.6202,-0.6629
-10923,Dorian Williams,LB,OTH,,,,29,-1.6297,-0.6668
-11539,Jake Bates,PK,OTH,,,,158,-1.6349,-0.6689
-9501,Demario Douglas,WR,WR,,,,2228,-1.6372,-0.6699
-KC,,,OTH,,,,159,-1.6374,-0.67
-5332,Foyesade Oluokun,LB,OTH,,,,124,-1.6396,-0.6709
-3214,Hunter Henry,TE,TE,,,,4341,-1.641,-0.6714
-2026.3.6.pi,2026 pick 3.6,,PICK,2026,mid,3,9629,-1.6446,-0.6729
-7567,Kenneth Gainwell,RB,RB,,,,7496,-1.6496,-0.675
-CLE,,,OTH,,,,168,-1.6502,-0.6752
-11668,Byron Murphy,DT,OTH,,,,33,-1.6554,-0.6773
-4971,Derwin James,S,OTH,,,,88,-1.658,-0.6784
-11017,Dee Winters,LB,OTH,,,,63,-1.6597,-0.6791
-4968,Tremaine Edmunds,LB,OTH,,,,99,-1.6605,-0.6794
-CHI,,,OTH,,,,168,-1.662,-0.68
-7726,Derrick Barnes,LB,OTH,,,,43,-1.6643,-0.681
-2227,Aaron Donald,DT,OTH,,,,103,-1.668,-0.6825
-9754,Quentin Johnston,WR,WR,,,,9048,-1.6686,-0.6827
-12499,Elic Ayomanor,WR,WR,,,,2596,-1.6746,-0.6852
-12510,Jalen Milroe,QB,QB,,,,1190,-1.6762,-0.6858
-5045,Courtland Sutton,WR,WR,,,,8338,-1.6775,-0.6864
-5908,Amani Hooker,S,OTH,,,,55,-1.6808,-0.6877
-4135,Trey Hendrickson,DE,OTH,,,,95,-1.688,-0.6907
-13359,,,OTH,,,,25,-1.6883,-0.6908
-7042,Tyler Bass,PK,OTH,,,,72,-1.6885,-0.6909
-7002,Juwan Johnson,TE,TE,,,,6029,-1.6896,-0.6913
-HOU,,,OTH,,,,450,-1.6954,-0.6937
-TEN,,,OTH,,,,51,-1.7001,-0.6956
-6806,J.K. Dobbins,RB,RB,,,,9817,-1.7063,-0.6982
-7647,Pete Werner,LB,OTH,,,,42,-1.7087,-0.6991
-8154,Brian Robinson,RB,RB,,,,6188,-1.7099,-0.6996
-TB,,,OTH,,,,163,-1.7102,-0.6998
-9230,Tanner McKee,QB,QB,,,,4027,-1.7102,-0.6998
-2026.3.7.pi,2026 pick 3.7,,PICK,2026,mid,3,9612,-1.7118,-0.7004
-8110,Jake Ferguson,TE,TE,,,,6541,-1.7199,-0.7037
-6485,Azeez Al-Shaair,LB,OTH,,,,78,-1.7211,-0.7042
-13384,,,OTH,,,,31,-1.7249,-0.7058
-5944,Bobby Okereke,LB,OTH,,,,58,-1.725,-0.7058
-13303,Cade Klubnik,QB,QB,,,,1154,-1.7278,-0.707
-2306,Jameis Winston,QB,QB,,,,4662,-1.7292,-0.7075
-3321,Tyreek Hill,WR,WR,,,,3087,-1.7332,-0.7092
-11435,Emanuel Wilson,RB,RB,,,,4347,-1.7345,-0.7097
-6860,Akeem Davis-Gaither,LB,OTH,,,,27,-1.7405,-0.7122
-CIN,,,OTH,,,,130,-1.748,-0.7152
-12591,Xavier Watts,S,OTH,,,,64,-1.7501,-0.7161
-7635,Jaelan Phillips,DE,OTH,,,,60,-1.752,-0.7169
-11618,Jalen McMillan,WR,WR,,,,3893,-1.7562,-0.7186
-2027mid3rdpi,2027 mid 3rd,,PICK,2027,mid,3,196820,-1.7627,-0.7212
-13341,,,OTH,,,,36,-1.7674,-0.7232
-8311,Terrel Bernard,LB,OTH,,,,62,-1.7699,-0.7242
-8205,Isiah Pacheco,RB,RB,,,,4162,-1.7699,-0.7242
-6803,Brandon Aiyuk,WR,WR,,,,3630,-1.7705,-0.7244
-10219,Chris Rodriguez,RB,RB,,,,6268,-1.7716,-0.7249
-10891,Devon Witherspoon,CB,OTH,,,,41,-1.772,-0.7251
-13602,,,OTH,,,,233,-1.7731,-0.7255
-8659,Nate Landman,LB,OTH,,,,135,-1.7733,-0.7256
-12562,Nic Scourton,DE,OTH,,,,28,-1.7781,-0.7275
-1479,Keenan Allen,WR,WR,,,,4863,-1.7829,-0.7295
-12536,Jaylin Noel,WR,WR,,,,3575,-1.7882,-0.7317
-1945,Chris Boswell,PK,OTH,,,,120,-1.7906,-0.7326
-13425,Jalon Daniels,QB,QB,,,,3094,-1.791,-0.7328
-12509,Tre Harris,WR,WR,,,,4484,-1.7921,-0.7333
-3160,Jalen Ramsey,CB,OTH,,,,26,-1.7968,-0.7352
-2026.3.8.pi,2026 pick 3.8,,PICK,2026,mid,3,9817,-1.7972,-0.7354
-13415,Haynes King,QB,QB,,,,58,-1.801,-0.7369
-11834,Devaughn Vele,WR,WR,,,,5340,-1.8012,-0.737
-4993,Mike Gesicki,TE,TE,,,,1944,-1.8045,-0.7383
-4035,Alvin Kamara,RB,RB,,,,7799,-1.805,-0.7385
-12567,Malaki Starks,S,OTH,,,,78,-1.8058,-0.7389
-6083,Matt Gay,PK,OTH,,,,65,-1.8071,-0.7394
-6888,Antoine Winfield,S,OTH,,,,73,-1.8142,-0.7423
-6788,Xavier McKinney,S,OTH,,,,76,-1.8146,-0.7425
-8355,Kayvon Thibodeaux,DE,OTH,,,,44,-1.8168,-0.7434
-12585,James Pearce,DE,OTH,,,,72,-1.822,-0.7455
-11603,AJ Barner,TE,TE,,,,5343,-1.8231,-0.7459
-7641,Patrick Surtain II,CB,OTH,,,,41,-1.8237,-0.7462
-745,Marshawn Lynch,RB,RB,,,,26,-1.8271,-0.7476
-6011,Gardner Minshew,QB,QB,,,,1750,-1.8273,-0.7477
-13317,Ted Hurst,WR,WR,,,,2887,-1.8344,-0.7506
-6650,Chase McLaughlin,PK,OTH,,,,148,-1.8355,-0.751
-10914,Daiyan Henley,LB,OTH,,,,108,-1.8408,-0.7532
-12493,Oronde Gadsden,TE,TE,,,,7506,-1.841,-0.7533
-DET,,,OTH,,,,157,-1.8416,-0.7535
-12504,Kaleb Johnson,RB,RB,,,,5539,-1.8425,-0.7539
-5854,Drew Lock,QB,QB,,,,2879,-1.8446,-0.7548
-3172,DeForest Buckner,DT,OTH,,,,56,-1.8468,-0.7557
-BUF,,,OTH,,,,168,-1.8474,-0.7559
-11760,Austin Booker,DE,OTH,,,,47,-1.8481,-0.7562
-2078,Odell Beckham,WR,WR,,,,358,-1.849,-0.7565
-7659,Trevon Moehrig,S,OTH,,,,37,-1.8491,-0.7566
-13288,Nicholas Singleton,RB,RB,,,,3059,-1.8508,-0.7573
-13381,Jaishawn Barham,LB,OTH,,,,41,-1.8533,-0.7583
-WAS,,,OTH,,,,57,-1.8538,-0.7585
-12713,Andres Borregales,PK,OTH,,,,60,-1.8581,-0.7603
-13488,Kaleb Elarms-Orr,LB,OTH,,,,30,-1.864,-0.7627
-4037,Chris Godwin,WR,WR,,,,8096,-1.8646,-0.7629
-BAL,,,OTH,,,,267,-1.8696,-0.765
-12015,Harrison Mevis,PK,OTH,,,,45,-1.87,-0.7651
-10881,Christian Gonzalez,CB,OTH,,,,35,-1.8717,-0.7658
-5847,Dexter Lawrence,DT,OTH,,,,38,-1.8721,-0.766
-2026.3.9.pi,2026 pick 3.9,,PICK,2026,late,3,9292,-1.8727,-0.7662
-11237,Jacob Saylors,RB,RB,,,,210,-1.8741,-0.7668
-13545,,,OTH,,,,119,-1.8774,-0.7682
-4081,Budda Baker,S,OTH,,,,125,-1.8781,-0.7685
-5839,Rashan Gary,DE,OTH,,,,26,-1.8782,-0.7685
-12498,Mason Taylor,TE,TE,,,,2122,-1.8812,-0.7697
-10949,Chamarri Conner,S,OTH,,,,40,-1.883,-0.7705
-10940,Nick Herbig,DE,OTH,,,,53,-1.8832,-0.7705
-11630,Roman Wilson,WR,WR,,,,2073,-1.8839,-0.7708
-9504,Kayshon Boutte,WR,WR,,,,4264,-1.8839,-0.7708
-4227,Harrison Butker,PK,OTH,,,,99,-1.8868,-0.772
-9225,Tank Bigsby,RB,RB,,,,4548,-1.8886,-0.7728
-CAR,,,OTH,,,,77,-1.8889,-0.7729
-10218,Xavier Hutchinson,WR,WR,,,,854,-1.889,-0.7729
-LV,,,OTH,,,,79,-1.8926,-0.7744
-GB,,,OTH,,,,181,-1.8931,-0.7746
-10927,Jordan Battle,S,OTH,,,,51,-1.8972,-0.7763
-13726,Camden Brown,WR,WR,,,,57,-1.9072,-0.7803
-4195,Jake Elliott,PK,OTH,,,,38,-1.9109,-0.7819
-5912,Carl Granderson,DE,OTH,,,,30,-1.912,-0.7823
-8396,Micah McFadden,LB,OTH,,,,25,-1.9125,-0.7825
-2028mid3rdpi,2028 mid 3rd,,PICK,2028,mid,3,79036,-1.9159,-0.7839
-12540,Chimere Dike,WR,WR,,,,1995,-1.9168,-0.7843
-12494,Kyle McCord,QB,QB,,,,1576,-1.917,-0.7844
-4018,Joe Mixon,RB,RB,,,,501,-1.9196,-0.7855
-13338,Kevin Coleman,WR,WR,,,,526,-1.9197,-0.7855
-8188,Tyquan Thornton,WR,WR,,,,607,-1.92,-0.7856
-13302,Adam Randall,RB,RB,,,,1499,-1.9217,-0.7863
-12502,Gunnar Helm,TE,TE,,,,3790,-1.9233,-0.787
-13075,Myles Price,WR,WR,,,,72,-1.9243,-0.7874
-2029mid3rdpi,2029 mid 3rd,,PICK,2029,mid,3,28155,-1.9298,-0.7896
-7677,Divine Deablo,LB,OTH,,,,29,-1.932,-0.7905
-12491,Corey Kiner,RB,RB,,,,1176,-1.9337,-0.7912
-2027mid6pi,,,OTH,,,,52,-1.9377,-0.7928
-12571,Mike Green,DE,OTH,,,,36,-1.9422,-0.7947
-8364,Trent McDuffie,CB,OTH,,,,31,-1.9424,-0.7948
-7715,Camryn Bynum,S,OTH,,,,34,-1.9435,-0.7952
-2026.4.1.pi,2026 pick 4.1,,PICK,2026,early,4,5817,-1.944,-0.7954
-9486,Dontayvion Wicks,WR,WR,,,,5704,-1.9464,-0.7964
-5001,Dalton Schultz,TE,TE,,,,4224,-1.9517,-0.7986
-2026.3.10.pi,2026 pick 3.10,,PICK,2026,late,3,9090,-1.9517,-0.7986
-3161,Carson Wentz,QB,QB,,,,1597,-1.9523,-0.7988
-13833,,,OTH,,,,40,-1.9544,-0.7997
-6119,Devin White,LB,OTH,,,,50,-1.9574,-0.8009
-2307,Marcus Mariota,QB,QB,,,,2040,-1.9589,-0.8015
-11581,MarShawn Lloyd,RB,RB,,,,10149,-1.9591,-0.8016
-7113,Alex Highsmith,DE,OTH,,,,58,-1.9594,-0.8017
-13360,,,OTH,,,,30,-1.9609,-0.8023
-13413,Cyrus Allen,WR,WR,,,,4063,-1.9618,-0.8027
-12535,Isaac TeSlaa,WR,WR,,,,4187,-1.9649,-0.804
-6789,Henry Ruggs,WR,WR,,,,62,-1.9667,-0.8047
-6900,Jonathan Greenard,DE,OTH,,,,53,-1.9755,-0.8083
-IND,,,OTH,,,,84,-1.9773,-0.809
-2026.4.2.pi,2026 pick 4.2,,PICK,2026,early,4,5616,-1.98,-0.8101
-7083,Tyler Huntley,QB,QB,,,,2286,-1.9803,-0.8103
-11655,Tyrone Tracy,RB,RB,,,,4667,-1.9821,-0.811
-10933,DeMarvion Overshown,LB,OTH,,,,70,-1.9844,-0.812
-7591,Justin Fields,QB,QB,,,,2089,-1.9872,-0.8131
-DAL,,,OTH,,,,96,-1.9899,-0.8142
-13404,Garrett Nussmeier,QB,QB,,,,205,-1.9913,-0.8148
-8265,Travon Walker,DE,OTH,,,,52,-1.9914,-0.8148
-12511,Will Howard,QB,QB,,,,763,-1.9914,-0.8148
-1737,Case Keenum,QB,QB,,,,233,-1.9962,-0.8168
-11256,Tyson Bagent,QB,QB,,,,1403,-1.9966,-0.8169
-13533,Barion Brown,WR,WR,,,,362,-1.9969,-0.8171
-13405,Kaytron Allen,RB,RB,,,,1676,-1.9976,-0.8173
-2020,Cairo Santos,PK,OTH,,,,28,-1.9994,-0.8181
-7587,Dyami Brown,WR,WR,,,,32,-2.0008,-0.8187
-13268,Elijah Sarratt,WR,WR,,,,1453,-2.0009,-0.8187
-4040,JuJu Smith-Schuster,WR,WR,,,,25,-2.0032,-0.8197
-3634,Kalif Raymond,WR,WR,,,,1217,-2.0045,-0.8202
-NE,,,OTH,,,,273,-2.0061,-0.8208
-13278,Max Klare,TE,TE,,,,1078,-2.0067,-0.8211
-MIA,,,OTH,,,,44,-2.0094,-0.8222
-5189,Eddy Pineiro,PK,OTH,,,,52,-2.0142,-0.8241
-9479,Darnell Washington,TE,TE,,,,955,-2.0144,-0.8242
-13423,Eli Heidenreich,RB,RB,,,,680,-2.0145,-0.8243
-6315,Tyrel Dodson,LB,OTH,,,,57,-2.0178,-0.8256
-6124,Montez Sweat,DE,OTH,,,,43,-2.0182,-0.8258
-536,Antonio Brown,WR,WR,,,,27,-2.0194,-0.8263
-2026mid4thpi,2026 mid 4th,,PICK,2026,mid,4,75,-2.0194,-0.8263
-8323,Jaquan Brisker,S,OTH,,,,39,-2.032,-0.8314
-6130,Devin Singletary,RB,RB,,,,1223,-2.033,-0.8318
-2026.3.11.pi,2026 pick 3.11,,PICK,2026,late,3,5990,-2.0347,-0.8325
-12718,Konata Mumpfield,WR,WR,,,,871,-2.0375,-0.8337
-5726,Robert Spillane,LB,OTH,,,,65,-2.0385,-0.8341
-9508,Tyjae Spears,RB,RB,,,,4968,-2.0432,-0.836
-5017,Jessie Bates,S,OTH,,,,69,-2.0436,-0.8362
-8343,Boye Mafe,DE,OTH,,,,42,-2.0448,-0.8367
-3271,Tyler Higbee,TE,TE,,,,1111,-2.0458,-0.8371
-4574,Cooper Rush,QB,QB,,,,211,-2.0464,-0.8373
-13320,Zachariah Branch,WR,WR,,,,2481,-2.0485,-0.8382
-12634,Jordan Watkins,WR,WR,,,,308,-2.0512,-0.8393
-7049,Jauan Jennings,WR,WR,,,,3223,-2.0514,-0.8394
-NYG,,,OTH,,,,101,-2.0568,-0.8416
-2026.4.3.pi,2026 pick 4.3,,PICK,2026,early,4,5441,-2.0577,-0.8419
-11629,Devontez Walker,WR,WR,,,,60,-2.0585,-0.8423
-9511,Keaton Mitchell,RB,RB,,,,5372,-2.0586,-0.8423
-5960,T.J. Edwards,LB,OTH,,,,55,-2.0594,-0.8427
-11570,Rasheen Ali,RB,RB,,,,38,-2.0617,-0.8436
-8676,Rashid Shaheed,WR,WR,,,,5207,-2.0624,-0.8439
-13353,Chris Brazzell II,WR,WR,,,,1470,-2.0649,-0.8449
-4950,Christian Kirk,WR,WR,,,,957,-2.0664,-0.8455
-6214,Quincy Williams,LB,OTH,,,,67,-2.0668,-0.8457
-12500,Quinn Ewers,QB,QB,,,,616,-2.0681,-0.8462
-4039,Cooper Kupp,WR,WR,,,,2189,-2.069,-0.8465
-1052,Demario Davis,LB,OTH,,,,47,-2.07,-0.847
-8362,Leo Chenal,LB,OTH,,,,27,-2.0735,-0.8484
-13297,Reggie Virgil,WR,WR,,,,201,-2.0804,-0.8512
-2026.3.14.pi,2026 pick 3.14,,PICK,2026,late,3,362,-2.0826,-0.8521
-2026.3.12.pi,2026 pick 3.12,,PICK,2026,late,3,5990,-2.0832,-0.8524
-12483,Jack Bech,WR,WR,,,,2836,-2.0837,-0.8526
-2747,Jason Myers,PK,OTH,,,,183,-2.0875,-0.8541
-LAC,,,OTH,,,,117,-2.0916,-0.8558
-13270,,,OTH,,,,290,-2.0916,-0.8558
-8111,Cade Otton,TE,TE,,,,2802,-2.0923,-0.8561
-11663,Chop Robinson,DE,OTH,,,,38,-2.0955,-0.8574
-1426,DeAndre Hopkins,WR,WR,,,,39,-2.0956,-0.8574
-10857,Stetson Bennett,QB,QB,,,,41,-2.0962,-0.8577
-PHI,,,OTH,,,,247,-2.0962,-0.8577
-6783,Jerry Jeudy,WR,WR,,,,4150,-2.1014,-0.8598
-8314,Jalen Pitre,S,OTH,,,,42,-2.1035,-0.8607
-13394,Josh Cameron,WR,WR,,,,626,-2.1054,-0.8615
-6826,Cole Kmet,TE,TE,,,,750,-2.1063,-0.8618
-9497,Jalin Hyatt,WR,WR,,,,30,-2.1123,-0.8643
-7921,Christian Elliss,LB,OTH,,,,30,-2.1144,-0.8651
-8162,Sam Howell,QB,QB,,,,101,-2.116,-0.8658
-2026.4.4.pi,2026 pick 4.4,,PICK,2026,early,4,5362,-2.1164,-0.866
-5995,Justice Hill,RB,RB,,,,973,-2.1187,-0.8669
-2026.3.13.pi,2026 pick 3.13,,PICK,2026,late,3,336,-2.1208,-0.8678
-7585,Davis Mills,QB,QB,,,,306,-2.1229,-0.8686
-12648,Cody Simon,LB,OTH,,,,25,-2.1265,-0.8701
-9757,Kendre Miller,RB,RB,,,,1908,-2.129,-0.8711
-4413,Eric Wilson,LB,OTH,,,,45,-2.129,-0.8711
-12556,Donovan Ezeiruaku,DE,OTH,,,,40,-2.1295,-0.8713
-11577,Will Shipley,RB,RB,,,,1099,-2.1298,-0.8715
-8800,Malik Davis,RB,RB,,,,738,-2.1299,-0.8715
-13277,CJ Donaldson,RB,RB,,,,75,-2.1306,-0.8718
-2505,Darren Waller,TE,TE,,,,2395,-2.1356,-0.8738
-4454,Kendrick Bourne,WR,WR,,,,682,-2.1402,-0.8757
-11579,Audric Estime,RB,RB,,,,637,-2.1434,-0.877
-13391,Jake Golday,LB,OTH,,,,39,-2.1446,-0.8775
-13264,Dohnte Meyers,WR,WR,,,,536,-2.1452,-0.8777
-8129,Dameon Pierce,RB,RB,,,,1172,-2.1473,-0.8786
-13350,Joe Fagnano,QB,QB,,,,259,-2.1506,-0.8799
-12573,Mason Graham,DT,OTH,,,,69,-2.1525,-0.8807
-5871,Zach Allen,DT,OTH,,,,28,-2.1532,-0.881
-12531,Trevor Etienne,RB,RB,,,,769,-2.155,-0.8818
-10970,Henry To'oTo'o,LB,OTH,,,,41,-2.1572,-0.8827
-4118,Alex Anzalone,LB,OTH,,,,40,-2.1578,-0.8829
-11470,Drake Thomas,LB,OTH,,,,65,-2.1655,-0.8861
-8180,Jalen Nailor,WR,WR,,,,3562,-2.1677,-0.8869
-19,Joe Flacco,QB,QB,,,,750,-2.1694,-0.8876
-5906,Dawson Knox,TE,TE,,,,323,-2.1715,-0.8885
-12978,Elijah Ponder,LB,OTH,,,,30,-2.1729,-0.8891
-12482,Savion Williams,WR,WR,,,,599,-2.1743,-0.8897
-7090,Darnell Mooney,WR,WR,,,,1327,-2.1758,-0.8903
-7571,Rashod Bateman,WR,WR,,,,2030,-2.1765,-0.8905
-11682,Cole Bishop,S,OTH,,,,36,-2.1776,-0.891
-7528,Najee Harris,RB,RB,,,,1465,-2.1849,-0.894
-5876,Julian Love,S,OTH,,,,57,-2.1855,-0.8942
-12457,Jaydon Blue,RB,RB,,,,1845,-2.1863,-0.8945
-11729,Sione Vaki,RB,RB,,,,472,-2.1868,-0.8947
-10921,YaYa Diaby,DE,OTH,,,,40,-2.1873,-0.895
-NYJ,,,OTH,,,,69,-2.1873,-0.895
-12497,Tory Horton,WR,WR,,,,2779,-2.1883,-0.8954
-12523,Jimmy Horn,WR,WR,,,,119,-2.1884,-0.8954
-5127,Kyle Allen,QB,QB,,,,28,-2.1897,-0.8959
-12470,Riley Leonard,QB,QB,,,,568,-2.19,-0.8961
-6768,Tua Tagovailoa,QB,QB,,,,4236,-2.1907,-0.8964
-13402,Skyler Bell,WR,WR,,,,1530,-2.1964,-0.8987
-12505,Jalen Royals,WR,WR,,,,766,-2.1964,-0.8987
-8698,Jake Tonges,TE,TE,,,,1561,-2.202,-0.901
-8160,Kenny Pickett,QB,QB,,,,126,-2.203,-0.9014
-2026.4.5.pi,2026 pick 4.5,,PICK,2026,mid,4,5165,-2.204,-0.9018
-4147,Samaje Perine,RB,RB,,,,764,-2.2045,-0.902
-6865,Colby Parkinson,TE,TE,,,,1248,-2.205,-0.9022
-13329,Malik Benson,WR,WR,,,,379,-2.2053,-0.9023
-11647,Kimani Vidal,RB,RB,,,,2750,-2.2055,-0.9024
-13333,Deion Burks,WR,WR,,,,294,-2.2058,-0.9025
-7538,Zach Wilson,QB,QB,,,,42,-2.2072,-0.9031
-8135,Treylon Burks,WR,WR,,,,606,-2.2115,-0.9049
-12711,Tyler Loop,PK,OTH,,,,148,-2.2117,-0.9049
-9506,Sean Tucker,RB,RB,,,,1566,-2.2148,-0.9062
-827,Tyrod Taylor,QB,QB,,,,175,-2.2151,-0.9063
-7610,Trey Lance,QB,QB,,,,187,-2.2165,-0.9069
-6828,AJ Dillon,RB,RB,,,,74,-2.2165,-0.9069
-13347,Demond Claiborne,RB,RB,,,,2013,-2.2171,-0.9072
-13401,Michael Trigg,TE,TE,,,,222,-2.2219,-0.9091
-12476,Devin Neal,RB,RB,,,,913,-2.2232,-0.9096
-8172,Greg Dulcich,TE,TE,,,,2475,-2.2234,-0.9097
-12485,Tez Johnson,WR,WR,,,,1171,-2.2287,-0.9119
-11608,Isaiah Williams,WR,WR,,,,165,-2.2321,-0.9133
-12539,Arian Smith,WR,WR,,,,29,-2.2329,-0.9136
-260,Josh Johnson,QB,QB,,,,92,-2.2334,-0.9138
-829,Andy Dalton,QB,QB,,,,36,-2.2349,-0.9145
-13150,Darius Cooper,WR,WR,,,,693,-2.2358,-0.9148
-12969,Lan Larison,RB,RB,,,,31,-2.2369,-0.9153
-6111,Jake Browning,QB,QB,,,,67,-2.238,-0.9157
-3678,Wil Lutz,PK,OTH,,,,36,-2.2404,-0.9167
-13392,Jeff Caldwell,WR,WR,,,,94,-2.2434,-0.9179
-12472,Raheim Sanders,RB,RB,,,,404,-2.244,-0.9182
-2027mid4thpi,2027 mid 4th,,PICK,2027,mid,4,87085,-2.2487,-0.9201
-13380,Brenen Thompson,WR,WR,,,,497,-2.2488,-0.9201
-12541,Dont'e Thornton,WR,WR,,,,873,-2.2509,-0.921
-11370,Chris Brooks,RB,RB,,,,781,-2.2511,-0.9211
-9999,Will Levis,QB,QB,,,,157,-2.2511,-0.9211
-12520,Xavier Restrepo,WR,WR,,,,50,-2.252,-0.9214
-NO,,,OTH,,,,76,-2.2539,-0.9222
-7670,Joshua Palmer,WR,WR,,,,202,-2.2578,-0.9238
-6056,Dre Greenlaw,LB,OTH,,,,37,-2.2578,-0.9238
-11589,Trey Benson,RB,RB,,,,2019,-2.258,-0.9239
-13307,Marlin Klein,TE,TE,,,,300,-2.2608,-0.925
-12471,DJ Giddens,RB,RB,,,,1305,-2.2611,-0.9252
-4137,James Conner,RB,RB,,,,1581,-2.2612,-0.9252
-7828,Noah Gray,TE,TE,,,,300,-2.2619,-0.9255
-13306,Taylen Green,QB,QB,,,,405,-2.2638,-0.9263
-4177,Mack Hollins,WR,WR,,,,434,-2.2648,-0.9267
-12542,Efton Chism,WR,WR,,,,593,-2.2659,-0.9271
-11292,Tommy DeVito,QB,QB,,,,181,-2.2665,-0.9274
-6136,Jarrett Stidham,QB,QB,,,,62,-2.2702,-0.9289
-13411,Zavion Thomas,WR,WR,,,,1223,-2.2712,-0.9293
-6141,Drue Tranquill,LB,OTH,,,,35,-2.2712,-0.9293
-9494,Marvin Mims,WR,WR,,,,989,-2.2763,-0.9314
-9481,Luke Musgrave,TE,TE,,,,241,-2.2777,-0.932
-13403,Jam Miller,RB,RB,,,,85,-2.2805,-0.9331
-8122,Bam Knight,RB,RB,,,,397,-2.2817,-0.9336
-13299,Nate Boerkircher,TE,TE,,,,82,-2.2822,-0.9338
-2029mid4thpi,2029 mid 4th,,PICK,2029,mid,4,12534,-2.286,-0.9353
-12521,Elijah Arroyo,TE,TE,,,,1576,-2.2861,-0.9354
-11626,Xavier Legette,WR,WR,,,,1353,-2.2886,-0.9364
-12738,Phil Mafah,RB,RB,,,,129,-2.2893,-0.9367
-5580,Frankie Luvu,LB,OTH,,,,30,-2.2921,-0.9378
-2026.4.6.pi,2026 pick 4.6,,PICK,2026,mid,4,5190,-2.2933,-0.9383
-6039,Ty Johnson,RB,RB,,,,250,-2.2943,-0.9388
-10235,Roschon Johnson,RB,RB,,,,534,-2.2969,-0.9398
-12467,Jordan James,RB,RB,,,,1653,-2.2985,-0.9405
-2029mid5pi,,,OTH,,,,2202,-2.3002,-0.9412
-13435,Joe Royer,TE,TE,,,,33,-2.3007,-0.9414
-4972,Mason Rudolph,QB,QB,,,,72,-2.3049,-0.9431
-12048,George Holani,RB,RB,,,,1103,-2.3049,-0.9431
-10444,Cedric Tillman,WR,WR,,,,329,-2.306,-0.9435
-5848,Marquise Brown,WR,WR,,,,565,-2.306,-0.9436
-4098,Kareem Hunt,RB,RB,,,,82,-2.3066,-0.9438
-7561,Elijah Mitchell,RB,RB,,,,111,-2.3108,-0.9455
-11575,Ray Davis,RB,RB,,,,1986,-2.3118,-0.9459
-11643,Jaylen Wright,RB,RB,,,,2850,-2.3149,-0.9472
-13477,Colbie Young,WR,WR,,,,216,-2.3164,-0.9478
-2197,Brandin Cooks,WR,WR,,,,129,-2.3166,-0.9479
-7562,Tutu Atwell,WR,WR,,,,202,-2.3206,-0.9495
-7608,Khalil Herbert,RB,RB,,,,34,-2.3228,-0.9504
-6427,Ashton Dulin,WR,WR,,,,29,-2.3245,-0.9511
-4066,Evan Engram,TE,TE,,,,1572,-2.3273,-0.9522
-11562,Spencer Rattler,QB,QB,,,,335,-2.328,-0.9525
-12547,Kyle Williams,WR,WR,,,,2122,-2.334,-0.955
-2028mid4thpi,2028 mid 4th,,PICK,2028,mid,4,32042,-2.3351,-0.9554
-13335,Cole Payton,QB,QB,,,,185,-2.337,-0.9562
-8168,Skyy Moore,WR,WR,,,,60,-2.3419,-0.9582
-13418,Robert Henry,RB,RB,,,,53,-2.3431,-0.9587
-6271,Olamide Zaccheaus,WR,WR,,,,92,-2.3432,-0.9587
-12588,Kevin Winston,S,OTH,,,,28,-2.3458,-0.9598
-8117,Jalen Tolbert,WR,WR,,,,483,-2.3472,-0.9604
-12544,LeQuint Allen,RB,RB,,,,1026,-2.3488,-0.9611
-11592,Erick All,TE,TE,,,,225,-2.3499,-0.9615
-ATL,,,OTH,,,,61,-2.3501,-0.9616
-3155,Laquon Treadwell,WR,WR,,,,64,-2.3515,-0.9621
-6131,Mack Wilson,LB,OTH,,,,35,-2.3523,-0.9625
-2026.5.1.pi,2026 pick 5.1,,PICK,2026,early,5,1387,-2.3537,-0.9631
-13319,Oscar Delp,TE,TE,,,,1210,-2.3558,-0.9639
-13420,Bryce Lance,WR,WR,,,,996,-2.3597,-0.9655
-8143,Jerome Ford,RB,RB,,,,182,-2.3604,-0.9658
-11627,Troy Franklin,WR,WR,,,,2560,-2.3608,-0.966
-8207,Tyler Goodson,RB,RB,,,,154,-2.3634,-0.967
-11651,Isaac Guerendo,RB,RB,,,,195,-2.3655,-0.9679
-13400,Justin Joly,TE,TE,,,,886,-2.3699,-0.9697
-8119,Jahan Dotson,WR,WR,,,,686,-2.3727,-0.9708
-3286,Demarcus Robinson,WR,WR,,,,143,-2.3732,-0.971
-12503,Isaiah Bond,WR,WR,,,,1049,-2.3772,-0.9727
-2026.4.7.pi,2026 pick 4.7,,PICK,2026,mid,4,5015,-2.3779,-0.9729
-8125,Calvin Austin III,WR,WR,,,,232,-2.3805,-0.974
-ARI,,,OTH,,,,36,-2.3945,-0.9798
-4663,Austin Ekeler,RB,RB,,,,401,-2.395,-0.9799
-8225,Daniel Bellinger,TE,TE,,,,58,-2.4032,-0.9833
-2027mid5pi,,,OTH,,,,13786,-2.406,-0.9844
-11650,Luke McCaffrey,WR,WR,,,,255,-2.406,-0.9845
-11439,Jaleel McLaughlin,RB,RB,,,,211,-2.407,-0.9849
-8147,John Metchie,WR,WR,,,,242,-2.4095,-0.9859
-4988,Nick Chubb,RB,RB,,,,82,-2.4116,-0.9868
-13324,,,OTH,,,,653,-2.413,-0.9873
-13416,Roman Hemby,RB,RB,,,,25,-2.4143,-0.9879
-10885,Lukas Van Ness,DE,OTH,,,,48,-2.4174,-0.9891
-2026.5.2.pi,2026 pick 5.2,,PICK,2026,early,5,1296,-2.4174,-0.9891
-4179,Joshua Dobbs,QB,QB,,,,27,-2.4208,-0.9905
-10231,Elijah Higgins,TE,TE,,,,44,-2.4258,-0.9926
-10980,SirVocea Dennis,LB,OTH,,,,60,-2.4278,-0.9934
-4981,Calvin Ridley,WR,WR,,,,1759,-2.4288,-0.9938
-3976,Mitchell Trubisky,QB,QB,,,,47,-2.4354,-0.9965
-6901,Josh Metellus,S,OTH,,,,27,-2.4362,-0.9968
-10216,Kenny McIntosh,RB,RB,,,,36,-2.4519,-1.0032
-11569,Jarquez Hunter,RB,RB,,,,329,-2.4542,-1.0042
-4033,David Njoku,TE,TE,,,,2630,-2.4559,-1.0049
-2026.4.8.pi,2026 pick 4.8,,PICK,2026,mid,4,5158,-2.4598,-1.0065
-11619,Ja'Lynn Polk,WR,WR,,,,121,-2.4631,-1.0078
-12641,Jaylin Lane,WR,WR,,,,398,-2.4743,-1.0124
-7891,Brock Wright,TE,TE,,,,25,-2.4775,-1.0137
-1837,Jimmy Garoppolo,QB,QB,,,,31,-2.4777,-1.0138
-2026.5.3.pi,2026 pick 5.3,,PICK,2026,early,5,1158,-2.4785,-1.0141
-12543,Tahj Brooks,RB,RB,,,,640,-2.4938,-1.0204
-10226,Andrei Iosivas,WR,WR,,,,372,-2.4954,-1.021
-7607,Michael Carter,RB,RB,,,,58,-2.5014,-1.0235
-11600,Ja'Tavion Sanders,TE,TE,,,,685,-2.5137,-1.0285
-11597,Theo Johnson,TE,TE,,,,1316,-2.5147,-1.0289
-6931,DeeJay Dallas,RB,RB,,,,30,-2.5164,-1.0296
-2028mid5pi,,,OTH,,,,4748,-2.5176,-1.0301
-2026.4.13.pi,2026 pick 4.13,,PICK,2026,late,4,163,-2.5185,-1.0305
-11623,Jordan Whittington,WR,WR,,,,77,-2.5287,-1.0347
-11199,Emari Demercado,RB,RB,,,,365,-2.5304,-1.0353
-1339,Zach Ertz,TE,TE,,,,242,-2.538,-1.0385
-11616,Jacob Cowing,WR,WR,,,,50,-2.5398,-1.0392
-13342,John Michael Gyllenborg,TE,TE,,,,34,-2.5437,-1.0408
-12455,Brashard Smith,RB,RB,,,,547,-2.5497,-1.0432
-11571,Isaiah Davis,RB,RB,,,,914,-2.5504,-1.0435
-2026.4.9.pi,2026 pick 4.9,,PICK,2026,late,4,4928,-2.5536,-1.0448
-12486,Dillon Gabriel,QB,QB,,,,197,-2.5541,-1.0451
-13322,Sam Roush,TE,TE,,,,128,-2.5607,-1.0477
-11593,Brevyn Spann-Ford,TE,TE,,,,108,-2.5644,-1.0492
-12473,Mitchell Evans,TE,TE,,,,57,-2.5675,-1.0505
-13434,Will Kacmarek,TE,TE,,,,175,-2.5678,-1.0506
-11588,Jawhar Jordan,RB,RB,,,,43,-2.5705,-1.0518
-10947,Ventrell Miller,LB,OTH,,,,41,-2.5712,-1.052
-13273,Josh Cuevas,TE,TE,,,,92,-2.5743,-1.0533
-2026.5.5.pi,2026 pick 5.5,,PICK,2026,mid,5,1088,-2.577,-1.0544
-2026.5.4.pi,2026 pick 5.4,,PICK,2026,early,5,1150,-2.5831,-1.0569
-2026.4.10.pi,2026 pick 4.10,,PICK,2026,late,4,4983,-2.5878,-1.0589
-5857,Noah Fant,TE,TE,,,,236,-2.588,-1.0589
-12462,Damien Martinez,RB,RB,,,,77,-2.5922,-1.0606
-2026.4.14.pi,2026 pick 4.14,,PICK,2026,late,4,176,-2.5986,-1.0633
-13079,Jahdae Walker,WR,WR,,,,98,-2.6015,-1.0644
-4144,Jonnu Smith,TE,TE,,,,95,-2.6038,-1.0654
-11596,Ben Sinnott,TE,TE,,,,455,-2.6114,-1.0685
-6149,Darius Slayton,WR,WR,,,,266,-2.6132,-1.0692
-12670,KeAndre Lambert-Smith,WR,WR,,,,206,-2.6255,-1.0743
-8127,Charlie Kolar,TE,TE,,,,136,-2.6327,-1.0772
-12496,Tai Felton,WR,WR,,,,166,-2.6331,-1.0774
-12640,Teddye Buchanan,LB,OTH,,,,36,-2.64,-1.0802
-5970,Greg Dortch,WR,WR,,,,42,-2.6449,-1.0822
-2026.4.11.pi,2026 pick 4.11,,PICK,2026,late,4,3060,-2.6684,-1.0918
-2026.4.12.pi,2026 pick 4.12,,PICK,2026,late,4,3246,-2.6718,-1.0932
-8116,Pierre Strong Jr.,RB,RB,,,,67,-2.674,-1.0941
-2026.5.6.pi,2026 pick 5.6,,PICK,2026,mid,5,1165,-2.6794,-1.0963
-7039,Cody White,WR,WR,,,,40,-2.687,-1.0994
-13282,Jack Endries,TE,TE,,,,135,-2.7231,-1.1142
-13408,Tanner Koziol,TE,TE,,,,179,-2.7322,-1.1179
-11599,Cade Stover,TE,TE,,,,56,-2.7502,-1.1253
-2026.5.13.pi,2026 pick 5.13,,PICK,2026,late,5,53,-2.7586,-1.1287
-12516,Kalel Mullings,RB,RB,,,,31,-2.7597,-1.1292
-2026.5.14.pi,2026 pick 5.14,,PICK,2026,late,5,35,-2.7813,-1.138
-7694,Tommy Tremble,TE,TE,,,,103,-2.7921,-1.1424
-2026.5.7.pi,2026 pick 5.7,,PICK,2026,mid,5,1132,-2.8032,-1.147
-2026.5.8.pi,2026 pick 5.8,,PICK,2026,mid,5,1213,-2.8051,-1.1478
-2026.5.9.pi,2026 pick 5.9,,PICK,2026,late,5,1166,-2.9135,-1.1921
-2026.5.10.pi,2026 pick 5.10,,PICK,2026,late,5,1225,-2.9258,-1.1971
-2026.5.12.pi,2026 pick 5.12,,PICK,2026,late,5,745,-3.0005,-1.2277
-2026.5.11.pi,2026 pick 5.11,,PICK,2026,late,5,699,-3.0115,-1.2322
+9488,Jaxon Smith-Njigba,WR,WR,,,,2778,2.3571,0.9658
+4984,Josh Allen,QB,QB,,,,2854,2.1714,0.8897
+9221,Jahmyr Gibbs,RB,RB,,,,2217,2.0549,0.842
+7564,Ja'Marr Chase,WR,WR,,,,3585,2.0486,0.8394
+9509,Bijan Robinson,RB,RB,,,,2366,1.9518,0.7997
+6786,CeeDee Lamb,WR,WR,,,,7218,1.7322,0.7097
+7547,Amon-Ra St. Brown,WR,WR,,,,5390,1.7298,0.7088
+6770,Joe Burrow,QB,QB,,,,5745,1.7172,0.7036
+2026.1.1.pi,2026 pick 1.1,,PICK,2026,early,1,5393,1.7072,0.6995
+11560,Caleb Williams,QB,QB,,,,4201,1.5777,0.6464
+9493,Puka Nacua,WR,WR,,,,7408,1.562,0.64
+11604,Brock Bowers,TE,TE,,,,3821,1.5512,0.6356
+8151,Kenneth Walker III,RB,RB,,,,9477,1.5306,0.6271
+11632,Malik Nabers,WR,WR,,,,8593,1.5174,0.6217
+8130,Trey McBride,TE,TE,,,,4659,1.3855,0.5677
+6794,Justin Jefferson,WR,WR,,,,9249,1.3669,0.5601
+11564,Drake Maye,QB,QB,,,,5663,1.307,0.5355
+8183,Brock Purdy,QB,QB,,,,5901,1.2897,0.5285
+7523,Trevor Lawrence,QB,QB,,,,6870,1.2195,0.4997
+8138,James Cook,RB,RB,,,,8010,1.199,0.4913
+2026.1.2.pi,2026 pick 1.2,,PICK,2026,early,1,9158,1.1625,0.4763
+11566,Jayden Daniels,QB,QB,,,,6405,1.1179,0.4581
+4046,Patrick Mahomes,QB,QB,,,,6097,1.0917,0.4473
+8112,Drake London,WR,WR,,,,9170,1.0544,0.432
+12501,Matthew Golden,WR,WR,,,,12288,0.9781,0.4008
+4034,Christian McCaffrey,RB,RB,,,,10765,0.9374,0.3841
+6804,Jordan Love,QB,QB,,,,7720,0.9369,0.3839
+4881,Lamar Jackson,QB,QB,,,,7828,0.9224,0.378
+2026.1.3.pi,2026 pick 1.3,,PICK,2026,early,1,10464,0.9072,0.3717
+13287,Jeremiyah Love,RB,RB,,,,5216,0.904,0.3704
+12519,Luther Burden,WR,WR,,,,11770,0.8935,0.3661
+6813,Jonathan Taylor,RB,RB,,,,8470,0.8651,0.3545
+8144,Chris Olave,WR,WR,,,,10376,0.8594,0.3521
+11584,Bucky Irving,RB,RB,,,,13374,0.8514,0.3488
+6801,Tee Higgins,WR,WR,,,,12489,0.8438,0.3457
+8167,Christian Watson,WR,WR,,,,13747,0.783,0.3208
+9487,Parker Washington,WR,WR,,,,15897,0.7812,0.3201
+12527,Ashton Jeanty,RB,RB,,,,7620,0.7757,0.3178
+9997,Zay Flowers,WR,WR,,,,11348,0.7753,0.3177
+12526,Tetairoa McMillan,WR,WR,,,,8988,0.7694,0.3152
+7569,Nico Collins,WR,WR,,,,11669,0.7605,0.3116
+9758,C.J. Stroud,QB,QB,,,,8595,0.7021,0.2877
+2026.1.4.pi,2026 pick 1.4,,PICK,2026,early,1,11329,0.6962,0.2853
+8146,Garrett Wilson,WR,WR,,,,12607,0.6555,0.2686
+8137,George Pickens,WR,WR,,,,12437,0.6238,0.2556
+12517,Colston Loveland,TE,TE,,,,7266,0.5842,0.2394
+12490,Bhayshul Tuten,RB,RB,,,,16156,0.5841,0.2393
+9226,De'Von Achane,RB,RB,,,,13569,0.558,0.2286
+3294,Dak Prescott,QB,QB,,,,7546,0.5347,0.2191
+2026.1.5.pi,2026 pick 1.5,,PICK,2026,mid,1,12434,0.5327,0.2183
+13269,Fernando Mendoza,QB,QB,,,,4520,0.5114,0.2095
+7588,Javonte Williams,RB,RB,,,,12439,0.507,0.2077
+2026mid1stpi,2026 mid 1st,,PICK,2026,mid,1,256,0.4914,0.2013
+8150,Kyren Williams,RB,RB,,,,11613,0.4172,0.171
+12508,Jaxson Dart,QB,QB,,,,9175,0.4013,0.1644
+11563,Bo Nix,QB,QB,,,,7108,0.3668,0.1503
+13279,Carnell Tate,WR,WR,,,,6803,0.3639,0.1491
+2026.1.6.pi,2026 pick 1.6,,PICK,2026,mid,1,13124,0.3603,0.1476
+3163,Jared Goff,QB,QB,,,,7353,0.3416,0.14
+8155,Breece Hall,RB,RB,,,,13354,0.3351,0.1373
+8131,Isaiah Likely,TE,TE,,,,11374,0.3339,0.1368
+9228,Bryce Young,QB,QB,,,,9667,0.3151,0.1291
+7594,Chuba Hubbard,RB,RB,,,,15547,0.3093,0.1267
+13281,Jordyn Tyson,WR,WR,,,,7458,0.3055,0.1252
+6790,D'Andre Swift,RB,RB,,,,14675,0.3008,0.1232
+12545,Tyler Shough,QB,QB,,,,11276,0.2787,0.1142
+9224,Chase Brown,RB,RB,,,,12995,0.2535,0.1039
+13345,Jonah Coleman,RB,RB,,,,7398,0.2355,0.0965
+12506,Harold Fannin,TE,TE,,,,8431,0.1805,0.074
+12518,Tyler Warren,TE,TE,,,,6688,0.1721,0.0705
+2026.1.7.pi,2026 pick 1.7,,PICK,2026,mid,1,12990,0.1562,0.064
+6797,Justin Herbert,QB,QB,,,,8104,0.1332,0.0546
+8228,Jaylen Warren,RB,RB,,,,12915,0.1048,0.0429
+12507,Omarion Hampton,RB,RB,,,,12481,0.0834,0.0342
+12514,Emeka Egbuka,WR,WR,,,,12560,0.0809,0.0331
+10229,Rashee Rice,WR,WR,,,,14622,0.0586,0.024
+2026.1.8.pi,2026 pick 1.8,,PICK,2026,mid,1,13205,0.0336,0.0138
+7525,DeVonta Smith,WR,WR,,,,11932,0.0249,0.0102
+2027mid1stpi,2027 mid 1st,,PICK,2027,mid,1,171539,0,0
+6904,Jalen Hurts,QB,QB,,,,7786,-0.0121,-0.0049
+12481,Cam Skattebo,RB,RB,,,,13252,-0.0249,-0.0102
+3198,Derrick Henry,RB,RB,,,,12998,-0.0452,-0.0185
+10859,Sam LaPorta,TE,TE,,,,7673,-0.0513,-0.021
+8148,Jameson Williams,WR,WR,,,,12890,-0.0643,-0.0263
+12512,Quinshon Judkins,RB,RB,,,,12890,-0.0932,-0.0382
+12522,Cam Ward,QB,QB,,,,8992,-0.0977,-0.04
+9484,Tucker Kraft,TE,TE,,,,8767,-0.1065,-0.0436
+4217,George Kittle,TE,TE,,,,9907,-0.1281,-0.0525
+2026.1.9.pi,2026 pick 1.9,,PICK,2026,late,1,12621,-0.1327,-0.0544
+13298,KC Concepcion,WR,WR,,,,7293,-0.1558,-0.0638
+4866,Saquon Barkley,RB,RB,,,,13827,-0.2024,-0.0829
+11620,Rome Odunze,WR,WR,,,,14392,-0.2126,-0.0871
+2026.1.10.pi,2026 pick 1.10,,PICK,2026,late,1,12825,-0.2222,-0.091
+13363,,,OTH,,,,129,-0.2536,-0.1039
+10892,Will Anderson,DE,OTH,,,,171,-0.2615,-0.1071
+13377,Arvell Reese,LB,OTH,,,,187,-0.2728,-0.1118
+13286,Jadarian Price,RB,RB,,,,8461,-0.2845,-0.1166
+2026.1.11.pi,2026 pick 1.11,,PICK,2026,late,1,7959,-0.2881,-0.118
+11635,Ladd McConkey,WR,WR,,,,14234,-0.291,-0.1192
+2028mid1stpi,2028 mid 1st,,PICK,2028,mid,1,67046,-0.3041,-0.1246
+13346,Denzel Boston,WR,WR,,,,7300,-0.3163,-0.1296
+13276,Omar Cooper Jr.,WR,WR,,,,5224,-0.3545,-0.1453
+5850,Josh Jacobs,RB,RB,,,,14428,-0.3586,-0.1469
+13294,Makai Lemon,WR,WR,,,,7729,-0.3595,-0.1473
+2026.1.13.pi,2026 pick 1.13,,PICK,2026,late,1,478,-0.3866,-0.1584
+2026.1.12.pi,2026 pick 1.12,,PICK,2026,late,1,8244,-0.3917,-0.1605
+11586,Blake Corum,RB,RB,,,,10983,-0.4003,-0.164
+13337,Emmett Johnson,RB,RB,,,,5353,-0.4061,-0.1664
+10232,Michael Wilson,WR,WR,,,,14403,-0.4088,-0.1675
+4983,D.J. Moore,WR,WR,,,,15587,-0.4182,-0.1713
+5859,A.J. Brown,WR,WR,,,,15606,-0.466,-0.191
+2029mid1stpi,2029 mid 1st,,PICK,2029,mid,1,20704,-0.4698,-0.1925
+421,Matthew Stafford,QB,QB,,,,9822,-0.4827,-0.1978
+9500,Josh Downs,WR,WR,,,,16651,-0.4988,-0.2044
+8267,Nakobe Dean,LB,OTH,,,,186,-0.512,-0.2098
+2026.2.1.pi,2026 pick 2.1,,PICK,2026,early,2,12041,-0.5158,-0.2113
+4943,Sam Darnold,QB,QB,,,,8022,-0.5159,-0.2114
+3973,Myles Garrett,DE,OTH,,,,325,-0.5176,-0.2121
+2026.1.14.pi,2026 pick 1.14,,PICK,2026,late,1,425,-0.5177,-0.2121
+4892,Baker Mayfield,QB,QB,,,,7540,-0.5447,-0.2232
+2133,Davante Adams,WR,WR,,,,13327,-0.5603,-0.2296
+11667,Dallas Turner,DE,OTH,,,,167,-0.5693,-0.2333
+7648,Nick Bolton,LB,OTH,,,,159,-0.5707,-0.2338
+2026.2.2.pi,2026 pick 2.2,,PICK,2026,early,2,11617,-0.596,-0.2442
+11646,Jalen Coker,WR,WR,,,,12571,-0.5999,-0.2458
+5967,Tony Pollard,RB,RB,,,,15822,-0.6124,-0.2509
+13453,Jacob Rodriguez,LB,OTH,,,,135,-0.6298,-0.2581
+7526,Jaylen Waddle,WR,WR,,,,14090,-0.6306,-0.2584
+12578,Carson Schwesinger,LB,OTH,,,,183,-0.6348,-0.2601
+11559,Michael Penix Jr.,QB,QB,,,,7100,-0.6477,-0.2654
+12495,Ollie Gordon II,RB,RB,,,,11921,-0.663,-0.2716
+8289,Aidan Hutchinson,DE,OTH,,,,191,-0.6719,-0.2753
+12529,TreVeyon Henderson,RB,RB,,,,12208,-0.6784,-0.278
+9753,Zach Charbonnet,RB,RB,,,,9493,-0.6793,-0.2783
+13330,Kenyon Sadiq,TE,TE,,,,4857,-0.684,-0.2803
+13275,Ty Simpson,QB,QB,,,,3096,-0.684,-0.2803
+1166,Kirk Cousins,QB,QB,,,,16406,-0.6861,-0.2811
+2026.2.3.pi,2026 pick 2.3,,PICK,2026,early,2,11673,-0.6908,-0.2831
+10236,Dalton Kincaid,TE,TE,,,,7840,-0.6999,-0.2868
+12574,Abdul Carter,DE,OTH,,,,171,-0.7067,-0.2896
+13375,Sonny Styles,LB,OTH,,,,150,-0.7109,-0.2913
+7543,Travis Etienne,RB,RB,,,,11999,-0.7119,-0.2917
+11565,J.J. McCarthy,QB,QB,,,,7794,-0.7121,-0.2918
+2216,Mike Evans,WR,WR,,,,13760,-0.7185,-0.2944
+12534,Kyle Monangai,RB,RB,,,,12150,-0.7289,-0.2986
+13365,Anthony Hill Jr.,LB,OTH,,,,99,-0.732,-0.2999
+7627,Gregory Rousseau,DE,OTH,,,,144,-0.7579,-0.3105
+13296,Caleb Douglas,WR,WR,,,,6917,-0.766,-0.3139
+2026.2.4.pi,2026 pick 2.4,,PICK,2026,early,2,11402,-0.7706,-0.3157
+11576,Braelon Allen,RB,RB,,,,8638,-0.7837,-0.3211
+13376,,,OTH,,,,138,-0.8001,-0.3278
+5041,Fred Warner,LB,OTH,,,,225,-0.8001,-0.3278
+13388,CJ Allen,LB,OTH,,,,77,-0.8011,-0.3283
+6125,Jeffery Simmons,DT,OTH,,,,179,-0.8067,-0.3306
+7640,Micah Parsons,DE,OTH,,,,246,-0.8348,-0.3421
+11628,Marvin Harrison Jr.,WR,WR,,,,19632,-0.8368,-0.3429
+13379,Josiah Trotter,LB,OTH,,,,99,-0.8465,-0.3468
+13371,,,OTH,,,,77,-0.8484,-0.3476
+2026mid2ndpi,2026 mid 2nd,,PICK,2026,mid,2,214,-0.8578,-0.3515
+13274,Germie Bernard,WR,WR,,,,4539,-0.8584,-0.3517
+7611,Rhamondre Stevenson,RB,RB,,,,12605,-0.873,-0.3577
+13417,De'Zhaun Stribling,WR,WR,,,,7598,-0.8736,-0.358
+2026.2.5.pi,2026 pick 2.5,,PICK,2026,mid,2,11550,-0.874,-0.3581
+5991,Maxx Crosby,DE,OTH,,,,291,-0.8884,-0.364
+9756,Jordan Addison,WR,WR,,,,11438,-0.8996,-0.3686
+7553,Kyle Pitts,TE,TE,,,,9009,-0.9016,-0.3694
+13301,Antonio Williams,WR,WR,,,,5814,-0.9264,-0.3796
+8161,Malik Willis,QB,QB,,,,11684,-0.9336,-0.3825
+2026.2.6.pi,2026 pick 2.6,,PICK,2026,mid,2,11561,-0.9438,-0.3867
+8142,Alec Pierce,WR,WR,,,,9520,-0.9594,-0.3931
+4017,Deshaun Watson,QB,QB,,,,9943,-0.962,-0.3942
+4070,T.J. Watt,DE,OTH,,,,251,-0.9861,-0.4041
+11631,Brian Thomas Jr.,WR,WR,,,,16975,-0.9862,-0.4041
+2026.2.7.pi,2026 pick 2.7,,PICK,2026,mid,2,11337,-0.9967,-0.4084
+5846,DK Metcalf,WR,WR,,,,12841,-0.9978,-0.4088
+13414,Kaelon Black,RB,RB,,,,5718,-1.0176,-0.417
+2027mid2ndpi,2027 mid 2nd,,PICK,2027,mid,2,230306,-1.0196,-0.4178
+8329,Devin Lloyd,LB,OTH,,,,145,-1.0339,-0.4236
+8339,Kyle Hamilton,S,OTH,,,,137,-1.0478,-0.4293
+7672,Ernest Jones,LB,OTH,,,,110,-1.0487,-0.4297
+5849,Kyler Murray,QB,QB,,,,9524,-1.0594,-0.4341
+5892,David Montgomery,RB,RB,,,,13536,-1.0607,-0.4346
+2449,Stefon Diggs,WR,WR,,,,12322,-1.077,-0.4413
+5844,T.J. Hockenson,TE,TE,,,,6887,-1.0777,-0.4416
+10888,Jalen Carter,DT,OTH,,,,83,-1.0799,-0.4425
+10880,Jack Campbell,LB,OTH,,,,174,-1.0816,-0.4432
+MIN,,,OTH,,,,550,-1.0831,-0.4438
+2026.2.8.pi,2026 pick 2.8,,PICK,2026,mid,2,11210,-1.0872,-0.4455
+12489,RJ Harvey,RB,RB,,,,10698,-1.1171,-0.4577
+8385,George Karlaftis,DE,OTH,,,,81,-1.1259,-0.4613
+9480,Brenton Strange,TE,TE,,,,7205,-1.1307,-0.4633
+5862,Brian Burns,DE,OTH,,,,139,-1.1309,-0.4634
+2026.2.9.pi,2026 pick 2.9,,PICK,2026,late,2,10773,-1.1326,-0.4641
+13272,Carson Beck,QB,QB,,,,3207,-1.1335,-0.4644
+4960,Roquan Smith,LB,OTH,,,,194,-1.1405,-0.4673
+6217,Blake Cashman,LB,OTH,,,,142,-1.1467,-0.4699
+8392,Nick Cross,S,OTH,,,,86,-1.1558,-0.4736
+1466,Travis Kelce,TE,TE,,,,9859,-1.158,-0.4745
+6949,Jordyn Brooks,LB,OTH,,,,177,-1.1634,-0.4767
+12487,Terrance Ferguson,TE,TE,,,,5239,-1.1769,-0.4822
+11678,Cooper DeJean,CB,OTH,,,,106,-1.1782,-0.4828
+13385,,,OTH,,,,25,-1.1968,-0.4904
+2026.2.10.pi,2026 pick 2.10,,PICK,2026,late,2,11186,-1.1999,-0.4916
+6183,Andrew Van Ginkel,DE,OTH,,,,121,-1.2064,-0.4943
+8280,Nik Bonitto,DE,OTH,,,,141,-1.2147,-0.4977
+10905,Brian Branch,S,OTH,,,,111,-1.2237,-0.5014
+13482,Kendal Daniels,LB,OTH,,,,39,-1.2338,-0.5055
+5843,Devin Bush,LB,OTH,,,,114,-1.2407,-0.5084
+2028mid2ndpi,2028 mid 2nd,,PICK,2028,mid,2,89886,-1.2413,-0.5086
+2026.2.11.pi,2026 pick 2.11,,PICK,2026,late,2,6923,-1.2489,-0.5117
+13340,,,OTH,,,,95,-1.2556,-0.5145
+5816,Nick Bosa,DE,OTH,,,,176,-1.256,-0.5146
+2027mid7pi,,,OTH,,,,25,-1.2604,-0.5164
+10917,Byron Young,DE,OTH,,,,99,-1.2633,-0.5176
+12474,Woody Marks,RB,RB,,,,10379,-1.2677,-0.5194
+12492,Pat Bryant,WR,WR,,,,5290,-1.2679,-0.5195
+JAX,,,OTH,,,,316,-1.2695,-0.5201
+13305,Mike Washington Jr.,RB,RB,,,,5621,-1.2696,-0.5202
+11739,Evan Williams,S,OTH,,,,68,-1.2764,-0.523
+5872,Deebo Samuel,WR,WR,,,,8220,-1.2801,-0.5245
+13348,J'Mari Taylor,RB,RB,,,,193,-1.2811,-0.5249
+1373,Geno Smith,QB,QB,,,,9007,-1.2828,-0.5256
+5346,Zaire Franklin,LB,OTH,,,,95,-1.2879,-0.5277
+11687,Edgerrin Cooper,LB,OTH,,,,146,-1.2884,-0.5279
+2026.2.14.pi,2026 pick 2.14,,PICK,2026,late,2,425,-1.2904,-0.5287
+2026.3.1.pi,2026 pick 3.1,,PICK,2026,early,3,10259,-1.2972,-0.5315
+12568,Jalon Walker,DE,OTH,,,,44,-1.2993,-0.5324
+11665,Jared Verse,DE,OTH,,,,181,-1.2998,-0.5326
+2026.2.13.pi,2026 pick 2.13,,PICK,2026,late,2,420,-1.3046,-0.5345
+12646,Barrett Carter,LB,OTH,,,,122,-1.3051,-0.5348
+2029mid2ndpi,2029 mid 2nd,,PICK,2029,mid,2,26393,-1.3123,-0.5377
+8126,Wan'Dale Robinson,WR,WR,,,,8676,-1.3144,-0.5386
+2026.2.12.pi,2026 pick 2.12,,PICK,2026,late,2,7152,-1.3183,-0.5402
+12524,Shedeur Sanders,QB,QB,,,,3549,-1.3195,-0.5406
+2617,Alex Singleton,LB,OTH,,,,157,-1.3232,-0.5422
+8134,Khalil Shakir,WR,WR,,,,7233,-1.3237,-0.5424
+9502,Tank Dell,WR,WR,,,,5502,-1.3239,-0.5425
+9229,Anthony Richardson,QB,QB,,,,2993,-1.3264,-0.5435
+10898,Tuli Tuipulotu,DE,OTH,,,,95,-1.3275,-0.5439
+12617,Demetrius Knight,LB,OTH,,,,96,-1.3278,-0.5441
+13293,Ja'Kobi Lane,WR,WR,,,,5144,-1.3297,-0.5448
+11625,Adonai Mitchell,WR,WR,,,,5872,-1.3393,-0.5488
+13285,Malachi Fields,WR,WR,,,,4130,-1.3417,-0.5497
+5870,Daniel Jones,QB,QB,,,,7989,-1.3445,-0.5509
+8132,Tyler Allgeier,RB,RB,,,,9757,-1.3484,-0.5525
+2026.3.2.pi,2026 pick 3.2,,PICK,2026,early,3,9847,-1.3511,-0.5536
+7136,Kamren Curl,S,OTH,,,,47,-1.3592,-0.5569
+96,Aaron Rodgers,QB,QB,,,,12736,-1.3637,-0.5588
+10213,Tre Tucker,WR,WR,,,,6268,-1.3642,-0.559
+12484,Jayden Higgins,WR,WR,,,,6348,-1.3644,-0.559
+7839,Evan McPherson,PK,OTH,,,,164,-1.3769,-0.5642
+11583,Jonathon Brooks,RB,RB,,,,10683,-1.3795,-0.5652
+11786,Cam Little,PK,OTH,,,,378,-1.3821,-0.5663
+138,Ben Roethlisberger,QB,QB,,,,25,-1.39,-0.5695
+7021,Rico Dowdle,RB,RB,,,,9255,-1.3929,-0.5707
+5332,Foyesade Oluokun,LB,OTH,,,,126,-1.3955,-0.5718
+3257,Jacoby Brissett,QB,QB,,,,11241,-1.3966,-0.5723
+2393,Danielle Hunter,DE,OTH,,,,114,-1.4066,-0.5763
+12530,Travis Hunter,WR,WR,,,,5808,-1.4089,-0.5773
+6807,Patrick Queen,LB,OTH,,,,102,-1.412,-0.5786
+12533,Jacory Croskey-Merritt,RB,RB,,,,11606,-1.4154,-0.5799
+13421,Eli Raridon,TE,TE,,,,3103,-1.4252,-0.584
+11727,Payton Wilson,LB,OTH,,,,101,-1.426,-0.5843
+11792,Will Reichard,PK,OTH,,,,289,-1.4266,-0.5846
+9482,Michael Mayer,TE,TE,,,,4009,-1.4271,-0.5847
+13349,Eli Stowers,TE,TE,,,,3417,-1.4306,-0.5862
+11533,Brandon Aubrey,PK,OTH,,,,506,-1.4337,-0.5874
+2026.3.3.pi,2026 pick 3.3,,PICK,2026,early,3,9666,-1.4386,-0.5894
+11669,Laiatu Latu,DE,OTH,,,,81,-1.4397,-0.5899
+7016,Jeremy Chinn,S,OTH,,,,75,-1.4461,-0.5925
+5927,Terry McLaurin,WR,WR,,,,10000,-1.4463,-0.5926
+PIT,,,OTH,,,,315,-1.4476,-0.5931
+8917,KaVontae Turpin,WR,WR,,,,113,-1.4483,-0.5934
+7042,Tyler Bass,PK,OTH,,,,77,-1.4502,-0.5942
+3451,Ka'imi Fairbairn,PK,OTH,,,,242,-1.4519,-0.5949
+11624,Xavier Worthy,WR,WR,,,,9783,-1.4647,-0.6002
+LAR,,,OTH,,,,604,-1.471,-0.6027
+8210,Chigoziem Okonkwo,TE,TE,,,,6186,-1.4803,-0.6065
+5840,Josh Hines-Allen,DE,OTH,,,,104,-1.4816,-0.6071
+12185,Spencer Shrader,PK,OTH,,,,220,-1.4827,-0.6075
+5022,Dallas Goedert,TE,TE,,,,6190,-1.4856,-0.6087
+8408,Jordan Mason,RB,RB,,,,10339,-1.4856,-0.6087
+SEA,,,OTH,,,,401,-1.4859,-0.6088
+2026mid3rdpi,2026 mid 3rd,,PICK,2026,mid,3,152,-1.4932,-0.6118
+2026.3.4.pi,2026 pick 3.4,,PICK,2026,early,3,9808,-1.4974,-0.6135
+SF,,,OTH,,,,227,-1.498,-0.6138
+8259,Cameron Dicker,PK,OTH,,,,209,-1.4986,-0.614
+167,Tom Brady,QB,QB,,,,140,-1.4988,-0.6141
+11783,Ryan Flournoy,WR,WR,,,,3135,-1.5078,-0.6178
+8121,Romeo Doubs,WR,WR,,,,7346,-1.5085,-0.6181
+11638,Ricky Pearsall,WR,WR,,,,7348,-1.5113,-0.6193
+8330,Quentin Lake,S,OTH,,,,71,-1.5131,-0.62
+11539,Jake Bates,PK,OTH,,,,159,-1.5136,-0.6202
+13289,Drew Allar,QB,QB,,,,1937,-1.5166,-0.6214
+DEN,,,OTH,,,,433,-1.5232,-0.6241
+5012,Mark Andrews,TE,TE,,,,7138,-1.527,-0.6257
+5947,Jakobi Meyers,WR,WR,,,,7387,-1.5275,-0.6259
+7841,Jamien Sherwood,LB,OTH,,,,156,-1.528,-0.6261
+8136,Rachaad White,RB,RB,,,,8784,-1.5289,-0.6264
+11685,Kamari Lassiter,CB,OTH,,,,61,-1.533,-0.6281
+7527,Mac Jones,QB,QB,,,,2355,-1.5433,-0.6323
+12566,Jihaad Campbell,LB,OTH,,,,118,-1.5435,-0.6324
+12469,Dylan Sampson,RB,RB,,,,4910,-1.5462,-0.6335
+12597,Nick Emmanwori,S,OTH,,,,117,-1.553,-0.6363
+13311,Chris Bell,WR,WR,,,,3753,-1.5531,-0.6364
+11705,Tykee Smith,S,OTH,,,,72,-1.5599,-0.6391
+289,Drew Brees,QB,QB,,,,27,-1.5628,-0.6404
+6118,Quinnen Williams,DT,OTH,,,,71,-1.5632,-0.6405
+12585,James Pearce,DE,OTH,,,,73,-1.5657,-0.6415
+2026.3.5.pi,2026 pick 3.5,,PICK,2026,mid,3,9746,-1.5678,-0.6424
+13424,Seth McGowan,RB,RB,,,,2858,-1.5709,-0.6436
+7600,Pat Freiermuth,TE,TE,,,,3325,-1.5727,-0.6444
+6302,Kaden Elliss,LB,OTH,,,,63,-1.5777,-0.6465
+2311,Leonard Williams,DT,OTH,,,,29,-1.5783,-0.6467
+6815,Zack Baun,LB,OTH,,,,152,-1.584,-0.649
+7811,Talanoa Hufanga,S,OTH,,,,77,-1.5917,-0.6522
+6819,Michael Pittman,WR,WR,,,,7984,-1.592,-0.6523
+8266,Quay Walker,LB,OTH,,,,121,-1.5926,-0.6526
+10222,Jayden Reed,WR,WR,,,,7184,-1.5953,-0.6537
+4199,Aaron Jones,RB,RB,,,,11290,-1.5985,-0.655
+11637,Keon Coleman,WR,WR,,,,6126,-1.5998,-0.6555
+11742,Cedric Gray,LB,OTH,,,,153,-1.6001,-0.6556
+11610,Malik Washington,WR,WR,,,,6117,-1.6016,-0.6562
+10923,Dorian Williams,LB,OTH,,,,29,-1.608,-0.6588
+13359,,,OTH,,,,25,-1.6123,-0.6606
+11557,Joe Milton,QB,QB,,,,3672,-1.6169,-0.6625
+7726,Derrick Barnes,LB,OTH,,,,43,-1.6261,-0.6663
+11668,Byron Murphy,DT,OTH,,,,33,-1.6282,-0.6671
+4971,Derwin James,S,OTH,,,,88,-1.6321,-0.6687
+7567,Kenneth Gainwell,RB,RB,,,,7559,-1.6378,-0.6711
+2026.3.6.pi,2026 pick 3.6,,PICK,2026,mid,3,9629,-1.6386,-0.6714
+2227,Aaron Donald,DT,OTH,,,,103,-1.648,-0.6753
+11017,Dee Winters,LB,OTH,,,,63,-1.648,-0.6753
+9501,Demario Douglas,WR,WR,,,,2268,-1.6503,-0.6762
+13384,,,OTH,,,,31,-1.6513,-0.6766
+KC,,,OTH,,,,161,-1.6585,-0.6796
+12499,Elic Ayomanor,WR,WR,,,,2633,-1.6592,-0.6798
+3214,Hunter Henry,TE,TE,,,,4359,-1.6674,-0.6832
+4135,Trey Hendrickson,DE,OTH,,,,95,-1.6682,-0.6835
+5908,Amani Hooker,S,OTH,,,,55,-1.6689,-0.6838
+6860,Akeem Davis-Gaither,LB,OTH,,,,27,-1.6736,-0.6857
+9754,Quentin Johnston,WR,WR,,,,9081,-1.6749,-0.6863
+4968,Tremaine Edmunds,LB,OTH,,,,100,-1.6778,-0.6875
+5045,Courtland Sutton,WR,WR,,,,8383,-1.6827,-0.6895
+CHI,,,OTH,,,,176,-1.6832,-0.6897
+8110,Jake Ferguson,TE,TE,,,,6565,-1.6878,-0.6916
+7647,Pete Werner,LB,OTH,,,,42,-1.6886,-0.6919
+CIN,,,OTH,,,,134,-1.6934,-0.6939
+5912,Carl Granderson,DE,OTH,,,,31,-1.7,-0.6966
+HOU,,,OTH,,,,450,-1.7031,-0.6978
+6806,J.K. Dobbins,RB,RB,,,,9848,-1.7048,-0.6985
+2306,Jameis Winston,QB,QB,,,,4667,-1.7051,-0.6987
+2026.3.7.pi,2026 pick 3.7,,PICK,2026,mid,3,9612,-1.7057,-0.6989
+5944,Bobby Okereke,LB,OTH,,,,58,-1.7099,-0.7006
+7002,Juwan Johnson,TE,TE,,,,6052,-1.713,-0.7019
+12562,Nic Scourton,DE,OTH,,,,28,-1.7157,-0.703
+DET,,,OTH,,,,160,-1.716,-0.7031
+TB,,,OTH,,,,170,-1.7196,-0.7046
+10219,Chris Rodriguez,RB,RB,,,,6353,-1.7201,-0.7048
+9230,Tanner McKee,QB,QB,,,,4029,-1.7223,-0.7057
+12591,Xavier Watts,S,OTH,,,,64,-1.7225,-0.7058
+12510,Jalen Milroe,QB,QB,,,,1193,-1.7242,-0.7065
+7635,Jaelan Phillips,DE,OTH,,,,60,-1.7298,-0.7088
+CLE,,,OTH,,,,174,-1.7309,-0.7092
+10891,Devon Witherspoon,CB,OTH,,,,41,-1.736,-0.7113
+11435,Emanuel Wilson,RB,RB,,,,4348,-1.7384,-0.7123
+13341,,,OTH,,,,36,-1.7435,-0.7144
+12509,Tre Harris,WR,WR,,,,4518,-1.7436,-0.7144
+3160,Jalen Ramsey,CB,OTH,,,,26,-1.7438,-0.7145
+8154,Brian Robinson,RB,RB,,,,6200,-1.7451,-0.715
+8311,Terrel Bernard,LB,OTH,,,,62,-1.7543,-0.7188
+13602,,,OTH,,,,233,-1.7634,-0.7225
+2027mid3rdpi,2027 mid 3rd,,PICK,2027,mid,3,199132,-1.7644,-0.7229
+6083,Matt Gay,PK,OTH,,,,66,-1.7687,-0.7247
+1945,Chris Boswell,PK,OTH,,,,120,-1.7723,-0.7262
+13425,Jalon Daniels,QB,QB,,,,3116,-1.7786,-0.7288
+3321,Tyreek Hill,WR,WR,,,,3100,-1.78,-0.7293
+6650,Chase McLaughlin,PK,OTH,,,,153,-1.7812,-0.7298
+11618,Jalen McMillan,WR,WR,,,,3909,-1.7815,-0.73
+1479,Keenan Allen,WR,WR,,,,4957,-1.7823,-0.7303
+13415,Haynes King,QB,QB,,,,58,-1.7838,-0.7309
+745,Marshawn Lynch,RB,RB,,,,26,-1.7851,-0.7314
+6485,Azeez Al-Shaair,LB,OTH,,,,79,-1.7853,-0.7315
+DAL,,,OTH,,,,100,-1.7875,-0.7324
+13303,Cade Klubnik,QB,QB,,,,1163,-1.7899,-0.7334
+2026.3.8.pi,2026 pick 3.8,,PICK,2026,mid,3,9817,-1.7907,-0.7337
+12483,Jack Bech,WR,WR,,,,2880,-1.7921,-0.7343
+6803,Brandon Aiyuk,WR,WR,,,,3656,-1.7925,-0.7344
+8355,Kayvon Thibodeaux,DE,OTH,,,,44,-1.7943,-0.7352
+WAS,,,OTH,,,,60,-1.7962,-0.736
+6788,Xavier McKinney,S,OTH,,,,77,-1.7985,-0.7369
+12567,Malaki Starks,S,OTH,,,,78,-1.7989,-0.7371
+13288,Nicholas Singleton,RB,RB,,,,3081,-1.7993,-0.7373
+6888,Antoine Winfield,S,OTH,,,,73,-1.7995,-0.7373
+TEN,,,OTH,,,,52,-1.8044,-0.7393
+11834,Devaughn Vele,WR,WR,,,,5369,-1.8058,-0.7399
+12536,Jaylin Noel,WR,WR,,,,3589,-1.8063,-0.7401
+7641,Patrick Surtain II,CB,OTH,,,,42,-1.8137,-0.7432
+10927,Jordan Battle,S,OTH,,,,52,-1.8172,-0.7446
+7659,Trevon Moehrig,S,OTH,,,,37,-1.8191,-0.7454
+13488,Kaleb Elarms-Orr,LB,OTH,,,,30,-1.8194,-0.7455
+5839,Rashan Gary,DE,OTH,,,,26,-1.8196,-0.7456
+13381,Jaishawn Barham,LB,OTH,,,,42,-1.8219,-0.7465
+8659,Nate Landman,LB,OTH,,,,136,-1.8261,-0.7482
+4993,Mike Gesicki,TE,TE,,,,1987,-1.8269,-0.7486
+13317,Ted Hurst,WR,WR,,,,2919,-1.8271,-0.7486
+4035,Alvin Kamara,RB,RB,,,,7847,-1.828,-0.749
+11760,Austin Booker,DE,OTH,,,,47,-1.8281,-0.749
+6011,Gardner Minshew,QB,QB,,,,1752,-1.8328,-0.751
+10881,Christian Gonzalez,CB,OTH,,,,35,-1.8407,-0.7542
+2078,Odell Beckham,WR,WR,,,,358,-1.8411,-0.7544
+12504,Kaleb Johnson,RB,RB,,,,5567,-1.8433,-0.7553
+11603,AJ Barner,TE,TE,,,,5359,-1.8443,-0.7557
+5854,Drew Lock,QB,QB,,,,2905,-1.8465,-0.7566
+12713,Andres Borregales,PK,OTH,,,,60,-1.8476,-0.757
+GB,,,OTH,,,,183,-1.8481,-0.7572
+12493,Oronde Gadsden,TE,TE,,,,7538,-1.8482,-0.7573
+8396,Micah McFadden,LB,OTH,,,,26,-1.8505,-0.7582
+8205,Isiah Pacheco,RB,RB,,,,4172,-1.8551,-0.7601
+4037,Chris Godwin,WR,WR,,,,8127,-1.8586,-0.7615
+10949,Chamarri Conner,S,OTH,,,,40,-1.8588,-0.7616
+4081,Budda Baker,S,OTH,,,,127,-1.859,-0.7617
+12015,Harrison Mevis,PK,OTH,,,,45,-1.8593,-0.7618
+BUF,,,OTH,,,,174,-1.8607,-0.7624
+4227,Harrison Butker,PK,OTH,,,,99,-1.8631,-0.7634
+3172,DeForest Buckner,DT,OTH,,,,57,-1.8651,-0.7642
+2026.3.9.pi,2026 pick 3.9,,PICK,2026,late,3,9292,-1.8657,-0.7644
+10940,Nick Herbig,DE,OTH,,,,53,-1.8784,-0.7697
+8364,Trent McDuffie,CB,OTH,,,,31,-1.8789,-0.7699
+11237,Jacob Saylors,RB,RB,,,,210,-1.879,-0.7699
+11630,Roman Wilson,WR,WR,,,,2105,-1.8795,-0.7701
+12540,Chimere Dike,WR,WR,,,,2027,-1.8818,-0.771
+10218,Xavier Hutchinson,WR,WR,,,,888,-1.8822,-0.7712
+10933,DeMarvion Overshown,LB,OTH,,,,71,-1.8827,-0.7714
+CAR,,,OTH,,,,77,-1.8857,-0.7726
+12498,Mason Taylor,TE,TE,,,,2141,-1.8859,-0.7727
+BAL,,,OTH,,,,267,-1.8862,-0.7728
+13545,,,OTH,,,,120,-1.8866,-0.773
+9504,Kayshon Boutte,WR,WR,,,,4292,-1.8877,-0.7735
+7677,Divine Deablo,LB,OTH,,,,29,-1.8887,-0.7739
+12571,Mike Green,DE,OTH,,,,36,-1.8892,-0.7741
+4195,Jake Elliott,PK,OTH,,,,38,-1.8904,-0.7746
+10914,Daiyan Henley,LB,OTH,,,,109,-1.8965,-0.7771
+7591,Justin Fields,QB,QB,,,,2091,-1.8975,-0.7775
+13075,Myles Price,WR,WR,,,,77,-1.9021,-0.7794
+9225,Tank Bigsby,RB,RB,,,,4559,-1.9068,-0.7813
+7715,Camryn Bynum,S,OTH,,,,34,-1.908,-0.7818
+12494,Kyle McCord,QB,QB,,,,1655,-1.9085,-0.782
+13726,Camden Brown,WR,WR,,,,57,-1.9099,-0.7826
+13360,,,OTH,,,,30,-1.9103,-0.7827
+2027mid6pi,,,OTH,,,,52,-1.9162,-0.7852
+6056,Dre Greenlaw,LB,OTH,,,,38,-1.9213,-0.7872
+12511,Will Howard,QB,QB,,,,767,-1.9215,-0.7873
+2028mid3rdpi,2028 mid 3rd,,PICK,2028,mid,3,80067,-1.9233,-0.788
+4018,Joe Mixon,RB,RB,,,,501,-1.9237,-0.7882
+8188,Tyquan Thornton,WR,WR,,,,610,-1.9321,-0.7916
+13302,Adam Randall,RB,RB,,,,1513,-1.9346,-0.7927
+7113,Alex Highsmith,DE,OTH,,,,58,-1.936,-0.7933
+2026.4.1.pi,2026 pick 4.1,,PICK,2026,early,4,5817,-1.937,-0.7936
+LV,,,OTH,,,,83,-1.938,-0.7941
+12502,Gunnar Helm,TE,TE,,,,3815,-1.9385,-0.7943
+6119,Devin White,LB,OTH,,,,50,-1.9438,-0.7965
+5847,Dexter Lawrence,DT,OTH,,,,39,-1.9439,-0.7965
+2029mid3rdpi,2029 mid 3rd,,PICK,2029,mid,3,28620,-1.9445,-0.7967
+11581,MarShawn Lloyd,RB,RB,,,,10159,-1.9447,-0.7968
+2026.3.10.pi,2026 pick 3.10,,PICK,2026,late,3,9090,-1.9448,-0.7969
+12491,Corey Kiner,RB,RB,,,,1192,-1.946,-0.7973
+9486,Dontayvion Wicks,WR,WR,,,,5720,-1.9539,-0.8006
+6782,Chase Young,DE,OTH,,,,89,-1.9549,-0.801
+13338,Kevin Coleman,WR,WR,,,,530,-1.9586,-0.8025
+3161,Carson Wentz,QB,QB,,,,1598,-1.9592,-0.8028
+536,Antonio Brown,WR,WR,,,,28,-1.9605,-0.8033
+6900,Jonathan Greenard,DE,OTH,,,,53,-1.9607,-0.8034
+6789,Henry Ruggs,WR,WR,,,,62,-1.9665,-0.8057
+6214,Quincy Williams,LB,OTH,,,,70,-1.9697,-0.8071
+IND,,,OTH,,,,84,-1.9699,-0.8071
+8265,Travon Walker,DE,OTH,,,,52,-1.971,-0.8076
+2026.4.2.pi,2026 pick 4.2,,PICK,2026,early,4,5616,-1.9727,-0.8083
+13413,Cyrus Allen,WR,WR,,,,4095,-1.9775,-0.8103
+4040,JuJu Smith-Schuster,WR,WR,,,,25,-1.981,-0.8117
+7083,Tyler Huntley,QB,QB,,,,2286,-1.9824,-0.8123
+10935,Trenton Simpson,LB,OTH,,,,25,-1.984,-0.8129
+2307,Marcus Mariota,QB,QB,,,,2042,-1.9872,-0.8142
+1737,Case Keenum,QB,QB,,,,233,-1.9874,-0.8143
+13533,Barion Brown,WR,WR,,,,362,-1.99,-0.8154
+13320,Zachariah Branch,WR,WR,,,,2492,-1.9934,-0.8168
+5001,Dalton Schultz,TE,TE,,,,4243,-1.9956,-0.8177
+11655,Tyrone Tracy,RB,RB,,,,4672,-1.9964,-0.818
+12535,Isaac TeSlaa,WR,WR,,,,4209,-1.9969,-0.8182
+6315,Tyrel Dodson,LB,OTH,,,,57,-1.9991,-0.8191
+9506,Sean Tucker,RB,RB,,,,1570,-2.0001,-0.8195
+8323,Jaquan Brisker,S,OTH,,,,39,-2.0041,-0.8212
+4950,Christian Kirk,WR,WR,,,,959,-2.0045,-0.8213
+7587,Dyami Brown,WR,WR,,,,32,-2.0051,-0.8216
+13404,Garrett Nussmeier,QB,QB,,,,206,-2.0086,-0.823
+2026mid4thpi,2026 mid 4th,,PICK,2026,mid,4,75,-2.0118,-0.8243
+9479,Darnell Washington,TE,TE,,,,970,-2.0154,-0.8258
+13423,Eli Heidenreich,RB,RB,,,,681,-2.0173,-0.8266
+8362,Leo Chenal,LB,OTH,,,,27,-2.0173,-0.8266
+12588,Kevin Winston,S,OTH,,,,29,-2.0183,-0.827
+5960,T.J. Edwards,LB,OTH,,,,55,-2.0201,-0.8277
+NE,,,OTH,,,,275,-2.0203,-0.8278
+13353,Chris Brazzell II,WR,WR,,,,1489,-2.0223,-0.8286
+5995,Justice Hill,RB,RB,,,,1048,-2.0243,-0.8294
+5189,Eddy Pineiro,PK,OTH,,,,53,-2.0259,-0.8301
+2026.3.11.pi,2026 pick 3.11,,PICK,2026,late,3,5990,-2.0276,-0.8308
+9511,Keaton Mitchell,RB,RB,,,,5400,-2.0278,-0.8309
+8343,Boye Mafe,DE,OTH,,,,42,-2.028,-0.831
+13405,Kaytron Allen,RB,RB,,,,1681,-2.0306,-0.832
+6130,Devin Singletary,RB,RB,,,,1230,-2.0314,-0.8324
+3271,Tyler Higbee,TE,TE,,,,1120,-2.0336,-0.8333
+13833,,,OTH,,,,41,-2.0344,-0.8336
+5726,Robert Spillane,LB,OTH,,,,67,-2.0353,-0.8339
+11629,Devontez Walker,WR,WR,,,,60,-2.0358,-0.8341
+4574,Cooper Rush,QB,QB,,,,211,-2.0374,-0.8348
+8676,Rashid Shaheed,WR,WR,,,,5218,-2.0407,-0.8361
+12718,Konata Mumpfield,WR,WR,,,,910,-2.0411,-0.8363
+13427,Diego Pavia,QB,QB,,,,25,-2.0472,-0.8388
+2026.4.3.pi,2026 pick 4.3,,PICK,2026,early,4,5441,-2.0504,-0.8401
+7049,Jauan Jennings,WR,WR,,,,3231,-2.0521,-0.8408
+2020,Cairo Santos,PK,OTH,,,,31,-2.0526,-0.841
+5017,Jessie Bates,S,OTH,,,,70,-2.0536,-0.8415
+11570,Rasheen Ali,RB,RB,,,,38,-2.0542,-0.8417
+12634,Jordan Watkins,WR,WR,,,,321,-2.0551,-0.8421
+6124,Montez Sweat,DE,OTH,,,,45,-2.0551,-0.8421
+1052,Demario Davis,LB,OTH,,,,49,-2.0567,-0.8427
+11663,Chop Robinson,DE,OTH,,,,38,-2.0571,-0.8429
+13268,Elijah Sarratt,WR,WR,,,,1461,-2.0597,-0.8439
+7571,Rashod Bateman,WR,WR,,,,2048,-2.066,-0.8465
+12648,Cody Simon,LB,OTH,,,,25,-2.0696,-0.848
+13278,Max Klare,TE,TE,,,,1084,-2.0703,-0.8483
+9508,Tyjae Spears,RB,RB,,,,4989,-2.0721,-0.849
+11256,Tyson Bagent,QB,QB,,,,1406,-2.0734,-0.8496
+7921,Christian Elliss,LB,OTH,,,,30,-2.0734,-0.8496
+7585,Davis Mills,QB,QB,,,,307,-2.0747,-0.8501
+2026.3.12.pi,2026 pick 3.12,,PICK,2026,late,3,5990,-2.0756,-0.8505
+2026.3.14.pi,2026 pick 3.14,,PICK,2026,late,3,362,-2.0756,-0.8505
+9497,Jalin Hyatt,WR,WR,,,,30,-2.0759,-0.8506
+2747,Jason Myers,PK,OTH,,,,183,-2.0771,-0.8511
+3634,Kalif Raymond,WR,WR,,,,1221,-2.0795,-0.8521
+1426,DeAndre Hopkins,WR,WR,,,,39,-2.0809,-0.8526
+13391,Jake Golday,LB,OTH,,,,39,-2.082,-0.8531
+13270,,,OTH,,,,296,-2.083,-0.8535
+4039,Cooper Kupp,WR,WR,,,,2199,-2.0861,-0.8548
+10970,Henry To'oTo'o,LB,OTH,,,,41,-2.0867,-0.855
+12556,Donovan Ezeiruaku,DE,OTH,,,,40,-2.0873,-0.8552
+12500,Quinn Ewers,QB,QB,,,,617,-2.0891,-0.856
+NYG,,,OTH,,,,103,-2.0923,-0.8573
+8314,Jalen Pitre,S,OTH,,,,42,-2.0926,-0.8574
+LAC,,,OTH,,,,120,-2.0949,-0.8583
+8162,Sam Howell,QB,QB,,,,101,-2.0994,-0.8602
+4454,Kendrick Bourne,WR,WR,,,,683,-2.0999,-0.8604
+PHI,,,OTH,,,,249,-2.1027,-0.8616
+6826,Cole Kmet,TE,TE,,,,753,-2.1034,-0.8618
+2505,Darren Waller,TE,TE,,,,2424,-2.1074,-0.8635
+5871,Zach Allen,DT,OTH,,,,28,-2.1083,-0.8638
+2026.4.4.pi,2026 pick 4.4,,PICK,2026,early,4,5362,-2.1088,-0.8641
+2026.3.13.pi,2026 pick 3.13,,PICK,2026,late,3,336,-2.1143,-0.8663
+11589,Trey Benson,RB,RB,,,,2022,-2.1162,-0.8671
+13277,CJ Donaldson,RB,RB,,,,77,-2.1172,-0.8675
+13297,Reggie Virgil,WR,WR,,,,212,-2.1183,-0.868
+8800,Malik Davis,RB,RB,,,,738,-2.1233,-0.87
+8111,Cade Otton,TE,TE,,,,2810,-2.1241,-0.8703
+4118,Alex Anzalone,LB,OTH,,,,40,-2.1273,-0.8716
+12573,Mason Graham,DT,OTH,,,,69,-2.1279,-0.8719
+11682,Cole Bishop,S,OTH,,,,36,-2.1297,-0.8726
+MIA,,,OTH,,,,46,-2.1322,-0.8736
+19,Joe Flacco,QB,QB,,,,752,-2.1343,-0.8745
+6783,Jerry Jeudy,WR,WR,,,,4159,-2.1381,-0.8761
+12531,Trevor Etienne,RB,RB,,,,773,-2.1389,-0.8764
+13350,Joe Fagnano,QB,QB,,,,260,-2.1412,-0.8774
+13394,Josh Cameron,WR,WR,,,,644,-2.1442,-0.8786
+3678,Wil Lutz,PK,OTH,,,,37,-2.1466,-0.8796
+12978,Elijah Ponder,LB,OTH,,,,31,-2.1499,-0.8809
+10921,YaYa Diaby,DE,OTH,,,,40,-2.1523,-0.8819
+8129,Dameon Pierce,RB,RB,,,,1172,-2.153,-0.8822
+9757,Kendre Miller,RB,RB,,,,1913,-2.1539,-0.8825
+10857,Stetson Bennett,QB,QB,,,,42,-2.1569,-0.8838
+7090,Darnell Mooney,WR,WR,,,,1330,-2.1591,-0.8847
+5876,Julian Love,S,OTH,,,,57,-2.1598,-0.885
+13307,Marlin Klein,TE,TE,,,,306,-2.1616,-0.8857
+8135,Treylon Burks,WR,WR,,,,621,-2.1696,-0.889
+12482,Savion Williams,WR,WR,,,,603,-2.1701,-0.8892
+11579,Audric Estime,RB,RB,,,,651,-2.1719,-0.8899
+13347,Demond Claiborne,RB,RB,,,,2016,-2.1732,-0.8905
+12523,Jimmy Horn,WR,WR,,,,119,-2.1762,-0.8917
+7528,Najee Harris,RB,RB,,,,1465,-2.1819,-0.894
+11729,Sione Vaki,RB,RB,,,,489,-2.1841,-0.8949
+12470,Riley Leonard,QB,QB,,,,568,-2.1866,-0.8959
+6828,AJ Dillon,RB,RB,,,,74,-2.1891,-0.897
+12711,Tyler Loop,PK,OTH,,,,148,-2.1904,-0.8975
+13411,Zavion Thomas,WR,WR,,,,1236,-2.1905,-0.8976
+11647,Kimani Vidal,RB,RB,,,,2766,-2.1937,-0.8989
+7538,Zach Wilson,QB,QB,,,,42,-2.1943,-0.8991
+2026.4.5.pi,2026 pick 4.5,,PICK,2026,mid,4,5165,-2.1959,-0.8997
+13402,Skyler Bell,WR,WR,,,,1539,-2.1967,-0.9001
+6768,Tua Tagovailoa,QB,QB,,,,4240,-2.1969,-0.9002
+8180,Jalen Nailor,WR,WR,,,,3567,-2.1984,-0.9008
+13329,Malik Benson,WR,WR,,,,379,-2.1998,-0.9013
+12457,Jaydon Blue,RB,RB,,,,1846,-2.2001,-0.9015
+5127,Kyle Allen,QB,QB,,,,28,-2.2002,-0.9015
+12497,Tory Horton,WR,WR,,,,2788,-2.2018,-0.9022
+12505,Jalen Royals,WR,WR,,,,767,-2.202,-0.9023
+827,Tyrod Taylor,QB,QB,,,,175,-2.2029,-0.9026
+6111,Jake Browning,QB,QB,,,,67,-2.2037,-0.903
+8160,Kenny Pickett,QB,QB,,,,126,-2.2053,-0.9036
+12539,Arian Smith,WR,WR,,,,29,-2.2062,-0.904
+6865,Colby Parkinson,TE,TE,,,,1255,-2.2128,-0.9067
+12476,Devin Neal,RB,RB,,,,913,-2.2169,-0.9084
+7610,Trey Lance,QB,QB,,,,187,-2.2192,-0.9093
+11470,Drake Thomas,LB,OTH,,,,66,-2.2205,-0.9098
+12485,Tez Johnson,WR,WR,,,,1177,-2.2206,-0.9099
+NYJ,,,OTH,,,,70,-2.2212,-0.9101
+8172,Greg Dulcich,TE,TE,,,,2493,-2.2234,-0.911
+13401,Michael Trigg,TE,TE,,,,223,-2.2234,-0.911
+12472,Raheim Sanders,RB,RB,,,,405,-2.2251,-0.9117
+13299,Nate Boerkircher,TE,TE,,,,86,-2.2253,-0.9118
+5906,Dawson Knox,TE,TE,,,,332,-2.2276,-0.9127
+6271,Olamide Zaccheaus,WR,WR,,,,93,-2.2276,-0.9127
+11608,Isaiah Williams,WR,WR,,,,165,-2.2348,-0.9157
+260,Josh Johnson,QB,QB,,,,113,-2.2349,-0.9157
+13333,Deion Burks,WR,WR,,,,299,-2.2385,-0.9172
+11577,Will Shipley,RB,RB,,,,1104,-2.2389,-0.9174
+4147,Samaje Perine,RB,RB,,,,795,-2.24,-0.9178
+13264,Dohnte Meyers,WR,WR,,,,549,-2.2419,-0.9186
+13150,Darius Cooper,WR,WR,,,,695,-2.2427,-0.9189
+7670,Joshua Palmer,WR,WR,,,,203,-2.2432,-0.9191
+11626,Xavier Legette,WR,WR,,,,1355,-2.2445,-0.9197
+829,Andy Dalton,QB,QB,,,,36,-2.245,-0.9199
+5580,Frankie Luvu,LB,OTH,,,,30,-2.2456,-0.9201
+12520,Xavier Restrepo,WR,WR,,,,51,-2.2457,-0.9201
+8698,Jake Tonges,TE,TE,,,,1563,-2.2494,-0.9217
+11292,Tommy DeVito,QB,QB,,,,208,-2.2511,-0.9223
+12541,Dont'e Thornton,WR,WR,,,,873,-2.2511,-0.9224
+6141,Drue Tranquill,LB,OTH,,,,35,-2.2512,-0.9224
+9999,Will Levis,QB,QB,,,,157,-2.2521,-0.9228
+13403,Jam Miller,RB,RB,,,,85,-2.2527,-0.923
+2027mid4thpi,2027 mid 4th,,PICK,2027,mid,4,87933,-2.2532,-0.9232
+6136,Jarrett Stidham,QB,QB,,,,62,-2.2544,-0.9237
+7828,Noah Gray,TE,TE,,,,300,-2.255,-0.9239
+13306,Taylen Green,QB,QB,,,,405,-2.256,-0.9244
+12467,Jordan James,RB,RB,,,,1656,-2.2629,-0.9272
+4137,James Conner,RB,RB,,,,1583,-2.2648,-0.928
+4098,Kareem Hunt,RB,RB,,,,82,-2.2655,-0.9283
+7562,Tutu Atwell,WR,WR,,,,205,-2.2657,-0.9283
+9481,Luke Musgrave,TE,TE,,,,241,-2.2664,-0.9286
+13400,Justin Joly,TE,TE,,,,889,-2.2672,-0.929
+4066,Evan Engram,TE,TE,,,,1585,-2.2688,-0.9296
+7561,Elijah Mitchell,RB,RB,,,,112,-2.269,-0.9297
+4972,Mason Rudolph,QB,QB,,,,72,-2.2718,-0.9309
+13380,Brenen Thompson,WR,WR,,,,500,-2.2757,-0.9324
+12547,Kyle Williams,WR,WR,,,,2130,-2.2777,-0.9333
+12738,Phil Mafah,RB,RB,,,,129,-2.2777,-0.9333
+9494,Marvin Mims,WR,WR,,,,990,-2.2792,-0.9339
+2026.4.6.pi,2026 pick 4.6,,PICK,2026,mid,4,5190,-2.285,-0.9363
+4177,Mack Hollins,WR,WR,,,,438,-2.2872,-0.9371
+6427,Ashton Dulin,WR,WR,,,,30,-2.2923,-0.9393
+10444,Cedric Tillman,WR,WR,,,,329,-2.2954,-0.9405
+11643,Jaylen Wright,RB,RB,,,,2855,-2.2954,-0.9405
+12048,George Holani,RB,RB,,,,1104,-2.2957,-0.9407
+12542,Efton Chism,WR,WR,,,,598,-2.2995,-0.9422
+2029mid4thpi,2029 mid 4th,,PICK,2029,mid,4,12696,-2.3006,-0.9426
+2197,Brandin Cooks,WR,WR,,,,130,-2.3012,-0.9429
+13392,Jeff Caldwell,WR,WR,,,,95,-2.3019,-0.9432
+2029mid5pi,,,OTH,,,,2246,-2.3021,-0.9433
+13435,Joe Royer,TE,TE,,,,33,-2.306,-0.9449
+12521,Elijah Arroyo,TE,TE,,,,1579,-2.3062,-0.9449
+4413,Eric Wilson,LB,OTH,,,,47,-2.308,-0.9457
+5848,Marquise Brown,WR,WR,,,,565,-2.3089,-0.946
+6901,Josh Metellus,S,OTH,,,,28,-2.3167,-0.9492
+13319,Oscar Delp,TE,TE,,,,1214,-2.3171,-0.9494
+11370,Chris Brooks,RB,RB,,,,782,-2.3172,-0.9495
+12969,Lan Larison,RB,RB,,,,32,-2.3185,-0.95
+12471,DJ Giddens,RB,RB,,,,1309,-2.3217,-0.9513
+6131,Mack Wilson,LB,OTH,,,,35,-2.3226,-0.9516
+11562,Spencer Rattler,QB,QB,,,,335,-2.3232,-0.9519
+6039,Ty Johnson,RB,RB,,,,253,-2.3257,-0.9529
+3286,Demarcus Robinson,WR,WR,,,,145,-2.3263,-0.9532
+8122,Bam Knight,RB,RB,,,,409,-2.3267,-0.9533
+ATL,,,OTH,,,,61,-2.332,-0.9555
+13418,Robert Henry,RB,RB,,,,53,-2.3328,-0.9558
+11575,Ray Davis,RB,RB,,,,1990,-2.3333,-0.956
+12544,LeQuint Allen,RB,RB,,,,1026,-2.335,-0.9568
+11592,Erick All,TE,TE,,,,225,-2.3363,-0.9573
+8117,Jalen Tolbert,WR,WR,,,,483,-2.3419,-0.9596
+10235,Roschon Johnson,RB,RB,,,,537,-2.343,-0.96
+7608,Khalil Herbert,RB,RB,,,,35,-2.3431,-0.96
+13335,Cole Payton,QB,QB,,,,186,-2.3443,-0.9605
+8168,Skyy Moore,WR,WR,,,,60,-2.3467,-0.9615
+2026.5.1.pi,2026 pick 5.1,,PICK,2026,early,5,1387,-2.3473,-0.9618
+13477,Colbie Young,WR,WR,,,,218,-2.3475,-0.9619
+2028mid4thpi,2028 mid 4th,,PICK,2028,mid,4,32412,-2.3484,-0.9622
+NO,,,OTH,,,,78,-2.3494,-0.9626
+12503,Isaiah Bond,WR,WR,,,,1050,-2.3519,-0.9637
+10885,Lukas Van Ness,DE,OTH,,,,48,-2.3559,-0.9653
+8143,Jerome Ford,RB,RB,,,,182,-2.3579,-0.9661
+3155,Laquon Treadwell,WR,WR,,,,65,-2.3642,-0.9687
+8125,Calvin Austin III,WR,WR,,,,232,-2.3687,-0.9705
+8207,Tyler Goodson,RB,RB,,,,154,-2.3698,-0.971
+2026.4.7.pi,2026 pick 4.7,,PICK,2026,mid,4,5015,-2.3701,-0.9711
+13420,Bryce Lance,WR,WR,,,,1002,-2.3704,-0.9712
+4988,Nick Chubb,RB,RB,,,,82,-2.3752,-0.9732
+ARI,,,OTH,,,,36,-2.3753,-0.9733
+11627,Troy Franklin,WR,WR,,,,2562,-2.3882,-0.9785
+11651,Isaac Guerendo,RB,RB,,,,196,-2.3904,-0.9794
+11650,Luke McCaffrey,WR,WR,,,,255,-2.3944,-0.9811
+13416,Roman Hemby,RB,RB,,,,25,-2.3968,-0.9821
+8147,John Metchie,WR,WR,,,,242,-2.3997,-0.9833
+8225,Daniel Bellinger,TE,TE,,,,58,-2.4017,-0.9841
+11439,Jaleel McLaughlin,RB,RB,,,,211,-2.4023,-0.9843
+4981,Calvin Ridley,WR,WR,,,,1760,-2.4031,-0.9846
+13324,,,OTH,,,,656,-2.4037,-0.9849
+2027mid5pi,,,OTH,,,,13925,-2.4057,-0.9857
+4663,Austin Ekeler,RB,RB,,,,415,-2.4112,-0.988
+10980,SirVocea Dennis,LB,OTH,,,,60,-2.4113,-0.988
+2026.5.2.pi,2026 pick 5.2,,PICK,2026,early,5,1296,-2.4113,-0.988
+4179,Joshua Dobbs,QB,QB,,,,27,-2.4186,-0.991
+3976,Mitchell Trubisky,QB,QB,,,,47,-2.4206,-0.9918
+8119,Jahan Dotson,WR,WR,,,,693,-2.4224,-0.9925
+10231,Elijah Higgins,TE,TE,,,,45,-2.4334,-0.9971
+7891,Brock Wright,TE,TE,,,,25,-2.4411,-1.0002
+11199,Emari Demercado,RB,RB,,,,368,-2.4412,-1.0002
+1837,Jimmy Garoppolo,QB,QB,,,,32,-2.4431,-1.0011
+12641,Jaylin Lane,WR,WR,,,,399,-2.4477,-1.0029
+11619,Ja'Lynn Polk,WR,WR,,,,121,-2.4498,-1.0038
+13434,Will Kacmarek,TE,TE,,,,174,-2.4523,-1.0048
+2026.4.8.pi,2026 pick 4.8,,PICK,2026,mid,4,5158,-2.4524,-1.0048
+11569,Jarquez Hunter,RB,RB,,,,329,-2.4549,-1.0059
+10216,Kenny McIntosh,RB,RB,,,,36,-2.4631,-1.0092
+2026.5.3.pi,2026 pick 5.3,,PICK,2026,early,5,1158,-2.4746,-1.0139
+12543,Tahj Brooks,RB,RB,,,,640,-2.4789,-1.0157
+6931,DeeJay Dallas,RB,RB,,,,30,-2.4811,-1.0166
+11597,Theo Johnson,TE,TE,,,,1320,-2.4831,-1.0174
+11600,Ja'Tavion Sanders,TE,TE,,,,685,-2.4838,-1.0177
+10947,Ventrell Miller,LB,OTH,,,,41,-2.502,-1.0252
+7607,Michael Carter,RB,RB,,,,58,-2.5023,-1.0253
+11623,Jordan Whittington,WR,WR,,,,77,-2.5037,-1.0259
+11593,Brevyn Spann-Ford,TE,TE,,,,116,-2.5051,-1.0264
+4033,David Njoku,TE,TE,,,,2636,-2.5142,-1.0302
+2026.4.13.pi,2026 pick 4.13,,PICK,2026,late,4,163,-2.5175,-1.0315
+11616,Jacob Cowing,WR,WR,,,,50,-2.5346,-1.0385
+11571,Isaiah Davis,RB,RB,,,,915,-2.5403,-1.0409
+13273,Josh Cuevas,TE,TE,,,,96,-2.5427,-1.0419
+12455,Brashard Smith,RB,RB,,,,547,-2.5432,-1.042
+13342,John Michael Gyllenborg,TE,TE,,,,34,-2.5437,-1.0423
+2026.4.9.pi,2026 pick 4.9,,PICK,2026,late,4,4928,-2.5458,-1.0431
+2028mid5pi,,,OTH,,,,4795,-2.5522,-1.0457
+1339,Zach Ertz,TE,TE,,,,243,-2.5527,-1.0459
+10226,Andrei Iosivas,WR,WR,,,,373,-2.5536,-1.0463
+12473,Mitchell Evans,TE,TE,,,,57,-2.5629,-1.0501
+4144,Jonnu Smith,TE,TE,,,,95,-2.5663,-1.0515
+13079,Jahdae Walker,WR,WR,,,,98,-2.5671,-1.0518
+11588,Jawhar Jordan,RB,RB,,,,43,-2.5678,-1.0521
+13322,Sam Roush,TE,TE,,,,130,-2.573,-1.0543
+2026.5.5.pi,2026 pick 5.5,,PICK,2026,mid,5,1088,-2.5739,-1.0546
+12462,Damien Martinez,RB,RB,,,,77,-2.5755,-1.0553
+12640,Teddye Buchanan,LB,OTH,,,,36,-2.5782,-1.0564
+2026.4.10.pi,2026 pick 4.10,,PICK,2026,late,4,4983,-2.5796,-1.057
+2026.5.4.pi,2026 pick 5.4,,PICK,2026,early,5,1150,-2.5797,-1.057
+12486,Dillon Gabriel,QB,QB,,,,199,-2.583,-1.0583
+11596,Ben Sinnott,TE,TE,,,,459,-2.5965,-1.0639
+2026.4.14.pi,2026 pick 4.14,,PICK,2026,late,4,176,-2.5996,-1.0651
+6149,Darius Slayton,WR,WR,,,,266,-2.6023,-1.0663
+8127,Charlie Kolar,TE,TE,,,,136,-2.6047,-1.0673
+5857,Noah Fant,TE,TE,,,,238,-2.6109,-1.0698
+12670,KeAndre Lambert-Smith,WR,WR,,,,206,-2.6146,-1.0713
+5970,Greg Dortch,WR,WR,,,,42,-2.6355,-1.0799
+12496,Tai Felton,WR,WR,,,,168,-2.651,-1.0862
+2026.4.11.pi,2026 pick 4.11,,PICK,2026,late,4,3060,-2.6588,-1.0894
+7039,Cody White,WR,WR,,,,40,-2.6589,-1.0895
+2026.4.12.pi,2026 pick 4.12,,PICK,2026,late,4,3246,-2.6641,-1.0916
+8116,Pierre Strong Jr.,RB,RB,,,,67,-2.6726,-1.0951
+2026.5.6.pi,2026 pick 5.6,,PICK,2026,mid,5,1165,-2.6754,-1.0962
+7694,Tommy Tremble,TE,TE,,,,107,-2.6802,-1.0982
+13282,Jack Endries,TE,TE,,,,135,-2.7014,-1.1069
+11599,Cade Stover,TE,TE,,,,56,-2.7379,-1.1218
+12516,Kalel Mullings,RB,RB,,,,31,-2.7432,-1.124
+2026.5.13.pi,2026 pick 5.13,,PICK,2026,late,5,53,-2.7446,-1.1246
+2026.5.14.pi,2026 pick 5.14,,PICK,2026,late,5,35,-2.7947,-1.1451
+2026.5.8.pi,2026 pick 5.8,,PICK,2026,mid,5,1213,-2.802,-1.1481
+2026.5.7.pi,2026 pick 5.7,,PICK,2026,mid,5,1132,-2.8043,-1.149
+13408,Tanner Koziol,TE,TE,,,,181,-2.8053,-1.1494
+2026.5.9.pi,2026 pick 5.9,,PICK,2026,late,5,1166,-2.9119,-1.1931
+2026.5.10.pi,2026 pick 5.10,,PICK,2026,late,5,1225,-2.9237,-1.198
+2026.5.12.pi,2026 pick 5.12,,PICK,2026,late,5,745,-2.9616,-1.2135
+2026.5.11.pi,2026 pick 5.11,,PICK,2026,late,5,699,-2.9807,-1.2213

@@ -1,2 +1,2 @@
-type,trades_used,H,k,ref,lambda0,stretch,converged_long,converged
-dynasty,1178382,7,2,2027mid1stpi,0.05,2.44400078300577,1,0
+type,first_trade,last_trade,trades_used,H,k,ref,lambda0,stretch,converged_long,converged
+dynasty,2026-05-01,2026-11-24,1190028,7,2,2027mid1stpi,0.05,2.44057120338261,1,0
