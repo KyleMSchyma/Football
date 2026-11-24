@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-24 (logged values + trade-type adjustment research; value stability backtest; research only)
+- Last updated: 2026-11-24 (Kyle approves trade adjustment + steadiness candidate for 11-28; logged values + trade-type adjustment research; value stability backtest; research only)
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -170,6 +170,18 @@ change (the refresh hardcodes them).
 ## 3. Update log
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
+
+### 2026-11-24: Kyle approves two value changes for the Saturday 11-28 batch
+- What: Kyle approved (1) the trade adjustment on ADDITIVE values: adj(type, g) per trade type, g = best-asset gap,
+  fitted on Dynasty Daddy trades with 1-for-1 left unadjusted (ta_01 default), used for calculator verdicts; values
+  stay additive and unlogged; and (2) the steadiness candidate: in-season k x 1.25 + EWMA a = 0.7 on credible PPG +
+  100k scale anchored on the top-10 average.
+- Status: APPROVED, to build Sat 2026-11-28. Not live yet.
+- Build notes: run R29 (faithful PC rerun + holdout) first and stop if it fails; add smooth small-asset weighting to
+  the adjustment so a bench throw-in cannot flip a verdict (R31); refit the adjustment weekly with tm_weekly.
+  The adjustment pulls multi-player verdicts toward market prices; frame it on the site as such.
+- Assumptions: A30 (#1 = 100,000) and A44 (no consolidation premium) and A87 change on build; A88 already says
+  "no logging".
 
 ### 2026-11-24: Logged values + trade-type adjustment (research only)
 - What: Kyle's proposal (do not implement): log the values for stability, and drop additivity only with a trade value
