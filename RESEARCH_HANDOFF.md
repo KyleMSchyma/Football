@@ -180,8 +180,8 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
 - Build notes: run R29 (faithful PC rerun + holdout) first and stop if it fails; add smooth small-asset weighting to
   the adjustment so a bench throw-in cannot flip a verdict (R31); refit the adjustment weekly with tm_weekly.
   The adjustment pulls multi-player verdicts toward market prices; frame it on the site as such.
-- Assumptions: A30 (#1 = 100,000) and A44 (no consolidation premium) and A87 change on build; A88 already says
-  "no logging".
+- Assumptions: A30 (#1 = 100,000), A44 (no consolidation premium), A87 (no smoothing) and the "no adjustment" half
+  of A88 change on build; "no logging" in A88 stays.
 
 ### 2026-11-24: Logged values + trade-type adjustment (research only)
 - What: Kyle's proposal (do not implement): log the values for stability, and drop additivity only with a trade value
