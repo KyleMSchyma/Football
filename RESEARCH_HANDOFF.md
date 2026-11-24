@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-23 (Market Check Contending / Rebuild moves toggle, S#36)
+- Last updated: 2026-11-24 (value stability backtest: steadier top values, research only)
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -170,6 +170,28 @@ change (the refresh hardcodes them).
 ## 3. Update log
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
+
+### 2026-11-24: Value stability backtest: steadier top values (research only)
+- What: Kyle: top values drop too often week to week; backtest adding consistency, maybe with Bühlmann-Straub. Tested
+  on the point-in-time history (186 snapshots): larger in-season k, textbook B-S k (EPV/VHM), k fitted per week group
+  and per horizon (rest of season, next season), trimming extreme games, EWMA smoothing of credible PPG, anchoring the
+  100k scale on the top-10 average, and a k x EWMA x anchor grid. Rolling origin; scored 2018-2025.
+- Result: live top-24 dynasty values drop 10%+ in 25.6% of weeks (33% in 2026). Causes: a bad game moving credible
+  PPG 59%, the #1 = 100k rescale 15%, injury/status 15%, clock/replacement 10%. Leverage: 1% in credible PPG = ~2.7% in
+  dynasty value. Textbook B-S k (1.2-2.0) is jumpier AND less accurate (its complement is the position mean, ours is
+  the player's history); horizon-fitted k lands near live k1. Trimming games rejected (ROS RMSE 3.462 -> 3.564).
+  Candidate k x 1.25 + EWMA a = 0.7 + top-10 anchor: 10%+ drops 25.6% -> 15.4%, 20%+ drops 9.5% -> 3.3%, rank moves
+  3.7 -> 2.9; ROS PPG RMSE 3.462 -> 3.478, next-season top-50 RMSE 3.620 -> 3.600, Spearman -0.002 / -0.001. Without
+  the anchor (keeps #1 = 100,000): 18.4% drops. Fewer big drops in every season 2018-2025.
+  Kyle follow-up (dynasty values are predictions; Bijan 42,700 vs Gibbs 85,800): the gap is 2026 PPG 28.1 vs 19.8 over
+  10 games, projected 2027 PPG 23.0 vs 17.7, doubled by subtracting replacement. Top-12 projections ARE over-separated
+  in hindsight (calibration slope 0.52, 90% 0.23-0.77), but two rolling fixes (knot shrink, top-tier recalibration)
+  made next-season top-24 RMSE worse (3.76 -> 3.83): rejected for now.
+- Status: RESEARCH ONLY (Football PR for this branch). Nothing live changed. Dynasty measured with a surrogate (slope of
+  the live model's value on credible PPG within each player-season), not an R rerun.
+- Files: `Trade_Values/research/value_stability/` (vs_00-vs_04, results CSVs, charts, README).
+- Assumptions: A87 new (values recomputed fresh each week, no smoothing); A30 and A31 unchanged, notes added.
+- Recommendations: R29 (faithful PC rerun + holdout check of the candidate, then Kyle decides), R30 (anchor decision).
 
 ### 2026-11-23: Contending / Rebuild toggle for Market Check moves (site S#36)
 - Kyle: add a contending/rebuild toggle to Best market moves; trades stay equal in value and follow the same rules, but
@@ -588,7 +610,9 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   1.01-1.12 match realized. Only 2027 rounds 1-3 valued; picks shown as slots, not names (Kyle).
 - **Backtests:** dynasty pred/actual ~0.99 after Fable; point-in-time history in 4.7.
 - **Known weak spots:** backup QBs still somewhat above market; old QB survival high (Fable 8, fixes failed);
-  small-sample current-season weight (Stroud).
+  small-sample current-season weight (Stroud); week-to-week volatility of top values (top-24 dynasty drop 10%+ in one
+  week in four). Stability research 11-24 (`Trade_Values/research/value_stability/`): k x 1.25 + EWMA 0.7 on credible
+  PPG (+ optional top-10 anchor of the 100k scale) cuts big drops by 30-40% at about no accuracy cost; not built.
 - **No technical-reference section yet** for trade values (see R9); code headers in dv_10, dv_11, dv_13 and the Fable
   build report are the best documentation.
 
@@ -675,6 +699,10 @@ data; render.js makes a 2400x3000 navy/orange top-24 image with an OVR column; g
 | Direct horizon models, still-playing 4+ games, old-age fixes | 11-13 | Worse out of sample | Old QB survival still high (R8) |
 | Usage-model prior for years 1-3 in dynasty | 11-13 | Hurt redraft out of sample | - |
 | Bühlmann-Straub prospect-model prior | 11-18 | No gain | - |
+| Textbook Bühlmann-Straub k (EPV/VHM vs position mean) for the in-season blend | 11-24 | Rejected: k 1.2-2.0, values jumpier and less accurate (next top-50 RMSE 3.62 -> 3.84) | - |
+| Trim extreme games (limited fluctuation) for steadier values | 11-24 | Rejected: steadier but ROS RMSE 3.462 -> 3.564 | - |
+| Shrink top-tier next-season projections toward each other (Bijan vs Gibbs) | 11-24 | Rejected: in-hindsight slope 0.52 for the top 12, but rolling fixes worsen top-24 next-season RMSE 3.76 -> 3.83 | More seasons, or a market-informed prior |
+| Steadier values: k x 1.25 + EWMA 0.7 + top-10 anchor | 11-24 | PARKED, research only: 10%+ drops 25.6% -> 15.4% at ~no accuracy cost (R29, R30) | Kyle approves a Saturday build |
 | Prior-year team offense in rookie models | 11-17 | No gain beyond grade | - |
 | Fantasy start rate in PPG | 11-20 | No gain | Archived real start % exists |
 | Market adjusted toggle (ESPN % rostered) | 11-20 | Built then closed: Kyle wants research only | Kyle asks again |
@@ -763,6 +791,7 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A44 | No consolidation premium: 2-for-1 equals the sum | engine.js, moves.js | Convex curve | Additivity rule; moves are one-for-one | ACTIVE |
 | A45 | A trade is "Too close to call" inside 10% | calculator, moves | 5% "About even" (old) | Values carry noise; Kyle's redesign spec keeps 10% | CHANGED 2026-11-14 |
 | A46 | Values shown to the nearest 100, no interval | site | Ranges / tiers | Fable 9: avoid false precision; ranges not built | ACTIVE |
+| A87 | Values are recomputed from scratch every week: no memory of last week's value, in-season k fit only at week 9, 100k scale anchored on the #1 player | dv_10, dv_11, engine.js | EWMA smoothing of credible PPG; k x 1.25-2; per-week or per-horizon k; top-10 average anchor; trimmed games | Simplest and best on ROS RMSE; stability research 11-24 found k x 1.25 + EWMA 0.7 cuts big drops by 30-40% for +0.016 ROS RMSE and better next-season top-50 error (R29) | ACTIVE (alternatives RESEARCH 11-24) |
 
 ### 6.5 History, research and site
 
@@ -865,6 +894,11 @@ fine (already in Rookie_Pick_Strategy/README.md).
     (shrinkage + compression), but a real premium remains (+48% 1-for-2 at straight-up prices), so any single additive
     market scale misprices either straight-up or package trades. Compare levels with both views side by side.
 19. tm_04's long-run fit stops at its 800-iteration cap (the credibility fit converges); redraft run paused 11-23.
+20. Top values are volatile week to week: top-24 dynasty values drop 10%+ in 25.6% of weeks (2018-2026; 33% in 2026),
+    mostly from one game moving credible PPG, amplified ~2.7x by value over replacement; 15% of big drops are only the
+    #1 player rising (100k rescale). See the 11-24 log entry and R29/R30.
+21. Elite players' next-season projections are over-separated in hindsight (top-12 calibration slope 0.52), so dynasty
+    gaps between stars (Gibbs 2x Bijan) look larger than realized gaps; no out-of-sample fix found yet (11-24).
 
 ---
 
@@ -924,6 +958,15 @@ approved to build unless Kyle says so (see section 10).
   point-in-time values vs DD against next-season PPG, by position. Meanwhile, cheap fallback: keep each week's dd.js
   in the archive so our own market history starts now. (11-22, A71)
 
+**Value stability (research 11-24)**
+
+- **R29. Steadier values, if Kyle wants them:** rerun the candidate (in-season k x 1.25, EWMA a = 0.7 on credible
+  PPG) faithfully in R on the PC through hv_01 for all 186 snapshots, check it on a holdout (choose on 2018-2022,
+  score 2023-2025), refit the dynasty ppg_next model on the new credible PPG, then build in dv_10 for a Saturday batch.
+  The weekly refresh would need last week's published credible PPG (from the archive). (A87, issue 20)
+- **R30. 100k anchor decision (Kyle):** anchor the scale on the top-10 average instead of the #1 player; removes 15% of
+  big drops at zero accuracy cost but the #1 player no longer shows exactly 100,000. Changes A30 if chosen. (A30, A87)
+
 **Trade Market (research 11-23)**
 
 - **R28. DONE 11-23 (weekly tm_weekly.sh + refresh step 4c).** Refresh the Trade market source: tm.js is a one-off snapshot of trades to 11-23; add a periodic re-pull and
@@ -982,10 +1025,11 @@ approved to build unless Kyle says so (see section 10).
 | Top-24 boards (points vs tiers) | https://claude.ai/artifact/6UXRNYjU8YddKV9ajiXGej |
 | Rookie pick strategy | https://claude.ai/artifact/WKN1QzTfvdzKTgKzg6rR6T |
 | Trade Market values (Trade_Market; includes the 11-23 additive-scale section) | https://claude.ai/artifact/D57WtFX8mNemAZ647ujpz5 |
+| Value stability backtest (steadier top values) | https://claude.ai/artifact/EAM6b8NqqNa1SB9XuimdQ3 |
 
 **Reports in this repo:** FABLE_REVIEW.md; `Trade_Values/dev_role_layer/FABLE_BUILD_REPORT.md` and
 `ROLE_AND_CALIBRATION_REPORT.md`; `Trade_Values/history/README.md`; `Landing_Spot_Offense/README.md`;
-`Rookie_Pick_Strategy/README.md`; `PostDraft_Model/exp_mixed_model/README.md`; each model folder README and PREDICTORS.md.
+`Rookie_Pick_Strategy/README.md`; `PostDraft_Model/exp_mixed_model/README.md`; `Trade_Values/research/value_stability/README.md`; each model folder README and PREDICTORS.md.
 
 **Branches with work not on main**
 
