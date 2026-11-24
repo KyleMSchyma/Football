@@ -1,0 +1,129 @@
+train 2006-2015: 597 backup seasons (80 starters within 2 yrs); test 2016-2020: 306
+test backups found on the live snapshot board: 182 of 306; tagged Backup there: 145
+train: mean DFV if became a starter 39.0 (n=80), if not 0.7 (n=517)
+
+E[DFV | became starter] gamma GLM (log link), train 2006-2015:
+             coef       p
+const      8.0262  0.0000
+age       -0.1111  0.0111
+spot_cred  0.1229  0.2705
+lpick     -0.3376  0.0077
+
+Future-value backtest, points over the QB24 line, discounted (pred vs realized DFV):
+                                          group   n                model  pred_total  actual_total    ratio    rmse     mae  spearman
+                          All backups 2016-2020 306        V0 Live model    1531.960      2283.200    0.671  39.776   9.486     0.159
+                          All backups 2016-2020 306  V1 Hurdle, constant    1832.636      2283.200    0.803  41.376  11.098     0.374
+                          All backups 2016-2020 306    V2 Hurdle, fitted    2144.055      2283.200    0.939  36.643   9.677     0.296
+                          All backups 2016-2020 306 V3 Hurdle, M2 chance    2183.021      2283.200    0.956  36.941   9.838     0.321
+                          All backups 2016-2020 306       V4 Tweedie GLM    5049.326      2283.200    2.212 176.518  18.480     0.263
+                          All backups 2016-2020 306       V5 Tweedie GBM     844.551      2283.200    0.370  41.188   8.395     0.191
+                Tagged Backup on the live board 145        V0 Live model     777.550       783.468    0.992  36.667   9.092     0.190
+                Tagged Backup on the live board 145  V1 Hurdle, constant     801.502       783.468    1.023  38.218   9.181     0.387
+                Tagged Backup on the live board 145    V2 Hurdle, fitted     759.373       783.468    0.969  36.997   8.875     0.260
+                Tagged Backup on the live board 145 V3 Hurdle, M2 chance     797.169       783.468    1.017  37.771   9.135     0.312
+                Tagged Backup on the live board 145       V4 Tweedie GLM     665.832       783.468    0.850  38.071   8.528     0.262
+                Tagged Backup on the live board 145       V5 Tweedie GBM     322.897       783.468    0.412  40.160   7.179     0.103
+Young, high draft capital (age<=25, picks 1-64)  18        V0 Live model     459.270      1613.145    0.285 156.004  78.955     0.468
+Young, high draft capital (age<=25, picks 1-64)  18  V1 Hurdle, constant     300.362      1613.145    0.186 164.600  89.474     0.628
+Young, high draft capital (age<=25, picks 1-64)  18    V2 Hurdle, fitted     822.183      1613.145    0.510 143.801  77.082     0.722
+Young, high draft capital (age<=25, picks 1-64)  18 V3 Hurdle, M2 chance     774.959      1613.145    0.480 144.621  77.895     0.785
+Young, high draft capital (age<=25, picks 1-64)  18       V4 Tweedie GLM    3806.225      1613.145    2.360 726.516 230.971     0.670
+Young, high draft capital (age<=25, picks 1-64)  18       V5 Tweedie GBM     294.527      1613.145    0.183 162.680  87.404     0.220
+                      Spot starters (2+ starts)  55        V0 Live model     988.870      1235.867    0.800  69.968  27.246     0.328
+                      Spot starters (2+ starts)  55  V1 Hurdle, constant     484.924      1235.867    0.392  72.715  24.802     0.434
+                      Spot starters (2+ starts)  55    V2 Hurdle, fitted     814.108      1235.867    0.659  59.408  19.149     0.339
+                      Spot starters (2+ starts)  55 V3 Hurdle, M2 chance     784.625      1235.867    0.635  59.268  19.361     0.397
+                      Spot starters (2+ starts)  55       V4 Tweedie GLM    3991.733      1235.867    3.230 411.428  71.435     0.359
+                      Spot starters (2+ starts)  55       V5 Tweedie GBM     364.430      1235.867    0.295  70.501  22.395     0.204
+                                   Veterans 30+  95        V0 Live model     314.320       292.932    1.073  15.903   5.787     0.114
+                                   Veterans 30+  95  V1 Hurdle, constant     410.644       292.932    1.402  15.081   6.562     0.348
+                                   Veterans 30+  95    V2 Hurdle, fitted     226.513       292.932    0.773  15.091   4.954     0.206
+                                   Veterans 30+  95 V3 Hurdle, M2 chance     243.826       292.932    0.832  14.896   4.978     0.231
+                                   Veterans 30+  95       V4 Tweedie GLM     248.482       292.932    0.848  14.545   5.052     0.148
+                                   Veterans 30+  95       V5 Tweedie GBM      63.726       292.932    0.218  15.706   3.709    -0.018
+                                      Undrafted  81        V0 Live model     208.550         0.193 1081.430   5.496   2.573     0.136
+                                      Undrafted  81  V1 Hurdle, constant     324.957         0.193 1685.052   4.467   4.009     0.262
+                                      Undrafted  81    V2 Hurdle, fitted     190.435         0.193  987.494   3.055   2.349     0.197
+                                      Undrafted  81 V3 Hurdle, M2 chance     192.400         0.193  997.684   3.230   2.373     0.167
+                                      Undrafted  81       V4 Tweedie GLM     216.778         0.193 1124.095   3.180   2.674     0.036
+                                      Undrafted  81       V5 Tweedie GBM      40.372         0.193  209.350   0.762   0.496     0.239
+
+RMSE minus the live model's (bootstrap by player, 95% interval; below 0 = better than live):
+  V1 Hurdle, constant    +1.64  [-1.10, +5.40]
+  V2 Hurdle, fitted      -3.16  [-6.23, -0.00]
+  V3 Hurdle, M2 chance   -2.86  [-6.24, +0.69]
+  V4 Tweedie GLM         +111.50  [-12.91, +284.17]
+  V5 Tweedie GBM         +1.41  [-2.24, +5.08]
+
+Biggest realized future values among 2016-2020 backups:
+            name  season team   age  pick  starts status  y_start12    dfv   P1  V0 Live model  V1 Hurdle, constant  V2 Hurdle, fitted  V3 Hurdle, M2 chance  V4 Tweedie GLM  V5 Tweedie GBM
+ Patrick Mahomes    2017   KC 22.96  10.0     1.0 Backup        1.0 460.44 0.37          38.86                14.97              37.19                 30.84           19.74        0.810000
+     Jalen Hurts    2020  PHI 23.07  53.0     4.0               1.0 380.89 0.70          25.59                27.35              70.67                 74.50          119.70       32.689999
+   Lamar Jackson    2018  BAL 22.65  32.0     7.0               1.0 373.87 0.79          26.14                31.13              81.13                 81.54          178.71       54.250000
+  Deshaun Watson    2017  HOU 22.97  12.0     6.0     IR        1.0 226.98 0.95         168.92                36.98             286.49                289.17         3259.08       63.000000
+  Ryan Tannehill    2017  MIA 30.10   8.0     0.0   <NA>        1.0 117.06 0.14           0.00                 5.95               8.21                 12.69           12.20        0.670000
+      Jared Goff    2016   LA 22.88   1.0     7.0               1.0  98.70 0.57          66.10                22.68              75.11                 48.28           68.22        2.350000
+     Andrew Luck    2017  IND 28.97   1.0     0.0   <NA>        1.0  72.77 0.32           0.00                13.08              40.58                 58.65           40.87       37.680000
+     Jordan Love    2020   GB 22.83  26.0     0.0   <NA>        0.0  67.48 0.34           0.00                13.62              28.06                 26.08           12.82        9.320000
+      Geno Smith    2020  SEA 30.89  39.0     0.0 Backup        1.0  67.43 0.14           4.33                 6.15               4.55                  4.27            3.79        0.130000
+Ryan Fitzpatrick    2017   TB 35.77 250.0     3.0 Backup        1.0  59.96 0.13          12.22                 5.65               1.11                  2.29            1.56        0.210000
+      Geno Smith    2019  SEA 29.89  39.0     0.0   <NA>        0.0  58.64 0.15           0.00                 6.49               5.38                  5.34            4.35        0.200000
+      Geno Smith    2018  LAC 28.89  39.0     0.0 Backup        0.0  39.97 0.16           1.99                 6.84               6.35                  6.73            5.00        0.200000
+      Geno Smith    2017  NYG 27.89  39.0     1.0 Backup        0.0  32.16 0.16          11.97                 6.84               6.05                  6.85            4.83        0.350000
+ Jimmy Garoppolo    2017   SF 26.83  62.0     5.0               1.0  26.85 0.44          60.66                17.66              21.02                 18.75           33.79       42.700001
+     Josh McCown    2016  CLE 38.16  81.0     3.0 Backup        1.0  20.02 0.14           1.19                 5.94               1.47                  1.46            2.66        0.490000
+  Jameis Winston    2020   NO 27.65   1.0     0.0 Backup        0.0  18.81 0.48           3.09                19.04              68.47                 83.47           41.63       53.160000
+      Joe Flacco    2020  NYJ 36.62  18.0     4.0 Backup        0.0  17.92 0.13           5.42                 5.84               2.13                  5.34            4.61        0.440000
+ Jacoby Brissett    2020  IND 28.72  91.0     0.0 Backup        1.0  13.13 0.10           0.77                 4.46               3.27                  4.58            3.49        0.420000
+  Marcus Mariota    2020   LV 27.84   2.0     0.0 Backup        1.0  12.21 0.41          37.21                16.46              45.87                 52.70           27.90        1.840000
+    Jeff Driskel    2018  CIN 26.36 207.0     5.0               0.0  11.69 0.14          12.38                 6.15               2.73                  2.39            3.52        0.930000
+
+Biggest live-model values among 2016-2020 backups:
+           name  season team   age  pick  starts status  y_start12    dfv   P1  V0 Live model  V1 Hurdle, constant  V2 Hurdle, fitted  V3 Hurdle, M2 chance  V4 Tweedie GLM  V5 Tweedie GBM
+ Deshaun Watson    2017  HOU 22.97  12.0     6.0     IR        1.0 226.98 0.95         168.92                36.98             286.49                289.17         3259.08       63.000000
+     Jared Goff    2016   LA 22.88   1.0     7.0               1.0  98.70 0.57          66.10                22.68              75.11                 48.28           68.22        2.350000
+Jimmy Garoppolo    2017   SF 26.83  62.0     5.0               1.0  26.85 0.44          60.66                17.66              21.02                 18.75           33.79       42.700001
+      Drew Lock    2019  DEN 23.81  42.0     5.0               1.0   0.00 0.38          44.04                15.47              22.13                 20.59           26.15        5.400000
+  C.J. Beathard    2017   SF 24.79 104.0     5.0 Backup        0.0   0.00 0.30          40.69                12.22              13.96                 14.54           26.80       92.650002
+ Brock Osweiler    2017  DEN 27.78  57.0     4.0               0.0   0.00 0.29          40.01                11.66               7.95                  8.49            5.05        0.340000
+Patrick Mahomes    2017   KC 22.96  10.0     1.0 Backup        1.0 460.44 0.37          38.86                14.97              37.19                 30.84           19.74        0.810000
+ Marcus Mariota    2020   LV 27.84   2.0     0.0 Backup        1.0  12.21 0.41          37.21                16.46              45.87                 52.70           27.90        1.840000
+ Dwayne Haskins    2019  WAS 23.33  15.0     7.0    Out        0.0   0.00 0.49          37.02                19.38              32.38                 26.68           36.43        2.070000
+ Blaine Gabbert    2017  ARI 28.88  10.0     5.0 Backup        0.0   0.00 0.46          36.04                18.49              23.15                 22.16           22.62        0.150000
+     Matt Moore    2016  MIA 33.06   NaN     3.0               0.0   0.00 0.15          29.11                 6.56               2.36                  2.41            4.42        0.270000
+   Matt Barkley    2016  CHI 26.98  98.0     6.0               0.0   4.42 0.26          26.17                10.66               6.86                  5.54            9.00        1.590000
+  Lamar Jackson    2018  BAL 22.65  32.0     7.0               1.0 373.87 0.79          26.14                31.13              81.13                 81.54          178.71       54.250000
+    Jalen Hurts    2020  PHI 23.07  53.0     4.0               1.0 380.89 0.70          25.59                27.35              70.67                 74.50          119.70       32.689999
+    Brian Hoyer    2016  CHI 31.89   NaN     5.0     IR        0.0   0.00 0.13          25.04                 5.89               2.00                  2.11            6.23        0.280000
+
+2026 Backup-tagged QBs (snapshot after week 11; reference league, no flex): future value, live vs new (V2 refit on all data):
+              name team    age  pick  starts  spot_cred  P_start_2027_28  fut_live  fut_new  fut_live_100k  fut_new_100k
+    Jameis Winston  NYG 33.652   1.0     4.0      0.266            0.576     12.72   54.351         2370.0       10150.0
+Anthony Richardson  IND 25.279   4.0     0.0      0.000            0.411     27.30   52.070         5100.0        9720.0
+     Justin Fields   KC 28.493  11.0     0.0      0.000            0.203      7.04   14.499         1310.0        2710.0
+   Shedeur Sanders  CLE 25.564 144.0     1.0      2.265            0.236      5.27   12.598          980.0        2350.0
+    Marcus Mariota  WAS 33.838   2.0     1.0     -2.070            0.171     22.40    9.936         4180.0        1860.0
+      Cade Klubnik  NYJ 23.894 110.0     0.0      0.000            0.143     17.18    7.318         3210.0        1370.0
+     Kenny Pickett  CAR 29.238  20.0     0.0      0.000            0.092      1.85    5.985          350.0        1120.0
+    Tua Tagovailoa  ATL 29.501   5.0     1.0     -3.405            0.096     17.63    5.606         3290.0        1050.0
+       Quinn Ewers  JAX 24.466 231.0     0.0      0.000            0.134      4.83    4.929          900.0         920.0
+ Athan Kaliakmanis  WAS 24.034 223.0     0.0      0.000            0.114      8.83    4.606         1650.0         860.0
+       Davis Mills  HOU 28.863  67.0     0.0      0.000            0.116      3.03    4.575          570.0         850.0
+       Jack Strand  ATL 23.190   NaN     0.0      0.000            0.103      9.65    4.133         1800.0         770.0
+      Carson Wentz  MIN 34.670   2.0     2.0     -4.736            0.043      8.79    2.395         1640.0         450.0
+     Mason Rudolph  PIT 32.127  76.0     0.0      0.000            0.081      1.36    2.360          250.0         440.0
+     Jalon Daniels   TB 24.841   NaN     3.0     -0.820            0.076      5.05    2.338          940.0         440.0
+      Tanner McKee  PHI 27.346 188.0     2.0     -1.532            0.079      9.08    1.928         1700.0         360.0
+      Joshua Dobbs  DET 32.598 135.0     0.0      0.000            0.082      4.32    1.722          810.0         320.0
+     DJ Uiagalelei  LAC 26.374   NaN     0.0      0.000            0.036      1.55    1.441          290.0         270.0
+       Max Brosmer  MIN 26.429   NaN     0.0      0.000            0.035      0.25    1.411           50.0         260.0
+   Stetson Bennett   LA 29.843 128.0     0.0      0.000            0.030      5.19    1.320          970.0         250.0
+         Drew Lock  SEA 30.807  42.0     6.0     -5.302            0.076     26.49    1.054         4950.0         200.0
+        Kyle Allen  BUF 31.483   NaN     0.0      0.000            0.051      0.18    0.884           30.0         170.0
+       Andy Dalton  PHI 39.842  35.0     0.0      0.000            0.043      0.63    0.853          120.0         160.0
+      Tommy DeVito   NE 29.068   NaN     0.0      0.000            0.023      1.97    0.773          370.0         140.0
+      Tyrod Taylor   GB 38.079 180.0     0.0      0.000            0.062      0.34    0.452           60.0          80.0
+      Tyson Bagent  CHI 27.231   NaN     1.0     -3.110            0.022      2.19    0.345          410.0          60.0
+       Joe Fagnano  BAL 26.421   NaN     1.0     -3.480            0.009      0.51    0.191          100.0          40.0
+      Josh Johnson  ARI 41.298 160.0     1.0     -0.730            0.046      0.46    0.000           90.0           0.0
+       Case Keenum  CHI 39.538   NaN     2.0     -0.552            0.017      0.96    0.000          180.0           0.0

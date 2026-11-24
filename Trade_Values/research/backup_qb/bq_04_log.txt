@@ -1,0 +1,96 @@
+QB snapshot rows 2016-2025 (weeks 3 to last-3): 7517; statuses: {'': 3724, 'Backup': 2974, 'IR': 379, 'Q': 224, 'Out': 174, 'Doubtful': 42}
+
+Rule A, Backup-tagged QBs: live rest-of-season value vs realized (points over the QB24 line):
+                       group  rows  pred_total  real_total  ratio  rmse_live  rmse_zero  share_real_pos  real_p95  real_max
+                 Backup, all  2974      781.13     4765.21  0.164      7.540      7.853           0.104     9.980    103.11
+           Backup, 2022-2025  1384      361.61     2188.35  0.165      6.718      6.775           0.102    11.114     61.22
+Backup with 2+ starts so far   623      663.83     2166.62  0.306     11.526     12.215           0.193    25.636    103.11
+ Backup with 0 starts so far  1866       12.42     1886.09  0.007      5.814      5.813           0.077     3.925     88.82
+
+Backup-tagged snapshot rows with the largest realized rest-of-season value:
+            name  season  week team  games  starts_so_far  value   real  g_ros
+  Justin Herbert    2020     3  LAC      2            2.0   3.64 103.11   13.0
+  Justin Herbert    2020     4  LAC      3            3.0   8.83  95.30   12.0
+  Ryan Tannehill    2019     6  TEN      2            0.0   0.00  88.82   10.0
+  Ryan Tannehill    2019     7  TEN      3            1.0   0.00  87.08    9.0
+Ryan Fitzpatrick    2019     6  MIA      4            2.0   0.00  77.84   11.0
+  Ryan Tannehill    2019     5  TEN      1            0.0   0.00  76.54   11.0
+  Justin Herbert    2020     5  LAC      4            4.0  12.39  76.14   11.0
+Ryan Fitzpatrick    2019     7  MIA      5            3.0   0.00  75.18   10.0
+       Tom Brady    2016     5   NE      1            1.0  21.09  73.71   11.0
+Ryan Fitzpatrick    2019     5  MIA      3            2.0   0.00  70.66   12.0
+  Ryan Tannehill    2019     3  TEN      1            0.0   0.00  70.05   11.0
+  Deshaun Watson    2017     3  HOU      3            2.0   0.00  69.98    4.0
+  Ryan Tannehill    2019     4  TEN      1            0.0   0.00  68.07   11.0
+   Aaron Rodgers    2021    10   GB      9            9.0  20.60  67.03    7.0
+     Jaxson Dart    2025     3  NYG      2            0.0   0.00  61.22   12.0
+
+Backup rows by snapshot week (mean points over line):
+          rows   live   real  share_pos
+wb                                     
+wk 3-6     650  0.332  2.705      0.100
+wk 7-10    981  0.361  1.481      0.097
+wk 11-14  1168  0.169  1.201      0.111
+wk 15      175  0.083  0.864      0.109
+calibration factor for the rule (2020-2025 actual games / rule games): 0.590
+
+IR starters 2020-2025 by team games left: share who played again, games played, rule games:
+      rows  players  returned  g_actual  g_rule  g_live
+gl                                                     
+1-4     32       19     0.219     0.594     0.0   0.883
+5-7     46       15     0.217     0.630    1.87   1.474
+8-10    22       10     0.364     2.227   4.636   2.131
+11+     21        9     0.714     5.857    8.81   2.924
+
+healthy starters (no tag) play 0.815 of their team's remaining games
+
+Rule B, starters on IR: expected games and rest-of-season value, live vs 'team games left - 4' (rule) vs actual:
+                                      0                                    1                      2                      3                              4
+group            IR starters, 2016-2025  2016-2019 (IR mostly season-ending)  2020-2021 (3-game IR)  2022-2025 (4-game IR)  2022-2025, 8+ team games left
+rows                                165                                   44                     48                     73                             24
+players                              38                                   13                     16                     17                              9
+team_games_left                   7.018                                 7.25                  7.271                  6.712                         10.583
+g_live                            1.727                                1.833                   1.69                  1.688                          2.552
+g_rule                            3.152                                3.341                  3.396                  2.877                          6.583
+g_rule_h                          2.567                                2.722                  2.766                  2.343                          5.363
+g_actual                          1.418                                0.318                  3.354                  0.808                          2.125
+share_returned                    0.297                                0.205                  0.562                  0.178                          0.375
+mae_g_live                         2.02                                1.592                  2.876                  1.716                          2.752
+mae_g_rule                         2.57                                3.068                  2.708                  2.178                          4.542
+mae_g_rule_h                      2.234                                2.457                  2.735                   1.77                          3.655
+g_rule_c                          1.859                                1.971                  2.003                  1.697                          3.883
+mae_g_rule_c                       1.87                                1.716                  2.768                  1.371                          2.854
+v_rule_c                        482.248                              106.614                215.771                159.863                        102.616
+rmse_v_rule_c                     8.902                                4.099                 12.644                  7.991                           13.5
+v_live                           490.28                               135.62                 169.94                 184.72                          75.29
+v_rule                           817.63                               180.76                 365.83                 271.04                         173.98
+v_rule_h                        666.073                              147.254                298.019                  220.8                        141.731
+v_real                           425.67                                60.07                 190.46                 175.14                         175.14
+rmse_v_live                       8.717                                4.687                 11.276                  8.656                         14.215
+rmse_v_rule                      10.866                                7.212                 15.569                  8.727                         14.041
+rmse_v_rule_h                     9.823                                5.739                 14.025                  8.301                         13.664
+
+First IR snapshot per player-season, 2022-2025 starters:
+              name  season  week  team_games_left  exp_games_left  g_rule  g_ros  missed  value  v_rule  real
+        Trey Lance    2022     3               14            4.70      10    0.0    14.0   0.00     0.0  0.00
+     Aaron Rodgers    2023     3               14            2.51      10    0.0    14.0   2.98    11.9  0.00
+        Joe Burrow    2025     3               14            2.81      10    6.0     8.0   2.33     8.3 28.42
+    Tua Tagovailoa    2024     3               14            4.40      10    9.0     5.0   2.24     5.1 27.50
+Anthony Richardson    2023     6               11            3.60       7    0.0    11.0   9.42   18.27  0.00
+      Carson Wentz    2022     7               10            3.42       6    2.0     8.0   7.71    13.5  0.00
+    Deshaun Watson    2024     8                9            2.90       5    0.0     9.0   0.00     0.0  0.00
+      Kirk Cousins    2023     9                8            2.66       4    0.0     8.0  13.45    20.2  0.00
+      Carson Wentz    2025     9                9            1.83       5    0.0     9.0   0.00     0.0  0.00
+      Daniel Jones    2023    10                7            2.31       3    0.0     7.0   0.00     0.0  0.00
+      Kyler Murray    2025    10                8            1.86       4    0.0     8.0   3.97    8.52  0.00
+      Dak Prescott    2024    11                7            2.27       3    0.0     7.0   1.46    1.92  0.00
+    Deshaun Watson    2023    11                7            2.31       3    0.0     7.0   9.04   11.73  0.00
+        Joe Burrow    2023    12                6            2.01       2    0.0     6.0   7.15    7.12  0.00
+ Michael Penix Jr.    2025    12                6            1.55       2    0.0     6.0   0.00     0.0  0.00
+   Gardner Minshew    2024    13                5            1.55       1    0.0     5.0   0.00     0.0  0.00
+  Matthew Stafford    2022    13                5            1.32       1    0.0     5.0   0.02    0.01  0.00
+   Trevor Lawrence    2024    14                4            1.30       0    0.0     4.0   0.00     0.0  0.00
+    Marcus Mariota    2022    15                3            0.84       0    0.0     3.0   0.00     0.0  0.00
+      Kyler Murray    2022    15                3            1.04       0    0.0     3.0   4.58     0.0  0.00
+    Justin Herbert    2023    15                3            1.01       0    0.0     3.0   5.52     0.0  0.00
+      Daniel Jones    2025    15                3            0.83       0    0.0     3.0   2.05     0.0  0.00
