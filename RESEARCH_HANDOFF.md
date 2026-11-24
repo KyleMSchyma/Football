@@ -950,6 +950,9 @@ fine (already in Rookie_Pick_Strategy/README.md).
     different scales from 12-01; the 12-01 movers list shows everyone up ~9-11% once.
 24. 11-24: if `Football2_Dynasty\cppg_state\` is missing on the PC, the refresh publishes unsmoothed values and smoothing
     starts a week later; a same-week rerun replaces that week's state rows (by design).
+25. 11-24: ANCHOR_C was fitted in the reference league only. Across 256 site leagues the week-11 rescale runs 0.95x
+    (14-team SF TE premium) to 1.40x (8-team, half PPR, FD bonus), so the #1 shows ~95k to ~140k depending on league.
+    Ranks and trade verdicts are unaffected (one factor per sheet). Fix if wanted: R34.
 
 ---
 
@@ -1020,6 +1023,8 @@ approved to build unless Kyle says so (see section 10).
 
 - **R32. Decide whether to rebuild Value History on the new method** (full rebuild in week order, 2016+) so history and
   live share one scale. Only if Kyle asks. (A91, A92, issue 23)
+- **R34. League-specific anchor:** derive the anchor constant per league setting (or from the league's own #1 / top-10
+  ratio smoothed over weeks) so the #1 stays near 100k in shallow and deep leagues. (issue 25)
 - **R33. Refresh ANCHOR_C each preseason** from the last three seasons (#1 / top-10 mean) and recheck the holdout. (A92)
 
 **Trade Market (research 11-23)**
