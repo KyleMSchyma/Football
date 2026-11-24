@@ -174,7 +174,7 @@ change (the refresh hardcodes them).
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
 
-### 2026-11-24: Steadier values: EWMA 0.7 on credible PPG and a top-10 anchored 100k scale (F#TBD, S#TBD)
+### 2026-11-24: Steadier values: EWMA 0.7 on credible PPG and a top-10 anchored 100k scale (F#45, S#38)
 - Kyle 11-24 approved the steadiness candidate subject to a faithful R rerun with a holdout. Rerun on the PC (hv_01
   method, real dv_10 / dv_11, 1,692 weekly snapshots 2018-2025, 12 settings; files on the PC in
   `Football2\research\steadiness_rerun\`, not in the repo): the candidate (k1 x1.25, EWMA 0.7, top-10 anchor) passed only
