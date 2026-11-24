@@ -196,7 +196,7 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
 - **Rule B (IR starters, team games left - 4):** 2022-2025 IR starters played 0.8 of 6.7 games left; rule 2.9, live 1.7.
   Played again: 71% with 11+ games left, ~22% with 7 or fewer. Rule x 0.59 (calibrated 2020-2025, in-sample) has the
   lowest value RMSE in 2022-2025 (7.99 vs live 8.66, rule 8.73). Small samples (17 players 2022-2025).
-- Status: RESEARCH ONLY (PR F#TBD). Assumptions A87-A90. Recommendations R29-R32. Issues 20-21.
+- Status: RESEARCH ONLY (F#42). Assumptions A87-A90. Recommendations R29-R32. Issues 20-21.
 
 ### 2026-11-23: Contending / Rebuild toggle for Market Check moves (site S#36)
 - Kyle: add a contending/rebuild toggle to Best market moves; trades stay equal in value and follow the same rules, but
