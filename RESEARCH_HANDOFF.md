@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-23 (Market Check Contending / Rebuild moves toggle, S#36)
+- Last updated: 2026-11-24 (backup QB values research: starter-chance model, Backup = 0, IR starters, Maye tag)
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -170,6 +170,33 @@ change (the refresh hardcodes them).
 ## 3. Update log
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
+
+### 2026-11-24: Backup QB values (research only)
+- Kyle (11-23/24): QBs tagged Backup get 0 redraft value; starters on IR (Maye / Daniels / Lamar type) keep redraft value
+  with at least 4 fewer games (model 4, adjust later); future value kept for young consistently good backups and
+  high-draft-capital backups with few snaps. Fit P(backup becomes a starter within 1-2 years) x value of starting,
+  backtest, compare models. Also check Drake Maye's Backup tag (18.8k redraft / 34.7k dynasty at the site default).
+- Built (Python, cloud, nflverse open data + the point-in-time snapshots): `Trade_Values/research/backup_qb/` bq_01-bq_04,
+  logs, CSVs, figs, README. Report: https://claude.ai/artifact/M1h5RGzxeiZFTRwNNNzGk7
+- **Maye:** ESPN depth chart moved him QB1 -> QB3 on 11-22 during NE's week 11 bye; ACT, no injury status, listed week 12
+  starter: a data glitch (board shows 4.9 expected games left). Other last-starter mismatches are real (Daniel Jones cut
+  by IND before week 12; Carson Beck back at ARI QB1).
+- **Starter chance:** 707 backup seasons 2012-2023 (fewer than half the team's starts, did not open the season as the
+  starter, on a roster at season end); 10.6% started half a season within 2 years (7.2% next year). Kyle's five-factor
+  logistic regression (age, credible spot-start PPG vs QB24, starts, log pick + undrafted, years in league): test
+  2020-2023 AUC .836, Brier skill 14.9%. GLM + history, elastic net, random forest and xgboost never beat it with a
+  bootstrap interval excluding 0 (RF best on leave-one-season-out, BSS .151 vs .136). Age and years in league correlate
+  .97 (entering young matters); pick weak once starts are in.
+- **Future value (2016-2020 backups, models fit 2006-2015):** hurdle V2 = M1 chance x gamma-GLM value if starting:
+  RMSE 36.6 vs live 39.8 (bootstrap -3.2 [-6.2, 0.0]); totals 0.94 vs live 0.67 of realized. Young (<=25) picks 1-64:
+  live 0.29, V2 0.51 (Kyle's hunch holds; Mahomes/Hurts/Lamar still missed). Veterans 30+: live 1.07, V2 0.76. On
+  board-tagged Backups both are calibrated (0.99 / 0.96). Tweedie GLM rejected (explodes), Tweedie GBM too low (0.37).
+- **Rule A (Backup = 0 redraft):** 2,974 Backup snapshot rows 2016-2025: RMSE 7.54 live vs 7.85 at 0; live already gives
+  0-start backups ~0; ~10% of rows realize value (Herbert 2020, Tannehill 2019 takeovers).
+- **Rule B (IR starters, team games left - 4):** 2022-2025 IR starters played 0.8 of 6.7 games left; rule 2.9, live 1.7.
+  Played again: 71% with 11+ games left, ~22% with 7 or fewer. Rule x 0.59 (calibrated 2020-2025, in-sample) has the
+  lowest value RMSE in 2022-2025 (7.99 vs live 8.66, rule 8.73). Small samples (17 players 2022-2025).
+- Status: RESEARCH ONLY (PR F#TBD). Assumptions A87-A90. Recommendations R29-R32. Issues 20-21.
 
 ### 2026-11-23: Contending / Rebuild toggle for Market Check moves (site S#36)
 - Kyle: add a contending/rebuild toggle to Best market moves; trades stay equal in value and follow the same rules, but
@@ -587,6 +614,10 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   season 5 from 2010-2021) with age adjustment, x a calibration multiplier (1.03, 95% 0.73-1.34) so 2016-22 slots
   1.01-1.12 match realized. Only 2027 rounds 1-3 valued; picks shown as slots, not names (Kyle).
 - **Backtests:** dynasty pred/actual ~0.99 after Fable; point-in-time history in 4.7.
+- **Backup QB research (11-24, research only, `research/backup_qb/`):** starter-chance GLM (AUC .84) x value of
+  starting beats the live future value on 2016-2020 backups (RMSE 36.6 vs 39.8), mainly by valuing young high picks
+  more and 30+ veterans less; Backup = 0 redraft costs little accuracy; IR starters return far less often than
+  "team games left - 4" assumes unless 8+ games remain. Maye's Backup tag is an ESPN depth-chart glitch.
 - **Known weak spots:** backup QBs still somewhat above market; old QB survival high (Fable 8, fixes failed);
   small-sample current-season weight (Stroud).
 - **No technical-reference section yet** for trade values (see R9); code headers in dv_10, dv_11, dv_13 and the Fable
@@ -641,6 +672,7 @@ layout, Dashboard movers. Details in the site README and memory notes listed in 
 | 11-20 | Interactions / squared terms | No gain for rookies; tiny gain for still-playing model left out | Rejected (F#33 open) |
 | 11-20/21 | Points / PPG targets | Better pre-draft WR/TE ranking by points, but values worse | Display-only preview (S#33 draft) |
 | 11-21 | Rookie pick strategy | Keep 1.01, cliff after 1.06, sell late 2nds/3rds | Research (F#34 merged) |
+| 11-24 | Backup QB values | Starter-chance x value-of-starting beats live future value a little; Backup = 0 cheap; IR "-4 games" too generous late in the season; Maye tag = depth-chart glitch | Research only |
 
 Earlier one-offs inside model work: conference as predictor (rejected), college usage/PPA (not adopted; only 2014+), WR
 value score (Day-3 tiebreaker only), WR finish/hurdle/tier ladder (no gain vs pick), UDFAs (no conclusion changes).
@@ -690,6 +722,8 @@ data; render.js makes a 2400x3000 navy/orange top-24 image with an OVR column; g
 | Paywall (custom leagues, handcuffs, deep dives, exports) | 11-12 | Advice only; keep default boards and Market Check free | Kyle asks |
 | 2-for-1 consolidation moves; check incoming player starts | 11-16 | Not built | Kyle asks |
 | Fable optional items: 2028 picks, contend/rebuild toggle, live home lead, renv | 11-14 | Not built | Kyle asks |
+| Backup QB future value as one Tweedie GLM / Tweedie xgboost on realized value | 11-24 | GLM explodes on a few players (Watson 2017: 3,259 pts); boosting predicts 0.37 of realized | Much larger samples |
+| Backup QB starter chance from trees / elastic net / GLM + career history | 11-24 | None beat Kyle's five-factor GLM out of sample (bootstrap intervals include 0) | More seasons |
 
 ---
 
@@ -763,6 +797,10 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A44 | No consolidation premium: 2-for-1 equals the sum | engine.js, moves.js | Convex curve | Additivity rule; moves are one-for-one | ACTIVE |
 | A45 | A trade is "Too close to call" inside 10% | calculator, moves | 5% "About even" (old) | Values carry noise; Kyle's redesign spec keeps 10% | CHANGED 2026-11-14 |
 | A46 | Values shown to the nearest 100, no interval | site | Ranges / tiers | Fable 9: avoid false precision; ranges not built | ACTIVE |
+| A87 | Backup season (research) = fewer than half the team's starts, did not start the team's first game, on a roster at season end; "becomes a starter" = half or more of team starts in y+1 or y+2 | research/backup_qb bq_01 | Depth-chart tag at a snapshot (only 2012+, noisy); any start; 8+ starts | Season-level, available 2002+, separates injured starters (rule B) from true backups | RESEARCH 11-24 |
+| A88 | Backup QBs get 0 redraft value in every league setting | Kyle 11-23 (not built) | Live role model (P(play) x credible PPG); start-chance model | Kyle's rule; backtest: RMSE 7.85 vs 7.54 live, so it costs little | PROPOSED 11-24 (not live) |
+| A89 | Starters on IR keep redraft value with expected games = team games left - 4 (start at 4, adjust) | Kyle 11-23 (not built) | Live status ratio (~1.7 games); rule x 0.59 return factor; rule only with 8+ games left | Kyle's rule; backtest says x ~0.6 or a games-left condition fits better | PROPOSED 11-24 (not live) |
+| A90 | Backup QB future value = P(starter within 2 yrs, 5-factor GLM) x E[future value if starting] (gamma GLM: age, spot-start PPG, log pick) + (1 - P) x E[value if not] | research/backup_qb bq_03 | Live dv_11 path; constant value if starting; Tweedie GLM / GBM | Lowest RMSE on 2016-2020 backups; values young high picks more, veterans less | RESEARCH 11-24 |
 
 ### 6.5 History, research and site
 
@@ -865,6 +903,9 @@ fine (already in Rookie_Pick_Strategy/README.md).
     (shrinkage + compression), but a real premium remains (+48% 1-for-2 at straight-up prices), so any single additive
     market scale misprices either straight-up or package trades. Compare levels with both views side by side.
 19. tm_04's long-run fit stops at its 800-iteration cap (the credibility fit converges); redraft run paused 11-23.
+20. ESPN depth-chart snapshots can drop a healthy starter mid-week (Drake Maye QB1 -> QB3 on 11-22 during NE's bye), which
+    tags him Backup and cuts his expected games. No guard yet (R29).
+21. Cut players keep their last team and tag until the next refresh (Daniel Jones, cut by IND before week 12, shows IND Backup).
 
 ---
 
@@ -889,9 +930,18 @@ approved to build unless Kyle says so (see section 10).
 
 **Model quality**
 
+- **R29. (11-24) Depth-chart guard:** a QB who started his team's most recent game, is ACT and has no injury status stays
+  depth 1 even if the newest ESPN snapshot drops him. Small change in rl_01 / role_snapshot; needs Kyle's OK. (issue 20)
+- **R30. (11-24) Kyle's redraft rules for QBs:** Backup = 0 (A88); IR starters with team games left - 4 (A89), scaled by a
+  return factor ~0.6 or applied only with 8+ games left. Revisit the 4 and the factor after the season. Needs Kyle's OK.
+- **R31. (11-24) Backup QB future value V2 (A90)** in place of the dv_11 path for Backup-tagged QBs, after checking
+  Winston-type cases (33-year-old with 4 starts at 58%) and rerunning on the PC with each league's replacement line
+  (dv_13 presets). Needs Kyle's OK.
+- **R32. (11-24) Backup RB handcuffs** could reuse the same hurdle shape (the parked Handcuffs idea) if Kyle asks.
+
 - **R6. Keep an untouched holdout** (Fable 7): freeze one season of value predictions and one class of grades before any
   new modeling, so future tests have a clean check.
-- **R7. Backup QB discount research** using archived ESPN rostered % (archive 4-6 weeks first, no publishing), test a
+- **R7. (partly answered 11-24 by research/backup_qb; see R29-R31)** Backup QB discount research using archived ESPN rostered % (archive 4-6 weeks first, no publishing), test a
   QB-only adjustment. (A43, issue 7)
   The same archive enables the crowd-vs-model start % test (section 3, 2026-11-20 follow-up).
 - **R8. Old QB survival:** a new angle is needed (the 11-13 fixes failed), e.g. contract or depth-chart-based exits.
@@ -982,6 +1032,7 @@ approved to build unless Kyle says so (see section 10).
 | Top-24 boards (points vs tiers) | https://claude.ai/artifact/6UXRNYjU8YddKV9ajiXGej |
 | Rookie pick strategy | https://claude.ai/artifact/WKN1QzTfvdzKTgKzg6rR6T |
 | Trade Market values (Trade_Market; includes the 11-23 additive-scale section) | https://claude.ai/artifact/D57WtFX8mNemAZ647ujpz5 |
+| Backup QB values (research/backup_qb) | https://claude.ai/artifact/M1h5RGzxeiZFTRwNNNzGk7 |
 
 **Reports in this repo:** FABLE_REVIEW.md; `Trade_Values/dev_role_layer/FABLE_BUILD_REPORT.md` and
 `ROLE_AND_CALIBRATION_REPORT.md`; `Trade_Values/history/README.md`; `Landing_Spot_Offense/README.md`;
