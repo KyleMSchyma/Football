@@ -341,8 +341,8 @@ cat("\nANCHOR CHECK (ratio = package / single player; Kyle's anchors say about 1
 top <- max(lv$players$dynasty, na.rm = TRUE); dr <- rank(-lv$players$dynasty, na.last = "keep")
 cat("\ntier calibration (default scoring): games per 17 and PPG by tier, seasons 1-5\n")
 print(as.data.frame(OUT_[[1]]$rp$cal %>% mutate(across(c(G, mu, sd), ~ round(.x, 1)))), row.names = FALSE)
-cat("\ndefault league, 2027 rookie picks (mocked players post-draft, the rest pre-draft; 100k scale; 'like' = the dynasty rank of a player with that value):\n")
-print(lv$slots %>% head(36) %>% mutate(pick = sprintf("%d.%02d", (slot - 1) %/% 12 + 1, (slot - 1) %% 12 + 1),
+cat("\ndefault league, 2027 rookie picks 1.01-4.12 (mocked players post-draft, the rest pre-draft; 100k scale; 'like' = the dynasty rank of a player with that value):\n")
+print(lv$slots %>% head(48) %>% mutate(pick = sprintf("%d.%02d", (slot - 1) %/% 12 + 1, (slot - 1) %% 12 + 1),
   value = round(1e5 * val / top), like = sapply(val, function(x) sum(lv$players$dynasty > x, na.rm = TRUE) + 1),
   p_tier1 = round(P1, 2), p_any = round(1 - P4, 2), age = round(age, 1)) %>% select(pick, name, pos, grade, age, p_tier1, p_any, value, like, source) %>% as.data.frame(), row.names = FALSE)
 

@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-23 (Market Check Contending / Rebuild moves toggle, S#36)
+- Last updated: 2026-11-24 (Nov 28 batch done early: redesign Phase 1, picks to 4.12, Market Check ranks, trade-type read)
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -156,10 +156,13 @@ Not rerun weekly on purpose: post-draft grades, mock grading (pd_09/11/12; rerun
 
 ### 2.5 Site map (prospect-actuary)
 
-Five sections in `shared/nav.js`: **Dashboard** (`index.html`), **Prospect Lab** (`pre-draft/`, `post-draft/` with a
-Pre-draft | Post-draft | Mixed switch, default Mixed), **Player Values** (`trade-values/`, dynasty default), **Trade
-Center** (`trade-calculator/`, `league/` Sleeper, `value-research/` = Market Check, `buy-sell/`, `moves/`), **Research**
-(`research/`, `guide/`, `track-record/`, `value-history/`, `team-analytics/`, `about/`). Profiles `player/?id=`,
+Since 2026-11-24 (redesign Phase 1): logo = home (`index.html`), then five sections in `shared/nav.js` and the phone
+bottom bar: **Values** (`trade-values/`, page title "Actuarial Trade Values", dynasty default), **Usage** (`buy-sell/` =
+Breakout Watch, "2026 preseason list"; `team-analytics/`), **Prospects** (`pre-draft/`, `post-draft/` with a Before
+Draft | After Draft | Adjusted switch, default Adjusted = the mixed model; 2027 class by default), **Tools**
+(`trade-calculator/`, `value-research/` = Market Check, `moves/`, `league/` Sleeper, `compare/`), **Research**
+(`research/`, `guide/`, `track-record/`, `value-history/`, `about/`). Earlier (11-14 to 11-24): Dashboard / Prospect
+Lab / Player Values / Trade Center / Research. Profiles `player/?id=`,
 `compare/?ids=`. Shared code: `theme.css`, `nav.js`, `mobile.js`, `search.js`, `league.js`, `engine.js` (the one
 copy of value math), `league-value.js`, `data.js`, `sleeper.js`, `moves.js`, `teams.js`. Python builders in `scripts/`
 run by the `player-ids` GitHub Action. GoatCounter analytics (code `kylemschyma`) on github.io only. Folder URLs never
@@ -170,6 +173,42 @@ change (the refresh hardcodes them).
 ## 3. Update log
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
+
+### 2026-11-24: Nov 28 site batch done early: redesign Phase 1 and approved value changes (F#44, S#37)
+- Kyle 11-24: "Lets do all the Nov 28 work right now including the Redesign, Phase 1". Source of truth:
+  project files `site_redesign/redesign_handoff_2026-11-24.md` and `saturday_2026-11-28_plan.md`.
+- **Redesign Phase 1 (site, presentation only):** navy + teal tokens in `shared/theme.css` (accent #107F80, darker than
+  the handoff's #148A8A so white text passes 4.5:1, A87); grade badges by family (A/B/C/D/F tints); 16px body; nav
+  Values / Usage / Prospects / Tools / Research with the logo as home (2.5); new homepage (hero, search, three core
+  cards Values / Usage / Prospects, "What changed this week" tabs with value movers, evidence strip, supporting tools,
+  methodology statement, quiet footer; quick calculator, pick grid and freshness table removed); short intros with
+  methodology folded into details on boards, Values and Breakout Watch; "Adjusted" replaces "Mixed" as the consumer
+  label (mixed model stays the methodology name); Buy / Sell renamed Breakout Watch under Usage with a "2026 preseason
+  list" badge (no weekly usage score; handoff rule 12); share tags (Open Graph / Twitter card, favicon, 1200x630
+  card image, `sitemap.xml`). URLs unchanged.
+- **Prospect boards:** 2027 class by default (`?class=` overrides, `all` = every class); new Class Rank column = overall
+  rank within the class across positions, in the board's current order (Value or percentile); column stays "Value"
+  (Kyle) with a "Grade vs Value" explainer that links to Values.
+- **2027 rookie picks through round 4 (4.12 in 12 teams)** in the engine, calculator, Sleeper page, moves, search and
+  Market Check; R side: dv_15 checks 4 x teams picks, dv_13 prints 1.01-4.12, dv_14 pulls DD 2027 1st-4th picks,
+  tm_07 writes 2027 mid 1st-4th market prices. Existing player and pick values unchanged (256-league check: 0 diffs;
+  +2,816 new pick rows; 12-team 4.12 = 3,784).
+- **Market Check:** labelled fixed league 12-team superflex half PPR (badge says so, cannot be changed there); all
+  sources now rank-matched (our value at the market's rank) and the table shows ranks and positional ranks only (no
+  curve fit, no package power, A88 supersedes A83 for display); moves list market and our ranks per player; new
+  "2027 rookie picks, rounds 1-4" table (market: what player rank the pick trades like; ours: our slots' rank range).
+  Trade market picks from tm.js now; Dynasty Daddy picks after the next dv_14 run; DynastyProcess picks live.
+- **Trade Calculator:** verdict sentence fixed (percent = how much more the bigger side gets, "you get / you give"
+  wording, no "the you" typo). New secondary line "Adjusted for trade type" for dynasty trades with 3+ assets and no
+  picks (`shared/trade-adjust.js`, coefficients from F#43 `ta_01_fit_market.py`, system ADD, 68,903 DD trades; 1-for-1
+  unadjusted; throw-in pieces under 25% of the best asset phased out). Our additive verdict and values unchanged (A89).
+- **Not built (Kyle held 11-24):** sign-off box, player notes, review sheets; profiles leading with odds (Dec 12);
+  table presets, league drawer, trade tray (Dec 5).
+- **Steadiness candidate** (in-season k x1.25, EWMA a = 0.7, top-10 anchor): R point-in-time rerun with a 2023-2025
+  holdout running on Kyle's PC; ships only if it passes (see the next entry when it lands).
+- Template: `Trade_Values/tv_page_template.html` regenerated from the live page (only the data line differs); must be
+  copied to the PC's Football2_Dynasty with dv_13 / dv_14 / dv_15 before Tuesday, and tm_07 to the trade-market folder.
+- Status: LIVE (F#44, S#37). Assumptions A87-A90. Issues 20-22. Recommendations R29-R31.
 
 ### 2026-11-23: Contending / Rebuild toggle for Market Check moves (site S#36)
 - Kyle: add a contending/rebuild toggle to Best market moves; trades stay equal in value and follow the same rules, but
@@ -585,7 +624,7 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   filling every lineup; flex greedily by projected PPG).
 - **Rookie picks:** tier probabilities x tier calibration (games, PPG, spread by tier and season from 2010-2022 classes,
   season 5 from 2010-2021) with age adjustment, x a calibration multiplier (1.03, 95% 0.73-1.34) so 2016-22 slots
-  1.01-1.12 match realized. Only 2027 rounds 1-3 valued; picks shown as slots, not names (Kyle).
+  1.01-1.12 match realized. 2027 rounds 1-4 valued since 2026-11-24 (rounds 1-3 before); picks shown as slots, not names (Kyle).
 - **Backtests:** dynasty pred/actual ~0.99 after Fable; point-in-time history in 4.7.
 - **Known weak spots:** backup QBs still somewhat above market; old QB survival high (Fable 8, fixes failed);
   small-sample current-season weight (Stroud).
@@ -594,8 +633,10 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
 
 ### 4.6 Market comparison and track record
 
-- **Market Check** (`/value-research/`): ranks vs Dynasty Daddy (default; dynasty + redraft, cached weekly by dv_14) and
-  DynastyProcess (dynasty, live with fallback). 12-team SF 0.5 PPR. Ranks and gaps only. Never KTC.
+- **Market Check** (`/value-research/`): ranks vs Dynasty Daddy (default; dynasty + redraft, cached weekly by dv_14),
+  DynastyProcess (dynasty, live with fallback) and the Trade market. Fixed 12-team SF half PPR (labelled on the page and
+  badge since 11-24). Overall + positional rank differences only; every source rank-matched for moves (A88). 2027 pick
+  table rounds 1-4 (11-24). Never KTC.
 - **Dynasty Daddy history** (research 11-22, `Trade_Values/research/dd_history/`): daily DD values exist from
   2024-08-01 via undocumented endpoints (player history, whole-board `prev/{days}`); also FantasyCalc/DynastyProcess
   from 2023-05. Not pulled; permission to be asked first (R21). Use: backtest our values vs the market over time.
@@ -624,7 +665,8 @@ hindsight model design.
 
 Trade Calculator (gap-fill suggestions, "Too close to call" inside 10%), Sleeper league page (needs, partners), Contending /
 Rebuild moves, Buy/Sell page, Team Analytics, profiles with NFL comparables, compare, saved leagues, data status, phone
-layout, Dashboard movers. Details in the site README and memory notes listed in section 11.
+layout, homepage movers ("What changed this week"). Calculator "Adjusted for trade type" line (11-24, A89). Share tags,
+favicon, sitemap (11-24). Details in the site README and memory notes listed in section 11.
 
 ### 4.9 Research studies (one-offs)
 
@@ -690,6 +732,9 @@ data; render.js makes a 2400x3000 navy/orange top-24 image with an OVR column; g
 | Paywall (custom leagues, handcuffs, deep dives, exports) | 11-12 | Advice only; keep default boards and Market Check free | Kyle asks |
 | 2-for-1 consolidation moves; check incoming player starts | 11-16 | Not built | Kyle asks |
 | Fable optional items: 2028 picks, contend/rebuild toggle, live home lead, renv | 11-14 | Not built | Kyle asks |
+| Weekly usage score / route participation / air-yard share on Usage | 11-24 | PARKED: no researched model yet (handoff rule 12); Usage launches with Breakout Watch | A usage model is built, tested and Kyle approves |
+| Sign-off box, per-player notes, review sheets | 11-24 | HELD by Kyle | Kyle says build |
+| Market Check curve fit / package power for DD and DP | 11-24 | Dropped for rank-matching (Kyle 11-24) | Never unless Kyle asks |
 
 ---
 
@@ -802,11 +847,15 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A80 | Market values on our additive scale: light shrinkage (LAMBDA0 0.05) and one stretch v' = v^s chosen so holdout trades show no consolidation gap | tm_04 | tm_02 as is (flat); roster cost; depth discount; stretch by MAE (always s = 1) | Only option that recovers known values in synthetic tests and puts package prices on an additive scale; the s = 1 (straight-up) view is reported next to it | RESEARCH 11-23 |
 | A81 | Dynasty market comparison uses only 1-for-1, 1-for-2, 2-for-2, 2-for-3 trades (75% of trades) | tm_04 TM_SHAPES | All shapes | Kyle 11-23: bigger trades are large steps | RESEARCH 11-23 |
 | A82 | Market comparison is descriptive: differences are "market above / below our method", never errors on either side | Trade_Market write-ups | Treat the market as truth or as noise | Kyle 11-23 | ACTIVE 11-23 |
-| A83 | Market values shown on our curve: 1:1 market values raised to one power fitted so the top-150 curve matches ours; package exceptions listed beside them | tm_06 | Package-fair scale (s 2.44); raw 1:1 (flatter) | Kyle 11-23: "keep the 1:1" with our site values; differences become pure player placement | RESEARCH 11-23 |
+| A83 | Market values shown on our curve: 1:1 market values raised to one power fitted so the top-150 curve matches ours; package exceptions listed beside them | tm_06 | Package-fair scale (s 2.44); raw 1:1 (flatter) | Kyle 11-23: "keep the 1:1" with our site values; differences become pure player placement | SUPERSEDED 2026-11-24 for the site by A88 (rank differences) |
 | A84 | Market moves: fair = market prices within 10% (1:1 prices for pivots, 2:1 package prices for uptier/downtier); listed when our dynasty value gains > 10% and >= 1,000 | value-research page (S#34) | Fair on our values (as /moves/); fair on the curve-matched scale; 2-for-3 calibration (power 2.09) | Kyle 11-23; matches the site's 10% too-close-to-call rule; 2:1 power from 1-for-2 holdout trades only | RESEARCH 11-23, LIVE when S#34 merges |
 | A86 | Market moves Contending / Rebuild: market values split into now / future with our own per-player ratio (pseudo values); need side > 50% of the trade's need value and > 10% / >= 1,000 above the other side; give up more of the other kind; our dynasty values within 10%; ranked by pseudo need gain | value-research page (S#36) | Our redraft / future values directly (no market side); need share threshold on the whole package; our dynasty gain still required | Kyle 11-23 ("use the ratios from our own values to give them pseudo values"); keeps both sides "value equal" and judges the need on market terms | LIVE when S#36 merges |
 | A85 | DD / DynastyProcess moves use rank-matched values (our value at the same overall rank); downtier and uptier: the two-piece side is led by a same-position player below the single player with > 50% of that side's market value (11-23, S#35), the other piece any position; pivots any position | value-research page (S#34) | Positional-rank matching; no moves for DD/DP | Kyle 11-23 | LIVE when S#34 merges |
 | A79 | Assets with fewer than 25 trades pooled per position; reference asset 2027 mid 1st (redraft: most-traded player) | tm_02 | Separate tiny-sample values; another reference | Stable fit; values are rescaled to 100k per league anyway | RESEARCH 11-23 |
+| A87 | Site accent teal #107F80 (handoff asked #148A8A) | shared/theme.css | #148A8A as given; navy-only buttons | #148A8A with white text is 4.2:1, under WCAG AA 4.5:1; #107F80 is 4.8:1 and reads the same | ACTIVE 11-24 |
+| A88 | Market Check: every source rank-matched (each player gets our value at his market overall rank) and shown as overall + positional rank differences; 2-for-1 moves use rank-matched values for all sources | value-research page | Curve fit with package power for the trade market (A83); positional-rank matching | Kyle 11-24 approved rank differences for all sources | ACTIVE 11-24; A83 SUPERSEDED for display 11-24 |
+| A89 | Calculator trade-type adjustment is a secondary "market-style read": adj = a + b g + c g^2 by type (n1 v n2), g = ln(best1/best2) clipped to the training range; 1-for-1 and trades with picks get none; pieces under 25% of the best asset phase out linearly from 25% to 5% | shared/trade-adjust.js | Make it the headline verdict; no adjustment; refit live | Kyle 11-24 "keep values additive and add the adjustment as tested"; F#43 found the gap term mostly encodes market-vs-our pricing, so it stays beside, not instead of, our verdict | ACTIVE 11-24 |
+| A90 | 2027 rookie picks valued through round 4 (4 x teams slots) | engine.js, dv_15, dv_13, dv_14, tm_07 | Rounds 1-3 | Kyle 11-24 | ACTIVE 11-24 |
 | A71 | Market history, if used, = Dynasty Daddy's own `daddy_*` fields from DD's history endpoints, only after DD permission; never the unprefixed/KTC fields | research/dd_history | Use documented current API only and build our own weekly archive of it; use FantasyCalc history | DD history is the only dated market source found that we may use; own archive starts from zero | ACTIVE |
 
 ---
@@ -865,6 +914,11 @@ fine (already in Rookie_Pick_Strategy/README.md).
     (shrinkage + compression), but a real premium remains (+48% 1-for-2 at straight-up prices), so any single additive
     market scale misprices either straight-up or package trades. Compare levels with both views side by side.
 19. tm_04's long-run fit stops at its 800-iteration cap (the credibility fit converges); redraft run paused 11-23.
+20. 11-24: Dynasty Daddy 2027 pick prices are blank on Market Check until dv_14 runs on the PC (the cloud cannot reach
+    the DD API). Trade market gives one generic (mid) price per round, so early/late picks compare to a round average.
+21. 11-24: the calculator's trade-type coefficients are a frozen 11-24 fit; they are not refit weekly yet (tm_weekly does
+    not write them). Round-4 picks sit near the replacement line, so small values in deep leagues.
+22. 11-24: robots.txt cannot live under a GitHub project subpath; submit `sitemap.xml` in Search Console instead.
 
 ---
 
@@ -923,6 +977,15 @@ approved to build unless Kyle says so (see section 10).
   yes, one paced pull from Kyle's PC (~120 weekly `prev/{days}` calls, cached, never re-pulled) and a backtest of our
   point-in-time values vs DD against next-season PPG, by position. Meanwhile, cheap fallback: keep each week's dd.js
   in the archive so our own market history starts now. (11-22, A71)
+
+**Nov 28 batch follow-ups (11-24)**
+
+- **R29. Copy the regenerated `tv_page_template.html`, dv_13, dv_14, dv_15 to Football2_Dynasty and tm_07 to the trade
+  market folder before Tuesday 12-01.** (issue 10, A90)
+- **R30. Have tm_weekly write the trade-type coefficients** into `shared/trade-adjust.js` so the calculator line refits
+  weekly. (A89, issue 21)
+- **R31. Dec 5 / Dec 12 phases** per the redesign handoff (tables, league drawer, trade tray; profiles). Weekly usage
+  score only after research.
 
 **Trade Market (research 11-23)**
 

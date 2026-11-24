@@ -50,6 +50,6 @@ exp15 <- lapply(names(LG_TEST_), function(nm) { lg <- LG_TEST_[[nm]]; L <- leagu
                            fdQB = 0, fdRB = 0, fdWR = 0, fdTE = 0),
        players = lapply(seq_len(nrow(pl)), function(i) list(n = pl$name[i], p = pl$pos[i], d = if (is.na(pl$dynasty[i])) NULL else 1e5 * pl$dynasty[i] / top_d,
                                                              r = if (is.na(pl$redraft[i]) || pl$redraft[i] <= 0) NULL else 1e5 * pl$redraft[i] / top_r)),
-       picks = 1e5 * head(L$slots$val, 3 * lg$teams) / top_d) })
+       picks = 1e5 * head(L$slots$val, 4 * lg$teams) / top_d) })   # 2027 picks through round 4 (Kyle 2026-11-24)
 writeLines(paste0("window.DV15 = ", jsonlite::toJSON(exp15, auto_unbox = TRUE, digits = NA, null = "null"), ";"), "dv_15_expected.js", useBytes = TRUE)
 cat("wrote dv_15_expected.js for", length(exp15), "leagues\n")

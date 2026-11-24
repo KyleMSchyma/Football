@@ -1,6 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Player Values: Dynasty and Redraft Trade Values | Prospect Actuary</title>
+<title>Actuarial Trade Values: Dynasty and Redraft, Superflex and PPR | Prospect Actuary</title>
 <meta name="description" content="Redraft and dynasty fantasy football trade values for every NFL QB, RB, WR and TE, set to your league's scoring and lineup, with 2027 rookie picks.">
+<!--share--><link rel="canonical" href="https://kylemschyma.github.io/prospect-actuary/trade-values/"><link rel="icon" href="../favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="../shared/icon-180.png"><meta property="og:type" content="website"><meta property="og:site_name" content="Prospect Actuary"><meta property="og:title" content="Actuarial Trade Values: Dynasty and Redraft, Superflex and PPR | Prospect Actuary"><meta property="og:description" content="Redraft and dynasty fantasy football trade values for every NFL QB, RB, WR and TE, set to your league's scoring and lineup, with 2027 rookie picks."><meta property="og:url" content="https://kylemschyma.github.io/prospect-actuary/trade-values/"><meta property="og:image" content="https://kylemschyma.github.io/prospect-actuary/shared/og-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Prospect Actuary: fantasy values built like actuarial models"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Actuarial Trade Values: Dynasty and Redraft, Superflex and PPR | Prospect Actuary"><meta name="twitter:description" content="Redraft and dynasty fantasy football trade values for every NFL QB, RB, WR and TE, set to your league's scoring and lineup, with 2027 rookie picks."><meta name="twitter:image" content="https://kylemschyma.github.io/prospect-actuary/shared/og-card.png"><meta name="theme-color" content="#17324d"><!--/share-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="../shared/theme.css">
 <style>
@@ -82,13 +83,14 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-wid
 </style></head>
 <body><div class="wrap">
 <header style="display:flex;flex-direction:column;gap:14px">
-  <nav class="pa-brand" data-root="../"><a href="../">Prospect Actuary</a> · <a href="../">Dashboard</a> · <a href="../pre-draft/">Prospect Lab</a> · <a href="../trade-values/">Player Values</a> · <a href="../trade-calculator/">Trade Center</a> · <a href="../research/">Research</a></nav><script src="../shared/nav.js"></script>
+  <nav class="pa-brand" data-root="../"><a href="../">Prospect Actuary</a> · <a href="../trade-values/">Values</a> · <a href="../buy-sell/">Usage</a> · <a href="../pre-draft/">Prospects</a> · <a href="../trade-calculator/">Tools</a> · <a href="../research/">Research</a></nav><script src="../shared/nav.js"></script>
 
-  <div class="eyebrow">Player Values · dynasty and redraft · your league's scoring and lineup · QB, RB, WR, TE, rookie picks</div>
-  <h1>Player Values</h1>
+  <div class="eyebrow">Values · dynasty and redraft · QB, RB, WR, TE and rookie picks</div>
+  <h1>Actuarial Trade Values</h1>
+  <p class="lede">League-adjusted dynasty and redraft values based on points over replacement, expected games, aging, and future production.</p>
+  <p><b>Values add across players and picks. Assets within 10% are approximately even.</b></p>
   <p class="small muted" id="asof"></p>
-  <div class="dev" role="note"><b>KNOWN LIMITS</b><span>Values are estimates, shown to the nearest 100. Players within about 10% of each other are too close to call. Rookie pick values are rougher than player values. The model does not see scheme, coaching changes or contracts. Not valued yet: Jayden Higgins, Travis Hunter and Brandon Aiyuk. Tap a player to see how his value is built.</span></div>
-  <p><b>Every value is on one 100,000-point scale, and values add:</b> a 60,000 player plus a 40,000 player equals one 100,000 player, so to check a trade, add up each side and compare. Set your league and every value updates.</p>
+  <details class="note"><summary>Known limits</summary><p class="small">Values are estimates, shown to the nearest 100. Rookie pick values are rougher than player values. The model does not see scheme, coaching changes or contracts. Not valued yet: Jayden Higgins, Travis Hunter and Brandon Aiyuk. Every value is on one 100,000-point scale (the top player on each sheet is 100,000): a 60,000 player plus a 40,000 player equals one 100,000 player. Tap a player to see how his value is built.</p></details>
 </header>
 
 <section id="league" style="gap:12px">
@@ -110,7 +112,7 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-wid
 <section id="redraft">
   <div class="eyebrow">This season only</div>
   <h2>Redraft Trade Values</h2>
-  <p>Value for the rest of the 2026 season only: points per game over replacement × the games a player is expected to play from here. Points per game blend this season with his recent seasons, and expected games account for his history of missed games.</p>
+  <details class="note"><summary>How redraft value works</summary><p class="small">Value for the rest of the 2026 season only: points per game over replacement × the games a player is expected to play from here. Points per game blend this season with his recent seasons, and expected games account for his history of missed games.</p></details>
   <div class="tabs" id="rTabs" role="group" aria-label="Position"></div>
   <div class="ctl"><input id="rName" type="search" placeholder="Search player or team" aria-label="Search redraft values"><span class="small muted" id="rCount"></span></div>
   <p class="small muted st-legend">Status tags: <span class="st">IR</span> reserve list (injured reserve, PUP, suspended) · <span class="st">Out</span> / <span class="st">Doubtful</span> / <span class="st">Q</span> last game's injury report · <span class="st">Backup</span> not first on the team's depth chart. Expected games already account for the status.</p>
@@ -122,8 +124,10 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-wid
 <section id="dynasty">
   <div class="eyebrow">Rest of 2026 plus 2027-2031 · with 2027 rookie picks (Picks tab)</div>
   <h2>Dynasty Trade Values</h2>
-  <p>Value over the rest of 2026 and the next five seasons (through 2031). 2027 rookie picks are valued over the same seasons: their first five NFL seasons. It adds a young player's potential from his draft slot, how players at his position age, his chance of staying in the league, and a discount that makes later seasons count a little less.</p>
-  <p class="small muted"><b>2027 rookie picks</b> are priced before the 2027 class is drafted. Players in our own 7-round 2027 mock draft use the <a href="../post-draft/">post-draft model</a>, with the mock pick as their draft capital. Everyone else uses the <a href="../pre-draft/">pre-draft model</a>, which has no draft capital. Each prospect gets an expected value from his chances of each fantasy tier, with what past players in that tier scored, adjusted for his age. Then the prospects are ranked for your league: pick 1.01 is worth the best prospect's value, 1.02 the second best, and so on through round 3. It assumes every prospect on the board enters the draft.</p>
+  <details class="note"><summary>How dynasty and rookie-pick values work</summary>
+  <p class="small">Value over the rest of 2026 and the next five seasons (through 2031). 2027 rookie picks are valued over the same seasons: their first five NFL seasons. It adds a young player's potential from his draft slot, how players at his position age, his chance of staying in the league, and a discount that makes later seasons count a little less.</p>
+  <p class="small"><b>2027 rookie picks</b> are priced before the 2027 class is drafted. Players in our own 7-round 2027 mock draft use the <a href="../post-draft/">post-draft model</a>, with the mock pick as their draft capital. Everyone else uses the <a href="../pre-draft/">pre-draft model</a>, which has no draft capital. Each prospect gets an expected value from his chances of each fantasy tier, with what past players in that tier scored, adjusted for his age. Then the prospects are ranked for your league: pick 1.01 is worth the best prospect's value, 1.02 the second best, and so on through round 4 (4.12 in a 12-team league). It assumes every prospect on the board enters the draft.</p>
+  </details>
   <div class="tabs" id="dTabs" role="group" aria-label="Position"></div>
   <div class="ctl"><input id="dName" type="search" placeholder="Search player, team or pick" aria-label="Search dynasty values"><span class="small muted" id="dCount"></span></div>
   <p class="small muted st-legend">Status tags: <span class="st">IR</span> reserve list (injured reserve, PUP, suspended) · <span class="st">Out</span> / <span class="st">Doubtful</span> / <span class="st">Q</span> last game's injury report · <span class="st">Backup</span> not first on the team's depth chart. Expected games already account for the status.</p>
