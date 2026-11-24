@@ -14,6 +14,11 @@ source(file.path(HERE, "hv_common.R"))
 HV_LEN <- hv_len(HV_S); HV_NOW <- MODE == "live"; HV_SKIP_BT <- TRUE
 HV_GEN <- file.path(tempdir(), "hv_gen"); MODEL_VERSION <- hv_generate(".", HV_GEN)
 NO_WRITE <- TRUE
+# Steadiness (dv_10, 2026-11-24): history stays on the pre-steadiness method (no EWMA, #1 = 100k, set below), so the
+# 2016-2026 track record stays one consistent series and nothing is rebuilt. EWMA_A = 1 also keeps the snapshot from reading
+# or writing the live cppg_state/ files in the model folder. Switching history to the new method needs a full in-order
+# rebuild (research/steadiness_rerun/scripts/sv_snapshot.R shows how) and is Kyle's call.
+EWMA_A <- 1; K1_MULT <- 1; ANCHOR_TOP10 <- FALSE
 if (MODE == "asof") readRDS <- function(file, ...) hv_cut(base::readRDS(file, ...), HV_S, HV_W)
 t0 <- Sys.time()
 sink(file.path(tempdir(), "model_log.txt"))                 # the model scripts print a lot; keep it out of the run log

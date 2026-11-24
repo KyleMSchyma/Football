@@ -180,7 +180,7 @@ b4 <- d26 %>% transmute(name, pos, team, age, exp, draft_pick, games_2026 = n_cu
   mutate(ppg_2027 = round(pr$ppg[, 2], 1), ppg_2028 = round(pr$ppg[, 3], 1), ppg_2030 = round(pr$ppg[, 5], 1),
          S_2030 = round(pr$S[, 5], 2), value_2026_ros = round(pr$seasons[, 1], 1), value_2027 = round(pr$seasons[, 2], 1),
          value_raw = pr$value) %>%
-  arrange(desc(value_raw)) %>% mutate(rank = row_number(), value_100k = round(100000 * value_raw / max(value_raw))) %>%
+  arrange(desc(value_raw)) %>% mutate(rank = row_number(), value_100k = round(100000 * value_raw / anchor_top(value_raw, ANCHOR_C["dynasty"]))) %>%
   group_by(pos) %>% mutate(rank_pos = paste0(pos, row_number())) %>% ungroup()
 if (WRITE) write.csv(b4 %>% select(rank, rank_pos, everything(), -value_raw), "dv_v4_board.csv", row.names = FALSE)
 options(width = 220)

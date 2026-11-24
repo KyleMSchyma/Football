@@ -90,7 +90,7 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-wid
   <p class="lede">League-adjusted dynasty and redraft values based on points over replacement, expected games, aging, and future production.</p>
   <p><b>Values add across players and picks. Assets within 10% are approximately even.</b></p>
   <p class="small muted" id="asof"></p>
-  <details class="note"><summary>Known limits</summary><p class="small">Values are estimates, shown to the nearest 100. Rookie pick values are rougher than player values. The model does not see scheme, coaching changes or contracts. Not valued yet: Jayden Higgins, Travis Hunter and Brandon Aiyuk. Every value is on one 100,000-point scale (the top player on each sheet is 100,000): a 60,000 player plus a 40,000 player equals one 100,000 player. Tap a player to see how his value is built.</p></details>
+  <details class="note"><summary>Known limits</summary><p class="small">Values are estimates, shown to the nearest 100. Rookie pick values are rougher than player values. The model does not see scheme, coaching changes or contracts. Not valued yet: Jayden Higgins, Travis Hunter and Brandon Aiyuk. Every value is on one 100,000-point scale (100,000 is set from the average of the top 10 on each sheet, so the top player is about 100,000 and can be a little above or below it): a 60,000 player plus a 40,000 player equals one 100,000 player. Tap a player to see how his value is built.</p></details>
 </header>
 
 <section id="league" style="gap:12px">
@@ -139,7 +139,7 @@ ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;max-wid
 <details class="fold" id="how">
   <summary><h2>How they're built</h2><span class="small muted">Points over replacement, scoring models, caveats and backtests</span></summary>
   <div class="foldbody">
-    <p class="small">The values are built from fantasy points per game over replacement: how many more points a player scores each game than the player you could start instead. Who that is depends on your league, which is why the league settings move every value. Because the values are measured in points, they add up the way points do. The top player on each sheet is 100,000. The full explanation is in the guide: <a href="../guide/#redraft">redraft</a>, <a href="../guide/#dynasty">dynasty and picks</a>.</p>
+    <p class="small">The values are built from fantasy points per game over replacement: how many more points a player scores each game than the player you could start instead. Who that is depends on your league, which is why the league settings move every value. Because the values are measured in points, they add up the way points do. The scale is set from the top 10 players on each sheet, so the top player is about 100,000 (a little above or below it from week to week). The full explanation is in the guide: <a href="../guide/#redraft">redraft</a>, <a href="../guide/#dynasty">dynasty and picks</a>.</p>
     <ul>
     <li>2026 data runs through the latest week shown above. Values will move as the season goes on.</li>
     <li>Each scoring setting has its own fitted model (credibility, aging, availability and staying in the league), not just rescored points. Lineup settings move the replacement lines.</li>

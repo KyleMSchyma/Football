@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-24 (Nov 28 batch done early: redesign Phase 1, picks to 4.12, Market Check ranks, trade-type read)
+- Last updated: 2026-11-24 (steadier values LIVE from the 12-01 refresh: EWMA 0.7 credible PPG, top-10 anchored 100k scale)
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -173,6 +173,31 @@ change (the refresh hardcodes them).
 ## 3. Update log
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
+
+### 2026-11-24: Steadier values: EWMA 0.7 on credible PPG and a top-10 anchored 100k scale (F#45, S#38)
+- Kyle 11-24 approved the steadiness candidate subject to a faithful R rerun with a holdout. Rerun on the PC (hv_01
+  method, real dv_10 / dv_11, 1,692 weekly snapshots 2018-2025, 12 settings; files on the PC in
+  `Football2\research\steadiness_rerun\`, not in the repo): the candidate (k1 x1.25, EWMA 0.7, top-10 anchor) passed only
+  by 0.0006 on rest-of-season RMSE (+0.0294 of a +0.03 limit); the setting picked on 2018-2022 alone (k1 x1.5, EWMA 0.6)
+  FAILED (+0.060). Kyle chose the safer setting (decision card 11-24): **k1 unchanged, EWMA a = 0.7, top-10 anchor**.
+- Holdout 2023-2025 for the chosen setting vs live: top-24 dynasty weeks with a 10%+ drop 26.4% -> 13.9% (-47%), 20%+
+  drops 8.7% -> 2.7%, ROS RMSE +0.014 PPG (limit +0.03), next-season top-50 RMSE +0.008 (limit +0.02). Steadier in
+  every season 2018-2025.
+- Build: dv_10 `EWMA_A = 0.7` (credible PPG = 0.7 x this week + 0.3 x last published, unrounded state in
+  `Trade_Values/cppg_state/`, one CSV per scoring variant, seeded from a week-11 rerun; no smoothing in week 1, for a
+  player with no earlier row, or a week against itself); `K1_MULT = 1`; `anchor_top()` with `ANCHOR_C` dynasty 1.33 /
+  redraft 1.31 (2023-25 mean of #1 / top-10 average for this setting) used by dv_10, dv_11, dv_13, dv_15, rf_04 and
+  `shared/engine.js`. History (hv_01) keeps the old method (no smoothing, #1 = 100k) so it never touches live state.
+- Checks (scratch copy on the PC): all 7 refresh gates passed; 6a 1e-13; 6b max 11 / 15 / 39 (dynasty / redraft /
+  picks, limit 100); control with the old engine.js failed 6b by ~20,000. Week-11 rerun: credible PPG and every rank
+  identical to live; only the scale moves (dynasty +11.2%: #1 JSN 111,176; redraft +9.2%: #1 Gibbs 109,194). A +1 PPG
+  shift in last week's state moves every credible PPG by exactly 0.3.
+- One-time effects on 12-01: movers show everyone up ~9-11% (archive is on the old scale); dv_15 board-vs-pick numbers
+  scale the same way.
+- PC copy after merge: dv_10, dv_11, dv_13, dv_15, tv_page_template.html -> Football2_Dynasty; cppg_state/*.csv ->
+  Football2_Dynasty\cppg_state\; rf_04_archive.R -> Weekly_Refresh.
+- Status: LIVE from the 12-01 refresh (site engine live on merge). A30 SUPERSEDED in part (scale), A91-A92 new.
+  Issues 23-24. R32-R33.
 
 ### 2026-11-24: Nov 28 site batch done early: redesign Phase 1 and approved value changes (F#44, S#37)
 - Kyle 11-24: "Lets do all the Nov 28 work right now including the Redesign, Phase 1". Source of truth:
@@ -791,7 +816,7 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 
 | Id | Assumption | Where | Alternatives | Why chosen / evidence | Status |
 |---|---|---|---|---|---|
-| A30 | Value = PPG over replacement x expected games, additive, 100k scale (top = 100,000) | dv_10, dv_11, engine.js | Rank-based convex curve fit to anchor trades (dv_08, #1 = #8 + #20); per-setting consolidation curve from simulated lineups; total points | Kyle's rule 11-11: additive and explainable. Anchor checks still printed (dv_anchor_check.csv: ratios 0.93-1.08) | ACTIVE |
+| A30 | Value = PPG over replacement x expected games, additive, 100k scale (top = 100,000) | dv_10, dv_11, engine.js | Rank-based convex curve fit to anchor trades (dv_08, #1 = #8 + #20); per-setting consolidation curve from simulated lineups; total points | Kyle's rule 11-11: additive and explainable. Anchor checks still printed (dv_anchor_check.csv: ratios 0.93-1.08) | ACTIVE (value rule); the "top = 100,000" scale part SUPERSEDED 2026-11-24 by A92 |
 | A31 | Credible PPG: Bühlmann blends, 3-season games-weighted history with draft-pick prior (k2), then current season (k1), k fit per position on week-9 backtests | dv_10 | Classic EPV/VHM k; prospect-model prior; 5 seasons; start-rate weighting | Fit empirically; priors (11-18) and start rate (11-20) tested, no gain. Side effect: 9 hot games get ~60% weight (Stroud) | ACTIVE |
 | A32 | Replacement = credible PPG of the Nth player (6+ games); reference league QB24/RB24/WR36/TE12 (12 teams, SF, no flex); site default adds 2 FLEX filled greedily by projected PPG | dv_10 LG_DEFAULT, engine.js | VOLS/VORP variants; waiver-wire average; dynamic by week | Simple, league-aware; R reference league kept for calibration, backtests, downloads, snapshots | CHANGED 2026-11-15 (site default) |
 | A33 | Dynasty horizon = rest of 2026 + 2027-2031 for everyone (players and picks); discount v = 1/1.15 per season | dv_11, dv_13 | Age-based horizons; perpetuity; other discount | Kyle 11-13: same window for all | CHANGED 2026-11-13 (was to 2030) |
@@ -856,6 +881,8 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A88 | Market Check: every source rank-matched (each player gets our value at his market overall rank) and shown as overall + positional rank differences; 2-for-1 moves use rank-matched values for all sources | value-research page | Curve fit with package power for the trade market (A83); positional-rank matching | Kyle 11-24 approved rank differences for all sources | ACTIVE 11-24; A83 SUPERSEDED for display 11-24 |
 | A89 | Calculator trade-type adjustment is a secondary "market-style read": adj = a + b g + c g^2 by type (n1 v n2), g = ln(best1/best2) clipped to the training range; 1-for-1 and trades with picks get none; pieces under 25% of the best asset phase out linearly from 25% to 5% | shared/trade-adjust.js | Make it the headline verdict; no adjustment; refit live | Kyle 11-24 "keep values additive and add the adjustment as tested"; F#43 found the gap term mostly encodes market-vs-our pricing, so it stays beside, not instead of, our verdict | ACTIVE 11-24 |
 | A90 | 2027 rookie picks valued through round 4 (4 x teams slots) | engine.js, dv_15, dv_13, dv_14, tm_07 | Rounds 1-3 | Kyle 11-24 | ACTIVE 11-24 |
+| A91 | Credible PPG smoothed week to week: cppg_t = 0.7 x new_t + 0.3 x published_(t-1), from an unrounded per-scoring-variant state file; k1 unchanged | dv_10 (EWMA_A, K1_MULT), Trade_Values/cppg_state | k1 x1.25 (+ EWMA 0.7, passed by 0.0006); k1 x1.5 + EWMA 0.6 (failed holdout); textbook B-S k (jumpier); no smoothing | Faithful R rerun 2018-2025, chosen by Kyle 11-24: -47% big drops, ROS +0.014 PPG | ACTIVE from 12-01 |
+| A92 | 100k scale = ANCHOR_C x mean of the top-10 raw values per sheet (dynasty 1.33, redraft 1.31; #1 alone if fewer than 10), so #1 averages ~100k but floats | dv_10 anchor_top, dv_11, dv_13, dv_15, rf_04, engine.js | #1 = 100,000 (A30); top-5 average; fixed raw divisor | Removes the 15% of big drops caused by the #1 rescale; constants = 2023-25 mean of #1 / top-10 for this setting; refresh each preseason | ACTIVE from 12-01 |
 | A71 | Market history, if used, = Dynasty Daddy's own `daddy_*` fields from DD's history endpoints, only after DD permission; never the unprefixed/KTC fields | research/dd_history | Use documented current API only and build our own weekly archive of it; use FantasyCalc history | DD history is the only dated market source found that we may use; own archive starts from zero | ACTIVE |
 
 ---
@@ -919,6 +946,13 @@ fine (already in Rookie_Pick_Strategy/README.md).
 21. 11-24: the calculator's trade-type coefficients are a frozen 11-24 fit; they are not refit weekly yet (tm_weekly does
     not write them). Round-4 picks sit near the replacement line, so small values in deep leagues.
 22. 11-24: robots.txt cannot live under a GitHub project subpath; submit `sitemap.xml` in Search Console instead.
+23. 11-24: Value History stays on the old method (no smoothing, #1 = 100k), so history and live values are on slightly
+    different scales from 12-01; the 12-01 movers list shows everyone up ~9-11% once.
+24. 11-24: if `Football2_Dynasty\cppg_state\` is missing on the PC, the refresh publishes unsmoothed values and smoothing
+    starts a week later; a same-week rerun replaces that week's state rows (by design).
+25. 11-24: ANCHOR_C was fitted in the reference league only. Across 256 site leagues the week-11 rescale runs 0.95x
+    (14-team SF TE premium) to 1.40x (8-team, half PPR, FD bonus), so the #1 shows ~95k to ~140k depending on league.
+    Ranks and trade verdicts are unaffected (one factor per sheet). Fix if wanted: R34.
 
 ---
 
@@ -986,6 +1020,12 @@ approved to build unless Kyle says so (see section 10).
   weekly. (A89, issue 21)
 - **R31. Dec 5 / Dec 12 phases** per the redesign handoff (tables, league drawer, trade tray; profiles). Weekly usage
   score only after research.
+
+- **R32. Decide whether to rebuild Value History on the new method** (full rebuild in week order, 2016+) so history and
+  live share one scale. Only if Kyle asks. (A91, A92, issue 23)
+- **R34. League-specific anchor:** derive the anchor constant per league setting (or from the league's own #1 / top-10
+  ratio smoothed over weeks) so the #1 stays near 100k in shallow and deep leagues. (issue 25)
+- **R33. Refresh ANCHOR_C each preseason** from the last three seasons (#1 / top-10 mean) and recheck the holdout. (A92)
 
 **Trade Market (research 11-23)**
 

@@ -26,6 +26,16 @@ CUT <- 9                          # backtests: weeks 1-9 = "now", weeks 10-18 = 
 CUT26 <- max(readRDS("nfl_weekly_2026.rds") %>% filter(season_type == "REG") %>% pull(week))   # 2026: latest completed week (weekly refresh)
 BT_YEARS <- 2016:2025
 MIN_G_REP <- 6
+# steadiness (Kyle 2026-11-24, the safer setting from research/steadiness_rerun: k1 x 1, EWMA 0.7, top-10 anchor):
+# 100k scale = ANCHOR_C x the top-10 average raw value instead of the #1 player alone, so the #1 player averages about
+# 100k but can sit above or below it. ANCHOR_C = mean over 2023-2025 of (#1 raw / top-10 average) for this exact setting
+# (k1 x 1, EWMA 0.7): dynasty 1.334, redraft 1.314. Refresh each preseason from the last 3 seasons. The site
+# (shared/engine.js) uses the same rule and constants; refresh gate 6b checks they agree. dv_13 / dv_15 / rf_04 use
+# anchor_top() for their 100k scale too (rf_04 and dv_15 grab ANCHOR_C and anchor_top from this file).
+# Set ANCHOR_TOP10 <- FALSE before sourcing for the old #1 = 100,000 scale.
+ANCHOR_C <- c(dynasty = 1.33, redraft = 1.31)
+anchor_top <- function(v, c) { v <- sort(v[is.finite(v)], decreasing = TRUE)
+  if (!isTRUE(get0("ANCHOR_TOP10", ifnotfound = TRUE)) || length(v) < 10) return(max(v[1], 1e-9)); max(unname(c) * mean(v[1:10]), 1e-9) }
 
 w <- readRDS(file.path(SHARED, "nfl_weekly_raw.rds"))
 w26 <- readRDS("nfl_weekly_2026.rds")
@@ -148,7 +158,12 @@ for (ps in POSITIONS) {
   o2 <- optim(c(log(8), log(16)), function(q) { pr <- cred_avail(d2, exp(q[1]), exp(q[2])); sum(d2$tg_left * (d2$rate_ros - pr)^2) })
   fitk[[ps]] <- c(k1 = exp(o1$par[1]), k2 = exp(o1$par[2]), k3 = exp(o2$par[1]), k4 = exp(o2$par[2]))
 }
-K <- do.call(rbind, fitk); cat("\nfitted credibility constants (games):\n"); print(round(K, 2))
+K <- do.call(rbind, fitk)
+# steadiness lever (research/steadiness_rerun): Z = n / (n + K1_MULT x k1). Kyle 2026-11-24 chose the safer setting, so
+# K1_MULT stays 1 (no change to k1). Applied right after the fit, so the backtest sd, the role-layer rows and the dynasty
+# season-end table (dv_11) would all use it if it were ever changed.
+if (!exists("K1_MULT")) K1_MULT <- 1
+K[, "k1"] <- K[, "k1"] * K1_MULT; cat("\nfitted credibility constants (games):\n"); print(round(K, 2))
 
 # classic Buhlmann-Straub k from in-season weekly scatter, 2021-2025, player-seasons with 4+ games
 bk <- w %>% filter(season %in% 2021:2025) %>% group_by(position, player_id, season) %>% filter(n() >= 4) %>%
@@ -223,13 +238,32 @@ print(m3 %>% mutate(across(where(is.numeric), ~ round(.x, 3))))
 # ---------- 2026 board ----------
 s26 <- apply_k(snapshot(CUR))
 if (ROLE_ON) s26 <- rl_now(s26)
+# steadiness: EWMA of credible PPG across weeks, cppg_t = a x new_t + (1 - a) x published_(t-1). The previous week is read from a
+# state file of UNROUNDED published credible PPG (one per scoring variant, since dv_13 runs dv_10 once per scoring group).
+# No smoothing in week 1 or for a player with no earlier row this season. Same-week reruns replace that week's rows, so a
+# Tuesday rerun never smooths a week against itself. Backtests (CUT = 9) are unchanged.
+if (!exists("EWMA_A")) EWMA_A <- 0.7
+SV_TAG <- paste(SC$ppr, SC$te, SC$ptd, paste(SC$fd, collapse = "-"), sep = "_")
+STATE_F <- file.path("cppg_state", sprintf("cppg_state_%d_%s.csv", CUR, SV_TAG))
+if (EWMA_A < 1 && CUT26 > 1 && file.exists(STATE_F)) {
+  pv <- read.csv(STATE_F) %>% filter(week < CUT26)
+  if (nrow(pv)) { pv <- pv %>% filter(week == max(week))   # last published week before this one (normally CUT26 - 1)
+    j <- match(s26$player_id, pv$player_id); hit <- !is.na(j)
+    s26$cppg[hit] <- EWMA_A * s26$cppg[hit] + (1 - EWMA_A) * pv$cppg[j[hit]]
+    if ("cppg_rep" %in% names(s26)) s26$cppg_rep[hit] <- EWMA_A * s26$cppg_rep[hit] + (1 - EWMA_A) * pv$cppg_rep[j[hit]]
+    cat("EWMA: smoothed", sum(hit), "players against week", pv$week[1], "\n") }
+}
+if (EWMA_A < 1) { dir.create("cppg_state", showWarnings = FALSE)       # always written (also when WRITE is off): it is state, not output
+  old <- if (file.exists(STATE_F)) read.csv(STATE_F) %>% filter(week != CUT26) else NULL
+  write.csv(bind_rows(old, s26 %>% transmute(week = CUT26, player_id, cppg, cppg_rep = if ("cppg_rep" %in% names(s26)) cppg_rep else cppg)),
+            STATE_F, row.names = FALSE) }
 b26 <- value_board(s26) %>% mutate(age = round(as.numeric(as.Date("2026-09-01") - birth_date) / 365.25, 1)) %>%
   arrange(desc(value)) %>% mutate(rank = row_number()) %>% group_by(pos) %>% mutate(rank_pos = row_number()) %>% ungroup()
 reps <- b26 %>% distinct(pos, rep_ppg, rep_raw); cat("\n2026 replacement PPG (credible / raw):\n"); print(reps %>% mutate(across(where(is.numeric), ~ round(.x, 2))))
 out <- b26 %>% transmute(rank, rank_pos = paste0(pos, rank_pos), name, pos, team, age, games_2026 = n_cur, ppg_2026 = round(ppg_cur, 2),
   hist_games = g_h, hist_ppg = round(ppg_h, 2), Z_2026 = round(Z, 2), credible_ppg = round(cppg, 2), replacement_ppg = round(rep_ppg, 2),
   por_per_game = round(por_pg, 2), team_games_left = tg_left, avail_rate = round(cavail, 3), exp_games_left = round(exp_games, 2),
-  ros_value = round(value, 1), value_100k = round(100000 * pmax(value, 0) / max(max(value), 1e-9)), missed_last2 = missed_last2, player_id,
+  ros_value = round(value, 1), value_100k = round(100000 * pmax(value, 0) / anchor_top(value, ANCHOR_C["redraft"])), missed_last2 = missed_last2, player_id,
   status = status_tag(if ("cat" %in% names(b26)) b26$cat else rep(NA, nrow(b26)), b26$pos, if ("depth_rank" %in% names(b26)) b26$depth_rank else NA, if ("snap_season" %in% names(b26)) b26$snap_season else NA))
 if (WRITE) if (max(b26$value) > 0) write.csv(out, "dv_ros_2026_board.csv", row.names = FALSE) else
   cat("\nregular season over (no games left): dv_ros_2026_board.csv kept from the last week with games left\n")
