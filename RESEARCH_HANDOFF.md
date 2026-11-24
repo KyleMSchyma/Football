@@ -174,7 +174,7 @@ change (the refresh hardcodes them).
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
 
-### 2026-11-24: Nov 28 site batch done early: redesign Phase 1 and approved value changes (F#TBD, S#TBD)
+### 2026-11-24: Nov 28 site batch done early: redesign Phase 1 and approved value changes (F#44, S#37)
 - Kyle 11-24: "Lets do all the Nov 28 work right now including the Redesign, Phase 1". Source of truth:
   project files `site_redesign/redesign_handoff_2026-11-24.md` and `saturday_2026-11-28_plan.md`.
 - **Redesign Phase 1 (site, presentation only):** navy + teal tokens in `shared/theme.css` (accent #107F80, darker than
@@ -208,7 +208,7 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   holdout running on Kyle's PC; ships only if it passes (see the next entry when it lands).
 - Template: `Trade_Values/tv_page_template.html` regenerated from the live page (only the data line differs); must be
   copied to the PC's Football2_Dynasty with dv_13 / dv_14 / dv_15 before Tuesday, and tm_07 to the trade-market folder.
-- Status: LIVE when the two PRs merge. Assumptions A87-A90. Issues 20-22. Recommendations R29-R31.
+- Status: LIVE (F#44, S#37). Assumptions A87-A90. Issues 20-22. Recommendations R29-R31.
 
 ### 2026-11-23: Contending / Rebuild toggle for Market Check moves (site S#36)
 - Kyle: add a contending/rebuild toggle to Best market moves; trades stay equal in value and follow the same rules, but
