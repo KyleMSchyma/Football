@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-24 (value stability backtest: steadier top values, research only)
+- Last updated: 2026-11-24 (logged values + trade-type adjustment research; value stability backtest; research only)
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -170,6 +170,28 @@ change (the refresh hardcodes them).
 ## 3. Update log
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
+
+### 2026-11-24: Logged values + trade-type adjustment (research only)
+- What: Kyle's proposal (do not implement): log the values for stability, and drop additivity only with a trade value
+  adjustment that depends on the gap between each side's best asset and the trade type (1:1, 2:1, 2:2, 2:3, 1:3,
+  3:3...). Tested additive (live) vs ln(1 + raw/c), c = 5/20/60, each with adj(type, g) = a + b g + c g^2,
+  g = ln(best asset / other side's best asset). Fitted on 68,903 Dynasty Daddy dynasty trades (Sep 8 - Nov 20, last
+  14 days held out) and on realized points (simulated trades from the history, fit 2018-21, test 2022-24).
+- Result: (1) Logging cuts top-24 10%+ drops from 25.6% to 9.2% (c=60), 3.9% (c=20), 1.3% (c=5), but only by
+  squeezing the scale (#24 = 73% of #1 at c=20 vs 40% live); ranks and rank moves are identical. (2) With the type +
+  gap adjustment, additive matches accepted trades best in every type (normalized holdout error 1v2 0.23 vs log
+  0.36-0.55). (3) Most of the gap term is our price vs the market's (our 1-for-1s differ ~2x from the market); the
+  pure type premium vs a 1-for-1 at the same gap is +35-49% for the lone player in 1v2, +60-88% in 1v3. (4) Kyle's
+  design (1-for-1 untouched, type adjustment on top) makes multi-player agreement WORSE: additive 0.80 -> 0.98, log
+  c=20 1.03 -> 1.18, c=60 0.84 -> 1.08, c=5 1.50 -> 1.27: our additive scale is already steeper than market
+  straight-up prices by about the package premium. (5) Realized points: the adjustment adds nothing (error ~1.09 for
+  every system); additive is already about fair; unadjusted logs favour the 2-player side. (6) A type switch makes
+  throw-ins swing verdicts (100 v 50 = +100% as a 1-for-1, +31% after adding a 5-point bench player).
+- Status: RESEARCH ONLY (Football PR #43). Nothing live changed. Recommendation: keep additive, do not log; use R29/R30
+  for steadiness. A88 new.
+- Files: `Trade_Values/research/trade_adjustment/` (ta_00-ta_05, CSVs, charts 09-12, README). Raw trades private.
+- Assumptions: A88 new; A30 and A44 unchanged.
+- Recommendations: R31 (only if Kyle still wants it: smooth small-asset weighting before any type adjustment).
 
 ### 2026-11-24: Value stability backtest: steadier top values (research only)
 - What: Kyle: top values drop too often week to week; backtest adding consistency, maybe with Bühlmann-Straub. Tested
@@ -619,6 +641,10 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   small-sample current-season weight (Stroud); week-to-week volatility of top values (top-24 dynasty drop 10%+ in one
   week in four). Stability research 11-24 (`Trade_Values/research/value_stability/`): k x 1.25 + EWMA 0.7 on credible
   PPG (+ optional top-10 anchor of the 100k scale) cuts big drops by 30-40% at about no accuracy cost; not built.
+- **Additivity vs logged values (11-24, `Trade_Values/research/trade_adjustment/`):** logging (ln(1 + raw/c)) only steadies
+  values by compressing the scale, and needs a large type/gap correction to price packages; additive + correction fits
+  real trades better, and a type premium on top of our 1-for-1 values worsens agreement (our scale is already steeper
+  than market straight-up prices). Values stay additive (A88).
 - **No technical-reference section yet** for trade values (see R9); code headers in dv_10, dv_11, dv_13 and the Fable
   build report are the best documentation.
 
@@ -711,6 +737,7 @@ data; render.js makes a 2400x3000 navy/orange top-24 image with an OVR column; g
 | Rank-exponential value curve (100k x e^(-0.024 (rank-1))) | 11-24 | PARKED: steadier (18.1% vs 25.6% big drops) and realized-fair (1.01), but ignores gap sizes and replaces A30 | Kyle chooses it |
 | Shrink top-tier next-season projections toward each other (Bijan vs Gibbs) | 11-24 | Rejected: in-hindsight slope 0.52 for the top 12, but rolling fixes worsen top-24 next-season RMSE 3.76 -> 3.83 | More seasons, or a market-informed prior |
 | Steadier values: k x 1.25 + EWMA 0.7 + top-10 anchor | 11-24 | PARKED, research only: 10%+ drops 25.6% -> 15.4% at ~no accuracy cost (R29, R30) | Kyle approves a Saturday build |
+| Logged values (ln(1 + raw/c)) + trade-type/best-asset-gap adjustment (Kyle's proposal) | 11-24 | Rejected for now: steadier only by compressing the scale; additive + adjustment fits real trades better than log + adjustment; with 1-for-1 untouched the type adjustment worsens multi-player agreement (0.80 -> 0.98) and adds nothing on realized points | Kyle asks for a market-view toggle (R14, R26, R31) |
 | Prior-year team offense in rookie models | 11-17 | No gain beyond grade | - |
 | Fantasy start rate in PPG | 11-20 | No gain | Archived real start % exists |
 | Market adjusted toggle (ESPN % rostered) | 11-20 | Built then closed: Kyle wants research only | Kyle asks again |
@@ -800,6 +827,7 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A45 | A trade is "Too close to call" inside 10% | calculator, moves | 5% "About even" (old) | Values carry noise; Kyle's redesign spec keeps 10% | CHANGED 2026-11-14 |
 | A46 | Values shown to the nearest 100, no interval | site | Ranges / tiers | Fable 9: avoid false precision; ranges not built | ACTIVE |
 | A87 | Values are recomputed from scratch every week: no memory of last week's value, in-season k fit only at week 9, 100k scale anchored on the #1 player | dv_10, dv_11, engine.js | EWMA smoothing of credible PPG; k x 1.25-2; per-week or per-horizon k; top-10 average anchor; trimmed games | Simplest and best on ROS RMSE; stability research 11-24 found k x 1.25 + EWMA 0.7 cuts big drops by 30-40% for +0.016 ROS RMSE and better next-season top-50 error (R29) | ACTIVE (alternatives RESEARCH 11-24) |
+| A88 | Values stay additive and unlogged, with no trade-type or best-asset-gap adjustment on the calculator | engine.js, calculator, moves | ln(1 + raw/c) values (c 5/20/60) + adj(type, g) fitted on DD trades or on realized points; type premium on top of untouched 1-for-1s | 11-24 research: logging steadies only by compressing; additive + adjustment beats log + adjustment on real trades; the type premium on top of our values worsens multi-player agreement (0.80 -> 0.98) and adds nothing on realized points (error ~1.09) | ACTIVE (alternatives RESEARCH 11-24) |
 
 ### 6.5 History, research and site
 
@@ -907,6 +935,9 @@ fine (already in Rookie_Pick_Strategy/README.md).
     #1 player rising (100k rescale). See the 11-24 log entry and R29/R30.
 21. Elite players' next-season projections are over-separated in hindsight (top-12 calibration slope 0.52), so dynasty
     gaps between stars (Gibbs 2x Bijan) look larger than realized gaps; no out-of-sample fix found yet (11-24).
+22. Our dynasty values differ from market straight-up prices by ~2x in a typical accepted 1-for-1 (median |ln ratio|
+    0.68, 11-24), larger than the market's package premium; multi-player trades line up with our values better than
+    1-for-1s do. See the 11-24 logged-values entry.
 
 ---
 
@@ -974,6 +1005,9 @@ approved to build unless Kyle says so (see section 10).
   The weekly refresh would need last week's published credible PPG (from the archive). (A87, issue 20)
 - **R30. 100k anchor decision (Kyle):** anchor the scale on the top-10 average instead of the #1 player; removes 15% of
   big drops at zero accuracy cost but the #1 player no longer shows exactly 100,000. Changes A30 if chosen. (A30, A87)
+- **R31. Trade-type adjustment, only if Kyle still wants one (11-24):** keep values additive; offer it as a market-view
+  toggle on the calculator (type premium from ta_05 relative to 1-for-1s), weight each asset smoothly so a bench
+  throw-in cannot flip a verdict, and refit weekly with tm_weekly. Not recommended as a replacement for additivity. (A88, A44)
 
 **Trade Market (research 11-23)**
 
