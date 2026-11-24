@@ -8,7 +8,7 @@
 suppressMessages(library(dplyr)); POSITIONS <- c("QB", "RB", "WR", "TE")
 grab <- function(file, nms) for (e in parse(file)) if (is.call(e) && identical(deparse(e[[1]]), "<-") && is.name(e[[2]]) &&
   as.character(e[[2]]) %in% nms) eval(e, globalenv())
-grab("dv_10_ros_value.R", c("rep_lines", "MIN_G_REP", "LG_DEFAULT")); grab("dv_13_league_presets.R", c("stoploss", "league_values"))
+grab("dv_10_ros_value.R", c("rep_lines", "MIN_G_REP", "LG_DEFAULT", "ANCHOR_C", "anchor_top")); grab("dv_13_league_presets.R", c("stoploss", "league_values"))
 P <- readRDS("dv_league_presets.rds"); B <- read.csv("dv_rookie_board_values.csv", stringsAsFactors = FALSE)
 LG <- list(
   default = list(lg = LG_DEFAULT, ppr = 1, tep = 0, ptd = 4),
@@ -19,7 +19,7 @@ LG <- list(
 out <- list()
 for (nm in names(LG)) { L <- LG[[nm]]
   lv <- league_values(P, L$lg, ppr = L$ppr, tep = L$tep, ptd = L$ptd)
-  top <- max(lv$players$dynasty, na.rm = TRUE)
+  top <- anchor_top(lv$players$dynasty, ANCHOR_C["dynasty"])   # 100k scale = the top-10 anchor (dv_10, 2026-11-24)
   key <- c(QB = paste0("QB_p", L$ptd, "f0"), RB = paste0("RB_r", L$ppr, "f0"), WR = paste0("WR_r", L$ppr, "f0"), TE = paste0("TE_t", L$ppr + L$tep, "f0"))
   rep <- setNames(lv$rep$rep_ppg, lv$rep$pos)
   val <- sapply(seq_len(nrow(B)), function(j) { ps <- B$position[j]; k <- key[[ps]]; cc <- P$picks$cal[[k]]
@@ -44,7 +44,7 @@ write.csv(bind_rows(out), "dv_board_value_check.csv", row.names = FALSE)
 # =============================================================================
 grab("dv_13_league_presets.R", c("LG_TEST_"))
 exp15 <- lapply(names(LG_TEST_), function(nm) { lg <- LG_TEST_[[nm]]; L <- league_values(P, lg)
-  top_d <- max(L$players$dynasty, na.rm = TRUE); top_r <- max(L$players$redraft, na.rm = TRUE)
+  top_d <- anchor_top(L$players$dynasty, ANCHOR_C["dynasty"]); top_r <- anchor_top(L$players$redraft[L$players$redraft > 0], ANCHOR_C["redraft"])   # top-10 anchor, as shared/engine.js
   pl <- L$players %>% filter(!is.na(dynasty) | !is.na(redraft))
   list(name = nm, S = list(teams = lg$teams, ppr = 1, tep = 0, ptd = 4, sf = lg$sf, rb = lg$rb, wr = lg$wr, te = lg$te, flex = lg$flex,
                            fdQB = 0, fdRB = 0, fdWR = 0, fdTE = 0),

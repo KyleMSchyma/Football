@@ -52,7 +52,7 @@ data_version <- sprintf("nflverse 2026 week %d (%s)", wk, h10(file.path(DYN, "nf
 grab <- function(file, nms) for (e in parse(file)) if (is.call(e) && identical(deparse(e[[1]]), "<-") && is.name(e[[2]]) &&
   as.character(e[[2]]) %in% nms) eval(e, globalenv())
 POSITIONS <- c("QB", "RB", "WR", "TE")
-grab(file.path(DYN, "dv_10_ros_value.R"), c("rep_lines", "MIN_G_REP", "LG_DEFAULT")); grab(file.path(DYN, "dv_13_league_presets.R"), c("stoploss", "league_values"))
+grab(file.path(DYN, "dv_10_ros_value.R"), c("rep_lines", "MIN_G_REP", "LG_DEFAULT", "ANCHOR_C", "anchor_top")); grab(file.path(DYN, "dv_13_league_presets.R"), c("stoploss", "league_values"))
 # site format teams_ppr_tep_ptd_sf_rb_wr_te_flex_fdQB_fdRB_fdWR_fdTE; the boards use dv_10's default scoring (full PPR, no TE premium,
 # 4-point passing TDs, no first-down bonus)
 league <- with(LG_DEFAULT, paste(c(teams, 1, 0, 4, sf, rb, wr, te, flex, 0, 0, 0, 0), collapse = "_"))
@@ -71,8 +71,8 @@ red <- rb %>% transmute(rank, name, pos, team, status = if ("status" %in% names(
                         exp_games_left, value_100k)
 dyn <- db %>% left_join(red %>% select(name, pos, status), by = c("name", "pos")) %>%
   transmute(rank, name, pos, team, age, status = coalesce(status, ""), credible_ppg, ppg_2027, S_2030, value_100k)
-# 2027 pick slots in the default league: the page's math in R (dv_13 league_values), 100k = the top player
-P <- readRDS(file.path(DYN, "dv_league_presets.rds")); L <- league_values(P, LG_DEFAULT); top <- max(L$players$dynasty, na.rm = TRUE)
+# 2027 pick slots in the default league: the page's math in R (dv_13 league_values), 100k = the top-10 anchor (dv_10 anchor_top, 2026-11-24)
+P <- readRDS(file.path(DYN, "dv_league_presets.rds")); L <- league_values(P, LG_DEFAULT); top <- anchor_top(L$players$dynasty, ANCHOR_C["dynasty"])
 picks <- L$slots %>% head(36) %>% transmute(pick = sprintf("%d.%02d", (slot - 1) %/% 12 + 1, (slot - 1) %% 12 + 1), value_100k = round(1e5 * val / top),
                                              multiplier = round(P$picks$f, 3))
 redS <- stamp(red, "redraft"); dynS <- stamp(dyn, "dynasty")

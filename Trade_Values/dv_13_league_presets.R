@@ -338,7 +338,7 @@ AC <- bind_rows(lapply(names(LG_TEST_), function(nm) { L <- league_values(preset
     anc %>% mutate(setting = nm, sheet = sh, get_value = v[get_rank], give_value = v[give_rank_1] + v[give_rank_2], ratio = round(give_value / get_value, 2)) })) }))
 write.csv(AC, "dv_anchor_check.csv", row.names = FALSE)
 cat("\nANCHOR CHECK (ratio = package / single player; Kyle's anchors say about 1.0):\n"); print(as.data.frame(AC %>% select(setting, sheet, get_rank, give_rank_1, give_rank_2, ratio)))
-top <- max(lv$players$dynasty, na.rm = TRUE); dr <- rank(-lv$players$dynasty, na.last = "keep")
+top <- anchor_top(lv$players$dynasty, ANCHOR_C["dynasty"]); dr <- rank(-lv$players$dynasty, na.last = "keep")
 cat("\ntier calibration (default scoring): games per 17 and PPG by tier, seasons 1-5\n")
 print(as.data.frame(OUT_[[1]]$rp$cal %>% mutate(across(c(G, mu, sd), ~ round(.x, 1)))), row.names = FALSE)
 cat("\ndefault league, 2027 rookie picks 1.01-4.12 (mocked players post-draft, the rest pre-draft; 100k scale; 'like' = the dynasty rank of a player with that value):\n")
