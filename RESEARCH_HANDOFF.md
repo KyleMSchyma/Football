@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-25 (five-grade scale A+ / A / B / C / D LIVE; grade-tier research)
+- Last updated: 2026-11-25 (2027 rookie pick pocket research; five-grade scale A+ / A / B / C / D LIVE; grade-tier research)
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -173,6 +173,27 @@ change (the refresh hardcodes them).
 ## 3. Update log
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
+
+### 2026-11-25: 2027 rookie pick pockets vs past classes (research)
+- Kyle shared a summary of a Dynasty Domain video ("2027 Picks Are GOLD"): 2027 ranks 1.01 S-tier, 1.02-04 5th, 1.05-08
+  7th, 1.09-12 3rd, 2.01-06 2nd, 2.07-12 1st, Rounds 3/4 ~1st of 13 classes, WR-driven depth, buy 2nds, 3rds/4ths as
+  throw-ins. Tested as a hypothesis with our own models (`Pick_Pocket_Research/`).
+- Method: every drafted QB/RB/WR/TE 2010-2026 plus the 2027 board, three lenses (pre-draft only, post-draft at the actual /
+  mock-median pick, mixed live), priced with the site engine (`prospectValue`) in site default, 1QB, TE-premium and the
+  trade-market league; pick k = k-th best prospect by value (reproduces the site's 1.01-4.12 values). Pockets ranked vs
+  2014-2026 (13 classes) and 2010-2026. Realized check 2010-2021; Monte Carlo over mock pick range and non-declarations;
+  market = trade-market generic "mid" pick per round put on our scale by rank. Dynasty Daddy's public API has no pick values.
+- Result (mixed, SF, rank of 14): 1.01 6th (Smith 1.10x an average 1.01), 1.02-04 11th, 1.05-08 11th, 1.09-12 8th,
+  2.01-06 9th, **2.07-12 3rd, Round 3 1st, Round 4 1st**. Agree on 1.01, the weak middle first and late depth; disagree
+  on 1.02-04 (below average) and 1.09-2.06 (average): the depth starts at 2.07, not 1.09. Every lens shows the same shape.
+  Depth is not WR-driven: picks 1.09-3.12 are 43% WR (history 48%) and 21% QB (history 8%); the WRs are 1.01-1.04.
+  2025 RB-driven confirmed (43% RB). 1QB: 1.05-1.12 weaker (0.87x). Realized check: per pocket, luck SD (~1 hit) is 2-3x
+  the between-class signal; summed over 1.09-3.12 expected vs actual Spearman .72; 2027 depth = 5th of 18 (+0.8 hits).
+  Curve: 1.06 to 2.02 keeps 51% (normal); 2.01-2.12, 2.07-3.06, 3.01-4.12 are the flattest of 18. Market vs our mid pick:
+  1st 0.73x, 2nd 0.73x, 3rd 0.32x, 4th 0.09x, so 2nds are not cheaper than 1sts; 3rds/4ths are where the market and we
+  differ most. Late-2nd edge needs most prospects to declare; the R3/R4 edge survives, but unmocked prospects (priced
+  without capital) lift it (1.29x/1.19x without them).
+- Status: RESEARCH ONLY (F#48). Values and site unchanged. A95, A96 new. Issues 29, 30. R37.
 
 ### 2026-11-25: Five-grade scale A+ / A / B / C / D (F#46, S#39) LIVE
 - Kyle 11-25: "Let's do those 5 groups then and rename them as such: A+, A, B, C, and D." Kyle first chose the Saturday
@@ -691,6 +712,9 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
 - **Prospects not in any mock:** pre-draft model, drafted-recalibrated, x P(declare).
 - **To add a mock:** save the CSV in `Mock_Drafts/`, run `combine_mocks.py --aliases <alias file>`, merge, then on the PC
   pd_09 x3, pd_11, pd_12, copy mock grades to the site, refresh.sh. MDDB pastes drop picks at page breaks; check 257 rows.
+- **Class shape by pick pocket (research 11-25, `Pick_Pocket_Research/`):** vs 2010-2026 on the same engine, 2027 is a
+  strong 1.01 (6th of 18), below average 1.02-1.08, average 1.09-2.06 and strong 2.07-4.12 (late 2nd 3rd, Rounds 3-4
+  1st of 18), with QB-heavy depth. Single-pocket ranks are mostly luck; the 1.09-3.12 total predicts (Spearman .72). (A95)
 
 ### 4.5 Trade values (redraft and dynasty)
 
@@ -769,6 +793,7 @@ favicon, sitemap (11-24). Details in the site README and memory notes listed in 
 | 11-20/21 | Points / PPG targets | Better pre-draft WR/TE ranking by points, but values worse | Display-only preview (S#33 draft) |
 | 11-21 | Rookie pick strategy | Keep 1.01, cliff after 1.06, sell late 2nds/3rds | Research (F#34 merged) |
 | 11-25 | A+ vs A vs A- grade tiers | A+ is a real step up in every model; A vs A- is a lean (adjusted p=.08), noise pre-draft; no alternative cut beats the current scale | Research only (Grade_Tier_Research/) |
+| 11-25 | 2027 rookie pick pockets vs a dynasty video's claims | 1.01 6th of 14; 1.02-1.08 below average; 1.09-2.06 average; 2.07-4.12 strong (3rd/1st/1st); not WR-driven (QB-heavy depth); market prices 2nds like 1sts but 3rds/4ths near zero | Research only (Pick_Pocket_Research/, F#48) |
 | 11-25 | B and C grade tiers | B+ = B; big cliff B to B-; B- and C+/C/C- near flat; ~5 real outcome groups | Research only (Grade_Tier_Research/ part 2) |
 
 Earlier one-offs inside model work: conference as predictor (rejected), college usage/PPA (not adopted; only 2014+), WR
@@ -949,6 +974,8 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A92 | 100k scale = ANCHOR_C x mean of the top-10 raw values per sheet (dynasty 1.33, redraft 1.31; #1 alone if fewer than 10), so #1 averages ~100k but floats | dv_10 anchor_top, dv_11, dv_13, dv_15, rf_04, engine.js | #1 = 100,000 (A30); top-5 average; fixed raw divisor | Removes the 15% of big drops caused by the #1 rescale; constants = 2023-25 mean of #1 / top-10 for this setting; refresh each preseason | ACTIVE from 12-01 |
 | A93 | Grade cut points stay at A+ 95 / A 90 / A- 85 / B+ 75 / B 65 / B- 55 / C+ 45 / C 35 / C- 25 / D 10 percentile (within position, drafted 2010-2023); A+ is a real step, A vs A- a lean, B+ = B, B to B- a cliff, C+/C/C- flat (11-25 part 2) | pd_06, pd_07 (unchanged) | Merge A and A- (two bands); one A band; A+ top 3%; A+ 92 / A 85 / A- 75; probability-based bands | 11-25 research: merged A band significantly worse, others tie or lose (LOCO Brier, class bootstrap) | SUPERSEDED 2026-11-25 by A94 (Kyle chose the five groups) |
 | A94 | Five grades: A+ 95-100, A 85-95, B 65-85, C 25-65, D 0-25 percentile within position (drafted 2010-2023), same for pre-draft, post-draft, 2027 mock and mixed; each grade is its own band in validation tables | pd_06, pd_07, pd_09, pd_11, pd_10, rf_02, pd_15 (converter), site pages | Keep eleven grades (A93); merge only B+/B; probability-based bands; A+ / A / B / C / D / F with F kept | Kyle 11-25 picked the five groups that the research found (B+ = B, B to B- cliff, C flat, C-/D/F near zero); caveat: chosen in-sample | ACTIVE, LIVE 2026-11-25 |
+| A95 | Rookie pick pocket strength = average value of the k-th best prospects by our model value in that class (site engine, 100k scale, today's replacement lines), compared with 2010-2026 classes valued the same way; 2027 uses mock-median capital, unmocked prospects pre-draft odds x P(declare) | Pick_Pocket_Research pp_01-03 | Real rookie ADP slots (no allowed source: KTC/MDDB terms); realized outcomes only (2024-27 incomplete); expected hit counts only | Matches how the site prices picks (pick k = k-th best prospect); same engine for every class so ranks are comparable | ACTIVE (research only, 11-25) |
+| A96 | Trade-market pick prices put on our scale by rank: the market's Nth asset gets our Nth player's value in the same league | Pick_Pocket_Research pp_04 | Power fit of market log values to ours (Market Check page); raw log values | Simple and shape-free; the market only has one generic "mid" pick per round | ACTIVE (research only, 11-25) |
 | A71 | Market history, if used, = Dynasty Daddy's own `daddy_*` fields from DD's history endpoints, only after DD permission; never the unprefixed/KTC fields | research/dd_history | Use documented current API only and build our own weekly archive of it; use FantasyCalc history | DD history is the only dated market source found that we may use; own archive starts from zero | ACTIVE |
 
 ---
@@ -1028,6 +1055,11 @@ fine (already in Rookie_Pick_Strategy/README.md).
     wants (R36).
 28. 11-25: Class grades (pd_04, guide 'Class grades') still use their own scale (A = top 10%, A-, B, C, C-, D, F); they
     were not part of the change.
+29. 11-25: 2027 prospects that no mock drafts are priced on pre-draft odds x P(declare) with no draft capital (dv_13). In
+    the pocket research they lift Rounds 3-4 noticeably (R3 1.49x vs 1.29x without them); the site's 2027 Round 3-4 pick
+    values may be a little high for the same reason. Fix idea in R37.
+30. 11-25: 2027 prospect ages default to 22.0 for most players (no birthdates yet), so 2027 pick values ignore age
+    differences that history includes.
 
 ---
 
@@ -1100,6 +1132,10 @@ approved to build unless Kyle says so (see section 10).
   live share one scale. Only if Kyle asks. (A91, A92, issue 23)
 - **R34. League-specific anchor:** derive the anchor constant per league setting (or from the league's own #1 / top-10
   ratio smoothed over weeks) so the #1 stays near 100k in shallow and deep leagues. (issue 25)
+- **R37. 2027 pick pockets follow-ups (research 11-25):** rerun `Pick_Pocket_Research/` after the April draft with real
+  capital (with R4); give unmocked 2027 prospects a Day-3 / undrafted capital assumption in dv_13 before trusting Round 4
+  values (issue 29); test the "2027 picks fell since May" claim with the raw DD trades by month on the PC. A "class by
+  pocket" strip on the rookie board only if Kyle asks. (A95, A96)
 - **R36. Five-grade follow-ups:** (PC copy + pd_15 run DONE 11-25) watch the 12-01 refresh output for old letters; re-test the
   five groups on the 2024 class after the R3 retrain (the cut was chosen in-sample); decide whether Track Record re-bands
   (issue 27) and whether class grades follow (issue 28). (A94)

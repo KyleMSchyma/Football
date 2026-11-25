@@ -1,0 +1,289 @@
+view,slot,sl,name,pos,college,mock_pick,value,p_top,p_any
+"pre (no capital), SF",1,1.01,Jeremiah Smith,WR,Ohio State,,30836,0.32,0.752
+"pre (no capital), SF",2,1.02,Dylan Riley,RB,Boise State,,20573,0.239,0.531
+"pre (no capital), SF",3,1.03,Charlie Becker,WR,Indiana,,18060,0.172,0.462
+"pre (no capital), SF",4,1.04,C.J. Carr,QB,Notre Dame,,17457,0.201,0.552
+"pre (no capital), SF",5,1.05,Darian Mensah,QB,Miami,,17400,0.305,0.553
+"pre (no capital), SF",6,1.06,Wayshawn Parker,RB,Utah,,16675,0.166,0.461
+"pre (no capital), SF",7,1.07,Trinidad Chambliss,QB,Ole Miss,,16239,0.189,0.458
+"pre (no capital), SF",8,1.08,Jadan Baugh,RB,Florida,,15514,0.188,0.369
+"pre (no capital), SF",9,1.09,Reed Harris,WR,Arizona State,,15155,0.156,0.412
+"pre (no capital), SF",10,1.10,KJ Duff,WR,Rutgers,,14766,0.151,0.351
+"pre (no capital), SF",11,1.11,Mike Matthews,WR,Tennessee,,14400,0.155,0.332
+"pre (no capital), SF",12,1.12,Nick Marsh,WR,Indiana,,14395,0.146,0.348
+"pre (no capital), SF",13,2.01,Isaac Brown,RB,Louisville,,14303,0.149,0.368
+"pre (no capital), SF",14,2.02,Sam Leavitt,QB,LSU,,13523,0.235,0.42
+"pre (no capital), SF",15,2.03,Antwan Raymond,RB,Rutgers,,13395,0.152,0.314
+"pre (no capital), SF",16,2.04,Ryan Wingo,WR,Texas,,13200,0.138,0.312
+"pre (no capital), SF",17,2.05,Drew Mestemaker,QB,Oklahoma State,,12730,0.189,0.457
+"pre (no capital), SF",18,2.06,Bryant Wesco Jr.,WR,Clemson,,12562,0.136,0.285
+"pre (no capital), SF",19,2.07,Junior Sherrill,WR,Vanderbilt,,11824,0.124,0.31
+"pre (no capital), SF",20,2.08,Ryan Williams,WR,Alabama,,11590,0.126,0.262
+"pre (no capital), SF",21,2.09,Ahmad Hardy,RB,Missouri,,11340,0.117,0.315
+"pre (no capital), SF",22,2.10,Cam Coleman,WR,Texas,,11301,0.126,0.245
+"pre (no capital), SF",23,2.11,T.J. Moore,WR,Clemson,,11073,0.122,0.243
+"pre (no capital), SF",24,2.12,Wyatt Young,WR,Oklahoma State,,11064,0.108,0.27
+"pre (no capital), SF",25,3.01,Cole Tabb,RB,Cincinnati,,10511,0.119,0.247
+"pre (no capital), SF",26,3.02,Jackson Harris,WR,LSU,,10067,0.108,0.258
+"pre (no capital), SF",27,3.03,Griffin Wilde,WR,Northwestern,,9995,0.106,0.257
+"pre (no capital), SF",28,3.04,Nate Frazier,RB,Georgia,,9793,0.088,0.246
+"pre (no capital), SF",29,3.05,Amare Thomas,WR,Houston,,9426,0.101,0.238
+"pre (no capital), SF",30,3.06,Chris Marshall,WR,Arkansas,,9279,0.112,0.247
+"pre (no capital), SF",31,3.07,Mario Craver,WR,Texas A&M,,9062,0.099,0.192
+"pre (no capital), SF",32,3.08,Deuce Alexander,WR,Ole Miss,,8587,0.092,0.215
+"pre (no capital), SF",33,3.09,DeSean Bishop,RB,Tennessee,,8369,0.091,0.252
+"pre (no capital), SF",34,3.10,Justice Haynes,RB,Georgia Tech,,8286,0.085,0.252
+"pre (no capital), SF",35,3.11,Collin Dixon,WR,Illinois,,7807,0.078,0.2
+"pre (no capital), SF",36,3.12,Cam Cook,RB,West Virginia,,7690,0.083,0.24
+"pre (no capital), SF",37,4.01,Devon Dampier,QB,Utah,,7608,0.135,0.178
+"pre (no capital), SF",38,4.02,Arch Manning,QB,Texas,,7306,0.116,0.259
+"pre (no capital), SF",39,4.03,Jahiem White,RB,North Texas,,7292,0.089,0.224
+"pre (no capital), SF",40,4.04,Wayne Knight,RB,UCLA,,7160,0.1,0.245
+"pre (no capital), SF",41,4.05,Kewan Lacy,RB,Ole Miss,,7146,0.05,0.189
+"pre (no capital), SF",42,4.06,Julian Sayin,QB,Ohio State,,6974,0.069,0.146
+"pre (no capital), SF",43,4.07,Carlos Hernandez,WR,Wake Forest,,6849,0.064,0.179
+"pre (no capital), SF",44,4.08,Dante Moore,QB,Oregon,,6729,0.109,0.225
+"pre (no capital), SF",45,4.09,Joseph Williams,WR,Colorado,,6656,0.052,0.138
+"pre (no capital), SF",46,4.10,Brad Jackson,QB,Texas State,,6579,0.082,0.111
+"pre (no capital), SF",47,4.11,Micah Ford,RB,Stanford,,6415,0.071,0.127
+"pre (no capital), SF",48,4.12,Aiden Flora,RB,Iowa State,,6347,0.065,0.201
+"post, SF",1,1.01,Jeremiah Smith,WR,Ohio State,2.0,56038,0.892,0.97
+"post, SF",2,1.02,Charlie Becker,WR,Indiana,9.0,39807,0.538,0.82
+"post, SF",3,1.03,Cam Coleman,WR,Texas,12.0,35706,0.46,0.769
+"post, SF",4,1.04,Nick Marsh,WR,Indiana,16.0,30701,0.371,0.698
+"post, SF",5,1.05,CJ Carr,QB,Notre Dame,4.0,26970,0.341,0.736
+"post, SF",6,1.06,Drew Mestemaker,QB,Oklahoma State,3.0,26500,0.441,0.809
+"post, SF",7,1.07,Darian Mensah,QB,Miami,13.0,23277,0.373,0.762
+"post, SF",8,1.08,Jadan Baugh,RB,Florida,48.0,22034,0.249,0.571
+"post, SF",9,1.09,Kewan Lacy,RB,Ole Miss,49.0,21560,0.242,0.561
+"post, SF",10,1.10,KJ Duff,WR,Rutgers,32.0,18935,0.193,0.484
+"post, SF",11,1.11,Ryan Williams,WR,Alabama,34.0,18345,0.185,0.471
+"post, SF",12,1.12,LaNorris Sellers,QB,South Carolina,27.0,14685,0.18,0.541
+"post, SF",13,2.01,Jackson Harris,WR,LSU,33.0,13470,0.137,0.383
+"post, SF",14,2.02,Reed Harris,WR,Arizona State,38.0,11888,0.117,0.342
+"post, SF",15,2.03,Jamari Johnson,TE,Oregon,26.0,10940,0.31,0.736
+"post, SF",16,2.04,Cole Tabb,RB,Cincinnati,,10511,0.119,0.247
+"post, SF",17,2.05,Trey'Dez Green,TE,LSU,29.0,9762,0.27,0.696
+"post, SF",18,2.06,Mario Craver,WR,Texas A&M,71.0,9509,0.08,0.254
+"post, SF",19,2.07,Ryan Wingo,WR,Texas,71.0,9509,0.08,0.254
+"post, SF",20,2.08,Trinidad Chambliss,QB,Ole Miss,25.0,9486,0.088,0.342
+"post, SF",21,2.09,Deuce Alexander,WR,Ole Miss,49.0,9256,0.086,0.268
+"post, SF",22,2.10,Dante Moore,QB,Oregon,26.0,9160,0.116,0.414
+"post, SF",23,2.11,Ahmad Hardy,RB,Missouri,93.0,9155,0.077,0.25
+"post, SF",24,2.12,Isaac Brown,RB,Louisville,102.0,9073,0.076,0.248
+"post, SF",25,3.01,Wyatt Young,WR,Oklahoma State,80.0,8528,0.07,0.227
+"post, SF",26,3.02,Wayshawn Parker,RB,Utah,122.0,8240,0.067,0.222
+"post, SF",27,3.03,Bryant Wesco,WR,Clemson,87.0,7888,0.063,0.209
+"post, SF",28,3.04,Collin Dixon,WR,Illinois,,7807,0.078,0.2
+"post, SF",29,3.05,Dylan Riley,RB,Boise State,116.0,7776,0.062,0.208
+"post, SF",30,3.06,Devon Dampier,QB,Utah,,7608,0.135,0.178
+"post, SF",31,3.07,Jahiem White,RB,North Texas,,7292,0.089,0.224
+"post, SF",32,3.08,Julian Sayin,QB,Ohio State,,6974,0.069,0.146
+"post, SF",33,3.09,Arch Manning,QB,Texas,31.0,6875,0.081,0.322
+"post, SF",34,3.10,Joseph Williams,WR,Colorado,,6656,0.052,0.138
+"post, SF",35,3.11,Brad Jackson,QB,Texas State,,6579,0.082,0.111
+"post, SF",36,3.12,Micah Ford,RB,Stanford,,6415,0.071,0.127
+"post, SF",37,4.01,Aiden Flora,RB,Iowa State,,6347,0.065,0.201
+"post, SF",38,4.02,Jordan Shipp,WR,North Carolina,,6343,0.052,0.128
+"post, SF",39,4.03,Nate Frazier,RB,Georgia,128.0,6120,0.044,0.156
+"post, SF",40,4.04,J'Koby Williams,RB,Texas Tech,,5901,0.05,0.145
+"post, SF",41,4.05,Giovanni Lopez,QB,Wake Forest,,5725,0.095,0.168
+"post, SF",42,4.06,Cayden Lee,WR,Missouri,,5553,0.055,0.136
+"post, SF",43,4.07,Junior Sherrill,WR,Vanderbilt,87.0,5463,0.044,0.154
+"post, SF",44,4.08,Mark Fletcher,RB,Miami,131.0,5446,0.044,0.156
+"post, SF",45,4.09,Isaiah Myers,WR,Missouri State,,5408,0.053,0.132
+"post, SF",46,4.10,Omarion Miller,WR,Arizona State,98.0,5372,0.038,0.135
+"post, SF",47,4.11,Caden Creel,QB,Jacksonville State,,5246,0.059,0.095
+"post, SF",48,4.12,Mike Matthews,WR,Tennessee,133.0,5228,0.037,0.13
+"mixed (live), SF",1,1.01,Jeremiah Smith,WR,Ohio State,2.0,56038,0.892,0.97
+"mixed (live), SF",2,1.02,Charlie Becker,WR,Indiana,9.0,39807,0.538,0.82
+"mixed (live), SF",3,1.03,Cam Coleman,WR,Texas,12.0,35706,0.46,0.769
+"mixed (live), SF",4,1.04,Nick Marsh,WR,Indiana,16.0,30701,0.371,0.698
+"mixed (live), SF",5,1.05,CJ Carr,QB,Notre Dame,4.0,26970,0.341,0.736
+"mixed (live), SF",6,1.06,Drew Mestemaker,QB,Oklahoma State,3.0,26500,0.441,0.809
+"mixed (live), SF",7,1.07,Darian Mensah,QB,Miami,13.0,23277,0.373,0.762
+"mixed (live), SF",8,1.08,Jadan Baugh,RB,Florida,48.0,22034,0.249,0.571
+"mixed (live), SF",9,1.09,Kewan Lacy,RB,Ole Miss,49.0,21560,0.242,0.561
+"mixed (live), SF",10,1.10,KJ Duff,WR,Rutgers,32.0,18935,0.193,0.484
+"mixed (live), SF",11,1.11,Ryan Williams,WR,Alabama,34.0,18345,0.185,0.471
+"mixed (live), SF",12,1.12,Wayshawn Parker,RB,Utah,122.0,15655,0.186,0.398
+"mixed (live), SF",13,2.01,Dylan Riley,RB,Boise State,116.0,14818,0.174,0.378
+"mixed (live), SF",14,2.02,LaNorris Sellers,QB,South Carolina,27.0,14685,0.18,0.541
+"mixed (live), SF",15,2.03,Jackson Harris,WR,LSU,33.0,13470,0.137,0.383
+"mixed (live), SF",16,2.04,Reed Harris,WR,Arizona State,38.0,11888,0.117,0.342
+"mixed (live), SF",17,2.05,Jamari Johnson,TE,Oregon,26.0,10940,0.31,0.736
+"mixed (live), SF",18,2.06,Cole Tabb,RB,Cincinnati,,10511,0.119,0.247
+"mixed (live), SF",19,2.07,Mike Matthews,WR,Tennessee,133.0,10191,0.109,0.257
+"mixed (live), SF",20,2.08,Luke Reynolds,TE,Virginia Tech,51.0,10044,0.301,0.659
+"mixed (live), SF",21,2.09,Trey'Dez Green,TE,LSU,29.0,9762,0.27,0.696
+"mixed (live), SF",22,2.10,Ryan Wingo,WR,Texas,71.0,9509,0.08,0.254
+"mixed (live), SF",23,2.11,Mario Craver,WR,Texas A&M,71.0,9509,0.08,0.254
+"mixed (live), SF",24,2.12,Trinidad Chambliss,QB,Ole Miss,25.0,9486,0.088,0.342
+"mixed (live), SF",25,3.01,Deuce Alexander,WR,Ole Miss,49.0,9256,0.086,0.268
+"mixed (live), SF",26,3.02,Dante Moore,QB,Oregon,26.0,9160,0.116,0.414
+"mixed (live), SF",27,3.03,Ahmad Hardy,RB,Missouri,93.0,9155,0.077,0.25
+"mixed (live), SF",28,3.04,Isaac Brown,RB,Louisville,102.0,9073,0.076,0.248
+"mixed (live), SF",29,3.05,Wyatt Young,WR,Oklahoma State,80.0,8528,0.07,0.227
+"mixed (live), SF",30,3.06,Bryant Wesco,WR,Clemson,87.0,7888,0.063,0.209
+"mixed (live), SF",31,3.07,Collin Dixon,WR,Illinois,,7807,0.078,0.2
+"mixed (live), SF",32,3.08,Devon Dampier,QB,Utah,,7608,0.135,0.178
+"mixed (live), SF",33,3.09,Jahiem White,RB,North Texas,,7292,0.089,0.224
+"mixed (live), SF",34,3.10,Julian Sayin,QB,Ohio State,,6974,0.069,0.146
+"mixed (live), SF",35,3.11,Arch Manning,QB,Texas,31.0,6875,0.081,0.322
+"mixed (live), SF",36,3.12,Joseph Williams,WR,Colorado,,6656,0.052,0.138
+"mixed (live), SF",37,4.01,Brad Jackson,QB,Texas State,,6579,0.082,0.111
+"mixed (live), SF",38,4.02,Micah Ford,RB,Stanford,,6415,0.071,0.127
+"mixed (live), SF",39,4.03,Aiden Flora,RB,Iowa State,,6347,0.065,0.201
+"mixed (live), SF",40,4.04,Jordan Shipp,WR,North Carolina,,6343,0.052,0.128
+"mixed (live), SF",41,4.05,Nate Frazier,RB,Georgia,128.0,6120,0.044,0.156
+"mixed (live), SF",42,4.06,J'Koby Williams,RB,Texas Tech,,5901,0.05,0.145
+"mixed (live), SF",43,4.07,Giovanni Lopez,QB,Wake Forest,,5725,0.095,0.168
+"mixed (live), SF",44,4.08,Cayden Lee,WR,Missouri,,5553,0.055,0.136
+"mixed (live), SF",45,4.09,Junior Sherrill,WR,Vanderbilt,87.0,5463,0.044,0.154
+"mixed (live), SF",46,4.10,Mark Fletcher,RB,Miami,131.0,5446,0.044,0.156
+"mixed (live), SF",47,4.11,Isaiah Myers,WR,Missouri State,,5408,0.053,0.132
+"mixed (live), SF",48,4.12,Omarion Miller,WR,Arizona State,98.0,5372,0.038,0.135
+"mixed, SF, mocked prospects only",1,1.01,Jeremiah Smith,WR,Ohio State,2.0,56038,0.892,0.97
+"mixed, SF, mocked prospects only",2,1.02,Charlie Becker,WR,Indiana,9.0,39807,0.538,0.82
+"mixed, SF, mocked prospects only",3,1.03,Cam Coleman,WR,Texas,12.0,35706,0.46,0.769
+"mixed, SF, mocked prospects only",4,1.04,Nick Marsh,WR,Indiana,16.0,30701,0.371,0.698
+"mixed, SF, mocked prospects only",5,1.05,CJ Carr,QB,Notre Dame,4.0,26970,0.341,0.736
+"mixed, SF, mocked prospects only",6,1.06,Drew Mestemaker,QB,Oklahoma State,3.0,26500,0.441,0.809
+"mixed, SF, mocked prospects only",7,1.07,Darian Mensah,QB,Miami,13.0,23277,0.373,0.762
+"mixed, SF, mocked prospects only",8,1.08,Jadan Baugh,RB,Florida,48.0,22034,0.249,0.571
+"mixed, SF, mocked prospects only",9,1.09,Kewan Lacy,RB,Ole Miss,49.0,21560,0.242,0.561
+"mixed, SF, mocked prospects only",10,1.10,KJ Duff,WR,Rutgers,32.0,18935,0.193,0.484
+"mixed, SF, mocked prospects only",11,1.11,Ryan Williams,WR,Alabama,34.0,18345,0.185,0.471
+"mixed, SF, mocked prospects only",12,1.12,Wayshawn Parker,RB,Utah,122.0,15655,0.186,0.398
+"mixed, SF, mocked prospects only",13,2.01,Dylan Riley,RB,Boise State,116.0,14818,0.174,0.378
+"mixed, SF, mocked prospects only",14,2.02,LaNorris Sellers,QB,South Carolina,27.0,14685,0.18,0.541
+"mixed, SF, mocked prospects only",15,2.03,Jackson Harris,WR,LSU,33.0,13470,0.137,0.383
+"mixed, SF, mocked prospects only",16,2.04,Reed Harris,WR,Arizona State,38.0,11888,0.117,0.342
+"mixed, SF, mocked prospects only",17,2.05,Jamari Johnson,TE,Oregon,26.0,10940,0.31,0.736
+"mixed, SF, mocked prospects only",18,2.06,Mike Matthews,WR,Tennessee,133.0,10191,0.109,0.257
+"mixed, SF, mocked prospects only",19,2.07,Luke Reynolds,TE,Virginia Tech,51.0,10044,0.301,0.659
+"mixed, SF, mocked prospects only",20,2.08,Trey'Dez Green,TE,LSU,29.0,9762,0.27,0.696
+"mixed, SF, mocked prospects only",21,2.09,Ryan Wingo,WR,Texas,71.0,9509,0.08,0.254
+"mixed, SF, mocked prospects only",22,2.10,Mario Craver,WR,Texas A&M,71.0,9509,0.08,0.254
+"mixed, SF, mocked prospects only",23,2.11,Trinidad Chambliss,QB,Ole Miss,25.0,9486,0.088,0.342
+"mixed, SF, mocked prospects only",24,2.12,Deuce Alexander,WR,Ole Miss,49.0,9256,0.086,0.268
+"mixed, SF, mocked prospects only",25,3.01,Dante Moore,QB,Oregon,26.0,9160,0.116,0.414
+"mixed, SF, mocked prospects only",26,3.02,Ahmad Hardy,RB,Missouri,93.0,9155,0.077,0.25
+"mixed, SF, mocked prospects only",27,3.03,Isaac Brown,RB,Louisville,102.0,9073,0.076,0.248
+"mixed, SF, mocked prospects only",28,3.04,Wyatt Young,WR,Oklahoma State,80.0,8528,0.07,0.227
+"mixed, SF, mocked prospects only",29,3.05,Bryant Wesco,WR,Clemson,87.0,7888,0.063,0.209
+"mixed, SF, mocked prospects only",30,3.06,Arch Manning,QB,Texas,31.0,6875,0.081,0.322
+"mixed, SF, mocked prospects only",31,3.07,Nate Frazier,RB,Georgia,128.0,6120,0.044,0.156
+"mixed, SF, mocked prospects only",32,3.08,Junior Sherrill,WR,Vanderbilt,87.0,5463,0.044,0.154
+"mixed, SF, mocked prospects only",33,3.09,Mark Fletcher,RB,Miami,131.0,5446,0.044,0.156
+"mixed, SF, mocked prospects only",34,3.10,Omarion Miller,WR,Arizona State,98.0,5372,0.038,0.135
+"mixed, SF, mocked prospects only",35,3.11,LJ Martin,RB,BYU,129.0,5112,0.044,0.154
+"mixed, SF, mocked prospects only",36,3.12,Braden Pegan,WR,Utah,142.0,4922,0.034,0.121
+"mixed, SF, mocked prospects only",37,4.01,Jayden Maiava,QB,USC,72.0,4844,0.043,0.195
+"mixed, SF, mocked prospects only",38,4.02,DeSean Bishop,RB,Tennessee,146.0,4450,0.036,0.131
+"mixed, SF, mocked prospects only",39,4.03,Conner Weigman,QB,Houston,134.0,4423,0.038,0.176
+"mixed, SF, mocked prospects only",40,4.04,Amare Thomas,WR,Houston,115.0,4280,0.032,0.116
+"mixed, SF, mocked prospects only",41,4.05,TJ Moore,WR,Clemson,170.0,4269,0.028,0.101
+"mixed, SF, mocked prospects only",42,4.06,Daylan Smothers,RB,Texas,154.0,4268,0.034,0.124
+"mixed, SF, mocked prospects only",43,4.07,Jordan Faison,WR,Notre Dame,128.0,4137,0.027,0.097
+"mixed, SF, mocked prospects only",44,4.08,Justin Bowick,WR,Oklahoma State,122.0,4082,0.026,0.095
+"mixed, SF, mocked prospects only",45,4.09,Sam Leavitt,QB,LSU,161.0,4078,0.041,0.189
+"mixed, SF, mocked prospects only",46,4.10,Antwan Raymond,RB,Rutgers,203.0,3806,0.021,0.079
+"mixed, SF, mocked prospects only",47,4.11,Duce Robinson,WR,Florida State,148.0,3747,0.023,0.085
+"mixed, SF, mocked prospects only",48,4.12,Tre Wisner,RB,Florida State,188.0,3714,0.025,0.095
+"mixed, 1QB",1,1.01,Jeremiah Smith,WR,Ohio State,2.0,56529,0.892,0.97
+"mixed, 1QB",2,1.02,Charlie Becker,WR,Indiana,9.0,40155,0.538,0.82
+"mixed, 1QB",3,1.03,Cam Coleman,WR,Texas,12.0,36019,0.46,0.769
+"mixed, 1QB",4,1.04,Nick Marsh,WR,Indiana,16.0,30970,0.371,0.698
+"mixed, 1QB",5,1.05,Jadan Baugh,RB,Florida,48.0,22226,0.249,0.571
+"mixed, 1QB",6,1.06,Kewan Lacy,RB,Ole Miss,49.0,21749,0.242,0.561
+"mixed, 1QB",7,1.07,KJ Duff,WR,Rutgers,32.0,19101,0.193,0.484
+"mixed, 1QB",8,1.08,Ryan Williams,WR,Alabama,34.0,18506,0.185,0.471
+"mixed, 1QB",9,1.09,Wayshawn Parker,RB,Utah,122.0,15792,0.186,0.398
+"mixed, 1QB",10,1.10,Dylan Riley,RB,Boise State,116.0,14948,0.174,0.378
+"mixed, 1QB",11,1.11,CJ Carr,QB,Notre Dame,4.0,13946,0.341,0.736
+"mixed, 1QB",12,1.12,Jackson Harris,WR,LSU,33.0,13588,0.137,0.383
+"mixed, 1QB",13,2.01,Drew Mestemaker,QB,Oklahoma State,3.0,12465,0.441,0.809
+"mixed, 1QB",14,2.02,Reed Harris,WR,Arizona State,38.0,11992,0.117,0.342
+"mixed, 1QB",15,2.03,Jamari Johnson,TE,Oregon,26.0,11035,0.31,0.736
+"mixed, 1QB",16,2.04,Darian Mensah,QB,Miami,13.0,10750,0.373,0.762
+"mixed, 1QB",17,2.05,Cole Tabb,RB,Cincinnati,,10603,0.119,0.247
+"mixed, 1QB",18,2.06,Mike Matthews,WR,Tennessee,133.0,10281,0.109,0.257
+"mixed, 1QB",19,2.07,Luke Reynolds,TE,Virginia Tech,51.0,10132,0.301,0.659
+"mixed, 1QB",20,2.08,Trey'Dez Green,TE,LSU,29.0,9848,0.27,0.696
+"mixed, 1QB",21,2.09,Ryan Wingo,WR,Texas,71.0,9592,0.08,0.254
+"mixed, 1QB",22,2.10,Mario Craver,WR,Texas A&M,71.0,9592,0.08,0.254
+"mixed, 1QB",23,2.11,Deuce Alexander,WR,Ole Miss,49.0,9337,0.086,0.268
+"mixed, 1QB",24,2.12,Ahmad Hardy,RB,Missouri,93.0,9236,0.077,0.25
+"mixed, 1QB",25,3.01,Isaac Brown,RB,Louisville,102.0,9153,0.076,0.248
+"mixed, 1QB",26,3.02,Wyatt Young,WR,Oklahoma State,80.0,8603,0.07,0.227
+"mixed, 1QB",27,3.03,Bryant Wesco,WR,Clemson,87.0,7957,0.063,0.209
+"mixed, 1QB",28,3.04,Collin Dixon,WR,Illinois,,7876,0.078,0.2
+"mixed, 1QB",29,3.05,Jahiem White,RB,North Texas,,7356,0.089,0.224
+"mixed, 1QB",30,3.06,LaNorris Sellers,QB,South Carolina,27.0,6758,0.18,0.541
+"mixed, 1QB",31,3.07,Joseph Williams,WR,Colorado,,6715,0.052,0.138
+"mixed, 1QB",32,3.08,Micah Ford,RB,Stanford,,6471,0.071,0.127
+"mixed, 1QB",33,3.09,Aiden Flora,RB,Iowa State,,6403,0.065,0.201
+"mixed, 1QB",34,3.10,Jordan Shipp,WR,North Carolina,,6398,0.052,0.128
+"mixed, 1QB",35,3.11,Nate Frazier,RB,Georgia,128.0,6173,0.044,0.156
+"mixed, 1QB",36,3.12,J'Koby Williams,RB,Texas Tech,,5953,0.05,0.145
+"mixed, 1QB",37,4.01,Cayden Lee,WR,Missouri,,5601,0.055,0.136
+"mixed, 1QB",38,4.02,Junior Sherrill,WR,Vanderbilt,87.0,5511,0.044,0.154
+"mixed, 1QB",39,4.03,Mark Fletcher,RB,Miami,131.0,5493,0.044,0.156
+"mixed, 1QB",40,4.04,Isaiah Myers,WR,Missouri State,,5455,0.053,0.132
+"mixed, 1QB",41,4.05,Omarion Miller,WR,Arizona State,98.0,5419,0.038,0.135
+"mixed, 1QB",42,4.06,Kwazi Gilmer,WR,Nebraska,,5243,0.042,0.094
+"mixed, 1QB",43,4.07,Dilin Jones,RB,LSU,,5214,0.042,0.119
+"mixed, 1QB",44,4.08,LJ Martin,RB,BYU,129.0,5156,0.044,0.154
+"mixed, 1QB",45,4.09,Danny Scudero,WR,San José State,,5073,0.047,0.127
+"mixed, 1QB",46,4.10,Braden Pegan,WR,Utah,142.0,4965,0.034,0.121
+"mixed, 1QB",47,4.11,Chris Durr Jr.,WR,Maryland,,4864,0.036,0.088
+"mixed, 1QB",48,4.12,Kendrick Raphael,RB,SMU,,4805,0.047,0.149
+"mixed, SF + TE prem 1.0",1,1.01,Jeremiah Smith,WR,Ohio State,2.0,48832,0.892,0.97
+"mixed, SF + TE prem 1.0",2,1.02,Charlie Becker,WR,Indiana,9.0,34277,0.538,0.82
+"mixed, SF + TE prem 1.0",3,1.03,Cam Coleman,WR,Texas,12.0,30636,0.46,0.769
+"mixed, SF + TE prem 1.0",4,1.04,Nick Marsh,WR,Indiana,16.0,26215,0.371,0.698
+"mixed, SF + TE prem 1.0",5,1.05,CJ Carr,QB,Notre Dame,4.0,25932,0.341,0.736
+"mixed, SF + TE prem 1.0",6,1.06,Drew Mestemaker,QB,Oklahoma State,3.0,25481,0.441,0.809
+"mixed, SF + TE prem 1.0",7,1.07,Jamari Johnson,TE,Oregon,26.0,22943,0.31,0.736
+"mixed, SF + TE prem 1.0",8,1.08,Darian Mensah,QB,Miami,13.0,22381,0.373,0.762
+"mixed, SF + TE prem 1.0",9,1.09,Trey'Dez Green,TE,LSU,29.0,20761,0.27,0.696
+"mixed, SF + TE prem 1.0",10,1.10,Luke Reynolds,TE,Virginia Tech,51.0,20704,0.301,0.659
+"mixed, SF + TE prem 1.0",11,1.11,Jadan Baugh,RB,Florida,48.0,18016,0.249,0.571
+"mixed, SF + TE prem 1.0",12,1.12,Kewan Lacy,RB,Ole Miss,49.0,17614,0.242,0.561
+"mixed, SF + TE prem 1.0",13,2.01,KJ Duff,WR,Rutgers,32.0,15944,0.193,0.484
+"mixed, SF + TE prem 1.0",14,2.02,Ryan Williams,WR,Alabama,34.0,15434,0.185,0.471
+"mixed, SF + TE prem 1.0",15,2.03,LaNorris Sellers,QB,South Carolina,27.0,14120,0.18,0.541
+"mixed, SF + TE prem 1.0",16,2.04,Wayshawn Parker,RB,Utah,122.0,12761,0.186,0.398
+"mixed, SF + TE prem 1.0",17,2.05,Dylan Riley,RB,Boise State,116.0,12055,0.174,0.378
+"mixed, SF + TE prem 1.0",18,2.06,Jackson Harris,WR,LSU,33.0,11203,0.137,0.383
+"mixed, SF + TE prem 1.0",19,2.07,Reed Harris,WR,Arizona State,38.0,9853,0.117,0.342
+"mixed, SF + TE prem 1.0",20,2.08,Trinidad Chambliss,QB,Ole Miss,25.0,9121,0.088,0.342
+"mixed, SF + TE prem 1.0",21,2.09,Dante Moore,QB,Oregon,26.0,8807,0.116,0.414
+"mixed, SF + TE prem 1.0",22,2.10,Mike Matthews,WR,Tennessee,133.0,8488,0.109,0.257
+"mixed, SF + TE prem 1.0",23,2.11,Cole Tabb,RB,Cincinnati,,8468,0.119,0.247
+"mixed, SF + TE prem 1.0",24,2.12,Ryan Wingo,WR,Texas,71.0,7853,0.08,0.254
+"mixed, SF + TE prem 1.0",25,3.01,Mario Craver,WR,Texas A&M,71.0,7853,0.08,0.254
+"mixed, SF + TE prem 1.0",26,3.02,Deuce Alexander,WR,Ole Miss,49.0,7619,0.086,0.268
+"mixed, SF + TE prem 1.0",27,3.03,Devon Dampier,QB,Utah,,7315,0.135,0.178
+"mixed, SF + TE prem 1.0",28,3.04,Ahmad Hardy,RB,Missouri,93.0,7224,0.077,0.25
+"mixed, SF + TE prem 1.0",29,3.05,Isaac Brown,RB,Louisville,102.0,7155,0.076,0.248
+"mixed, SF + TE prem 1.0",30,3.06,Wyatt Young,WR,Oklahoma State,80.0,7018,0.07,0.227
+"mixed, SF + TE prem 1.0",31,3.07,Julian Sayin,QB,Ohio State,,6705,0.069,0.146
+"mixed, SF + TE prem 1.0",32,3.08,Arch Manning,QB,Texas,31.0,6610,0.081,0.322
+"mixed, SF + TE prem 1.0",33,3.09,Bryant Wesco,WR,Clemson,87.0,6474,0.063,0.209
+"mixed, SF + TE prem 1.0",34,3.10,Collin Dixon,WR,Illinois,,6445,0.078,0.2
+"mixed, SF + TE prem 1.0",35,3.11,Brad Jackson,QB,Texas State,,6326,0.082,0.111
+"mixed, SF + TE prem 1.0",36,3.12,Jahiem White,RB,North Texas,,5745,0.089,0.224
+"mixed, SF + TE prem 1.0",37,4.01,Bruin Fleischmann,TE,Air Force,,5632,0.072,0.171
+"mixed, SF + TE prem 1.0",38,4.02,Giovanni Lopez,QB,Wake Forest,,5505,0.095,0.168
+"mixed, SF + TE prem 1.0",39,4.03,Joseph Williams,WR,Colorado,,5480,0.052,0.138
+"mixed, SF + TE prem 1.0",40,4.04,DJ Vonnahme,TE,Iowa,88.0,5478,0.048,0.24
+"mixed, SF + TE prem 1.0",41,4.05,Jordan Shipp,WR,North Carolina,,5219,0.052,0.128
+"mixed, SF + TE prem 1.0",42,4.06,Jelani Thurman,TE,North Carolina,,5197,0.059,0.175
+"mixed, SF + TE prem 1.0",43,4.07,Micah Ford,RB,Stanford,,5090,0.071,0.127
+"mixed, SF + TE prem 1.0",44,4.08,Caden Creel,QB,Jacksonville State,,5044,0.059,0.095
+"mixed, SF + TE prem 1.0",45,4.09,Anthony Colandrea,QB,Nebraska,,4995,0.086,0.154
+"mixed, SF + TE prem 1.0",46,4.10,Aiden Flora,RB,Iowa State,,4920,0.065,0.201
+"mixed, SF + TE prem 1.0",47,4.11,Nate Frazier,RB,Georgia,128.0,4725,0.044,0.156
+"mixed, SF + TE prem 1.0",48,4.12,Jayden Maiava,QB,USC,72.0,4657,0.043,0.195
