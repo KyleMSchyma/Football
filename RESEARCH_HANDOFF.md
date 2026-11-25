@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-25 (five-grade scale A+ / A / B / C / D built for the Nov 28 batch; grade-tier research)
+- Last updated: 2026-11-25 (five-grade scale A+ / A / B / C / D LIVE; grade-tier research)
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -174,9 +174,9 @@ change (the refresh hardcodes them).
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
 
-### 2026-11-25: Five-grade scale A+ / A / B / C / D (F#46, site PR; merge in the Nov 28 batch)
-- Kyle 11-25: "Let's do those 5 groups then and rename them as such: A+, A, B, C, and D." Ship timing: Saturday batch
-  (Kyle's decision card). New cuts (percentile within position, drafted 2010-2023): **A+ 95-100, A 85-95, B 65-85,
+### 2026-11-25: Five-grade scale A+ / A / B / C / D (F#46, S#39) LIVE
+- Kyle 11-25: "Let's do those 5 groups then and rename them as such: A+, A, B, C, and D." Kyle first chose the Saturday
+  batch, then said "just do it now" the same evening: F#46 and S#39 merged 11-25. New cuts (percentile within position, drafted 2010-2023): **A+ 95-100, A 85-95, B 65-85,
   C 25-65, D 0-25**. Old -> new: A+ -> A+; A, A- -> A; B+, B -> B; B-, C+, C, C- -> C; D, F -> D (bands nest exactly).
 - Model parity: pre-draft (pd_06), post-draft (pd_07), 2027 mock (pd_09) and mixed (pd_11) all write the new scale; bands
   in the validation tables are now the five grades. Scores, percentiles, odds, values and the mixed faller set are
@@ -198,7 +198,10 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   (3) class grades (pd_04: A, A-, B, C, C-, D, F) still use the old letter style (issue 28); (4) the PC must get the new
   scripts before the 12-01 refresh, else pd_06 writes old letters (rf_02/pd_10 convert them, but the repo CSVs flip
   back and forth for a week); (5) `Trade_Values/dev_role_layer` rf_02 copy not updated (dev only).
-- Status: BUILT, merge in the Nov 28 batch. A93 SUPERSEDED, A94 new. Issues 26 (closed), 27, 28. R35 done, R36.
+- PC (11-25): scripts copied (no PC-only edits found), pd_15 run twice with identical counts (pre A+ 69 / A 132 / B 320 /
+  C 542 / D 319; post A+ 73 / A 169 / B 252 / C 529 / D 328; 90 fallers), backups in `backup_pre5grade_2026-11-25`
+  in Football2_PreDraft and Football2_PostDraft, `rf_02_predraft_page.R.bak_2026-11-25` in Weekly_Refresh.
+- Status: LIVE 2026-11-25. A93 SUPERSEDED, A94 new. Issues 26 (closed), 27, 28. R35 done, R36.
 
 ### 2026-11-25: Do B and C grades differ? (research, part 2)
 - Kyle asked for the same tests on B+/B/B- and C+/C/C- (`Grade_Tier_Research/gt_02_bc_tiers.py`, same data and tests).
@@ -945,7 +948,7 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A91 | Credible PPG smoothed week to week: cppg_t = 0.7 x new_t + 0.3 x published_(t-1), from an unrounded per-scoring-variant state file; k1 unchanged | dv_10 (EWMA_A, K1_MULT), Trade_Values/cppg_state | k1 x1.25 (+ EWMA 0.7, passed by 0.0006); k1 x1.5 + EWMA 0.6 (failed holdout); textbook B-S k (jumpier); no smoothing | Faithful R rerun 2018-2025, chosen by Kyle 11-24: -47% big drops, ROS +0.014 PPG | ACTIVE from 12-01 |
 | A92 | 100k scale = ANCHOR_C x mean of the top-10 raw values per sheet (dynasty 1.33, redraft 1.31; #1 alone if fewer than 10), so #1 averages ~100k but floats | dv_10 anchor_top, dv_11, dv_13, dv_15, rf_04, engine.js | #1 = 100,000 (A30); top-5 average; fixed raw divisor | Removes the 15% of big drops caused by the #1 rescale; constants = 2023-25 mean of #1 / top-10 for this setting; refresh each preseason | ACTIVE from 12-01 |
 | A93 | Grade cut points stay at A+ 95 / A 90 / A- 85 / B+ 75 / B 65 / B- 55 / C+ 45 / C 35 / C- 25 / D 10 percentile (within position, drafted 2010-2023); A+ is a real step, A vs A- a lean, B+ = B, B to B- a cliff, C+/C/C- flat (11-25 part 2) | pd_06, pd_07 (unchanged) | Merge A and A- (two bands); one A band; A+ top 3%; A+ 92 / A 85 / A- 75; probability-based bands | 11-25 research: merged A band significantly worse, others tie or lose (LOCO Brier, class bootstrap) | SUPERSEDED 2026-11-25 by A94 (Kyle chose the five groups) |
-| A94 | Five grades: A+ 95-100, A 85-95, B 65-85, C 25-65, D 0-25 percentile within position (drafted 2010-2023), same for pre-draft, post-draft, 2027 mock and mixed; each grade is its own band in validation tables | pd_06, pd_07, pd_09, pd_11, pd_10, rf_02, pd_15 (converter), site pages | Keep eleven grades (A93); merge only B+/B; probability-based bands; A+ / A / B / C / D / F with F kept | Kyle 11-25 picked the five groups that the research found (B+ = B, B to B- cliff, C flat, C-/D/F near zero); caveat: chosen in-sample | ACTIVE 2026-11-25 (live from the Nov 28 batch) |
+| A94 | Five grades: A+ 95-100, A 85-95, B 65-85, C 25-65, D 0-25 percentile within position (drafted 2010-2023), same for pre-draft, post-draft, 2027 mock and mixed; each grade is its own band in validation tables | pd_06, pd_07, pd_09, pd_11, pd_10, rf_02, pd_15 (converter), site pages | Keep eleven grades (A93); merge only B+/B; probability-based bands; A+ / A / B / C / D / F with F kept | Kyle 11-25 picked the five groups that the research found (B+ = B, B to B- cliff, C flat, C-/D/F near zero); caveat: chosen in-sample | ACTIVE, LIVE 2026-11-25 |
 | A71 | Market history, if used, = Dynasty Daddy's own `daddy_*` fields from DD's history endpoints, only after DD permission; never the unprefixed/KTC fields | research/dd_history | Use documented current API only and build our own weekly archive of it; use FantasyCalc history | DD history is the only dated market source found that we may use; own archive starts from zero | ACTIVE |
 
 ---
@@ -1097,8 +1100,7 @@ approved to build unless Kyle says so (see section 10).
   live share one scale. Only if Kyle asks. (A91, A92, issue 23)
 - **R34. League-specific anchor:** derive the anchor constant per league setting (or from the league's own #1 / top-10
   ratio smoothed over weeks) so the #1 stays near 100k in shallow and deep leagues. (issue 25)
-- **R36. Five-grade follow-ups:** copy the new grade scripts to the PC before 12-01 (pd_06 -> Football2_PreDraft; pd_07,
-  pd_09, pd_10, pd_11, pd_15 -> Football2_PostDraft; rf_02 -> Weekly_Refresh) and run pd_15 once there; re-test the
+- **R36. Five-grade follow-ups:** (PC copy + pd_15 run DONE 11-25) watch the 12-01 refresh output for old letters; re-test the
   five groups on the 2024 class after the R3 retrain (the cut was chosen in-sample); decide whether Track Record re-bands
   (issue 27) and whether class grades follow (issue 28). (A94)
 - **R35. (DONE 11-25, became the five-grade scale A94) Grade-tier wording (only if Kyle asks):** say in the guide that A+ is a clear step and A vs A- is a lean, and
