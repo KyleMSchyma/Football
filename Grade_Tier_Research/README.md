@@ -55,3 +55,51 @@ Value columns (continuous) to separate players inside the A range.
 | `gt_percentile_curve.csv` | hit rates in finer percentile bins |
 | `gt_alternative_splits.csv`, `gt_alternative_splits_bootstrap.csv` | LOCO Brier of alternative cut points, with class-bootstrap CIs |
 | `plot_tier_outcomes.png`, `plot_percentile_curve.png`, `plot_tier_by_position.png` | charts |
+
+---
+
+# Part 2: B and C grades (2026-11-25)
+
+Kyle asked for the same tests on B+/B/B- and C+/C/C-. Script `gt_02_bc_tiers.py` (same data and tests as Part 1;
+adjacent pairs include the band edges A- vs B+, B- vs C+, C- vs D, D vs F).
+
+## Answer (Adjusted grade; post-draft is the same story)
+
+| Grade | n | Any tier | Top-2 tiers | PPG yrs 1-3 |
+|---|---|---|---|---|
+| A- | 76 | 47% | 34% | 9.9 |
+| B+ | 101 | 39% | 27% | 8.1 |
+| B | 105 | 40% | 26% | 7.6 |
+| **B-** | 115 | **16%** | **10%** | **5.0** |
+| C+ | 107 | 9% | 6% | 3.9 |
+| C | 107 | 12% | 6% | 4.5 |
+| C- | 107 | 6% | 3% | 3.4 |
+| D | 158 | 4% | 3% | 2.6 |
+| F | 109 | 2% | 2% | 2.1 |
+
+- **B+ vs B: no difference** (39% vs 40%, p=.96; PPG p=.26).
+- **B vs B-: the biggest cliff below A+** (40% vs 16%, p<.001; PPG 7.6 vs 5.0, p<.001). Post-draft the same (40% vs 15%).
+- **B- vs C+: small lean** (16% vs 9%, p=.22; PPG p=.05). B- behaves more like a C than a B.
+- **C+, C, C-: hit rates are flat and not different** (9%, 12%, 6%; every pair p>.14). C vs C- differs a little in PPG
+  (4.5 vs 3.4, p=.009), which is mostly depth/backup points, not fantasy starters.
+- **C- vs D and D vs F: not different** in hit rates (all near zero).
+- Pre-draft grades: a smooth gentle slope with no significant adjacent gaps in B or C except C+ vs C (20% vs 10%, p=.05).
+- Within the B band the percentile still matters (adjusted any-tier odds x1.8 per 10 pctile, p=.0001); within C it
+  does not for hits (p=.26).
+
+## Better splits?
+
+LOCO Brier (top-2 and any tier), class-bootstrap CIs, rest of the scale fixed (`gt_bc_alternative_splits.csv`):
+
+- Merging B+ and B (65-85) is **significantly better** for post and adjusted any tier (adjusted -.0015, CI -.0034 to
+  -.0002).
+- Merging B- into one C band (B 65-85 / C 25-65) is better still (adjusted any tier -.0023, CI -.0045 to -.0004; post
+  -.0027, CI -.0044 to -.0012). **Caveat:** this cut was chosen after seeing these results, so the gain is optimistic.
+- Merging C+/C/C- into one band ties or slightly helps; merging the whole B band into one is not better.
+
+The outcomes fall into about five real groups: **A+ | A, A- | B+, B | B-, C+, C, C- | D, F**. Fewer, wider grades
+would describe them as well as the current eleven. Recommendation: no change unless Kyle wants it; if he does, a
+data-led scale (e.g. A+ / A / B / C / D) should be re-tested on the 2024 class after the R3 retrain before going live.
+
+Files: `gt_bc_tier_outcomes.csv`, `gt_bc_adjacent_tests.csv`, `gt_bc_adjacent_tests_by_position.csv`,
+`gt_bc_trend_within_band.csv`, `gt_bc_alternative_splits.csv`, `plot_bc_tier_outcomes.png`, `plot_bc_tier_by_position.png`.

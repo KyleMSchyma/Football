@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-25 (research: A+ vs A vs A- grade tiers; scale kept)
+- Last updated: 2026-11-25 (research: do grade tiers A+ to F differ? scale kept)
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -173,6 +173,17 @@ change (the refresh hardcodes them).
 ## 3. Update log
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
+
+### 2026-11-25: Do B and C grades differ? (research, part 2)
+- Kyle asked for the same tests on B+/B/B- and C+/C/C- (`Grade_Tier_Research/gt_02_bc_tiers.py`, same data and tests).
+- Result (adjusted; post-draft the same): **B+ vs B no difference** (any tier 39% vs 40%); **B vs B- is a big cliff**
+  (40% vs 16%, p<.001; PPG 7.6 vs 5.0); B- vs C+ a small lean (16% vs 9%, p=.22); **C+, C, C- flat** (9/12/6%, all
+  p>.14; C vs C- PPG 4.5 vs 3.4, p=.009); C- vs D and D vs F not different. Pre-draft: gentle slope, no significant
+  adjacent B/C gaps except C+ vs C (p=.05). Percentile still predicts inside B (p=.0001), not inside C.
+- Splits (LOCO Brier, class bootstrap): merging B+/B is significantly better (adjusted any tier -.0015); B 65-85 /
+  C 25-65 (B- joins C) better still (-.0023) but chosen after seeing the data. Outcomes form ~5 groups:
+  A+ | A, A- | B+, B | B-, C | D, F.
+- Status: RESEARCH ONLY (same PR, F#46). Grades unchanged. A93 updated. Issue 26 updated. R35 updated.
 
 ### 2026-11-25: Do A+, A and A- grades differ? (research)
 - Kyle asked whether the top three grade tiers are meaningfully different. Data: 1,108 drafted QB/RB/WR/TE 2010-2023,
@@ -633,7 +644,8 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   share + incumbent production. Hit rates by grade band (pre -> post): A 59 -> 66%, B 28 -> 34%, C 14 -> 10%, D/F 13 -> 4%
   (rolling version: A 75% post, D/F 9%).
 - **Grade tiers (research 11-25):** A+ separates clearly from A; A vs A- is a lean, not significant; keep the scale and
-  separate A-range players with Proj. PPG / Value (`Grade_Tier_Research/README.md`, A93).
+  separate A-range players with Proj. PPG / Value (`Grade_Tier_Research/README.md`, A93). B+ and B have the same hit
+  rates; the B to B- step is the biggest cliff below A+; C+/C/C- are flat (part 2).
 - **Mixed (default on site):** pd_11_mixed_model.R boosts pre-draft A-range players who fell out of A after the draft.
   Rewrites post-draft and 2027 mock CSVs in place, keeps `*_draft` columns (plain post-draft) for the model switch.
 - **Run order:** pd_07 -> pd_09 (x3: median, best, worst) -> pd_11 -> pd_12 -> pd_13 (Proj. PPG) -> dv_13 -> pd_10.
@@ -727,6 +739,7 @@ favicon, sitemap (11-24). Details in the site README and memory notes listed in 
 | 11-20/21 | Points / PPG targets | Better pre-draft WR/TE ranking by points, but values worse | Display-only preview (S#33 draft) |
 | 11-21 | Rookie pick strategy | Keep 1.01, cliff after 1.06, sell late 2nds/3rds | Research (F#34 merged) |
 | 11-25 | A+ vs A vs A- grade tiers | A+ is a real step up in every model; A vs A- is a lean (adjusted p=.08), noise pre-draft; no alternative cut beats the current scale | Research only (Grade_Tier_Research/) |
+| 11-25 | B and C grade tiers | B+ = B; big cliff B to B-; B- and C+/C/C- near flat; ~5 real outcome groups | Research only (Grade_Tier_Research/ part 2) |
 
 Earlier one-offs inside model work: conference as predictor (rejected), college usage/PPA (not adopted; only 2014+), WR
 value score (Day-3 tiebreaker only), WR finish/hurdle/tier ladder (no gain vs pick), UDFAs (no conclusion changes).
@@ -780,6 +793,7 @@ data; render.js makes a 2400x3000 navy/orange top-24 image with an OVR column; g
 | Sign-off box, per-player notes, review sheets | 11-24 | HELD by Kyle | Kyle says build |
 | Market Check curve fit / package power for DD and DP | 11-24 | Dropped for rank-matching (Kyle 11-24) | Never unless Kyle asks |
 | Change the A+/A/A- cut points (merge A and A-, A+ top 3%, wider bands) | 11-25 | REJECTED: none beat the current 95/90/85 cuts in LOCO Brier; one merged A band is significantly worse | Samples double (R3 retrains) and A vs A- still flat |
+| Fewer, data-led grades below A (merge B+/B; B- into C) | 11-25 | PARKED: LOCO Brier better (adjusted any tier -.0015 to -.0023, CIs below 0) but the cut was picked after seeing the data and Kyle has not asked for a scale change | Kyle asks; re-test on the 2024 class after R3 |
 
 ---
 
@@ -903,7 +917,7 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A90 | 2027 rookie picks valued through round 4 (4 x teams slots) | engine.js, dv_15, dv_13, dv_14, tm_07 | Rounds 1-3 | Kyle 11-24 | ACTIVE 11-24 |
 | A91 | Credible PPG smoothed week to week: cppg_t = 0.7 x new_t + 0.3 x published_(t-1), from an unrounded per-scoring-variant state file; k1 unchanged | dv_10 (EWMA_A, K1_MULT), Trade_Values/cppg_state | k1 x1.25 (+ EWMA 0.7, passed by 0.0006); k1 x1.5 + EWMA 0.6 (failed holdout); textbook B-S k (jumpier); no smoothing | Faithful R rerun 2018-2025, chosen by Kyle 11-24: -47% big drops, ROS +0.014 PPG | ACTIVE from 12-01 |
 | A92 | 100k scale = ANCHOR_C x mean of the top-10 raw values per sheet (dynasty 1.33, redraft 1.31; #1 alone if fewer than 10), so #1 averages ~100k but floats | dv_10 anchor_top, dv_11, dv_13, dv_15, rf_04, engine.js | #1 = 100,000 (A30); top-5 average; fixed raw divisor | Removes the 15% of big drops caused by the #1 rescale; constants = 2023-25 mean of #1 / top-10 for this setting; refresh each preseason | ACTIVE from 12-01 |
-| A93 | Grade cut points stay at A+ 95 / A 90 / A- 85 percentile (within position, drafted 2010-2023); A+ is a real step, A vs A- is a lean | pd_06, pd_07 (unchanged) | Merge A and A- (two bands); one A band; A+ top 3%; A+ 92 / A 85 / A- 75; probability-based bands | 11-25 research: merged A band significantly worse, others tie or lose (LOCO Brier, class bootstrap) | ACTIVE 11-25 (A20 unchanged) |
+| A93 | Grade cut points stay at A+ 95 / A 90 / A- 85 / B+ 75 / B 65 / B- 55 / C+ 45 / C 35 / C- 25 / D 10 percentile (within position, drafted 2010-2023); A+ is a real step, A vs A- a lean, B+ = B, B to B- a cliff, C+/C/C- flat (11-25 part 2) | pd_06, pd_07 (unchanged) | Merge A and A- (two bands); one A band; A+ top 3%; A+ 92 / A 85 / A- 75; probability-based bands | 11-25 research: merged A band significantly worse, others tie or lose (LOCO Brier, class bootstrap) | ACTIVE 11-25 (A20 unchanged) |
 | A71 | Market history, if used, = Dynasty Daddy's own `daddy_*` fields from DD's history endpoints, only after DD permission; never the unprefixed/KTC fields | research/dd_history | Use documented current API only and build our own weekly archive of it; use FantasyCalc history | DD history is the only dated market source found that we may use; own archive starts from zero | ACTIVE |
 
 ---
@@ -976,6 +990,7 @@ fine (already in Rookie_Pick_Strategy/README.md).
     Ranks and trade verdicts are unaffected (one factor per sheet). Fix if wanted: R34.
 26. 11-25: A vs A- grades are not significantly different in outcomes (adjusted p=.08; pre-draft reversed, noise).
     The site and guide present them as ordered steps; treat A vs A- as a tiebreaker. Wording change only if Kyle asks (R35).
+    Part 2: B+ and B have the same hit rates, and C+/C/C- are flat; the grade letters imply more steps than outcomes show.
 
 ---
 
@@ -1049,7 +1064,8 @@ approved to build unless Kyle says so (see section 10).
 - **R34. League-specific anchor:** derive the anchor constant per league setting (or from the league's own #1 / top-10
   ratio smoothed over weeks) so the #1 stays near 100k in shallow and deep leagues. (issue 25)
 - **R35. Grade-tier wording (only if Kyle asks):** say in the guide that A+ is a clear step and A vs A- is a lean, and
-  recheck A vs A- after the R3 retrain adds the 2024 class. (A93, issue 26)
+  recheck A vs A- after the R3 retrain adds the 2024 class. If Kyle wants fewer grades, test a data-led scale
+  (A+ | A | B (65-85) | C (25-65) | D) on the 2024 class first, since it was chosen in-sample. (A93, issue 26)
 - **R33. Refresh ANCHOR_C each preseason** from the last three seasons (#1 / top-10 mean) and recheck the holdout. (A92)
 
 **Trade Market (research 11-23)**
