@@ -1,0 +1,37 @@
+system,outcome,split,brier,brier_vs_current
+pre,hit_top,current: A+ 95 / A 90 / A- 85,0.08388,0.0
+pre,hit_top,one A band (85+),0.08759,0.00371
+pre,hit_top,two bands: A+ 95 / A 85,0.08364,-0.00024
+pre,hit_top,two bands: A+ 90 / A 85,0.08752,0.00364
+pre,hit_top,narrow top: A+ 97 / A 90 / A- 85,0.08598,0.0021
+pre,hit_top,wider: A+ 92 / A 85 / A- 75,0.08673,0.00285
+pre,hit_any,current: A+ 95 / A 90 / A- 85,0.15802,0.0
+pre,hit_any,one A band (85+),0.16058,0.00256
+pre,hit_any,two bands: A+ 95 / A 85,0.16024,0.00222
+pre,hit_any,two bands: A+ 90 / A 85,0.16036,0.00234
+pre,hit_any,narrow top: A+ 97 / A 90 / A- 85,0.15977,0.00175
+pre,hit_any,wider: A+ 92 / A 85 / A- 75,0.161,0.00298
+post,hit_top,current: A+ 95 / A 90 / A- 85,0.07717,0.0
+post,hit_top,one A band (85+),0.0805,0.00333
+post,hit_top,two bands: A+ 95 / A 85,0.077,-0.00017
+post,hit_top,two bands: A+ 90 / A 85,0.07877,0.0016
+post,hit_top,narrow top: A+ 97 / A 90 / A- 85,0.07672,-0.00045
+post,hit_top,wider: A+ 92 / A 85 / A- 75,0.07813,0.00096
+post,hit_any,current: A+ 95 / A 90 / A- 85,0.13146,0.0
+post,hit_any,one A band (85+),0.13547,0.00401
+post,hit_any,two bands: A+ 95 / A 85,0.13183,0.00037
+post,hit_any,two bands: A+ 90 / A 85,0.13249,0.00103
+post,hit_any,narrow top: A+ 97 / A 90 / A- 85,0.13132,-0.00014
+post,hit_any,wider: A+ 92 / A 85 / A- 75,0.13268,0.00122
+mixed,hit_top,current: A+ 95 / A 90 / A- 85,0.07738,0.0
+mixed,hit_top,one A band (85+),0.08071,0.00333
+mixed,hit_top,two bands: A+ 95 / A 85,0.07669,-0.00069
+mixed,hit_top,two bands: A+ 90 / A 85,0.07942,0.00204
+mixed,hit_top,narrow top: A+ 97 / A 90 / A- 85,0.07705,-0.00033
+mixed,hit_top,wider: A+ 92 / A 85 / A- 75,0.07806,0.00068
+mixed,hit_any,current: A+ 95 / A 90 / A- 85,0.13128,0.0
+mixed,hit_any,one A band (85+),0.13491,0.00363
+mixed,hit_any,two bands: A+ 95 / A 85,0.1306,-0.00068
+mixed,hit_any,two bands: A+ 90 / A 85,0.13295,0.00167
+mixed,hit_any,narrow top: A+ 97 / A 90 / A- 85,0.13145,0.00017
+mixed,hit_any,wider: A+ 92 / A 85 / A- 75,0.13271,0.00143

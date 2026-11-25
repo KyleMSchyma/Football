@@ -1,0 +1,31 @@
+system,outcome,split,gap,lo,hi
+pre,hit_top,one A band (85+),0.00372,-0.0006,0.00756
+pre,hit_top,two bands: A+ 95 / A 85,-0.00024,-0.00131,0.00088
+pre,hit_top,two bands: A+ 90 / A 85,0.00364,-1e-05,0.007
+pre,hit_top,narrow top: A+ 97 / A 90 / A- 85,0.0021,-0.0015,0.00545
+pre,hit_top,wider: A+ 92 / A 85 / A- 75,0.00286,-0.00038,0.00602
+pre,hit_any,one A band (85+),0.00256,-0.00125,0.00655
+pre,hit_any,two bands: A+ 95 / A 85,0.00222,-0.00114,0.00537
+pre,hit_any,two bands: A+ 90 / A 85,0.00234,-0.00078,0.00562
+pre,hit_any,narrow top: A+ 97 / A 90 / A- 85,0.00175,-0.00124,0.00482
+pre,hit_any,wider: A+ 92 / A 85 / A- 75,0.00298,-0.00124,0.00734
+post,hit_top,one A band (85+),0.00333,0.0005,0.00649
+post,hit_top,two bands: A+ 95 / A 85,-0.00017,-0.00141,0.00114
+post,hit_top,two bands: A+ 90 / A 85,0.0016,-0.00042,0.00368
+post,hit_top,narrow top: A+ 97 / A 90 / A- 85,-0.00045,-0.00245,0.0013
+post,hit_top,wider: A+ 92 / A 85 / A- 75,0.00096,-0.00117,0.00319
+post,hit_any,one A band (85+),0.00402,0.00071,0.00748
+post,hit_any,two bands: A+ 95 / A 85,0.00038,-0.00134,0.00195
+post,hit_any,two bands: A+ 90 / A 85,0.00103,-0.00057,0.00251
+post,hit_any,narrow top: A+ 97 / A 90 / A- 85,-0.00014,-0.00117,0.00103
+post,hit_any,wider: A+ 92 / A 85 / A- 75,0.00122,-0.00074,0.00319
+mixed,hit_top,one A band (85+),0.00333,0.00043,0.00679
+mixed,hit_top,two bands: A+ 95 / A 85,-0.00068,-0.00171,0.00042
+mixed,hit_top,two bands: A+ 90 / A 85,0.00204,4e-05,0.00408
+mixed,hit_top,narrow top: A+ 97 / A 90 / A- 85,-0.00033,-0.00259,0.00192
+mixed,hit_top,wider: A+ 92 / A 85 / A- 75,0.00068,-0.00149,0.00306
+mixed,hit_any,one A band (85+),0.00363,0.00029,0.00674
+mixed,hit_any,two bands: A+ 95 / A 85,-0.00069,-0.00286,0.00116
+mixed,hit_any,two bands: A+ 90 / A 85,0.00167,-0.00044,0.00365
+mixed,hit_any,narrow top: A+ 97 / A 90 / A- 85,0.00017,-0.00107,0.00148
+mixed,hit_any,wider: A+ 92 / A 85 / A- 75,0.00142,-0.00061,0.00372

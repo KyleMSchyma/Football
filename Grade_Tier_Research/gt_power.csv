@@ -1,0 +1,13 @@
+system,compare,outcome,n_hi,n_lo,base_rate,min_detectable_gap
+pre,A+ vs A,hit_top,52,54,0.204,0.251
+pre,A+ vs A,hit_any,52,54,0.481,0.261
+pre,A vs A-,hit_top,54,51,0.176,0.246
+pre,A vs A-,hit_any,54,51,0.588,0.243
+post,A+ vs A,hit_top,55,56,0.286,0.259
+post,A+ vs A,hit_any,55,56,0.643,0.223
+post,A vs A-,hit_top,56,55,0.127,0.22
+post,A vs A-,hit_any,56,55,0.436,0.26
+mixed,A+ vs A,hit_top,55,68,0.265,0.244
+mixed,A+ vs A,hit_any,55,68,0.618,0.222
+mixed,A vs A-,hit_top,68,76,0.184,0.209
+mixed,A vs A-,hit_any,68,76,0.474,0.228
