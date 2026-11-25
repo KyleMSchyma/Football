@@ -181,7 +181,7 @@ Becker 1.02, Marsh 1.04, Baugh 1.08 / Lacy 1.09 (video early/mid 1st), KJ Duff 1
 1. **2027 uses mock capital, history uses real picks.** A mock places players at consensus spots; real drafts scatter.
    The Monte Carlo covers the mock range, not surprise risers. Fix: rerun after the April draft (R4 already planned).
 2. **Prospects no mock drafts are priced on pre-draft odds x P(declare), with no capital.** They lift 2027 Rounds 3-4
-   (1.49x/1.68x vs 1.29x/1.19x without them). Treat the R3/R4 edge as "strong", not "record". Fix: price unmocked
+   (1.49x/1.68x vs 1.29x/1.19x without them); 5 of the 12 Round 3 slots and 8 of the 12 Round 4 slots are such prospects. Treat the R3/R4 edge as "strong", not "record". Fix: price unmocked
    prospects at an undrafted / Day-3 capital assumption (needs pd_09 on the PC).
 3. **Pocket = our model's rank, not real rookie ADP.** We have no historical ADP (KTC/MDDB off-limits). Our pockets answer
    "how good is the k-th best asset by our model", which is how the site prices picks.
