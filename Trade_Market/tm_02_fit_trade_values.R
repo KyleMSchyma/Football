@@ -23,7 +23,7 @@ suppressPackageStartupMessages({ library(data.table) })
 set.seed(2026)
 args <- commandArgs(TRUE)
 TYPE <- if (length(args)) tolower(args[1]) else "dynasty"
-ROOT <- Sys.getenv("TM_ROOT", file.path(Sys.getenv("USERPROFILE"), "Documents", "R Studio", "Football2", "research", "dd_trades"))
+ROOT <- Sys.getenv("TM_ROOT", getwd())   # the dd_trades folder; tm_weekly.sh and run_*.cmd cd there and tm_weekly.sh sets TM_ROOT
 RAW  <- file.path(ROOT, "raw"); OUTD <- file.path(ROOT, "out")
 dir.create(OUTD, showWarnings = FALSE, recursive = TRUE)
 out  <- function(x, name) fwrite(x, file.path(OUTD, sprintf("%s_%s.csv", TYPE, name)))
