@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-25 (five-grade scale A+ / A / B / C / D LIVE; grade-tier research)
+- Last updated: 2026-11-25 (PC project folders moved from C:\...\Documents\R Studio to E:\Claude; five-grade scale A+ / A / B / C / D LIVE; grade-tier research)
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -127,7 +127,11 @@ Research that lives only on unmerged branches: see [section 11](#11-index-of-rep
 R model runs happen on Kyle's PC through Remote Control sessions, because the cloud container cannot install some
 CRAN packages (ordinalNet) and cannot reach some hosts. Some research ran in the cloud with R from apt or in Python.
 
-| PC folder (Documents\R Studio\) | Role |
+Since 2026-11-25 every folder below lives in `E:\Claude\` (moved from `C:\Users\kylem\Documents\R Studio\`, which ran
+low on space). Scripts find each other by relative path from their own folder, so only the Task Scheduler entries and
+`register_task.ps1` name the drive. R, Git Bash and `Documents\.Renviron` stay on C:.
+
+| PC folder (`E:\Claude\`, formerly `Documents\R Studio\`) | Role |
 |---|---|
 | `Football2` | Rookie WR model + shared `cache/` (cfbd and nflverse pulls) |
 | `Football2_QB`, `_RB`, `_TE` | Position models (repo copies read `../Football2/cache`) |
@@ -140,7 +144,7 @@ CRAN packages (ordinalNet) and cannot reach some hosts. Some research ran in the
 | `_backup_*` folders | Backups before risky changes (TE tiers, Fable switch-over, mixed model) |
 | Dev copies (`*_dev`) | Used for the Fable build; never edit live folders in place for experiments |
 
-The cfbd API key lives only in `Documents\.Renviron` (`R_ENVIRON_USER`); never commit it.
+The cfbd API key lives only in `C:\Users\kylem\Documents\.Renviron` (`R_ENVIRON_USER`; it did not move to E:); never commit it.
 
 ### 2.4 Weekly refresh (Tuesdays 10:00 AM Central, 2026-11-17 to 2027-01-05)
 
@@ -173,6 +177,20 @@ change (the refresh hardcodes them).
 ## 3. Update log
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
+
+### 2026-11-25: PC project folders moved to E:\Claude
+- What: Kyle copied every project folder from `C:\Users\kylem\Documents\R Studio\` to `E:\Claude\` (C: low on space) and
+  asked for everything to be repointed and tested before the Dec 1 refresh. Files changed on C: after the copy (316,
+  the five-grade work) were re-synced; the two trees then matched (11,521 files, 1.69 GB). Git worktree links
+  (`Football_tm`, `Football_repo_rolewt`, `ProspectActuary_wt`) were repaired to the E: clones. Both Task Scheduler
+  tasks (trade market Tue 5 AM, weekly refresh Tue 10 AM) now run the E: copies; triggers unchanged.
+- Result: `Trade_Market/tm_01`, `tm_02`, `tm_04` no longer default to `%USERPROFILE%\Documents\R Studio\...`; they use
+  `TM_ROOT` (set by `tm_weekly.sh`) or the working folder. `register_task.ps1` (PC only) uses its own folder. No model
+  output changes.
+- Status: LIVE (PC paths, this PR).
+- Files: Trade_Market/tm_01_pull_dd_trades.R, tm_02_fit_trade_values.R, tm_04_additive_calibrated.R, tm_weekly.sh; this file.
+- Assumptions: A95 new.
+- Recommendations: delete the C: copies only after the Dec 1 runs pass from E: (section 9, R0).
 
 ### 2026-11-25: Five-grade scale A+ / A / B / C / D (F#46, S#39) LIVE
 - Kyle 11-25: "Let's do those 5 groups then and rename them as such: A+, A, B, C, and D." Kyle first chose the Saturday
@@ -949,6 +967,7 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A92 | 100k scale = ANCHOR_C x mean of the top-10 raw values per sheet (dynasty 1.33, redraft 1.31; #1 alone if fewer than 10), so #1 averages ~100k but floats | dv_10 anchor_top, dv_11, dv_13, dv_15, rf_04, engine.js | #1 = 100,000 (A30); top-5 average; fixed raw divisor | Removes the 15% of big drops caused by the #1 rescale; constants = 2023-25 mean of #1 / top-10 for this setting; refresh each preseason | ACTIVE from 12-01 |
 | A93 | Grade cut points stay at A+ 95 / A 90 / A- 85 / B+ 75 / B 65 / B- 55 / C+ 45 / C 35 / C- 25 / D 10 percentile (within position, drafted 2010-2023); A+ is a real step, A vs A- a lean, B+ = B, B to B- a cliff, C+/C/C- flat (11-25 part 2) | pd_06, pd_07 (unchanged) | Merge A and A- (two bands); one A band; A+ top 3%; A+ 92 / A 85 / A- 75; probability-based bands | 11-25 research: merged A band significantly worse, others tie or lose (LOCO Brier, class bootstrap) | SUPERSEDED 2026-11-25 by A94 (Kyle chose the five groups) |
 | A94 | Five grades: A+ 95-100, A 85-95, B 65-85, C 25-65, D 0-25 percentile within position (drafted 2010-2023), same for pre-draft, post-draft, 2027 mock and mixed; each grade is its own band in validation tables | pd_06, pd_07, pd_09, pd_11, pd_10, rf_02, pd_15 (converter), site pages | Keep eleven grades (A93); merge only B+/B; probability-based bands; A+ / A / B / C / D / F with F kept | Kyle 11-25 picked the five groups that the research found (B+ = B, B to B- cliff, C flat, C-/D/F near zero); caveat: chosen in-sample | ACTIVE, LIVE 2026-11-25 |
+| A95 | PC project root is `E:\Claude` (from 2026-11-25); scripts locate siblings relative to their own folder, and only Task Scheduler entries name the drive | refresh.sh, tm_weekly.sh, tm_0x, register_task.ps1 | Keep C:\...\Documents\R Studio; hardcode E: paths in each script; a ROOT env variable everywhere | C: was out of space; relative paths survive a future move with only the two task entries to change | ACTIVE 2026-11-25 |
 | A71 | Market history, if used, = Dynasty Daddy's own `daddy_*` fields from DD's history endpoints, only after DD permission; never the unprefixed/KTC fields | research/dd_history | Use documented current API only and build our own weekly archive of it; use FantasyCalc history | DD history is the only dated market source found that we may use; own archive starts from zero | ACTIVE |
 
 ---
@@ -986,6 +1005,8 @@ fine (already in Rookie_Pick_Strategy/README.md).
 4. Sorsby is ungraded (board lists him in the 2026 class).
 5. Dante Moore's 2027 QB row shows only 132 primary-season attempts (likely partial or mismatched data).
 6. Players missing from trade values though the market ranks them: Jayden Higgins, Travis Hunter, Brandon Aiyuk, Carson Beck.
+7. (2026-11-25) Older docs, logs, dev folders and `Football_tm` still mention `Documents\R Studio`; the live scripts no
+   longer depend on it. Research-only `tm_04b`/`tm_06` on the PC were repointed; the repo has no copies of them.
 7. Backup QBs still rate above market (lightly rostered QBs sell ~0.68x our value); old QB survival too high (Stafford
    example in FABLE_REVIEW finding 8).
 8. Current-season small samples get large credibility weight (Stroud QB3 vs market QB11-13); IR players drop sharply.
@@ -1035,6 +1056,12 @@ fine (already in Rookie_Pick_Strategy/README.md).
 
 Ranked. Each says why, and which log entry or assumption it comes from. Mark done items with the date. Nothing here is
 approved to build unless Kyle says so (see section 10).
+
+### Added 2026-11-25
+
+- **R0. Delete the old C: project copies only after the Tue 2026-12-01 runs pass from E:\Claude** (both
+  `logs/tm_last_status.txt` and `Weekly_Refresh/logs/last_status.txt` say OK with an E: path in the log). Until then the
+  C: copies are the fallback. From the folder move log entry.
 
 ### As of 2026-11-22
 

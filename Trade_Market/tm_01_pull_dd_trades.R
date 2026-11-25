@@ -8,7 +8,7 @@
 
 suppressPackageStartupMessages({ library(httr); library(jsonlite) })
 
-OUT   <- file.path(Sys.getenv("USERPROFILE"), "Documents", "R Studio", "Football2", "research", "dd_trades", "raw")
+OUT   <- file.path(Sys.getenv("TM_ROOT", getwd()), "raw")   # TM_ROOT = the dd_trades folder (set by tm_weekly.sh)
 dir.create(OUT, recursive = TRUE, showWarnings = FALSE)
 URL   <- "https://api.dynasty-daddy.com/api/v1/trade/search"
 PAUSE <- 2.5
