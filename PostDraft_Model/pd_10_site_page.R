@@ -10,8 +10,15 @@
 suppressMessages({ library(dplyr); library(jsonlite) })
 dd <- Sys.getenv("DATA_DIR", ".")
 rd <- function(x) read.csv(file.path(dd, x), stringsAsFactors = FALSE, na.strings = c("", "NA"))
+# Five-grade scale (Kyle 2026-11-25): A+ / A / B / C / D. If the saved CSVs still carry the old 11-grade letters
+# (written before pd_07 / pd_09 / pd_11 switched), convert them in place first with pd_15_grade_scale5.R (safe to rerun).
+OLD11 <- c("A-", "B+", "B-", "C+", "C-", "F")
+if (any(rd("pd_post_player_grades.csv")$post_grade %in% OLD11) || any(rd("pd_post_2027_mock_grades.csv")$post_grade %in% OLD11)) {
+  cat("old 11-grade letters found: converting with pd_15_grade_scale5.R\n")
+  if (system2("Rscript", c("pd_15_grade_scale5.R", shQuote(dd))) != 0) stop("pd_15_grade_scale5.R failed")
+}
 f <- rd("pd_post_player_grades.csv")
-# Mixed draft model (pd_11_mixed_model.R): mixed_faller = pre-draft A range that fell below A- after the draft
+# Mixed draft model (pd_11_mixed_model.R): mixed_faller = pre-draft A range (top 15%) that fell below it after the draft
 mixcols <- function(d) { if (!"mixed_faller" %in% names(d)) d$mixed_faller <- 0L
   if (!"post_grade_draft" %in% names(d)) d$post_grade_draft <- d$post_grade
   for (cc in c("post_score", "post_pctile", "p_top", "p_top2", "p_any")) if (!paste0(cc, "_draft") %in% names(d)) d[[paste0(cc, "_draft")]] <- d[[cc]]
@@ -42,7 +49,7 @@ P <- f %>% transmute(pos = position, rk = post_rank_all, cls = class, rkc = post
   fl = as.integer(!is.na(data_flag)), mx = as.integer(coalesce(mixed_faller, 0L)), gd = post_grade_draft,
   dr = drf(mixed_faller, post_grade_draft, post_score_draft, post_pctile_draft, p_top_draft, p_top2_draft, p_any_draft), v = v,
   vq = I(lapply(seq_along(vq1), function(i) if (is.na(vq1[i])) NULL else c(vq1[i], vq2[i], vq3[i]))), ag = ag, pp = pp, ppd = ppd)
-band <- function(g) ifelse(g %in% c("A+","A","A-"), "A", ifelse(g %in% c("B+","B","B-"), "B", ifelse(g %in% c("C+","C","C-"), "C", "DF")))
+band <- function(g) as.character(g)   # five-grade scale: each grade is its own band (A+, A, B, C, D)
 BS <- f %>% filter(class <= 2023, !is.na(nfl_tier)) %>% mutate(b = band(post_grade)) %>% group_by(position, b) %>%
   summarize(n = n(), any = round(mean(nfl_tier <= 3), 3), top = round(mean(nfl_tier == 1), 3), .groups = "drop")
 pd_line <- paste0("window.PD=", toJSON(list(players = P, val = rd("pd_post_grade_validation.csv"), vp = rd("pd_post_grade_vs_pick.csv"),

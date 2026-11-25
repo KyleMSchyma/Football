@@ -19,8 +19,8 @@ A shorter, plain-English companion is in [`MODELS_GUIDE.md`](MODELS_GUIDE.md).
 | Rookie RB model | `RB_Model/` / `Football2_RB` | Same for RBs | Same |
 | Rookie TE model | `TE_Model/` / `Football2_TE` | Same for TEs | Same |
 | Pre-draft (college-only) model | `PreDraft_Model/` / `Football2_PreDraft` | Before anyone is drafted, how likely is each college player to have a tier season, and how strong is each class? | Before the draft (no pick, no combine) |
-| All-time pre-draft player grades | `PreDraft_Model/pd_06_player_grades.R` | Letter grade A+..F for every drafted QB/RB/WR/TE 2010-2026 plus top 2027 prospects, from the college-only model | Before the draft |
-| All-time post-draft player grades | `PostDraft_Model/` / `Football2_PostDraft` | Letter grade A+..F for every drafted QB/RB/WR/TE 2010-2026 from the post-draft position models, next to the pre-draft grade | After the draft |
+| All-time pre-draft player grades | `PreDraft_Model/pd_06_player_grades.R` | Letter grade A+/A/B/C/D for every drafted QB/RB/WR/TE 2010-2026 plus top 2027 prospects, from the college-only model | Before the draft |
+| All-time post-draft player grades | `PostDraft_Model/` / `Football2_PostDraft` | Letter grade A+/A/B/C/D for every drafted QB/RB/WR/TE 2010-2026 from the post-draft position models, next to the pre-draft grade | After the draft |
 
 Everything is on the `main` branch of the repo.
 
@@ -880,8 +880,10 @@ more than any single position's.
   model; 2027 the final model on the in-progress season, twice: pro-rated to 12 games and
   as-is (`PD_NO_SCALE=1`).
 - **Grade** = percentile of the score among drafted players at the position in 2010-2023:
-  A+ top 5%, A 90-95, A− 85-90, B+ 75-85, B 65-75, B− 55-65, C+ 45-55, C 35-45, C− 25-35, D
-  10-25, F bottom 10%. Fixed cut points, so grades compare across classes.
+  A+ top 5%, A 85-95, B 65-85, C 25-65, D bottom 25% (five grades since 2026-11-25; before that eleven:
+  A+ top 5%, A 90-95, A− 85-90, B+ 75-85, B 65-75, B− 55-65, C+ 45-55, C 35-45, C− 25-35, D 10-25, F bottom 10%;
+  merged because only five groups differ in outcomes, see `Grade_Tier_Research/`). Fixed cut points, so grades compare across classes.
+  Hit-rate findings below quote the old eleven grades (A-range = A+ and A today).
 - Graded: QB 156 (2010-23) + 35 (2024-26) + 14 (2027); RB 287 + 53 + 21; WR 417 + 102 + 34;
   TE 189 + 50 + 18.
 
@@ -913,7 +915,7 @@ Lives in its own folder (`PostDraft_Model/`, PC `Football2_PostDraft`). It reads
   `post` / `post_enet`); 2024-2026 from the position boards (`*_finish_tier_board_2024_2026.csv`,
   `wr_tier_board_2024_2026.csv`), i.e. the final model trained on 2010-2023. Score =
   P(top) + P(top two) + P(any tier).
-- **Grade:** same A+ to F cut points as 3.10, applied to the percentile of the post-draft
+- **Grade:** same five-grade cut points as 3.10 (A+/A/B/C/D), applied to the percentile of the post-draft
   score among drafted players at the position in 2010-2023.
 - **Join to pre-draft:** by position, class and pick. 1,289 of 1,351 post-draft players
   match (QB 191/198, RB 340/354, WR 519/547, TE 239/252); the rest have no college stats

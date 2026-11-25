@@ -182,28 +182,27 @@ still knows more."
 
 ## 9. All-time pre-draft player grades
 
-**What it is.** A letter grade (A+ to F) for every drafted QB, RB, WR and TE from 2010-2026,
+**What it is.** A letter grade (A+, A, B, C or D; eleven grades A+ to F before 2026-11-25) for every drafted QB, RB, WR and TE from 2010-2026,
 plus the top 2027 prospects, from the college-only model. Historical grades are scored by
 a model that never saw that class, so they're honest.
 
-**The result.** A-range players hit about 59% of the time, B about 31%, C and below about
-14%. The grade separates the top well but not the bottom (C, D and F hit at similar
-rates). Draft slot is still more accurate, and the grade only adds to draft slot for QBs.
+**The result.** A+ players hit about 69% of the time, A 53%, B 31%, C 16% and D 13%. The
+grade separates the top well but not the bottom (C and D hit at similar rates). Draft slot is still more accurate, and the grade only adds to draft slot for QBs.
 Famous misses: Johnny Manziel (A+), N'Keal Harry (A+); famous low grades that hit: Josh
-Allen (F), Cooper Kupp (F), Tyreek Hill (D), George Kittle (D).
+Allen, Cooper Kupp, Tyreek Hill and George Kittle (all D).
 
 **How to explain it.** "An A means the college résumé looks like past hits. It's a
 strong flag at the top, not a guarantee, and a low grade doesn't rule a player out."
 
 ## 10. All-time post-draft player grades
 
-**What it is.** The same A+ to F board for every drafted player from 2010-2026, but built
+**What it is.** The same A+ to D board for every drafted player from 2010-2026, but built
 from the post-draft version of each position model (college profile plus draft pick and
 landing spot). It sits next to the pre-draft grade, so you can see how much draft capital
 moved each player and each class. 2027 isn't on it because nobody has been drafted.
 It lives in its own folder, `PostDraft_Model/`.
 
-**The result.** Post-draft A-range players hit 69% of the time, B 35%, C 9% and D/F 4%.
+**The result.** Post-draft A+ players hit 91% of the time, A 54%, B 39%, C 11% and D 3% (Adjusted grade).
 Unlike the pre-draft grade, it separates the bottom too. It also ranks players within a
 class better (average rank correlation 0.49-0.61 vs 0.31-0.45). Big risers include Carson
 Wentz (F to A-), Doug Martin (D to A) and Travis Kelce (C to A-); big fallers are mostly

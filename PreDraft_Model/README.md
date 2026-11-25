@@ -115,8 +115,10 @@ Results page: https://claude.ai/artifact/XAVUw32K3yMb7atWgpov3i
   2010-2023 use leave-one-class-out predictions (each class scored by a model that never saw
   it); 2024-2027 use the final model trained on 2010-2023.
 - **Grade** = percentile of the score among drafted players at the position in 2010-2023:
-  A+ top 5%, A 90-95, A- 85-90, B+ 75-85, B 65-75, B- 55-65, C+ 45-55, C 35-45, C- 25-35,
-  D 10-25, F bottom 10%. Fixed cut points, so grades compare across classes.
+  A+ top 5%, A 85-95, B 65-85, C 25-65, D bottom 25% (five grades since 2026-11-25; before that eleven:
+  A+ top 5%, A 90-95, A- 85-90, B+ 75-85, B 65-75, B- 55-65, C+ 45-55, C 35-45, C- 25-35, D 10-25, F bottom 10%;
+  merged because only five groups differ in outcomes, see `Grade_Tier_Research/`). Fixed cut points, so grades compare across classes.
+  The findings below quote the old eleven grades (A-range = A+ and A today).
 - **2027** is scored twice: pro-rated (counting stats scaled to 12 games, the default pool)
   and as-is (stats through about week 10; `PD_NO_SCALE=1 ./run.sh pd_01_pool_build.R log.txt`
   writes `pd_pool_asis.rds` and the other Phase 1 outputs with an `_asis` suffix).

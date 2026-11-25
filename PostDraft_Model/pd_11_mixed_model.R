@@ -2,7 +2,7 @@
 # Mixed draft model (Kyle, 2026-11-17)
 #
 # The post-draft grade leans on draft slot. Backtest (2010-2023, leave-one-class-out):
-# players with a pre-draft A-range grade (A+, A, A-) whose post-draft grade fell below A-
+# players with a pre-draft A-range grade (top 15%: A+ or A; A+, A or A- on the old 11-grade scale) whose post-draft grade fell below the A range
 # hit a tier 40% of the time, but the post-draft model gave them about 25%. The mixed
 # draft model keeps the post-draft model and gives exactly those players ("fallers") a
 # bump on the odds of each tier ladder step. The bump is fit here, on 2010-2023 outcomes,
@@ -28,9 +28,11 @@
 # =============================================================================
 PRE_DIR <- if (dir.exists("../PreDraft_Model")) "../PreDraft_Model" else "../Football2_PreDraft"
 source(file.path(PRE_DIR, "pd_common.R"))
-GRADE_CUTS <- c(0, .10, .25, .35, .45, .55, .65, .75, .85, .90, .95, 1.0001)
-GRADES     <- c("F", "D", "C-", "C", "C+", "B-", "B", "B+", "A-", "A", "A+")
-A_RANGE    <- c("A+", "A", "A-")
+# Five-grade scale (Kyle 2026-11-25, Grade_Tier_Research): outcomes fall into five real groups, so
+# A+ = top 5%, A = 85-95, B = 65-85, C = 25-65, D = bottom 25% (old A-/B+/B-/C+/C-/F merged; A93).
+GRADE_CUTS <- c(0, .25, .65, .85, .95, 1.0001)
+GRADES     <- c("D", "C", "B", "A", "A+")
+A_RANGE    <- c("A+", "A", "A-")   # A range = top 15%: A+ and A on the five-grade scale (A- kept so old files still read right)
 grade_from_pct <- function(p) as.character(cut(p, GRADE_CUTS, labels = GRADES, right = FALSE))
 gidx <- function(g) match(g, GRADES)
 clip <- function(p) pmin(pmax(p, 1e-4), 1 - 1e-4)
@@ -147,7 +149,7 @@ vp2 <- bind_rows(lapply(POSITIONS, function(POS) {
 write.csv(vp2, "pd_post_grade_vs_pick.csv", row.names = FALSE)
 cat("\n===== Mixed grade vs draft slot =====\n"); print(as.data.frame(vp2), row.names = FALSE)
 
-gband <- function(g) case_when(g %in% c("A+", "A", "A-") ~ "A range", g %in% c("B+", "B", "B-") ~ "B range", g %in% c("C+", "C", "C-") ~ "C range", TRUE ~ "D/F")
+gband <- function(g) as.character(g)   # five-grade scale: each grade is its own band
 byr2 <- H %>% mutate(round_band = case_when(round == 1 ~ "Round 1", round <= 3 ~ "Rounds 2-3", TRUE ~ "Rounds 4-7"), band = gband(post_grade)) %>%
   group_by(position, round_band, band) %>% summarize(n = n(), any_rate = round(mean(y3), 3), top2_rate = round(mean(y2), 3), .groups = "drop")
 write.csv(byr2, "pd_post_grade_by_round.csv", row.names = FALSE)

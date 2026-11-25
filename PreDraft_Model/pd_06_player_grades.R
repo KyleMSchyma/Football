@@ -12,7 +12,7 @@
 #              "as-is" (stats through ~week 10, pool built with PD_NO_SCALE=1)
 # Grade = percentile of the score among drafted players at the same position in
 #   2010-2023 (the reference population), mapped to A+ ... F. The same cut points apply
-#   to every class, so a B+ in 2012 means the same thing as a B+ in 2027.
+#   to every class, so a B in 2012 means the same thing as a B in 2027.
 # Sanity checks (ATPA/PA style):
 #   - NFL outcome next to every historical player (best finish in years 1-3, tier)
 #   - hit rates by grade with bootstrap CIs (calibration / lift by grade)
@@ -34,11 +34,13 @@ WATCH <- read.csv("pd_2027_watchlist.csv", stringsAsFactors = FALSE) %>%
 watch_found <- character(0)
 
 # --- grade scale: percentile among drafted players at the position, 2010-2023 ------------
-GRADE_CUTS <- c(0, .10, .25, .35, .45, .55, .65, .75, .85, .90, .95, 1.0001)
-GRADES     <- c("F", "D", "C-", "C", "C+", "B-", "B", "B+", "A-", "A", "A+")
+# Five-grade scale (Kyle 2026-11-25, Grade_Tier_Research): outcomes fall into five real groups, so
+# A+ = top 5%, A = 85-95, B = 65-85, C = 25-65, D = bottom 25% (old A-/B+/B-/C+/C-/F merged; A93).
+GRADE_CUTS <- c(0, .25, .65, .85, .95, 1.0001)
+GRADES     <- c("D", "C", "B", "A", "A+")
 grade_from_pct <- function(p) as.character(cut(p, GRADE_CUTS, labels = GRADES, right = FALSE))
-grade_band <- function(g) case_when(g %in% c("A+", "A", "A-") ~ "A range", g %in% c("B+", "B", "B-") ~ "B range",
-                                    g %in% c("C+", "C", "C-") ~ "C range", TRUE ~ "D/F")
+BANDS      <- c("A+", "A", "B", "C", "D")   # each grade is its own band on the five-grade scale
+grade_band <- function(g) as.character(g)
 
 # --- NFL outcomes so far for 2024-2025 classes (weekly data runs through 2025) -----------
 weekly <- readRDS(file.path(SHARED, "nfl_weekly_raw.rds"))
@@ -197,19 +199,19 @@ write.csv(vp, "pd_grade_vs_pick.csv", row.names = FALSE)
 cat("\n===== College-only grade vs draft slot (drafted 2010-2023) =====\n"); print(as.data.frame(vp), row.names = FALSE)
 
 byr <- H %>% mutate(round_band = case_when(round == 1 ~ "Round 1", round <= 3 ~ "Rounds 2-3", TRUE ~ "Rounds 4-7"),
-                    band = factor(grade_band(as.character(grade)), levels = c("A range", "B range", "C range", "D/F"))) %>%
+                    band = factor(grade_band(as.character(grade)), levels = BANDS)) %>%
   group_by(position, round_band, band) %>% summarize(n = n(), any_rate = round(mean(y3), 3), top2_rate = round(mean(y2), 3), .groups = "drop")
 write.csv(byr, "pd_grade_by_round.csv", row.names = FALSE)
 cat("\n===== Any-tier hit rate by grade band within draft-round band =====\n")
 print(as.data.frame(byr %>% select(-top2_rate) %>% pivot_wider(names_from = band, values_from = c(n, any_rate))), row.names = FALSE)
 
-cat("\n===== Biggest misses: A-range grades with no tier season; D/F grades that hit (2010-2023) =====\n")
+cat("\n===== Biggest misses: A+/A grades with no tier season; D grades that hit (2010-2023) =====\n")
 for (POS in POSITIONS) {
   cat("--", POS, "-- high grade, no hit:\n")
   print(as.data.frame(final %>% filter(position == POS, class <= 2023, grade %in% c("A+", "A"), nfl_tier == 4) %>%
     select(class, name, college, pick, grade, nfl_outcome) %>% head(6)), row.names = FALSE)
   cat("-- low grade, top-tier hit:\n")
-  print(as.data.frame(final %>% filter(position == POS, class <= 2023, grade %in% c("F", "D"), nfl_tier == 1) %>%
+  print(as.data.frame(final %>% filter(position == POS, class <= 2023, grade == "D", nfl_tier == 1) %>%
     select(class, name, college, pick, grade, nfl_outcome, data_flag)), row.names = FALSE)
 }
 cat("\nthin-data (FCS before 2022) players among drafted 2010-2023, by grade band:\n")

@@ -48,8 +48,10 @@ MOCK_NAME <- Sys.getenv("MOCK_NAME", "mock draft")
 OUT_TAG <- Sys.getenv("OUT_TAG", "")
 out_name <- function(f) sub("[.]csv$", paste0(OUT_TAG, ".csv"), f)
 TIERS <- list(QB = c(8, 16, 24), RB = c(8, 16, 24), WR = c(12, 24, 36), TE = c(6, 12, 18))
-GRADE_CUTS <- c(0, .10, .25, .35, .45, .55, .65, .75, .85, .90, .95, 1.0001)
-GRADES     <- c("F", "D", "C-", "C", "C+", "B-", "B", "B+", "A-", "A", "A+")
+# Five-grade scale (Kyle 2026-11-25, Grade_Tier_Research): outcomes fall into five real groups, so
+# A+ = top 5%, A = 85-95, B = 65-85, C = 25-65, D = bottom 25% (old A-/B+/B-/C+/C-/F merged; A93).
+GRADE_CUTS <- c(0, .25, .65, .85, .95, 1.0001)
+GRADES     <- c("D", "C", "B", "A", "A+")
 grade_from_pct <- function(p) as.character(cut(p, GRADE_CUTS, labels = GRADES, right = FALSE))
 gidx <- function(g) match(g, GRADES)
 check <- function(label, ok, detail = "") { cat(sprintf("[%s] %s %s\n", ifelse(ok, "PASS", "FAIL"), label, detail)); invisible(ok) }
@@ -269,7 +271,7 @@ res <- lapply(names(res), function(P) { r <- res[[P]]
 
 # pre-draft grade for prospects outside the published 2027 pre-draft list: from the pre-draft grade scale
 pscale <- read.csv(file.path(PRE_DIR, "pd_grade_scale.csv"), stringsAsFactors = FALSE)
-pre_from_scale <- function(pos, sc) mapply(function(p, v) { g <- pscale %>% filter(position == p, min_score <= v); if (nrow(g)) g$grade[1] else "F" }, pos, sc)
+pre_from_scale <- function(pos, sc) mapply(function(p, v) { g <- pscale %>% filter(position == p, min_score <= v); if (nrow(g)) g$grade[1] else "D" }, pos, sc)
 out <- bind_rows(res) %>% mutate(pre_grade = ifelse(is.na(pre_grade), pre_from_scale(position, pre_score_board), pre_grade)) %>%
   mutate(q2 = pmax(q2, q1), q3 = pmax(q3, q2), grade_move = gidx(post_grade) - gidx(pre_grade)) %>%
   group_by(position) %>% mutate(post_rank_class = rank(-post_score, ties.method = "first")) %>% ungroup() %>%
