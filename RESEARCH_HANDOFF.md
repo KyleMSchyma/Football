@@ -193,7 +193,7 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   1st 0.73x, 2nd 0.73x, 3rd 0.32x, 4th 0.09x, so 2nds are not cheaper than 1sts; 3rds/4ths are where the market and we
   differ most. Late-2nd edge needs most prospects to declare; the R3/R4 edge survives, but unmocked prospects (priced
   without capital) lift it (1.29x/1.19x without them).
-- Status: RESEARCH ONLY (F#48). Values and site unchanged. A95, A96 new. Issues 29, 30. R37.
+- Status: RESEARCH ONLY (F#49). Values and site unchanged. A95, A96 new. Issues 29, 30. R37.
 
 ### 2026-11-25: Five-grade scale A+ / A / B / C / D (F#46, S#39) LIVE
 - Kyle 11-25: "Let's do those 5 groups then and rename them as such: A+, A, B, C, and D." Kyle first chose the Saturday
@@ -793,7 +793,7 @@ favicon, sitemap (11-24). Details in the site README and memory notes listed in 
 | 11-20/21 | Points / PPG targets | Better pre-draft WR/TE ranking by points, but values worse | Display-only preview (S#33 draft) |
 | 11-21 | Rookie pick strategy | Keep 1.01, cliff after 1.06, sell late 2nds/3rds | Research (F#34 merged) |
 | 11-25 | A+ vs A vs A- grade tiers | A+ is a real step up in every model; A vs A- is a lean (adjusted p=.08), noise pre-draft; no alternative cut beats the current scale | Research only (Grade_Tier_Research/) |
-| 11-25 | 2027 rookie pick pockets vs a dynasty video's claims | 1.01 6th of 14; 1.02-1.08 below average; 1.09-2.06 average; 2.07-4.12 strong (3rd/1st/1st); not WR-driven (QB-heavy depth); market prices 2nds like 1sts but 3rds/4ths near zero | Research only (Pick_Pocket_Research/, F#48) |
+| 11-25 | 2027 rookie pick pockets vs a dynasty video's claims | 1.01 6th of 14; 1.02-1.08 below average; 1.09-2.06 average; 2.07-4.12 strong (3rd/1st/1st); not WR-driven (QB-heavy depth); market prices 2nds like 1sts but 3rds/4ths near zero | Research only (Pick_Pocket_Research/, F#49) |
 | 11-25 | B and C grade tiers | B+ = B; big cliff B to B-; B- and C+/C/C- near flat; ~5 real outcome groups | Research only (Grade_Tier_Research/ part 2) |
 
 Earlier one-offs inside model work: conference as predictor (rejected), college usage/PPA (not adopted; only 2014+), WR
