@@ -22,8 +22,10 @@
 PRE_DIR <- if (dir.exists("../PreDraft_Model")) "../PreDraft_Model" else "../Football2_PreDraft"
 source(file.path(PRE_DIR, "pd_common.R"))
 suppressMessages(library(ggplot2))
-GRADE_CUTS <- c(0, .10, .25, .35, .45, .55, .65, .75, .85, .90, .95, 1.0001)
-GRADES     <- c("F", "D", "C-", "C", "C+", "B-", "B", "B+", "A-", "A", "A+")
+# Five-grade scale (Kyle 2026-11-25, Grade_Tier_Research): outcomes fall into five real groups, so
+# A+ = top 5%, A = 85-95, B = 65-85, C = 25-65, D = bottom 25% (old A-/B+/B-/C+/C-/F merged; A93).
+GRADE_CUTS <- c(0, .25, .65, .85, .95, 1.0001)
+GRADES     <- c("D", "C", "B", "A", "A+")
 grade_from_pct <- function(p) as.character(cut(p, GRADE_CUTS, labels = GRADES, right = FALSE))
 gidx <- function(g) match(g, GRADES)   # 1 = F ... 11 = A+
 
@@ -100,7 +102,7 @@ vm <- bind_rows(lapply(POSITIONS, function(POS) { h <- both %>% filter(position 
 write.csv(vm, "pd_post_vs_pre_metrics.csv", row.names = FALSE)
 cat("\n===== Pre-draft vs post-draft vs pick only (players with both grades, 2010-2023) =====\n"); print(as.data.frame(vm), row.names = FALSE)
 
-band <- function(g) ifelse(substr(g, 1, 1) %in% c("A", "B", "C"), substr(g, 1, 1), "DF")
+band <- function(g) as.character(g)   # five-grade scale
 cat("\n===== Any-tier hit rate by grade band, pre vs post =====\n")
 print(as.data.frame(both %>% mutate(pre_b = band(pre_grade), post_b = band(post_grade)) %>%
   { bind_rows(group_by(., position, band = pre_b) %>% summarize(n = n(), any = round(mean(y3), 3), .groups = "drop") %>% mutate(version = "pre"),
@@ -159,7 +161,7 @@ vp2 <- bind_rows(lapply(POSITIONS, function(POS) {
   mutate(across(where(is.double), ~ signif(.x, 3)))
 write.csv(vp2, "pd_post_grade_vs_pick.csv", row.names = FALSE)
 cat("\n===== Post-draft grade vs draft slot (all post-draft players 2010-2023) =====\n"); print(as.data.frame(vp2), row.names = FALSE)
-gband <- function(g) case_when(g %in% c("A+", "A", "A-") ~ "A range", g %in% c("B+", "B", "B-") ~ "B range", g %in% c("C+", "C", "C-") ~ "C range", TRUE ~ "D/F")
+gband <- function(g) as.character(g)   # five-grade scale: each grade is its own band
 byr2 <- HP %>% mutate(round_band = case_when(round == 1 ~ "Round 1", round <= 3 ~ "Rounds 2-3", TRUE ~ "Rounds 4-7"), band = gband(post_grade)) %>%
   group_by(position, round_band, band) %>% summarize(n = n(), any_rate = round(mean(y3), 3), top2_rate = round(mean(y2), 3), .groups = "drop")
 write.csv(byr2, "pd_post_grade_by_round.csv", row.names = FALSE)
@@ -171,6 +173,6 @@ sc2 <- bind_rows(lapply(POSITIONS, function(POS) { ref <- J %>% filter(position 
 write.csv(sc2, "pd_post_grade_scale.csv", row.names = FALSE)
 cat("\n===== Post-draft misses =====\n")
 for (POS in POSITIONS) {
-  cat("--", POS, "A/A+ no tier --\n"); print(as.data.frame(final %>% filter(position == POS, class <= 2023, post_grade %in% c("A+", "A"), nfl_tier == 4) %>% select(class, name, pick, post_grade, nfl_outcome)), row.names = FALSE)
-  cat("--", POS, "D/F top tier --\n"); print(as.data.frame(final %>% filter(position == POS, class <= 2023, post_grade %in% c("D", "F"), nfl_tier == 1) %>% select(class, name, pick, post_grade, nfl_outcome)), row.names = FALSE)
+  cat("--", POS, "A+/A no tier --\n"); print(as.data.frame(final %>% filter(position == POS, class <= 2023, post_grade %in% c("A+", "A"), nfl_tier == 4) %>% select(class, name, pick, post_grade, nfl_outcome)), row.names = FALSE)
+  cat("--", POS, "D top tier --\n"); print(as.data.frame(final %>% filter(position == POS, class <= 2023, post_grade == "D", nfl_tier == 1) %>% select(class, name, pick, post_grade, nfl_outcome)), row.names = FALSE)
 }

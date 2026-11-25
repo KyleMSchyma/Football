@@ -1,7 +1,7 @@
 # Post-Draft Player Grades
 
 The post-draft companion to [`../PreDraft_Model`](../PreDraft_Model/README.md). It gives
-every drafted QB, RB, WR and TE from 2010-2026 an A+ to F letter grade from the
+every drafted QB, RB, WR and TE from 2010-2026 a letter grade (A+, A, B, C or D; A+ to F before 2026-11-25) from the
 **post-draft** version of each position model (college profile + draft pick + landing
 spot), and puts it next to the pre-draft (college-only) grade so you can see how much
 draft capital moved each player and each class.
@@ -23,7 +23,7 @@ SHAP), how much draft capital dominates, and which high ranks come from data art
   final post model (trained on 2010-2023) from each position's board. Score = expected tier
   points = P(top) + P(top two) + P(any tier). 2027 is graded separately from a mock
   draft (see below).
-- **Grade:** the same A+ to F cut points as the pre-draft grades, applied to the
+- **Grade:** the same five-grade cut points as the pre-draft grades (A+ top 5%, A 85-95, B 65-85, C 25-65, D bottom 25%), applied to the
   percentile of the post-draft score among drafted players at the position in 2010-2023.
 - **Join to pre-draft:** by position, class and pick (1,289 of 1,351 players match).
   `grade_move` = post grade step minus pre grade step.
@@ -86,8 +86,8 @@ MOCK_FILE=mock_2027/mock_2027_fantasy_positions.csv MOCK_NAME="Our 7-round 2027 
 ## Mixed draft model (`pd_11_mixed_model.R`, live since 2026-11-17)
 
 The grades on the site come from the **mixed draft model**: the post-draft model above, plus
-one correction. Players whose **pre-draft grade was in the A range (A+, A, A-) but whose
-post-draft grade fell below A-** get a bump on their odds of reaching each tier.
+one correction. Players whose **pre-draft grade was in the A range (top 15%: A+ or A; A+, A or A- on the old scale) but whose
+post-draft grade fell below it** get a bump on their odds of reaching each tier.
 
 Why: from 2010-2023, those 75 "fallers" reached a tier 40% of the time, but the post-draft
 model gave them about 25%. The NFL dropped them, but their college profile still carried

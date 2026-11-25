@@ -3,6 +3,15 @@
 # design, branding and links stay as they are.  usage: Rscript rf_02_predraft_page.R page1.html [page2.html ...]
 suppressMessages({ library(dplyr); library(jsonlite) })
 pre <- "../Football2_PreDraft"
+# Five-grade scale (Kyle 2026-11-25): A+ / A / B / C / D. pd_06 writes it; if the CSVs still carry old 11-grade letters
+# (pd_06 not yet updated on this machine), convert them in place with pd_15_grade_scale5.R (safe to rerun).
+OLD11 <- c("A-", "B+", "B-", "C+", "C-", "F")
+if (any(read.csv(file.path(pre, "pd_player_grades.csv"), stringsAsFactors = FALSE, na.strings = "")$grade %in% OLD11)) {
+  cv <- c("../Football2_PostDraft/pd_15_grade_scale5.R", "../../PostDraft_Model/pd_15_grade_scale5.R"); cv <- cv[file.exists(cv)][1]
+  if (is.na(cv)) stop("old grade letters in pd_player_grades.csv and pd_15_grade_scale5.R not found")
+  cat("old 11-grade letters found: converting with", cv, "\n")
+  if (system2("Rscript", c(shQuote(cv), shQuote(pre))) != 0) stop("pd_15_grade_scale5.R failed")
+}
 f <- read.csv(file.path(pre, "pd_player_grades.csv"), stringsAsFactors = FALSE, na.strings = "")
 # Cross-position Value column (dv_13_league_presets.R, default league, 100k trade-value scale); joined by key, not row order.
 vf <- c(file.path(Sys.getenv("DYN_DIR", "../Football2_Dynasty"), "dv_rookie_board_values.csv"), "../Trade_Values/dv_rookie_board_values.csv"); vf <- vf[file.exists(vf)][1]
@@ -26,7 +35,7 @@ P <- f %>% transmute(pos = position, rk = pos_rank_all, cls = class, rkc = pos_r
   cl = as.integer(!is.na(community_list)), v = v, vq = I(lapply(seq_along(vq1), function(i) if (is.na(vq1[i])) NULL else c(vq1[i], vq2[i], vq3[i]))), ag = vag,
   vs = ifelse(is.na(vsrc), NA, ifelse(grepl("mock", vsrc), "mock", ifelse(grepl("^post", vsrc), "post", "pre"))), pp = pp)
 rd <- function(x) read.csv(file.path(pre, x))
-band <- function(g) ifelse(g %in% c("A+","A","A-"), "A", ifelse(g %in% c("B+","B","B-"), "B", ifelse(g %in% c("C+","C","C-"), "C", "DF")))
+band <- function(g) as.character(g)   # five-grade scale: each grade is its own band (A+, A, B, C, D)
 BS <- f %>% filter(status == "drafted", class <= 2023) %>% mutate(b = band(grade)) %>% group_by(position, b) %>%
   summarize(n = n(), any = round(mean(nfl_tier <= 3), 3), top = round(mean(nfl_tier == 1), 3), .groups = "drop")
 line <- paste0("window.PD=", toJSON(list(players = P, val = rd("pd_grade_validation.csv"), vp = rd("pd_grade_vs_pick.csv"),

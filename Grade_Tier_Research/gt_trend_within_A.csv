@@ -1,0 +1,10 @@
+system,subset,n,hit_top_OR_per10pct,hit_top_p,hit_any_OR_per10pct,hit_any_p,ppg_z_per10pct,ppg_p
+pre,A range (top 15%),157,4.0,0.0019,1.67,0.1814,0.34,0.0746
+pre,B+ and up (top 25%),262,2.64,0.0,2.23,0.0,0.46,0.0
+pre,all drafted,1049,1.33,0.0,1.35,0.0,0.14,0.0
+post,A range (top 15%),167,8.09,0.0,12.49,0.0,0.84,0.0
+post,B+ and up (top 25%),278,2.64,0.0,2.87,0.0,0.49,0.0
+post,all drafted,1108,1.73,0.0,1.75,0.0,0.21,0.0
+mixed,A range (top 15%),199,6.34,0.0,9.45,0.0,0.8,0.0
+mixed,B+ and up (top 25%),300,2.79,0.0,3.29,0.0,0.55,0.0
+mixed,all drafted,1108,1.76,0.0,1.76,0.0,0.21,0.0
