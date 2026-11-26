@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-26 (2027 rookies rounds 3-4 page + Wednesday swap of both rookie pages, S#42)
+- Last updated: 2026-11-26 (open license and credit: CC BY 4.0 + Use and credit page, S#43, F#52)
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -173,6 +173,30 @@ change (the refresh hardcodes them).
 ## 3. Update log
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
+
+### 2026-11-26: Open license and credit requirements (S#43, F#52) LIVE
+- Kyle 11-26: "I like open sourcing my stuff, I just want permission. I also don't mind other AI connecting to my site,
+  I just want credit." Then "Live now" (Saturday-batch hold waived; merged same day).
+- Read as: everything open, credit required; ask-first only for what the credit rule does not cover. Chose CC BY 4.0
+  (A95) for everything Prospect Actuary makes, MIT for code (A96). Third-party data not relicensed.
+- Site (S#43): `LICENSE`, `LICENSE-CODE`, new `/use/` page (Research > "Use and credit": free uses incl. AI training,
+  copy-ready credit lines, BibTeX "Cite this", ask-first list via GitHub issue, what is not covered), `shared/nav.js`
+  footer license line + "Source: Prospect Actuary, kylemschyma.github.io/prospect-actuary" line under each section with a
+  data table (5+ rows), chart or large image + ImageObject license JSON-LD; static `<link rel="license">` + schema.org
+  JSON-LD (WebPage; Dataset with CSV links on pre-draft/post-draft/trade-values) inside every `<!--share-->` block;
+  `CITATION.cff`, `llms.txt`, `robots.txt` (allow all), `CREDIT.md` in data folders, `value-research/data/NOTICE.md`
+  (Dynasty Daddy / DynastyProcess files excluded). No log-ins, no bot blocking.
+- Football (F#52): `LICENSE` (CC BY 4.0 for write-ups/results), `LICENSE-CODE` (MIT), `CITATION.cff`, README section,
+  `Trade_Values/tv_page_template.html` given the same license block (copied to the PC's Football2_Dynasty).
+  Project file `x_posts/weekly/tools/site_rookies.js` now also rewrites the JSON-LD description (backup kept).
+- Refresh safety: grade pages only swap `window.PD=` lines; trade-values is rebuilt from the template (updated in both
+  places); rookie pages copy the pick-pockets share block; visible credit lives in nav.js, which every page loads.
+- Tested 360/390/1280 px on 21 pages: no sideways scroll, no page errors, license line on every page.
+- Possible problems: robots.txt and llms.txt only count at a host root, and this is a project site
+  (kylemschyma.github.io/prospect-actuary/), so crawlers will not read them automatically (issue 30, R37); visible
+  credit lines are added by JavaScript (non-JS scrapers see the JSON-LD and footer source text instead); CSV files carry
+  no credit row on purpose (would break parsers); CC BY cannot force credit from people who ignore it.
+  Recommendations: R37 (user-site root repo), R38 (share/download-image button that stamps the credit).
 
 ### 2026-11-26: 2027 rookies rounds 3-4 page + weekly Wednesday swap (S#42) LIVE
 - Kyle 11-26: "Yes swap in new pic each Wednesday. Also, do rounds 3-4 as well" ... "In a separate page". Read "rounds
@@ -777,7 +801,7 @@ hindsight model design.
 Trade Calculator (gap-fill suggestions, "Too close to call" inside 10%), Sleeper league page (needs, partners), Contending /
 Rebuild moves, Buy/Sell page, Team Analytics, profiles with NFL comparables, compare, saved leagues, data status, phone
 layout, homepage movers ("What changed this week"). Calculator "Adjusted for trade type" line (11-24, A89). Share tags,
-favicon, sitemap (11-24). 2027 rookie rankings pages `/rookie-rankings/` (top 24, S#41) and `/rookie-rankings-3-4/` (25-48, S#42), rebuilt each Wednesday by site_rookies.js. Details in the site README and memory notes listed in section 11.
+favicon, sitemap (11-24). 2027 rookie rankings pages `/rookie-rankings/` (top 24, S#41) and `/rookie-rankings-3-4/` (25-48, S#42), rebuilt each Wednesday by site_rookies.js. Open license (11-26, S#43): CC BY 4.0 content, MIT code, `/use/` Use and credit page, credit lines and license metadata from nav.js. Details in the site README and memory notes listed in section 11.
 
 ### 4.9 Research studies (one-offs)
 
@@ -820,6 +844,7 @@ data; render.js makes a 2400x3000 navy/orange top-24 image with an OVR column; g
 | Trade market: per-asset roster cost (package = sum of (v - c)) | 11-23 | Mathematically the same additive model; c not identifiable (synthetic fit c .80 vs true .15) | Never |
 | Trade market: depth discount (k-th asset counts lambda^(k-1)) fitted jointly | 11-23 | lambda = 0 with equal values makes every trade fair, so the fit collapses | lambda fixed from outside data |
 | Old `/dynasty/` page | 11-11 | Kept down; refresh stops if the folder reappears | Never |
+| Block AI crawlers, log-ins, or a non-commercial (BY-NC) license | 11-26 | Kyle wants open use and AI access with credit; BY-NC would make commercial AI and media use unclear | Kyle wants paid or permission-only commercial use |
 | Conference indicators / random conference intercept | 11-10 | No variant improved Brier | New level data |
 | College usage / PPA features | 11-10 | Hurt WR hit Brier; data only 2014+ | Longer history |
 | Trees (RF, xgb) as main learner | 11-10 | Lost on rolling BSS (more variance) | Much larger samples |
@@ -975,6 +1000,8 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A92 | 100k scale = ANCHOR_C x mean of the top-10 raw values per sheet (dynasty 1.33, redraft 1.31; #1 alone if fewer than 10), so #1 averages ~100k but floats | dv_10 anchor_top, dv_11, dv_13, dv_15, rf_04, engine.js | #1 = 100,000 (A30); top-5 average; fixed raw divisor | Removes the 15% of big drops caused by the #1 rescale; constants = 2023-25 mean of #1 / top-10 for this setting; refresh each preseason | ACTIVE from 12-01 |
 | A93 | Grade cut points stay at A+ 95 / A 90 / A- 85 / B+ 75 / B 65 / B- 55 / C+ 45 / C 35 / C- 25 / D 10 percentile (within position, drafted 2010-2023); A+ is a real step, A vs A- a lean, B+ = B, B to B- a cliff, C+/C/C- flat (11-25 part 2) | pd_06, pd_07 (unchanged) | Merge A and A- (two bands); one A band; A+ top 3%; A+ 92 / A 85 / A- 75; probability-based bands | 11-25 research: merged A band significantly worse, others tie or lose (LOCO Brier, class bootstrap) | SUPERSEDED 2026-11-25 by A94 (Kyle chose the five groups) |
 | A94 | Five grades: A+ 95-100, A 85-95, B 65-85, C 25-65, D 0-25 percentile within position (drafted 2010-2023), same for pre-draft, post-draft, 2027 mock and mixed; each grade is its own band in validation tables | pd_06, pd_07, pd_09, pd_11, pd_10, rf_02, pd_15 (converter), site pages | Keep eleven grades (A93); merge only B+/B; probability-based bands; A+ / A / B / C / D / F with F kept | Kyle 11-25 picked the five groups that the research found (B+ = B, B to B- cliff, C flat, C-/D/F near zero); caveat: chosen in-sample | ACTIVE, LIVE 2026-11-25 |
+| A95 | Everything Prospect Actuary makes (grades, scores, tier odds, values, rankings, charts, images, text, CSVs, research write-ups and results) is CC BY 4.0; credit line "Source: Prospect Actuary (kylemschyma.github.io/prospect-actuary)"; third-party data is not relicensed | LICENSE (both repos), site `/use/`, nav.js, JSON-LD | CC BY-NC 4.0 (commercial users ask first); CC BY-SA; CC0; all rights reserved with a permission form | Kyle 11-26: open source, AI welcome, wants credit. BY is the standard open license that requires credit and matches nflverse's own license; NC would block or muddy AI and media reuse | ACTIVE 11-26 |
+| A96 | Code (site HTML/CSS/JS/Python, R and shell in Football) is MIT | LICENSE-CODE (both repos) | CC BY 4.0 for code too; Apache 2.0 | Creative Commons advises against CC for software; MIT also keeps the copyright notice (credit) | ACTIVE 11-26 |
 | A71 | Market history, if used, = Dynasty Daddy's own `daddy_*` fields from DD's history endpoints, only after DD permission; never the unprefixed/KTC fields | research/dd_history | Use documented current API only and build our own weekly archive of it; use FantasyCalc history | DD history is the only dated market source found that we may use; own archive starts from zero | ACTIVE |
 
 ---
@@ -993,6 +1020,7 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | Sleeper public API | League import in the visitor's browser | Read-only; blocked from the cloud container. API docs: non-commercial use; Terms of Use ban crawling other leagues without written approval (checked 11-22) |
 | ESPN `kona_player_info` | Research only (rostered %) | Works from Kyle's PC only; current week only |
 | KeepTradeCut | NOT USED | Terms ban scraping and reuse |
+| Prospect Actuary's own outputs (both repos) | Everything we publish | CC BY 4.0 (code MIT) since 11-26 (A95, A96); Dynasty Daddy values (`dd.js`, `tm.js`) and DynastyProcess (`dp.js`) excluded, see `value-research/data/NOTICE.md` |
 | NFL Mock Draft Database | Only Kyle's own simulator mocks | Their mocks: ToS bans ML use; R2-7 paywalled; never bypass |
 | StickToTheModel mock | Private project file only | Personal non-commercial use; never in public repos or the site |
 | Renner 2027 mock (analyst) | 30 fantasy picks graded and credited 11-12 to 11-15; private copy in project files | Not committed to public repos |
@@ -1056,6 +1084,10 @@ fine (already in Rookie_Pick_Strategy/README.md).
     were not part of the change.
 29. 11-26: `/rookie-rankings/` and `/rookie-rankings-3-4/` are images rebuilt by a Wednesday scheduled cloud run (S#42),
     not by the PC refresh; if that run fails they show the previous week (live board: post-draft/#mock-2027).
+30. 11-26: `robots.txt` and `llms.txt` sit at /prospect-actuary/, not at the host root (kylemschyma.github.io), so
+    crawlers do not read them automatically; they are linked from `/use/` and README. Fix: R37.
+31. 11-26: Visible credit lines are added by `shared/nav.js` (JavaScript). Scrapers that do not run JS still get the
+    static JSON-LD license block and footer text. The CSV files have no credit row (by design; `CREDIT.md` sits beside them).
 
 ---
 
@@ -1135,6 +1167,16 @@ approved to build unless Kyle says so (see section 10).
   recheck A vs A- after the R3 retrain adds the 2024 class. If Kyle wants fewer grades, test a data-led scale
   (A+ | A | B (65-85) | C (25-65) | D) on the 2024 class first, since it was chosen in-sample. (A93, issue 26)
 - **R33. Refresh ANCHOR_C each preseason** from the last three seasons (#1 / top-10 mean) and recheck the holdout. (A92)
+
+**Open license follow-ups (11-26)**
+
+- **R37. Root robots.txt / llms.txt:** create a `kylemschyma.github.io` user-site repo holding only `robots.txt` and
+  `llms.txt` that point to /prospect-actuary/, so crawlers find them at the host root. Needs Kyle to create the repo.
+  (issue 30)
+- **R38. "Share image" / "Download" buttons** on boards and the calculator that export a PNG or CSV with the credit
+  line stamped in, so shared screenshots always carry it. Only if Kyle asks. (A95)
+- **R39. Add the license line to future generated images** (x_posts render.js already prints the site URL; add
+  "CC BY 4.0" if Kyle wants). (A95)
 
 **Trade Market (research 11-23)**
 
