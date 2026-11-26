@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-26 (2027 top 24 rookies page LIVE, S#41)
+- Last updated: 2026-11-26 (2027 rookies rounds 3-4 page + Wednesday swap of both rookie pages, S#42)
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -173,6 +173,20 @@ change (the refresh hardcodes them).
 ## 3. Update log
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
+
+### 2026-11-26: 2027 rookies rounds 3-4 page + weekly Wednesday swap (S#42) LIVE
+- Kyle 11-26: "Yes swap in new pic each Wednesday. Also, do rounds 3-4 as well" ... "In a separate page". Read "rounds
+  3-4" as rookie-draft rounds 3-4 (ranks 25-48 in a 12-team league), matching the top 24 = rounds 1-2 page.
+- New page `/rookie-rankings-3-4/` (Prospects nav "2027 rookies, rounds 3-4", sitemap): same image + text table as
+  `/rookie-rankings/`. Both pages are now written by `x_posts/weekly/tools/site_rookies.js` (project files; uses
+  extract.js + render.js, the site's own engine on committed data; nothing hand-entered).
+- Scheduled task "Wednesday site swap: 2027 rookie rankings pages" (Wed 8:12 AM Central, after the 7:38 rookie X draft;
+  ends after 2027-01-07): pulls main, checks a "Weekly refresh" commit landed since Tuesday, runs site_rookies.js, tests
+  at phone widths, PR + self-merge, posts the images. No change -> no PR.
+- Tested 360/390/1280 px both pages: no sideways scroll, no JS errors, 24 rows each.
+- Possible problems: a failed Wednesday run leaves last week's images (page dates show which week); mock-based grades
+  only move when a mock is added or pd_09/11/12 rerun, so weekly changes are mostly from value/replacement shifts.
+  Known issue 29 updated: pages now refresh weekly.
 
 ### 2026-11-26: 2027 top 24 rookies page (S#41) LIVE
 - Kyle 11-26 asked for the updated top 24 2027 rookies (class rank, player, school, positional rank, plus extras), then:
@@ -763,7 +777,7 @@ hindsight model design.
 Trade Calculator (gap-fill suggestions, "Too close to call" inside 10%), Sleeper league page (needs, partners), Contending /
 Rebuild moves, Buy/Sell page, Team Analytics, profiles with NFL comparables, compare, saved leagues, data status, phone
 layout, homepage movers ("What changed this week"). Calculator "Adjusted for trade type" line (11-24, A89). Share tags,
-favicon, sitemap (11-24). 2027 top 24 rookies snapshot page `/rookie-rankings/` (11-26, S#41). Details in the site README and memory notes listed in section 11.
+favicon, sitemap (11-24). 2027 rookie rankings pages `/rookie-rankings/` (top 24, S#41) and `/rookie-rankings-3-4/` (25-48, S#42), rebuilt each Wednesday by site_rookies.js. Details in the site README and memory notes listed in section 11.
 
 ### 4.9 Research studies (one-offs)
 
@@ -1040,8 +1054,8 @@ fine (already in Rookie_Pick_Strategy/README.md).
     wants (R36).
 28. 11-25: Class grades (pd_04, guide 'Class grades') still use their own scale (A = top 10%, A-, B, C, C-, D, F); they
     were not part of the change.
-29. 11-26: `/rookie-rankings/` (2027 top 24 image + table) is a static snapshot from the Nov 24 refresh; it goes stale
-    after each refresh or mock change unless updated by hand (the live board is post-draft/#mock-2027).
+29. 11-26: `/rookie-rankings/` and `/rookie-rankings-3-4/` are images rebuilt by a Wednesday scheduled cloud run (S#42),
+    not by the PC refresh; if that run fails they show the previous week (live board: post-draft/#mock-2027).
 
 ---
 
