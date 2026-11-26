@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "This research code and its results are free to use, share and build on with credit. Please cite it as below or credit: Source: Prospect Actuary (kylemschyma.github.io/prospect-actuary)."
+title: "Prospect Actuary research: fantasy football prospect and trade-value models built with actuarial methods"
+type: software
+authors:
+  - name: "Prospect Actuary"
+    website: "https://kylemschyma.github.io/prospect-actuary/"
+repository-code: "https://github.com/KyleMSchyma/Football"
+url: "https://kylemschyma.github.io/prospect-actuary/"
+license: MIT
+keywords:
+  - fantasy football
+  - NFL draft prospects
+  - dynasty trade values
+  - actuarial science
+  - credibility theory
+  - R
+abstract: >-
+  R code, research write-ups and results behind Prospect Actuary: rookie position models, pre-draft and post-draft
+  grades, the mixed draft model, redraft and dynasty trade values (credibility, survival, aging, present value) and
+  the weekly refresh. Code is MIT; write-ups, results and outputs are CC BY 4.0. Third-party source data keeps its own
+  terms.
