@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-25 (five-grade scale A+ / A / B / C / D LIVE; grade-tier research)
+- Last updated: 2026-11-26 (2027 top 24 rookies page LIVE, S#41)
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -173,6 +173,18 @@ change (the refresh hardcodes them).
 ## 3. Update log
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
+
+### 2026-11-26: 2027 top 24 rookies page (S#41) LIVE
+- Kyle 11-26 asked for the updated top 24 2027 rookies (class rank, player, school, positional rank, plus extras), then:
+  "Photo please and push it live on the site". New page `/rookie-rankings/` (Prospects nav "2027 top 24 rookies",
+  sitemap): the weekly rookie X image (mixed model, Kyle's 4 mocks by median pick, Nov 24 refresh / week 11, 12-team SF
+  full PPR 2 FLEX) plus an expandable text table (rank, player, school, position rank, grade, value, mock pick range).
+- Numbers come from the site's own engine via `x_posts/weekly/tools/extract.js`; nothing hand-entered. No model,
+  value or refresh change.
+- Tested at 360/390/1280 px: no page sideways scroll, no JS errors, nav highlights the page.
+- Possible problems: the page is a static snapshot and does not update with the weekly refresh (it says so and links
+  the live 2027 mock board); image text is small on phones (the text table covers it). Recommendation: if Kyle wants it
+  kept current, copy the new Wednesday image and table in after each refresh (or generate it in the refresh; issue 29).
 
 ### 2026-11-25: Five-grade scale A+ / A / B / C / D (F#46, S#39) LIVE
 - Kyle 11-25: "Let's do those 5 groups then and rename them as such: A+, A, B, C, and D." Kyle first chose the Saturday
@@ -751,7 +763,7 @@ hindsight model design.
 Trade Calculator (gap-fill suggestions, "Too close to call" inside 10%), Sleeper league page (needs, partners), Contending /
 Rebuild moves, Buy/Sell page, Team Analytics, profiles with NFL comparables, compare, saved leagues, data status, phone
 layout, homepage movers ("What changed this week"). Calculator "Adjusted for trade type" line (11-24, A89). Share tags,
-favicon, sitemap (11-24). Details in the site README and memory notes listed in section 11.
+favicon, sitemap (11-24). 2027 top 24 rookies snapshot page `/rookie-rankings/` (11-26, S#41). Details in the site README and memory notes listed in section 11.
 
 ### 4.9 Research studies (one-offs)
 
@@ -1028,6 +1040,8 @@ fine (already in Rookie_Pick_Strategy/README.md).
     wants (R36).
 28. 11-25: Class grades (pd_04, guide 'Class grades') still use their own scale (A = top 10%, A-, B, C, C-, D, F); they
     were not part of the change.
+29. 11-26: `/rookie-rankings/` (2027 top 24 image + table) is a static snapshot from the Nov 24 refresh; it goes stale
+    after each refresh or mock change unless updated by hand (the live board is post-draft/#mock-2027).
 
 ---
 
