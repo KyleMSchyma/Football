@@ -159,7 +159,7 @@ Not rerun weekly on purpose: post-draft grades, mock grading (pd_09/11/12; rerun
 Since 2026-11-24 (redesign Phase 1): logo = home (`index.html`), then five sections in `shared/nav.js` and the phone
 bottom bar: **Values** (`trade-values/`, page title "Actuarial Trade Values", dynasty default), **Usage** (`buy-sell/` =
 Breakout Watch, "2026 preseason list"; `team-analytics/`), **Prospects** (`pre-draft/`, `post-draft/` with a Before
-Draft | After Draft | Adjusted switch, default Adjusted = the mixed model; 2027 class by default), **Tools**
+Draft | After Draft | Adjusted switch, default Adjusted = the mixed model; 2027 class by default; `pick-pockets/` = static 2027 pick-pocket graphics, S#40), **Tools**
 (`trade-calculator/`, `value-research/` = Market Check, `moves/`, `league/` Sleeper, `compare/`), **Research**
 (`research/`, `guide/`, `track-record/`, `value-history/`, `about/`). Earlier (11-14 to 11-24): Dashboard / Prospect
 Lab / Player Values / Trade Center / Research. Profiles `player/?id=`,
@@ -193,7 +193,11 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   1st 0.73x, 2nd 0.73x, 3rd 0.32x, 4th 0.09x, so 2nds are not cheaper than 1sts; 3rds/4ths are where the market and we
   differ most. Late-2nd edge needs most prospects to declare; the R3/R4 edge survives, but unmocked prospects (priced
   without capital) lift it (1.29x/1.19x without them).
-- Status: RESEARCH ONLY (F#49). Values and site unchanged. A95, A96 new. Issues 29, 30. R37.
+- Status: RESEARCH ONLY (F#49). Values unchanged. A95, A96 new. Issues 29, 30. R37.
+- 11-26 (Kyle asked): five site-style graphics (2027 by pocket vs all classes since 2010; 2027 vs 2026, 2025, 2024 head to
+  head; past classes at real draft capital, draft-day view) put on a new static page `/pick-pockets/` under Prospects (S#40).
+  Images are a Nov 25 snapshot, not refreshed weekly. Sources: project files `x_posts/pick_pockets_2027/` (graphic.html,
+  compare.html, compare_data.json). Kyle wants public graphics framed as his own findings, not comparisons to other creators.
 
 ### 2026-11-25: Five-grade scale A+ / A / B / C / D (F#46, S#39) LIVE
 - Kyle 11-25: "Let's do those 5 groups then and rename them as such: A+, A, B, C, and D." Kyle first chose the Saturday
