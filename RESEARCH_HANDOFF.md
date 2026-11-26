@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-26 (open license and credit: CC BY 4.0 + Use and credit page, S#43, F#48)
+- Last updated: 2026-11-26 (open license and credit: CC BY 4.0 + Use and credit page, S#43, F#52)
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -174,7 +174,7 @@ change (the refresh hardcodes them).
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
 
-### 2026-11-26: Open license and credit requirements (S#43, F#48) LIVE
+### 2026-11-26: Open license and credit requirements (S#43, F#52) LIVE
 - Kyle 11-26: "I like open sourcing my stuff, I just want permission. I also don't mind other AI connecting to my site,
   I just want credit." Then "Live now" (Saturday-batch hold waived; merged same day).
 - Read as: everything open, credit required; ask-first only for what the credit rule does not cover. Chose CC BY 4.0
@@ -186,7 +186,7 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   JSON-LD (WebPage; Dataset with CSV links on pre-draft/post-draft/trade-values) inside every `<!--share-->` block;
   `CITATION.cff`, `llms.txt`, `robots.txt` (allow all), `CREDIT.md` in data folders, `value-research/data/NOTICE.md`
   (Dynasty Daddy / DynastyProcess files excluded). No log-ins, no bot blocking.
-- Football (F#48): `LICENSE` (CC BY 4.0 for write-ups/results), `LICENSE-CODE` (MIT), `CITATION.cff`, README section,
+- Football (F#52): `LICENSE` (CC BY 4.0 for write-ups/results), `LICENSE-CODE` (MIT), `CITATION.cff`, README section,
   `Trade_Values/tv_page_template.html` given the same license block (copied to the PC's Football2_Dynasty).
   Project file `x_posts/weekly/tools/site_rookies.js` now also rewrites the JSON-LD description (backup kept).
 - Refresh safety: grade pages only swap `window.PD=` lines; trade-values is rebuilt from the template (updated in both
