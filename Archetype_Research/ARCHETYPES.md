@@ -1,7 +1,9 @@
 # Player archetypes by position: formal definitions (research, step 1)
 
-Status: **RESEARCH ONLY.** Nothing here changes a model, a value or the site. This is step 1 (define the labels and check
-they hold up in the data). Step 2 (do archetypes add predictive signal?) waits for Kyle to approve the definitions.
+Status: **RESEARCH ONLY.** Nothing here changes a model, a value or the site. **Kyle approved the definitions on
+2026-11-28** in the two-layer form (role x style, section 5), with explosive RB and red-zone TE dropped as stand-alone
+labels. Step 2 (do archetypes double count production / add signal?) is in [DOUBLE_COUNT.md](DOUBLE_COUNT.md): they
+double count and add nothing to next-season PPG.
 
 Date: 2026-11-28. Data: nflverse play-by-play, on-field player ids (pbp_participation), PFR snap counts, Next Gen Stats
 passing, player height/weight; 2016-2025 regular seasons for setting and testing the rules, 2026 weeks 1-12 applied as
@@ -253,7 +255,7 @@ This is a label check only (does the same role show up in both places), not a va
 
 ---
 
-## 5. Recommended version to approve: two layers (role x style)
+## 5. APPROVED version (Kyle 2026-11-28): two layers (role x style)
 
 The single-label version mixes "how much" with "how". The two-layer version tags every qualifying season twice
 (both already computed in `ar_labels_*.csv` as `role_layer` and `style_layer`):
@@ -261,9 +263,9 @@ The single-label version mixes "how much" with "how". The two-layer version tags
 | Position | Role layer (how much) | Style layer (how) |
 |---|---|---|
 | QB | Runner (rush >= 30/g), Mobile (20-30), Pocket (< 20) | Gunslinger, Game manager, Pocket passer (rules as above) |
-| RB | Workhorse (snaps >= 60% and 16+ touches/g), Lead (RB opportunity share >= 50%), Committee | Receiving (3+ targets/g and target mix >= 25%), Power (goal-line share >= 45% or 225+ lb), Explosive (15+ yd runs >= 6%), Balanced |
+| RB | Workhorse (snaps >= 60% and 16+ touches/g), Lead (RB opportunity share >= 50%), Committee | Receiving (3+ targets/g and target mix >= 25%), Power (goal-line share >= 45% or 225+ lb), Balanced (Explosive dropped 11-28) |
 | WR | Alpha (target share >= 22%), Starter (15-22%), Rotational (< 15%) | Deep, YAC/gadget, Big red zone, Short/slot (aDOT < 10), Intermediate outside |
-| TE | Every-down (snaps >= 75%), Regular (50-75%), Part-time (< 50%) | Receiver (targets/snap >= 0.10), Red zone, Blocker (run tilt), Balanced |
+| TE | Every-down (snaps >= 75%), Regular (50-75%), Part-time (< 50%) | Receiver (targets/snap >= 0.10), Blocker (run tilt), Balanced (Red zone dropped 11-28) |
 
 So Chase 2024 = "Alpha, Short/slot"; St. Brown 2022 = "Alpha, YAC/gadget"; Kittle = "Every-down, Receiver".
 
@@ -274,9 +276,9 @@ Stability (same player next season, kappa: 0 = chance, 1 = always the same; `tab
 | Position | Single label | Role layer | Style layer |
 |---|---|---|---|
 | QB | 0.32 | **0.55** | 0.16 |
-| RB | 0.28 | 0.23 | **0.39** |
+| RB | 0.28 | 0.23 | **0.39** (0.42 approved, Explosive dropped) |
 | WR | 0.37 | 0.24 | **0.39** |
-| TE | 0.39 | 0.36 | **0.44** |
+| TE | 0.39 | 0.36 | **0.44** (0.49 approved, Red zone dropped) |
 
 Role changes more from year to year than style (depth charts, injuries), which is what you would expect and is why
 mixing them in one label makes labels flip. QB passing style is not a stable trait; QB rushing is.

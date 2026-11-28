@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-28 (player archetype definitions by position, research only, Archetype_Research/)
+- Last updated: 2026-11-28 (archetypes approved; step 2 double-counting test: archetypes add nothing beyond production, research only, F#53)
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -174,6 +174,27 @@ change (the refresh hardcodes them).
 ## 3. Update log
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
+
+### 2026-11-28: Do archetypes double count production? (research, step 2)
+- What: Kyle approved the archetype definitions ("Yeah that works for me": two-layer role x style, explosive RB and
+  red-zone TE dropped) and hypothesised they "will double count with actual production due to our definitions".
+  Tested: (A) how well production + age + pick identify each label (5-fold logistic, AUC); (B) rolling-origin holdout
+  of next-season PPR PPG (test 2020-2025, train on earlier seasons; ridge) for baseline (this + last season PPG and
+  games, age, log pick) vs + role, + style, + both, + raw usage inputs, archetypes only; paired player bootstrap;
+  gradient-boosting robustness; (C) baseline holdout residuals by archetype (ANOVA; season-centred 2020-2024 check).
+- Result: hypothesis CONFIRMED. Role layer is mostly production (AUC RB .80-.93, WR .88-.96, TE .71-.89); WR/RB style
+  is new information (AUC .40-.75) but does not predict. No add-on lowers holdout RMSE at any position (best QB style
+  -0.01, n.s.); style worsens RB +0.02 and TE +0.05 PPG (CI excludes 0); raw usage inputs no help either. Archetypes
+  alone R2 .13-.43 = the same signal production carries. Lead only: baseline under-predicts WR alpha +0.68 and TE
+  every-down +0.64 PPG (p .03/.05 of 8 tests) = top producers regress less, a PPG-curve question, not archetypes.
+- Status: RESEARCH ONLY (F#53). Values, models, site unchanged.
+- Files: `Archetype_Research/DOUBLE_COUNT.md`, `ar_07_double_count.py`, `tables/dc_*.csv`, `plots/dc_*.png`;
+  `ar_03_rules.py` two_layer() now the approved version (A98 approved).
+- Assumptions: A98 changed to APPROVED 11-28; A99 new (archetypes are descriptive tags, not value inputs).
+- Possible problems: baseline is a ridge stand-in for the live credible-PPG blend; only next-season PPG tested (not
+  aging, survival, games); 2026 target partial (weeks 1-12).
+- Recommendations: R41 DONE for veteran values (no gain); R43 show archetypes as description tags only if Kyle wants;
+  R44 aging/survival curves by style; R45 test "top producers regress less" as a PPG curve; R42 stays for prospects.
 
 ### 2026-11-28: Player archetypes by position: formal definitions (research, step 1)
 - What: Kyle 11-28 "Yes let's create the archetypes first. Get a formal definition." Wrote measurable, plain-English
@@ -846,7 +867,8 @@ favicon, sitemap (11-24). 2027 rookie rankings pages `/rookie-rankings/` (top 24
 | 11-21 | Rookie pick strategy | Keep 1.01, cliff after 1.06, sell late 2nds/3rds | Research (F#34 merged) |
 | 11-25 | A+ vs A vs A- grade tiers | A+ is a real step up in every model; A vs A- is a lean (adjusted p=.08), noise pre-draft; no alternative cut beats the current scale | Research only (Grade_Tier_Research/) |
 | 11-25 | B and C grade tiers | B+ = B; big cliff B to B-; B- and C+/C/C- near flat; ~5 real outcome groups | Research only (Grade_Tier_Research/ part 2) |
-| 11-28 | Player archetypes (definitions, step 1) | Clear rules, but a continuum, not natural clusters; one real split per position; labels 2x more stable than chance; explosive RB and red-zone TE are noise; role x style two-layer version steadier; QB rushing readable from college (AUC 0.89), RB receiving role not (0.50) | Research only (Archetype_Research/); step 2 awaits Kyle |
+| 11-28 | Player archetypes (definitions, step 1) | Clear rules, but a continuum, not natural clusters; one real split per position; labels 2x more stable than chance; explosive RB and red-zone TE are noise; role x style two-layer version steadier; QB rushing readable from college (AUC 0.89), RB receiving role not (0.50) | Research only (Archetype_Research/); definitions approved 11-28 |
+| 11-28 | Archetypes vs production (step 2) | Kyle's double-counting hypothesis confirmed: role layer ~ production (AUC .80-.96), no holdout gain from any archetype or usage add-on; only lead: alpha WR / every-down TE regress less | Research only (DOUBLE_COUNT.md); not used in values |
 
 Earlier one-offs inside model work: conference as predictor (rejected), college usage/PPA (not adopted; only 2014+), WR
 value score (Day-3 tiebreaker only), WR finish/hurdle/tier ladder (no gain vs pick), UDFAs (no conclusion changes).
@@ -901,7 +923,7 @@ data; render.js makes a 2400x3000 navy/orange top-24 image with an OVR column; g
 | Sign-off box, per-player notes, review sheets | 11-24 | HELD by Kyle | Kyle says build |
 | Market Check curve fit / package power for DD and DP | 11-24 | Dropped for rank-matching (Kyle 11-24) | Never unless Kyle asks |
 | Change the A+/A/A- cut points (merge A and A-, A+ top 3%, wider bands) | 11-25 | REJECTED: none beat the current 95/90/85 cuts in LOCO Brier; one merged A band is significantly worse | Samples double (R3 retrains) and A vs A- still flat |
-| Archetypes as model inputs (step 2 predictive test) | 11-28 | PARKED until Kyle approves the definitions (Archetype_Research/ARCHETYPES.md) | Kyle approves definitions |
+| Archetypes as value inputs (veteran next-season PPG) | 11-28 | REJECTED 11-28: double counts production, no holdout gain (Archetype_Research/DOUBLE_COUNT.md) | A live-formula rerun or aging/survival test shows a gain |
 | Fewer, data-led grades below A (merge B+/B; B- into C) | 11-25 | BUILT 11-25 as the five-grade scale (Kyle asked; see the 11-25 log entry and A94) | - |
 
 ---
@@ -1031,7 +1053,8 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A95 | Everything Prospect Actuary makes (grades, scores, tier odds, values, rankings, charts, images, text, CSVs, research write-ups and results) is CC BY 4.0; credit line "Source: Prospect Actuary (kylemschyma.github.io/prospect-actuary)"; third-party data is not relicensed | LICENSE (both repos), site `/use/`, nav.js, JSON-LD | CC BY-NC 4.0 (commercial users ask first); CC BY-SA; CC0; all rights reserved with a permission form | Kyle 11-26: open source, AI welcome, wants credit. BY is the standard open license that requires credit and matches nflverse's own license; NC would block or muddy AI and media reuse | ACTIVE 11-26 |
 | A96 | Code (site HTML/CSS/JS/Python, R and shell in Football) is MIT | LICENSE-CODE (both repos) | CC BY 4.0 for code too; Apache 2.0 | Creative Commons advises against CC for software; MIT also keeps the copyright notice (credit) | ACTIVE 11-26 |
 | A97 | Player archetypes v1: one primary label per qualifying season by priority rules with round-number thresholds near 2016-2025 percentiles (QB: rush yds/g >= 30 dual-threat, 20-30 hybrid; gunslinger aDOT >= 8.5 and INT >= 2.5% or tight-window >= 18%; game manager aDOT < 7.5 and EPA/db < 0.05. RB: workhorse snaps >= 60% and 16+ touches/g; receiving 3.5+ tgt/g and target mix >= 28%; power GL share >= 45%; explosive 15+ yd runs >= 6%; committee RB opp share < 50%. WR: X tgt share >= 20%, air share >= 25%, aDOT >= 9; deep aDOT >= 14 and deep rate >= 25%; YAC aDOT < 8, YAC >= 5, behind-line >= 20% or 0.5 carries/g; big RZ 6'3"/215 and RZ mix >= 15%; slot aDOT < 10. TE: hybrid snaps >= 75% and tgt/snap >= 0.10; receiving tgt/snap >= 0.10; RZ mix >= 25% and TD/tgt >= 8%; inline tgt/snap < 0.08 and run tilt >= 5 pts) | Archetype_Research/ar_03_rules.py | k-means / Gaussian-mixture clusters as the labels; percentile-only cuts; multi-label tags | Rules are explainable (Kyle's goal) and recover cleanly; clusters are weak (silhouette <= 0.26) and harder to explain (depth-3 tree recovers 61-73%) | RESEARCH 11-28 (definitions awaiting Kyle) |
-| A98 | Recommended form: two layers per season, role (how much) x style (how); QB = rushing layer x passing style | ar_03_rules.py two_layer(), ar_06 | Single label (A97); continuous scores only | Style layer more stable for RB/WR/TE (kappa .39-.44); stops alphas with short aDOT reading as "slot" | PROPOSED 11-28 |
+| A98 | Recommended form: two layers per season, role (how much) x style (how); QB = rushing layer x passing style | ar_03_rules.py two_layer(), ar_06 | Single label (A97); continuous scores only | Style layer more stable for RB/WR/TE (kappa .39-.44); stops alphas with short aDOT reading as "slot" | APPROVED 11-28 (Kyle; explosive RB and red-zone TE dropped from style) |
+| A99 | Archetypes are description tags only, not inputs to player values | Archetype_Research/DOUBLE_COUNT.md | Add role/style dummies or usage inputs to the credible-PPG prior | 11-28 holdout: no RMSE gain at any position, style slightly worse for RB/TE; labels restate production (Kyle's hypothesis) | ACTIVE 11-28 |
 | A71 | Market history, if used, = Dynasty Daddy's own `daddy_*` fields from DD's history endpoints, only after DD permission; never the unprefixed/KTC fields | research/dd_history | Use documented current API only and build our own weekly archive of it; use FantasyCalc history | DD history is the only dated market source found that we may use; own archive starts from zero | ACTIVE |
 
 ---
@@ -1214,14 +1237,20 @@ approved to build unless Kyle says so (see section 10).
 
 **Player archetypes (research 11-28)**
 
-- **R40. Kyle reviews `Archetype_Research/ARCHETYPES.md` and approves or edits the definitions.** Recommended: the
+- **R40. (DONE 11-28: approved, two-layer, explosive RB and red-zone TE dropped) Kyle reviews `Archetype_Research/ARCHETYPES.md` and approves or edits the definitions.** Recommended: the
   two-layer role x style version (A98); drop explosive RB and red-zone TE as stand-alone labels (near-chance stability)
   or require two seasons; use multi-season labels for veterans. (A97, A98)
-- **R41. Step 2 (only after R40):** test whether archetypes add signal beyond the live models (rookie tier odds,
+- **R41. (DONE 11-28 for veteran values: no gain, DOUBLE_COUNT.md) Step 2 (only after R40):** test whether archetypes add signal beyond the live models (rookie tier odds,
   next-season PPG, aging/survival by archetype), thresholds frozen, 2024-2025 out of sample, continuous inputs tested
   alongside labels. Model parity rule applies if anything feeds a model. (issue 33)
 - **R42. If prospect archetypes are needed:** pull cfbfastR play-by-play for goal-line share, explosive runs and
   designed runs vs scrambles; RB receiving role is not visible in college box scores (AUC 0.50). (issue 32)
+
+- **R43. Archetype tags on player profiles** as plain-English description only (never in values), only if Kyle asks. (A99)
+- **R44. Aging and survival by style** (e.g. receiving vs power backs) on the dynasty curves: the one value use the
+  next-season test did not cover. (A99)
+- **R45. "Top producers regress less":** test a curve in PPG (or position-rank-dependent credibility) for WR alphas
+  and every-down TEs, the only residual pattern found (11-28 Part C). Rerun Part B with the live credible PPG on the PC.
 
 **Trade Market (research 11-23)**
 
@@ -1284,7 +1313,7 @@ approved to build unless Kyle says so (see section 10).
 
 **Reports in this repo:** FABLE_REVIEW.md; `Trade_Values/dev_role_layer/FABLE_BUILD_REPORT.md` and
 `ROLE_AND_CALIBRATION_REPORT.md`; `Trade_Values/history/README.md`; `Landing_Spot_Offense/README.md`;
-`Rookie_Pick_Strategy/README.md`; `Archetype_Research/ARCHETYPES.md`; `PostDraft_Model/exp_mixed_model/README.md`; each model folder README and PREDICTORS.md.
+`Rookie_Pick_Strategy/README.md`; `Archetype_Research/ARCHETYPES.md`; `Archetype_Research/DOUBLE_COUNT.md`; `PostDraft_Model/exp_mixed_model/README.md`; each model folder README and PREDICTORS.md.
 
 **Branches with work not on main**
 

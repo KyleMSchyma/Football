@@ -36,11 +36,12 @@ def te_label(d):
     return np.select([hybrid, rec, rz, block], ["Hybrid", "Receiving / move", "Red-zone specialist", "Inline / blocking"], "Rotational (no clear role)")
 
 def two_layer(pos, d):
-    """Alternative tested: separate ROLE (how much he is used) from STYLE (how he is used)."""
+    """APPROVED form (Kyle 2026-11-28): separate ROLE (how much he is used) from STYLE (how he is used)."""
     if pos == "RB":
         role = np.select([(d.snap_share >= 0.60) & (d.touches_pg >= 16), d.opp_share >= 0.50], ["Workhorse", "Lead"], "Committee")
-        style = np.select([(d.targets_pg >= 3) & (d.tgt_mix >= 0.25), (d.gl_share >= 0.45) | (d.weight >= 225),
-                           (d.explosive_rate >= 0.06) & (d.carries >= 50)], ["Receiving", "Power", "Explosive"], "Balanced")
+        # APPROVED 2026-11-28 (Kyle): Explosive dropped as a stand-alone style (near-chance stability) -> Balanced
+        style = np.select([(d.targets_pg >= 3) & (d.tgt_mix >= 0.25), (d.gl_share >= 0.45) | (d.weight >= 225)],
+                          ["Receiving", "Power"], "Balanced")
     elif pos == "WR":
         role = np.select([d.target_share >= 0.22, d.target_share >= 0.15], ["Alpha", "Starter"], "Rotational")
         style = np.select([(d.adot >= 14) & (d.deep_rate >= 0.25), (d.adot < 8) & (d.yac_per_rec >= 5) & ((d.behind_rate >= 0.20) | (d.carries_pg >= 0.5)),
@@ -48,9 +49,10 @@ def two_layer(pos, d):
                           ["Deep", "YAC / gadget", "Big red zone", "Short / slot"], "Intermediate outside")
     elif pos == "TE":
         role = np.where(d.snap_share >= 0.75, "Every-down", np.where(d.snap_share >= 0.50, "Regular", "Part-time"))
-        style = np.select([d.targets_per_snap >= 0.10, (d.targets_per_snap < 0.10) & (d.targets >= 15) & (d.rz_mix >= 0.25) & (d.td_per_tgt >= 0.08),
+        # APPROVED 2026-11-28 (Kyle): Red-zone specialist dropped as a stand-alone style (near-chance stability) -> Balanced
+        style = np.select([d.targets_per_snap >= 0.10,
                            (d.targets_per_snap < 0.08) & ((d.run_tilt >= 0.05) | (d.run_tilt.isna() & (d.targets_per_snap < 0.06)))],
-                          ["Receiver", "Red zone", "Blocker"], "Balanced")
+                          ["Receiver", "Blocker"], "Balanced")
     else:  # QB: rushing layer x passing layer
         role = np.select([d.rush_ypg >= 30, d.rush_ypg >= 20], ["Runner", "Mobile"], "Pocket")
         style = qb_label(d)[1]

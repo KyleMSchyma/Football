@@ -1,0 +1,13 @@
+position,model,rmse,d_rmse_vs_base
+QB,gradient boosting: Baseline,4.006,0.0
+QB,gradient boosting: + role + style,3.931,-0.076
+QB,gradient boosting: + raw usage inputs,3.933,-0.073
+RB,gradient boosting: Baseline,4.281,0.0
+RB,gradient boosting: + role + style,4.269,-0.012
+RB,gradient boosting: + raw usage inputs,4.336,0.055
+WR,gradient boosting: Baseline,3.692,0.0
+WR,gradient boosting: + role + style,3.648,-0.044
+WR,gradient boosting: + raw usage inputs,3.703,0.011
+TE,gradient boosting: Baseline,2.702,0.0
+TE,gradient boosting: + role + style,2.686,-0.016
+TE,gradient boosting: + raw usage inputs,2.645,-0.057
