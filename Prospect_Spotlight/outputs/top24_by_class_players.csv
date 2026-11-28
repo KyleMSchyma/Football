@@ -1,0 +1,433 @@
+board,row,position,class,name,college,pick,source,p_top,p_top2,p_any,age,value_100k
+post,806,WR,2015,Amari Cooper,Alabama,4.0,post-draft,0.841,0.917,0.953,21.2,51756
+pre,827,WR,2027,Jeremiah Smith,Ohio State,,post-draft (mock pick),0.952,0.978,0.987,22.0,51659
+post,6,QB,2021,Trevor Lawrence,Clemson,1.0,post-draft,0.761,0.89,0.948,21.9,48315
+post,8,QB,2015,Marcus Mariota,Oregon,2.0,post-draft,0.745,0.856,0.933,21.8,48106
+post,810,WR,2014,Sammy Watkins,Clemson,4.0,post-draft,0.741,0.865,0.92,21.2,47616
+post,4,QB,2019,Kyler Murray,Oklahoma,1.0,post-draft,0.791,0.898,0.945,22.1,47315
+post,807,WR,2026,Carnell Tate,Ohio State,4.0,post-draft,0.78,0.888,0.933,21.6,47076
+post,805,WR,2025,Travis Hunter,Colorado,2.0,post-draft,0.887,0.946,0.968,22.6,45954
+post,203,RB,2016,Ezekiel Elliott,Ohio State,4.0,post-draft,0.979,0.989,0.994,21.1,45871
+post,201,RB,2026,Jeremiyah Love,Notre Dame,3.0,post-draft,0.989,0.995,0.997,21.3,45187
+post,814,WR,2024,Malik Nabers,LSU,6.0,post-draft,0.667,0.818,0.887,21.1,44835
+post,808,WR,2024,Marvin Harrison Jr.,Ohio State,4.0,post-draft,0.77,0.882,0.929,22.1,44022
+post,199,RB,2018,Saquon Barkley,Penn State,2.0,post-draft,0.997,0.998,0.999,21.6,43907
+post,14,QB,2015,Jameis Winston,Florida State,1.0,post-draft,0.634,0.779,0.892,21.7,43617
+post,205,RB,2017,Christian McCaffrey,Stanford,8.0,post-draft,0.925,0.965,0.982,21.2,43475
+post,3,QB,2012,Robert Griffin III,Baylor,2.0,post-draft,0.811,0.912,0.964,22.6,43189
+post,208,RB,2015,Todd Gurley,,10.0,post-draft,0.892,0.946,0.97,21.1,42762
+post,815,WR,2021,Ja'Marr Chase,LSU,5.0,post-draft,0.646,0.814,0.887,21.5,42097
+post,1,QB,2018,Baker Mayfield,Oklahoma,1.0,post-draft,0.982,0.993,0.997,23.4,41995
+post,204,RB,2025,Ashton Jeanty,Boise State,6.0,post-draft,0.954,0.978,0.988,21.7,41946
+post,819,WR,2014,Mike Evans,Texas A&M,7.0,post-draft,0.59,0.763,0.853,21.0,41773
+post,206,RB,2023,Bijan Robinson,Texas,8.0,post-draft,0.921,0.964,0.98,21.6,41331
+post,12,QB,2023,Bryce Young,Alabama,1.0,post-draft,0.66,0.812,0.905,22.1,41311
+post,200,RB,2012,Trent Richardson,Alabama,3.0,post-draft,0.991,0.996,0.998,22.1,41233
+post,820,WR,2022,Drake London,USC,8.0,post-draft,0.593,0.76,0.842,21.1,41176
+post,811,WR,2012,Justin Blackmon,Oklahoma State,5.0,post-draft,0.73,0.861,0.91,22.6,39990
+post,210,RB,2023,Jahmyr Gibbs,Alabama,12.0,post-draft,0.841,0.923,0.957,21.5,39031
+post,813,WR,2017,Corey Davis,Western Michigan,5.0,post-draft,0.689,0.846,0.901,22.6,38585
+post,202,RB,2017,Leonard Fournette,LSU,4.0,post-draft,0.98,0.991,0.995,22.6,38549
+post,809,WR,2011,A.J. Green,Georgia,4.0,post-draft,0.746,0.864,0.918,23.1,38240
+post,7,QB,2026,Fernando Mendoza,Indiana,1.0,post-draft,0.755,0.877,0.943,22.9,38151
+pre,872,WR,2027,Charlie Becker,Indiana,,post-draft (mock pick),0.615,0.781,0.862,22.0,38012
+post,15,QB,2021,Zach Wilson,BYU,2.0,post-draft,0.579,0.777,0.887,22.1,37954
+post,2,QB,2024,Jayden Daniels,LSU,2.0,post-draft,0.919,0.963,0.984,23.7,37438
+post,9,QB,2024,Caleb Williams,USC,1.0,post-draft,0.698,0.843,0.926,22.8,36762
+post,812,WR,2015,Kevin White,West Virginia,7.0,post-draft,0.72,0.843,0.907,23.2,36757
+post,818,WR,2026,Jordyn Tyson,Arizona State,8.0,post-draft,0.595,0.766,0.852,22.1,36671
+post,16,QB,2023,C.J. Stroud,Ohio State,2.0,post-draft,0.507,0.696,0.835,21.9,35586
+post,822,WR,2025,Tetairoa McMillan,Arizona,8.0,post-draft,0.586,0.76,0.847,22.4,34960
+post,13,QB,2010,Sam Bradford,Oklahoma,1.0,post-draft,0.656,0.808,0.899,22.8,34910
+post,26,QB,2021,Trey Lance,,3.0,post-draft,0.392,0.621,0.787,21.3,34862
+post,10,QB,2012,Andrew Luck,Stanford,1.0,post-draft,0.684,0.84,0.931,23.0,34669
+post,27,QB,2018,Sam Darnold,USC,3.0,post-draft,0.369,0.602,0.808,21.2,34582
+post,816,WR,2021,Jaylen Waddle,Alabama,6.0,post-draft,0.611,0.79,0.87,22.8,34548
+post,207,RB,2010,C.J. Spiller,Clemson,9.0,post-draft,0.918,0.961,0.978,23.1,34497
+post,821,WR,2011,Julio Jones,Alabama,6.0,post-draft,0.591,0.757,0.846,22.6,34191
+post,29,QB,2023,Anthony Richardson,Florida,4.0,post-draft,0.392,0.589,0.76,21.3,33946
+post,826,WR,2022,Jameson Williams,Alabama,12.0,post-draft,0.467,0.655,0.762,21.4,33490
+post,825,WR,2017,John Ross,Washington,9.0,post-draft,0.485,0.7,0.795,21.8,33348
+post,24,QB,2014,Johnny Manziel,Texas A&M,22.0,post-draft,0.479,0.565,0.763,21.7,33296
+post,817,WR,2017,Mike Williams,Clemson,7.0,post-draft,0.589,0.78,0.855,22.9,33294
+post,209,RB,2010,Ryan Mathews,Fresno State,12.0,post-draft,0.849,0.925,0.957,22.9,33152
+post,211,RB,2015,Melvin Gordon,Wisconsin,15.0,post-draft,0.788,0.886,0.935,22.4,33151
+post,5,QB,2020,Joe Burrow,LSU,1.0,post-draft,0.783,0.891,0.951,23.7,32930
+post,824,WR,2022,Garrett Wilson,Ohio State,10.0,post-draft,0.515,0.698,0.796,22.1,32895
+post,213,RB,2020,Clyde Edwards-Helaire,LSU,32.0,post-draft,0.655,0.8,0.876,21.4,32536
+post,11,QB,2025,Cam Ward,Miami,1.0,post-draft,0.688,0.836,0.922,23.3,32429
+post,20,QB,2016,Jared Goff,California,1.0,post-draft,0.425,0.65,0.811,21.9,31857
+pre,974,WR,2027,Cam Coleman,Texas,,post-draft (mock pick),0.46,0.655,0.769,22.0,30859
+post,22,QB,2024,Drake Maye,North Carolina,3.0,post-draft,0.428,0.635,0.801,22.0,30848
+post,18,QB,2011,Cam Newton,,1.0,post-draft,0.468,0.669,0.824,22.3,30565
+pre,14,QB,2027,Darian Mensah,Miami,,post-draft (mock pick),0.473,0.676,0.829,22.4,30109
+post,831,WR,2020,Jerry Jeudy,Alabama,15.0,post-draft,0.403,0.574,0.707,21.4,29721
+post,19,QB,2021,Justin Fields,Ohio State,11.0,post-draft,0.495,0.617,0.803,22.5,29058
+post,827,WR,2024,Rome Odunze,Washington,9.0,post-draft,0.438,0.635,0.753,22.2,29011
+post,23,QB,2025,Jaxson Dart,Ole Miss,25.0,post-draft,0.473,0.574,0.778,22.3,28957
+post,829,WR,2014,Odell Beckham Jr.,LSU,12.0,post-draft,0.405,0.603,0.732,21.8,28937
+pre,24,QB,2027,C.J. Carr,Notre Dame,,post-draft (mock pick),0.341,0.546,0.736,21.6,28807
+post,212,RB,2025,Omarion Hampton,North Carolina,22.0,post-draft,0.669,0.813,0.89,22.5,28775
+pre,46,QB,2027,Drew Mestemaker,Oklahoma State,,post-draft (mock pick),0.441,0.646,0.809,22.4,28532
+post,30,QB,2020,Jalen Hurts,Oklahoma,53.0,post-draft,0.436,0.532,0.752,22.1,28290
+post,31,QB,2017,Deshaun Watson,Clemson,12.0,post-draft,0.421,0.52,0.747,22.0,28234
+post,832,WR,2020,Henry Ruggs III,Alabama,12.0,post-draft,0.389,0.561,0.695,21.6,28208
+post,828,WR,2022,Chris Olave,Ohio State,11.0,post-draft,0.423,0.614,0.729,22.2,28067
+post,823,WR,2013,Tavon Austin,West Virginia,8.0,post-draft,0.519,0.707,0.809,23.5,27914
+post,836,WR,2020,CeeDee Lamb,Oklahoma,17.0,post-draft,0.368,0.538,0.675,21.4,27776
+pre,906,WR,2027,Nick Marsh,Indiana,,post-draft (mock pick),0.391,0.589,0.715,22.0,27405
+post,218,RB,2019,Josh Jacobs,Alabama,24.0,post-draft,0.536,0.707,0.818,21.6,27170
+post,28,QB,2014,Blake Bortles,UCF,3.0,post-draft,0.404,0.597,0.766,22.3,27075
+post,217,RB,2011,Mark Ingram,Alabama,28.0,post-draft,0.54,0.718,0.824,21.7,27042
+post,17,QB,2017,Mitchell Trubisky,North Carolina,2.0,post-draft,0.488,0.686,0.841,23.0,26583
+post,35,QB,2024,J.J. McCarthy,Michigan,10.0,post-draft,0.306,0.505,0.703,21.6,26560
+post,38,QB,2018,Lamar Jackson,Louisville,32.0,post-draft,0.321,0.442,0.713,21.6,25797
+post,220,RB,2010,Jahvid Best,California,30.0,post-draft,0.497,0.684,0.798,21.6,25733
+post,222,RB,2012,David Wilson,Virginia Tech,32.0,post-draft,0.457,0.651,0.784,21.2,25640
+post,216,RB,2018,Rashaad Penny,San Diego State,27.0,post-draft,0.579,0.749,0.849,22.6,25344
+post,215,RB,2021,Travis Etienne,Clemson,25.0,post-draft,0.576,0.753,0.848,22.6,25281
+post,834,WR,2016,Corey Coleman,Baylor,15.0,post-draft,0.359,0.562,0.696,22.2,25212
+post,830,WR,2021,DeVonta Smith,Alabama,10.0,post-draft,0.387,0.602,0.73,22.8,24806
+post,32,QB,2019,Dwayne Haskins,Ohio State,15.0,post-draft,0.393,0.494,0.683,22.3,24672
+post,841,WR,2016,Laquon Treadwell,Ole Miss,23.0,post-draft,0.287,0.48,0.622,21.2,24612
+post,846,WR,2014,Brandin Cooks,Oregon State,20.0,post-draft,0.269,0.452,0.597,20.9,24362
+post,833,WR,2015,DeVante Parker,Louisville,14.0,post-draft,0.374,0.556,0.693,22.6,24169
+post,837,WR,2022,Treylon Burks,Arkansas,18.0,post-draft,0.353,0.542,0.666,22.4,23824
+post,553,TE,2021,Kyle Pitts,Florida,4.0,post-draft,0.917,0.976,0.985,20.9,23667
+post,227,RB,2018,Ronald Jones II,USC,38.0,post-draft,0.404,0.596,0.735,21.1,23588
+post,842,WR,2023,Jaxon Smith-Njigba,Ohio State,20.0,post-draft,0.284,0.483,0.607,21.5,23382
+post,861,WR,2013,Cordarrelle Patterson,Tennessee,29.0,post-draft,0.241,0.415,0.554,20.6,23363
+post,838,WR,2015,Nelson Agholor,USC,20.0,post-draft,0.339,0.518,0.66,22.3,23350
+post,849,WR,2020,Justin Jefferson,LSU,22.0,post-draft,0.278,0.436,0.579,21.2,23118
+post,224,RB,2020,D'Andre Swift,Georgia,35.0,post-draft,0.436,0.619,0.742,21.6,23090
+post,835,WR,2012,Michael Floyd,Notre Dame,13.0,post-draft,0.356,0.559,0.675,22.8,22960
+post,214,RB,2021,Najee Harris,Alabama,24.0,post-draft,0.578,0.755,0.849,23.5,22592
+post,844,WR,2023,Jordan Addison,USC,23.0,post-draft,0.276,0.473,0.598,21.6,22569
+post,845,WR,2018,Christian Kirk,Texas A&M,47.0,post-draft,0.338,0.405,0.581,21.8,22434
+post,843,WR,2022,John Metchie,Alabama,44.0,post-draft,0.351,0.432,0.59,22.1,22391
+post,228,RB,2014,Jeremy Hill,LSU,55.0,post-draft,0.467,0.55,0.708,21.9,22293
+post,229,RB,2021,Javonte Williams,North Carolina,35.0,post-draft,0.392,0.591,0.726,21.4,22135
+post,225,RB,2013,Giovani Bernard,North Carolina,37.0,post-draft,0.425,0.609,0.738,21.8,22033
+post,231,RB,2011,Ryan Williams,Virginia Tech,38.0,post-draft,0.391,0.582,0.718,21.4,21974
+post,839,WR,2022,Jahan Dotson,Penn State,16.0,post-draft,0.317,0.502,0.629,22.4,21936
+post,232,RB,2022,Breece Hall,Iowa State,36.0,post-draft,0.376,0.573,0.716,21.3,21771
+post,840,WR,2026,Makai Lemon,USC,20.0,post-draft,0.297,0.486,0.624,22.2,21711
+post,860,WR,2013,DeAndre Hopkins,Clemson,27.0,post-draft,0.245,0.421,0.561,21.2,21706
+post,554,TE,2019,T.J. Hockenson,Iowa,8.0,post-draft,0.796,0.933,0.959,22.2,21304
+post,848,WR,2010,Dez Bryant,Oklahoma State,24.0,post-draft,0.266,0.451,0.597,21.8,21288
+post,851,WR,2020,Jalen Reagor,TCU,21.0,post-draft,0.274,0.43,0.574,21.7,21261
+post,854,WR,2016,Tyler Boyd,Pittsburgh,55.0,post-draft,0.305,0.395,0.566,21.8,21198
+post,34,QB,2020,Tua Tagovailoa,Alabama,5.0,post-draft,0.307,0.502,0.706,22.5,20998
+post,555,TE,2014,Eric Ebron,North Carolina,10.0,post-draft,0.784,0.934,0.957,21.4,20919
+post,847,WR,2015,Breshad Perriman,UCF,26.0,post-draft,0.278,0.447,0.593,22.0,20913
+post,850,WR,2026,KC Concepcion,Texas A&M,24.0,post-draft,0.263,0.443,0.583,21.9,20638
+post,236,RB,2018,Kerryon Johnson,Auburn,43.0,post-draft,0.344,0.533,0.682,21.2,20559
+post,230,RB,2015,T.J. Yeldon,Alabama,36.0,post-draft,0.396,0.579,0.717,21.9,20550
+post,223,RB,2018,Nick Chubb,Georgia,35.0,post-draft,0.446,0.636,0.767,22.7,20301
+post,219,RB,2018,Sony Michel,Georgia,31.0,post-draft,0.508,0.692,0.809,23.5,20301
+post,233,RB,2025,Quinshon Judkins,Ohio State,36.0,post-draft,0.371,0.56,0.702,21.8,19897
+post,864,WR,2014,Jarvis Landry,LSU,63.0,post-draft,0.285,0.365,0.539,21.8,19895
+post,876,WR,2012,Rueben Randle,LSU,63.0,post-draft,0.259,0.342,0.489,21.3,19671
+post,858,WR,2023,Quentin Johnston,TCU,21.0,post-draft,0.247,0.436,0.561,22.0,19582
+post,855,WR,2014,Paul Richardson,Colorado,45.0,post-draft,0.305,0.39,0.563,22.4,19394
+pre,881,WR,2027,KJ Duff,Rutgers,,post-draft (mock pick),0.246,0.422,0.562,22.0,19345
+post,556,TE,2025,Colston Loveland,Michigan,10.0,post-draft,0.712,0.903,0.939,21.4,19330
+post,221,RB,2012,Doug Martin,Boise State,31.0,post-draft,0.484,0.675,0.802,23.6,19320
+post,873,WR,2018,D.J. Moore,Maryland,24.0,post-draft,0.225,0.375,0.521,21.4,19309
+post,25,QB,2016,Carson Wentz,North Dakota State,2.0,post-draft,0.394,0.621,0.791,23.7,19259
+post,36,QB,2021,Mac Jones,Alabama,15.0,post-draft,0.349,0.468,0.69,23.0,19202
+post,39,QB,2020,Justin Herbert,Oregon,6.0,post-draft,0.272,0.458,0.669,22.5,19078
+post,881,WR,2014,Allen Robinson,Penn State,61.0,post-draft,0.235,0.308,0.473,21.0,19061
+post,40,QB,2019,Daniel Jones,Duke,6.0,post-draft,0.254,0.442,0.609,22.3,19041
+post,866,WR,2021,Rashod Bateman,Minnesota,27.0,post-draft,0.223,0.408,0.551,21.8,18945
+post,878,WR,2015,Devin Funchess,Michigan,41.0,post-draft,0.209,0.357,0.5,21.3,18604
+post,853,WR,2020,Michael Pittman Jr.,USC,34.0,post-draft,0.326,0.386,0.556,22.9,18567
+post,37,QB,2010,Tim Tebow,Florida,25.0,post-draft,0.313,0.501,0.678,23.0,18514
+post,862,WR,2025,Matthew Golden,Texas,23.0,post-draft,0.237,0.41,0.549,22.1,18511
+post,21,QB,2024,Bo Nix,Oregon,12.0,post-draft,0.489,0.589,0.789,24.5,18429
+post,226,RB,2026,Jadarian Price,Notre Dame,32.0,post-draft,0.41,0.6,0.735,22.9,18424
+post,870,WR,2024,Brian Thomas,LSU,23.0,post-draft,0.226,0.395,0.534,21.9,18381
+post,242,RB,2020,J.K. Dobbins,Ohio State,55.0,post-draft,0.362,0.436,0.606,21.7,18346
+post,42,QB,2017,Patrick Mahomes,Texas Tech,10.0,post-draft,0.216,0.387,0.606,22.0,18346
+post,244,RB,2024,Jonathon Brooks,Texas,46.0,post-draft,0.292,0.471,0.622,21.1,18334
+post,869,WR,2019,A.J. Brown,Ole Miss,51.0,post-draft,0.268,0.357,0.536,22.2,18178
+post,852,WR,2010,Demaryius Thomas,Georgia Tech,22.0,post-draft,0.255,0.436,0.583,22.7,18069
+post,240,RB,2020,Jonathan Taylor,Wisconsin,41.0,post-draft,0.319,0.496,0.635,21.6,18035
+post,880,WR,2024,Keon Coleman,Florida State,33.0,post-draft,0.196,0.352,0.488,21.3,18012
+post,246,RB,2020,Cam Akers,Florida State,52.0,post-draft,0.291,0.463,0.605,21.2,17826
+post,874,WR,2010,Golden Tate,Notre Dame,60.0,post-draft,0.261,0.342,0.512,22.1,17802
+post,865,WR,2015,Dorial Green-Beckham,Missouri,40.0,post-draft,0.241,0.399,0.545,22.4,17624
+post,857,WR,2012,Kendall Wright,Baylor,20.0,post-draft,0.253,0.437,0.56,22.8,17609
+post,252,RB,2014,Tre Mason,Auburn,75.0,post-draft,0.309,0.386,0.553,21.1,17555
+post,867,WR,2020,Brandon Aiyuk,Arizona State,25.0,post-draft,0.247,0.396,0.539,22.5,17442
+post,47,QB,2018,Josh Rosen,UCLA,10.0,post-draft,0.163,0.336,0.584,21.6,17441
+post,237,RB,2022,Kenneth Walker III,Michigan State,41.0,post-draft,0.317,0.507,0.66,21.9,17426
+post,879,WR,2019,N'Keal Harry,Arizona State,32.0,post-draft,0.191,0.357,0.508,21.6,17346
+post,884,WR,2024,Xavier Worthy,Texas,28.0,post-draft,0.186,0.337,0.472,21.3,17295
+post,871,WR,2019,Marquise Brown,Oklahoma,25.0,post-draft,0.215,0.39,0.543,22.2,17272
+post,868,WR,2016,Will Fuller,,21.0,post-draft,0.226,0.4,0.543,22.4,17210
+post,245,RB,2019,Darrell Henderson,Memphis,70.0,post-draft,0.351,0.422,0.604,22.0,17172
+post,882,WR,2021,Elijah Moore,Ole Miss,34.0,post-draft,0.179,0.344,0.483,21.4,17064
+post,557,TE,2024,Brock Bowers,Georgia,13.0,post-draft,0.608,0.854,0.906,21.7,17059
+post,238,RB,2018,Royce Freeman,Oregon,71.0,post-draft,0.372,0.455,0.638,22.5,16993
+post,859,WR,2025,Emeka Egbuka,Ohio State,19.0,post-draft,0.246,0.422,0.561,22.9,16967
+pre,907,WR,2027,Reed Harris,Arizona State,,post-draft (mock pick),0.266,0.343,0.506,22.5,16917
+post,883,WR,2020,Tee Higgins,Clemson,33.0,post-draft,0.199,0.332,0.47,21.6,16778
+post,877,WR,2011,Jonathan Baldwin,Pittsburgh,26.0,post-draft,0.212,0.367,0.504,22.1,16751
+post,248,RB,2013,Le'Veon Bell,Michigan State,48.0,post-draft,0.282,0.454,0.6,21.5,16659
+pre,291,RB,2027,Jadan Baugh,Florida,,post-draft (mock pick),0.274,0.449,0.601,21.4,16654
+post,558,TE,2025,Tyler Warren,Penn State,14.0,post-draft,0.576,0.837,0.894,23.3,16463
+post,235,RB,2025,TreVeyon Henderson,Ohio State,38.0,post-draft,0.357,0.545,0.689,22.9,16459
+post,888,WR,2023,Marvin Mims,Oklahoma,63.0,post-draft,0.21,0.288,0.429,21.5,16197
+post,253,RB,2017,Joe Mixon,Oklahoma,48.0,post-draft,0.244,0.415,0.585,21.1,16153
+post,241,RB,2017,Dalvin Cook,Florida State,41.0,post-draft,0.296,0.481,0.648,22.1,16068
+post,247,RB,2015,Tevin Coleman,Indiana,73.0,post-draft,0.34,0.412,0.591,22.4,15801
+post,856,WR,2018,Calvin Ridley,Alabama,26.0,post-draft,0.261,0.422,0.569,23.7,15615
+post,863,WR,2016,Sterling Shepard,Oklahoma,40.0,post-draft,0.285,0.37,0.54,23.6,15599
+post,33,QB,2011,Colin Kaepernick,Nevada,36.0,post-draft,0.314,0.513,0.709,23.8,15464
+post,49,QB,2011,Blaine Gabbert,Missouri,10.0,post-draft,0.165,0.313,0.513,21.9,15285
+post,891,WR,2013,Robert Woods,USC,41.0,post-draft,0.161,0.3,0.429,21.4,15233
+post,886,WR,2010,Arrelious Benn,Illinois,39.0,post-draft,0.178,0.329,0.469,22.0,15141
+post,559,TE,2026,Kenyon Sadiq,Oregon,16.0,post-draft,0.517,0.802,0.869,21.5,14942
+post,249,RB,2020,Antonio Gibson,Memphis,66.0,post-draft,0.28,0.45,0.592,22.2,14833
+post,234,RB,2025,RJ Harvey,UCF,60.0,post-draft,0.429,0.513,0.687,24.6,14804
+post,239,RB,2011,DeMarco Murray,Oklahoma,71.0,post-draft,0.371,0.454,0.63,23.6,14632
+pre,247,RB,2027,Wayshawn Parker,Utah,,post-draft (mock pick),0.259,0.329,0.504,21.4,14539
+post,243,RB,2012,Isaiah Pead,Cincinnati,50.0,post-draft,0.289,0.473,0.637,22.7,14384
+post,250,RB,2020,Zack Moss,Utah,86.0,post-draft,0.321,0.391,0.56,22.7,14357
+post,903,WR,2020,KJ Hamler,Penn State,46.0,post-draft,0.151,0.263,0.389,21.2,14354
+post,256,RB,2025,Kaleb Johnson,Iowa,83.0,post-draft,0.285,0.357,0.536,22.1,14218
+post,262,RB,2018,Derrius Guice,LSU,59.0,post-draft,0.214,0.372,0.527,21.2,14208
+post,260,RB,2011,Mikel Leshoure,Illinois,57.0,post-draft,0.223,0.383,0.532,21.4,14137
+pre,960,WR,2027,Ryan Williams,Alabama,,post-draft (mock pick),0.165,0.306,0.436,22.0,14117
+post,895,WR,2025,Luther Burden,Missouri,39.0,post-draft,0.154,0.289,0.416,21.7,14018
+post,872,WR,2014,Kelvin Benjamin,Florida State,28.0,post-draft,0.217,0.383,0.528,23.6,13946
+post,896,WR,2022,Wan'Dale Robinson,Kentucky,43.0,post-draft,0.155,0.285,0.402,21.7,13842
+post,906,WR,2015,Vince Mayle,Washington State,123.0,post-draft,0.181,0.233,0.38,21.6,13736
+post,909,WR,2017,Curtis Samuel,Ohio State,40.0,post-draft,0.126,0.263,0.371,21.1,13647
+post,889,WR,2013,Justin Hunter,Tennessee,34.0,post-draft,0.167,0.31,0.441,22.3,13626
+post,907,WR,2022,David Bell,Purdue,99.0,post-draft,0.181,0.239,0.373,21.7,13552
+post,560,TE,2017,O.J. Howard,Alabama,19.0,post-draft,0.446,0.772,0.847,22.8,13503
+pre,449,RB,2027,Kewan Lacy,Ole Miss,,post-draft (mock pick),0.209,0.363,0.513,21.4,13431
+post,257,RB,2014,Bishop Sankey,Washington,54.0,post-draft,0.236,0.4,0.54,22.0,13371
+post,900,WR,2023,Jalin Hyatt,Tennessee,73.0,post-draft,0.179,0.25,0.383,21.9,13355
+post,897,WR,2020,Laviska Shenault Jr.,Colorado,42.0,post-draft,0.158,0.274,0.402,21.9,13321
+post,875,WR,2016,Josh Doctson,TCU,22.0,post-draft,0.207,0.373,0.515,23.7,13298
+post,885,WR,2023,Zay Flowers,Boston College,22.0,post-draft,0.182,0.343,0.463,23.0,13252
+post,898,WR,2023,Josh Downs,North Carolina,79.0,post-draft,0.184,0.256,0.39,22.1,13247
+post,251,RB,2016,Derrick Henry,Alabama,45.0,post-draft,0.266,0.418,0.575,22.7,13104
+post,43,QB,2011,Jake Locker,Washington,8.0,post-draft,0.213,0.383,0.59,23.2,13052
+post,887,WR,2021,Kadarius Toney,Florida,20.0,post-draft,0.162,0.316,0.452,22.6,13043
+post,41,QB,2010,Colt McCoy,Texas,85.0,post-draft,0.301,0.38,0.592,24.0,13037
+post,561,TE,2019,Noah Fant,Iowa,20.0,post-draft,0.436,0.732,0.822,21.8,13019
+post,890,WR,2024,Ladd McConkey,Georgia,34.0,post-draft,0.166,0.308,0.438,22.8,12538
+post,259,RB,2015,Ameer Abdullah,Nebraska,54.0,post-draft,0.227,0.381,0.531,22.2,12526
+post,52,QB,2015,Brett Hundley,UCLA,147.0,post-draft,0.176,0.221,0.428,22.2,12448
+post,562,TE,2013,Tyler Eifert,Notre Dame,21.0,post-draft,0.409,0.709,0.8,23.0,12444
+post,914,WR,2012,Stephen Hill,Georgia Tech,43.0,post-draft,0.124,0.245,0.346,21.4,12359
+post,261,RB,2019,Miles Sanders,Penn State,53.0,post-draft,0.227,0.379,0.532,22.3,12324
+post,263,RB,2010,Ben Tate,Auburn,58.0,post-draft,0.211,0.37,0.517,22.0,12311
+post,904,WR,2010,Dexter McCluster,Ole Miss,36.0,post-draft,0.137,0.265,0.394,22.0,12310
+post,893,WR,2015,Phillip Dorsett,Miami,29.0,post-draft,0.163,0.289,0.424,22.7,12271
+post,46,QB,2010,Dan LeFevour,Central Michigan,181.0,post-draft,0.248,0.321,0.527,23.5,12266
+post,255,RB,2023,Zach Charbonnet,UCLA,52.0,post-draft,0.231,0.405,0.557,22.6,12167
+post,258,RB,2011,Shane Vereen,California,56.0,post-draft,0.229,0.392,0.541,22.5,12133
+post,917,WR,2022,George Pickens,Georgia,52.0,post-draft,0.123,0.233,0.339,21.5,11858
+post,910,WR,2021,Tutu Atwell,Louisville,57.0,post-draft,0.123,0.252,0.375,21.9,11736
+post,933,WR,2017,JuJu Smith-Schuster,USC,62.0,post-draft,0.097,0.21,0.306,20.8,11733
+post,276,RB,2012,Ronnie Hillman,San Diego State,67.0,post-draft,0.158,0.293,0.446,21.0,11680
+post,925,WR,2021,Rondale Moore,Purdue,49.0,post-draft,0.105,0.219,0.334,21.2,11652
+post,923,WR,2024,Troy Franklin,Oregon,102.0,post-draft,0.146,0.198,0.328,21.6,11638
+post,901,WR,2013,Stedman Bailey,West Virginia,92.0,post-draft,0.181,0.242,0.387,22.8,11630
+post,894,WR,2012,A.J. Jenkins,Illinois,30.0,post-draft,0.157,0.299,0.411,23.0,11618
+post,892,WR,2012,Brian Quick,,33.0,post-draft,0.161,0.305,0.418,23.2,11509
+post,563,TE,2017,Evan Engram,Ole Miss,23.0,post-draft,0.362,0.704,0.795,23.0,11467
+post,932,WR,2011,Randall Cobb,Kentucky,64.0,post-draft,0.105,0.202,0.308,21.0,11454
+post,45,QB,2012,Russell Wilson,Wisconsin,75.0,post-draft,0.235,0.326,0.584,23.8,11285
+post,254,RB,2010,Toby Gerhart,Stanford,51.0,post-draft,0.246,0.417,0.566,23.4,11281
+post,899,WR,2014,Marqise Lee,USC,39.0,post-draft,0.145,0.274,0.405,22.8,11248
+post,902,WR,2026,Omar Cooper,Indiana,30.0,post-draft,0.142,0.27,0.393,22.7,11198
+post,564,TE,2010,Jermaine Gresham,Oklahoma,21.0,post-draft,0.349,0.695,0.784,22.2,11104
+post,908,WR,2012,Alshon Jeffery,South Carolina,45.0,post-draft,0.133,0.261,0.366,22.5,10965
+pre,963,WR,2027,Jackson Harris,LSU,,post-draft (mock pick),0.132,0.254,0.374,22.5,10896
+post,278,RB,2024,Bucky Irving,Oregon,125.0,post-draft,0.203,0.263,0.427,22.0,10765
+post,565,TE,2023,Dalton Kincaid,Utah,25.0,post-draft,0.334,0.65,0.761,23.9,10619
+post,922,WR,2011,Titus Young,Boise State,44.0,post-draft,0.117,0.223,0.335,22.0,10557
+post,946,WR,2010,Dezmon Briscoe,Kansas,191.0,post-draft,0.112,0.158,0.274,21.0,10494
+post,281,RB,2023,Kendre Miller,TCU,71.0,post-draft,0.14,0.27,0.406,21.2,10251
+post,48,QB,2013,EJ Manuel,Florida State,16.0,post-draft,0.174,0.327,0.514,23.5,10217
+post,930,WR,2014,Davante Adams,Fresno State,53.0,post-draft,0.103,0.204,0.316,21.7,10209
+post,282,RB,2014,Ka'Deem Carey,Arizona,117.0,post-draft,0.186,0.242,0.387,21.8,10197
+post,927,WR,2022,Skyy Moore,Western Michigan,54.0,post-draft,0.113,0.216,0.317,22.0,10171
+post,916,WR,2017,Zay Jones,East Carolina,37.0,post-draft,0.114,0.241,0.345,22.4,10149
+post,269,RB,2013,Montee Ball,Wisconsin,58.0,post-draft,0.191,0.332,0.473,22.7,10015
+post,939,WR,2021,Terrace Marshall Jr.,LSU,59.0,post-draft,0.086,0.185,0.288,21.2,10002
+post,936,WR,2015,Jaelen Strong,Arizona State,70.0,post-draft,0.102,0.192,0.3,21.6,10000
+post,566,TE,2018,Hayden Hurst,South Carolina,25.0,post-draft,0.319,0.61,0.722,25.0,9964
+post,913,WR,2025,Jayden Higgins,Iowa State,34.0,post-draft,0.123,0.239,0.355,22.7,9953
+post,920,WR,2024,Ja'Lynn Polk,Washington,37.0,post-draft,0.116,0.227,0.339,22.4,9946
+post,941,WR,2017,Josh Malone,Tennessee,128.0,post-draft,0.112,0.166,0.272,21.4,9906
+post,44,QB,2024,Michael Penix,Washington,8.0,post-draft,0.207,0.377,0.584,24.3,9863
+pre,53,QB,2027,Trinidad Chambliss,Ole Miss,,post-draft (mock pick),0.083,0.173,0.327,21.6,9818
+post,277,RB,2024,Trey Benson,Florida State,66.0,post-draft,0.163,0.295,0.437,22.1,9761
+pre,671,TE,2027,Jamari Johnson,Oregon,,post-draft (mock pick),0.296,0.614,0.722,22.7,9656
+post,905,WR,2013,Terrance Williams,Baylor,74.0,post-draft,0.176,0.239,0.381,24.0,9637
+pre,111,QB,2027,Dante Moore,Oregon,,post-draft (mock pick),0.11,0.222,0.399,22.4,9614
+post,268,RB,2012,LaMichael James,,61.0,post-draft,0.183,0.331,0.491,22.9,9581
+post,271,RB,2025,Cam Skattebo,Arizona State,105.0,post-draft,0.231,0.296,0.465,23.6,9575
+post,289,RB,2025,Dylan Sampson,Tennessee,126.0,post-draft,0.146,0.193,0.333,21.0,9529
+post,270,RB,2022,Rachaad White,Arizona State,91.0,post-draft,0.226,0.297,0.471,23.6,9477
+post,264,RB,2010,Montario Hardesty,Tennessee,59.0,post-draft,0.207,0.364,0.51,23.6,9472
+post,935,WR,2014,Cody Latimer,Indiana,56.0,post-draft,0.097,0.194,0.303,21.9,9414
+post,921,WR,2026,Denzel Boston,Washington,39.0,post-draft,0.115,0.225,0.338,22.7,9408
+post,279,RB,2017,Alvin Kamara,Tennessee,67.0,post-draft,0.152,0.284,0.44,22.1,9396
+post,919,WR,2018,Courtland Sutton,SMU,40.0,post-draft,0.122,0.223,0.341,22.9,9290
+post,912,WR,2022,Christian Watson,,34.0,post-draft,0.128,0.241,0.349,23.3,9183
+post,272,RB,2013,Eddie Lacy,Alabama,61.0,post-draft,0.186,0.325,0.465,23.2,9071
+post,61,QB,2014,Teddy Bridgewater,Louisville,32.0,post-draft,0.084,0.167,0.307,21.8,9054
+post,928,WR,2014,Jordan Matthews,Vanderbilt,42.0,post-draft,0.107,0.21,0.324,22.6,9017
+post,567,TE,2017,David Njoku,Miami,29.0,post-draft,0.27,0.608,0.717,21.1,8953
+post,275,RB,2013,Christine Michael,Texas A&M,62.0,post-draft,0.17,0.302,0.438,22.8,8938
+post,911,WR,2016,Michael Thomas,Ohio State,47.0,post-draft,0.123,0.244,0.365,23.5,8914
+post,273,RB,2020,Ke'Shawn Vaughn,Vanderbilt,76.0,post-draft,0.185,0.323,0.459,23.3,8872
+post,50,QB,2011,Christian Ponder,Florida State,12.0,post-draft,0.146,0.282,0.477,23.5,8866
+post,959,WR,2013,Kenny Stills,Oklahoma,144.0,post-draft,0.101,0.14,0.242,21.4,8835
+post,956,WR,2013,Keenan Allen,California,76.0,post-draft,0.079,0.161,0.251,21.3,8807
+post,951,WR,2019,Mecole Hardman,Georgia,56.0,post-draft,0.078,0.166,0.27,21.5,8747
+post,265,RB,2011,Daniel Thomas,Kansas State,62.0,post-draft,0.195,0.345,0.491,23.8,8740
+post,568,TE,2015,Maxx Williams,Minnesota,55.0,post-draft,0.285,0.495,0.635,21.4,8737
+post,569,TE,2026,Eli Stowers,Vanderbilt,54.0,post-draft,0.28,0.487,0.636,23.4,8717
+post,944,WR,2024,Adonai Mitchell,Texas,52.0,post-draft,0.089,0.178,0.276,21.9,8683
+post,274,RB,2022,James Cook,Georgia,63.0,post-draft,0.163,0.301,0.448,22.9,8657
+post,266,RB,2014,Carlos Hyde,Ohio State,57.0,post-draft,0.197,0.346,0.482,23.9,8637
+post,56,QB,2016,Paxton Lynch,Memphis,26.0,post-draft,0.099,0.217,0.39,22.6,8612
+post,918,WR,2015,Devin Smith,Ohio State,37.0,post-draft,0.122,0.226,0.345,23.5,8534
+post,267,RB,2014,Charles Sims,West Virginia,69.0,post-draft,0.197,0.345,0.481,24.0,8511
+pre,109,QB,2027,Arch Manning,Texas,,post-draft (mock pick),0.093,0.192,0.356,22.4,8426
+post,931,WR,2018,Dante Pettis,Washington,44.0,post-draft,0.108,0.2,0.311,22.9,8380
+post,934,WR,2019,JJ Arcega-Whiteside,Stanford,57.0,post-draft,0.096,0.2,0.317,22.7,8375
+post,280,RB,2011,Stevan Ridley,LSU,73.0,post-draft,0.149,0.276,0.411,22.6,8349
+post,283,RB,2020,AJ Dillon,Boston College,62.0,post-draft,0.143,0.26,0.383,22.3,8339
+post,940,WR,2011,Greg Little,North Carolina,59.0,post-draft,0.093,0.182,0.28,22.3,8303
+pre,295,RB,2027,Isaac Brown,Louisville,,post-draft (mock pick),0.115,0.218,0.341,21.4,8272
+post,301,RB,2023,Israel Abanikanda,Pittsburgh,143.0,post-draft,0.117,0.163,0.287,20.9,8181
+post,286,RB,2015,Duke Johnson,Iowa,77.0,post-draft,0.127,0.234,0.359,21.9,8129
+post,284,RB,2019,David Montgomery,Iowa State,73.0,post-draft,0.134,0.244,0.376,22.2,8081
+post,57,QB,2013,Geno Smith,West Virginia,39.0,post-draft,0.107,0.216,0.375,22.9,8058
+post,950,WR,2022,Tyquan Thornton,Baylor,50.0,post-draft,0.086,0.17,0.257,22.1,8009
+post,954,WR,2018,DJ Chark,LSU,61.0,post-draft,0.083,0.158,0.253,21.9,7983
+pre,26,QB,2027,Devon Dampier,Utah,,pre-draft (drafted-recalibrated) x P(declare),0.1313,0.1579,0.1731,22.6,7981
+post,915,WR,2024,Ricky Pearsall,Florida,31.0,post-draft,0.12,0.233,0.347,24.0,7980
+post,947,WR,2023,Jonathan Mingo,Ole Miss,39.0,post-draft,0.087,0.183,0.27,22.4,7932
+post,296,RB,2023,Tank Bigsby,Auburn,88.0,post-draft,0.097,0.196,0.31,21.0,7924
+post,949,WR,2010,Damian Williams,USC,77.0,post-draft,0.085,0.173,0.274,22.3,7895
+pre,1114,WR,2027,Mario Craver,Texas A&M,,post-draft (mock pick),0.08,0.163,0.254,22.0,7845
+post,938,WR,2026,Germie Bernard,Alabama,47.0,post-draft,0.093,0.185,0.285,22.7,7841
+post,926,WR,2026,De'Zhaun Stribling,Ole Miss,33.0,post-draft,0.111,0.218,0.328,23.7,7806
+post,924,WR,2018,Anthony Miller,Memphis,51.0,post-draft,0.118,0.217,0.333,23.9,7770
+pre,1110,WR,2027,Deuce Alexander,Ole Miss,,post-draft (mock pick),0.088,0.177,0.273,22.5,7759
+post,945,WR,2011,Torrey Smith,Maryland,58.0,post-draft,0.091,0.177,0.274,22.6,7718
+post,570,TE,2023,Sam LaPorta,Iowa,34.0,post-draft,0.224,0.517,0.647,22.6,7703
+post,929,WR,2024,Xavier Legette,South Carolina,32.0,post-draft,0.107,0.212,0.32,23.6,7697
+post,571,TE,2012,Coby Fleener,Stanford,34.0,post-draft,0.224,0.511,0.634,23.9,7650
+pre,890,WR,2027,Mike Matthews,Tennessee,,post-draft (mock pick),0.095,0.133,0.231,22.0,7587
+pre,36,QB,2027,Julian Sayin,Ohio State,,pre-draft (drafted-recalibrated) x P(declare),0.0699,0.1346,0.1463,21.6,7541
+post,291,RB,2017,Tarik Cohen,North Carolina A&T,119.0,post-draft,0.133,0.182,0.331,22.1,7490
+post,311,RB,2024,Audric Estime,Notre Dame,147.0,post-draft,0.109,0.147,0.264,21.0,7473
+post,51,QB,2011,Andy Dalton,TCU,35.0,post-draft,0.13,0.255,0.442,23.8,7461
+post,572,TE,2023,Michael Mayer,Notre Dame,35.0,post-draft,0.216,0.504,0.635,22.2,7449
+post,290,RB,2019,Devin Singletary,Florida Atlantic,74.0,post-draft,0.116,0.215,0.338,22.0,7412
+post,988,WR,2021,Anthony Schwartz,Auburn,91.0,post-draft,0.056,0.124,0.202,21.0,7404
+post,966,WR,2020,Bryan Edwards,South Carolina,81.0,post-draft,0.076,0.141,0.226,21.8,7397
+post,285,RB,2016,Kenyan Drake,Alabama,73.0,post-draft,0.133,0.233,0.364,22.6,7394
+post,574,TE,2013,Zach Ertz,Stanford,35.0,post-draft,0.216,0.492,0.614,22.8,7392
+post,573,TE,2014,Austin Seferian-Jenkins,Washington,38.0,post-draft,0.213,0.514,0.624,21.9,7379
+post,962,WR,2021,Dyami Brown,North Carolina,82.0,post-draft,0.067,0.148,0.236,21.8,7352
+post,958,WR,2022,Alec Pierce,Cincinnati,53.0,post-draft,0.08,0.16,0.243,22.3,7302
+post,957,WR,2018,James Washington,Oklahoma State,60.0,post-draft,0.082,0.155,0.25,22.4,7213
+post,292,RB,2023,De'Von Achane,Texas A&M,84.0,post-draft,0.105,0.21,0.33,21.9,7145
+post,288,RB,2023,Tyjae Spears,Tulane,81.0,post-draft,0.112,0.222,0.346,22.2,7139
+post,961,WR,2013,Aaron Dobson,Marshall,59.0,post-draft,0.072,0.148,0.234,22.1,7075
+post,978,WR,2017,Chris Godwin,Penn State,84.0,post-draft,0.06,0.136,0.207,21.5,7073
+post,575,TE,2016,Hunter Henry,Arkansas,35.0,post-draft,0.199,0.504,0.617,21.7,7032
+post,65,QB,2021,Kellen Mond,Texas A&M,66.0,post-draft,0.065,0.15,0.284,22.2,7015
+post,69,QB,2022,Sam Howell,North Carolina,144.0,post-draft,0.078,0.111,0.244,22.0,6994
+post,302,RB,2012,Bernard Pierce,Temple,84.0,post-draft,0.089,0.177,0.296,21.3,6991
+post,576,TE,2015,Clive Walford,Miami,68.0,post-draft,0.217,0.405,0.547,23.9,6957
+post,937,WR,2017,Dede Westbrook,Oklahoma,110.0,post-draft,0.114,0.173,0.279,23.8,6933
+post,975,WR,2019,D.K. Metcalf,Ole Miss,64.0,post-draft,0.06,0.13,0.217,21.7,6813
+post,980,WR,2013,Ace Sanders,South Carolina,101.0,post-draft,0.063,0.13,0.208,21.8,6681
+post,293,RB,2016,C.J. Prosise,Notre Dame,90.0,post-draft,0.111,0.199,0.318,22.3,6671
+post,578,TE,2025,Harold Fannin,Bowling Green,67.0,post-draft,0.21,0.394,0.543,21.1,6671
+post,53,QB,2022,Kenny Pickett,Pittsburgh,20.0,post-draft,0.127,0.248,0.433,24.2,6653
+post,314,RB,2019,Alexander Mattison,Boise State,102.0,post-draft,0.085,0.162,0.265,21.2,6643
+post,965,WR,2018,Michael Gallup,Colorado State,81.0,post-draft,0.074,0.141,0.229,22.5,6498
+post,952,WR,2019,Diontae Johnson,Toledo,66.0,post-draft,0.078,0.166,0.269,23.2,6466
+post,996,WR,2018,Keke Coutee,Texas Tech,103.0,post-draft,0.06,0.116,0.192,21.6,6462
+post,942,WR,2019,Deebo Samuel,South Carolina,36.0,post-draft,0.084,0.177,0.286,23.6,6453
+post,64,QB,2018,Josh Allen,Wyoming,7.0,post-draft,0.058,0.137,0.307,22.3,6447
+post,974,WR,2026,Ja'Kobi Lane,USC,80.0,post-draft,0.064,0.132,0.211,22.1,6401
+post,287,RB,2013,Johnathan Franklin,UCLA,125.0,post-draft,0.156,0.202,0.339,23.9,6392
+post,66,QB,2023,Max Duggan,TCU,239.0,post-draft,0.084,0.118,0.249,22.5,6356
+post,964,WR,2025,Jack Bech,TCU,58.0,post-draft,0.071,0.146,0.23,22.7,6273
+post,948,WR,2023,Tank Dell,Houston,69.0,post-draft,0.086,0.181,0.268,23.8,6263
+post,979,WR,2019,Parris Campbell,Ohio State,59.0,post-draft,0.059,0.128,0.214,22.1,6227
+post,316,RB,2012,Lamar Miller,Miami,97.0,post-draft,0.079,0.159,0.269,21.4,6223
+post,298,RB,2026,Emmett Johnson,Nebraska,161.0,post-draft,0.128,0.168,0.297,22.9,6201
+post,79,QB,2017,DeShone Kizer,Notre Dame,52.0,post-draft,0.046,0.099,0.211,21.7,6136
+post,318,RB,2017,D'Onta Foreman,Texas,89.0,post-draft,0.077,0.156,0.268,21.4,6134
+post,312,RB,2015,Jay Ajayi,Boise State,149.0,post-draft,0.112,0.145,0.261,22.2,6111
+post,1027,WR,2014,Donte Moncrief,Ole Miss,90.0,post-draft,0.046,0.098,0.164,21.1,6078
+post,985,WR,2026,Ted Hurst,Georgia State,84.0,post-draft,0.061,0.127,0.204,22.2,6064
+post,971,WR,2011,Vincent Brown,San Diego State,82.0,post-draft,0.068,0.136,0.216,22.6,6049
+post,977,WR,2026,Zachariah Branch,Georgia,79.0,post-draft,0.063,0.131,0.209,22.4,6000
+post,1012,WR,2016,Pharoh Cooper,South Carolina,117.0,post-draft,0.05,0.107,0.176,21.5,5985
+post,297,RB,2019,Damien Harris,Alabama,87.0,post-draft,0.101,0.19,0.304,22.6,5932
+post,304,RB,2017,Kareem Hunt,Toledo,86.0,post-draft,0.087,0.173,0.294,22.1,5910
+post,976,WR,2024,Malachi Corley,Western Kentucky,65.0,post-draft,0.063,0.131,0.21,22.5,5900
+post,943,WR,2012,Ryan Broyles,Oklahoma,54.0,post-draft,0.09,0.184,0.27,24.4,5880
+post,960,WR,2025,Tre Harris,Ole Miss,55.0,post-draft,0.077,0.157,0.246,23.5,5879
+post,973,WR,2016,Leonte Carroo,Rutgers,86.0,post-draft,0.063,0.133,0.214,22.6,5854
+post,970,WR,2012,Mohamed Sanu,Rutgers,83.0,post-draft,0.069,0.145,0.218,23.0,5810
+post,579,TE,2025,Mason Taylor,LSU,42.0,post-draft,0.16,0.419,0.542,21.3,5769
+post,332,RB,2025,Trevor Etienne,Georgia,114.0,post-draft,0.068,0.136,0.226,21.1,5741
+post,313,RB,2022,Tyrion Davis-Price,LSU,93.0,post-draft,0.081,0.164,0.269,21.9,5738
+post,299,RB,2021,Trey Sermon,Ohio State,88.0,post-draft,0.094,0.189,0.3,22.6,5713
+post,55,QB,2012,Ryan Tannehill,Texas A&M,8.0,post-draft,0.099,0.21,0.407,24.1,5696
+post,991,WR,2015,Sammie Coates,Auburn,87.0,post-draft,0.061,0.119,0.196,22.4,5660
+post,987,WR,2012,DeVier Posey,Ohio State,68.0,post-draft,0.06,0.128,0.194,22.5,5648
+post,54,QB,2025,Dillon Gabriel,Oregon,94.0,post-draft,0.115,0.232,0.413,24.7,5586
+post,1007,WR,2026,Antonio Williams,Clemson,71.0,post-draft,0.054,0.112,0.181,22.1,5548
+post,1004,WR,2011,Jerrel Jernigan,Troy,83.0,post-draft,0.056,0.113,0.183,22.2,5531
+post,321,RB,2013,Knile Davis,Arkansas,96.0,post-draft,0.08,0.155,0.248,21.9,5508
+post,1011,WR,2021,Josh Palmer,Tennessee,77.0,post-draft,0.048,0.108,0.178,21.9,5506
+post,1016,WR,2021,Amon-Ra St. Brown,USC,112.0,post-draft,0.048,0.107,0.176,21.9,5471
+post,58,QB,2026,Ty Simpson,Alabama,13.0,post-draft,0.086,0.178,0.335,23.7,5445
+post,582,TE,2011,Kyle Rudolph,Notre Dame,43.0,post-draft,0.139,0.4,0.54,21.8,5315
+post,1002,WR,2013,Markus Wheaton,Oregon State,79.0,post-draft,0.055,0.116,0.187,22.6,5182
+post,990,WR,2019,Andy Isabella,Massachusetts,62.0,post-draft,0.055,0.121,0.203,22.8,5182
+post,1029,WR,2011,Tandon Doss,Indiana,123.0,post-draft,0.048,0.097,0.159,21.9,5153
+post,588,TE,2013,Gavin Escobar,San Diego State,47.0,post-draft,0.139,0.362,0.483,22.6,5103
+post,585,TE,2010,Rob Gronkowski,Arizona,42.0,post-draft,0.134,0.395,0.51,21.3,5100
+post,309,RB,2016,Tyler Ervin,San José State,119.0,post-draft,0.091,0.165,0.271,22.9,5058
+post,72,QB,2019,Drew Lock,Missouri,42.0,post-draft,0.058,0.125,0.22,22.8,5047
+post,594,TE,2022,Trey McBride,Colorado State,55.0,post-draft,0.144,0.311,0.449,22.8,4959
+post,337,RB,2022,Kyren Williams,Notre Dame,164.0,post-draft,0.081,0.113,0.214,22.0,4923
+post,1036,WR,2016,Demarcus Robinson,Florida,126.0,post-draft,0.043,0.092,0.154,21.9,4887
+post,1046,WR,2016,Tajae Sharpe,Massachusetts,140.0,post-draft,0.04,0.088,0.147,21.7,4872
+post,591,TE,2019,Irv Smith Jr.,Alabama,50.0,post-draft,0.133,0.351,0.477,21.1,4847
+post,70,QB,2022,Desmond Ridder,Cincinnati,74.0,post-draft,0.057,0.121,0.241,23.0,4731
+post,1008,WR,2026,Malachi Fields,Notre Dame,74.0,post-draft,0.053,0.112,0.181,23.0,4671
+post,68,QB,2016,Dak Prescott,Mississippi State,135.0,post-draft,0.055,0.127,0.252,23.1,4638
+post,1001,WR,2010,Mike Williams,Syracuse,101.0,post-draft,0.055,0.116,0.191,23.3,4600
+post,329,RB,2010,Joe McKnight,USC,112.0,post-draft,0.069,0.14,0.229,22.4,4510
+post,1015,WR,2026,Caleb Douglas,Texas Tech,75.0,post-draft,0.051,0.107,0.173,23.0,4494
+post,359,RB,2016,Alex Collins,Arkansas,171.0,post-draft,0.076,0.096,0.183,22.0,4466
+post,995,WR,2010,Mardy Gilyard,Cincinnati,99.0,post-draft,0.056,0.119,0.196,23.7,4393
+post,323,RB,2026,Jonah Coleman,Washington,108.0,post-draft,0.076,0.15,0.247,23.0,4372
+post,1056,WR,2026,Chris Bell,Louisville,94.0,post-draft,0.04,0.085,0.14,22.2,4289
+post,1043,WR,2016,Aaron Burbridge,Michigan State,213.0,post-draft,0.055,0.077,0.145,22.7,4212
+post,1032,WR,2026,Chris Brazzell II,Tennessee,83.0,post-draft,0.044,0.094,0.154,22.9,4072
+post,1035,WR,2010,Taylor Price,Ohio,90.0,post-draft,0.043,0.092,0.155,22.9,4023
+post,1089,WR,2016,Rashard Higgins,Colorado State,172.0,post-draft,0.033,0.072,0.122,21.9,3990
+post,1009,WR,2010,Brandon LaFell,LSU,78.0,post-draft,0.051,0.109,0.181,23.8,3987
