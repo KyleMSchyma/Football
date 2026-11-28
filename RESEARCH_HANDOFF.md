@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-26 (open license and credit: CC BY 4.0 + Use and credit page, S#43, F#52)
+- Last updated: 2026-11-28 (Prospect Spotlight: Jeremiah Smith video + X teaser draft, research only)
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -117,6 +117,7 @@ Kyle usually clicks Merge himself. When he says "merge and publish immediately",
 | `Track_Record/` | Frozen 2024-2026 grades (SHA-256 hashed) and scoring scripts |
 | `Mock_Drafts/` | Kyle's own four 2027 mocks (full 257 picks) + `combine_mocks.py` + `range/` |
 | `Landing_Spot_Offense/` | Research: team offense vs rookie production (Python) |
+| `Prospect_Spotlight/` | Research/social: one-player deep dives (facts + video scenes) from model outputs only (ps_01 Jeremiah Smith) |
 | `Rookie_Pick_Strategy/` | Research: rookie pick slot value, trade-downs, picks vs veterans, 2027, league guidelines (Python) |
 | Root docs | README, MODELS_TECHNICAL_REFERENCE, MODELS_GUIDE, ROOKIE_MODELS_README, FABLE_REVIEW, this file, CLAUDE.md |
 
@@ -173,6 +174,22 @@ change (the refresh hardcodes them).
 ## 3. Update log
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
+
+### 2026-11-28: Prospect Spotlight: Jeremiah Smith, the #1 2027 prospect (RESEARCH ONLY)
+- Kyle 11-28: "Can you build the analysis for the top prospect in 2027? I want it in a video and a teaser in X".
+- Read as: #1 on `/rookie-rankings/` (mixed model, highest projected Value) = Jeremiah Smith (WR, Ohio State); he is also
+  #1 by pre-draft, post-draft and mixed grade, so no model disagreement to resolve.
+- Built `Prospect_Spotlight/ps_01_jeremiah_smith.py` (reads model outputs only; writes `outputs/smith_facts.json` and 11
+  video scenes). Video (87 s, 1920x1080, silent, text on screen), script/storyboard and a single-post X teaser draft are
+  in project files `x_posts/top_prospect_2027/` for Kyle's review. Nothing posted, no site change.
+- Result: highest pre-draft WR score 2010-2027 (2.52 vs Cooper 2.44), 2.3x the next 2027 WR; post-draft 89/95/97% WR12/24/36
+  at median mock pick 2; 56,038 site value (#14 overall). Caution found: WRs drafted top 5 (n=6) had fitted 73% WR12
+  odds and hit 33%; top 10 62% vs 50%; 11-32 calibrated (28% vs 26%). See issue 32 and R39.
+- Files: `Prospect_Spotlight/` (script, README, outputs/smith_facts.json, extracts). Assumption A97 (new).
+- Possible problems: the "model said" odds for past top picks are in-sample fitted values; n=6 is tiny; Smith's facts
+  will drift with each Tuesday refresh and when the 2026 season ends (pro-rated from about 9 games); scene 9 mixes past
+  classes from the Nov 18 study with today's value for Smith. Recommendations: R39 (top-pick WR calibration check),
+  R40 (re-run the spotlight after the Dec 16 college re-pull, R2).
 
 ### 2026-11-26: Open license and credit requirements (S#43, F#52) LIVE
 - Kyle 11-26: "I like open sourcing my stuff, I just want permission. I also don't mind other AI connecting to my site,
@@ -829,6 +846,8 @@ value score (Day-3 tiebreaker only), WR finish/hurdle/tier ladder (no gain vs pi
 Drafts only; Kyle posts. Weekly tools in project files `x_posts/weekly/` (extract.js runs the site's engine on committed
 data; render.js makes a 2400x3000 navy/orange top-24 image with an OVR column; gated on a weekly refresh commit).
 2027 rookie guide (pre-draft model only, QB first, one position per approval) on branch `claude/project-thread-e3qnnu`.
+Prospect Spotlight (11-28): one-player video + teaser from model outputs only, `Prospect_Spotlight/` (script) and project
+files `x_posts/top_prospect_2027/` (video, storyboard, teaser). First: Jeremiah Smith (A97, R39, R40).
 
 ---
 
@@ -1001,6 +1020,7 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A93 | Grade cut points stay at A+ 95 / A 90 / A- 85 / B+ 75 / B 65 / B- 55 / C+ 45 / C 35 / C- 25 / D 10 percentile (within position, drafted 2010-2023); A+ is a real step, A vs A- a lean, B+ = B, B to B- a cliff, C+/C/C- flat (11-25 part 2) | pd_06, pd_07 (unchanged) | Merge A and A- (two bands); one A band; A+ top 3%; A+ 92 / A 85 / A- 75; probability-based bands | 11-25 research: merged A band significantly worse, others tie or lose (LOCO Brier, class bootstrap) | SUPERSEDED 2026-11-25 by A94 (Kyle chose the five groups) |
 | A94 | Five grades: A+ 95-100, A 85-95, B 65-85, C 25-65, D 0-25 percentile within position (drafted 2010-2023), same for pre-draft, post-draft, 2027 mock and mixed; each grade is its own band in validation tables | pd_06, pd_07, pd_09, pd_11, pd_10, rf_02, pd_15 (converter), site pages | Keep eleven grades (A93); merge only B+/B; probability-based bands; A+ / A / B / C / D / F with F kept | Kyle 11-25 picked the five groups that the research found (B+ = B, B to B- cliff, C flat, C-/D/F near zero); caveat: chosen in-sample | ACTIVE, LIVE 2026-11-25 |
 | A95 | Everything Prospect Actuary makes (grades, scores, tier odds, values, rankings, charts, images, text, CSVs, research write-ups and results) is CC BY 4.0; credit line "Source: Prospect Actuary (kylemschyma.github.io/prospect-actuary)"; third-party data is not relicensed | LICENSE (both repos), site `/use/`, nav.js, JSON-LD | CC BY-NC 4.0 (commercial users ask first); CC BY-SA; CC0; all rights reserved with a permission form | Kyle 11-26: open source, AI welcome, wants credit. BY is the standard open license that requires credit and matches nflverse's own license; NC would block or muddy AI and media reuse | ACTIVE 11-26 |
+| A97 | Prospect spotlight = the overall #1 on the 2027 rookie rankings (mixed model, highest projected Value, site default league); every number read from model files, none typed; video silent with on-screen text so it works muted | Prospect_Spotlight/, x_posts/top_prospect_2027/ | Pick by pre-draft grade alone; by position; record a voiceover with TTS | Kyle asked for "the top prospect"; all three models agree on Smith; TTS voices read as robotic and Kyle prefers casual content (script included for his own voiceover) | ACTIVE 11-28 |
 | A96 | Code (site HTML/CSS/JS/Python, R and shell in Football) is MIT | LICENSE-CODE (both repos) | CC BY 4.0 for code too; Apache 2.0 | Creative Commons advises against CC for software; MIT also keeps the copyright notice (credit) | ACTIVE 11-26 |
 | A71 | Market history, if used, = Dynasty Daddy's own `daddy_*` fields from DD's history endpoints, only after DD permission; never the unprefixed/KTC fields | research/dd_history | Use documented current API only and build our own weekly archive of it; use FantasyCalc history | DD history is the only dated market source found that we may use; own archive starts from zero | ACTIVE |
 
@@ -1088,6 +1108,9 @@ fine (already in Rookie_Pick_Strategy/README.md).
     crawlers do not read them automatically; they are linked from `/use/` and README. Fix: R37.
 31. 11-26: Visible credit lines are added by `shared/nav.js` (JavaScript). Scrapers that do not run JS still get the
     static JSON-LD license block and footer text. The CSV files have no credit row (by design; `CREDIT.md` sits beside them).
+32. 11-28: Post-draft WR odds look hot at the very top: WRs drafted in picks 1-5 (2010-2023, n=6) had fitted WR12 odds
+    of 73% and 2 hit (33%); picks 1-10 62% vs 50% (n=16). No WR went in picks 1-3 in training, so Smith at pick 2 (89%)
+    is an extrapolation in log(pick). Small sample; not acted on (Prospect Spotlight, R39).
 
 ---
 
@@ -1191,6 +1214,10 @@ approved to build unless Kyle says so (see section 10).
   Needed before comparing value levels with ours. (A75, issue 18)
 - **R24. Rerun tm_02 with the fixes** (pick labels, 3-day half-life, smaller k such as 0.5) and pull the two unfinished
   weeks after 11-27. (A76, issue 17)
+- **R39. Check post-draft calibration at the top of round 1** (issue 32): out-of-fold WR12/WR24 odds vs outcomes for
+  picks 1-10 across all positions, and whether log(pick) should flatten below pick 4. Only if Kyle asks. (A97)
+- **R40. Re-run the Jeremiah Smith spotlight** after the full 2026 college season is re-pulled (R2) and again after the
+  2027 combine and draft; the script rebuilds every number. (A97)
 - **R25. Use the trade market as a check on our setting effects:** traders price TE premium and SF far less than our
   model does; test which one predicts realised points better before changing anything. Only if Kyle asks. (A77)
 

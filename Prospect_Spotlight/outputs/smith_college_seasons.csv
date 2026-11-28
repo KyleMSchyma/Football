@@ -1,0 +1,3 @@
+year,team,conference,athlete_id,player,position,receiving_rec,receiving_yds,receiving_td,receiving_long,rushing_car,rushing_yds,rushing_td
+2024,Ohio State,Big Ten,5079720,Jeremiah Smith,WR,57.0,934.0,10.0,70.0,4.0,47.0,1.0
+2025,Ohio State,Big Ten,5079720,Jeremiah Smith,WR,80.0,1086.0,11.0,87.0,2.0,20.0,1.0

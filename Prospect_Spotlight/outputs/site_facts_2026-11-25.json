@@ -1,0 +1,812 @@
+{
+ "status": {
+  "today": "2026-11-25",
+  "cutoff": "2026-11-24 00:00 -0600",
+  "prev_cutoff": "2026-11-18 00:00 -0600",
+  "refresh_commits": [
+   "0858079|2026-11-24 10:12:42 -0600|Weekly refresh: trade values and 2027 pre-draft grades, 2026 stats through week 11",
+   "053245b|2026-11-24 08:34:06 -0600|Weekly refresh: trade values and 2027 pre-draft grades, 2026 stats through week 11"
+  ],
+  "prev_ref": "a99853d0d3dba383aee5e1f718a8435eac05ce32",
+  "week": 11,
+  "prev_week": 10,
+  "asof": "2026 stats through week 11. Updated November 24, 2026.",
+  "prev_asof": "2026 stats through week 10. Updated November 17, 2026.",
+  "games_changed": 292,
+  "ok": true
+ },
+ "league_label": "12 teams, superflex, PPR, 2 RB / 3 WR / 1 TE, 2 FLEX",
+ "rookies": {
+  "top24": [
+   {
+    "r": 1,
+    "ovr": 14,
+    "n": "Jeremiah Smith",
+    "p": "WR",
+    "grade": "A+",
+    "mixed": 0,
+    "prev_grade": "A+",
+    "v": 56038,
+    "prev_r": 1,
+    "pick": 2,
+    "best_pick": 1,
+    "worst_pick": 2,
+    "v_best": 58540,
+    "v_worst": 56038
+   },
+   {
+    "r": 2,
+    "ovr": 24,
+    "n": "Charlie Becker",
+    "p": "WR",
+    "grade": "A+",
+    "mixed": 0,
+    "prev_grade": "A+",
+    "v": 39807,
+    "prev_r": 2,
+    "pick": 9,
+    "best_pick": 7,
+    "worst_pick": 10,
+    "v_best": 43626,
+    "v_worst": 38056
+   },
+   {
+    "r": 3,
+    "ovr": 35,
+    "n": "Cam Coleman",
+    "p": "WR",
+    "grade": "A+",
+    "mixed": 0,
+    "prev_grade": "A+",
+    "v": 35706,
+    "prev_r": 3,
+    "pick": 12,
+    "best_pick": 12,
+    "worst_pick": 15,
+    "v_best": 35706,
+    "v_worst": 31850
+   },
+   {
+    "r": 4,
+    "ovr": 44,
+    "n": "Nick Marsh",
+    "p": "WR",
+    "grade": "A",
+    "mixed": 0,
+    "prev_grade": "A+",
+    "v": 30701,
+    "prev_r": 4,
+    "pick": 16,
+    "best_pick": 15,
+    "worst_pick": 21,
+    "v_best": 31850,
+    "v_worst": 26003
+   },
+   {
+    "r": 5,
+    "ovr": 49,
+    "n": "CJ Carr",
+    "p": "QB",
+    "grade": "A",
+    "mixed": 0,
+    "prev_grade": "A-",
+    "v": 26970,
+    "prev_r": 6,
+    "pick": 4,
+    "best_pick": 4,
+    "worst_pick": 7,
+    "v_best": 26970,
+    "v_worst": 26970
+   },
+   {
+    "r": 6,
+    "ovr": 49,
+    "n": "Drew Mestemaker",
+    "p": "QB",
+    "grade": "A",
+    "mixed": 0,
+    "prev_grade": "A",
+    "v": 26500,
+    "prev_r": 7,
+    "pick": 3,
+    "best_pick": 3,
+    "worst_pick": 4,
+    "v_best": 26500,
+    "v_worst": 23709
+   },
+   {
+    "r": 7,
+    "ovr": 57,
+    "n": "Darian Mensah",
+    "p": "QB",
+    "grade": "A",
+    "mixed": 0,
+    "prev_grade": "A",
+    "v": 23277,
+    "prev_r": 5,
+    "pick": 13,
+    "best_pick": 7,
+    "worst_pick": 18,
+    "v_best": 29295,
+    "v_worst": 23277
+   },
+   {
+    "r": 8,
+    "ovr": 58,
+    "n": "Jadan Baugh",
+    "p": "RB",
+    "grade": "A",
+    "mixed": 0,
+    "prev_grade": "A-",
+    "v": 22034,
+    "prev_r": 8,
+    "pick": 48,
+    "best_pick": 45,
+    "worst_pick": 48,
+    "v_best": 23594,
+    "v_worst": 22034
+   },
+   {
+    "r": 9,
+    "ovr": 61,
+    "n": "Kewan Lacy",
+    "p": "RB",
+    "grade": "A",
+    "mixed": 0,
+    "prev_grade": "B+",
+    "v": 21560,
+    "prev_r": 11,
+    "pick": 49,
+    "best_pick": 44,
+    "worst_pick": 66,
+    "v_best": 24157,
+    "v_worst": 15198
+   },
+   {
+    "r": 10,
+    "ovr": 67,
+    "n": "KJ Duff",
+    "p": "WR",
+    "grade": "A",
+    "mixed": 0,
+    "prev_grade": "A",
+    "v": 18935,
+    "prev_r": 9,
+    "pick": 32,
+    "best_pick": 25,
+    "worst_pick": 40,
+    "v_best": 22760,
+    "v_worst": 18935
+   },
+   {
+    "r": 11,
+    "ovr": 68,
+    "n": "Ryan Williams",
+    "p": "WR",
+    "grade": "B",
+    "mixed": 0,
+    "prev_grade": "A-",
+    "v": 18345,
+    "prev_r": 13,
+    "pick": 34,
+    "best_pick": 26,
+    "worst_pick": 38,
+    "v_best": 22463,
+    "v_worst": 16779
+   },
+   {
+    "r": 12,
+    "ovr": 82,
+    "n": "Wayshawn Parker",
+    "p": "RB",
+    "grade": "B",
+    "mixed": 1,
+    "prev_grade": "B+",
+    "v": 15655,
+    "prev_r": 10,
+    "pick": 122,
+    "best_pick": 98,
+    "worst_pick": 123,
+    "v_best": 20419,
+    "v_worst": 15516
+   },
+   {
+    "r": 13,
+    "ovr": 88,
+    "n": "Dylan Riley",
+    "p": "RB",
+    "grade": "B",
+    "mixed": 1,
+    "prev_grade": "B",
+    "v": 14818,
+    "prev_r": 17,
+    "pick": 116,
+    "best_pick": 92,
+    "worst_pick": 150,
+    "v_best": 19704,
+    "v_worst": 10504
+   },
+   {
+    "r": 14,
+    "ovr": 93,
+    "n": "Jackson Harris",
+    "p": "WR",
+    "grade": "B",
+    "mixed": 0,
+    "prev_grade": "B+",
+    "v": 13470,
+    "prev_r": 14,
+    "pick": 33,
+    "best_pick": 31,
+    "worst_pick": 38,
+    "v_best": 14208,
+    "v_worst": 11888
+   },
+   {
+    "r": 15,
+    "ovr": 97,
+    "n": "LaNorris Sellers",
+    "p": "QB",
+    "grade": "B",
+    "mixed": 0,
+    "prev_grade": "B",
+    "v": 13038,
+    "prev_r": 26,
+    "pick": 27,
+    "best_pick": 23,
+    "worst_pick": 40,
+    "v_best": 14212,
+    "v_worst": 7533
+   },
+   {
+    "r": 16,
+    "ovr": 102,
+    "n": "Reed Harris",
+    "p": "WR",
+    "grade": "B",
+    "mixed": 0,
+    "prev_grade": "A-",
+    "v": 11888,
+    "prev_r": 12,
+    "pick": 38,
+    "best_pick": 37,
+    "worst_pick": 43,
+    "v_best": 12181,
+    "v_worst": 10633
+   },
+   {
+    "r": 17,
+    "ovr": 108,
+    "n": "Jamari Johnson",
+    "p": "TE",
+    "grade": "A+",
+    "mixed": 0,
+    "prev_grade": "A+",
+    "v": 10940,
+    "prev_r": 16,
+    "pick": 26,
+    "best_pick": 25,
+    "worst_pick": 46,
+    "v_best": 11357,
+    "v_worst": 5764
+   },
+   {
+    "r": 18,
+    "ovr": 109,
+    "n": "Mike Matthews",
+    "p": "WR",
+    "grade": "B",
+    "mixed": 1,
+    "prev_grade": "B",
+    "v": 10191,
+    "prev_r": 22,
+    "pick": 133,
+    "best_pick": 118,
+    "worst_pick": 149,
+    "v_best": 11411,
+    "v_worst": 9140
+   },
+   {
+    "r": 19,
+    "ovr": 110,
+    "n": "Luke Reynolds",
+    "p": "TE",
+    "grade": "A",
+    "mixed": 1,
+    "prev_grade": "A-",
+    "v": 10044,
+    "prev_r": 35,
+    "pick": 51,
+    "best_pick": 45,
+    "worst_pick": 56,
+    "v_best": 10044,
+    "v_worst": 9046
+   },
+   {
+    "r": 20,
+    "ovr": 112,
+    "n": "Trey'Dez Green",
+    "p": "TE",
+    "grade": "A",
+    "mixed": 0,
+    "prev_grade": "A-",
+    "v": 9762,
+    "prev_r": 30,
+    "pick": 29,
+    "best_pick": 19,
+    "worst_pick": 46,
+    "v_best": 14333,
+    "v_worst": 5733
+   },
+   {
+    "r": 21,
+    "ovr": 113,
+    "n": "Mario Craver",
+    "p": "WR",
+    "grade": "B",
+    "mixed": 0,
+    "prev_grade": "B",
+    "v": 9509,
+    "prev_r": 19,
+    "pick": 71,
+    "best_pick": 67,
+    "worst_pick": 78,
+    "v_best": 10047,
+    "v_worst": 8719
+   },
+   {
+    "r": 22,
+    "ovr": 113,
+    "n": "Ryan Wingo",
+    "p": "WR",
+    "grade": "B",
+    "mixed": 0,
+    "prev_grade": "B",
+    "v": 9509,
+    "prev_r": 25,
+    "pick": 71,
+    "best_pick": 65,
+    "worst_pick": 84,
+    "v_best": 10327,
+    "v_worst": 8151
+   },
+   {
+    "r": 23,
+    "ovr": 113,
+    "n": "Trinidad Chambliss",
+    "p": "QB",
+    "grade": "B",
+    "mixed": 0,
+    "prev_grade": "B",
+    "v": 9486,
+    "prev_r": 18,
+    "pick": 25,
+    "best_pick": 16,
+    "worst_pick": 39,
+    "v_best": 9486,
+    "v_worst": 5355
+   },
+   {
+    "r": 24,
+    "ovr": 115,
+    "n": "Deuce Alexander",
+    "p": "WR",
+    "grade": "B",
+    "mixed": 0,
+    "prev_grade": "B+",
+    "v": 9256,
+    "prev_r": 20,
+    "pick": 49,
+    "best_pick": 45,
+    "worst_pick": 54,
+    "v_best": 9997,
+    "v_worst": 8429
+   }
+  ],
+  "movers_top40": {
+   "up": [
+    {
+     "n": "Luke Reynolds",
+     "rp": "TE",
+     "r": 19,
+     "prev": 35,
+     "d": 16,
+     "v": 10044,
+     "pv": 4872
+    },
+    {
+     "n": "LaNorris Sellers",
+     "rp": "QB",
+     "r": 15,
+     "prev": 26,
+     "d": 11,
+     "v": 13038,
+     "pv": 7508
+    },
+    {
+     "n": "Trey'Dez Green",
+     "rp": "TE",
+     "r": 20,
+     "prev": 30,
+     "d": 10,
+     "v": 9762,
+     "pv": 5567
+    },
+    {
+     "n": "Mark Fletcher",
+     "rp": "RB",
+     "r": 33,
+     "prev": 39,
+     "d": 6,
+     "v": 5144,
+     "pv": 4007
+    },
+    {
+     "n": "Dylan Riley",
+     "rp": "RB",
+     "r": 13,
+     "prev": 17,
+     "d": 4,
+     "v": 14818,
+     "pv": 10131
+    }
+   ],
+   "down": [
+    {
+     "n": "Isaac Brown",
+     "rp": "RB",
+     "r": 27,
+     "prev": 15,
+     "d": -12,
+     "v": 9073,
+     "pv": 11913
+    },
+    {
+     "n": "Sam Leavitt",
+     "rp": "QB",
+     "r": 40,
+     "prev": 31,
+     "d": -9,
+     "v": 4078,
+     "pv": 5513
+    },
+    {
+     "n": "Arch Manning",
+     "rp": "QB",
+     "r": 30,
+     "prev": 24,
+     "d": -6,
+     "v": 6875,
+     "pv": 7645
+    },
+    {
+     "n": "Trinidad Chambliss",
+     "rp": "QB",
+     "r": 23,
+     "prev": 18,
+     "d": -5,
+     "v": 9486,
+     "pv": 8907
+    },
+    {
+     "n": "Reed Harris",
+     "rp": "WR",
+     "r": 16,
+     "prev": 12,
+     "d": -4,
+     "v": 11888,
+     "pv": 18399
+    }
+   ]
+  },
+  "new_in_top24": [
+   {
+    "n": "LaNorris Sellers",
+    "r": 15,
+    "prev": 26
+   },
+   {
+    "n": "Luke Reynolds",
+    "r": 19,
+    "prev": 35
+   },
+   {
+    "n": "Trey'Dez Green",
+    "r": 20,
+    "prev": 30
+   },
+   {
+    "n": "Ryan Wingo",
+    "r": 22,
+    "prev": 25
+   }
+  ],
+  "grade_changes": [
+   {
+    "n": "Nick Marsh",
+    "from": "A+",
+    "to": "A",
+    "r": 4
+   },
+   {
+    "n": "CJ Carr",
+    "from": "A-",
+    "to": "A",
+    "r": 5
+   },
+   {
+    "n": "Jadan Baugh",
+    "from": "A-",
+    "to": "A",
+    "r": 8
+   },
+   {
+    "n": "Kewan Lacy",
+    "from": "B+",
+    "to": "A",
+    "r": 9
+   },
+   {
+    "n": "Ryan Williams",
+    "from": "A-",
+    "to": "B",
+    "r": 11
+   },
+   {
+    "n": "Wayshawn Parker",
+    "from": "B+",
+    "to": "B",
+    "r": 12
+   },
+   {
+    "n": "Jackson Harris",
+    "from": "B+",
+    "to": "B",
+    "r": 14
+   },
+   {
+    "n": "Reed Harris",
+    "from": "A-",
+    "to": "B",
+    "r": 16
+   },
+   {
+    "n": "Luke Reynolds",
+    "from": "A-",
+    "to": "A",
+    "r": 19
+   },
+   {
+    "n": "Trey'Dez Green",
+    "from": "A-",
+    "to": "A",
+    "r": 20
+   },
+   {
+    "n": "Deuce Alexander",
+    "from": "B+",
+    "to": "B",
+    "r": 24
+   },
+   {
+    "n": "Dante Moore",
+    "from": "B+",
+    "to": "B",
+    "r": 25
+   },
+   {
+    "n": "Ahmad Hardy",
+    "from": "B-",
+    "to": "B",
+    "r": 26
+   },
+   {
+    "n": "Wyatt Young",
+    "from": "B-",
+    "to": "B",
+    "r": 28
+   },
+   {
+    "n": "Bryant Wesco",
+    "from": "B-",
+    "to": "B",
+    "r": 29
+   },
+   {
+    "n": "Nate Frazier",
+    "from": "C+",
+    "to": "C",
+    "r": 31
+   },
+   {
+    "n": "Junior Sherrill",
+    "from": "B-",
+    "to": "C",
+    "r": 32
+   },
+   {
+    "n": "LJ Martin",
+    "from": "C+",
+    "to": "C",
+    "r": 34
+   },
+   {
+    "n": "Omarion Miller",
+    "from": "C+",
+    "to": "C",
+    "r": 35
+   },
+   {
+    "n": "DeSean Bishop",
+    "from": "C+",
+    "to": "C",
+    "r": 36
+   },
+   {
+    "n": "Amare Thomas",
+    "from": "C+",
+    "to": "C",
+    "r": 37
+   },
+   {
+    "n": "Sam Leavitt",
+    "from": "B",
+    "to": "C",
+    "r": 40
+   },
+   {
+    "n": "Braden Pegan",
+    "from": "C+",
+    "to": "C",
+    "r": 41
+   },
+   {
+    "n": "Antwan Raymond",
+    "from": "D",
+    "to": "C",
+    "r": 42
+   },
+   {
+    "n": "Chris Marshall",
+    "from": "C-",
+    "to": "C",
+    "r": 43
+   },
+   {
+    "n": "Tre Wisner",
+    "from": "C-",
+    "to": "C",
+    "r": 44
+   },
+   {
+    "n": "Jordan Faison",
+    "from": "D",
+    "to": "C",
+    "r": 45
+   },
+   {
+    "n": "Justin Bowick",
+    "from": "C-",
+    "to": "C",
+    "r": 47
+   },
+   {
+    "n": "Jayden Maiava",
+    "from": "B-",
+    "to": "C",
+    "r": 48
+   },
+   {
+    "n": "Lincoln Kienholz",
+    "from": "B-",
+    "to": "C",
+    "r": 49
+   },
+   {
+    "n": "Justice Haynes",
+    "from": "D",
+    "to": "C",
+    "r": 52
+   },
+   {
+    "n": "Devin McCuin",
+    "from": "F",
+    "to": "D",
+    "r": 54
+   },
+   {
+    "n": "Nyck Harbor",
+    "from": "F",
+    "to": "D",
+    "r": 55
+   },
+   {
+    "n": "Conner Weigman",
+    "from": "B-",
+    "to": "C",
+    "r": 57
+   },
+   {
+    "n": "Cam Cook",
+    "from": "F",
+    "to": "C",
+    "r": 59
+   },
+   {
+    "n": "Wayne Knight",
+    "from": "D",
+    "to": "C",
+    "r": 60
+   },
+   {
+    "n": "Evan Stewart",
+    "from": "F",
+    "to": "D",
+    "r": 62
+   },
+   {
+    "n": "Eric Singleton Jr.",
+    "from": "F",
+    "to": "D",
+    "r": 64
+   },
+   {
+    "n": "Isaiah Sategna",
+    "from": "F",
+    "to": "D",
+    "r": 67
+   },
+   {
+    "n": "Lawson Luckie",
+    "from": "B",
+    "to": "C",
+    "r": 71
+   },
+   {
+    "n": "Carlos Hernandez",
+    "from": "F",
+    "to": "D",
+    "r": 72
+   },
+   {
+    "n": "Makhi Hughes",
+    "from": "C-",
+    "to": "C",
+    "r": 73
+   },
+   {
+    "n": "Terrance Carter",
+    "from": "B-",
+    "to": "C",
+    "r": 74
+   },
+   {
+    "n": "Gunner Stockton",
+    "from": "B-",
+    "to": "C",
+    "r": 75
+   },
+   {
+    "n": "Patrick Overmyer",
+    "from": "B-",
+    "to": "C",
+    "r": 78
+   },
+   {
+    "n": "Andrew Rappleyea",
+    "from": "C-",
+    "to": "C",
+    "r": 82
+   },
+   {
+    "n": "Michael Masunas",
+    "from": "F",
+    "to": "D",
+    "r": 90
+   }
+  ]
+ },
+ "images": [
+  "/mnt/project-files/x_posts/weekly/2026-11-25_rookies/rookies_2027_top24_week11.png"
+ ]
+}
