@@ -1,0 +1,11 @@
+,cluster0 (n=328),cluster1 (n=241)
+touches_pg,-0.68,0.93
+snap_share,-0.64,0.87
+opp_share,-0.69,0.93
+targets_pg,-0.31,0.42
+tgt_mix,0.15,-0.21
+gl_share,-0.57,0.77
+explosive_rate,-0.09,0.12
+ypc,-0.13,0.18
+stuff_rate,0.03,-0.04
+weight,-0.15,0.2

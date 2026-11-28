@@ -1,0 +1,7 @@
+cluster,target_share,air_share,adot,deep_rate,behind_rate,yac_per_rec,rz_mix,catch_rate,carries_pg,height,weight,n,majority_rule_label
+0,-0.3,-0.78,-1.08,-0.83,1.03,0.65,-0.0,0.82,0.28,-0.98,-0.73,190,Slot / possession
+1,-0.47,-0.03,0.93,0.99,-0.21,-0.35,-0.65,-0.68,0.04,-0.59,-0.84,158,Outside #2 (intermediate)
+2,-0.01,0.43,0.92,0.8,-0.77,-0.4,0.16,-0.79,-0.35,1.04,0.95,190,Outside #2 (intermediate)
+3,-0.04,-0.83,-1.93,-0.97,3.15,2.21,-0.04,0.85,5.47,-0.81,0.08,16,YAC / gadget
+4,1.37,1.2,-0.07,-0.12,-0.02,0.14,0.01,0.37,0.01,-0.01,0.01,211,X / alpha
+5,-0.7,-0.77,-0.31,-0.51,-0.28,-0.26,0.33,0.05,-0.37,0.45,0.39,220,Outside #2 (intermediate)

@@ -1,0 +1,27 @@
+position,layer,label,n,mean_resid_centred,ci95,anova_p
+QB,role,Mobile,19,1.091,1.361,0.2865
+QB,role,Pocket,96,-0.33,0.776,0.2865
+QB,role,Runner,27,0.407,1.611,0.2865
+QB,style,Game manager,33,0.73,1.359,0.2767
+QB,style,Gunslinger,14,0.769,1.491,0.2767
+QB,style,Pocket passer,95,-0.367,0.791,0.2767
+RB,role,Committee,147,-0.067,0.616,0.8022
+RB,role,Lead,41,-0.184,1.167,0.8022
+RB,role,Workhorse,69,0.252,0.905,0.8022
+RB,style,Balanced,73,0.185,0.857,0.6735
+RB,style,Power,115,-0.235,0.683,0.6735
+RB,style,Receiving,69,0.197,0.948,0.6735
+WR,role,Alpha,105,0.684,0.657,0.0332
+WR,role,Rotational,220,-0.06,0.45,0.0332
+WR,role,Starter,133,-0.44,0.523,0.0332
+WR,style,Big red zone,32,0.806,0.985,0.1597
+WR,style,Deep,45,0.05,0.939,0.1597
+WR,style,Intermediate outside,207,-0.046,0.435,0.1597
+WR,style,Short / slot,140,-0.37,0.568,0.1597
+WR,style,YAC / gadget,34,0.982,1.411,0.1597
+TE,role,Every-down,66,0.636,0.657,0.0498
+TE,role,Part-time,112,-0.114,0.339,0.0498
+TE,role,Regular,122,-0.239,0.475,0.0498
+TE,style,Balanced,78,0.263,0.631,0.5302
+TE,style,Blocker,119,-0.066,0.317,0.5302
+TE,style,Receiver,103,-0.123,0.527,0.5302

@@ -1,0 +1,12 @@
+,cluster0 (n=420),cluster1 (n=565)
+target_share,-0.04,0.03
+air_share,-0.43,0.32
+adot,-0.82,0.61
+deep_rate,-0.68,0.5
+behind_rate,0.68,-0.5
+yac_per_rec,0.41,-0.31
+rz_mix,0.03,-0.02
+catch_rate,0.67,-0.5
+carries_pg,0.33,-0.24
+height,-0.54,0.4
+weight,-0.42,0.31

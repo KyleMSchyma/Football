@@ -1,0 +1,25 @@
+Depth-3 tree that describes the 6 k-means clusters in plain thresholds (5-fold accuracy 0.61)
+Cluster -> majority rule label: 0=Committee; 1=Workhorse; 2=Explosive; 3=Power / goal-line; 4=Committee; 5=Receiving back
+
+|--- opp_share <= 0.498
+|   |--- tgt_mix <= 0.346
+|   |   |--- ypc <= 3.865
+|   |   |   |--- class: 4
+|   |   |--- ypc >  3.865
+|   |   |   |--- class: 0
+|   |--- tgt_mix >  0.346
+|   |   |--- ypc <= 3.743
+|   |   |   |--- class: 5
+|   |   |--- ypc >  3.743
+|   |   |   |--- class: 5
+|--- opp_share >  0.498
+|   |--- targets_pg <= 3.469
+|   |   |--- snap_share <= 0.659
+|   |   |   |--- class: 3
+|   |   |--- snap_share >  0.659
+|   |   |   |--- class: 1
+|   |--- targets_pg >  3.469
+|   |   |--- gl_share <= 0.463
+|   |   |   |--- class: 1
+|   |   |--- gl_share >  0.463
+|   |   |   |--- class: 1

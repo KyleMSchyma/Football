@@ -1,0 +1,25 @@
+Depth-3 tree that describes the 6 k-means clusters in plain thresholds (5-fold accuracy 0.69)
+Cluster -> majority rule label: 0=Slot / possession; 1=Outside #2 (intermediate); 2=Outside #2 (intermediate); 3=YAC / gadget; 4=X / alpha; 5=Outside #2 (intermediate)
+
+|--- air_share <= 0.217
+|   |--- height <= 71.500
+|   |   |--- adot <= 10.578
+|   |   |   |--- class: 0
+|   |   |--- adot >  10.578
+|   |   |   |--- class: 1
+|   |--- height >  71.500
+|   |   |--- deep_rate <= 0.205
+|   |   |   |--- class: 5
+|   |   |--- deep_rate >  0.205
+|   |   |   |--- class: 2
+|--- air_share >  0.217
+|   |--- target_share <= 0.222
+|   |   |--- weight <= 204.500
+|   |   |   |--- class: 1
+|   |   |--- weight >  204.500
+|   |   |   |--- class: 2
+|   |--- target_share >  0.222
+|   |   |--- height <= 75.500
+|   |   |   |--- class: 4
+|   |   |--- height >  75.500
+|   |   |   |--- class: 2
