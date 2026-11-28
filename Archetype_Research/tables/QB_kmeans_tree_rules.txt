@@ -1,0 +1,22 @@
+Depth-3 tree that describes the 5 k-means clusters in plain thresholds (5-fold accuracy 0.69)
+Cluster -> majority rule label: 0=Pocket passer; 1=Pocket passer; 2=Pocket passer; 3=Pocket passer; 4=Dual-threat
+
+|--- adot_pass <= 7.535
+|   |--- rush_ypg <= 23.029
+|   |   |--- sack_rate <= 0.078
+|   |   |   |--- class: 1
+|   |   |--- sack_rate >  0.078
+|   |   |   |--- class: 3
+|   |--- rush_ypg >  23.029
+|   |   |--- class: 3
+|--- adot_pass >  7.535
+|   |--- epa_db <= 0.020
+|   |   |--- aggressiveness <= 18.393
+|   |   |   |--- class: 3
+|   |   |--- aggressiveness >  18.393
+|   |   |   |--- class: 2
+|   |--- epa_db >  0.020
+|   |   |--- rush_ypg <= 30.964
+|   |   |   |--- class: 0
+|   |   |--- rush_ypg >  30.964
+|   |   |   |--- class: 4

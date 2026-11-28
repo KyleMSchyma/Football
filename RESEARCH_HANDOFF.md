@@ -9,7 +9,7 @@ the [Update log](#3-update-log), update the [Assumptions register](#6-assumption
 or changed, and update [Future recommendations](#9-future-recommendations). See [How to update this file](#1-how-to-update-this-file).
 
 - Created: 2026-11-22 (covers the project from 2026-11-04 to 2026-11-22)
-- Last updated: 2026-11-26 (open license and credit: CC BY 4.0 + Use and credit page, S#43, F#52)
+- Last updated: 2026-11-28 (player archetype definitions by position, research only, Archetype_Research/)
 - Companion documents: [MODELS_TECHNICAL_REFERENCE.md](MODELS_TECHNICAL_REFERENCE.md) (formulas, features, coefficients and
   metrics for the rookie, pre-draft and post-draft models), [MODELS_GUIDE.md](MODELS_GUIDE.md) (plain English),
   [FABLE_REVIEW.md](FABLE_REVIEW.md) (end-to-end review, 2026-11-13), the README in each model folder.
@@ -117,6 +117,7 @@ Kyle usually clicks Merge himself. When he says "merge and publish immediately",
 | `Track_Record/` | Frozen 2024-2026 grades (SHA-256 hashed) and scoring scripts |
 | `Mock_Drafts/` | Kyle's own four 2027 mocks (full 257 picks) + `combine_mocks.py` + `range/` |
 | `Landing_Spot_Offense/` | Research: team offense vs rookie production (Python) |
+| `Archetype_Research/` | Research: formal QB/RB/WR/TE archetype definitions, clustering, stability, college proxies (Python) |
 | `Rookie_Pick_Strategy/` | Research: rookie pick slot value, trade-downs, picks vs veterans, 2027, league guidelines (Python) |
 | Root docs | README, MODELS_TECHNICAL_REFERENCE, MODELS_GUIDE, ROOKIE_MODELS_README, FABLE_REVIEW, this file, CLAUDE.md |
 
@@ -173,6 +174,31 @@ change (the refresh hardcodes them).
 ## 3. Update log
 
 Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
+
+### 2026-11-28: Player archetypes by position: formal definitions (research, step 1)
+- What: Kyle 11-28 "Yes let's create the archetypes first. Get a formal definition." Wrote measurable, plain-English
+  definitions for the standard labels (QB dual-threat / hybrid / pocket / gunslinger / game manager; RB workhorse /
+  receiving / power / explosive / committee; WR X / deep / YAC-gadget / big red zone / slot-possession; TE hybrid /
+  receiving-move / red-zone / inline) from nflverse play-by-play, on-field ids, PFR snaps and NGS, 2016-2025 (2026 wks
+  1-12 applied as examples); checked separation (PCA, k-means k=2-8, Gaussian mixture BIC, silhouette, ARI, depth-3
+  tree), year-to-year stability, and college proxies. Predictive value NOT tested (step 2 waits for Kyle's approval).
+- Result: rules are simple (a depth-3 tree recovers 79-95% of them) but the data has no natural separate groups
+  (silhouette 0.05-0.08 for our labels, best 0.19-0.26 at k=2 for any clustering). The one natural split per position is
+  the classic one: QB runner vs pocket, RB lead vs committee, WR short/slot vs deep/outside, TE receiving vs blocking.
+  Labels are a real trait: same label next season 44-55% vs 22-29% chance; dual-threat QB 68%, workhorse 62%, inline TE
+  75%; explosive RB (14% vs 13%), red-zone TE (8%), balanced lead back (9%) and gunslinger (24%) are near chance. A
+  two-layer version (role x style) is steadier for RB/WR/TE style (kappa 0.39-0.44 vs single label 0.28-0.39); for QBs
+  the rushing layer is the stable one (0.55), passing style is not (0.16). College proxies: QB rushing share AUC 0.89,
+  TE receiving-yards share 0.75, RB power by weight 0.80 (n=7), WR deep by YPR 0.67, RB receiving back 0.50 (invisible).
+- Status: RESEARCH ONLY (Football PR, this branch). Models, values, site unchanged.
+- Files: `Archetype_Research/` (ARCHETYPES.md write-up with all charts; ar_01-ar_06 Python; ar_labels_*.csv; tables/, plots/).
+- Assumptions: A97 new (archetype definitions v1, thresholds), A98 new (two-layer role x style recommended).
+- Possible problems: no public slot/alignment, routes or blocking data (slot = short aDOT, targets/snap stands in for
+  targets/route, hybrid TE = every-down TE with targets); thresholds set and tested on the same seasons; 2026 has no
+  participation file (no run tilt); roster positions misfile gadget players (Taysom Hill as inline TE).
+- Recommendations: R40 (Kyle approves or edits definitions; prefer two-layer, drop explosive RB / red-zone TE as
+  stand-alone labels), R41 (step 2 predictive test with thresholds frozen, out-of-sample 2024-25), R42 (cfbfastR
+  play-by-play pull if prospect archetypes are needed).
 
 ### 2026-11-26: Open license and credit requirements (S#43, F#52) LIVE
 - Kyle 11-26: "I like open sourcing my stuff, I just want permission. I also don't mind other AI connecting to my site,
@@ -820,6 +846,7 @@ favicon, sitemap (11-24). 2027 rookie rankings pages `/rookie-rankings/` (top 24
 | 11-21 | Rookie pick strategy | Keep 1.01, cliff after 1.06, sell late 2nds/3rds | Research (F#34 merged) |
 | 11-25 | A+ vs A vs A- grade tiers | A+ is a real step up in every model; A vs A- is a lean (adjusted p=.08), noise pre-draft; no alternative cut beats the current scale | Research only (Grade_Tier_Research/) |
 | 11-25 | B and C grade tiers | B+ = B; big cliff B to B-; B- and C+/C/C- near flat; ~5 real outcome groups | Research only (Grade_Tier_Research/ part 2) |
+| 11-28 | Player archetypes (definitions, step 1) | Clear rules, but a continuum, not natural clusters; one real split per position; labels 2x more stable than chance; explosive RB and red-zone TE are noise; role x style two-layer version steadier; QB rushing readable from college (AUC 0.89), RB receiving role not (0.50) | Research only (Archetype_Research/); step 2 awaits Kyle |
 
 Earlier one-offs inside model work: conference as predictor (rejected), college usage/PPA (not adopted; only 2014+), WR
 value score (Day-3 tiebreaker only), WR finish/hurdle/tier ladder (no gain vs pick), UDFAs (no conclusion changes).
@@ -874,6 +901,7 @@ data; render.js makes a 2400x3000 navy/orange top-24 image with an OVR column; g
 | Sign-off box, per-player notes, review sheets | 11-24 | HELD by Kyle | Kyle says build |
 | Market Check curve fit / package power for DD and DP | 11-24 | Dropped for rank-matching (Kyle 11-24) | Never unless Kyle asks |
 | Change the A+/A/A- cut points (merge A and A-, A+ top 3%, wider bands) | 11-25 | REJECTED: none beat the current 95/90/85 cuts in LOCO Brier; one merged A band is significantly worse | Samples double (R3 retrains) and A vs A- still flat |
+| Archetypes as model inputs (step 2 predictive test) | 11-28 | PARKED until Kyle approves the definitions (Archetype_Research/ARCHETYPES.md) | Kyle approves definitions |
 | Fewer, data-led grades below A (merge B+/B; B- into C) | 11-25 | BUILT 11-25 as the five-grade scale (Kyle asked; see the 11-25 log entry and A94) | - |
 
 ---
@@ -1002,6 +1030,8 @@ tested. Status: ACTIVE, CHANGED (with date), or SUPERSEDED.
 | A94 | Five grades: A+ 95-100, A 85-95, B 65-85, C 25-65, D 0-25 percentile within position (drafted 2010-2023), same for pre-draft, post-draft, 2027 mock and mixed; each grade is its own band in validation tables | pd_06, pd_07, pd_09, pd_11, pd_10, rf_02, pd_15 (converter), site pages | Keep eleven grades (A93); merge only B+/B; probability-based bands; A+ / A / B / C / D / F with F kept | Kyle 11-25 picked the five groups that the research found (B+ = B, B to B- cliff, C flat, C-/D/F near zero); caveat: chosen in-sample | ACTIVE, LIVE 2026-11-25 |
 | A95 | Everything Prospect Actuary makes (grades, scores, tier odds, values, rankings, charts, images, text, CSVs, research write-ups and results) is CC BY 4.0; credit line "Source: Prospect Actuary (kylemschyma.github.io/prospect-actuary)"; third-party data is not relicensed | LICENSE (both repos), site `/use/`, nav.js, JSON-LD | CC BY-NC 4.0 (commercial users ask first); CC BY-SA; CC0; all rights reserved with a permission form | Kyle 11-26: open source, AI welcome, wants credit. BY is the standard open license that requires credit and matches nflverse's own license; NC would block or muddy AI and media reuse | ACTIVE 11-26 |
 | A96 | Code (site HTML/CSS/JS/Python, R and shell in Football) is MIT | LICENSE-CODE (both repos) | CC BY 4.0 for code too; Apache 2.0 | Creative Commons advises against CC for software; MIT also keeps the copyright notice (credit) | ACTIVE 11-26 |
+| A97 | Player archetypes v1: one primary label per qualifying season by priority rules with round-number thresholds near 2016-2025 percentiles (QB: rush yds/g >= 30 dual-threat, 20-30 hybrid; gunslinger aDOT >= 8.5 and INT >= 2.5% or tight-window >= 18%; game manager aDOT < 7.5 and EPA/db < 0.05. RB: workhorse snaps >= 60% and 16+ touches/g; receiving 3.5+ tgt/g and target mix >= 28%; power GL share >= 45%; explosive 15+ yd runs >= 6%; committee RB opp share < 50%. WR: X tgt share >= 20%, air share >= 25%, aDOT >= 9; deep aDOT >= 14 and deep rate >= 25%; YAC aDOT < 8, YAC >= 5, behind-line >= 20% or 0.5 carries/g; big RZ 6'3"/215 and RZ mix >= 15%; slot aDOT < 10. TE: hybrid snaps >= 75% and tgt/snap >= 0.10; receiving tgt/snap >= 0.10; RZ mix >= 25% and TD/tgt >= 8%; inline tgt/snap < 0.08 and run tilt >= 5 pts) | Archetype_Research/ar_03_rules.py | k-means / Gaussian-mixture clusters as the labels; percentile-only cuts; multi-label tags | Rules are explainable (Kyle's goal) and recover cleanly; clusters are weak (silhouette <= 0.26) and harder to explain (depth-3 tree recovers 61-73%) | RESEARCH 11-28 (definitions awaiting Kyle) |
+| A98 | Recommended form: two layers per season, role (how much) x style (how); QB = rushing layer x passing style | ar_03_rules.py two_layer(), ar_06 | Single label (A97); continuous scores only | Style layer more stable for RB/WR/TE (kappa .39-.44); stops alphas with short aDOT reading as "slot" | PROPOSED 11-28 |
 | A71 | Market history, if used, = Dynasty Daddy's own `daddy_*` fields from DD's history endpoints, only after DD permission; never the unprefixed/KTC fields | research/dd_history | Use documented current API only and build our own weekly archive of it; use FantasyCalc history | DD history is the only dated market source found that we may use; own archive starts from zero | ACTIVE |
 
 ---
@@ -1088,6 +1118,10 @@ fine (already in Rookie_Pick_Strategy/README.md).
     crawlers do not read them automatically; they are linked from `/use/` and README. Fix: R37.
 31. 11-26: Visible credit lines are added by `shared/nav.js` (JavaScript). Scrapers that do not run JS still get the
     static JSON-LD license block and footer text. The CSV files have no credit row (by design; `CREDIT.md` sits beside them).
+32. 11-28: Archetype labels use stand-ins because slot alignment, routes run and blocking grades are not public:
+    "slot" = short aDOT, targets per snap stands in for targets per route, hybrid TE = every-down TE with targets. 2026
+    has no pbp_participation file yet, so TE run tilt is missing for 2026 (stricter fallback used).
+33. 11-28: Archetype thresholds were set and tested on the same 2016-2025 seasons; freeze them before any step-2 test.
 
 ---
 
@@ -1178,6 +1212,17 @@ approved to build unless Kyle says so (see section 10).
 - **R39. Add the license line to future generated images** (x_posts render.js already prints the site URL; add
   "CC BY 4.0" if Kyle wants). (A95)
 
+**Player archetypes (research 11-28)**
+
+- **R40. Kyle reviews `Archetype_Research/ARCHETYPES.md` and approves or edits the definitions.** Recommended: the
+  two-layer role x style version (A98); drop explosive RB and red-zone TE as stand-alone labels (near-chance stability)
+  or require two seasons; use multi-season labels for veterans. (A97, A98)
+- **R41. Step 2 (only after R40):** test whether archetypes add signal beyond the live models (rookie tier odds,
+  next-season PPG, aging/survival by archetype), thresholds frozen, 2024-2025 out of sample, continuous inputs tested
+  alongside labels. Model parity rule applies if anything feeds a model. (issue 33)
+- **R42. If prospect archetypes are needed:** pull cfbfastR play-by-play for goal-line share, explosive runs and
+  designed runs vs scrambles; RB receiving role is not visible in college box scores (AUC 0.50). (issue 32)
+
 **Trade Market (research 11-23)**
 
 - **R28. DONE 11-23 (weekly tm_weekly.sh + refresh step 4c).** Refresh the Trade market source: tm.js is a one-off snapshot of trades to 11-23; add a periodic re-pull and
@@ -1239,7 +1284,7 @@ approved to build unless Kyle says so (see section 10).
 
 **Reports in this repo:** FABLE_REVIEW.md; `Trade_Values/dev_role_layer/FABLE_BUILD_REPORT.md` and
 `ROLE_AND_CALIBRATION_REPORT.md`; `Trade_Values/history/README.md`; `Landing_Spot_Offense/README.md`;
-`Rookie_Pick_Strategy/README.md`; `PostDraft_Model/exp_mixed_model/README.md`; each model folder README and PREDICTORS.md.
+`Rookie_Pick_Strategy/README.md`; `Archetype_Research/ARCHETYPES.md`; `PostDraft_Model/exp_mixed_model/README.md`; each model folder README and PREDICTORS.md.
 
 **Branches with work not on main**
 

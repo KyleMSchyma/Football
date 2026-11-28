@@ -1,0 +1,10 @@
+,cluster0 (n=373),cluster1 (n=294)
+snap_share,0.56,-0.71
+targets_per_snap,0.68,-0.86
+target_share,0.66,-0.83
+run_tilt,-0.71,0.9
+rz_mix,-0.02,0.02
+td_per_tgt,-0.05,0.06
+adot,0.42,-0.54
+yac_per_rec,-0.22,0.28
+weight,-0.19,0.24

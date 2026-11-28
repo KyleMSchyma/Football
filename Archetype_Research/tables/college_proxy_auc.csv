@@ -1,0 +1,16 @@
+position,nfl_archetype,college_proxy,plain,n,n_positive,auc,median_positive,median_rest
+QB,Dual-threat or Hybrid,rush_yds,final-season rushing yards,53,21,0.868,452.0,101.0
+QB,Dual-threat or Hybrid,rush_yds_share,share of team rushing yards,53,21,0.891,0.211,0.055
+QB,Game manager,ypa,yards per attempt (low = manager?),53,6,0.365,8.271,8.642
+RB,Receiving back,rec_yds_share,share of team receiving yards,120,12,0.5,0.077,0.069
+RB,Receiving back,rec,receptions,121,12,0.435,18.5,20.0
+RB,Workhorse,car_share,share of team carries,116,25,0.662,0.524,0.413
+RB,Power / goal-line,weight,NFL listed weight,121,7,0.799,222.0,212.0
+RB,Explosive,ypc,yards per carry,118,21,0.486,5.821,5.885
+WR,Deep threat,ypr,yards per reception,183,19,0.673,16.403,14.435
+WR,Slot / possession or YAC / gadget,ypr,yards per reception (low = slot?),183,57,0.344,14.054,15.193
+WR,X / alpha,dominator,dominator (yards+TD share),183,26,0.545,0.318,0.314
+WR,Big-bodied red zone,td_share,share of team receiving TDs,183,13,0.597,0.371,0.31
+WR,YAC / gadget,rush_car,carries,183,12,0.678,5.0,1.0
+TE,Receiving / move or Hybrid,rec_yds_share,share of team receiving yards,95,23,0.746,0.195,0.134
+TE,Inline / blocking,weight,NFL listed weight,98,37,0.659,253.0,250.0

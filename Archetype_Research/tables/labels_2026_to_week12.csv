@@ -1,0 +1,234 @@
+position,display_name,team,archetype,rush_ypg,adot_pass,int_rate,aggressiveness,epa_db,fantasy_points_ppr,touches_pg,snap_share,targets_pg,tgt_mix,gl_share,explosive_rate,weight,target_share,air_share,adot,deep_rate,behind_rate,yac_per_rec,rz_mix,height,targets_per_snap,run_tilt,td_per_tgt
+QB,Dak Prescott,DAL,Gunslinger,11.75,8.83,0.015,18.527,0.18,263.3,,,,,,,,,,,,,,,,,,
+QB,Joe Burrow,CIN,Pocket passer,9.0,7.249,0.015,12.895,0.246,252.2,,,,,,,,,,,,,,,,,,
+QB,Josh Allen,BUF,Dual-threat,31.182,8.864,0.032,13.622,0.086,238.72,,,,,,,,,,,,,,,,,,
+QB,Brock Purdy,SF,Hybrid,22.7,7.892,0.017,16.207,0.299,225.16,,,,,,,,,,,,,,,,,,
+QB,Patrick Mahomes,KC,Pocket passer,10.0,6.345,0.011,10.109,0.175,209.52,,,,,,,,,,,,,,,,,,
+QB,C.J. Stroud,HOU,Gunslinger,15.0,9.499,0.011,20.173,0.132,204.94,,,,,,,,,,,,,,,,,,
+QB,Jordan Love,GB,Pocket passer,4.0,9.401,0.021,16.625,0.082,204.44,,,,,,,,,,,,,,,,,,
+QB,Jared Goff,DET,Pocket passer,4.909,7.717,0.013,14.946,0.184,203.96,,,,,,,,,,,,,,,,,,
+QB,Kirk Cousins,LV,Pocket passer,2.909,7.929,0.025,19.531,0.09,195.08,,,,,,,,,,,,,,,,,,
+QB,Trevor Lawrence,JAX,Gunslinger,11.8,9.033,0.022,18.301,0.21,186.7,,,,,,,,,,,,,,,,,,
+QB,Drake Maye,NE,Hybrid,24.3,9.084,0.037,11.594,0.085,182.2,,,,,,,,,,,,,,,,,,
+QB,Bryce Young,CAR,Pocket passer,5.4,7.918,0.018,13.315,0.037,170.64,,,,,,,,,,,,,,,,,,
+QB,Tyler Shough,NO,Hybrid,22.4,7.522,0.019,15.325,-0.013,169.9,,,,,,,,,,,,,,,,,,
+QB,Matthew Stafford,LA,Pocket passer,2.455,7.366,0.027,12.911,0.091,166.22,,,,,,,,,,,,,,,,,,
+QB,Geno Smith,NYJ,Pocket passer,5.909,7.484,0.009,13.419,0.067,155.88,,,,,,,,,,,,,,,,,,
+QB,Jayden Daniels,WAS,Dual-threat,42.375,8.004,0.008,12.903,-0.006,153.02,,,,,,,,,,,,,,,,,,
+QB,Caleb Williams,CHI,Hybrid,22.5,8.252,0.021,12.977,0.098,149.98,,,,,,,,,,,,,,,,,,
+QB,Aaron Rodgers,PIT,Game manager,6.0,7.409,0.015,17.175,-0.064,148.74,,,,,,,,,,,,,,,,,,
+QB,Bo Nix,DEN,Game manager,13.2,6.121,0.015,10.787,0.017,142.3,,,,,,,,,,,,,,,,,,
+QB,Cam Ward,TEN,Game manager,15.5,6.956,0.018,10.726,-0.097,141.88,,,,,,,,,,,,,,,,,,
+QB,Deshaun Watson,CLE,Dual-threat,30.444,7.128,0.012,12.111,-0.036,139.32,,,,,,,,,,,,,,,,,,
+QB,Jacoby Brissett,ARI,Game manager,9.9,7.34,0.022,21.228,-0.053,136.7,,,,,,,,,,,,,,,,,,
+QB,Justin Herbert,LAC,Hybrid,27.3,7.36,0.035,12.409,-0.184,119.34,,,,,,,,,,,,,,,,,,
+QB,Michael Penix Jr.,ATL,Pocket passer,12.625,7.56,0.028,14.876,-0.079,108.6,,,,,,,,,,,,,,,,,,
+QB,Malik Willis,MIA,Hybrid,29.25,9.408,0.026,18.269,-0.094,105.04,,,,,,,,,,,,,,,,,,
+QB,Sam Darnold,SEA,Game manager,10.571,6.89,0.04,18.483,-0.07,92.32,,,,,,,,,,,,,,,,,,
+QB,Daniel Jones,IND,Pocket passer,9.545,7.554,0.034,14.53,-0.195,90.76,,,,,,,,,,,,,,,,,,
+QB,Jalen Hurts,PHI,Hybrid,21.8,7.526,0.018,14.286,-0.042,80.02,,,,,,,,,,,,,,,,,,
+QB,Jameis Winston,NYG,Gunslinger,7.778,9.066,0.027,19.76,-0.064,79.82,,,,,,,,,,,,,,,,,,
+QB,Kyler Murray,MIN,Hybrid,29.667,7.739,0.018,11.688,-0.097,73.58,,,,,,,,,,,,,,,,,,
+QB,Baker Mayfield,TB,Pocket passer,16.857,8.098,0.02,14.857,-0.16,69.96,,,,,,,,,,,,,,,,,,
+RB,Jahmyr Gibbs,DET,Workhorse,,,,,,329.4,26.636,0.76,5.727,0.206,0.917,0.082,202.0,,,,,,,,,,,
+RB,Christian McCaffrey,SF,Workhorse,,,,,,227.2,16.9,0.676,5.2,0.291,0.667,0.024,210.0,,,,,,,,,,,
+RB,Javonte Williams,DAL,Workhorse,,,,,,224.7,20.667,0.741,3.0,0.142,0.871,0.032,220.0,,,,,,,,,,,
+RB,James Cook,BUF,Workhorse,,,,,,206.8,23.273,0.629,2.0,0.084,0.516,0.058,190.0,,,,,,,,,,,
+RB,Chuba Hubbard,CAR,Workhorse,,,,,,206.8,21.9,0.813,3.6,0.161,1.0,0.053,210.0,,,,,,,,,,,
+RB,Bijan Robinson,ATL,Workhorse,,,,,,197.7,22.0,0.731,4.5,0.196,0.818,0.065,215.0,,,,,,,,,,,
+RB,Kenneth Walker III,KC,Workhorse,,,,,,196.4,23.125,0.743,4.5,0.185,0.789,0.063,211.0,,,,,,,,,,,
+RB,D'Andre Swift,CHI,Workhorse,,,,,,194.9,19.091,0.607,3.545,0.181,0.543,0.023,204.0,,,,,,,,,,,
+RB,Kyren Williams,LA,Workhorse,,,,,,180.8,17.545,0.641,5.091,0.271,0.421,0.033,207.0,,,,,,,,,,,
+RB,Derrick Henry,BAL,Power / goal-line,,,,,,180.38,19.909,0.548,2.182,0.108,0.864,0.03,252.0,,,,,,,,,,,
+RB,Bucky Irving,TB,Workhorse,,,,,,178.1,21.0,0.639,3.2,0.147,0.643,0.043,194.0,,,,,,,,,,,
+RB,Ashton Jeanty,LV,Workhorse,,,,,,177.6,16.818,0.684,6.091,0.333,0.476,0.022,208.0,,,,,,,,,,,
+RB,Jonathan Taylor,IND,Workhorse,,,,,,172.6,20.0,0.752,4.091,0.193,0.762,0.043,226.0,,,,,,,,,,,
+RB,Bhayshul Tuten,JAX,Power / goal-line,,,,,,155.8,17.9,0.538,2.3,0.127,0.571,0.032,209.0,,,,,,,,,,,
+RB,Jaylen Warren,PIT,Workhorse,,,,,,154.8,16.7,0.687,4.5,0.25,0.6,0.081,215.0,,,,,,,,,,,
+RB,Tony Pollard,TEN,Workhorse,,,,,,151.4,18.5,0.651,3.1,0.16,0.688,0.049,209.0,,,,,,,,,,,
+RB,Blake Corum,LA,Explosive,,,,,,144.0,13.636,0.369,2.182,0.151,0.474,0.067,202.0,,,,,,,,,,,
+RB,Emmett Johnson,KC,Committee,,,,,,139.8,10.545,0.43,2.818,0.261,0.105,0.045,202.0,,,,,,,,,,,
+RB,Chase Brown,CIN,Workhorse,,,,,,138.3,17.1,0.692,6.2,0.343,0.5,0.017,211.0,,,,,,,,,,,
+RB,Braelon Allen,NYJ,Explosive,,,,,,120.0,15.0,0.61,2.364,0.153,0.4,0.083,235.0,,,,,,,,,,,
+RB,Rhamondre Stevenson,NE,Lead back (balanced),,,,,,115.2,13.5,0.627,3.2,0.229,0.375,0.028,227.0,,,,,,,,,,,
+RB,Quinshon Judkins,CLE,Power / goal-line,,,,,,108.2,16.778,0.519,3.222,0.187,0.75,0.016,221.0,,,,,,,,,,,
+RB,Aaron Jones,MIN,Lead back (balanced),,,,,,106.7,15.2,0.559,2.4,0.152,0.75,0.06,208.0,,,,,,,,,,,
+RB,Ollie Gordon II,MIA,Workhorse,,,,,,103.8,16.778,0.625,2.0,0.115,0.667,0.051,225.0,,,,,,,,,,,
+RB,Cam Skattebo,NYG,Workhorse,,,,,,103.4,18.375,0.614,3.0,0.156,0.357,0.031,215.0,,,,,,,,,,,
+RB,Jonah Coleman,DEN,Committee,,,,,,97.8,14.667,0.57,3.167,0.211,0.364,0.014,220.0,,,,,,,,,,,
+RB,Alvin Kamara,NO,Receiving back,,,,,,97.3,8.778,0.327,4.111,0.425,0.143,0.04,215.0,,,,,,,,,,,
+RB,Omarion Hampton,LAC,Power / goal-line,,,,,,96.0,15.1,0.461,1.6,0.104,0.714,0.043,220.0,,,,,,,,,,,
+RB,Tyler Allgeier,ARI,Committee,,,,,,94.4,11.273,0.546,2.364,0.205,0.364,0.04,225.0,,,,,,,,,,,
+RB,Breece Hall,NYJ,Committee,,,,,,88.0,19.5,0.561,3.5,0.178,0.4,0.021,217.0,,,,,,,,,,,
+RB,Justice Hill,BAL,Receiving back,,,,,,87.5,6.455,0.455,3.636,0.488,0.0,0.119,195.0,,,,,,,,,,,
+RB,Woody Marks,HOU,Lead back (balanced),,,,,,78.4,13.667,0.6,2.444,0.171,0.375,0.0,208.0,,,,,,,,,,,
+RB,Rachaad White,WAS,Committee,,,,,,77.9,9.333,0.49,2.556,0.261,0.375,0.046,214.0,,,,,,,,,,,
+RB,Kyle Monangai,CHI,Committee,,,,,,77.0,13.667,0.398,1.333,0.095,0.257,0.053,207.0,,,,,,,,,,,
+RB,Emanuel Wilson,SEA,Committee,,,,,,74.8,16.714,0.407,1.286,0.075,0.438,0.036,226.0,,,,,,,,,,,
+RB,Kenny Gainwell,TB,Committee,,,,,,73.5,8.6,0.376,2.6,0.28,0.071,0.06,200.0,,,,,,,,,,,
+RB,Saquon Barkley,PHI,Committee,,,,,,72.9,10.889,0.371,1.222,0.108,0.375,0.044,232.0,,,,,,,,,,,
+RB,Samaje Perine,CIN,Committee,,,,,,72.5,7.4,0.365,1.9,0.247,0.25,0.017,240.0,,,,,,,,,,,
+RB,J.K. Dobbins,DEN,Committee,,,,,,62.5,10.8,0.312,1.0,0.092,0.364,0.03,212.0,,,,,,,,,,,
+RB,MarShawn Lloyd,GB,Committee,,,,,,61.3,7.9,0.324,2.1,0.253,0.25,0.0,220.0,,,,,,,,,,,
+RB,David Montgomery,HOU,Committee,,,,,,60.9,14.667,0.507,1.833,0.124,0.375,0.026,230.0,,,,,,,,,,,
+RB,Jacory Croskey-Merritt,WAS,Committee,,,,,,60.6,14.5,0.441,1.667,0.111,0.25,0.025,208.0,,,,,,,,,,,
+RB,Rico Dowdle,PIT,Committee,,,,,,57.4,10.714,0.397,3.429,0.3,0.2,0.054,218.0,,,,,,,,,,,
+RB,Kaelon Black,SF,Committee,,,,,,54.8,9.1,0.301,0.9,0.096,0.143,0.059,208.0,,,,,,,,,,,
+RB,Jeremiyah Love,ARI,Committee,,,,,,53.4,14.5,0.438,2.333,0.156,0.182,0.026,212.0,,,,,,,,,,,
+RB,Keaton Mitchell,LAC,Committee,,,,,,52.1,6.8,0.275,2.4,0.329,0.0,0.041,191.0,,,,,,,,,,,
+RB,Mike Washington Jr.,LV,Committee,,,,,,45.5,8.364,0.259,0.636,0.074,0.333,0.057,228.0,,,,,,,,,,,
+RB,Travis Etienne,NO,Committee,,,,,,44.9,13.2,0.466,3.8,0.268,0.143,0.058,215.0,,,,,,,,,,,
+RB,Jadarian Price,SEA,Committee,,,,,,42.9,11.167,0.366,2.667,0.222,0.062,0.018,209.0,,,,,,,,,,,
+RB,Kendre Miller,NO,Committee,,,,,,38.6,11.0,0.308,2.167,0.186,0.238,0.0,220.0,,,,,,,,,,,
+RB,Jordan Mason,MIN,Committee,,,,,,37.5,12.333,0.471,1.167,0.09,0.25,0.028,230.0,,,,,,,,,,,
+WR,CeeDee Lamb,DAL,X / alpha,,,,,,272.6,,,,,,,198.0,0.326,0.384,10.636,0.154,0.105,3.926,0.168,74.0,,,
+WR,Jaxon Smith-Njigba,SEA,X / alpha,,,,,,263.16,,,,,,,197.0,0.371,0.493,10.367,0.165,0.138,5.304,0.119,72.0,,,
+WR,Amon-Ra St. Brown,DET,X / alpha,,,,,,219.7,,,,,,,202.0,0.293,0.328,9.028,0.084,0.159,4.506,0.178,72.0,,,
+WR,Ja'Marr Chase,CIN,X / alpha,,,,,,201.9,,,,,,,205.0,0.259,0.351,10.25,0.156,0.156,4.899,0.146,72.0,,,
+WR,Christian Watson,GB,X / alpha,,,,,,200.1,,,,,,,215.0,0.214,0.3,14.012,0.241,0.072,4.321,0.096,76.0,,,
+WR,Tee Higgins,CIN,X / alpha,,,,,,183.7,,,,,,,219.0,0.205,0.334,12.789,0.118,0.0,3.527,0.105,76.0,,,
+WR,George Pickens,DAL,X / alpha,,,,,,183.3,,,,,,,205.0,0.226,0.327,13.465,0.212,0.02,3.032,0.111,75.0,,,
+WR,Matthew Golden,GB,X / alpha,,,,,,180.8,,,,,,,191.0,0.274,0.385,14.057,0.274,0.085,4.661,0.16,71.0,,,
+WR,Puka Nacua,LA,YAC / gadget,,,,,,173.6,,,,,,,216.0,0.242,0.251,7.957,0.118,0.215,5.443,0.129,74.0,,,
+WR,Chris Olave,NO,X / alpha,,,,,,166.6,,,,,,,187.0,0.278,0.441,13.029,0.235,0.069,2.838,0.088,72.0,,,
+WR,Parker Washington,JAX,X / alpha,,,,,,156.1,,,,,,,204.0,0.269,0.379,13.333,0.235,0.074,5.682,0.185,70.0,,,
+WR,Malik Nabers,NYG,X / alpha,,,,,,155.7,,,,,,,200.0,0.292,0.335,11.392,0.216,0.144,3.077,0.124,72.0,,,
+WR,Zay Flowers,BAL,YAC / gadget,,,,,,155.3,,,,,,,183.0,0.254,0.243,7.22,0.098,0.159,7.263,0.11,69.0,,,
+WR,Tetairoa McMillan,CAR,X / alpha,,,,,,150.1,,,,,,,212.0,0.254,0.326,11.0,0.161,0.057,3.345,0.138,77.0,,,
+WR,Jameson Williams,DET,Outside #2 (intermediate),,,,,,148.0,,,,,,,184.0,0.181,0.313,14.348,0.242,0.091,3.405,0.167,73.0,,,
+WR,Luther Burden III,CHI,Slot / possession,,,,,,147.1,,,,,,,210.0,0.212,0.218,8.066,0.079,0.184,6.796,0.145,72.0,,,
+WR,Drake London,ATL,X / alpha,,,,,,138.5,,,,,,,215.0,0.278,0.372,10.101,0.127,0.152,7.02,0.063,76.0,,,
+WR,Garrett Wilson,NYJ,X / alpha,,,,,,136.2,,,,,,,183.0,0.258,0.328,11.012,0.134,0.024,2.717,0.11,72.0,,,
+WR,Nico Collins,HOU,Outside #2 (intermediate),,,,,,130.8,,,,,,,222.0,0.182,0.225,12.017,0.183,0.083,3.425,0.117,76.0,,,
+WR,Justin Jefferson,MIN,X / alpha,,,,,,125.3,,,,,,,195.0,0.257,0.304,9.932,0.11,0.192,3.511,0.137,73.0,,,
+WR,Rome Odunze,CHI,Deep threat,,,,,,124.0,,,,,,,215.0,0.179,0.315,15.016,0.25,0.016,2.881,0.172,75.0,,,
+WR,DeVonta Smith,PHI,Outside #2 (intermediate),,,,,,121.1,,,,,,,170.0,0.199,0.297,13.343,0.224,0.06,1.524,0.045,72.0,,,
+WR,Michael Wilson,ARI,X / alpha,,,,,,120.68,,,,,,,213.0,0.225,0.315,10.761,0.193,0.17,2.765,0.227,74.0,,,
+WR,Stefon Diggs,WAS,Slot / possession,,,,,,119.1,,,,,,,191.0,0.208,0.192,8.292,0.123,0.046,4.05,0.138,72.0,,,
+WR,Tre Tucker,LV,Outside #2 (intermediate),,,,,,118.2,,,,,,,182.0,0.181,0.3,14.088,0.235,0.088,4.028,0.103,68.0,,,
+WR,Mike Evans,SF,Big-bodied red zone,,,,,,111.9,,,,,,,231.0,0.163,0.273,14.304,0.217,0.0,3.636,0.152,77.0,,,
+WR,Devaughn Vele,NO,Slot / possession,,,,,,107.5,,,,,,,210.0,0.166,0.199,9.656,0.115,0.049,2.705,0.131,77.0,,,
+WR,DJ Moore,BUF,Outside #2 (intermediate),,,,,,105.5,,,,,,,213.0,0.176,0.261,14.352,0.222,0.093,3.788,0.167,72.0,,,
+WR,Denzel Boston,CLE,Big-bodied red zone,,,,,,105.3,,,,,,,215.0,0.196,0.359,14.339,0.242,0.032,4.848,0.161,76.0,,,
+WR,Khalil Shakir,BUF,YAC / gadget,,,,,,105.3,,,,,,,190.0,0.195,0.141,6.25,0.083,0.317,8.78,0.15,72.0,,,
+WR,Ryan Flournoy,DAL,Slot / possession,,,,,,105.0,,,,,,,205.0,0.126,0.106,7.618,0.055,0.145,4.769,0.236,73.0,,,
+WR,Josh Downs,IND,X / alpha,,,,,,102.6,,,,,,,171.0,0.211,0.262,9.69,0.169,0.099,3.81,0.113,69.0,,,
+WR,Davante Adams,LA,Outside #2 (intermediate),,,,,,102.0,,,,,,,204.0,0.128,0.241,15.49,0.245,0.0,4.133,0.143,73.0,,,
+WR,KC Concepcion,CLE,Slot / possession,,,,,,100.1,,,,,,,190.0,0.199,0.232,8.46,0.143,0.222,6.075,0.063,72.0,,,
+WR,Keenan Allen,IND,Slot / possession,,,,,,99.0,,,,,,,211.0,0.212,0.222,8.435,0.072,0.043,2.562,0.072,74.0,,,
+WR,DeMario Douglas,NE,Outside #2 (intermediate),,,,,,97.8,,,,,,,185.0,0.169,0.189,10.755,0.224,0.122,4.875,0.082,68.0,,,
+WR,Jalen Coker,CAR,Big-bodied red zone,,,,,,97.0,,,,,,,213.0,0.175,0.21,9.717,0.167,0.217,4.343,0.167,75.0,,,
+WR,Malik Washington,MIA,Outside #2 (intermediate),,,,,,96.26,,,,,,,192.0,0.215,0.239,10.474,0.281,0.211,4.282,0.07,68.0,,,
+WR,Rashee Rice,KC,YAC / gadget,,,,,,94.6,,,,,,,203.0,0.142,0.122,5.612,0.061,0.286,6.816,0.184,73.0,,,
+WR,DK Metcalf,PIT,X / alpha,,,,,,94.5,,,,,,,235.0,0.218,0.372,13.676,0.311,0.149,3.389,0.068,76.0,,,
+WR,Jakobi Meyers,JAX,Outside #2 (intermediate),,,,,,94.5,,,,,,,200.0,0.176,0.212,11.396,0.132,0.057,2.909,0.245,74.0,,,
+WR,Antonio Williams,WAS,Outside #2 (intermediate),,,,,,93.8,,,,,,,195.0,0.166,0.192,10.327,0.173,0.077,3.946,0.077,71.0,,,
+WR,Carnell Tate,TEN,Outside #2 (intermediate),,,,,,91.1,,,,,,,192.0,0.187,0.305,12.339,0.179,0.036,4.444,0.089,74.0,,,
+WR,Jaylen Waddle,DEN,Outside #2 (intermediate),,,,,,91.1,,,,,,,185.0,0.199,0.301,10.914,0.207,0.155,3.273,0.103,70.0,,,
+WR,Makai Lemon,PHI,Slot / possession,,,,,,91.1,,,,,,,192.0,0.188,0.145,6.651,0.063,0.127,2.651,0.048,71.0,,,
+WR,Xavier Hutchinson,HOU,Outside #2 (intermediate),,,,,,85.4,,,,,,,210.0,0.173,0.2,11.281,0.175,0.053,5.1,0.088,75.0,,,
+WR,Emeka Egbuka,TB,X / alpha,,,,,,81.8,,,,,,,205.0,0.225,0.292,10.407,0.153,0.136,3.818,0.119,73.0,,,
+WR,Wan'Dale Robinson,TEN,Slot / possession,,,,,,81.3,,,,,,,185.0,0.181,0.161,6.259,0.093,0.241,3.5,0.185,68.0,,,
+WR,Xavier Worthy,KC,Slot / possession,,,,,,78.6,,,,,,,165.0,0.166,0.224,9.404,0.228,0.246,5.286,0.158,71.0,,,
+WR,Kalif Raymond,CHI,Slot / possession,,,,,,78.1,,,,,,,160.0,0.14,0.134,7.42,0.08,0.18,4.389,0.12,69.0,,,
+WR,Germie Bernard,PIT,YAC / gadget,,,,,,77.8,,,,,,,206.0,0.162,0.139,6.291,0.109,0.327,5.579,0.182,73.0,,,
+WR,Rashod Bateman,BAL,Outside #2 (intermediate),,,,,,77.3,,,,,,,193.0,0.13,0.22,13.952,0.167,0.024,3.16,0.095,73.0,,,
+WR,Keon Coleman,BUF,Deep threat,,,,,,77.2,,,,,,,213.0,0.134,0.199,14.537,0.268,0.024,2.423,0.122,75.0,,,
+WR,Caleb Douglas,MIA,Outside #2 (intermediate),,,,,,75.7,,,,,,,208.0,0.17,0.229,13.422,0.222,0.067,5.75,0.111,76.0,,,
+WR,Kayshon Boutte,HOU,Outside #2 (intermediate),,,,,,74.9,,,,,,,203.0,0.094,0.138,14.419,0.226,0.0,3.143,0.129,71.0,,,
+WR,Jahan Dotson,ATL,Deep threat,,,,,,72.6,,,,,,,184.0,0.134,0.268,15.632,0.263,0.026,6.684,0.184,71.0,,,
+WR,Ladd McConkey,LAC,Outside #2 (intermediate),,,,,,72.3,,,,,,,185.0,0.118,0.166,11.469,0.156,0.125,2.591,0.125,72.0,,,
+WR,Darius Cooper,PHI,Outside #2 (intermediate),,,,,,69.3,,,,,,,210.0,0.116,0.166,12.821,0.205,0.051,5.5,0.103,71.0,,,
+WR,Cooper Kupp,SEA,Slot / possession,,,,,,68.2,,,,,,,205.0,0.119,0.136,8.829,0.057,0.114,3.652,0.143,74.0,,,
+WR,Malachi Fields,NYG,Deep threat,,,,,,67.5,,,,,,,222.0,0.133,0.184,14.159,0.25,0.068,4.875,0.091,76.0,,,
+WR,Tre Harris,LAC,Outside #2 (intermediate),,,,,,65.6,,,,,,,210.0,0.155,0.21,10.905,0.167,0.143,4.964,0.095,75.0,,,
+WR,Courtland Sutton,DEN,Big-bodied red zone,,,,,,63.6,,,,,,,216.0,0.165,0.243,11.125,0.146,0.021,2.4,0.188,76.0,,,
+WR,Adonai Mitchell,NYJ,Deep threat,,,,,,62.4,,,,,,,205.0,0.142,0.29,17.556,0.356,0.067,2.238,0.111,74.0,,,
+WR,Chris Godwin Jr.,TB,YAC / gadget,,,,,,62.2,,,,,,,209.0,0.156,0.092,3.854,0.024,0.341,6.281,0.098,73.0,,,
+WR,Elic Ayomanor,TEN,Slot / possession,,,,,,58.7,,,,,,,206.0,0.13,0.176,9.872,0.128,0.128,5.143,0.256,74.0,,,
+WR,Mack Hollins,NE,Big-bodied red zone,,,,,,58.3,,,,,,,221.0,0.11,0.148,13.5,0.219,0.0,2.522,0.188,76.0,,,
+WR,Ted Hurst III,TB,Deep threat,,,,,,56.4,,,,,,,195.0,0.122,0.209,14.219,0.281,0.0,2.562,0.188,75.0,,,
+WR,Konata Mumpfield,LA,Outside #2 (intermediate),,,,,,55.2,,,,,,,188.0,0.083,0.141,13.719,0.188,0.062,4.833,0.094,73.0,,,
+WR,Dohnte Meyers,CIN,YAC / gadget,,,,,,54.0,,,,,,,186.0,0.081,0.069,6.067,0.067,0.3,5.238,0.1,71.0,,,
+WR,Jordan Addison,MIN,Deep threat,,,,,,53.9,,,,,,,179.0,0.127,0.229,14.889,0.278,0.111,4.556,0.028,71.0,,,
+WR,Dontayvion Wicks,PHI,Outside #2 (intermediate),,,,,,53.4,,,,,,,206.0,0.095,0.139,13.125,0.281,0.031,4.053,0.125,73.0,,,
+WR,Kendrick Bourne,ARI,Slot / possession,,,,,,52.3,,,,,,,203.0,0.097,0.07,5.658,0.026,0.079,5.308,0.184,73.0,,,
+WR,Roman Wilson,PIT,Deep threat,,,,,,52.1,,,,,,,192.0,0.091,0.174,15.226,0.323,0.194,5.706,0.097,72.0,,,
+WR,Quentin Johnston,LAC,Outside #2 (intermediate),,,,,,49.4,,,,,,,208.0,0.122,0.2,13.394,0.273,0.182,7.8,0.03,74.0,,,
+WR,Laquon Treadwell,IND,Outside #2 (intermediate),,,,,,48.9,,,,,,,215.0,0.099,0.14,11.212,0.242,0.03,3.474,0.121,74.0,,,
+WR,Jerry Jeudy,CLE,Outside #2 (intermediate),,,,,,48.2,,,,,,,195.0,0.101,0.15,11.312,0.125,0.094,3.6,0.031,73.0,,,
+WR,Rashid Shaheed,SEA,Outside #2 (intermediate),,,,,,44.0,,,,,,,180.0,0.109,0.156,10.781,0.219,0.25,4.471,0.062,72.0,,,
+WR,Isaac TeSlaa,DET,Big-bodied red zone,,,,,,41.5,,,,,,,214.0,0.088,0.111,10.219,0.125,0.094,5.154,0.25,76.0,,,
+WR,Jalen Nailor,LV,Outside #2 (intermediate),,,,,,35.7,,,,,,,190.0,0.099,0.132,11.595,0.081,0.081,2.125,0.162,72.0,,,
+WR,Darnell Mooney,NYG,Deep threat,,,,,,34.3,,,,,,,177.0,0.108,0.17,15.833,0.306,0.056,3.286,0.0,71.0,,,
+TE,Trey McBride,ARI,Hybrid,,,,,,186.3,,0.896,,,,,,,,,,,,0.186,,0.173,,0.044
+TE,Isaiah Likely,NYG,Hybrid,,,,,,161.0,,0.766,,,,,,,,,,,,0.145,,0.157,,0.084
+TE,Brock Bowers,LV,Hybrid,,,,,,149.8,,0.775,,,,,,,,,,,,0.155,,0.176,,0.085
+TE,George Kittle,SF,Hybrid,,,,,,146.1,,0.793,,,,,,,,,,,,0.215,,0.133,,0.108
+TE,Travis Kelce,KC,Receiving / move,,,,,,140.8,,0.723,,,,,,,,,,,,0.094,,0.126,,0.062
+TE,Sam LaPorta,DET,Rotational (no clear role),,,,,,119.3,,0.892,,,,,,,,,,,,0.219,,0.097,,0.062
+TE,Harold Fannin Jr.,CLE,Hybrid,,,,,,118.4,,0.864,,,,,,,,,,,,0.081,,0.11,,0.065
+TE,Pat Freiermuth,PIT,Receiving / move,,,,,,99.5,,0.636,,,,,,,,,,,,0.163,,0.102,,0.116
+TE,T.J. Hockenson,MIN,Receiving / move,,,,,,97.3,,0.649,,,,,,,,,,,,0.176,,0.142,,0.059
+TE,Tucker Kraft,GB,Hybrid,,,,,,96.7,,0.844,,,,,,,,,,,,0.164,,0.104,,0.049
+TE,Dalton Kincaid,BUF,Receiving / move,,,,,,96.0,,0.595,,,,,,,,,,,,0.163,,0.107,,0.047
+TE,Mike Gesicki,CIN,Receiving / move,,,,,,94.8,,0.473,,,,,,,,,,,,0.206,,0.114,,0.176
+TE,Colston Loveland,CHI,Rotational (no clear role),,,,,,94.7,,0.798,,,,,,,,,,,,0.197,,0.096,,0.049
+TE,Tyler Warren,IND,Hybrid,,,,,,89.7,,0.863,,,,,,,,,,,,0.082,,0.126,,0.033
+TE,Darren Waller,CAR,Receiving / move,,,,,,88.5,,0.498,,,,,,,,,,,,0.143,,0.12,,0.095
+TE,Michael Mayer,LV,Rotational (no clear role),,,,,,87.0,,0.796,,,,,,,,,,,,0.057,,0.092,,0.019
+TE,Brenton Strange,JAX,Rotational (no clear role),,,,,,85.1,,0.768,,,,,,,,,,,,0.116,,0.088,,0.047
+TE,Hunter Henry,NE,Rotational (no clear role),,,,,,84.3,,0.637,,,,,,,,,,,,0.15,,0.098,,0.05
+TE,Juwan Johnson,NO,Receiving / move,,,,,,83.7,,0.622,,,,,,,,,,,,0.209,,0.1,,0.093
+TE,Dalton Schultz,HOU,Receiving / move,,,,,,81.6,,0.567,,,,,,,,,,,,0.12,,0.133,,0.02
+TE,Dallas Goedert,PHI,Receiving / move,,,,,,80.7,,0.664,,,,,,,,,,,,0.068,,0.115,,0.045
+TE,Mark Andrews,BAL,Receiving / move,,,,,,78.3,,0.626,,,,,,,,,,,,0.148,,0.124,,0.019
+TE,Kyle Pitts,ATL,Receiving / move,,,,,,78.0,,0.61,,,,,,,,,,,,0.19,,0.109,,0.095
+TE,Tyler Higbee,LA,Rotational (no clear role),,,,,,71.8,,0.629,,,,,,,,,,,,0.109,,0.093,,0.043
+TE,Darnell Washington,PIT,Rotational (no clear role),,,,,,69.1,,0.626,,,,,,,,,,,,0.206,,0.082,,0.088
+TE,Tommy Tremble,CAR,Rotational (no clear role),,,,,,68.5,,0.609,,,,,,,,,,,,0.222,,0.084,,0.083
+TE,AJ Barner,SEA,Rotational (no clear role),,,,,,67.7,,0.868,,,,,,,,,,,,0.244,,0.073,,0.024
+TE,Kenyon Sadiq,NYJ,Receiving / move,,,,,,62.1,,0.44,,,,,,,,,,,,0.083,,0.119,,0.028
+TE,Chig Okonkwo,WAS,Receiving / move,,,,,,61.9,,0.676,,,,,,,,,,,,0.023,,0.125,,0.0
+TE,Mason Taylor,NYJ,Rotational (no clear role),,,,,,57.2,,0.631,,,,,,,,,,,,0.161,,0.083,,0.065
+TE,Greg Dulcich,MIA,Receiving / move,,,,,,56.2,,0.658,,,,,,,,,,,,0.122,,0.103,,0.0
+TE,Jake Ferguson,DAL,Rotational (no clear role),,,,,,54.6,,0.551,,,,,,,,,,,,0.222,,0.078,,0.148
+TE,Evan Engram,DEN,Receiving / move,,,,,,53.3,,0.524,,,,,,,,,,,,0.105,,0.114,,0.026
+TE,Eli Raridon,NE,Rotational (no clear role),,,,,,52.1,,0.571,,,,,,,,,,,,0.222,,0.081,,0.074
+TE,Noah Gray,KC,Rotational (no clear role),,,,,,51.4,,0.614,,,,,,,,,,,,0.143,,0.065,,0.036
+TE,Gunnar Helm,TEN,Rotational (no clear role),,,,,,46.7,,0.756,,,,,,,,,,,,0.091,,0.073,,0.0
+TE,Cade Otton,TB,Rotational (no clear role),,,,,,45.9,,0.95,,,,,,,,,,,,0.146,,0.065,,0.0
+TE,Davis Allen,LA,Red-zone specialist,,,,,,45.4,,0.486,,,,,,,,,,,,0.263,,0.05,,0.158
+TE,Oronde Gadsden II,LAC,Receiving / move,,,,,,44.1,,0.443,,,,,,,,,,,,0.2,,0.105,,0.033
+TE,Noah Fant,NO,Red-zone specialist,,,,,,43.5,,0.518,,,,,,,,,,,,0.25,,0.075,,0.125
+TE,Brevyn Spann-Ford,DAL,Inline / blocking,,,,,,42.6,,0.543,,,,,,,,,,,,0.148,,0.059,,0.037
+TE,Mitchell Evans,CAR,Rotational (no clear role),,,,,,42.2,,0.459,,,,,,,,,,,,0.2,,0.062,,0.05
+TE,Elijah Higgins,ARI,Rotational (no clear role),,,,,,41.6,,0.438,,,,,,,,,,,,0.095,,0.066,,0.048
+TE,Colby Parkinson,LA,Rotational (no clear role),,,,,,40.6,,0.677,,,,,,,,,,,,0.296,,0.061,,0.037
+TE,Foster Moreau,HOU,Red-zone specialist,,,,,,38.0,,0.402,,,,,,,,,,,,0.267,,0.056,,0.2
+TE,Nate Boerkircher,JAX,Inline / blocking,,,,,,37.6,,0.469,,,,,,,,,,,,0.286,,0.047,,0.143
+TE,Dawson Knox,BUF,Inline / blocking,,,,,,33.7,,0.69,,,,,,,,,,,,0.25,,0.046,,0.042
+TE,Nate Adkins,DEN,Inline / blocking,,,,,,30.3,,0.321,,,,,,,,,,,,0.444,,0.044,,0.333
+TE,Drew Sample,CIN,Inline / blocking,,,,,,30.2,,0.519,,,,,,,,,,,,0.25,,0.037,,0.167
+TE,Charlie Kolar,LAC,Rotational (no clear role),,,,,,29.6,,0.638,,,,,,,,,,,,0.083,,0.074,,0.0
+TE,Ian Thomas,LV,Inline / blocking,,,,,,28.2,,0.347,,,,,,,,,,,,0.143,,0.028,,0.286
+TE,Daniel Bellinger,TEN,Rotational (no clear role),,,,,,26.1,,0.437,,,,,,,,,,,,0.158,,0.072,,0.053
+TE,Cole Kmet,CHI,Inline / blocking,,,,,,24.7,,0.622,,,,,,,,,,,,0.071,,0.043,,0.071
+TE,Matthew Hibner,BAL,Inline / blocking,,,,,,22.7,,0.431,,,,,,,,,,,,0.1,,0.036,,0.1
+TE,Sam Roush,CHI,Inline / blocking,,,,,,21.6,,0.351,,,,,,,,,,,,0.077,,0.047,,0.0
+TE,Jeremy Ruckert,NYJ,Inline / blocking,,,,,,18.8,,0.314,,,,,,,,,,,,0.25,,0.037,,0.125
+TE,Adam Trautman,DEN,Inline / blocking,,,,,,18.6,,0.525,,,,,,,,,,,,0.273,,0.033,,0.091
+TE,Brock Wright,DET,Inline / blocking,,,,,,17.4,,0.552,,,,,,,,,,,,0.091,,0.027,,0.0
+TE,Ben Sinnott,WAS,Inline / blocking,,,,,,15.8,,0.385,,,,,,,,,,,,0.167,,0.024,,0.167
+TE,Blake Whiteheart,CLE,Inline / blocking,,,,,,14.8,,0.333,,,,,,,,,,,,0.143,,0.032,,0.143
+TE,Mo Alie-Cox,IND,Inline / blocking,,,,,,13.1,,0.381,,,,,,,,,,,,0.167,,0.026,,0.167
+TE,Charlie Woerner,ATL,Inline / blocking,,,,,,11.6,,0.54,,,,,,,,,,,,0.25,,0.023,,0.125
+TE,Will Kacmarek,MIA,Inline / blocking,,,,,,8.5,,0.381,,,,,,,,,,,,0.1,,0.043,,0.0
+TE,Luke Farrell,SF,Inline / blocking,,,,,,8.0,,0.47,,,,,,,,,,,,0.286,,0.024,,0.0
+TE,John Bates,WAS,Inline / blocking,,,,,,7.7,,0.39,,,,,,,,,,,,0.167,,0.023,,0.0
+TE,Andrew Ogletree,IND,Inline / blocking,,,,,,6.1,,0.336,,,,,,,,,,,,0.143,,0.03,,0.0
+TE,Johnny Mundt,PHI,Inline / blocking,,,,,,5.6,,0.35,,,,,,,,,,,,0.0,,0.025,,0.0
+TE,Mark Redman,GB,Inline / blocking,,,,,,4.4,,0.318,,,,,,,,,,,,0.0,,0.018,,0.0
+TE,Jackson Hawes,BUF,Inline / blocking,,,,,,3.5,,0.403,,,,,,,,,,,,0.0,,0.013,,0.0
+TE,Chris Manhertz,NYG,Inline / blocking,,,,,,2.4,,0.321,,,,,,,,,,,,0.0,,0.005,,0.0
+TE,Payne Durham,TB,Inline / blocking,,,,,,1.5,,0.311,,,,,,,,,,,,0.0,,0.01,,0.0
