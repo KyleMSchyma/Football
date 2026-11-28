@@ -190,7 +190,7 @@ Newest first. Football PRs are "F#", site PRs "S#". All dates 2026 unless noted.
   two-layer version (role x style) is steadier for RB/WR/TE style (kappa 0.39-0.44 vs single label 0.28-0.39); for QBs
   the rushing layer is the stable one (0.55), passing style is not (0.16). College proxies: QB rushing share AUC 0.89,
   TE receiving-yards share 0.75, RB power by weight 0.80 (n=7), WR deep by YPR 0.67, RB receiving back 0.50 (invisible).
-- Status: RESEARCH ONLY (Football PR, this branch). Models, values, site unchanged.
+- Status: RESEARCH ONLY (F#53). Models, values, site unchanged.
 - Files: `Archetype_Research/` (ARCHETYPES.md write-up with all charts; ar_01-ar_06 Python; ar_labels_*.csv; tables/, plots/).
 - Assumptions: A97 new (archetype definitions v1, thresholds), A98 new (two-layer role x style recommended).
 - Possible problems: no public slot/alignment, routes or blocking data (slot = short aDOT, targets/snap stands in for
